@@ -12,20 +12,14 @@ You can download the latest version of CBA from the developer website here: http
 Changelists
 
 V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
-* ACE Feature: ACE Injury Module.
-* RHS Feature: Sukhoi T-50 and F22 are aviable for "Fire Support" modules.
-* RHS Feature: "Reinforcement Module" includes RHS factions.
-* Feature: Deep Copy Module: allows to copy units 1:1.
-* Feature: Replaced some vanilla waypoints for curator.
 * Feature: Replaced some vanilla waypoints for curator.
 * Feature: More vanilla music is aviable in the "Play Music" module.
-* Feature: Save and load custom compositions (Will support custom compositions created in Eden as soon as BIS gives us the corresponding command or function)
 * Feature: Eject passengers (in combination with choppers => paradrop)
-* Feature: New composition spawing system which allows to fix the relativ positions between the objects.
 * Feature: Some modules have a selection mode avaiable which allows applying a module selectively on multiple objects.
 * Feature: Added some advanced hints for the Field Manual.
 * Change:  Reorganized module categories (not final!).
 * Fix:     Module tree is no longer collapsed when switching the window.
+* NOT COMPLETED!!!
 
 
 
