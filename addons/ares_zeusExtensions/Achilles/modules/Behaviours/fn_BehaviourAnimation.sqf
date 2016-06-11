@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Kex
+//	DATE: 6/4/16
+//	VERSION: 1.0
+//	FILE: Achilles\functions\fn_BehaviourAnimation.sqf
+//  DESCRIPTION: Function for the module Animations
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#include "\ares_zeusExtensions\Ares\module_header.hpp"
+
+_units = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+if (isNil "_units") exitWith {};
+
+[_units] call Achilles_fnc_Animation;
+
+#include "\ares_zeusExtensions\Ares\module_footer.hpp"

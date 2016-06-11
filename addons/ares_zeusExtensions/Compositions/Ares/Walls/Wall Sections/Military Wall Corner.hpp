@@ -1,0 +1,10 @@
+class Object0 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={-0.168457,-1.55762,0};dir=0;};
+class Object1 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={3.63428,-1.54736,0};dir=0;};
+class Object2 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={-3.98242,-1.59229,0};dir=0;};
+class Object3 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={7.44824,-1.5127,0};dir=0;};
+class Object4 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={-7.77002,-1.58789,0};dir=0;};
+class Object5 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={11.2363,-1.51709,0};dir=0;};
+class Object6 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={-11.5845,-1.62256,0};dir=0;};
+class Object7 {side=8;rank="";vehicle="Land_Mil_WallBig_Corner_F";position[]={-15.0779,-1.59619,0};dir=0;};
+class Object8 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={-15.0344,1.8916,0};dir=90.5571;};
+class Object9 {side=8;rank="";vehicle="Land_Mil_WallBig_4m_F";position[]={15.0498,-1.48242,0};dir=0;};

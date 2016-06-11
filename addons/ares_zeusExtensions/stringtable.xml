@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Ares">
+	<Package name="Curator Display">
+		<Container name="Vehicle Categories">
+			<Key ID="STR_CARS">
+				<Original>Cars</Original>
+				<French>Voitures</French>
+				<Spanish>Coches</Spanish>
+				<Italian>Auto</Italian>
+				<Polish>Samochody</Polish>
+				<Russian>Автомобили</Russian>
+				<German>Autos</German>
+				<Czech>Vozy</Czech>
+				<English>Cars</English>
+				<Portuguese>Carros</Portuguese>
+			</Key>
+			<Key ID="STR_APCS">
+				<Original>APCs</Original>
+				<French>VTT</French>
+				<Spanish>Vehículos de personal</Spanish>
+				<Italian>Veicoli trasporto truppe</Italian>
+				<Polish>Pojazdy opancerzone</Polish>
+				<Russian>БТР</Russian>
+				<German>Truppentransporter</German>
+				<Czech>BVP</Czech>
+				<English>APCs</English>
+				<Portuguese>VBTPs</Portuguese>
+			</Key>
+			<Key ID="STR_TANKS">
+				<Original>Tanks</Original>
+				<French>Chars</French>
+				<Spanish>Tanques</Spanish>
+				<Italian>Carri</Italian>
+				<Polish>Czołgi</Polish>
+				<Russian>Танки</Russian>
+				<German>Panzer</German>
+				<Czech>Tanky</Czech>
+				<English>Tanks</English>
+				<Portuguese>Tanques</Portuguese>
+			</Key>
+			<Key ID="STR_SHIPS">
+				<Original>Boats</Original>
+				<French>Bateaux</French>
+				<Spanish>Botes</Spanish>
+				<Italian>Barche</Italian>
+				<Polish>Łodzie</Polish>
+				<Russian>Лодки</Russian>
+				<German>Boote</German>
+				<Czech>Lodě</Czech>
+				<English>Boats</English>
+				<Portuguese>Barcos</Portuguese>
+			</Key>
+			<Key ID="STR_CHOPPERS">
+				<Original>Helicopters</Original>
+				<French>Hélicoptères</French>
+				<Spanish>Helicópteros</Spanish>
+				<Italian>Elicotteri</Italian>
+				<Polish>Śmigłowce</Polish>
+				<Russian>Вертолеты</Russian>
+				<German>Helikopter</German>
+				<Czech>Vrtulníky</Czech>
+				<English>Helicopters</English>
+				<Portuguese>Helicópteros</Portuguese>
+			</Key>
+		</Container>
+		<Container name="Module Categories">
+			<Key ID="STR_AUDIO">
+				<Original>Audio</Original>
+				<French>Sons</French>
+				<Spanish>Sonido</Spanish>
+				<Italian>Audio</Italian>
+				<Polish>Dźwięk</Polish>
+				<Russian>Аудио</Russian>
+				<German>Audio</German>
+				<Czech>Audio</Czech>
+				<English>Audio</English>
+				<Portuguese>Áudio</Portuguese>
+			</Key>
+			<Key ID="STR_EFFECTS">
+				<Original>Effects</Original>
+				<French>Effets</French>
+				<Spanish>Efectos</Spanish>
+				<Italian>Effetti</Italian>
+				<Polish>Efekty</Polish>
+				<Russian>Эффекты</Russian>
+				<German>Effekte</German>
+				<Czech>Efekty</Czech>
+				<English>Effects</English>
+				<Portuguese>Efeitos</Portuguese>
+			</Key>
+			<Key ID="STR_OBJECTIVES">
+				<Original>Objectives</Original>
+				<French>Objectifs</French>
+				<Spanish>Objetivos</Spanish>
+				<Italian>Obiettivi</Italian>
+				<Polish>Cele</Polish>
+				<Russian>Цели</Russian>
+				<German>Einsatzziele</German>
+				<Czech>Cíle</Czech>
+				<English>Objectives</English>
+				<Portuguese>Objetivos</Portuguese>
+			</Key>
+			<Key ID="STR_FIRE_SUPPORT">
+				<Original>Fire Support</Original>
+				<French>Appui-feu</French>
+				<Spanish>Apoyo</Spanish>
+				<Italian>Supporto di fuoco</Italian>
+				<Polish>Wsparcie ogniowe</Polish>
+				<Russian>Огневая поддержка</Russian>
+				<German>Feuerunterstützung</German>
+				<Czech>Palebná podpora</Czech>
+				<English>Fire Support</English>
+				<Portuguese>Apoio de fogo</Portuguese>
+			</Key>
+			<Key ID="STR_FLARES">
+				<Original>Flares</Original>
+				<French>Fusées</French>
+				<Spanish>Bengalas</Spanish>
+				<Italian>Razzi luminosi</Italian>
+				<Polish>Flary</Polish>
+				<Russian>Сигнальные ракеты</Russian>
+				<German>Leuchtsignale</German>
+				<Czech>Světlice</Czech>
+				<English>Flares</English>
+				<Portuguese>Sinalizadores</Portuguese>
+			</Key>
+			<Key ID="STR_CHEM_LIGHTS">
+				<Original>Chem lights</Original>
+				<French>Bâtons lumineux</French>
+				<Spanish>Luces químicas</Spanish>
+				<Italian>Luci chimiche</Italian>
+				<Polish>Świetliki</Polish>
+				<Russian>ХИС</Russian>
+				<German>Leuchtstäbe</German>
+				<Czech>Chemická světla</Czech>
+				<English>Chem lights</English>
+				<Portuguese>Luzes químicas</Portuguese>
+			</Key>
+			<Key ID="STR_SMOKE_SHELLS">
+				<Original>Smoke shells</Original>
+				<French>Fumigènes</French>
+				<Spanish>Proyectiles de humo</Spanish>
+				<Italian>Proiettili fumogeni</Italian>
+				<Polish>Pociski dymne</Polish>
+				<Russian>Дымовые снаряды</Russian>
+				<German>Rauchgranaten</German>
+				<Czech>Dýmovnice</Czech>
+				<English>Smoke shells</English>
+				<Portuguese>Projéteis de fumaça</Portuguese>
+			</Key>
+			<Key ID="STR_RESPAWN">
+				<Original>Respawn</Original>
+				<French>Réapparition</French>
+				<Spanish>Reaparición</Spanish>
+				<Italian>Rigenerazione</Italian>
+				<Polish>Odrodzenie</Polish>
+				<Russian>Возрождение</Russian>
+				<German>Respawn</German>
+				<Czech>Oživit</Czech>
+				<English>Respawn</English>
+				<Portuguese>Ressurgimento</Portuguese>
+			</Key>
+			<Key ID="STR_SCENARIO_FLOW">
+				<Original>Scenario Flow</Original>
+				<French>Déroulement du scénario</French>
+				<Spanish>Flujo del escenario</Spanish>
+				<Italian>Flusso scenario</Italian>
+				<Polish>Przebieg scenariusza</Polish>
+				<Russian>Ход сценария</Russian>
+				<German>Szenario-Fluss</German>
+				<Czech>Průběh scénáře</Czech>
+				<English>Scenario Flow</English>
+				<Portuguese>Fluxo de cenário</Portuguese>
+			</Key>
+			<Key ID="STR_ANIMALS">
+				<Original>Animals</Original>
+				<French>Animaux</French>
+				<Spanish>Animales</Spanish>
+				<Italian>Animali</Italian>
+				<Polish>Zwierzęta</Polish>
+				<Russian>Животные</Russian>
+				<German>Tiere</German>
+				<Czech>Zvířata</Czech>
+				<English>Animals</English>
+				<Portuguese>Animais</Portuguese>
+			</Key>
+			<Key ID="STR_PLAYERS">
+				<Original>Players</Original>
+				<French>Joueur</French>
+				<German>Spieler</German>
+				<English>Players</English>
+			</Key>
+			<Key ID="STR_TRAINING">
+				<Original>Training</Original>
+				<French>Entraînement</French>
+				<Spanish>Instrucción</Spanish>
+				<Italian>Addestramento</Italian>
+				<Polish>Trening</Polish>
+				<Russian>Тренировка</Russian>
+				<German>Training</German>
+				<Czech>Trénink</Czech>
+				<English>Training</English>
+				<Portuguese>Treino</Portuguese>
+			</Key>
+			<Key ID="STR_ENVIRONMENT">
+				<Original>Environment</Original>
+				<French>Environnement</French>
+				<Spanish>Entorno</Spanish>
+				<Italian>Ambiente</Italian>
+				<Polish>Środowisko</Polish>
+				<Russian>Окружение</Russian>
+				<German>Umgebung</German>
+				<Czech>Prostředí</Czech>
+				<English>Environment</English>
+				<Portuguese>Ambiente</Portuguese>
+			</Key>
+			<Key ID="STR_ZEUS">
+				<Original>Zeus</Original>
+				<French>Zeus</French>
+				<Spanish>Zeus</Spanish>
+				<Italian>Zeus</Italian>
+				<Polish>Zeus</Polish>
+				<Russian>Zeus</Russian>
+				<German>Zeus</German>
+				<Czech>Zeus</Czech>
+				<English>Zeus</English>
+				<Portuguese>Zeus</Portuguese>
+			</Key>
+		</Container>
+		<Container name="Ares Module Categories">
+			<Key ID="STR_PLAYER">
+				<Original>Player</Original>
+				<French>Joueur</French>
+				<German>Spieler</German>
+				<English>Player</English>
+			</Key>
+			<Key ID="STR_TELEPORT">
+				<Original>Teleport</Original>
+				<French>Téléport</French>
+				<German>Teleport</German>
+				<English>Teleport</English>
+			</Key>
+			<Key ID="STR_SPAWN">
+				<Original>Spawn</Original>
+				<French>Spawn</French>
+				<German>Spawn</German>
+				<English>Spawn</English>
+			</Key>
+			<Key ID="STR_SAVE_LOAD">
+				<Original>Save/Load</Original>
+				<French>Ouvrir/Enregistrer</French>
+				<German>Speichern/Laden</German>
+				<English>Save/Load</English>
+			</Key>
+			<Key ID="STR_REINFORCEMENTS">
+				<Original>Reinforcements</Original>
+				<French>Renforcement</French>
+				<German>Verstärkung</German>
+				<English>Reinforcements</English>
+			</Key>
+			<Key ID="STR_EQUIPMENT">
+				<Original>Equipment</Original>
+				<French>Equipment</French>
+				<German>Ausrüstung</German>
+				<English>Equipment</English>
+			</Key>
+			<Key ID="STR_DEV_TOOLS">
+				<Original>Development Tools</Original>
+				<French>Outil de Développement</French>
+				<German>Werkzeuge für Entwicklung</German>
+				<English>Development Tools</English>
+			</Key>
+			<Key ID="STR_AI_BEHAVIOUR">
+				<Original>AI Behaviours</Original>
+				<French>IA Comportement</French>
+				<German>KI Verhalten</German>
+				<English>AI Behaviour</English>
+			</Key>
+		</Container>
+		<Container name="Ares Modules">
+			<Key ID="STR_INJURY">
+				<Original>Injury</Original>
+				<French>Blessure</French>
+				<German>Verletzungen</German>
+				<English>Injury</English>
+			</Key>
+			<Key ID="STR_ANIMATION">
+				<Original>Animation</Original>
+				<French>Animation</French>
+				<German>Animation</German>
+				<English>Animation</English>
+			</Key>
+			<Key ID="STR_CHATTER">
+				<Original>Chatter</Original>
+				<French>Tchatter</French>
+				<German>Chatten</German>
+				<English>Chatter</English>
+			</Key>
+			<Key ID="STR_SIT_ON_CHAIR">
+				<Original>Have a Seat</Original>
+				<French>Prendre Place</French>
+				<German>Nimm Platz</German>
+				<English>Have a Seat</English>
+			</Key>
+			<Key ID="STR_CHANGE_ABILITIES">
+				<Original>Change Abilities</Original>
+				<French>Modifier Talent</French>
+				<German>Fähigkeiten ändern</German>
+				<English>Change Abilities</English>
+			</Key>
+			<Key ID="STR_BIND_VAR">
+				<Original>Bind Variable to Object</Original>
+				<French>Associer Variable avec Objet</French>
+				<German>Variable an Objekt binden</German>
+				<English>Bind Variable to Object</English>
+			</Key>
+			<Key ID="STR_ADVANCED_WEATHER_CHANGE">
+				<Original>Advanced Weather Change</Original>
+				<French>Changer le Temps (Avancée)</French>
+				<German>Erweiterte Wetter Modifikation</German>
+				<English>Advanced Weather Change</English>
+			</Key>
+			<Key ID="STR_EARTHQUAKE">
+				<Original>Earthquake</Original>
+				<French>Séisme</French>
+				<German>Erdbeben</German>
+				<English>Earthquake</English>
+			</Key>
+			<Key ID="STR_ARTILLERY_FIRE_MISSION">
+				<Original>Artillery Fire Mission</Original>
+				<French>Artillerie (Mission de Tir)</French>
+				<German>Artillerie Feuerbefehl</German>
+				<English>Artillery Fire Mission</English>
+			</Key>
+			<Key ID="STR_SUPPRESIVE_FIRE">
+				<Original>Suppressive Fire</Original>
+				<French>Tir de Suppression</French>
+				<German>Unterstützungsfeuer</German>
+				<English>Suppressive Fire</English>
+			</Key>
+			<Key ID="STR_CREATE_NEW_RP">
+				<Original>Create new RP</Original>
+				<French>Créer un noveau RV</French>
+				<German>Definire ein neuer Tpt</German>
+				<English>Create new RP</English>
+			</Key>
+			<Key ID="STR_CREATE_NEW_LZ">
+				<Original>Create new LZ</Original>
+				<French>Créer une nouvelle ZA</French>
+				<German>Definiere ein neues LZ</German>
+				<English>Create new LZ</English>
+			</Key>
+			<Key ID="STR_SPAWN_UNITS">
+				<Original>Spawn Units</Original>
+				<French>Spawn Unité</French>
+				<German>Spawn Einheit</German>
+				<English>Spawn Units</English>
+			</Key>
+		</Container>
+	</Package>
+	<Package name="Ares Curator Dialogs">
+		<Container name="Reinforcements">
+			<Key ID="STR_NO_LZ">
+				<Original>No LZ avaiable!</Original>
+				<French>Pas de ZA sont disponible!</French>
+				<German>Kein LZ verfügbar!</German>
+				<English>No LZ avaiable!</English>
+			</Key>
+			<Key ID="STR_NO_RP">
+				<Original>No RP avaiable!</Original>
+				<French>Pas de RV sont disponible!</French>
+				<German>Kein Tpt verfügbar!</German>
+				<English>No RP avaiable!</English>
+			</Key>
+			<Key ID="STR_RANDOM">
+				<Original>Random</Original>
+				<French>Aléatoire</French>
+				<German>Zufall</German>
+				<English>Random</English>
+			</Key>
+			<Key ID="STR_NEAREST">
+				<Original>Nearest</Original>
+				<French>Le plus proche</French>
+				<German>Nächstes</German>
+				<English>Nearest</English>
+			</Key>
+			<Key ID="STR_FARTHEST">
+				<Original>Farthest</Original>
+				<French>Le plus loin</French>
+				<German>Weitestes</German>
+				<English>Farthest</English>
+			</Key>
+			<Key ID="STR_LEAST_USED">
+				<Original>Least Used</Original>
+				<French>Le moins utilisé</French>
+				<German>Am wenigsten gebraucht</German>
+				<English>Least Used</English>
+			</Key>
+			<Key ID="STR_SIDE">
+				<Original>Side</Original>
+				<French>Camp</French>
+				<German>Seite</German>
+				<English>Side</English>
+			</Key>
+			<Key ID="STR_FRACTION">
+				<Original>Faction</Original>
+				<French></French>
+				<German>Fraktion</German>
+				<English>Faction</English>
+			</Key>
+			<Key ID="STR_VEHICLE_CATEGORY">
+				<Original>Vehicle Category</Original>
+				<French>Catégorie du Véhicule</French>
+				<German>Fahrzeugkategorie</German>
+				<English>Vehicle Category</English>
+			</Key>
+			<Key ID="STR_VEHICLE">
+				<Original>Vehicle</Original>
+				<French>Véhicule</French>
+				<German>Fahrzeug</German>
+				<English>Vehicle</English>
+			</Key>
+			<Key ID="STR_VEHICLE_BEHAVIOUR">
+				<Original>Vehicle Behaviour</Original>
+				<French>Comportement du Véhicule</French>
+				<German>Varhalten des Fahrzeuges</German>
+				<English>Vehicle Behaviour</English>
+			</Key>
+			<Key ID="STR_LZ_DZ">
+				<Original>LZ/DZ</Original>
+				<French>ZA/DZ</French>
+				<German>LZ/DZ</German>
+				<English>LZ/DZ</English>
+			</Key>
+			<Key ID="STR_GROUP_RP">
+				<Original>Group RP</Original>
+				<French>RV du groupe</French>
+				<German>Tpt der Gruppe</German>
+				<English>Group RP</English>
+			</Key>
+			<Key ID="STR_GROUP_BEHAVIOUR">
+				<Original>Group Behaviour</Original>
+				<French>Comportement du Groupe</French>
+				<German>Verhalten der Gruppe</German>
+				<English>Group Behaviour</English>
+			</Key>
+			<Key ID="STR_RTB_DESPAWN">
+				<Original>RTB and Despawn</Original>
+				<French>Retournez et déspawn</French>
+				<German>Komm zurück und Despawn</German>
+				<English>RTB and Despawn</English>
+			</Key>
+			<Key ID="STR_STAY_AT_LZ">
+				<Original>Stay at LZ</Original>
+				<French>Restez à ZA</French>
+				<German>Bleit beim LZ</German>
+				<English>Stay at LZ</English>
+			</Key>
+			<Key ID="STR_DEFAULT">
+				<Original>Default</Original>
+				<French>Valeur par Défaut</French>
+				<German>Standardwert</German>
+				<English>Default</English>
+			</Key>
+			<Key ID="STR_RELAXED">
+				<Original>Relaxed</Original>
+				<French>Sûr</French>
+				<German></German>
+				<English>Relaxed</English>
+			</Key>
+			<Key ID="STR_CAUTIOUS">
+				<Original>Cautious</Original>
+				<French>Conscient</French>
+				<German>Vorsichtig</German>
+				<English>Cautious</English>
+			</Key>
+			<Key ID="STR_COMBAT">
+				<Original>Combat</Original>
+				<French>Combate</French>
+				<German>Kampf</German>
+				<English>Combat</English>
+			</Key>
+			<Key ID="STR_ALL">
+				<Original>All</Original>
+				<French>Tous</French>
+				<German>Alle</German>
+				<English>All</English>
+			</Key>
+			<Key ID="STR_SELECTION">
+				<Original>Selection</Original>
+				<French>Sélection</French>
+				<German>Auswahl</German>
+				<English>Selection</English>
+			</Key>
+			<Key ID="STR_MODE">
+				<Original>Mode</Original>
+				<French>Mode</French>
+				<German>Modus</German>
+				<English>Mode</English>
+			</Key>
+			<Key ID="STR_TELEPORT_PLAYERS">
+				<Original>Teleported %1 players to %2</Original>
+				<French>%1 joueurs ont été téléportés à %2</French>
+				<German>%1 Spieler wuren nach %2 teleportiert</German>
+				<English>Teleported %1 players to %2</English>
+			</Key>
+		</Container>
+	</Package>
+</Project>

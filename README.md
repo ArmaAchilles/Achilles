@@ -1,20 +1,19 @@
 #Ares (AE)
 Ares Achilles Expansion
 
-![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/Achilles_Logo_Web.png)
+![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/Achilles_Logo_web.png)
 
 ####Description
-This an Arma 3 Expansion for Zeus.
-
-First of all, I want to thank to [Anton Struyk for his Ares Mod](https://github.com/astruyk/Ares). No one would argue that this mod changed completely the way we play Zeus.
-Based on this mod I used “execute code” module a lot for implementing new features. 
-However, I realized that there are excellent Zeus players out there, who might not be familiar with scripting. 
-Hence, I want to give them the opportunity to have access to new features as well. 
-That is why I came up with the plan of this new expansion.
+This Arma III Add-on expands Zeus Functionalities with new Modules
 
 ####Status
 In development
 
 ####Aims
-- The aim of the project is to implement more modules as well as increase cooperation with [ACE3](https://github.com/acemod/ACE3) and [CUP](http://cup-arma3.org/) addons.
-- Reorganisation of existing Ares Modules
+First of all, I want to thank to [Anton Struyk for his Ares Mod](https://github.com/astruyk/Ares). No one would argue that this mod changed completely the way we play Zeus.
+Based on this mod I used “execute code” module a lot for implementing new features. However, I realized that there are excellent Zeus players out there, who might not be familiar with scripting. Hence, I want to give them the opportunity to have access to new features as well. That is why I came up with the plan of this new expansion.
+ 
+The add-on will be based on a modified version of Ares Mod and can be run without additional add-ons.
+Moreover, only zeus need to have the add-on installed as it was the case for Ares Mod.
+
+More informations are avaiable on [Bohemia Interactive Forum](https://github.com/oOKexOo/AresModAchillesExpansion)..
