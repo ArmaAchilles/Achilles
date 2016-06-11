@@ -16,4 +16,4 @@ Based on this mod I used “execute code” module a lot for implementing new featur
 The add-on will be based on a modified version of Ares Mod and can be run without additional add-ons.
 Moreover, only zeus need to have the add-on installed as it was the case for Ares Mod.
 
-More informations are avaiable on [Bohemia Interactive Forum](https://github.com/oOKexOo/AresModAchillesExpansion)..
+More informations are avaiable on [Bohemia Interactive Forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/).
