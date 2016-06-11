@@ -1,7 +1,7 @@
 #Ares (AE)
 Ares Achilles Expansion
 
-![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/Achilles_Logo_web.png)
+![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/Achilles_Logo_Web.png)
 
 ####Description
 This an Arma 3 Expansion for Zeus.
