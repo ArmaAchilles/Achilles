@@ -21,23 +21,27 @@ _combobox lbSetCurSel _default_target;
 waitUntil { dialog };
 waitUntil { !dialog };
 _dialogResult = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Result", -1];
-_target = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Constraint", 0];
 if (_dialogResult == 1) then
 {
-	_pastedText = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "[]"];
-	try
+	_params spawn
 	{
-		switch (_target) do
+		_params = _this;
+		_target = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Constraint", 0];
+		_pastedText = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "[]"];
+		try
 		{
-			case 0: {_params call (compile _pastedText);};
-			case 1: {[(compile _pastedText), _params, 2] call Ares_fnc_BroadcastCode;};
-			case 2: {[(compile _pastedText), _params, 0] call Ares_fnc_BroadcastCode;};
+			switch (_target) do
+			{
+				case 0: {_params call (compile _pastedText);};
+				case 1: {[(compile _pastedText), _params, 2] call Ares_fnc_BroadcastCode;};
+				case 2: {[(compile _pastedText), _params, 0] call Ares_fnc_BroadcastCode;};
+			};
+		}
+		catch
+		{
+			diag_log _exception;
+			["Failed to parse code. See RPT for error."] call Ares_fnc_ShowZeusMessage;
 		};
-	}
-	catch
-	{
-		diag_log _exception;
-		["Failed to parse code. See RPT for error."] call Ares_fnc_ShowZeusMessage;
 	};
 };
 
