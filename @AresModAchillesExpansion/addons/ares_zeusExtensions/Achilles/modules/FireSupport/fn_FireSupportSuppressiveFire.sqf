@@ -1,14 +1,60 @@
 #include "\ares_zeusExtensions\Ares\module_header.hpp"
 
-// find target position
-_target_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-_target_pos = position _logic;
-_target_pos = if (isNull _target_unit) then {_target_pos} else {position _target_unit};
+// find unit to perform suppressiove fire
+_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-// get fire support group
-_unit = ["group",true] call Achilles_fnc_SelectUnits;
+// get list of possible targest
+_allTargetsUnsorted = allMissionObjects "Achilles_Module_Fire_Support_Create_Suppression_Target";
+_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+{
+	_targetChoices pushBack (name _x);
+} forEach _allTargets;
+if (count _allTargets == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+
+// select target
+_dialogResult = 
+[
+	localize "STR_SUPPRESIVE_FIRE",
+	[
+		[format [localize "STR_SUPPRESS_X", " "], _targetChoices]
+	]
+] call Ares_fnc_ShowChooseDialog;
+if (count _dialogResult == 0) exitWith {};
+
+// get target logic
+_targetChooseAlgorithm = _dialogResult select 0;
+
+// Choose a target to fire at
+_selectedTarget = objNull;
+switch (_targetChooseAlgorithm) do
+{
+	case 0: // Random
+	{
+		_selectedTarget = _allTargets call BIS_fnc_selectRandom;
+	};
+	case 1: // Nearest
+	{
+		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetNearest;
+	};
+	case 2: // Furthest
+	{
+		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetFarthest;
+	};
+	default // Specific target
+	{
+		_selectedTarget = _allTargets select (_targetChooseAlgorithm - 3);
+	};
+};
+
+// activate unit selection mode if module was not dropped on a unit
+if (isNull _unit) then
+{
+	_unit = ["group",true] call Achilles_fnc_SelectUnits;
+};
 if (isNil "_unit") exitWith {};
-if (isNull _unit) exitWith {["No group selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (isNull _unit) exitWith {[localize "STR_NO_GROUP_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+
 
 _old_group = group _unit;
 _units = units _old_group;
@@ -18,28 +64,8 @@ _units = units _old_group;
 _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
-// Old version: search enemy ///////////////////
-/*
-_targets = _target_pos nearEntities [["Man","Car"], 20];
-_possible_targets = [_targets ,[],{(_unit targetKnowledge _x) select 0}, "DESCEND", {((side _x) getFriend (side _unit)) < 0.6} ] call BIS_fnc_sortBy;
-if (count _possible_targets == 0) then {_possible_targets=[_logic]};
-*/
-////////////////////////////////////////////////
-
-// new version: target logic ///////////////////
-_target=_logic;
-////////////////////////////////////////////////
-
 {
-	// Old version: assign enemies ///////////////////
-	/*
-	_n = floor ((_forEachIndex) / (count _possible_targets));
-	_target = _possible_targets select (_forEachIndex - _n * (count _possible_targets));
-	diag_log str [_forEachIndex,_n, (_forEachIndex - _n * (count _possible_targets))];
-	*/
-	////////////////////////////////////////////////
-	
-	[_x, _units , _target, _placeholder] spawn 
+	[_x, _units , _selectedTarget, _placeholder] spawn 
 	{
 		_unit = gunner (_this select 0);
 		_units = _this select 1;
@@ -60,7 +86,7 @@ _target=_logic;
 		if ((vehicle _unit) isEqualTo _unit) then
 		{
 			_muzzle = (weaponState _unit) select 1;
-			hint str _muzzle;
+			//hint str _muzzle;
 			_mode = weaponState _unit select 2;
 			for "_i" from 0 to 100 step 1 do
 			{

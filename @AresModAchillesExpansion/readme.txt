@@ -12,20 +12,36 @@ You can download the latest version of CBA from the developer website here: http
 Changelists
 
 V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
-* ACE Feature: ACE Injury Module.
-* RHS Feature: Sukhoi T-50 and F22 are aviable for "Fire Support" modules.
-* RHS Feature: "Reinforcement Module" includes RHS factions.
-* Feature: Deep Copy Module: allows to copy units 1:1.
-* Feature: Replaced some vanilla waypoints for curator.
-* Feature: Replaced some vanilla waypoints for curator.
+* Feature: Avaiable languages: English, French, German (not yet completed)
 * Feature: More vanilla music is aviable in the "Play Music" module.
-* Feature: Save and load custom compositions (Will support custom compositions created in Eden as soon as BIS gives us the corresponding command or function)
-* Feature: Eject passengers (in combination with choppers => paradrop)
-* Feature: New composition spawing system which allows to fix the relativ positions between the objects.
+* Feature: Music defined in description.ext are added to "Play Music" module if a valid "musicClass" is defined (e.g. "Lead", "Action", "Stealth", "Calm")
 * Feature: Some modules have a selection mode avaiable which allows applying a module selectively on multiple objects.
-* Feature: Added some advanced hints for the Field Manual.
+* Feature: Added some Advanced Hints for the Field Manual.
+* Feature: Animation (Module)
+* Feature: Chatter & HQ chat (Module + direct aviable for remote controlled units)
+* Feature: Advanced Weather Settings (Module)
+* Feature: Earthquake (Module)
+* Feature: Suppressive Fire (Module)
+* Feature: Destroy Buildings (Module)
+* Feature: Bind variables on Objects (Module)
+* Feature: "Execute Code" module has now built-in params (position and under cursor target)
+* Feature: Create Light Source / Persistant Smoke Pillar (Effect Module, also avaiable in Eden Editor)
+* Feature: Chatter Module (HQ and unit) + automatically open chatter window while remotecontrolling unit
+* Feature: Sit / leave chair (Module)
+* Feature: AI ability (Module)
+* Feature: Access to vehicle cargo (extra button in edit vehicle dialog)
+* Feature: Launch countermeasure / pop smoke by selecting a unit and hitting countermeasure key.
+* Feature: Deep copy/paste units (CTRL + SHIFT + C / CTRL + SHIFT + V)
+* Feature: Eject Passengers (including players) with SHIFT + G (or para drop in case of aircrafts)
+* Feature: Zeus can write hints
+* Feature: Zeus can switch side in order to talk with a specific side in side chat.
+* Change:  Spawn Reinforcement Module is now based on configs => general compatibility with other mods (tested with RHS and CUP)
 * Change:  Reorganized module categories (not final!).
-* Fix:     Module tree is no longer collapsed when switching the window.
+* Change:  New Dynamic Dialog interface with more variety options.
+* Change:  Summarized existing modules such as teleport and effects.
+* Fix:     Module tree is no longer collapsed when switching the taps.
+* Fix:     The modules will now show up as soon as "Zeus" module category shows up too
+* Additional fixes and change in code structure
 
 
 

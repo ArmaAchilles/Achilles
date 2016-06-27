@@ -5,22 +5,22 @@ _epicenter = position _logic;
 
 _dialogResult =
 [
-	"Earthquake:",
+	localize "STR_EARTHQUAKE",
 	[
-		["Intensity:",
+		[localize "STR_INTENSITY",
 		[
-			"very week",
-			"week",
-			"medium",
-			"strong"
+			localize "STR_VERY_WEEK",
+			localize "STR_WEEK",
+			localize "STR_MEDIUM",
+			localize "STR_STRONG"
 		]],
-		["Range:",
+		[localize "STR_RANGE",
 		[
-			"500 meters",
-			"1 kilometer",
-			"2 kilometers",
-			"3 kilometers",
-			"5 kilometers"
+			"500 m",
+			"1 km",
+			"2 km",
+			"3 km",
+			"5 km"
 		]]
 	]
 ] call Ares_fnc_ShowChooseDialog;

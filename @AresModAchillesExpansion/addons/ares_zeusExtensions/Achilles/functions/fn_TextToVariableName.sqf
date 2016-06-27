@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex (based on KRON_Replace)
+//	AUTHOR: Kex (based on KRON_Replace by Kronzky)
 //	DATE: 6/8/16
 //	VERSION: 1.0
 //	FILE: Achilles\functions\events\fn_TextToVariableName.sqf
@@ -13,18 +13,18 @@
 //
 //	Example:
 //	_variable_name  = "myni variablä" call Achilles_fnc_TextToVariableName;
-//	systemChat _variable_name; //"myni variabla"
+//	systemChat _variable_name; //"myni_variabla"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define OLD_LETTERS	[" ",":","ä","ö","ü","é","è","à","ç","î","ë","ê","ù","û","ô","â","ï","ÿ"]
-#define NEW_LETTERS	["_","","a","o","u","e","e","a","c","i","e","e","u","u","o","a","i","y"]
+#define OLD_LETTERS	[" ",":","ä","ö","ü","é","è","à","ç","î","ë","ê","ù","û","ô","â","ï","ÿ","(",")","[","]"]
+#define NEW_LETTERS	["_","_","a","o","u","e","e","a","c","i","e","e","u","u","o","a","i","y","_","_","_","_"]
 
 if (isNil "Achilles_var_old_special_char") then
 {
 	Achilles_var_old_special_char = [];
 	Achilles_var_new_special_char = [];
 	
-	for "_i" from 0  to ((count OLD_LETTERS) - 1) do
+	for "_i" from 0 to ((count OLD_LETTERS) - 1) do
 	{
 		Achilles_var_old_special_char append (toArray (OLD_LETTERS select _i));
 		Achilles_var_new_special_char append (toArray (NEW_LETTERS select _i));

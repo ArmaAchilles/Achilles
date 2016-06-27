@@ -5,11 +5,11 @@ class CfgPatches
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
-		author[] = { "Anton Struyk" };
+		author = "Anton Struyk";
 		authorUrl = "https://github.com/astruyk/";
-		version = 1.8.0;
-		versionStr = "1.8.0";
-		versionAr[] = {1,8,0};
+		version = 1.8.1;
+		versionStr = "1.8.1";
+		versionAr[] = {1,8,1};
 		
 		#include "Ares\config\units.hpp"
 
@@ -27,11 +27,11 @@ class CfgPatches
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
-		author[] = { "Kex" };
-		authorUrl = "https://github.com/oOKexOo/Ares-AE-";
-		version = 1.0.0;
-		versionStr = "1.0.0";
-		versionAr[] = {1,0,0};
+		author = "Kex";
+		authorUrl = "https://github.com/oOKexOo/AresModAchillesExpansion";
+		version = 0.0.1;
+		versionStr = "0.0.1";
+		versionAr[] = {0,0,1};
 		
 		#include "Achilles\config\units.hpp"
 
@@ -43,6 +43,41 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator"
+		};
+	};
+	class AchillesEffects
+	{
+		weapons[] = {};
+		requiredVersion = 0.1;
+		author = "Kex";
+		authorUrl = "https://github.com/oOKexOo/AresModAchillesExpansion";
+		version = 0.0.1;
+		versionStr = "0.0.1";
+		versionAr[] = {0,0,1};
+		
+		units[] = 
+		{
+			"ModuleLightSource_F",
+			"ModuleLightSourceWhite_F",
+			"ModuleLightSourceBlue_F",
+			"ModuleLightSourceRed_F",
+			"ModuleLightSourceGreen_F",
+			"ModuleLightSourceYellow_F",
+			"ModulePersistentSmokePillar_F",
+			"ModulePersistentSmokePillar000_F",
+			"ModulePersistentSmokePillar001_F",
+			"ModulePersistentSmokePillar002_F",
+			"ModulePersistentSmokePillar003_F",
+			"ModulePersistentSmokePillar004_F",
+			"ModulePersistentSmokePillar005_F",
+			"ModulePersistentSmokePillar006_F",
+			"ModulePersistentSmokePillar007_F",
+			"ModulePersistentSmokePillar008_F"
+		};
+
+		requiredAddons[] =
+		{
+			"A3_Modules_F"
 		};
 	};
 };
@@ -90,6 +125,11 @@ class CfgVehicles
 			description = "Ares Module Base";
 		};
 	};
+	
+	class Ares_Arsenal_Module_Base : Ares_Module_base
+	{
+		subCategory = "Arsenal";	
+	};
 
 	class Ares_Behaviours_Module_Base : Ares_Module_Base
 	{
@@ -123,21 +163,16 @@ class CfgVehicles
 	{
 		subCategory = "$STR_SPAWN";
 	};
-
-	class Ares_Teleport_Module_Base : Ares_Module_Base
-	{
-		subCategory = "$STR_TELEPORT";
-	};
-
+	
 	class Ares_User_Defined_Module_Base : Ares_Module_Base
 	{
 		category = "User Defined"; // Keeps these from being added to the UI automatically.
 		subCategory = "";
 	};
 
-	class Ares_Util_Module_Base : Ares_Module_Base
+	class Ares_Zeus_Module_Base : Ares_Module_Base
 	{
-		subCategory = "Util";
+		subCategory = "$STR_ZEUS";
 	};
 
 	class Ares_Player_Module_Base : Ares_Module_Base
@@ -166,6 +201,14 @@ class CfgVehicles
 		subCategory = "$STR_FIRE_SUPPORT";
 	};
 	
+	class Achilles_Buildings_Module_Base : Ares_Module_Base
+	{
+		subCategory = "$STR_BUILDINGS";
+		icon = "\ares_zeusExtensions\Achilles\data\icon_position.paa";
+		picture = "\ares_zeusExtensions\Achilles\data\icon_position.paa";
+		portrait = "\ares_zeusExtensions\Achilles\data\icon_position.paa";		
+	};
+	
 	// Placeholder class that doesn't do anything. Used for generating categories in UI.
 	class Ares_Module_Empty : Ares_Module_Base
 	{
@@ -181,10 +224,9 @@ class CfgVehicles
 	#include "Ares\config\cfgVehiclesModulesBehaviours.hpp"
 	#include "Ares\config\cfgVehiclesModulesEquipment.hpp"
 	#include "Ares\config\cfgVehiclesModulesSpawn.hpp"
-	#include "Ares\config\cfgVehiclesModulesTeleport.hpp"
-	//#include "Ares\config\cfgVehiclesModulesArsenal.hpp"
+	#include "Ares\config\cfgVehiclesModulesArsenal.hpp"
 	#include "Ares\config\cfgVehiclesModulesReinforcements.hpp"
-	#include "Ares\config\cfgVehiclesModulesUtil.hpp"
+	#include "Ares\config\cfgVehiclesModulesZeus.hpp"
 	#include "Ares\config\cfgVehiclesModulesUserDefined.hpp"
 	#include "Ares\config\cfgVehiclesSortingOVerrides.hpp"
 	#include "Ares\config\cfgVehiclesModulesDevTools.hpp"
@@ -195,8 +237,11 @@ class CfgVehicles
 	#include "Achilles\config\cfgVehiclesModulesDevTools.hpp"
 	#include "Achilles\config\cfgVehiclesModulesEnvironment.hpp"
 	#include "Achilles\config\cfgVehiclesModulesFireSupport.hpp"
-
+	#include "Achilles\config\cfgVehiclesModulesBuildings.hpp"
+	
 	//#include "Achilles\config\cfgVehiclesCAS.hpp"
+	#include "Achilles\config\cfgVehiclesModuleEffects.hpp"
+	#include "Achilles\config\cfgVehiclesModuleAnimals.hpp"
 };
 
 class CfgFunctions
@@ -219,6 +264,7 @@ class CfgWeapons
 
 #include "Ares\ui\baseDialogs.hpp"
 #include "Ares\ui\copyPasteDialog.hpp"
+#include "Ares\ui\ArsenalDialog.hpp"
 #include "Ares\ui\dynamicDialog.hpp"
 #include "Ares\ui\dialogInvolvingSides.hpp"
 

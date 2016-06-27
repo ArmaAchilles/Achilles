@@ -1,25 +1,28 @@
 // Blacklist for modules that grab objects. These types should not be added to Zeus automatically.
 Ares_EditableObjectBlacklist =
-	[
-		"Ares_Module_Util_Create_Composition",
-		"ModuleCurator_F",
-		"GroundWeaponHolder",
-		"Salema_F",
-		"Ornate_random_F",
-		"Mackerel_F",
-		"Tuna_F",
-		"Mullet_F", 
-		"CatShark_F",
-		"Rabbit_F",
-		"Snake_random_F",
-		"Turtle_F",
-		"Hen_random_F",
-		"Cock_random_F",
-		"Cock_white_F",
-		"Sheep_random_F"
-	];
+[
+	"Ares_Module_Util_Create_Composition",
+	"ModuleCurator_F",
+	"GroundWeaponHolder",
+	"Salema_F",
+	"Ornate_random_F",
+	"Mackerel_F",
+	"Tuna_F",
+	"Mullet_F", 
+	"CatShark_F",
+	"Rabbit_F",
+	"Snake_random_F",
+	"Turtle_F",
+	"Hen_random_F",
+	"Cock_random_F",
+	"Cock_white_F",
+	"Sheep_random_F"
+];
 
 if(isServer && isDedicated) exitWith { ["Aborting Ares init - Dedicated server detected."] call Ares_fnc_LogMessage; };
+
+// public functions:
+publicVariable "Ares_fnc_addIntel";
 
 [] spawn {
 	[] call Ares_fnc_waitForZeus;
@@ -31,19 +34,6 @@ if(isServer && isDedicated) exitWith { ["Aborting Ares init - Dedicated server d
 		sleep 1;
 	};
 	
-	/////////////////////////////////////
-	// correction by KEX
-	/////////////////////////////////////
-	
-	//Wait until respawn are placed
-	
-	_tasks = ["placeRespawnWEST","placeRespawnEAST","placeRespawnGUER","placeRespawn"];
-	if (([player] call BIS_fnc_taskCurrent) in _tasks) then
-	{
-		waitUntil {sleep 1; !(([player] call BIS_fnc_taskCurrent) in _tasks)};
-	};
-	
-	/////////////////////////////////////
 	
 	["Initializing UI ..."] call Ares_fnc_LogMessage;
 	["Ares"] spawn Ares_fnc_MonitorCuratorDisplay;

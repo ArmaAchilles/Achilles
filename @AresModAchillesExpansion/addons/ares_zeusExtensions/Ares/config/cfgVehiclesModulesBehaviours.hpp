@@ -48,14 +48,6 @@ class Ares_Module_Behaviour_Patrol : Ares_Behaviours_Module_Base
 	portrait = "\ares_zeusExtensions\Achilles\data\icon_unit.paa";
 };
 
-class Ares_Module_Behaviour_Create_Artillery_Target : Ares_Behaviours_Module_Base
-{
-	scopeCurator = 2;
-	displayName = "Create Artillery Target";
-	function = "Ares_fnc_BehaviourArtilleryCreateTarget";
-	icon = "\ares_zeusExtensions\Ares\data\icon_artillery_target.paa";
-	portrait = "\ares_zeusExtensions\Ares\data\icon_artillery_target.paa";
-};
 
 class Ares_Module_Behaviour_Land_Helicopter : Ares_Behaviours_Module_Base
 {

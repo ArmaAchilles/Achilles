@@ -2,7 +2,14 @@
 
 units[] =
 {
-	"Ares_Module_Add_All_Objects_To_Curator",
+	"Ares_Module_Arsenal_AddCustom",
+	"Ares_Module_Arsenal_Copy_To_Clipboard",
+	"Ares_Module_Arsenal_Paste_Replace",
+	"Ares_Module_Arsenal_Paste_Combine",
+	"Ares_Module_Arsenal_Create_Nato",
+	"Ares_Module_Arsenal_Create_Csat",
+	"Ares_Module_Arsenal_Create_Aaf",
+	"Ares_Module_Arsenal_Create_Guerilla",
 	"Ares_Module_Behaviour_Create_Artillery_Target",
 	"Ares_Module_Behaviour_Patrol",
 	"Ares_Module_Behaviour_Search_Nearby_And_Garrison",
@@ -15,9 +22,7 @@ units[] =
 	"Ares_Module_Reinforcements_Create_Lz",
 	"Ares_Module_Reinforcements_Create_Rp",
 	"Ares_Module_Reinforcements_Spawn_Units",
-	"Ares_Module_Remove_Objects_From_Curator",
 	"Ares_Module_Spawn_Custom_Mission_Objects",
-	"Ares_Module_Spawn_Smoke",
 	"Ares_Module_Spawn_Submarine",
 	"Ares_Module_Spawn_Trawler",
 	"Ares_Module_SurrenderSingleUnit",
@@ -34,6 +39,15 @@ units[] =
 	"Ares_Module_Util_Create_Composition",
 	"Ares_Module_Util_Remove_Nearest_Persistent",
 	"Ares_Module_Teleport",
+	"Ares_Module_Add_Remove_Editable_Objects",
+	"Ares_Module_Zeus_Visibility",
+	"Ares_Module_Hint",
+	"Ares_Module_Switch_Side",
+	"Ares_Module_Change_Player_Side",
+	"Ares_Module_Create_Teleporter",
+	"Ares_Module_Spawn_Effects",
+	"Ares_Module_Spawn_Intel",
+	"Ares_Module_Arsenal_AddFull"
 	// "Ares_Module_Behaviour_Land_Helicopter",
 	//#include "units_customModules.hpp"
 };

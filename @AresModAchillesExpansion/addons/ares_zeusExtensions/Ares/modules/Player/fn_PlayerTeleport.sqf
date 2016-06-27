@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/9/16
+//	DATE: 6/13/16
 //	VERSION: 1.0
 //	FILE: Ares\functions\fn_PlayerTeleport.sqf
 //  DESCRIPTION: Teleport Module
@@ -13,11 +13,13 @@ _tp_pos = position _logic;
 _dialogResult = [
 	localize "STR_TELEPORT", 
 	[ 
-		["STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
+		[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
 		[localize "STR_SIDE","ALLSIDE"]
 	],
-	true
+	"Ares_fnc_RscDisplayAttributes_Teleport"
 ] call Ares_fnc_ShowChooseDialog;
+
+if (count _dialogResult == 0) exitWith {};
 
 _playersToTeleport = switch (_dialogResult select 0) do
 {

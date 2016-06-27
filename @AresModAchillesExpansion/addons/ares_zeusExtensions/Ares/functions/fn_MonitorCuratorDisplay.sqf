@@ -3,7 +3,16 @@
 disableSerialization;
 
 waitUntil {([player] call Ares_fnc_IsZeus)};
-[["Ares", "PlacingModules"]] call BIS_fnc_advHint;
+
+//Wait for the curator screen to be displayed
+waitUntil {!isNull (findDisplay IDD_RSCDISPLAYCURATOR)};
+
+_display = findDisplay IDD_RSCDISPLAYCURATOR;
+_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
+
+// Wait until Zeus modules are aviable
+waitUntil {sleep 1; _ctrl tvText [(_ctrl tvCount []) - 1] == localize "STR_ZEUS"};
+[["Ares", "AresFieldManual"]] call BIS_fnc_advHint;
 
 // key event handler for remote controlled unit
 _display = findDisplay 46;

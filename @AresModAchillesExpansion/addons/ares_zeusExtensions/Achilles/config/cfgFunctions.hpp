@@ -21,14 +21,19 @@ class Achilles // This bit will be prefixed when actually calling the function (
 		class sum;
 		class sideTab;
 		class TextToVariableName;
+		class HigherConfigHierarchyLevel;
+		class ClassNamesWhichInheritsFromCfgClass;
 		
 		class chute;
 		class eject_passengers;
 		class LaunchCM;
+		class CopyObjectsToClipboard;
+		class PasteObjectsFromClipboard;
 		
 		class Animation;
 		class Chatter;
 		class changeAbility;
+		class SwitchZeusSide;
 	};
 	
 	// Module Functions
@@ -37,4 +42,6 @@ class Achilles // This bit will be prefixed when actually calling the function (
 	#include "cfgFunctionsDevTools.hpp"
 	#include "cfgFunctionsEnvironment.hpp"
 	#include "cfgFunctionsFireSupport.hpp"
+	#include "cfgFunctionsBuildings.hpp"
+	#include "cfgFunctionsEffects.hpp"
 };

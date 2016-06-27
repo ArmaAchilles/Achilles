@@ -40,7 +40,6 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 		class GetPhoneticName;
 		class GetSafePos;
 		class GetUnitUnderCursor;
-		class GlobalExecute;
 		class IsZeus;
 		class LogMessage;
 		class MakePlayerInvisible;
@@ -52,6 +51,7 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 		class TeleportPlayers;
 		class WaitForZeus;
 		class ZenOccupyHouse;
+		class addIntel;
 	};
 	
 	// UI handler functions
@@ -61,6 +61,9 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 
 		class RscDisplayAttributes_Teleport;
 		class RscDisplayAttributes_Create_Reinforcement;
+		class RscDisplayAttributes_BuildingsDestroy;
+		class RscDisplayAttributes_ChangePlayerSide;
+		class RscDisplayAtttributes_SpawnEffect;
 	};
 
 	// Functions to perform module actions
@@ -77,8 +80,7 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 	#include "cfgFunctionsPlayer.hpp"
 	#include "cfgFunctionsReinforcements.hpp"
 	#include "cfgFunctionsSpawn.hpp"
-	#include "cfgFunctionsTeleport.hpp"
-	#include "cfgFunctionsUtil.hpp"
+	#include "cfgFunctionsZeus.hpp"
 	#include "cfgFunctionsCustomUserFunctions.hpp"
 	#include "cfgFunctionsCustomUserModules.hpp"
 };

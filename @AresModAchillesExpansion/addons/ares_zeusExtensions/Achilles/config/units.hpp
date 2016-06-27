@@ -19,5 +19,8 @@ units[] =
 	"Achilles_Module_Set_Weather",
 	"Achilles_Module_Earthquake",
 	"Achilles_Module_Artillery_Fire_Mission",
-	"Achilles_Module_Suppressive_Fire"
+	"Achilles_Module_Fire_Support_Create_Artillery_Target",
+	"Achilles_Module_Suppressive_Fire",
+	"Achilles_Module_Fire_Support_Create_Suppression_Target",
+	"Achilles_Module_Buildings_Destroy"
 };

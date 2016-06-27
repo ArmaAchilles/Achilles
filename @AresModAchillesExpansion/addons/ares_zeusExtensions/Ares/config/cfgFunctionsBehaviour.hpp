@@ -1,7 +1,6 @@
 class BehaviourModules
 {
 	file = "\ares_zeusExtensions\Ares\modules\Behaviours";
-	class BehaviourArtilleryCreateTarget {};
 	class BehaviourLandHelicopter {};
 	class BehaviourPatrol {};
 	class BehaviourSearchNearbyAndGarrison {};

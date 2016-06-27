@@ -15,14 +15,14 @@ _numberOfElements = [_this, 0, -1, [0]] call BIS_fnc_param;
 
 // Show the paste dialog to the user
 _returnValue = "CANCELLED";
-missionNamespace setVariable ["Ares_CopyPaste_Dialog_Result", ""];
-_dialog = createDialog "Ares_CopyPaste_Dialog";
+uiNamespace setVariable ["Ares_Arsenal_Dialog_Result", ""];
+_dialog = createDialog "Ares_Arsenal_Dialog";
 waitUntil { dialog };
 waitUntil { !dialog };
-_dialogResult = missionNamespace getVariable ["Ares_CopyPaste_Dialog_Result", -1];
+_dialogResult = uiNamespace getVariable ["Ares_Arsenal_Dialog_Result", -1];
 if (_dialogResult == 1) then
 {
-	_pastedText = missionNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "[]"];
+	_pastedText = uiNamespace getVariable ["Ares_Arsenal_Dialog_Text", "[]"];
 	try
 	{
 		if (isNil { call (compile _pastedText) }) then
