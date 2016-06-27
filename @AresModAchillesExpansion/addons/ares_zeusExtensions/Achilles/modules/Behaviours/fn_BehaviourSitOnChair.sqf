@@ -29,7 +29,7 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 			if (alive _unit) then
 			{
 				_anim = _animset select (round random (count _animset - 1));
-				systemChat _anim;
+				//systemChat _anim;
 				[_unit,_anim] remoteExec ["switchMove", 0];
 			};
 		}

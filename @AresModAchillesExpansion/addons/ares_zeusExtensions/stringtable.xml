@@ -276,6 +276,12 @@
 				<German>KI Verhalten</German>
 				<English>AI Behaviour</English>
 			</Key>
+			<Key ID="STR_BUILDINGS">
+				<Original>Buildings</Original>
+				<French>Bâtiments</French>
+				<German>Gebäude</German>
+				<English>Buildings</English>
+			</Key>
 		</Container>
 		<Container name="Ares Modules">
 			<Key ID="STR_INJURY">
@@ -332,6 +338,18 @@
 				<German>Artillerie Feuerbefehl</German>
 				<English>Artillery Fire Mission</English>
 			</Key>
+			<Key ID="STR_CREATE_ARTILLERY_TARGET">
+				<Original>Create Artillery Target</Original>
+				<French>Créez un cible d'artillerie</French>
+				<German>Definiere ein Artillerieziel</German>
+				<English>Create Artillery Target</English>
+			</Key>
+			<Key ID="STR_CREATE_SUPPRESSION_TARGET">
+				<Original>Create Suppression Target</Original>
+				<French>Créez un cible de suppression</French>
+				<German>Definiere ein Unterstützungsfeuerziel</German>
+				<English>Create Suppression Target</English>
+			</Key>
 			<Key ID="STR_SUPPRESIVE_FIRE">
 				<Original>Suppressive Fire</Original>
 				<French>Tir de Suppression</French>
@@ -356,19 +374,151 @@
 				<German>Spawn Einheit</German>
 				<English>Spawn Units</English>
 			</Key>
+			<Key ID="STR_ADD_REMOVE_EDITABLE_OBJECTS">
+				<Original>Add/Remove editable Objects</Original>
+				<French>Ajoutez/Supprimez l'objet éditable</French>
+				<German>Entferne/Füge edierbare Objekte (hinzu)</German>
+				<English>Add/Remove editable Objects</English>
+			</Key>
+			<Key ID="STR_HIDE_ZEUS">
+				<Original>Hide Zeus</Original>
+				<French>Cachez Zeus</French>
+				<German>Versteck Zeus</German>
+				<English>Hide Zeus</English>
+			</Key>
+			<Key ID="STR_HINT">
+				<Original>Hint</Original>
+				<French>Indice</French>
+				<German>Hinweis</German>
+				<English>Hint</English>
+			</Key>
+			<Key ID="STR_SWITCH_SIDE_CHANNEL_OF_ZEUS">
+				<Original>Switch side channel of Zeus</Original>
+				<French>Changez le canal du camp de Zeus</French>
+				<German>Seitenkanal von Zeus wechseln</German>
+				<English>Switch side channel of Zeus</English>
+			</Key>
+			<Key ID="STR_CREATE_TP">
+				<Original>Create teleporter</Original>
+				<French>Créez un téléport</French>
+				<German>Erstelle einen Teleporter</German>
+				<English>Create teleporter</English>
+			</Key>
+			<Key ID="STR_CHANGE_SIDE_OF_PLAYER">
+				<Original>Change side of player</Original>
+				<French>Changez le camp du joueur</French>
+				<German>Seite des Spielers wechseln</German>
+				<English>Change side of player</English>
+			</Key>
+			<Key ID="STR_DESTROY_BUILDINGS">
+				<Original>Destroy Buildings</Original>
+				<French>Détruisiez Bâtiments</French>
+				<German>Gebäude zerstören</German>
+				<English>Destroy Buildings</English>
+			</Key>
+			<Key ID="STR_SPAWN_EFFECT">
+				<Original>Spawn Effect</Original>
+				<French>Spawn Effet</French>
+				<German>Effekt spawnen</German>
+				<English>Spawn Effect</English>
+			</Key>
+			<Key ID="STR_LIGHT_SOURCE">
+				<Original>Light Source</Original>
+				<French>Source Lumineuse</French>
+				<German>Lichtquelle</German>
+				<English>Light Source</English>
+			</Key>
+			<Key ID="STR_PERSISTENT_SMOKE_PILLAR">
+				<Original>Persistent Smoke Pillar</Original>
+				<French>Panache de Fumée persistent</French>
+				<German>Bleibende Rauchwolke</German>
+				<English>Persistent Smoke Pillar</English>
+			</Key>
+			<Key ID="STR_CREATE_EDIT_INTEL">
+				<Original>Create/Edit Intel</Original>
+				<French>Créez/Modifiez un renseignement</French>
+				<German>Hinweis platzieren/bearbeiten</German>
+				<English>Create/Edit Intel</English>
+			</Key>	
+			<Key ID="STR_ACE_INJURY">
+				<Original>ACE Injury</Original>
+				<French>ACE blessures</French>
+				<German>ACE Verletzungen</German>
+				<English>ACE Injury</English>
+			</Key>	
+			<Key ID="STR_INJURY_WITHOUT_ACE">
+				<Original>Injury (without ACE)</Original>
+				<French>Blessures (sans ACE)</French>
+				<German>Verletzungen (ohne ACE)</German>
+				<English>Injury (without ACE)</English>
+			</Key>	
+			<Key ID="STR_ADD_FILTERED">
+				<Original>Add filtered ...</Original>
+				<French>Ajoutez Arsenal filtrée ...</French>
+				<German>Gefiltert hinzufügen ...</German>
+				<English>Add filtered ...</English>
+			</Key>
+			<Key ID="STR_ADD_FULL">
+				<Original>Add full</Original>
+				<French>Ajoutez Arsenal complète</French>
+				<German>Komplettes Arsenal hinzufügen</German>
+				<English>Add full</English>
+			</Key>
+			<Key ID="STR_COPY_TO_CLIPBOARD">
+				<Original>Copy to Clipboard</Original>
+				<French>Ajoutez au presse-papier</French>
+				<German>In Zwischenablage kopieren</German>
+				<English>Copy to Clipboard</English>
+			</Key>
+			<Key ID="STR_PASTE_N_REPLACE">
+				<Original>Paste and Replace</Original>
+				<French>Collez et Remplacez</French>
+				<German>Einfügen und Ersetzen</German>
+				<English>Paste and Replace</English>
+			</Key>
+			<Key ID="STR_PASTE_N_COMBINE">
+				<Original>Paste and Combine</Original>
+				<French>Collez et Combinez</French>
+				<German>Einfügen und Kombinieren</German>
+				<English>Paste and Combine</English>
+			</Key>
+			<Key ID="STR_CREATE_BASIC_NATO">
+				<Original>Create Basic NATO</Original>
+				<French>Créez OTAN Arsenal de base</French>
+				<German>Spawn NATO Grundausrüstung</German>
+				<English>Create Basic NATO</English>
+			</Key>
+			<Key ID="STR_CREATE_BASIC_CSAT">
+				<Original>Create Basic CSAT</Original>
+				<French>Créez CSAT Arsenal de base</French>
+				<German>Spawn CSAT Grundausrüstung</German>
+				<English>Create Basic CSAT</English>
+			</Key>
+			<Key ID="STR_CREATE_BASIC_AAF">
+				<Original>Create Basic AAF</Original>
+				<French>Créez AAF Arsenal de base</French>
+				<German>Spawn AAF Grundausrüstung</German>
+				<English>Create Basic AAF</English>
+			</Key>
+			<Key ID="STR_CREATE_BASIC_GUERILLA">
+				<Original>Create Basic Guerilla</Original>
+				<French>Créez Guérilla Arsenal de base</French>
+				<German>Spawn Guerilla Grundausrüstung</German>
+				<English>Create Basic Guerilla</English>
+			</Key>
 		</Container>
 	</Package>
 	<Package name="Ares Curator Dialogs">
 		<Container name="Reinforcements">
 			<Key ID="STR_NO_LZ">
 				<Original>No LZ avaiable!</Original>
-				<French>Pas de ZA sont disponible!</French>
+				<French>Il n'y a pas de ZA disponible!</French>
 				<German>Kein LZ verfügbar!</German>
 				<English>No LZ avaiable!</English>
 			</Key>
 			<Key ID="STR_NO_RP">
 				<Original>No RP avaiable!</Original>
-				<French>Pas de RV sont disponible!</French>
+				<French>Il n'y a pas de RV sont disponible!</French>
 				<German>Kein Tpt verfügbar!</German>
 				<English>No RP avaiable!</English>
 			</Key>
@@ -381,7 +531,7 @@
 			<Key ID="STR_NEAREST">
 				<Original>Nearest</Original>
 				<French>Le plus proche</French>
-				<German>Nächstes</German>
+				<German>Nächstgelegener</German>
 				<English>Nearest</English>
 			</Key>
 			<Key ID="STR_FARTHEST">
@@ -402,9 +552,21 @@
 				<German>Seite</German>
 				<English>Side</English>
 			</Key>
-			<Key ID="STR_FRACTION">
+			<Key ID="STR_GROUP">
+				<Original>Group</Original>
+				<French>Groupe</French>
+				<German>Gruppe</German>
+				<English>Group</English>
+			</Key>
+			<Key ID="STR_NO_ONE">
+				<Original>No one</Original>
+				<French>Personne</French>
+				<German>Niemanden</German>
+				<English>No one</English>
+			</Key>
+			<Key ID="STR_FACTION">
 				<Original>Faction</Original>
-				<French></French>
+				<French>Fraction</French>
 				<German>Fraktion</German>
 				<English>Faction</English>
 			</Key>
@@ -438,6 +600,12 @@
 				<German>Tpt der Gruppe</German>
 				<English>Group RP</English>
 			</Key>
+			<Key ID="STR_INFANTRY_GROUP">
+				<Original>Infantry Group</Original>
+				<French>Groupe d'infanterie</French>
+				<German>Infanterie Gruppe</German>
+				<English>Infantry Group</English>
+			</Key>
 			<Key ID="STR_GROUP_BEHAVIOUR">
 				<Original>Group Behaviour</Original>
 				<French>Comportement du Groupe</French>
@@ -465,7 +633,7 @@
 			<Key ID="STR_RELAXED">
 				<Original>Relaxed</Original>
 				<French>Sûr</French>
-				<German></German>
+				<German>Sicher</German>
 				<English>Relaxed</English>
 			</Key>
 			<Key ID="STR_CAUTIOUS">
@@ -503,6 +671,696 @@
 				<French>%1 joueurs ont été téléportés à %2</French>
 				<German>%1 Spieler wuren nach %2 teleportiert</German>
 				<English>Teleported %1 players to %2</English>
+			</Key>
+			<Key ID="STR_ALL_OBJECTS_IN_MISSION">
+				<Original>All objects in mission</Original>
+				<French>Tous l'objets dans la mission</French>
+				<German>Alle objekte in der Mission</German>
+				<English>All objects in mission</English>
+			</Key>
+			<Key ID="STR_ALL_OBJECTS_WITHIN">
+				<Original>All objects within</Original>
+				<French>Tous l'objects à moins de</French>
+				<German>Alle Objekte innerhalb</German>
+				<English>All objects within</English>
+			</Key>
+			<Key ID="STR_RANGE">
+				<Original>Range</Original>
+				<French>Portée</French>
+				<German>Reichweite</German>
+				<English>Range</English>
+			</Key>
+			<Key ID="STR_REMOVE">
+				<Original>Remove</Original>
+				<French>Supprimez</French>
+				<German>Entfernen</German>
+				<English>Remove</English>
+			</Key>
+			<Key ID="STR_ADD">
+				<Original>Add</Original>
+				<French>Ajoutez</French>
+				<German>Hinzufügen</German>
+				<English>Add</English>
+			</Key>
+			<Key ID="STR_REMOVED_OBJEKTE_FROM_ZEUS">
+				<Original>%1 objects were removed from Zeus</Original>
+				<French>%1 objects ont été supprimés à Zeus</French>
+				<German>%1 Objekte wurden von Zeus entfernt</German>
+				<English>%1 objects were removed from Zeus</English>
+			</Key>
+			<Key ID="STR_ADD_OBJEKTE_TO_ZEUS">
+				<Original>%1 objects were added to Zeus</Original>
+				<French>%1 objects ont été ajoutés à Zeus</French>
+				<German>%1 Objekte wurden zu Zeus hinzugefügt</German>
+				<English>%1 objects were added to Zeus</English>
+			</Key>
+			<Key ID="STR_TRUE">
+				<Original>True</Original>
+				<French>Vrais</French>
+				<German>Wahr</German>
+				<English>True</English>
+			</Key>
+			<Key ID="STR_False">
+				<Original>False</Original>
+				<French>Faut</French>
+				<German>Falsch</German>
+				<English>False</English>
+			</Key>
+			<Key ID="STR_ZEUS_IS_NOW_VISIBLE">
+				<Original>Zeus is now visible</Original>
+				<French>Zeus est visible maitnenat</French>
+				<German>Zeus ist jetzt sichtbar</German>
+				<English>Zeus is now visible</English>
+			</Key>
+			<Key ID="STR_ZEUS_IS_NOW_HIDDEN">
+				<Original>Zeus is now hidden</Original>
+				<French>Zeus est caché maitnenat</French>
+				<German>Zeus ist jetzt unsichtbar</German>
+				<English>Zeus is now hidden</English>
+			</Key>
+			<Key ID="STR_MESSAGE">
+				<Original>Message</Original>
+				<French>Message</French>
+				<German>Mitteilung</German>
+				<English>Message</English>
+			</Key>
+			<Key ID="STR_ZEUS_HAS_LEFT_SIDE_CHANNEL">
+				<Original>Zeus has left your side channel</Original>
+				<French>Zeus a quitté votre canal du camp</French>
+				<German>Zeus hat den Kanal deiner Seite verlassen</German>
+				<English>Zeus has left your side channel</English>
+			</Key>
+			<Key ID="STR_ZEUS_HAS_ENTERED_SIDE_CHAT">
+				<Original>Zeus has entered your side channel</Original>
+				<French>Zeus as entré votre canal du camp</French>
+				<German>Zeus hat den Kanal deiner Seite betreten</German>
+				<English>Zeus has entered your side channel</English>
+			</Key>
+			<Key ID="STR_CHANGE_SIDE_FOR">
+				<Original>Change side for</Original>
+				<French>Changez le camp de</French>
+				<German>Seite wechseln von</German>
+				<English>Change side for</English>
+			</Key>
+			<Key ID="STR_SELECTED_PLAYER">
+				<Original>Selected player only</Original>
+				<French>Seulement le jouer choisi</French>
+				<German>Nur der ausgewählte Spieler</German>
+				<English>Selected player only</English>
+			</Key>	
+			<Key ID="STR_NO_GROUP_SELECTED">
+				<Original>No group selected!</Original>
+				<French>Pas de groupe a été choisi!</French>
+				<German>Keine Gruppe wurde ausgewählt!</German>
+				<English>No group selected!</English>
+			</Key>	
+			<Key ID="STR_NO_TARGET_AVAIABLE">
+				<Original>No target avaiable!</Original>
+				<French>Il n'y a pas de cible disponible!</French>
+				<German>Keine Ziel verfügbar!</German>
+				<English>No target avaiable!</English>
+			</Key>	
+			<Key ID="STR_NO_TARGET_IN_RANGE">
+				<Original>No target in range!</Original>
+				<French>Il n'y a pas de cible à portée!</French>
+				<German>Keine Ziel in Reichweite!</German>
+				<English>No target in range!</English>
+			</Key>
+			<Key ID="STR_ENTIRE_GROUP">
+				<Original>Entire group</Original>
+				<French>tout le groupe</French>
+				<German>Die gesammte Gruppe</German>
+				<English>Entire group</English>
+			</Key>
+			<Key ID="STR_SELECT_PLAYERS">
+				<Original>Select players</Original>
+				<French>Choisissez le joueurs</French>
+				<German>Wähle die Spieler aus</German>
+				<English>Selected players</English>
+			</Key>
+			<Key ID="STR_CHANGED_SIDE_FOR_PLAYERS">
+				<Original>Changed side for %1 players</Original>
+				<French>Vous avez changé le camp pour %1 joueurs</French>
+				<German>Sie haben die Seite für %1 Spieler gewechselt</German>
+				<English>Changed side for %1 players</English>
+			</Key>
+			<Key ID="STR_NO_PLAYER_IN_SELECTION">
+				<Original>No player in selection!</Original>
+				<French>Pas de joueur a été choisi!</French>
+				<German>Keine Spiler ausgewählt!</German>
+				<English>No player in selection!</English>
+			</Key>
+			<Key ID="STR_EXTEND">
+				<Original>Extend</Original>
+				<French>Etendue</French>
+				<German>Ausmass</German>
+				<English>Extend</English>
+			</Key>
+			<Key ID="STR_CATEGORY">
+				<Original>Category</Original>
+				<French>Catégorie</French>
+				<German>Kategorie</German>
+				<English>Category</English>
+			</Key>
+			<Key ID="STR_TYPE">
+				<Original>Type</Original>
+				<French>Type</French>
+				<German>Typ</German>
+				<English>Type</English>
+			</Key>
+			<Key ID="STR_BLUE_LIGHT">
+				<Original>Blue Light</Original>
+				<French>Lumière bleue</French>
+				<German>Blaues Licht</German>
+				<English>Blue Light</English>
+			</Key>
+			<Key ID="STR_RED_LIGHT">
+				<Original>Red Light</Original>
+				<French>Lumière rouge</French>
+				<German>Rotes Licht</German>
+				<English>Red Light</English>
+			</Key>
+			<Key ID="STR_GREEN_LIGHT">
+				<Original>Green Light</Original>
+				<French>Lumière verte</French>
+				<German>Grünes Licht</German>
+				<English>Green Light</English>
+			</Key>
+			<Key ID="STR_WHITE_LIGHT">
+				<Original>White Light</Original>
+				<French>Lumière blanche</French>
+				<German>Weisses Licht</German>
+				<English>White Light</English>
+			</Key>
+			<Key ID="STR_YELLOW_LIGHT">
+				<Original>Yellow Light</Original>
+				<French>Lumière jaune</French>
+				<German>Gelbes Licht</German>
+				<English>Yellow Light</English>
+			</Key>
+			<Key ID="STR_VEHICLE_FIRE">
+				<Original>Vehicle Fire</Original>
+				<French>Feu d'un véhicule</French>
+				<German>Fahrzeug Feuer</German>
+				<English>Vehicle Fire</English>
+			</Key>
+			<Key ID="STR_SMALL_OILY_SMOKE">
+				<Original>Small Oily Smoke</Original>
+				<French>Petite fumée huileuse</French>
+				<German>Kleiner Öl-Rauch</German>
+				<English>Small Oily Smoke</English>
+			</Key>
+			<Key ID="STR_MEDIUM_OILY_SMOKE">
+				<Original>Medium Oily Smoke</Original>
+				<French>Moyenne fumée huileuse</French>
+				<German>Mittelgrosser Öl-Rauch</German>
+				<English>Medium Oily Smoke</English>
+			</Key>
+			<Key ID="STR_LARGE_OILY_SMOKE">
+				<Original>Large Oily Smoke</Original>
+				<French>Grande fumée huileuse</French>
+				<German>Grosser Öl-Rauch</German>
+				<English>Large Oily Smoke</English>
+			</Key>
+			<Key ID="STR_SMALL_WOOD_SMOKE">
+				<Original>Small Wood Smoke</Original>
+				<French>Petite fumée de bois</French>
+				<German>kleiner Holzrauch</German>
+				<English>Small Wood Smoke</English>
+			</Key>
+			<Key ID="STR_MEDIUM_WOOD_SMOKE">
+				<Original>Medium Wood Smoke</Original>
+				<French>Moyenne fumée de bois</French>
+				<German>Mittelgrosser Holzrauch</German>
+				<English>Medium Wood Smoke</English>
+			</Key>
+			<Key ID="STR_LARGE_WOOD_SMOKE">
+				<Original>Large Wood Smoke</Original>
+				<French>Grande fumée de bois</French>
+				<German>Grosser Holzrauch</German>
+				<English>Large Wood Smoke</English>
+			</Key>
+			<Key ID="STR_SMALL_MIXED_SMOKE">
+				<Original>Small Mixed Smoke</Original>
+				<French>Petite fumée mixte</French>
+				<German>Kleiner gemischter Rauch</German>
+				<English>Small Mixed Smoke</English>
+			</Key>
+			<Key ID="STR_LARGE_MIXED_SMOKE">
+				<Original>Large Mixed Smoke</Original>
+				<French>Grande fumée mixte</French>
+				<German>Grosser gemischter Rauch</German>
+				<English>Large Mixed Smoke</English>
+			</Key>
+			<Key ID="STR_YOU_ARE_BEING_TELEPORTED">
+				<Original>You are being teleported...</Original>
+				<French>Vous êtes téléporté...</French>
+				<German>Sie werden teleportiert...</German>
+				<English>You are being teleported...</English>
+			</Key>
+			<Key ID="STR_SUPPRESS_X">
+				<Original>Suppress %1</Original>
+				<French>Supprimez %1</French>
+				<German>Unterdrücke %1</German>
+				<English>Suppress %1</English>
+			</Key>	
+			<Key ID="STR_CREATED_SUPPRESSION_TARGET">
+				<Original>Created Suppression Target '%1'</Original>
+				<French>Le cible de suppression '%1' a été créé</French>
+				<German>Das Unterstützungsfeuerziel '%1' wurde definiert</German>
+				<English>Created Suppression Target '%1'</English>
+			</Key>	
+			<Key ID="STR_CREATED_ARTILLERY_TARGET">
+				<Original>Created Artillery Target '%1'</Original>
+				<French>La cible d'artillerie '%1' a été créé</French>
+				<German>Das Artillerieziel '%1' wurde definiert</German>
+				<English>Created Artillery Target '%1'</English>
+			</Key>	
+			<Key ID="STR_TARGET">
+				<Original>Target %1</Original>
+				<French>Cible %1</French>
+				<German>Ziel %1</German>
+				<English>Target %1</English>
+			</Key>	
+			<Key ID="STR_SELECT_BATTERY_TO_FIRE">
+				<Original>Select battery to fire</Original>
+				<French>Choisissez une batterie pour la mission de tir</French>
+				<German>Wähle eine Batterie für den Feuerbefehl aus</German>
+				<English>Select battery to fire</English>
+			</Key>	
+			<Key ID="STR_MARKER">
+				<Original>Marker</Original>
+				<French>Marqueur</French>
+				<German>Markierung</German>
+				<English>Marker</English>
+			</Key>	
+			<Key ID="STR_GRID">
+				<Original>Grid</Original>
+				<French>Coordonnées</French>
+				<German>Koordinaten</German>
+				<English>Grid</English>
+			</Key>	
+			<Key ID="STR_BATTERY">
+				<Original>Battery</Original>
+				<French>Batterie</French>
+				<German>Batterie</German>
+				<English>Battery</English>
+			</Key>	
+			<Key ID="STR_NO_NEARBY_ARTILLERY_UNITS">
+				<Original>No nearby artillery units!</Original>
+				<French>Il n'y a pas d'artillerie proche!</French>
+				<German>Keine Artillerie in der Nähe!</German>
+				<English>No nearby artillery units!</English>
+			</Key>	
+			<Key ID="STR_NUMBER_OF_UNITS_INVOLVED">
+				<Original>Number of units involved</Original>
+				<French>Nombre d'unité engagée</French>
+				<German>Anzahl involvierter Einheiten</German>
+				<English>Number of units involved</English>
+			</Key>	
+			<Key ID="STR_ROUNDS">
+				<Original>Rounds</Original>
+				<French>Tirs</French>
+				<German>Schüsse</German>
+				<English>Rounds</English>
+			</Key>	
+			<Key ID="STR_AMMO">
+				<Original>Ammo</Original>
+				<French>Munition</French>
+				<German>Munition</German>
+				<English>Ammo</English>
+			</Key>	
+			<Key ID="STR_GRID_EAST_WEST_XXX">
+				<Original>Grid East-West (XXX)</Original>
+				<French>L'est-ouest coordonnées (XXX)</French>
+				<German>Ost-West Koordinaten (XXX)</German>
+				<English>Grid East-West (XXX)</English>
+			</Key>	
+			<Key ID="STR_GRID_NORTH_SOUTH_XXX">
+				<Original>Grid North-South (XXX)</Original>
+				<French>Nord-sud coordonnées (XXX)</French>
+				<German>Nord-Süd Koordinaten (XXX)</German>
+				<English>Grid North-South (XXX)</English>
+			</Key>	
+			<Key ID="STR_FIRE_ROUNDS_AND_ETA">
+				<Original>Firing %1 rounds of '%2' at target. ETA %3 s.</Original>
+				<French>Tirez %1 coups du type '%2'. Heure d'arrivée estimée: %3 s.</French>
+				<German>Feuere %1 Schüsse vom Typ '%2'. Voraussichtilche Ankunftszeit: %3 s.</German>
+				<English>Firing %1 rounds of '%2' at target. ETA %3 s.</English>
+			</Key>	
+			<Key ID="STR_COPIED_UNITS">
+				<Original>Copied %1 units!</Original>
+				<French>%1 unités ont été copiées!</French>
+				<German>%1 Einheiten kopiert!</German>
+				<English>Copied %1 units!</English>
+			</Key>	
+			<Key ID="STR_INTEL_WAS_SHARED_WITH_SIDE">
+				<Original>(The intel was shared with your side)</Original>
+				<French>(Le renseignement a été transmis à votre camp)</French>
+				<German>(Der Hinweis wurde mit deiner Seite geteilt)</German>
+				<English>(The intel was shared with your side)</English>
+			</Key>		
+			<Key ID="STR_INTEL_WAS_SHARED_WITH_NONE">
+				<Original>(The intel was shared with no one)</Original>
+				<French>(Le renseignement n'a été transmis à personne)</French>
+				<German>(Der Hinweis wurde mit niemanden geteilt)</German>
+				<English>(The intel was shared with no one)</English>
+			</Key>		
+			<Key ID="STR_INTEL_WAS_SHARED_WITH_GROUP">
+				<Original>(The intel was shared with your group)</Original>
+				<French>(Le renseignement a été transmis à votre groupe)</French>
+				<German>(Der Hinweis wurde mit deiner Gruppe geteilt)</German>
+				<English>(The intel was shared with your group)</English>
+			</Key>	
+			<Key ID="STR_SHARED_WITH">
+				<Original>Shared with</Original>
+				<French>Transmettez à</French>
+				<German>Teilen mit</German>
+				<English>Shared with</English>
+			</Key>	
+			<Key ID="STR_TITLE">
+				<Original>Title</Original>
+				<French>Titre</French>
+				<German>Titel</German>
+				<English>Title</English>
+			</Key>	
+			<Key ID="STR_TEXT">
+				<Original>Text</Original>
+				<French>Texte</French>
+				<German>Text</German>
+				<English>Text</English>
+			</Key>	
+			<Key ID="STR_INTEL_FOUND">
+				<Original>%1 found intel %2!</Original>
+				<French>%1 a trouvé le renseignement %2!</French>
+				<German>%1 hat den Hinweis %2 gefunden!</German>
+				<English>%1 found intel %2!</English>
+			</Key>	
+			<Key ID="STR_PICK_UP_INTEL">
+				<Original>Pick up intel</Original>
+				<French>Ramassez le renseignement</French>
+				<German>Hinweis sammeln</German>
+				<English>Pick up intel</English>
+			</Key>	
+			<Key ID="STR_UNIT_BEHAVIOUR">
+				<Original>Unit RP</Original>
+				<French>RV de l'unité</French>
+				<German>Treffpunkt der Einheit</German>
+				<English>Unit RP</English>
+			</Key>	
+			<Key ID="STR_UNIT_RP">
+				<Original>Unit behaviour</Original>
+				<French>Comportement de l'unité</French>
+				<German>Verhalten der Einheit</German>
+				<English>Unit behaviour</English>
+			</Key>	
+			<Key ID="STR_NOT_IMPLEMENTED_AT_THE_MOMENT">
+				<Original>Not implemented at the moment!</Original>
+				<French>N'est pas disponible en ce moment!</French>
+				<German>Nicht implementiert im Moment!</German>
+				<English>Not implemented at the moment!</English>
+			</Key>	
+			<Key ID="STR_HEAD">
+				<Original>Head</Original>
+				<French>Tête</French>
+				<German>Kopf</German>
+				<English>Head</English>
+			</Key>		
+			<Key ID="STR_TORSO">
+				<Original>Torso</Original>
+				<French>Torse</French>
+				<German>Torso</German>
+				<English>Torso</English>
+			</Key>		
+			<Key ID="STR_ARMS">
+				<Original>Arms</Original>
+				<French>Bras</French>
+				<German>Arme</German>
+				<English>Arms</English>
+			</Key>		
+			<Key ID="STR_LEGS">
+				<Original>Legs</Original>
+				<French>Jambes</French>
+				<German>Beine</German>
+				<English>Legs</English>
+			</Key>		
+			<Key ID="STR_RIGHT_ARM">
+				<Original>Right Arm</Original>
+				<French>Bras droit</French>
+				<German>Rechter Arm</German>
+				<English>Right Arm</English>
+			</Key>		
+			<Key ID="STR_LEFT_ARM">
+				<Original>Left Arm</Original>
+				<French>Bras gauche</French>
+				<German>Linker Arm</German>
+				<English>Left Arm</English>
+			</Key>		
+			<Key ID="STR_RIGHT_LEG">
+				<Original>Right Leg</Original>
+				<French>Jambe droite</French>
+				<German>Rechtes Bein</German>
+				<English>Right Leg</English>
+			</Key>		
+			<Key ID="STR_LEFT_LEG">
+				<Original>Left Leg</Original>
+				<French>Jambe gauche</French>
+				<German>Linkes Bein</German>
+				<English>Left Leg</English>
+			</Key>		
+			<Key ID="STR_UNCONSIOUS_">
+				<Original>Unconscious</Original>
+				<French>Evanouissement</French>
+				<German>Bewusstlos</German>
+				<English>Unconscious</English>
+			</Key>		
+			<Key ID="STR_HEALTH_CHANGED">
+				<Original>Unit's health changed!</Original>
+				<French>La santé de l'unité a été modifiée!</French>
+				<German>Die Gesundheit der Einheit wurde geändert!</German>
+				<English>Unit's health changed!</English>
+			</Key>		
+			<Key ID="STR_LIGHT_INJURY">
+				<Original>Light</Original>
+				<French>Légèrement</French>
+				<German>Leicht</German>
+				<English>Light</English>
+			</Key>		
+			<Key ID="STR_SEVERE">
+				<Original>Severe</Original>
+				<French>Grièvement</French>
+				<German>Schwer</German>
+				<English>Severe</English>
+			</Key>		
+			<Key ID="STR_NONE_INJURY">
+				<Original>None</Original>
+				<French>Aucune</French>
+				<German>Keine</German>
+				<English>None</English>
+			</Key>		
+			<Key ID="STR_TRANSITION">
+				<Original>Transition</Original>
+				<French>Transition</French>
+				<German>Übergang</German>
+				<English>Transition</English>
+			</Key>		
+			<Key ID="STR_IMMEDIATE">
+				<Original>immediate</Original>
+				<French>tout de suite</French>
+				<German>sofort</German>
+				<English>immediate</English>
+			</Key>		
+			<Key ID="STR_SMOOTH">
+				<Original>smooth</Original>
+				<French>harmonieuse</French>
+				<German>fliessend</German>
+				<English>smooth</English>
+			</Key>		
+			<Key ID="STR_OVERCAST">
+				<Original>Overcast</Original>
+				<French>Couverture</French>
+				<German>Bedeckung</German>
+				<English>Overcast</English>
+			</Key>		
+			<Key ID="STR_RAIN_">
+				<Original>Rain (Overcast > 50%)</Original>
+				<French>Pluie (Couverture > 50%)</French>
+				<German>Regen (Bedeckung > 50%)</German>
+				<English>Rain (Overcast > 50%)</English>
+			</Key>		
+			<Key ID="STR_LIGHTNINGS_">
+				<Original>Lightnings (Overcast ≈ 100%)</Original>
+				<French>Eclairs (Couverture ≈ 100%)</French>
+				<German>Blitze (Bedeckung ≈ 100%)</German>
+				<English>Lightnings (Overcast ≈ 100%)</English>
+			</Key>			
+			<Key ID="STR_RAINBOW_">
+				<Original>Rainbow (Overcast ≈ 50%)</Original>
+				<French>Arc de ciel (Couverture ≈ 50%)</French>
+				<German>Regenbogen (Bedeckung ≈ 50%)</German>
+				<English>Rainbow (Overcast ≈ 50%)</English>
+			</Key>		
+			<Key ID="STR_ALLOWED">
+				<Original>Allowed</Original>
+				<French>Autorisé</French>
+				<German>Erlaubt</German>
+				<English>Allowed</English>
+			</Key>		
+			<Key ID="STR_PROHIBITED">
+				<Original>Prohibited</Original>
+				<French>Interdit</French>
+				<German>Verboten</German>
+				<English>Prohibited</English>
+			</Key>		
+			<Key ID="STR_WIND_FORCE">
+				<Original>Wind Force</Original>
+				<French>Foce du vent</French>
+				<German>Wind Stärke</German>
+				<English>Wind Force</English>
+			</Key>		
+			<Key ID="STR_WIND_DIRECTION">
+				<Original>Wind Direction</Original>
+				<French>Direction du vent</French>
+				<German>Windrichtung</German>
+				<English>Wind Direction</English>
+			</Key>			
+			<Key ID="STR_WAVES">
+				<Original>Waves</Original>
+				<French>Vagues</French>
+				<German>Wellen</German>
+				<English>Waves</English>
+			</Key>			
+			<Key ID="STR_FOG_SETTING">
+				<Original>Fog Setting</Original>
+				<French>Cofiguration du brouillard</French>
+				<German>Nebeleinstellung</German>
+				<English>Fog Setting</English>
+			</Key>			
+			<Key ID="STR_FOG_DECAY">
+				<Original>Fog Decay</Original>
+				<French>Décomposition du brouillard</French>
+				<German>Nebelabfall</German>
+				<English>Fog Decay</English>
+			</Key>			
+			<Key ID="STR_Fog_Altitude_ASL">
+				<Original>Fog Altitude (ASL)</Original>
+				<French>Altitude du brouillard</French>
+				<German>Nebel Höhe (ü. M.)</German>
+				<English>Fog Altitude (ASL)</English>
+			</Key>			
+			<Key ID="STR_INTENSITY">
+				<Original>Intensity</Original>
+				<French>Intensité</French>
+				<German>Intensität</German>
+				<English>Intensity</English>
+			</Key>			
+			<Key ID="STR_VERY_WEEK">
+				<Original>very week</Original>
+				<French>très faible</French>
+				<German>sehr schwach</German>
+				<English>very week</English>
+			</Key>			
+			<Key ID="STR_WEEK">
+				<Original>week</Original>
+				<French>faible</French>
+				<German>schwach</German>
+				<English>week</English>
+			</Key>			
+			<Key ID="STR_MEDIUM">
+				<Original>medium</Original>
+				<French>moyen</French>
+				<German>mittel</German>
+				<English>medium</English>
+			</Key>			
+			<Key ID="STR_STRONG">
+				<Original>strong</Original>
+				<French>fort</French>
+				<German>stark</German>
+				<English>strong</English>
+			</Key>							
+		</Container>
+		<Container name="cfg Hints">
+			<Key ID="STR_PLACING_MODULES">
+				<Original>Placing Modules</Original>
+			</Key>
+			<Key ID="STR_PLACING_MODULES_DESCRIPTION">
+				<Original>
+					The Ares Modules have informative icons in the module tree.%1The most common are described here:
+					%1%1&lt;img image='\ares_zeusExtensions\Ares\data\icon_default.paa'/&gt; This module can be placed anywhere.
+					%1&lt;img image='\ares_zeusExtensions\Achilles\data\icon_unit.paa'/&gt; This modul has to be placed on units.
+					%1&lt;img image='\ares_zeusExtensions\Achilles\data\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options avaiable depend on the choice!
+					%1&lt;img image='\ares_zeusExtensions\Achilles\data\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
+					%1&lt;img image='\ares_zeusExtensions\Achilles\data\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options avaiable depend on the choice!
+					%1&lt;img image='\ares_zeusExtensions\Achilles\data\icon_position.paa'/&gt; The module is activated at the selected position.
+				</Original>
+			</Key>
+			<Key ID="STR_PLACING_MODULES_TIP">
+				<Original>
+					For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+				</Original>
+			</Key>
+			<Key ID="STR_SELECTION_OPTION">
+				<Original>Selection Option</Original>
+			</Key>
+			<Key ID="STR_SELECTION_OPTION_DESCRIPTION">
+				<Original>
+					Some modules have the option to select objects on which it is apply to.
+					%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+					%1You can cancle the selection mode with %3[ESCAPE]%4.
+				</Original>
+			</Key>
+			<Key ID="STR_SELECTION_OPTION_TIP">
+				<Original>
+					You can read on top what the module want you to select.
+				</Original>
+			</Key>
+			<Key ID="STR_PLACING_MODULES_TIP">
+				<Original>
+					For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+				</Original>
+			</Key>
+			<Key ID="STR_KEY_ASSIGNMENT">
+				<Original>Additional Key Assignment</Original>
+			</Key>
+			<Key ID="STR_KEY_ASSIGNMENT_DESCRIPTION">
+				<Original>
+					Additional key assignments aviable:
+					%1%1%2Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on a unit icon in order to remote control the AI.
+					%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+					%1%2Press %3[Left Ctrl]%4 + %3[Left Ctrl]%4 + %3[C]%4 in order to deep copy units.
+					%1%2Press %3[Left Ctrl]%4 + %3[Left Ctrl]%4 + %3[V]%4 in order to paste deep copied units.
+					%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
+				</Original>
+			</Key>
+			<Key ID="STR_EXECUTE_CODE">
+				<Original>Execute Code Module</Original>
+			</Key>
+			<Key ID="STR_EXECUTE_CODE_DESCRIPTION">
+				<Original>
+					The execute code module is only aviable if the server allows clients using it!
+					%1%1There are two built-in params avaiable:
+					%1%2%3_this select 0%4   POSITION:   position where the module was placed.
+					%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+				</Original>
+			</Key>
+			<Key ID="STR_ARES_FIELD_MANUAL">
+				<Original>Ares Field Manual</Original>
+			</Key>
+			<Key ID="STR_ARES_FIELD_MANUAL_DESCRIPTION">
+				<Original>
+					Open the %3Field Manual%4 avaiable in the escape menu for informations.
+				</Original>
+			</Key>
+			<Key ID="STR_RC_VEHICLE_CREW">
+				<Original>Remote Control Vehicle Crew</Original>
+			</Key>
+			<Key ID="STR_RC_VEHICLE_CREW_DESCRIPTION">
+				<Original>
+					You How to remote control a specific unit in a vehicle:
+					%1 1) Select the unit in the object list on your left.
+					%1 2) A new icon popes up on the vehicle corresponding to the target unit.
+					%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+				</Original>
 			</Key>
 		</Container>
 	</Package>

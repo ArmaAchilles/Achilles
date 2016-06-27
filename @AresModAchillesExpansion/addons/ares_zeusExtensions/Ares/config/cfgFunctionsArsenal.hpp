@@ -9,4 +9,5 @@ class ArsenalModules
 	class ArsenalCreateNato {};
 	class ArsenalPasteCombine {};
 	class ArsenalPasteReplace {};
+	class ArsenalAddFull {};
 };

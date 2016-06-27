@@ -32,8 +32,15 @@ _vehicles = _this;
 				[_x, _forEachIndex] spawn Achilles_fnc_chute;
 			} else
 			{
-				_x action ["Eject", _vehicle];
-				unassignVehicle _x;
+				if (isPlayer _x) then
+				{
+					unassignVehicle _x;
+					_x action ["Eject", _vehicle];
+				} else
+				{
+					unassignVehicle _x;
+					[_x] orderGetIn false;
+				};
 			};
 		} forEach _passenger;
 		if ((getPos _vehicle select 2) > 40) then {[_vehicle] spawn rhs_fnc_vehPara};

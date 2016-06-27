@@ -1,7 +1,20 @@
 #include "\ares_zeusExtensions\Ares\module_header.hpp"
 
-private ["_objects","_guns","_rounds","_ammo","_targetPos"];
+// initalize artillery fire function
+if (isNil "Ares_FireArtilleryFunction") then
+{
+	Ares_FireArtilleryFunction = {
+		_artilleryUnit = _this select 0;
+		_targetPos = _this select 1;
+		_ammoType = _this select 2;
+		_roundsToFire = _this select 3;
+		enableEngineArtillery true;
+		_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
+	};
+	publicVariable "Ares_FireArtilleryFunction";
+};
 
+private ["_objects","_guns","_rounds","_ammo","_targetPos"];
 
 _objects = nearestObjects [(_this select 0), ["All"], 150];
 
@@ -63,16 +76,16 @@ _batteryTypes = [];
 {
 	_batterytypes pushBack (_x select 0);
 } forEach _batteries;
-if (count _batteries == 0) exitWith { ["No nearby artillery units."] call Ares_fnc_ShowZeusMessage; };
+if (count _batteries == 0) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
 
 // Pick a battery
 _pickBatteryResult = [
-		"Pick battery to fire:",
+		localize "STR_SELECT_BATTERY_TO_FIRE",
 		[
-			["Battery", _batteryTypes],
-			["Target",["Marker","Grid"]]
+			[localize "STR_BATTERY", _batteryTypes],
+			[format [localize "Target", " "],[localize "STR_MARKER",localize "STR_GRID"]]
 		]] call Ares_fnc_ShowChooseDialog;
-if (count _pickBatteryResult == 0) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
+if (count _pickBatteryResult == 0) exitWith {};
 _battery = _batteries select (_pickBatteryResult select 0);
 _mode = _pickBatteryResult select 1;
 
@@ -88,24 +101,24 @@ _numberOfGuns = [];
 
 if (_mode == 0) then
 {
-	_allTargetsUnsorted = allMissionObjects "Ares_Module_Behaviour_Create_Artillery_Target";
+	_allTargetsUnsorted = allMissionObjects "Achilles_Module_Fire_Support_Create_Artillery_Target";
 	_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-	_targetChoices = ["Random", "Nearest", "Farthest"];
+	_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
 	{
 		_targetChoices pushBack (name _x);
 	} forEach _allTargets;
 	
 	// pick guns, rounds, ammo and coordinates
 	_pickFireMissionResult = [
-		"Pick fire mission details:",
+		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_MARKER"],
 		[
-			["Guns", _numberOfGuns],
-			["Rounds", ["1", "2", "3", "4", "5"]],
-			["Ammo", _artilleryAmmo],
-			["Choose Target", _targetChoices, 1]
+			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
+			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
+			[localize "STR_AMMO", _artilleryAmmo],
+			[format [localize "STR_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 
-	if (count _pickFireMissionResult == 0) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
+	if (count _pickFireMissionResult == 0) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
@@ -151,13 +164,13 @@ if (_mode == 0) then
 {
 	// pick guns, rounds, ammo and coordinates
 	_pickFireMissionResult = [
-		"Pick fire mission details:",
+		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_GRID"],
 		[
-			["Guns", _numberOfGuns],
-			["Rounds", ["1", "2", "3", "4", "5"]],
-			["Ammo", _artilleryAmmo],
-			["Grid East-West", ""],
-			["Grid North-South", ""]
+			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
+			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
+			[localize "STR_AMMO", _artilleryAmmo],
+			[localize "STR_GRID_EAST_WEST_XXX", ""],
+			[localize "STR_GRID_NORTH_SOUTH_XXX", ""]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (count _pickFireMissionResult == 0) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
@@ -170,7 +183,7 @@ if (_mode == 0) then
 	_targetPos = [_targetX,_targetY] call CBA_fnc_mapGridToPos;
 };
 
-if (isNil "_targetPos") exitWith {["No target in range!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (isNil "_targetPos") exitWith {[localize "STR_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // Generate a list of the actual units to fire.
 _gunsToFire = [];
@@ -184,13 +197,13 @@ _roundEta = 99999;
 {
 	_roundEta = _roundEta min (_x getArtilleryETA [_targetPos, _ammo]);
 } forEach _gunsToFire;
-if (_roundEta == -1) exitWith { ["Target not in range!"] call Ares_fnc_ShowZeusMessage; };
+if (_roundEta == -1) exitWith { [localize "STR_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; };
 
 // Fire the guns
 {
 	[[_x, _targetPos, _ammo, _rounds], "Ares_FireArtilleryFunction", _x] call BIS_fnc_MP;
 } forEach _gunsToFire;
-["Firing %1 rounds of '%2' at target. ETA %3", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
+[localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
 
 
 #include "\ares_zeusExtensions\Ares\module_footer.hpp"

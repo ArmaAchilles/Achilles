@@ -10,19 +10,19 @@ _altitudeDisplayValues = [];
 
 _dialogResult = 
 [
-	"Change Weather",
+	localize "STR_ADVANCED_WEATHER_CHANGE",
 	[
-		["Change",["immediate","rendered"]],
-		["Overcast", "SLIDER"],
-		["Rain (Overcast > 50%)", "SLIDER"],
-		["Lightnings (Overcast ≈ 100%)", "SLIDER"],
-		["Rainbow (Overcast ≈ 50%)", ["allowed","prohibited"]],
-		["Wind Force", "SLIDER"],
-		["Wind Direction",["N","NE","E","SE","S","SW","W","NW"]],
-		["Waves", "SLIDER"],
-		["Fog Setting", "SLIDER"],
-		["Fog Decay", "SLIDER"],
-		["Fog Altitude (ASL)", _altitudeDisplayValues]
+		[localize "STR_TRANSITION",[localize "STR_IMMEDIATE",localize "STR_SMOOTH"]],
+		[localize "STR_OVERCAST", "SLIDER"],
+		[localize "STR_RAIN_", "SLIDER"],
+		[localize "STR_LIGHTNINGS_", "SLIDER"],
+		[localize "STR_RAINBOW_", [localize "STR_ALLOWED",localize "STR_PROHIBITED"]],
+		[localize "STR_WIND_FORCE", "SLIDER"],
+		[localize "STR_WIND_DIRECTION",["N","NE","E","SE","S","SW","W","NW"]],
+		[localize "STR_WAVES", "SLIDER"],
+		[localize "STR_FOG_SETTING", "SLIDER"],
+		[localize "STR_FOG_DECAY", "SLIDER"],
+		[localize "STR_Fog_Altitude_ASL", _altitudeDisplayValues]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

@@ -10,7 +10,7 @@
 
 class CfgScriptPaths
 {
-	AresDisplays = "\ares_zeusExtensions\Ares\ui\";
+	AresDisplays = "\ares_zeusExtensions\Ares\ui\scripts\";
 };
 
 // load parent resources
@@ -65,7 +65,7 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		class ButtonBehaviour : ButtonCustom 
 		{
 			text = "BEHAVIOUR";
-			onMouseButtonClick = "";
+			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
@@ -77,13 +77,13 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
 			text = "AMMO";
-			onMouseButtonClick = "";
+			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
 		{
 			text = "DAMAGE";
-			onMouseButtonClick = "";
+			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 	};
@@ -141,3 +141,9 @@ class RscAttributeWaypointType: RscControlsGroupNoScrollbars
 
 // load zeus dialog resources
 //#include "cfgRscAchilles.hpp"
+
+// replace basic script for modules by modified one
+class RscAttributeMusic : RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeMusic"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";	
+};

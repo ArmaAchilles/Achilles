@@ -57,7 +57,9 @@ if (isNull _unit) then
 			["Channel:",
 			[
 				"global",
-				"side"
+				"side",
+				"vehicle chat",
+				"command chat"
 			]],
 			["Message:",""
 			]
@@ -66,10 +68,12 @@ if (isNull _unit) then
 
 	if (count _dialogResult == 0) exitWith {};
 
-	switch (_dialogResult select 0) do
+	_chat_type = switch (_dialogResult select 0) do
 	{
-		case 0: {_chat_type = 'globalChat';};
-		case 1: {_chat_type = 'sideChat';};
+		case 0: {'globalChat'};
+		case 1: {'sideChat'};
+		case 2: {'vehicleChat'};
+		case 3: {'commandChat'};
 	};
 	_message = _dialogResult select 1;
 	if (!isPlayer _unit) then

@@ -28,6 +28,7 @@ if (!isPlayer _unit) then
 	_id = _unit addEventHandler ["HandleDamage",{if (_this select 4 == "") then {0} else {_this select 2}}];
 	moveOut _unit;
 	unassignVehicle _unit;
+	[_unit] orderGetIn false;
 	_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
 	_chute setPos (getPos _unit);
 	_chute setDir (getDir _unit);
@@ -40,7 +41,7 @@ if (!isPlayer _unit) then
 } else
 {
 	// for player units
-	_unit action ["Eject", _vehicle];
+	_unit action ["Eject", vehicle _unit];
 	_backpack_class = backpack _unit;
 	if (_backpack_class != "") then
 	{

@@ -5,8 +5,8 @@
 	Params:
 		0 - String - (default: "") The title to display for the combo box. Do not use non-standard characters (e.g. %&$*()!@#*%^&) that cannot appear in variable names
 		1 - Array of Arrays - The set of choices to display to the user. Each element in the array should be an array in the following format: ["Choice Description", ["Choice1", "Choice2", etc...]] optionally the last element can be a number that indicates which element to select. For example: ["Choose A Pie", ["Apple", "Pumpkin"], 1] will have "Pumpkin" selected by default. If you replace the choices with a string then a textbox (with the string as default) will be displayed instead.
-		2 - Bool - (default: false) if true: combo box changes call script Ares_fnc_RscDisplayAttributes_<title text> with params [<choice description>,<control>,<new selection index>]
-		
+		2 - String - (default: "") 	optionally a function can be given as an argument which will be executed as an combobox event handler when the selection is changed with params [<choice description>,<control>,<new selection index>]
+									in addition the function will be executed when the dialog was opened or closed with parameter ["LOADED"] respective ["UNLOAD"]
 	Returns:
 		An array containing the indices of each of the values chosen, or a null object if nothing was selected.
 */
@@ -14,7 +14,7 @@ disableSerialization;
 
 _titleText = _this param [0,"",[""]];
 _choicesArray = _this param [1,["placeholder"],["",[]]];
-_ComboReferToScript = _this param [2,false,[false]];
+_ResourceScript = _this param [2,"",[""]];
 
 private "_defaultChoice";
 
@@ -154,7 +154,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		_defaultChoice = if (typeName _defaultChoice == "SCALAR") then {_defaultChoice} else {0};
 		_defaultChoice = if (_defaultChoice < lbSize _choiceCombo) then {_defaultChoice} else {(lbSize _choiceCombo) - 1};
 		_choiceCombo lbSetCurSel _defaultChoice;
-		_additonalComboScript = if (_ComboReferToScript) then {format["([""%1""] + _this) call Ares_fnc_RscDisplayAttributes_%2;",_choiceName_varName,_titleText_varName]} else {""};
+		_additonalComboScript = if (_ResourceScript != "") then {format["([""%1""] + _this) call %2;",_choiceName_varName,_ResourceScript]} else {""};
 		_choiceCombo ctrlSetEventHandler ["LBSelChanged", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], _this select 1];"+_additonalComboScript];
 		
 		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
@@ -251,11 +251,11 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 
 uiNamespace setVariable ["Ares_ChooseDialog_Result", -1];
 
-if (_ComboReferToScript) then {call compile format["[""LOADED""] call Ares_fnc_RscDisplayAttributes_%1;",_titleText_varName]};
+if (_ResourceScript != "") then {call compile format["[""LOADED""] call %1;",_ResourceScript]};
 
 waitUntil { !dialog };
 
-if (_ComboReferToScript) then {call compile format["[""UNLOAD""] call Ares_fnc_RscDisplayAttributes_%1;",_titleText_varName]};
+if (_ResourceScript != "") then {call compile format["[""UNLOAD""] call %1;",_ResourceScript]};
 
 // Check whether the user confirmed the selection or not, and return the appropriate values.
 if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
@@ -273,7 +273,7 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 			uiNamespace setVariable [_defaultVariableId, _x];
 		} forEach _returnValue;
 	};
-	systemChat str _returnValue;
+	//systemChat str _returnValue;
 	_returnValue;
 }
 else

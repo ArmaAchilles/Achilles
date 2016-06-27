@@ -208,8 +208,7 @@ if ((_vehicle emptyPositions "Cargo") <= 3) then
 	// Vehicles with low cargo space shouldn't leave empty seats, otherwise they often won't have any units at all.
 	_maxCargoSpacesToLeaveEmpty = 0;
 };
-while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty }
-do
+while { (_vehicle emptyPositions "Cargo") > _maxCargoSpacesToLeaveEmpty } do
 {
 	private ["_squadMembers"];
 	_squadMembers = (_pool select INFANTRY_UNIT_POOL_INDEX) call BIS_fnc_selectRandom;

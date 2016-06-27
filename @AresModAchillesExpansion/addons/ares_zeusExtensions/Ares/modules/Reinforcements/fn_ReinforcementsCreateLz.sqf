@@ -14,4 +14,9 @@ _logic setVariable ["SortOrder", Ares_ReinforcementLzCount];
 Ares_ReinforcementLzCount = Ares_ReinforcementLzCount + 1;
 publicVariable "Ares_ReinforcementLzCount";
 
+// create a LZ object for AI
+_h_pad = "Land_HelipadEmpty_F" createVehicle position _logic;
+_h_pad attachTo [_logic,[0,0,0]];
+[_logic, _h_pad] spawn {waitUntil {sleep 10; isNull (_this select 0)}; deleteVehicle (_this select 1);};
+
 #include "\ares_zeusExtensions\Ares\module_footer.hpp"
