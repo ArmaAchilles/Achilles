@@ -18,19 +18,20 @@ switch (_key) do
 			if (Ares_Shift_Key_Pressed) then
 			{
 				// CTRL + SHIFT + G ¦---> ungroup objects
-				(curatorSelected select 0) call Achilles_fnc_ungroup_objects;
+				[(curatorSelected select 0), false] call Achilles_fnc_ACS_toggleGrouping;
 			} else
 			{
 				// CTRL + G ¦---> group obects
-				(curatorSelected select 0) call Achilles_fnc_group_objects;
+				[(curatorSelected select 0), true] call Achilles_fnc_ACS_toggleGrouping;
 			};
-		};
-		if (Ares_Shift_Key_Pressed) then
+		} else
 		{
-			// SHIFT + G ¦---> eject passengers
-			hint str (curatorSelected select 0);
-			(curatorSelected select 0) call Achilles_fnc_eject_passengers;
-			_handled = true;
+			if (Ares_Shift_Key_Pressed) then
+			{
+				// SHIFT + G ¦---> eject passengers
+				(curatorSelected select 0) call Achilles_fnc_eject_passengers;
+				_handled = true;
+			};
 		};
 	};
 	case 46: // C

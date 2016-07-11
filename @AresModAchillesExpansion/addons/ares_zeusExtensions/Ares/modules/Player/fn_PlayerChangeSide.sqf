@@ -23,10 +23,11 @@ if (isNull _unitUnderCursor) then
 	_dialogResult = [
 		format ["%1 (%2)",localize "STR_CHANGE_SIDE_OF_PLAYER",localize "STR_SELECT_PLAYERS"], 
 		[ 
-			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
-			[localize "STR_SIDE","ALLSIDE"]
+			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
+			["", ["..."]],
+			[localize "STR_SIDE","SIDE"]
 		],
-		"Ares_fnc_RscDisplayAttributes_ChangePlayerSide"
+		"Ares_fnc_RscDisplayAttributes_selectPlayers"
 	] call Ares_fnc_ShowChooseDialog;
 	
 	if (count _dialogResult == 0) exitWith {};
@@ -40,16 +41,23 @@ if (isNull _unitUnderCursor) then
 		case 1: 
 		{
 			_selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
-			if (isNil "_selection") exitWith {[]};
+			if (isNil "_selection") exitWith {nil};
 			[{isPlayer _this},_selection] call Achilles_fnc_filter;
 		};
 		case 2: 
 		{
-			_side_index = _dialogResult select 1;
-			if (_side_index == 0) exitWith {[player]};
-			_side = [east,west,independent,civilian] select ((_dialogResult select 1) - 1);
-			[{(alive _this) and (side _this == _side)}, allPlayers] call Achilles_fnc_filter};
-		;
+			_side_index = _dialogResult select 2;
+			_side = [east,west,independent,civilian] select (_side_index - 1);
+			[{(alive _this) and (side _this == _side)}, allPlayers] call Achilles_fnc_filter
+		};
+		case 3:
+		{
+			Ares_var_selectPlayers;
+		};
+		case 4:
+		{
+			Ares_var_selectPlayers;
+		};
 	};
 	sleep 1;
 
@@ -83,12 +91,7 @@ else
 	
 	if (count _dialogResult > 0) then
 	{
-		switch (_dialogResult select 1) do
-		{
-			case 2: { _side = west; };
-			case 3: { _side = independent; };
-			case 4: { _side = civilian; };
-		};
+		_side = [east,west,independent,civilian] select (_side_index - 1);
 		
 		switch (_dialogResult select 0) do
 		{

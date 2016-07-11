@@ -25,7 +25,7 @@ _dialogResult =
 	[
 		[localize "STR_SELECTION", [localize "STR_NEAREST", localize "STR_RANGE"]],
 		[localize "STR_EXTEND",_extend],
-		[(localize "STR_RANGE") + " [m]",""]
+		[(localize "STR_RANGE") + " [m]","","100"]
 	],
 	"Ares_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;

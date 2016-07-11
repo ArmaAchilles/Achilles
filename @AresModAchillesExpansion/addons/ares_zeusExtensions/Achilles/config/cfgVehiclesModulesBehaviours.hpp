@@ -1,7 +1,7 @@
 class Achilles_Module_Animation : Ares_Behaviours_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_ANIMATION";
+	displayName = "$STR_AMBIENT_ANIMATION";
 	function = "Achilles_fnc_BehaviourAnimation";
 };
 

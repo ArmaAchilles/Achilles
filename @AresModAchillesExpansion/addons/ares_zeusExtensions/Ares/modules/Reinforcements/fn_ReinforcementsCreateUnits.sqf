@@ -34,12 +34,12 @@ _dialogResult =
 	localize "STR_SPAWN_UNITS",
 	[
 		[localize "STR_SIDE", _side_names,0],
-		[localize "STR_FACTION", ["loading ..."]],
-		[localize "STR_VEHICLE_CATEGORY", ["loading ..."]],
+		[localize "STR_FACTION", [localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
 		[localize "STR_VEHICLE",["loading ..."]],
 		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
 		[localize "STR_LZ_DZ", _lzOptions],
-		[localize "STR_INFANTRY_GROUP", ["loading ..."]],
+		[localize "STR_INFANTRY_GROUP", [localize "STR_LOADING_"]],
 		[localize "STR_UNIT_RP", _rpOptions],
 		[localize "STR_UNIT_BEHAVIOUR", [localize "STR_DEFAULT", localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]]
 	], 

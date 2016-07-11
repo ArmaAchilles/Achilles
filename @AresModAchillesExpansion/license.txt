@@ -26,6 +26,14 @@ Achilles Expansion includes contributions by the following coders:
 Achilles integrates code from the following mods or scripts:
 * AI HALO jump script (by cobra4v320)
     * http://www.armaholic.com/page.php?id=23113
+* ACE fast-roping waypoint (by ACE team)
+* Some curator display functions (by BIS)
+
+Translations:
+* English (by Kex)
+* French (by Kex)
+* German (by Kex)
+* Russian (by Igor Nikolaev)
 
 
 Ares as well as Achilles Expansion are provided without warranty. Use at your own risk.

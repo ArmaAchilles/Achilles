@@ -147,7 +147,32 @@ class Ares
 				name = "Small Checkpoint";
 				#include "Ares\Military Structures\Road Checkpoints\Small Checkpoint.hpp"
 			};
+			class Ares_MilitaryStructures_RoadCheckpoints_4
+			{
+				name = "Medium Checkpoint 2";
+				#include "Ares\Military Structures\Road Checkpoints\Medium Checkpoint 2.hpp"
+			};
+			class Ares_MilitaryStructures_RoadCheckpoints_5
+			{
+				name = "BIS Medium Checkpoint";
+				#include "Ares\Military Structures\Road Checkpoints\BIS Medium Checkpoint.hpp"
+			};
+			class Ares_MilitaryStructures_RoadCheckpoints_6
+			{
+				name = "BIS Small Checkpoint";
+				#include "Ares\Military Structures\Road Checkpoints\BIS Small Checkpoint.hpp"
+			};
 		};
+		class Ares_MilitaryStructures_Camps
+		{
+			name = "Camps";
+
+			class Ares_MilitaryStructures_Camps_0
+			{
+				name = "BIS Small Recon Camp";
+				#include "Ares\Military Structures\Camps\BIS Small Recon Camp.hpp"
+			};
+		};		
 	};
 	class Ares_Walls
 	{
@@ -255,40 +280,6 @@ class AresCommunity
 {
 	side = 8;
 	name = "Ares Community";
-	class Ares_KEX
-	{
-		name = "KEX compositions";
-		class Ares_KEX_checkpoints
-		{
-			name = "Checkpoints";
-
-			class Ares_KEX_medium_checkpoint
-			{
-				name = "Medium Checkpoint";
-				#include "Ares Community\KEX\Checkpoints\medium_checkpoint.hpp"
-			};
-			class Ares_KEX_BIS_medium_checkpoint
-			{
-				name = "BIS Medium Checkpoint";
-				#include "Ares Community\KEX\Checkpoints\BIS_medium_checkpoint.hpp"
-			};
-			class Ares_KEX_BIS_small_checkpoint
-			{
-				name = " BIS Small Checkpoint";
-				#include "Ares Community\KEX\Checkpoints\BIS_small_checkpoint.hpp"
-			};
-		};
-		class Ares_KEX_camps
-		{
-			name = "Camps";
-
-			class Ares_KEX_BIS_small_recon_camp
-			{
-				name = "BIS Small Camp";
-				#include "Ares Community\KEX\Camps\BIS_small_recon_camp.hpp"
-			};
-		};
-	};
 	class Ares_VerneiSO
 	{
 		name = "Vernei =SO=";
@@ -476,7 +467,7 @@ class AresCommunity
 
 			class Ares_VerneiSO_RoadblocksCheckpoints_1
 			{
-				name = "Two_Way Reinforced";
+				name = "Two-Way Reinforced";
 				#include "Ares Community\Vernei =SO=\Roadblocks & Checkpoints\Two_Way Reinforced.hpp"
 			};
 		};

@@ -35,9 +35,9 @@ class Ares_Dynamic_Dialog
 		{
 			idc = 2010;
 
-			x = 5.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
 			y = 22 * GUI_GRID_H + GUI_GRID_Y;
-			w = 29.5 * GUI_GRID_W;
+			w = 28 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
@@ -58,7 +58,7 @@ class Ares_Dynamic_Dialog
 			idc = 3010;
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 22 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};

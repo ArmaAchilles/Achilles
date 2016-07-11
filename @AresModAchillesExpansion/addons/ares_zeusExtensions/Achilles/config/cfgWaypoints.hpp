@@ -12,9 +12,23 @@ class Achilles
 	displayName = "Achilles";
 	class Fastroping
 	{
-		displayName = "ACE FAST-ROPING";
+		displayName = "$STR_ACE_FASTROPING";
 		displayNameDebug = "FASTROPING";
-		file = "ares_zeusExtensions\Achilles\functions\fn_fastropeWaypoint.sqf";
+		file = "ares_zeusExtensions\Achilles\scripts\fn_wpFastrope.sqf";
+		icon = "\ares_zeusExtensions\Achilles\data\icon_position.paa";
+	};
+	class Land
+	{
+		displayName = "$STR_A3_CfgWaypoints_Land";
+		displayNameDebug = "LAND";
+		file = "ares_zeusExtensions\Achilles\scripts\fn_wpLand.sqf";
+		icon = "\ares_zeusExtensions\Achilles\data\icon_position.paa";
+	};
+	class SearchBuilding
+	{
+		displayName = "$STR_SEARCH_BUILDING";
+		displayNameDebug = "SearchBuilding";
+		file = "ares_zeusExtensions\Achilles\scripts\fn_wpSearchBuilding.sqf";
 		icon = "\ares_zeusExtensions\Achilles\data\icon_position.paa";
 	};
 };

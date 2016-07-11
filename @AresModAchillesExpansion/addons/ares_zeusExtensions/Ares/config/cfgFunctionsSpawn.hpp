@@ -6,4 +6,6 @@ class SpawnModules
 	class SpawnTrawler;
 	class SpawnEffect;
 	class SpawnCreateEditIntel;
+	class SpawnAdvancedCompositions;
+	class SpawnExplosives;
 };

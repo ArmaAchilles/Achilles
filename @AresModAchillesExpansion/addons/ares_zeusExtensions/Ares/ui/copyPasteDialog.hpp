@@ -15,7 +15,7 @@ class Ares_CopyPaste_Dialog
 		{
 			idc = 1000;
 
-			text = "Execute Code"; //--- ToDo: Localize;
+			text = "$STR_COPY_PASTE_DIALOG"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 38 * GUI_GRID_W;
@@ -30,16 +30,16 @@ class Ares_CopyPaste_Dialog
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
-			h = 22.5 * GUI_GRID_H;
+			h = 20.5 * GUI_GRID_H;
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
 		class Ares_Dialog_Bottom: IGUIBack
 		{
 			idc = 2010;
 
-			x = 5.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 22 * GUI_GRID_H + GUI_GRID_Y;
-			w = 29.5 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			w = 28 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
@@ -48,7 +48,7 @@ class Ares_CopyPaste_Dialog
 			onButtonClick = "uiNamespace setVariable ['Ares_CopyPaste_Dialog_Result', 1]; closeDialog 1;";
 			idc = 3000;
 			x = 35.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 22 * GUI_GRID_H + GUI_GRID_Y;
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;
 			w = 4 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
@@ -59,31 +59,11 @@ class Ares_CopyPaste_Dialog
 			onButtonClick = "uiNamespace setVariable ['Ares_CopyPaste_Dialog_Result', -1]; closeDialog 2;";
 			idc = 3010;
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 22 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
-		};
-		class Ares_Dialog_Paragraph_Combo: RscText
-		{
-			idc = 1010;
-			text = "Mode:"; //--- ToDo: Localize;
-			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 39 * GUI_GRID_W;
-			h = 2 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.6};
-		};
-		class Ares_Dialog_Combo: RscCombo
-		{
-			onLBSelChanged = "uiNamespace setVariable ['Ares_CopyPaste_Dialog_Constraint', _this select 1];";
-			idc = 4000;
-			x = 16 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
-			w = 22.5 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.5};
 		};
 		class Ares_Background_Edit: IGUIBack
 		{
@@ -99,7 +79,7 @@ class Ares_CopyPaste_Dialog
 		{
 			idc = 1020;
 
-			text = "Paste code in the box below with CTRL + V:"; //--- ToDo: Localize;
+			text = "$STR_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS"; //--- ToDo: Localize;
 			x = 1 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 39 * GUI_GRID_W;

@@ -1,5 +1,5 @@
 class Object0 {side=8;rank="";vehicle="Land_HBarrier_5_F";position[]={0,0,0};dir=354.346;};
-class Object1 {side=8;rank="";vehicle="Box_IND_Ammo_F";position[]={14.8154,-9.85547,-0.0120239};dir=260.785;};
+class Object1 {side=8;rank="";vehicle="Land_Ammobox_rounds_F";position[]={14.8154,-9.85547,-0.0120239};dir=260.785;};
 class Object2 {side=8;rank="";vehicle="Land_Shovel_F";position[]={1.61279,-10.8125,0.00975037};dir=47.7618;};
 class Object3 {side=8;rank="";vehicle="Land_Shovel_F";position[]={1.60986,-10.9082,-0.012085};dir=139.24;};
 class Object4 {side=8;rank="";vehicle="Land_Garbage_square5_F";position[]={1.36133,-6.16992,-0.0120087};dir=0;};

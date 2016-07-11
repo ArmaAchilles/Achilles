@@ -12,7 +12,7 @@
 //	_this:					ARRAY  - array of class names which inherits from the given config
 //
 //	Example:
-//	_class_name_list = _paret_cfg_class call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass;
+//	_class_name_list = _parent_cfg_class call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 _parent_cfg_class = _this;

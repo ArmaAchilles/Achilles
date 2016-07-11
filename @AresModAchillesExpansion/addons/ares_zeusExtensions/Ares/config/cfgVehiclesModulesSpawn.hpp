@@ -28,3 +28,17 @@ class Ares_Module_Spawn_Intel : Ares_Spawn_Module_Base
 	icon = "\ares_zeusExtensions\Achilles\data\icon_default_object.paa";
 	portrait = "\ares_zeusExtensions\Achilles\data\icon_default_object.paa";
 };
+
+class Ares_Module_Spawn_Advanced_Composition : Ares_Spawn_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_ADVANCED_COMPOSITION";
+	function = "Ares_fnc_SpawnAdvancedCompositions";
+};
+
+class Ares_Module_Spawn_Explosives : Ares_Spawn_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_MINES_EXPLOSIVES";
+	function = "Ares_fnc_SpawnExplosives";
+};

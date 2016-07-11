@@ -34,6 +34,9 @@ class Achilles // This bit will be prefixed when actually calling the function (
 		class Chatter;
 		class changeAbility;
 		class SwitchZeusSide;
+		class ambientAnim;
+		class ambientAnimGetParams;
+		class ACS_toggleGrouping;
 	};
 	
 	// Module Functions
@@ -44,4 +47,5 @@ class Achilles // This bit will be prefixed when actually calling the function (
 	#include "cfgFunctionsFireSupport.hpp"
 	#include "cfgFunctionsBuildings.hpp"
 	#include "cfgFunctionsEffects.hpp"
+	#include "cfgFunctionsObjects.hpp"
 };

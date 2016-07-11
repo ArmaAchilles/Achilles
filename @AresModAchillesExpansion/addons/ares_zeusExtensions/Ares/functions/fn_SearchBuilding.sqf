@@ -8,7 +8,8 @@ Parameters:
 	3 - (Optional) Position Array - The center point to use as the search. Default is group leader position.
 	4 - (Optional) Boolean - True to include the group leader in the search, False to have him wait outside. Default is 'False'.
 	5 - (Optional) Boolean - True to have units stay in their building positions, false to return outside after completing the search. Default false.
-	6 - (Optional) Boolean - True to show debug spheres during search, false otherwise. Default false.
+	6 - (Optional) Boolean - True to delete all current waypoints.
+	7 - (Optional) Boolean - True to show debug spheres during search, false otherwise. Default false.
 
 JTD Building Search Script
 	by Trexian
@@ -24,7 +25,7 @@ Testers/Feedback:
 	Manzilla
 	
 	Imported from http://forums.bistudio.com/showthread.php?112775-JTD-Building-Search-script
-	Modified by Anton Struyk
+	Modified by Anton Struyk and Kex
 */
 
 private ["_grpFM", "_FunctionsManager", "_group", "_leader", "_ldrPos", "_previousBehaviour", "_srchRad", "_whichOne", "_initialPos", "_includeLeaderInSearch", "_occupy", "_bldgArray", "_tempArray", "_bldgLoc", "_bldgSelect", "_searchersT", "_searchers", "_searcherCount", "_s", "_checkTime", "_wpArray", "_currWP", "_wpCnt", "_d", "_t", "_b", "_bldg", "_bldgPos", "_bldgCnt", "_nameMarker", "_marker", "_bldgBB", "_wpRad", "_wp", "_positionsInBuilding", "_totTime", "_activeBP", "_loop", "_cycle", "_unitSelect", "_units"];
@@ -43,7 +44,8 @@ _whichOne = [_this, 2, "RANDOM", ["RANDOM"]] call BIS_fnc_param;
 _initialPos = [_this, 3, _ldrPos, [[]], 3] call BIS_fnc_param;
 _includeLeaderInSearch = [_this, 4, false, [false]] call BIS_fnc_param;
 _occupy = [_this, 5, false, [false]] call BIS_fnc_param;
-_debug = [_this, 6, false, [false]] call BIS_fnc_param;
+_delete_waypoint = [_this, 6, false, [false]] call BIS_fnc_param;
+_debug = [_this, 7, false, [false]] call BIS_fnc_param;
 
 // This file needs to be Self-Contained and use only standard BIS functions
 // since it will be run on the server and Ares functions may not be available.
@@ -74,13 +76,16 @@ if (_srchRad < 1) then {_srchRad = 1};
 if ((_whichOne != "NEAREST") && (_whichOne != "RANDOM")) then {_whichOne = "RANDOM"};
 
 // remove group's waypoints
-_wpArray = waypoints _group;
-_wpCnt = count _wpArray;
-if (_wpCnt > 1) then
+if (_delete_waypoint) then
 {
-	for [{_d = 0}, {_d <= _wpCnt}, {_d = _d + 1}] do
+	_wpArray = waypoints _group;
+	_wpCnt = count _wpArray;
+	if (_wpCnt > 1) then
 	{
-		deleteWaypoint [_group, _d];
+		for [{_d = 0}, {_d <= _wpCnt}, {_d = _d + 1}] do
+		{
+			deleteWaypoint [_group, _d];
+		};
 	};
 };
 
@@ -133,6 +138,8 @@ while { str(_bldgSelect buildingPos _positionCount) != "[0,0,0]" }
 do
 {
 	_currentPosition = _bldgSelect buildingPos _positionCount;
+	// Kex: exclude part which caused error!!!
+	/*
 	// Check that the point isn't outside.
 	if (!lineIntersects [_currentPosition, [_currentPosition select 0, _currentPosition select 1, (_currentPosition select 2) + 25], objNull, objNull]) then
 	{
@@ -143,6 +150,9 @@ do
 			(_debugMarkers select (count _debugMarkers - 1)) setPosAtl _currentPosition;
 		};
 	};
+	_positionCount = _positionCount + 1;
+	*/
+	_positionsInBuilding = _positionsInBuilding + [_currentPosition];
 	_positionCount = _positionCount + 1;
 };
 

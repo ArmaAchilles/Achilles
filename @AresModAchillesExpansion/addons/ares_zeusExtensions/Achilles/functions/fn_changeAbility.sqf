@@ -40,7 +40,7 @@ if (count _dialogResult == 0) exitWith {};
 
 if (isNull (_units select 0)) then
 {
-	_units = ["units"] call Achilles_fnc_SelectUnits;
+	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 };
 if (count _units == 0) exitWith {};
 {

@@ -23,5 +23,11 @@ class Ares_Module_Change_Player_Side : Ares_Player_Module_Base
 	icon = "\ares_zeusExtensions\Achilles\data\icon_default_unit.paa";
 	portrait = "\ares_zeusExtensions\Achilles\data\icon_default_unit.paa";
 };
+class ModuleBootcampStage_F : Module_F {};
+class ModulePunishment_F : ModuleBootcampStage_F
+{
+	category = "Ares";
+	subCategory = "$STR_PLAYER";
+};
 
 

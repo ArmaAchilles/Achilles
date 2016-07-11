@@ -11,7 +11,11 @@
 
 _index = [_this, 0, 0] call BIS_fnc_param;
 
-_names = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"];
+_names = [];
+for '_i' from 97 to 122 do 
+{
+	_names pushBack (localize format ["str_a3_radio_%1",toString [_i]]);
+};
 
 private ["_name"];
 if (_index >= count _names) then

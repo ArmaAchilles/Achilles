@@ -9,8 +9,8 @@ _dialogResult =
 	[
 		[localize "STR_INTENSITY",
 		[
-			localize "STR_VERY_WEEK",
-			localize "STR_WEEK",
+			localize "STR_VERY_WEAK",
+			localize "STR_WEAK",
 			localize "STR_MEDIUM",
 			localize "STR_STRONG"
 		]],

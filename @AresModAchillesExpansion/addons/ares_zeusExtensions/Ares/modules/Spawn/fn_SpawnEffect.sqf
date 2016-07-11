@@ -12,7 +12,7 @@ _dialogResult =
 	localize "STR_SPAWN_EFFECT",
 	[
 		[localize "STR_CATEGORY", _category_names],
-		[localize "STR_TYPE", ["PLACEHOLDER"]]
+		[localize "STR_TYPE", ["..."]]
 	],
 	"Ares_fnc_RscDisplayAtttributes_SpawnEffect"
 ] call Ares_fnc_ShowChooseDialog;
@@ -33,6 +33,7 @@ _module_type = if (_module_category in NO_CHOICE_MODULES) then
 
 _group = group _logic;
 _effect_logic = _group createUnit [_module_type, _spawnPos, [], 0, "NONE"];
+_effect_logic setPos _spawnPos;
 [[_effect_logic]] call Ares_fnc_AddUnitsToCurator;
 
 _logic setVariable ["effect_class",_module_type];

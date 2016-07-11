@@ -1,7 +1,6 @@
 // Blacklist for modules that grab objects. These types should not be added to Zeus automatically.
 Ares_EditableObjectBlacklist =
 [
-	"Ares_Module_Util_Create_Composition",
 	"ModuleCurator_F",
 	"GroundWeaponHolder",
 	"Salema_F",
@@ -18,7 +17,6 @@ Ares_EditableObjectBlacklist =
 	"Cock_white_F",
 	"Sheep_random_F"
 ];
-
 if(isServer && isDedicated) exitWith { ["Aborting Ares init - Dedicated server detected."] call Ares_fnc_LogMessage; };
 
 // public functions:
@@ -63,3 +61,4 @@ publicVariable "Ares_fnc_addIntel";
 		["... Failed initializing events!"] call Ares_fnc_LogMessage;
 	};
 };
+[] spawn compile preprocessFileLineNumbers "\ares_zeusExtensions\Compositions\Adcanced Compositions\Ares_var_advanced_compositions.sqf";

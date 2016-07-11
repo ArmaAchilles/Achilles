@@ -6,7 +6,7 @@
 //  DESCRIPTION: Let the curator select units and submit the selection
 //
 //	ARGUMENTS:
-//	_this select 0:		STRING	- (Default: "objects") Tells what has to be selected
+//	_this select 0:		STRING	- (Default: localize "STR_OBJECTS") Tells what has to be selected
 //	_this select 1:		BOOL	- (Default: false) If true only one object is returned. Otherwise the array of all groups / objects is returned.
 //
 //	RETURNS:
@@ -18,7 +18,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_type = param [0, "objects", [""]];
+_type = param [0, localize "STR_OBJECTS", [""]];
 _single = param [1, false, [false]];
 
 disableSerialization;
@@ -31,7 +31,7 @@ Achilles_var_submit_selection = nil;
 playSound "FD_Finish_F";
 [["Ares","SelectionOption"]] call BIS_fnc_advHint;
 
-_ctrlMessage ctrlsettext toupper (format ["Select %1 to which the module should be applied!",_type]);
+_ctrlMessage ctrlsettext toupper (format [localize "STR_SELECT_X_APPLIED_TO_MODULE",_type]);
 _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0;
 _ctrlMessage ctrlsetfade 0;
@@ -54,10 +54,10 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (! Achilles_var_submit_selection) exitWith {["Selection cancled!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (! Achilles_var_submit_selection) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 // if enter was pressed
-["Selection submitted!"] call Ares_fnc_ShowZeusMessage;
+[localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
 if (_single) then 
 {

@@ -83,7 +83,7 @@ _pickBatteryResult = [
 		localize "STR_SELECT_BATTERY_TO_FIRE",
 		[
 			[localize "STR_BATTERY", _batteryTypes],
-			[format [localize "Target", " "],[localize "STR_MARKER",localize "STR_GRID"]]
+			[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
 		]] call Ares_fnc_ShowChooseDialog;
 if (count _pickBatteryResult == 0) exitWith {};
 _battery = _batteries select (_pickBatteryResult select 0);
@@ -169,8 +169,8 @@ if (_mode == 0) then
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
 			[localize "STR_AMMO", _artilleryAmmo],
-			[localize "STR_GRID_EAST_WEST_XXX", ""],
-			[localize "STR_GRID_NORTH_SOUTH_XXX", ""]
+			[localize "STR_GRID_EAST_WEST_XXX", "","000"],
+			[localize "STR_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (count _pickFireMissionResult == 0) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };

@@ -80,10 +80,6 @@ if (not isNil "Ares_Custom_Modules") then
 _ctrl tvSort [[], false];
 for "_i" from 0 to ((_ctrl tvCount []) - 1) do {_ctrl tvSort [[_i], false];};
 
-// provisional !!!!!!!!!!!!!!!!
-if (_ctrl tvText [0] == "") then {_ctrl tvDelete [0]; _category_list = _category_list - [""]};
-// provisional !!!!!!!!!!!!!!!!
-
 //get module list
 _category_list sort true;
 Ares_category_list = _category_list;

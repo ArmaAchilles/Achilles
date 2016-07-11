@@ -1,9 +1,9 @@
-class Ares_Arsenal_Dialog
+class Ares_ExecuteCode_Dialog
 {
 	idd = 123;
 	movingEnable = false;
-	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_Arsenal_Dialog_Text', '']);";
-	onUnload = "uiNamespace setVariable ['Ares_Arsenal_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
+	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
+	onUnload = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
 	class controls 
 	{
@@ -15,7 +15,7 @@ class Ares_Arsenal_Dialog
 		{
 			idc = 1000;
 
-			text = "Arsenal Dialog"; //--- ToDo: Localize;
+			text = "$STR_EXECUTE_CODE"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 38 * GUI_GRID_W;
@@ -30,25 +30,25 @@ class Ares_Arsenal_Dialog
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
-			h = 20.5 * GUI_GRID_H;
+			h = 22.5 * GUI_GRID_H;
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
 		class Ares_Dialog_Bottom: IGUIBack
 		{
 			idc = 2010;
 
-			x = 5.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
-			w = 29.5 * GUI_GRID_W;
+			x = 7 * GUI_GRID_W + GUI_GRID_X;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
+			w = 28 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
 		class Ares_Ok_Button: RscButtonMenuOK
 		{
-			onButtonClick = "uiNamespace setVariable ['Ares_Arsenal_Dialog_Result', 1]; closeDialog 1;";
+			onButtonClick = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Result', 1]; closeDialog 1;";
 			idc = 3000;
 			x = 35.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 4 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
@@ -56,14 +56,34 @@ class Ares_Arsenal_Dialog
 		};
 		class Ares_Cancle_Button: RscButtonMenuCancel
 		{
-			onButtonClick = "uiNamespace setVariable ['Ares_Arsenal_Dialog_Result', -1]; closeDialog 2;";
+			onButtonClick = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Result', -1]; closeDialog 2;";
 			idc = 3010;
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
-			w = 4.5 * GUI_GRID_W;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
+		};
+		class Ares_Dialog_Paragraph_Combo: RscText
+		{
+			idc = 1010;
+			text = "Mode:"; //--- ToDo: Localize;
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 39 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.6};
+		};
+		class Ares_Dialog_Combo: RscCombo
+		{
+			onLBSelChanged = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Constraint', _this select 1];";
+			idc = 4000;
+			x = 16 * GUI_GRID_W + GUI_GRID_X;
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			w = 22.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.5};
 		};
 		class Ares_Background_Edit: IGUIBack
 		{
@@ -79,7 +99,7 @@ class Ares_Arsenal_Dialog
 		{
 			idc = 1020;
 
-			text = "Copy/Paste clipboard contents using CTRL+C and CTRL+V"; //--- ToDo: Localize;
+			text = "$STR_WRITE_OR_PASTE_CODE"; //--- ToDo: Localize;
 			x = 1 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 39 * GUI_GRID_W;

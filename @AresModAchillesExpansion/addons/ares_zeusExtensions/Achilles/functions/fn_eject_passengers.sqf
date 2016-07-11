@@ -20,7 +20,6 @@
 _vehicles = _this;
 
 {
-	systemChat 'hh';
 	_vehicle = _x;
 	if (_vehicle isKindOf "LandVehicle" or _vehicle isKindOf "Air") then
 	{

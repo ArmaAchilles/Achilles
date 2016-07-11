@@ -16,18 +16,38 @@
 //	systemChat _variable_name; //"myni_variabla"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define OLD_LETTERS	[" ",":","ä","ö","ü","é","è","à","ç","î","ë","ê","ù","û","ô","â","ï","ÿ","(",")","[","]"]
-#define NEW_LETTERS	["_","_","a","o","u","e","e","a","c","i","e","e","u","u","o","a","i","y","_","_","_","_"]
 
-if (isNil "Achilles_var_old_special_char") then
+if (isNil "Achilles_var_old_special_char_unicode") then
 {
-	Achilles_var_old_special_char = [];
-	Achilles_var_new_special_char = [];
+	Achilles_var_old_special_char_unicode = [];
+	Achilles_var_new_special_char_unicode = [];
 	
-	for "_i" from 0 to ((count OLD_LETTERS) - 1) do
+	_old_letters = [" ",":","(",")","[","]"];
+	_new_letters = ["_","_","_","_","_","_"];
+	
+	switch (language) do
 	{
-		Achilles_var_old_special_char append (toArray (OLD_LETTERS select _i));
-		Achilles_var_new_special_char append (toArray (NEW_LETTERS select _i));
+		case "German": 
+		{
+			_old_letters append ["Ä","ä","Ö","ö","Ü","ü"];
+			_new_letters append ["A","a","O","o","U","u"];
+		};
+		case "French":
+		{
+			_old_letters append ["é","è","à","ç","î","ë","ê","ù","û","ô","â","ï","ÿ"];
+			_new_letters append ["e","e","a","c","i","e","e","u","u","o","a","i","y"];
+		};	
+		case "Russian":
+		{
+			_old_letters append ["А","а","Б","б","В","в","Г","г","Д","д","Е","е","Ё","ё","Ж","ж","З","з","И","и","Й","й","К","к","Л","л","М","м","Н","н","О","о","П","п","Р","р","С","с","Т","т","У","у","Ф","ф","Х","х","Ц","ц","Ч","ч","Ш","ш","Щ","щ","Ъ","ъ","Ы","ы","Ь","ь","Э","э","Ю","ю","Я","я"];
+			_new_letters append ["A","a","B","b","V","v","G","g","D","d","E","e","E","e","Z","z","Z","z","I","i","J","j","K","k","L","l","M","m","N","n","O","o","P","p","R","r","S","s","T","t","U","u","F","f","C","c","C","c","C","c","S","s","S","s","_","_","Y","y","_","_","E","e","U","u","J","j"];
+		};
+	};
+	
+	for "_i" from 0 to ((count _old_letters) - 1) do
+	{
+		Achilles_var_old_special_char_unicode append (toArray (_old_letters select _i));
+		Achilles_var_new_special_char_unicode append (toArray (_new_letters select _i));
 	};
 };
 
@@ -37,10 +57,10 @@ _input_unicode = toArray _this;
 
 for "_i" from 0 to ((count _input_unicode) - 1) do
 {
-	_letter_index = Achilles_var_old_special_char find (_input_unicode select _i);
+	_letter_index = Achilles_var_old_special_char_unicode find (_input_unicode select _i);
 	if (_letter_index != -1) then
 	{
-		_input_unicode set [_i,Achilles_var_new_special_char select _letter_index];
+		_input_unicode set [_i,Achilles_var_new_special_char_unicode select _letter_index];
 	};
 };
 

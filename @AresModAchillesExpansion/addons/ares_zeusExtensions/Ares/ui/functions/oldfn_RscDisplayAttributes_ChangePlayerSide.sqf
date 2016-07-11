@@ -8,6 +8,7 @@
 disableSerialization;
 _dialog = findDisplay DYNAMIC_GUI_IDD;
 
+private "_selection";
 _selection = param [2,3,[0]];
 
 if (_selection == 3) then

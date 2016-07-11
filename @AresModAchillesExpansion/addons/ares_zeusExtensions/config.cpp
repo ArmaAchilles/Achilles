@@ -29,9 +29,9 @@ class CfgPatches
 		requiredVersion = 0.1;
 		author = "Kex";
 		authorUrl = "https://github.com/oOKexOo/AresModAchillesExpansion";
-		version = 0.0.1;
-		versionStr = "0.0.1";
-		versionAr[] = {0,0,1};
+		version = 0.0.2;
+		versionStr = "0.0.2";
+		versionAr[] = {0,0,2};
 		
 		#include "Achilles\config\units.hpp"
 
@@ -128,7 +128,7 @@ class CfgVehicles
 	
 	class Ares_Arsenal_Module_Base : Ares_Module_base
 	{
-		subCategory = "Arsenal";	
+		subCategory = "$STR_ARSENAL";	
 	};
 
 	class Ares_Behaviours_Module_Base : Ares_Module_Base
@@ -209,6 +209,11 @@ class CfgVehicles
 		portrait = "\ares_zeusExtensions\Achilles\data\icon_position.paa";		
 	};
 	
+	class Achilles_Objects_Module_Base : Ares_Module_Base
+	{
+		subCategory = "$STR_OBJECTS";		
+	};
+	
 	// Placeholder class that doesn't do anything. Used for generating categories in UI.
 	class Ares_Module_Empty : Ares_Module_Base
 	{
@@ -238,6 +243,7 @@ class CfgVehicles
 	#include "Achilles\config\cfgVehiclesModulesEnvironment.hpp"
 	#include "Achilles\config\cfgVehiclesModulesFireSupport.hpp"
 	#include "Achilles\config\cfgVehiclesModulesBuildings.hpp"
+	#include "Achilles\config\cfgVehiclesModulesObjects.hpp"
 	
 	//#include "Achilles\config\cfgVehiclesCAS.hpp"
 	#include "Achilles\config\cfgVehiclesModuleEffects.hpp"
@@ -264,10 +270,9 @@ class CfgWeapons
 
 #include "Ares\ui\baseDialogs.hpp"
 #include "Ares\ui\copyPasteDialog.hpp"
-#include "Ares\ui\ArsenalDialog.hpp"
+#include "Ares\ui\ExecuteCodeDialog.hpp"
 #include "Ares\ui\dynamicDialog.hpp"
-#include "Ares\ui\dialogInvolvingSides.hpp"
-
+#include "Ares\ui\compositionsDialog.hpp"
 
 // Achilles
 

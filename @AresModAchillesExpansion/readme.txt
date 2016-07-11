@@ -2,14 +2,36 @@ Ares is a mod aimed expanding the tools available to Zeus so that it is possible
 
 Ares is designed to work with dedicated servers which may be running missions that allow JIP and respawn. The new functionality it is aimed at running with trusted players in a structured mission and is not recommended for general 'public server' play.
 
-Check out the full feature list and documentation at: https://github.com/astruyk/Ares/wiki
-Or check out the source code at: https://github.com/astruyk/Ares
+Check out the documentation for Ares at: https://github.com/astruyk/Ares/wiki
+Or check out the source code at: https://github.com/astruyk/Ares and https://github.com/oOKexOo/AresModAchillesExpansion/
 
 Requirements:
 As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is running alongside @Ares if you are using Zeus. Clients that aren't running @Ares (e.g. non-zeus players) do not need to run @CBA_A3.
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Changelists
+
+V.0.0.2 (Achilles Expansion (alpha version))
+* Feature: More ambient animations + combat ready option
+* Feature: Spawn Mines/Explosives module.
+* Feature: More waypoints are avaiable.
+* Feature: Russian translation (not complete yet)
+* Feature: Advanced compositions system
+* Feature: Object modification modules: change hight, attach to.
+* Change:  Surrender Unit module can be applied on multiple units.
+* Change:  List option for teleport dialog is aviable again.
+* Fix:     Locality issues for ambient animations.
+* Fix:     Ambient animations could not be terminated.
+* Fix:     Errors in stringtable (Earthquake + Reinforcement).
+* Fix:     Copy mission SQF module from Ares was missing.
+* Fix:     Disable simulation module from Ares was missing.
+* Fix:     Effect modules did not spawn at the exact defined position.
+* Fix:     Teleport Module did not teleport vehicles.
+* Fix:     Advanced Waypoints (ACE fast-roping, Land, ...) did not work.
+* Fix:     BIS campaign compositions included vehicles and ammo boxes.
+* Fix:     Search and occupy building script did not work anymore.
+* Fix:     Last choices in some dialogs were not saved properly.
+* Fix:     Cancle button was to small for german translation.
 
 V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
 * Feature: Avaiable languages: English, French, German (not yet completed)
@@ -42,8 +64,6 @@ V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
 * Fix:     Module tree is no longer collapsed when switching the taps.
 * Fix:     The modules will now show up as soon as "Zeus" module category shows up too
 * Additional fixes and change in code structure
-
-
 
 V.1.8.1 (basic version)
 * Fix some broken inheritance for vests and hats that might have been interfering with other equipment mods

@@ -26,8 +26,8 @@ if (not isnull _ammoBox) then
 	// Don't do this anytime since it doesn't work on dedicated servers.
 	//copyToClipboard _stringData;
 	
-	uiNamespace setVariable ['Ares_Arsenal_Dialog_Text', _stringData];
-	_dialog = createDialog "Ares_Arsenal_Dialog";
+	uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _stringData];
+	_dialog = createDialog "Ares_CopyPaste_Dialog";
 
 	[objNull, "Copied items from arsenal to clipboard."] call bis_fnc_showCuratorFeedbackMessage;
 };

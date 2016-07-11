@@ -13,22 +13,11 @@
 
 _VALID_CATEGORIES = [localize "STR_CHOPPERS", localize "STR_CARS", localize "STR_APCS", localize "STR_TANKS", localize "STR_SHIPS"];
 
-
-/*
-IDD_RSCDISPLAYCURATOR = 312;
- IDD_SPAWN_REINFORCEMENT			=	133798;
- IDC_SPAWN_REINFORCEMENT_SIDE 		=20000;
- IDC_SPAWN_REINFORCEMENT_FACTION	=	20001;
- IDC_SPAWN_REINFORCEMENT_CATEGORY	=20002;
- IDC_SPAWN_REINFORCEMENT_VEHICLE	=	20003;
- IDC_SPAWN_REINFORCEMENT_LZDZ		=20005;
- IDC_SPAWN_REINFORCEMENT_GROUP		=20006;
- CURATOR_IDCs = [271, 270, 272];
- _VALID_CATEGORIES = ["Helicopters","Cars","Tanks","APCs","Boats"];
-*/
 disableSerialization;
 _display = findDisplay IDD_RSCDISPLAYCURATOR;
 _dialog = findDisplay IDD_SPAWN_REINFORCEMENT;
+
+private ["_mode", "_ctrl", "_comboIndex"];
 
 _mode = _this select 0;
 _ctrl = param [1,controlNull,[controlNull]];
@@ -37,7 +26,7 @@ _comboIndex = param [2,0,[0]];
 switch (_mode) do
 {
 	case "LOADED":
-	{	
+	{
 		_avaiable_faction_names = [[],[],[]];
 		_avaiable_faction_paths = [[],[],[]];
 		{
@@ -135,7 +124,6 @@ switch (_mode) do
 						{
 							_vehicle_path = _category_path + [_i];
 							_vehicle_class = _tree_ctrl tvData _vehicle_path;
-							// minimal cargo space == 2
 							_CrewTara = [_vehicle_class,false] call BIS_fnc_crewCount;
 							_CrewBrutto =  [_vehicle_class,true] call BIS_fnc_crewCount;
 							_CrewNetto = _CrewBrutto - _CrewTara;
@@ -173,12 +161,22 @@ switch (_mode) do
 		_dialog setVariable ["vehicle_classes",_avaiable_vehicle_classes];
 		_dialog setVariable ["infantry_groups",_infantry_groups];
 		
-		[((localize "STR_SIDE") call Achilles_fnc_TextToVariableName),controlNull,0] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
+		{
+			_ctrl = _dialog displayCtrl (IDC_SPAWN_REINFORCEMENT_SIDE + _x);
+			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
+			_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+			_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+			_ctrl lbSetCurSel _last_choice;
+			if (_x == 0) then
+			{
+				[0,_ctrl,_last_choice] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
+			};
+		} forEach [0,4,5,7,8];		
 	};
-	case ((localize "STR_SIDE") call Achilles_fnc_TextToVariableName):
+	case "0":
 	{
-		_side_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_SIDE;
-		_current_side = lbCurSel _side_ctrl;
+		_side_ctrl = _ctrl;
+		_current_side = _comboIndex;
 		
 		_avaiable_faction_names = _dialog getVariable ["factions",[]];
 		if (count _avaiable_faction_names == 0) exitWith {};
@@ -187,14 +185,18 @@ switch (_mode) do
 		_faction_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_FACTION;
 		lbClear _faction_ctrl;
 		{_faction_ctrl lbAdd _x} forEach _current_factions;
-		_faction_ctrl lbSetCurSel 0;
+		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
+		_last_choice = if (_last_choice < lbSize _faction_ctrl) then {_last_choice} else {(lbSize _faction_ctrl) - 1};
+		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+		_faction_ctrl lbSetCurSel _last_choice;
 		
-		[((localize "STR_FACTION") call Achilles_fnc_TextToVariableName),controlNull,0] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];
+		[1,_faction_ctrl,_last_choice] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
 	};
-	case ((localize "STR_FACTION") call Achilles_fnc_TextToVariableName):
+	case "1":
 	{
-		_faction_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_FACTION;
-		_current_faction = lbCurSel _faction_ctrl;
+		_faction_ctrl = _ctrl;
+		_current_faction = _comboIndex;
 		_side_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_SIDE;
 		_current_side = lbCurSel _side_ctrl;
 		
@@ -205,10 +207,13 @@ switch (_mode) do
 		_category_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_CATEGORY;
 		lbClear _category_ctrl;
 		{_category_ctrl lbAdd _x} forEach _current_categories;
-		_category_ctrl lbSetCurSel 0;
+
+		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
+		_last_choice = if (_last_choice < lbSize _category_ctrl) then {_last_choice} else {(lbSize _category_ctrl) - 1};
+		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+		_category_ctrl lbSetCurSel _last_choice;
 		
-		[((localize "STR_VEHICLE_CATEGORY") call Achilles_fnc_TextToVariableName),controlNull,0] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
-	
+		[2,_category_ctrl,_last_choice] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;		
 	
 		_infantry_groups = _dialog getVariable ["infantry_groups",[]];
 		if (count _infantry_groups == 0) exitWith {};
@@ -218,14 +223,19 @@ switch (_mode) do
 		_group_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_GROUP;
 		lbClear _group_ctrl;
 		{_group_ctrl lbAdd _x} forEach _current_GroupNames;
-		_group_ctrl lbSetCurSel 0;
+
+		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_6", 0];
+		_last_choice = if (_last_choice < lbSize _group_ctrl) then {_last_choice} else {(lbSize _group_ctrl) - 1};
+		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+		_group_ctrl lbSetCurSel _last_choice;
 		
-		[((localize "STR_INFANTRY_GROUP") call Achilles_fnc_TextToVariableName),controlNull,0] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_1", _comboIndex];
+		[6,_group_ctrl,_last_choice] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
 	};
-	case ((localize "STR_VEHICLE_CATEGORY") call Achilles_fnc_TextToVariableName):
+	case "2":
 	{
-		_category_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_CATEGORY;
-		_current_category = lbCurSel _category_ctrl;
+		_category_ctrl = _ctrl;
+		_current_category = _comboIndex;
 		_faction_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_FACTION;
 		_current_faction = lbCurSel _faction_ctrl;
 		_side_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_SIDE;
@@ -238,11 +248,16 @@ switch (_mode) do
 		_vehicle_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_VEHICLE;
 		lbClear _vehicle_ctrl;
 		{_vehicle_ctrl lbAdd _x} forEach _current_vehicles;
-		_vehicle_ctrl lbSetCurSel 0;
+
+		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_3", 0];
+		_last_choice = if (_last_choice < lbSize _vehicle_ctrl) then {_last_choice} else {(lbSize _vehicle_ctrl) - 1};
+		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+		_vehicle_ctrl lbSetCurSel _last_choice;
 		
-		[((localize "STR_VEHICLE") call Achilles_fnc_TextToVariableName),controlNull,0] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_2", _comboIndex];
+		[3,_vehicle_ctrl,_last_choice] call Ares_fnc_RscDisplayAttributes_Create_Reinforcement;
 	};
-	case ((localize "STR_VEHICLE") call Achilles_fnc_TextToVariableName):
+	case "3":
 	{
 		_category_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_CATEGORY;
 		_current_category = lbCurSel _category_ctrl;
@@ -254,8 +269,10 @@ switch (_mode) do
 		_avaiable_vehicle_classes = _dialog getVariable ["vehicle_classes",[]];
 		if (count _avaiable_vehicle_classes == 0) exitWith {};
 		Ares_var_reinforcement_vehicle_class = _avaiable_vehicle_classes select _current_side select _current_faction select _current_category select _comboIndex; 
+		
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_3", _comboIndex];
 	};
-	case ((localize "STR_INFANTRY_GROUP") call Achilles_fnc_TextToVariableName):
+	case "6":
 	{
 		_faction_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_FACTION;
 		_current_faction = lbCurSel _faction_ctrl;
@@ -265,6 +282,12 @@ switch (_mode) do
 		_infantry_groups = _dialog getVariable ["infantry_groups",[]];
 		if (count _infantry_groups == 0) exitWith {};
 		Ares_var_reinforcement_infantry_group =  _infantry_groups select _current_side select _current_faction select _comboIndex;
+		
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_6", _comboIndex];
 	};
-	default {};
+	case "UNLOAD" : {};
+	default 
+	{
+		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _mode], _comboIndex];
+	};
 };

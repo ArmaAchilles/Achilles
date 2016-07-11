@@ -1,5 +1,5 @@
 /*
- * Author: BaerMitUmlaut
+ * Author: BaerMitUmlaut, modified by Kex
  * Waypoint function for the fast rope waypoint.
  *
  * Arguments:
@@ -21,14 +21,28 @@ private ["_vehicle", "_commander", "_speedMode"];
 _vehicle = vehicle leader _group;
 _commander = effectiveCommander _vehicle;
 _speedMode = speedMode _group;
-hint 'gg';
+
+// Kex: check if ACE avaiable
+if (not (isClass (configfile >> "CfgPatches" >> "ace_main"))) exitWith {true};
+
+// Kex: check if vehicle is capable of FRIES and if true equip it with FIRES
+[_vehicle]  call ace_fastroping_fnc_equipFRIES; 
+if (not ([_vehicle]  call ace_fastroping_fnc_canPrepareFRIES)) exitWith {true};
+
+// Kex: prevent pilot from being stupid
+_group allowFleeing 0;
+_pilot = driver _vehicle;
+_pilot setSkill 1;
+
 // - Approach -----------------------------------------------------------------
-if (_vehicle distance2D _position > 50) then {
+if (_vehicle distance2D _position > 50) then 
+{
     _group setSpeedMode "LIMITED";
-    _vehicle flyInHeight 9;
-	hint 'hh';
     _commander doMove _position;
-    waitUntil {_vehicle distance2D _position < 50};
+	waitUntil {unitready _vehicle};
+	_vehicle flyInHeight 9;
+	_vehicle doMove _position;
+    waitUntil {((getPos _vehicle) select 2) < 20};
     waitUntil {vectorMagnitude (velocity _vehicle) < 3};
     //doStop _commander;
 };
@@ -39,5 +53,6 @@ waitUntil {!((_vehicle getVariable ["ace_fastroping_deployedRopes", []]) isEqual
 waitUntil {(_vehicle getVariable ["ace_fastroping_deployedRopes", []]) isEqualTo []};
 _group setSpeedMode _speedMode;
 _vehicle flyInHeight 20;
+_vehicle doMove _position;
 
 true

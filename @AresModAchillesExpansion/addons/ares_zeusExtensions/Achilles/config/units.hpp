@@ -22,5 +22,8 @@ units[] =
 	"Achilles_Module_Fire_Support_Create_Artillery_Target",
 	"Achilles_Module_Suppressive_Fire",
 	"Achilles_Module_Fire_Support_Create_Suppression_Target",
-	"Achilles_Module_Buildings_Destroy"
+	"Achilles_Module_Buildings_Destroy",
+	"Achilles_Module_Toggle_Simulation",
+	"Achilles_Module_Attach_To",
+	"Achilles_Module_Set_Height"
 };

@@ -59,11 +59,15 @@ class Ares // This bit will be prefixed when actually calling the function (e.g.
 	{
 		file = "\ares_zeusExtensions\Ares\ui\functions";
 
-		class RscDisplayAttributes_Teleport;
+		class RscDisplayAttributes_selectPlayers;
 		class RscDisplayAttributes_Create_Reinforcement;
 		class RscDisplayAttributes_BuildingsDestroy;
-		class RscDisplayAttributes_ChangePlayerSide;
 		class RscDisplayAtttributes_SpawnEffect;
+		class RscDisplayAttributes_SpawnAdvancedComposition;
+		class RscDisplayAttributes_manageAdvancedComposition;
+		class RscDisplayAttributes_createAdvancedComposition;
+		class RscDisplayAttributes_SpawnExplosives;
+		class RscDisplayAttributes_editAdvancedComposition;
 	};
 
 	// Functions to perform module actions

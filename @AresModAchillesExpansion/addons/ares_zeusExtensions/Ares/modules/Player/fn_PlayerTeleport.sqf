@@ -13,10 +13,11 @@ _tp_pos = position _logic;
 _dialogResult = [
 	localize "STR_TELEPORT", 
 	[ 
-		[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
+		[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
+		["", ["..."]],
 		[localize "STR_SIDE","ALLSIDE"]
 	],
-	"Ares_fnc_RscDisplayAttributes_Teleport"
+	"Ares_fnc_RscDisplayAttributes_selectPlayers"
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
@@ -35,11 +36,19 @@ _playersToTeleport = switch (_dialogResult select 0) do
 	};
 	case 2: 
 	{
-		_side_index = _dialogResult select 1;
+		_side_index = _dialogResult select 2;
 		if (_side_index == 0) exitWith {[player]};
-		_side = [east,west,independent,civilian] select ((_dialogResult select 1) - 1);
-		[{(alive _this) and (side _this == _side)}, allPlayers] call Achilles_fnc_filter};
-	;
+		_side = [east,west,independent,civilian] select (_side_index - 1);
+		[{(alive _this) and (side _this == _side)}, allPlayers] call Achilles_fnc_filter
+	};
+	case 3:
+	{
+		Ares_var_selectPlayers;
+	};
+	case 4:
+	{
+		Ares_var_selectPlayers;
+	};
 };
 sleep 1;
 

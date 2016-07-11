@@ -6,6 +6,6 @@ class BehaviourModules
 	class BehaviourSearchNearbyAndGarrison {};
 	class BehaviourSearchNearbyBuilding {};
 	class GarrisonNearest {};
-	class SurrenderSingleUnit {};
+	class SurrenderUnits {};
 	class UnGarrison {};
 };

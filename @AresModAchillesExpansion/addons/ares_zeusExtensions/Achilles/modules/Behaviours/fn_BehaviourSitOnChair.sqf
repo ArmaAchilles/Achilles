@@ -35,7 +35,7 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 		}
 	];
 	_unit setVariable ["Achilles_AnimEH",_ehAnimDone];
-	[_unit, "HubSittingChairB_idle1"] remoteExec ["switchMove", 0];
+	[_unit, "HubSittingChairA_idle1"] remoteExec ["switchMove", 0];
 	_offset = [[0,-0.1,-0.5], [0,-0.1,-0.5], [0,0,-0.5], [0,0,-0.5], [0,0,-0.2], [0,0,0], [0,0,-0.6]] select _type_id;
 	_dir = [180, 180, 90, 180, 90, 180, 180] select _type_id;
 	_unit attachTo [_chair, _offset];

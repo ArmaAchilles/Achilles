@@ -5,7 +5,7 @@
 	Params:
 		0 - String - (default: "") The title to display for the combo box. Do not use non-standard characters (e.g. %&$*()!@#*%^&) that cannot appear in variable names
 		1 - Array of Arrays - The set of choices to display to the user. Each element in the array should be an array in the following format: ["Choice Description", ["Choice1", "Choice2", etc...]] optionally the last element can be a number that indicates which element to select. For example: ["Choose A Pie", ["Apple", "Pumpkin"], 1] will have "Pumpkin" selected by default. If you replace the choices with a string then a textbox (with the string as default) will be displayed instead.
-		2 - String - (default: "") 	optionally a function can be given as an argument which will be executed as an combobox event handler when the selection is changed with params [<choice description>,<control>,<new selection index>]
+		2 - String - (default: "") 	optionally a function can be given as an argument which will be executed as an combobox event handler when the selection is changed with params [<choice index>,<control>,<new selection index>]
 									in addition the function will be executed when the dialog was opened or closed with parameter ["LOADED"] respective ["UNLOAD"]
 	Returns:
 		An array containing the indices of each of the values chosen, or a null object if nothing was selected.
@@ -105,7 +105,6 @@ if (_titleText != "") then
 
 // Set the start offset for the controls
 _yCoord = START_ROW_Y;
-_controlCount = 0;
 
 // Get the ID for use when looking up previously selected values.
 _titleText_varName = _titleText call Achilles_fnc_TextToVariableName;
@@ -130,7 +129,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 	};
 	diag_log format ["_defaultChoice3 = %1",_defaultChoice];
 	// Create the label for this entry
-	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _controlCount];
+	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex];
 	_choiceLabel ctrlSetText _choiceName;
 	_choiceLabel ctrlSetBackgroundColor [0,0,0,0.6];
 	
@@ -142,7 +141,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		_choiceLabel ctrlCommit 0;
 		
 		// Create the combo box for this entry and populate it.		
-		_choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _controlCount];
+		_choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex];
 		_choiceCombo ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 		_choiceLabel ctrlSetBackgroundColor [0,0,0,0.5];
 		_choiceCombo ctrlCommit 0;
@@ -151,13 +150,26 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		} forEach _choices;
 		
 		// Set the current choice, record it in the global variable, and setup the event handler to update it.
-		_defaultChoice = if (typeName _defaultChoice == "SCALAR") then {_defaultChoice} else {0};
-		_defaultChoice = if (_defaultChoice < lbSize _choiceCombo) then {_defaultChoice} else {(lbSize _choiceCombo) - 1};
-		_choiceCombo lbSetCurSel _defaultChoice;
-		_additonalComboScript = if (_ResourceScript != "") then {format["([""%1""] + _this) call %2;",_choiceName_varName,_ResourceScript]} else {""};
-		_choiceCombo ctrlSetEventHandler ["LBSelChanged", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], _this select 1];"+_additonalComboScript];
+
+		_comboScript = "";
 		
-		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
+		if (_ResourceScript != "") then 
+		{
+			// combo boxes handled with custom scripts
+			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
+			_comboScript = format["([""%1""] + _this) call %2;",_forEachIndex,_ResourceScript]
+		} else 
+		{
+			// combo boxes handled by default
+			_defaultChoice = if (typeName _defaultChoice == "SCALAR") then {_defaultChoice} else {0};
+			_defaultChoice = if (_defaultChoice < lbSize _choiceCombo) then {_defaultChoice} else {(lbSize _choiceCombo) - 1};
+			_choiceCombo lbSetCurSel _defaultChoice;
+			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
+			
+			_comboScript = "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], _this select 1];"
+		};
+		_choiceCombo ctrlSetEventHandler ["LBSelChanged", _comboScript];
+		
 		// Move onto the next row
 		_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 	}
@@ -170,7 +182,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_choiceLabel ctrlCommit 0;
 			
 			// create entry background
-			_ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _controlCount];
+			_ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex];
 			_yCoord = _yCoord + GtC_H(0.5);
 			_ctrl ctrlSetBackgroundColor [1,1,1,0.1];
 			_ctrl ctrlSetPosition [GtC_X(8),_yCoord,GtC_W(31),GtC_H(3)];
@@ -216,7 +228,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			
 			// create the control element
 			_ctrl_type = if (_choices == "SLIDER") then {"RscXSliderH"} else {"RscEdit"};
-			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _controlCount];
+			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex];
 			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 			_ctrl ctrlSetBackgroundColor [0, 0, 0, 1];
 			_ctrl ctrlCommit 0;
@@ -245,8 +257,6 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 		};
 	};
-	_controlCount = _controlCount + 1;
-	
 } forEach _choicesArray;
 
 uiNamespace setVariable ["Ares_ChooseDialog_Result", -1];
