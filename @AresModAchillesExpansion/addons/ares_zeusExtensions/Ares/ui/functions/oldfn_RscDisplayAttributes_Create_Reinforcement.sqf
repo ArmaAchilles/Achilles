@@ -10,7 +10,7 @@
 
 #define CURATOR_IDCs [IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
 
-_VALID_CATEGORIES = [localize "STR_CHOPPERS", localize "STR_CARS", localize "STR_APCS", localize "STR_TANKS", localize "STR_SHIPS"];
+_VALID_CATEGORIES = [localize "STR_CHOPPERS", localize "STR_CARS", localize "STR_APCS", localize "STR_TANKS", localize "STR_SHIPS", localize "STR_PLANES"];
 
 disableSerialization;
 _display = findDisplay IDD_RSCDISPLAYCURATOR;
