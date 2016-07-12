@@ -49,3 +49,7 @@ Temporary Items
 @AresModAchillesExpansion/addons/ares_zeusExtensions.pbo
 *.pbo
 @AresModAchillesExpansion/addons/ares_zeusExtensions.pbo
+@AresModAchillesExpansion/addons/ares_zeusExtensions/Achilles/scripts/fn_wpFastrope.sqf
+@AresModAchillesExpansion/addons/ares_zeusExtensions/Ares/modules/Behaviours/fn_SurrenderUnits.sqf
+@AresModAchillesExpansion/addons/ares_zeusExtensions/Ares/ui/functions/oldfn_RscDisplayAttributes_ChangePlayerSide.sqf
+*.hpp
