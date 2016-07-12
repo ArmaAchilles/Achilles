@@ -1,4 +1,4 @@
-#include "BIS_AddonInfo.hpp"
+//#include "BIS_AddonInfo.hpp"
 class CfgPatches
 {
 	class Ares

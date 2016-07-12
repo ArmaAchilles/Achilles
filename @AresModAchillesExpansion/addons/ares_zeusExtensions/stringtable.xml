@@ -15,6 +15,18 @@
 				<English>Cars</English>
 				<Portuguese>Carros</Portuguese>
 			</Key>
+			<Key ID="STR_PLANES">
+			  <Original>Planes</Original>
+			  <French>Avions</French>
+			  <Spanish>Aviones</Spanish>
+			  <Italian>Aeroplani</Italian>
+			  <Polish>Samoloty</Polish>
+			  <Russian>Самолеты</Russian>
+			  <German>Flugzeuge</German>
+			  <Czech>Letadla</Czech>
+			  <English>Planes</English>
+			  <Portuguese>Aviões</Portuguese>
+			</Key>
 			<Key ID="STR_APCS">
 				<Original>APCs</Original>
 				<French>VTT</French>
