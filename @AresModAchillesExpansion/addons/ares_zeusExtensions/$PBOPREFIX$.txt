@@ -1,0 +1,6 @@
+///////<HEADER>///////
+prefix=ares_zeusExtensions
+Mikero=DePbo.dll
+Pbo Type is: Arma Addon
+Sha: '1E3B85042C3BDF0B4E151F5CB1CEFF19476F31F6'
+//////</HEADER>//////
