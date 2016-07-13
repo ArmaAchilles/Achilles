@@ -1,0 +1,17 @@
+class Object0 {side=8;rank="";vehicle="Land_HBarrierTower_F";position[]={-0.0839844,1.85693,0};dir=179.787;};
+class Object1 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={6.50098,3.35352,0};dir=132.961;};
+class Object2 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={-7.39966,3.36426,0};dir=224.413;};
+class Object3 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={8.81396,0.967285,0};dir=313.31;};
+class Object4 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={8.90259,3.35596,0};dir=223.575;};
+class Object5 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={-9.82837,1.08887,0};dir=44.0639;};
+class Object6 {side=8;rank="";vehicle="Land_BagFence_Round_F";position[]={-9.78101,3.49121,0};dir=134.678;};
+class Object7 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={7.52856,13.2798,0};dir=48.1779;};
+class Object8 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={-4.86328,14.8267,0};dir=359.329;};
+class Object9 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={12.9568,7.1582,0};dir=48.1779;};
+class Object10 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={0.606934,15.0962,0};dir=358.131;};
+class Object11 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={-8.53979,13.0537,0};dir=137.623;};
+class Object12 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={15.6672,-5.53711,0};dir=135.951;};
+class Object13 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={-14.468,7.66455,0};dir=137.623;};
+class Object14 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={-17.0012,-5.16211,0};dir=48.1779;};
+class Object15 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={17.2661,-2.38184,0};dir=268.396;};
+class Object16 {side=8;rank="";vehicle="Land_Razorwire_F";position[]={-18.9451,-1.63965,0};dir=268.396;};

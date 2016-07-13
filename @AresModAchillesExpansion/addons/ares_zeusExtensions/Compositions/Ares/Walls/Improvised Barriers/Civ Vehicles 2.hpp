@@ -1,0 +1,13 @@
+class Object1 {side=8;vehicle="Land_Wreck_Truck_dropside_F";rank="";position[]={-0.291016,3.2417,-0.00143862};dir=201.1;};
+class Object2 {side=8;vehicle="Land_Wreck_Car2_F";rank="";position[]={2.88428,0.916016,0.601496};dir=107.267;};
+class Object3 {side=8;vehicle="Land_JunkPile_F";rank="";position[]={-3.45459,2.1582,-0.24174};dir=0;};
+class Object4 {side=8;vehicle="Land_Tyres_F";rank="";position[]={-3.74097,2.26416,0.0051589};dir=0;};
+class Object5 {side=8;vehicle="Land_BagFence_Short_F";rank="";position[]={-3.69189,2.42041,0.0281777};dir=0;};
+class Object6 {side=8;vehicle="Land_Wreck_HMMWV_F";rank="";position[]={-3.8313,2.53662,-0.761311};dir=270.966;};
+class Object7 {side=8;vehicle="Land_Timbers_F";rank="";position[]={5.72705,0.469727,0.0217681};dir=89.2823;};
+class Object8 {side=8;vehicle="Land_Razorwire_F";rank="";position[]={-6.46411,3.479,-0.681004};dir=352.751;};
+class Object9 {side=8;vehicle="Land_Mound01_8m_F";rank="";position[]={5.48584,2.70898,-0.00144339};dir=0;};
+class Object10 {side=8;vehicle="Land_Razorwire_F";rank="";position[]={3.72852,3.24658,0.146024};dir=0;};
+class Object11 {side=8;vehicle="Land_Wreck_Truck_F";rank="";position[]={6.74683,0.542969,-0.0655932};dir=87.9434;};
+class Object12 {side=8;vehicle="Land_Wreck_Skodovka_F";rank="";position[]={-7.62842,2.40186,0.00144911};dir=270.057;};
+class Object13 {side=8;vehicle="Land_Bricks_V2_F";rank="";position[]={10.3438,1.6499,-0.00143862};dir=358.114;};
