@@ -11,13 +11,6 @@
 		2 - Bool - (Optional) False if this should run only on the server, true if it should be run everywhere (including this machine). Default: true.
 */
 
-_codeBlock = _this select 0;
-_params = param [1, []];
-_targetMachines = param [2, 0, [0]];
-
-Ares_oneshotCodeBlock = _codeBlock;
-if (_targetMachines == 2) then {publicVariableServer "Ares_oneshotCodeBlock";} else {publicVariable "Ares_oneshotCodeBlock";};
-
-_params remoteExec ["Ares_oneshotCodeBlock",_targetMachines];
-
+params ["_codeBlock", ["_params", []], ["_target", 0], ["_jipReady", false, [false]]];
+[_params, _codeBlock] remoteExec ["bis_fnc_call", _target, _jipReady];
 true;
