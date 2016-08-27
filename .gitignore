@@ -24,32 +24,3 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-@AresModAchillesExpansion/addons/ares_zeusExtensions.pbo
-@AresModAchillesExpansion/addons/ares_zeusExtensions.pbo
-*.pbo
-@AresModAchillesExpansion/addons/ares_zeusExtensions.pbo
-@AresModAchillesExpansion/addons/ares_zeusExtensions/Achilles/scripts/fn_wpFastrope.sqf
-@AresModAchillesExpansion/addons/ares_zeusExtensions/Ares/modules/Behaviours/fn_SurrenderUnits.sqf
-@AresModAchillesExpansion/addons/ares_zeusExtensions/Ares/ui/functions/oldfn_RscDisplayAttributes_ChangePlayerSide.sqf
-*.hpp

@@ -1,0 +1,15 @@
+class Object0 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={0.129395,0.990234,0};dir=0;};
+class Object1 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={-2.17773,0.981445,0};dir=0;};
+class Object2 {side=8;rank="";vehicle="Land_HBarrier_3_F";position[]={2.17334,0.302734,0};dir=0;};
+class Object3 {side=8;rank="";vehicle="Land_Mil_WiredFence_F";position[]={-3.82813,2.04297,0};dir=179.744;};
+class Object4 {side=8;rank="";vehicle="Land_Mil_WiredFence_F";position[]={3.91064,1.94531,0};dir=181.979;};
+class Object5 {side=8;rank="";vehicle="Land_HBarrier_3_F";position[]={-6.49512,0.586914,0};dir=0;};
+class Object6 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={6.44824,0.762207,0};dir=0;};
+class Object7 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={-8.54492,1.125,0};dir=0;};
+class Object8 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={9.43311,0.724121,0};dir=0;};
+class Object9 {side=8;rank="";vehicle="Land_BagFence_Long_F";position[]={-10.8521,1.11621,0};dir=0;};
+class Object10 {side=8;rank="";vehicle="Land_Mil_WiredFence_F";position[]={-11.5938,2.05225,0};dir=179.744;};
+class Object11 {side=8;rank="";vehicle="Land_Mil_WiredFence_F";position[]={11.6636,2.03906,0};dir=179.744;};
+class Object12 {side=8;rank="";vehicle="Land_HBarrier_3_F";position[]={11.4824,0.104004,0};dir=0;};
+class Object13 {side=8;rank="";vehicle="Land_HBarrier_3_F";position[]={-15.1514,0.647949,0};dir=0;};
+class Object14 {side=8;rank="";vehicle="Land_HBarrier_1_F";position[]={14.8188,0.0961914,0};dir=359.82;};
