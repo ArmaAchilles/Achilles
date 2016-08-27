@@ -1,0 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Kex
+//	DATE: 7/9/16
+//	VERSION: 1.0
+//	FILE: Ares\modules\DevTools\fn_DevTools_manageAdvancedCompositions.sqf
+//  DESCRIPTION: Function for module "manage advanced composition"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include "\achilles\modules_f_ares\module_header.hpp"
+
+createDialog "Ares_composition_Dialog";
+["LOADED"] spawn Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
+
+#include "\achilles\modules_f_ares\module_footer.hpp"
