@@ -15,7 +15,12 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
-	[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+	_unitCount = count (units _groupUnderCursor);
+	if (_unitCount >= 8) then {
+		[(getPos _logic), (units _groupUnderCursor), 150, true, true] call Ares_fnc_ZenOccupyHouse;
+	} else {
+		[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+	}
 	[objnull, "Garrisoned nearest building."] call bis_fnc_showCuratorFeedbackMessage;
 };
 
