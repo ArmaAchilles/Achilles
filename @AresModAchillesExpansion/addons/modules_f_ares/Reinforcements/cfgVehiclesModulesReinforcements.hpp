@@ -1,6 +1,7 @@
 class Ares_Reinforcements_Module_base : Ares_Module_Base
 {
 	subCategory = "$STR_REINFORCEMENTS";
+	//Category = "Reinforcements";
 };
 
 class Ares_Module_Reinforcements_Create_Lz : Ares_Reinforcements_Module_Base

@@ -1,6 +1,7 @@
 class Ares_Player_Module_Base : Ares_Module_Base
 {
 	subCategory = "$STR_PLAYER";
+	//Category = "Player";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	picture = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";

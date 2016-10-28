@@ -1,7 +1,7 @@
 class Ares_ExecuteCode_Dialog
 {
 	idd = 123;
-	movingEnable = false;
+	movingEnable = true;
 	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
 	onUnload = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
@@ -14,6 +14,7 @@ class Ares_ExecuteCode_Dialog
 		class Ares_Title: RscText
 		{
 			idc = 1000;
+			moving = 1;
 
 			text = "$STR_EXECUTE_CODE"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;

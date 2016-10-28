@@ -33,7 +33,7 @@ _cloudSetting = _dialogResult select 1;
 _rainSetting = _dialogResult select 2;
 _lightningSetting = _dialogResult select 3;
 _rainbowSetting = if ((_dialogResult select 4) == 0) then {1} else {0};
-_windForce = (_dialogResult select 5) * 30;
+_windForce = (_dialogResult select 5) * 30 + 0.01;
 _windDirection = (_dialogResult select 6) * 45;
 _windSetting = [-_windForce * sin _windDirection,-_windForce * cos _windDirection,true];
 _wavesSetting = _dialogResult select 7;

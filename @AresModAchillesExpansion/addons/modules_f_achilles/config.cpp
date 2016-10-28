@@ -34,7 +34,8 @@ class CfgPatches
 			"Achilles_Module_Spawn_Effects",
 			"Achilles_Module_Spawn_Intel",
 			"Achilles_Module_Spawn_Advanced_Composition",
-			"Achilles_Module_Spawn_Explosives"
+			"Achilles_Module_Spawn_Explosives",
+			"Achilles_Module_Spawn_Empty_Object"
 		};
 
 		requiredAddons[] =

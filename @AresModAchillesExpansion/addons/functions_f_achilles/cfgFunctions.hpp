@@ -16,9 +16,15 @@ class CfgFunctions
 			class map;
 			class filter;
 			class sum;
+			class arrayMean;
+			class pushBack;
 			class TextToVariableName;
 			class HigherConfigHierarchyLevel;
 			class ClassNamesWhichInheritsFromCfgClass;
+			class getAllTurretConfig;
+			class getVehicleAmmoDef;
+			class getUnitAmmoDef;
+			class setUnitAmmoDef;
 		};
 		
 		class functions_f_features
@@ -38,6 +44,8 @@ class CfgFunctions
 			class SwitchZeusSide;
 			class CopyObjectsToClipboard;
 			class PasteObjectsFromClipboard;
+			class damageComponents;
+			class changeSkills;
 		};
 	};
 };

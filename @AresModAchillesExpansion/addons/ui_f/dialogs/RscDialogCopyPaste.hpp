@@ -1,7 +1,7 @@
 class Ares_CopyPaste_Dialog
 {
 	idd = 123;
-	movingEnable = false;
+	movingEnable = true;
 	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_CopyPaste_Dialog_Text', '']);";
 	onUnload = "uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
@@ -14,7 +14,8 @@ class Ares_CopyPaste_Dialog
 		class Ares_Title: RscText
 		{
 			idc = 1000;
-
+			moving = 1;
+			
 			text = "$STR_COPY_PASTE_DIALOG"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;

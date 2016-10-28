@@ -65,4 +65,5 @@ class CfgPatches
 };
 
 #include "cfgFunctions.hpp"
+//#include "cfgFactionClasses.hpp"
 #include "cfgVehiclesModuleBase.hpp"

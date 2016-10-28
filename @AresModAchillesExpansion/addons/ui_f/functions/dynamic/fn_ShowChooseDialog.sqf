@@ -128,7 +128,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		_defaultVariableId = format["%1_%2", _titleVariableIdentifier, _forEachIndex];
 		_defaultChoice = uiNamespace getVariable [_defaultVariableId, _defaultChoice];
 	};
-	diag_log format ["_defaultChoice3 = %1",_defaultChoice];
+
 	// Create the label for this entry
 	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex];
 	_choiceLabel ctrlSetText _choiceName;
@@ -284,7 +284,6 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 			uiNamespace setVariable [_defaultVariableId, _x];
 		} forEach _returnValue;
 	};
-	//systemChat str _returnValue;
 	_returnValue;
 }
 else

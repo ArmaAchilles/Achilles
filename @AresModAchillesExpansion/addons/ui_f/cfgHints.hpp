@@ -48,7 +48,7 @@ class cfgHints
 		class RCvehicleCrew
 		{
 			arguments[] = {};
-			description = "$STR_RC_VEHICLE_CREW_DESCRIPTION"
+			description = "$STR_RC_VEHICLE_CREW_DESCRIPTION";
 			displayName = "$STR_RC_VEHICLE_CREW";
 			image = "\achilles\data_f_achilles\icons\icon_achilles_hint.paa";
 			tip = "";

@@ -19,12 +19,19 @@ publicVariable "Ares_fnc_surrenderUnit";
 publicVariable "Achilles_fnc_chute";
 publicVariable "Achilles_fnc_ambientAnimGetParams";
 publicVariable "Achilles_fnc_ambientAnim";
+publicVariable "Achilles_fnc_setUnitAmmoDef";
 
 // broadcase server functions
 publicVariableServer "Achilles_fnc_eject_passengers";
 
 // load basic advanced compositions
 [] spawn compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
+
+// Add curator event handlers
+
+_curatorModule = getassignedcuratorLogic player;
+_curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
+_curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 
 // trick to unlock module addons for Zeus (part 2)
 if (isNil "Achilles_fnc_serverInitDone") then
@@ -33,17 +40,11 @@ if (isNil "Achilles_fnc_serverInitDone") then
 		{
 			_x addCuratorAddons ["achilles_modules_f_achilles","achilles_modules_f_ares"]
 		} forEach allCurators;
-		Achilles_fnc_serverInitDone = true; 
-		publicVariable "Achilles_fnc_serverInitDone";
+		//Achilles_fnc_serverInitDone = true; 
+		//publicVariable "Achilles_fnc_serverInitDone";
 		
 	}, [], 2] call Ares_fnc_BroadcastCode;
 };
-
-// Add curator event handlers
-
-_curatorModule = getassignedcuratorLogic player;
-_curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
-_curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 /*
 	_didRegisterForEvents = false;
 {

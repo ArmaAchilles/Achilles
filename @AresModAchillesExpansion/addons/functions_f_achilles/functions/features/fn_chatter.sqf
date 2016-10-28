@@ -34,7 +34,8 @@ if (isNull _unit) then
 			]],
 			["Message:",""
 			]
-		]
+		],
+		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
 	if (count _dialogResult == 0) exitWith {};
@@ -63,7 +64,8 @@ if (isNull _unit) then
 			]],
 			["Message:",""
 			]
-		]
+		],
+		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
 	if (count _dialogResult == 0) exitWith {};
