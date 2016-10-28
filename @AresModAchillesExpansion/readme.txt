@@ -2,8 +2,8 @@ Ares is a mod aimed expanding the tools available to Zeus so that it is possible
 
 Ares is designed to work with dedicated servers which may be running missions that allow JIP and respawn. The new functionality it is aimed at running with trusted players in a structured mission and is not recommended for general 'public server' play.
 
-Check out the documentation for Ares at: https://github.com/astruyk/Ares/wiki
-Or check out the source code at: https://github.com/astruyk/Ares and https://github.com/oOKexOo/AresModAchillesExpansion/
+Check out the full feature list and documentation at: https://github.com/astruyk/Ares/wiki
+Or check out the source code at: https://github.com/astruyk/Ares
 
 Requirements:
 As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is running alongside @Ares if you are using Zeus. Clients that aren't running @Ares (e.g. non-zeus players) do not need to run @CBA_A3.
@@ -11,99 +11,21 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 
-V.0.0.3 (Achilles Expansion (alpha version))
-* Change:  Heavily reorganized scripts and compartmentalized pbo similar to vanilla add-ons
-           This might lead to unintented losses of some functionalities (please report!)
-* Change:  Optimized the way the add-on is initialized
-           - No script runs at all when player is not Zeus.
-		   - Loading of modules is now directly coupled with the Zeus Display.
-* Change:  Russian translation extended (by Igor Nikolaev).
-* Change:  Warning message in case Ares is loaded too.
-* Change:  Save SQF Module is now based on world positions (not final yet!!!)
-* Change:  Replaced BIS_fnc_destroy City by the Achilles function in the earthquake module.
-		   (Fix: earthquake undid previous destruction)
-* Feature: Create Advanced Compositions: Now supports turrets
-* Feature: Options for suppresive fire module (Stance, Fire Mode, time)
-* Feature: Surrender with Apex Progress Bar Action and more options
-* Feature: Create Intel now supports Apex Progress Bar Action 
-		   => many new options are possible e.g. hacking laptop/get intel from enemy unit/pick up intel or whatever
-* Feature: Option to teleport zeus instant in teleport player module
-* Feature: toggle destroy buildings for earthquake
-* Feature: Transfer ownership module (allows transfering units/objects to server)
-* Fix:     Intels could not be properly edited	
-* Fix:     RHS reinforcements were broken due to renaming of Vehicle Classes in the last RHS update 
-* Fix:     Switch player side was broken		   
-* Fix:     Several functionalities did not work on non-local units (e.g. players):
-		   - "LEFT CTRL + G" - eject 
-		   - Ambient Animations
-		   Note: The functionalities should now even work on players.
-* Fix:     Spawn Light Source and Peristent Smoke Pillar did work for clients without Achilles
-* Fix:     Injury Module (Vanilla Version): random option led to death with high probabilty
-* Fix:     Script errors caused by canceling selection option
-* Fix:     Compositions were not accessible in Eden editor (fixed by S. Crowe)
-* Fix:     Custom Modules could not be added in mission init phase (e.g. init.sqf)
-* Fix:     Units could not properly have a seat on chairs from advanced compositions	   
-* Fix:     Animal Category is back, although it will be replaced as soon as the new animal spawn module is finished
-* Fix:     ERROR IN FIELD MANUAL: Wrong hotkey for Deep Copy/Paste
-* Fix:     Flagpole teleporter did not account for height.
-* Fix:     There were several bugs in case custom add-ons were not unlocked for Zeus
-           - Could not move and delete target logics
-		   - Ares modules were not avaiable in recent modules
-* Fix:     Error message was missing when fire support modules had a lack of possible targets
-
-V.0.0.2 (Achilles Expansion (alpha version))
-* Feature: More ambient animations + combat ready option
-* Feature: Spawn Mines/Explosives module.
-* Feature: More waypoints are avaiable.
-* Feature: Russian translation (by Igor Nikolaev)
-* Feature: Advanced compositions system
-* Feature: Object modification modules: change hight, attach to.
-* Change:  Surrender Unit module can be applied on multiple units.
-* Change:  List option for teleport dialog is aviable again.
-* Fix:     Locality issues for ambient animations.
-* Fix:     Ambient animations could not be terminated.
-* Fix:     Errors in stringtable (Earthquake + Reinforcement).
-* Fix:     Copy mission SQF module from Ares was missing.
-* Fix:     Disable simulation module from Ares was missing.
-* Fix:     Effect modules did not spawn at the exact defined position.
-* Fix:     Teleport Module did not teleport vehicles.
-* Fix:     Advanced Waypoints (ACE fast-roping, Land, ...) did not work.
-* Fix:     BIS campaign compositions included vehicles and ammo boxes.
-* Fix:     Search and occupy building script did not work anymore.
-* Fix:     Last choices in some dialogs were not saved properly.
-* Fix:     Cancle button was to small for german translation.
-
 V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
-* Feature: Avaiable languages: English, French, German (not yet completed)
 * Feature: More vanilla music is aviable in the "Play Music" module.
-* Feature: Music defined in description.ext are added to "Play Music" module if a valid "musicClass" is defined (e.g. "Lead", "Action", "Stealth", "Calm")
 * Feature: Some modules have a selection mode avaiable which allows applying a module selectively on multiple objects.
-* Feature: Added some Advanced Hints for the Field Manual.
-* Feature: Animation (Module)
-* Feature: Chatter & HQ chat (Module + direct aviable for remote controlled units)
-* Feature: Advanced Weather Settings (Module)
-* Feature: Earthquake (Module)
-* Feature: Suppressive Fire (Module)
-* Feature: Destroy Buildings (Module)
-* Feature: Bind variables on Objects (Module)
-* Feature: "Execute Code" module has now built-in params (position and under cursor target)
-* Feature: Create Light Source / Persistant Smoke Pillar (Effect Module, also avaiable in Eden Editor)
+* Feature: Added some advanced hints for the Field Manual.
+* Feature: Animation Module
 * Feature: Chatter Module (HQ and unit) + automatically open chatter window while remotecontrolling unit
-* Feature: Sit / leave chair (Module)
-* Feature: AI ability (Module)
-* Feature: Access to vehicle cargo (extra button in edit vehicle dialog)
-* Feature: Launch countermeasure / pop smoke by selecting a unit and hitting countermeasure key.
-* Feature: Deep copy/paste units (CTRL + SHIFT + C / CTRL + SHIFT + V)
-* Feature: Eject Passengers (including players) with SHIFT + G (or para drop in case of aircrafts)
-* Feature: Zeus can write hints
-* Feature: Zeus can switch side in order to talk with a specific side in side chat.
-* Change:  Spawn Reinforcement Module is now based on configs => general compatibility with other mods (tested with RHS and CUP)
+* Feature: Sit / leave chair module
+* Feature: AI ability modules
+* Feature: 
+* Feature: 
 * Change:  Reorganized module categories (not final!).
-* Change:  New Dynamic Dialog interface with more variety options.
 * Change:  Summarized existing modules such as teleport and effects.
-* Fix:     Module tree is no longer collapsed when switching the taps.
-* Fix:     The modules will now show up as soon as "Zeus" module category shows up too
-* Additional fixes and change in code structure
+* Fix:     Module tree is no longer collapsed when switching the window.
+
+
 
 V.1.8.1 (basic version)
 * Fix some broken inheritance for vests and hats that might have been interfering with other equipment mods
