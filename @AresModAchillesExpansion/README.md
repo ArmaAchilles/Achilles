@@ -1,5 +1,5 @@
 #Ares (AE)
-Ares Achilles Expansion
+Ares Mod - Achilles Edition
 
 ![Logo](http://gdurl.com/wgAb)
 
