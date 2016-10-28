@@ -6,4 +6,5 @@ class Achilles_Spawn_Function_Base
 	class SpawnCreateEditIntel;
 	class SpawnAdvancedCompositions;
 	class SpawnExplosives;
+	class SpawnEmptyObject;
 };

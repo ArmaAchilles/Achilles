@@ -1,7 +1,7 @@
 class Ares_composition_Dialog
 {
 	idd = 133799;
-	movingEnable = false;
+	movingEnable = true;
 
 	class controls 
 	{
@@ -12,6 +12,7 @@ class Ares_composition_Dialog
 		class Ares_Title: RscText
 		{
 			idc = 1000;
+			moving = 1;
 
 			text = "$STR_ADVANCED_COMPOSITION"; //--- ToDo: Localize;
 			x = 9.5 * GUI_GRID_W + GUI_GRID_X;

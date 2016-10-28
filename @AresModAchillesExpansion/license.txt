@@ -22,6 +22,7 @@ Achilles Expansion includes contributions by the following coders:
 * Kex
 * Talya (Assistance in general, even if he wasn't always aware of that ;) )
 * S.Crowe (ACE healing and Eden compatibilty of compositions)
+* Zakant (bug fixes and improval of code efficency)
 
 
 Achilles integrates code from the following mods or scripts:

@@ -34,15 +34,13 @@ _category_list = [];
 _all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
 _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_achilles" >> "units"));
 
-diag_log format ["LOGGER 1: %1", _all_modules];
-
 // Get all Vanilla Categories
 for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
 	_categoryName = _ctrl tvText [_i];
 	_category_list pushBack _categoryName;
 };
-diag_log format ["LOGGER 2: %1", _category_list];
+
 if (not _custom_only) then
 {
 	// Add Ares modules
@@ -51,11 +49,9 @@ if (not _custom_only) then
 		_categoryName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "subCategory");
 		_moduleDisplayName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "displayName");
 		_moduleIcon = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "icon");
-		diag_log format ["LOGGER 3: %1", _x];
 		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon] call Achilles_fnc_AppendToModuleTree;
 	} forEach _all_modules;
 };
-diag_log format ["LOGGER 4: %1", _category_list];
 
 // Add Custom modules
 if (not isNil "Ares_Custom_Modules") then

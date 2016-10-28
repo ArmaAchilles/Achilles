@@ -1,6 +1,7 @@
 class Ares_Equipment_Module_Base : Ares_Module_Base
 {
 	subCategory = "$STR_EQUIPMENT";
+	//Category = "Equipment";
 };
 
 class Ares_Module_Equipment_Nvgs : Ares_Equipment_Module_Base

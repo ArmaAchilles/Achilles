@@ -10,7 +10,6 @@
 
 #define INTEL_OBJECTS 		["Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Map_F","Land_Map_unfolded_F","Land_Laptop_unfolded_F","Land_MobilePhone_smart_F","Land_Tablet_01_F","Land_Tablet_02_F"]
 #define SEARCH_ICON			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"
-#define ACTION_CONDITION	"player distance _target < 3"
 
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -60,6 +59,8 @@ if (_dialogCount == 7) then
 
 _marker = createMarker [str _object, _object];
 
+_object remoteExec ["RemoveAllActions", 0];
+
 _execute = 
 {
 	_object = _this select 0;
@@ -84,8 +85,8 @@ _execute =
 	_actionName,		// Title of the action
 	SEARCH_ICON,			// Idle icon shown on screen
 	SEARCH_ICON,			// Progress icon shown on screen
-	ACTION_CONDITION,	// Condition for the action to be shown
-	ACTION_CONDITION,	// Condition for the action to progress
+	"_this distance _target < 3",	// Condition for the action to be shown
+	"_caller distance _target < 3",	// Condition for the action to progress
 	{},			// Code executed when action starts
 	{},			// Code executed on every progress tick
 	_execute,	// Code executed on completion

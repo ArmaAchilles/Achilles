@@ -189,6 +189,12 @@ class Empty
 				icon = "\a3\Ui_f\data\Map\Markers\NATO\n_unknown.paa";
 				#include "Ares\Military Structures\Camps\BIS Small Recon Camp.hpp"
 			};
+			class Ares_MilitaryStructures_Camps_1
+			{
+				name = "BIS Small Jungle Camp (APEX)";
+				icon = "\a3\Ui_f\data\Map\Markers\NATO\n_unknown.paa";
+				#include "Ares\Military Structures\Camps\BIS Small Jungle Camp.hpp"
+			};
 		};		
 	};
 	class Ares_Walls

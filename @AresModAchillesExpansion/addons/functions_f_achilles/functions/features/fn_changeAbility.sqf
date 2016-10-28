@@ -15,6 +15,8 @@
 //	[_unit] call Achilles_fnc_changeAbility;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET"]
+
 private ["_selection","_dialogResult","_mode"];
 
 _units = [param [0,ObjNull,[ObjNull]]];
@@ -53,6 +55,6 @@ if (count _units == 0) exitWith {};
 			_section = _x;
 			_mode = _dialogResult select _forEachIndex;
 			if (_mode == 0) then {_unit enableAI _section} else {_unit disableAI _section};
-		} forEach ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET"];
+		} forEach ABILITIES;
 	};
 } forEach _units;

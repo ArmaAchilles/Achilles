@@ -1,2255 +1,2392 @@
-﻿<?xml version="2.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
-	<Package name="Curator Display">
-		<Container name="Vehicle Categories">
-			<Key ID="STR_CARS">
-				<Original>Cars</Original>
-				<French>Voitures</French>
-				<Spanish>Coches</Spanish>
-				<Italian>Auto</Italian>
-				<Polish>Samochody</Polish>
-				<Russian>Автомобили</Russian>
-				<German>Autos</German>
-				<Czech>Vozy</Czech>
-				<English>Cars</English>
-				<Portuguese>Carros</Portuguese>
-			</Key>
-			<Key ID="STR_PLANES">
-			  <Original>Planes</Original>
-			  <French>Avions</French>
-			  <Spanish>Aviones</Spanish>
-			  <Italian>Aeroplani</Italian>
-			  <Polish>Samoloty</Polish>
-			  <Russian>Самолеты</Russian>
-			  <German>Flugzeuge</German>
-			  <Czech>Letadla</Czech>
-			  <English>Planes</English>
-			  <Portuguese>Aviões</Portuguese>
-			</Key>
-			<Key ID="STR_APCS">
-				<Original>APCs</Original>
-				<French>VTT</French>
-				<Spanish>Vehículos de personal</Spanish>
-				<Italian>Veicoli trasporto truppe</Italian>
-				<Polish>Pojazdy opancerzone</Polish>
-				<Russian>БТР</Russian>
-				<German>Truppentransporter</German>
-				<Czech>BVP</Czech>
-				<English>APCs</English>
-				<Portuguese>VBTPs</Portuguese>
-			</Key>
-			<Key ID="STR_TANKS">
-				<Original>Tanks</Original>
-				<French>Chars</French>
-				<Spanish>Tanques</Spanish>
-				<Italian>Carri</Italian>
-				<Polish>Czołgi</Polish>
-				<Russian>Танки</Russian>
-				<German>Panzer</German>
-				<Czech>Tanky</Czech>
-				<English>Tanks</English>
-				<Portuguese>Tanques</Portuguese>
-			</Key>
-			<Key ID="STR_SHIPS">
-				<Original>Boats</Original>
-				<French>Bateaux</French>
-				<Spanish>Botes</Spanish>
-				<Italian>Barche</Italian>
-				<Polish>Łodzie</Polish>
-				<Russian>Лодки</Russian>
-				<German>Boote</German>
-				<Czech>Lodě</Czech>
-				<English>Boats</English>
-				<Portuguese>Barcos</Portuguese>
-			</Key>
-			<Key ID="STR_CHOPPERS">
-				<Original>Helicopters</Original>
-				<French>Hélicoptères</French>
-				<Spanish>Helicópteros</Spanish>
-				<Italian>Elicotteri</Italian>
-				<Polish>Śmigłowce</Polish>
-				<Russian>Вертолеты</Russian>
-				<German>Helikopter</German>
-				<Czech>Vrtulníky</Czech>
-				<English>Helicopters</English>
-				<Portuguese>Helicópteros</Portuguese>
-			</Key>
-			 <Key ID="STR_RHS_VEHCLASS_APC">
-				<Original>APC</Original>
-				<English>APC</English>
-				<Czech>APC</Czech>
-				<French>APC</French>
-				<Spanish>APC</Spanish>
-				<Italian>APC</Italian>
-				<Polish>APC</Polish>
-				<Portuguese>APC</Portuguese>
-				<Russian>БТР</Russian>
-				<German>MTW</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_IFV">
-				<Original>IFV</Original>
-				<English>IFV</English>
-				<Czech>IFV</Czech>
-				<French>IFV</French>
-				<Spanish>VCI</Spanish>
-				<Italian>IFV</Italian>
-				<Polish>BWP</Polish>
-				<Portuguese>IFV</Portuguese>
-				<Russian>БМП</Russian>
-				<German>SPz</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_TRUCK">
-				<Original>Truck</Original>
-				<English>Truck</English>
-				<Czech>Truck</Czech>
-				<French>Truck</French>
-				<Spanish>Camiones</Spanish>
-				<Italian>Truck</Italian>
-				<Polish>Ciężarówka</Polish>
-				<Portuguese>Truck</Portuguese>
-				<Russian>Грузовик</Russian>
-				<German>LKW</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_CAR">
-				<Original>Car</Original>
-				<English>Car</English>
-				<Czech>Car</Czech>
-				<French>Car</French>
-				<Spanish>Coches</Spanish>
-				<Italian>Car</Italian>
-				<Polish>Samochód</Polish>
-				<Portuguese>Car</Portuguese>
-				<Russian>Машина</Russian>
-				<German>Auto</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_TANK">
-				<Original>Tank</Original>
-				<English>Tank</English>
-				<Czech>Tank</Czech>
-				<French>Tank</French>
-				<Spanish>Tanques</Spanish>
-				<Italian>Tank</Italian>
-				<Polish>Czołg</Polish>
-				<Portuguese>Tank</Portuguese>
-				<Russian>Танк</Russian>
-				<German>Panzer</German>
-			  </Key>
-			  <Key ID="STR_RHSUSF_VEHCLASS_MRAP">
-				<Original>MRAP</Original>
-				<English>MRAP</English>
-				<Czech>MRAP</Czech>
-				<French>MRAP</French>
-				<Spanish>MRAP</Spanish>
-				<Italian>MRAP</Italian>
-				<Polish>MRAP</Polish>
-				<Portuguese>MRAPs</Portuguese>
-				<Russian>Бронемашина</Russian>
-				<German>MRAP</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_AIRPLANE">
-				<Original>Aircraft</Original>
-				<English>Aircraft</English>
-				<Czech>Aircraft</Czech>
-				<French>Aircraft</French>
-				<Spanish>Aviones</Spanish>
-				<Italian>Aircraft</Italian>
-				<Polish>Samolot</Polish>
-				<Portuguese>Aircraft</Portuguese>
-				<Russian>Самолёт</Russian>
-				<German>Flugzeuge</German>
-			  </Key>
-			  <Key ID="STR_RHS_VEHCLASS_HELICOPTER">
-				<Original>Helicopter</Original>
-				<English>Helicopter</English>
-				<Czech>Helicopter</Czech>
-				<French>Helicopter</French>
-				<Spanish>Helicopteros</Spanish>
-				<Italian>Helicopter</Italian>
-				<Polish>Śmigłowiec</Polish>
-				<Portuguese>Helicopter</Portuguese>
-				<Russian>Вертолёт</Russian>
-				<German>Hubschrauber</German>
-			  </Key>
-		</Container>
-		<Container name="Module Categories">
-			<Key ID="STR_AUDIO">
-				<Original>Audio</Original>
-				<French>Sons</French>
-				<Spanish>Sonido</Spanish>
-				<Italian>Audio</Italian>
-				<Polish>Dźwięk</Polish>
-				<Russian>Аудио</Russian>
-				<German>Audio</German>
-				<Czech>Audio</Czech>
-				<English>Audio</English>
-				<Portuguese>Áudio</Portuguese>
-			</Key>
-			<Key ID="STR_EFFECTS">
-				<Original>Effects</Original>
-				<French>Effets</French>
-				<Spanish>Efectos</Spanish>
-				<Italian>Effetti</Italian>
-				<Polish>Efekty</Polish>
-				<Russian>Эффекты</Russian>
-				<German>Effekte</German>
-				<Czech>Efekty</Czech>
-				<English>Effects</English>
-				<Portuguese>Efeitos</Portuguese>
-			</Key>
-			<Key ID="STR_OBJECTIVES">
-				<Original>Objectives</Original>
-				<French>Objectifs</French>
-				<Spanish>Objetivos</Spanish>
-				<Italian>Obiettivi</Italian>
-				<Polish>Cele</Polish>
-				<Russian>Цели</Russian>
-				<German>Einsatzziele</German>
-				<Czech>Cíle</Czech>
-				<English>Objectives</English>
-				<Portuguese>Objetivos</Portuguese>
-			</Key>
-			<Key ID="STR_FIRE_SUPPORT">
-				<Original>Fire Support</Original>
-				<French>Appui-feu</French>
-				<Spanish>Apoyo</Spanish>
-				<Italian>Supporto di fuoco</Italian>
-				<Polish>Wsparcie ogniowe</Polish>
-				<Russian>Огневая поддержка</Russian>
-				<German>Feuerunterstützung</German>
-				<Czech>Palebná podpora</Czech>
-				<English>Fire Support</English>
-				<Portuguese>Apoio de fogo</Portuguese>
-			</Key>
-			<Key ID="STR_FLARES">
-				<Original>Flares</Original>
-				<French>Fusées</French>
-				<Spanish>Bengalas</Spanish>
-				<Italian>Razzi luminosi</Italian>
-				<Polish>Flary</Polish>
-				<Russian>Сигнальные ракеты</Russian>
-				<German>Leuchtsignale</German>
-				<Czech>Světlice</Czech>
-				<English>Flares</English>
-				<Portuguese>Sinalizadores</Portuguese>
-			</Key>
-			<Key ID="STR_CHEM_LIGHTS">
-				<Original>Chem lights</Original>
-				<French>Bâtons lumineux</French>
-				<Spanish>Luces químicas</Spanish>
-				<Italian>Luci chimiche</Italian>
-				<Polish>Świetliki</Polish>
-				<Russian>ХИС</Russian>
-				<German>Leuchtstäbe</German>
-				<Czech>Chemická světla</Czech>
-				<English>Chem lights</English>
-				<Portuguese>Luzes químicas</Portuguese>
-			</Key>
-			<Key ID="STR_SMOKE_SHELLS">
-				<Original>Smoke shells</Original>
-				<French>Fumigènes</French>
-				<Spanish>Proyectiles de humo</Spanish>
-				<Italian>Proiettili fumogeni</Italian>
-				<Polish>Pociski dymne</Polish>
-				<Russian>Дымовые снаряды</Russian>
-				<German>Rauchgranaten</German>
-				<Czech>Dýmovnice</Czech>
-				<English>Smoke shells</English>
-				<Portuguese>Projéteis de fumaça</Portuguese>
-			</Key>
-			<Key ID="STR_RESPAWN">
-				<Original>Respawn</Original>
-				<French>Réapparition</French>
-				<Spanish>Reaparición</Spanish>
-				<Italian>Rigenerazione</Italian>
-				<Polish>Odrodzenie</Polish>
-				<Russian>Возрождение</Russian>
-				<German>Respawn</German>
-				<Czech>Oživit</Czech>
-				<English>Respawn</English>
-				<Portuguese>Ressurgimento</Portuguese>
-			</Key>
-			<Key ID="STR_SCENARIO_FLOW">
-				<Original>Scenario Flow</Original>
-				<French>Déroulement du scénario</French>
-				<Spanish>Flujo del escenario</Spanish>
-				<Italian>Flusso scenario</Italian>
-				<Polish>Przebieg scenariusza</Polish>
-				<Russian>Ход сценария</Russian>
-				<German>Szenario-Fluss</German>
-				<Czech>Průběh scénáře</Czech>
-				<English>Scenario Flow</English>
-				<Portuguese>Fluxo de cenário</Portuguese>
-			</Key>
-			<Key ID="STR_ANIMALS">
-				<Original>Animals</Original>
-				<French>Animaux</French>
-				<Spanish>Animales</Spanish>
-				<Italian>Animali</Italian>
-				<Polish>Zwierzęta</Polish>
-				<Russian>Животные</Russian>
-				<German>Tiere</German>
-				<Czech>Zvířata</Czech>
-				<English>Animals</English>
-				<Portuguese>Animais</Portuguese>
-			</Key>
-			<Key ID="STR_PLAYERS">
-				<Original>Players</Original>
-				<French>Joueur</French>
-				<Russian>Игроки</Russian>
-				<German>Spieler</German>
-				<English>Players</English>
-			</Key>
-			<Key ID="STR_TRAINING">
-				<Original>Training</Original>
-				<French>Entraînement</French>
-				<Spanish>Instrucción</Spanish>
-				<Italian>Addestramento</Italian>
-				<Polish>Trening</Polish>
-				<Russian>Тренировка</Russian>
-				<German>Training</German>
-				<Czech>Trénink</Czech>
-				<English>Training</English>
-				<Portuguese>Treino</Portuguese>
-			</Key>
-			<Key ID="STR_ENVIRONMENT">
-				<Original>Environment</Original>
-				<French>Environnement</French>
-				<Spanish>Entorno</Spanish>
-				<Italian>Ambiente</Italian>
-				<Polish>Środowisko</Polish>
-				<Russian>Окружение</Russian>
-				<German>Umgebung</German>
-				<Czech>Prostředí</Czech>
-				<English>Environment</English>
-				<Portuguese>Ambiente</Portuguese>
-			</Key>
-			<Key ID="STR_ZEUS">
-				<Original>Zeus</Original>
-				<French>Zeus</French>
-				<Spanish>Zeus</Spanish>
-				<Italian>Zeus</Italian>
-				<Polish>Zeus</Polish>
-				<Russian>Zeus</Russian>
-				<German>Zeus</German>
-				<Czech>Zeus</Czech>
-				<English>Zeus</English>
-				<Portuguese>Zeus</Portuguese>
-			</Key>
-		</Container>
-		<Container name="Ares Module Categories">
-			<Key ID="STR_PLAYER">
-				<Original>Player</Original>
-				<French>Joueur</French>
-				<Russian>Игрок</Russian>
-				<German>Spieler</German>
-				<English>Player</English>
-			</Key>
-			<Key ID="STR_TELEPORT">
-				<Original>Teleport</Original>
-				<French>Téléport</French>
-				<German>Teleport</German>
-				<Russian>Телепорт</Russian>
-				<English>Teleport</English>
-			</Key>
-			<Key ID="STR_SPAWN">
-				<Original>Spawn</Original>
-				<French>Spawn</French>
-				<Russian>Создать</Russian>
-				<German>Spawn</German>
-				<English>Spawn</English>
-			</Key>
-			<Key ID="STR_SAVE_LOAD">
-				<Original>Save/Load</Original>
-				<French>Ouvrir/Enregistrer</French>
-				<Russian>Сохранить/Загрузить</Russian>
-				<German>Speichern/Laden</German>
-				<English>Save/Load</English>
-			</Key>
-			<Key ID="STR_REINFORCEMENTS">
-				<Original>Reinforcements</Original>
-				<French>Renforcement</French>
-				<Russian>Подкрепления</Russian>
-				<German>Verstärkung</German>
-				<English>Reinforcements</English>
-			</Key>
-			<Key ID="STR_EQUIPMENT">
-				<Original>Equipment</Original>
-				<French>Equipment</French>
-				<Russian>Экипировка</Russian>
-				<German>Ausrüstung</German>
-				<English>Equipment</English>
-			</Key>
-			<Key ID="STR_DEV_TOOLS">
-				<Original>Development Tools</Original>
-				<French>Outil de Développement</French>
-				<Russian>Инструменты разработчика</Russian>
-				<German>Werkzeuge für Entwicklung</German>
-				<English>Development Tools</English>
-			</Key>
-			<Key ID="STR_AI_BEHAVIOUR">
-				<Original>AI Behaviours</Original>
-				<French>IA Comportement</French>
-				<Russian>Поведение ИИ</Russian>
-				<German>KI Verhalten</German>
-				<English>AI Behaviour</English>
-			</Key>
-			<Key ID="STR_BUILDINGS">
-				<Original>Buildings</Original>
-				<French>Bâtiments</French>
-				<Russian>Здания</Russian>
-				<German>Gebäude</German>
-				<English>Buildings</English>
-			</Key>
-			<Key ID="STR_OBJECTS">
-				<Original>Objects</Original>
-				<French>Objets</French>
-				<Russian>Объекты</Russian>
-				<German>Objekte</German>
-				<English>Objects</English>
-			</Key>
-			<Key ID="STR_BASIS_OBJECT">
-				<Original>Basis Object</Original>
-				<French>L'objet de base</French>
-				<Russian>Базовые объекты</Russian>
-				<German>Basisobjekt</German>
-				<English>Basis Object</English>
-			</Key>
-			<Key ID="STR_ARSENAL">
-				<Original>Arsenal</Original>
-				<French>Arsenal</French>
-				<Russian>Арсенал</Russian>
-				<German>Arsenal</German>
-				<English>Arsenal</English>
-			</Key>				
-		</Container>
-		<Container name="Ares Modules">
-			<Key ID="STR_INJURY">
-				<Original>Injury</Original>
-				<French>Blessure</French>
-				<Russian>Ранения</Russian>
-				<German>Verletzungen</German>
-				<English>Injury</English>
-			</Key>
-			<Key ID="STR_HEAL">
-				<Original>Heal</Original>
-				<French>Guérir</French>
-				<German>Heilen</German>
-				<English>Heal</English>
-			</Key>			
-			<Key ID="STR_AMBIENT_ANIMATION">
-				<Original>Ambient Animation</Original>
-				<French>Animation de l'ambience</French>
-				<Russian>Атмосферные анимации</Russian>
-				<German>Ambient Animation</German>
-				<English>Ambient Animation</English>
-			</Key>
-			<Key ID="STR_CHATTER">
-				<Original>Chatter</Original>
-				<French>Tchatter</French>
-				<Russian>Радио переговоры</Russian>
-				<German>Chatten</German>
-				<English>Chatter</English>
-			</Key>
-			<Key ID="STR_SIT_ON_CHAIR">
-				<Original>Have a Seat</Original>
-				<French>Prendre Place</French>
-				<Russian>Усадить на стул</Russian>
-				<German>Nimm Platz</German>
-				<English>Have a Seat</English>
-			</Key>
-			<Key ID="STR_CHANGE_ABILITIES">
-				<Original>Change Abilities</Original>
-				<French>Modifier Talent</French>
-				<Russian>Изменить возможности</Russian>
-				<German>Fähigkeiten ändern</German>
-				<English>Change Abilities</English>
-			</Key>
-			<Key ID="STR_BIND_VAR">
-				<Original>Bind Variable to Object</Original>
-				<French>Associer Variable avec Objet</French>
-				<Russian>Указать имя объекта</Russian>
-				<German>Variable an Objekt binden</German>
-				<English>Bind Variable to Object</English>
-			</Key>
-			<Key ID="STR_ADVANCED_WEATHER_CHANGE">
-				<Original>Advanced Weather Change</Original>
-				<French>Changer le Temps (Avancée)</French>
-				<Russian>Продвинутое изменение погоды</Russian>
-				<German>Erweiterte Wetter Modifikation</German>
-				<English>Advanced Weather Change</English>
-			</Key>
-			<Key ID="STR_EARTHQUAKE">
-				<Original>Earthquake</Original>
-				<French>Séisme</French>
-				<Russian>Землетрясение</Russian>
-				<German>Erdbeben</German>
-				<English>Earthquake</English>
-			</Key>
-			<Key ID="STR_ARTILLERY_FIRE_MISSION">
-				<Original>Artillery Fire Mission</Original>
-				<French>Artillerie (Mission de Tir)</French>
-				<Russian>Артиллерийский огонь</Russian>
-				<German>Artillerie Feuerbefehl</German>
-				<English>Artillery Fire Mission</English>
-			</Key>
-			<Key ID="STR_CREATE_ARTILLERY_TARGET">
-				<Original>Create Artillery Target</Original>
-				<French>Créez un cible d'artillerie</French>
-				<Russian>Создать цель артиллерии</Russian>
-				<German>Definiere ein Artillerieziel</German>
-				<English>Create Artillery Target</English>
-			</Key>
-			<Key ID="STR_CREATE_SUPPRESSION_TARGET">
-				<Original>Create Suppression Target</Original>
-				<French>Créez un cible de suppression</French>
-				<Russian>Создать цель подавления</Russian>
-				<German>Definiere ein Unterstützungsfeuerziel</German>
-				<English>Create Suppression Target</English>
-			</Key>
-			<Key ID="STR_SUPPRESIVE_FIRE">
-				<Original>Suppressive Fire</Original>
-				<French>Tir de Suppression</French>
-				<Russian>Подавление</Russian>
-				<German>Unterstützungsfeuer</German>
-				<English>Suppressive Fire</English>
-			</Key>
-			<Key ID="STR_CREATE_NEW_RP">
-				<Original>Create new RP</Original>
-				<French>Créer un noveau RV</French>
-				<Russian>Создать точку встречи</Russian>
-				<German>Definire ein neuer Tpt</German>
-				<English>Create new RP</English>
-			</Key>
-			<Key ID="STR_CREATE_NEW_LZ">
-				<Original>Create new LZ</Original>
-				<French>Créer une nouvelle ZA</French>
-				<Russian>Создать зону посадки</Russian>
-				<German>Definiere ein neues LZ</German>
-				<English>Create new LZ</English>
-			</Key>
-			<Key ID="STR_SPAWN_UNITS">
-				<Original>Spawn Units</Original>
-				<French>Spawn Unité</French>
-				<Russian>Точка появления ИИ</Russian>
-				<German>Spawn Einheit</German>
-				<English>Spawn Units</English>
-			</Key>
-			<Key ID="STR_MINES_EXPLOSIVES">
-				<Original>Mines/Explosives</Original>
-				<French>Mines/Charges explosive</French>
-				<German>Minen/Sprengladungen</German>
-				<English>Mines/Explosives</English>
-			</Key>
-			<Key ID="STR_ADD_REMOVE_EDITABLE_OBJECTS">
-				<Original>Add/Remove editable Objects</Original>
-				<French>Ajoutez/Supprimez l'objet éditable</French>
-				<Russian>Добавить/Убрать объекты Зевса</Russian>
-				<German>Entferne/Füge edierbare Objekte (hinzu)</German>
-				<English>Add/Remove editable Objects</English>
-			</Key>
-			<Key ID="STR_HIDE_ZEUS">
-				<Original>Hide Zeus</Original>
-				<French>Cachez Zeus</French>
-				<Russian>Скрыть Зевса</Russian>
-				<German>Versteck Zeus</German>
-				<English>Hide Zeus</English>
-			</Key>
-			<Key ID="STR_HINT">
-				<Original>Hint</Original>
-				<French>Indice</French>
-				<Russian>Совет</Russian>
-				<German>Hinweis</German>
-				<English>Hint</English>
-			</Key>
-			<Key ID="STR_SWITCH_SIDE_CHANNEL_OF_ZEUS">
-				<Original>Switch side channel of Zeus</Original>
-				<French>Changez le canal du camp de Zeus</French>
-				<Russian>Сменить канал стороны</Russian>
-				<German>Seitenkanal von Zeus wechseln</German>
-				<English>Switch side channel of Zeus</English>
-			</Key>
-			<Key ID="STR_CREATE_TP">
-				<Original>Create teleporter</Original>
-				<French>Créez un téléport</French>
-				<Russian>Создать телепорт</Russian>
-				<German>Erstelle einen Teleporter</German>
-				<English>Create teleporter</English>
-			</Key>
-			<Key ID="STR_CHANGE_SIDE_OF_PLAYER">
-				<Original>Change side of player</Original>
-				<French>Changez le camp du joueur</French>
-				<Russian>Уничтожить здания</Russian>
-				<German>Seite des Spielers wechseln</German>
-				<English>Change side of player</English>
-			</Key>
-			<Key ID="STR_DESTROY_BUILDINGS">
-				<Original>Destroy Buildings</Original>
-				<French>Détruisiez Bâtiments</French>
-				<Russian>Создать эффект</Russian>
-				<German>Gebäude zerstören</German>
-				<English>Destroy Buildings</English>
-			</Key>
-			<Key ID="STR_ADVANCED_COMPOSITION">
-				<Original>Advanced Composition</Original>
-				<French>Composition avancée</French>
-				<Russian>Композиции объектов</Russian>
-				<German>Erweiterte Kompositionen</German>
-				<English>Advanced Composition</English>
-			</Key>
-			<Key ID="STR_SPAWN_EFFECT">
-				<Original>Spawn Effect</Original>
-				<French>Spawn Effet</French>
-				<Russian>Источник света</Russian>
-				<German>Effekt spawnen</German>
-				<English>Spawn Effect</English>
-			</Key>
-			<Key ID="STR_LIGHT_SOURCE">
-				<Original>Light Source</Original>
-				<French>Source Lumineuse</French>
-				<Russian>Источник света</Russian>
-				<German>Lichtquelle</German>
-				<English>Light Source</English>
-			</Key>
-			<Key ID="STR_PERSISTENT_SMOKE_PILLAR">
-				<Original>Persistent Smoke Pillar</Original>
-				<French>Panache de Fumée persistent</French>
-				<Russian>Постоянный источник дыма</Russian>
-				<German>Bleibende Rauchwolke</German>
-				<English>Persistent Smoke Pillar</English>
-			</Key>
-			<Key ID="STR_CREATE_EDIT_INTEL">
-				<Original>Create/Edit Intel</Original>
-				<French>Créez/Modifiez un renseignement</French>
-				<Russian>Создать/Изменить развед.данные</Russian>
-				<German>Hinweis platzieren/bearbeiten</German>
-				<English>Create/Edit Intel</English>
-			</Key>
-
-			<Key ID="STR_SPAWN_INTEL">
-				<Original>Spawn Intel</Original>
-				<French>Créez un renseignement</French>
-				<German>Hinweis spawnen</German>
-				<English>Spawn Intel</English>
-			</Key>	
-			<Key ID="STR_ACE_INJURY">
-				<Original>ACE Injury</Original>
-				<French>ACE blessures</French>
-				<Russian>ACE Ранения</Russian>
-				<German>ACE Verletzungen</German>
-				<English>ACE Injury</English>
-			</Key>	
-			<Key ID="STR_INJURY_WITHOUT_ACE">
-				<Original>Injury (without ACE)</Original>
-				<French>Blessures (sans ACE)</French>
-				<Russian>Ранения (Без ACE)</Russian>
-				<German>Verletzungen (ohne ACE)</German>
-				<English>Injury (without ACE)</English>
-			</Key>	
-			<Key ID="STR_ADD_FILTERED">
-				<Original>Add filtered ...</Original>
-				<French>Ajoutez Arsenal filtrée ...</French>
-				<Russian>Добавить ограниченный...</Russian>
-				<German>Gefiltert hinzufügen ...</German>
-				<English>Add filtered ...</English>
-			</Key>
-			<Key ID="STR_ADD_FULL">
-				<Original>Add full</Original>
-				<French>Ajoutez Arsenal complète</French>
-				<Russian>Добавить полный</Russian>
-				<German>Komplettes Arsenal hinzufügen</German>
-				<English>Add full</English>
-			</Key>
-			<Key ID="STR_COPY_TO_CLIPBOARD">
-				<Original>Copy to Clipboard</Original>
-				<French>Ajoutez au presse-papier</French>
-				<Russian>Скопировать</Russian>
-				<German>In Zwischenablage kopieren</German>
-				<English>Copy to Clipboard</English>
-			</Key>
-			<Key ID="STR_PASTE_N_REPLACE">
-				<Original>Paste and Replace</Original>
-				<French>Collez et Remplacez</French>
-				<Russian>Вставить и заменить</Russian>
-				<German>Einfügen und Ersetzen</German>
-				<English>Paste and Replace</English>
-			</Key>
-			<Key ID="STR_PASTE_N_COMBINE">
-				<Original>Paste and Combine</Original>
-				<French>Collez et Combinez</French>
-				<Russian>Вставить и скомбинировать</Russian>
-				<German>Einfügen und Kombinieren</German>
-				<English>Paste and Combine</English>
-			</Key>
-			<Key ID="STR_CREATE_BASIC_NATO">
-				<Original>Create Basic NATO</Original>
-				<French>Créez OTAN Arsenal de base</French>
-				<Russian>Создать стандарт НАТО</Russian>
-				<German>Spawn NATO Grundausrüstung</German>
-				<English>Create Basic NATO</English>
-			</Key>
-			<Key ID="STR_CREATE_BASIC_CSAT">
-				<Original>Create Basic CSAT</Original>
-				<French>Créez CSAT Arsenal de base</French>
-				<Russian>Создать стандарт CSAT</Russian>
-				<German>Spawn CSAT Grundausrüstung</German>
-				<English>Create Basic CSAT</English>
-			</Key>
-			<Key ID="STR_CREATE_BASIC_AAF">
-				<Original>Create Basic AAF</Original>
-				<French>Créez AAF Arsenal de base</French>
-				<Russian>Создать стандарт AAF</Russian>
-				<German>Spawn AAF Grundausrüstung</German>
-				<English>Create Basic AAF</English>
-			</Key>
-			<Key ID="STR_CREATE_BASIC_GUERILLA">
-				<Original>Create Basic Guerilla</Original>
-				<French>Créez Guérilla Arsenal de base</French>
-				<Russian>Создать стандарт повстанцев</Russian>
-				<German>Spawn Guerilla Grundausrüstung</German>
-				<English>Create Basic Guerilla</English>
-			</Key>
-			<Key ID="STR_COPY_MISSION_SQF">
-				<Original>Copy mission SQF</Original>
-				<French>Copiez SQF de la mission</French>
-				<Russian>Скопировать SQF миссию</Russian>
-				<German>Kopiere Missions SQF</German>
-				<English>Copy mission SQF</English>
-			</Key>
-			<Key ID="STR_TOGGLE_SIMULATION">
-				<Original>Enable/Disable Simulation</Original>
-				<French>Autorisez/Interdisez la simulation</French>
-				<Russian>Вкл/Выкл Моделирование</Russian>
-				<German>Simulation erlauben/verbieten</German>
-				<English>Enable/Disable Simulation</English>
-			</Key>
-			<Key ID="STR_ATTACH_TO">
-				<Original>Attach To</Original>
-				<French>Attchez l'objet à</French>
-				<Russian>Присоединить</Russian>
-				<German>An andres Objekt befestigen</German>
-				<English>Attach To</English>
-			</Key>
-			<Key ID="STR_CHANGE_HEIGHT">
-				<Original>Change height</Original>
-				<French>Changez la hauteur</French>
-				<Russian>Сменить высоту</Russian>
-				<German>Höhe ändern</German>
-				<English>Change height</English>
-			</Key>
-			<Key ID="STR_SURRENDER_UNIT">
-				<Original>Surrender Unit</Original>
-				<French>Capitulation</French>
-				<Russian>Взять в плен юнита</Russian>
-				<German>Einheit ergibt sich</German>
-				<English>Surrender Unit</English>
-			</Key>
-			<Key ID="STR_GARRISON_INSTANT">
-				<Original>Garrison Building (instant)</Original>
-				<French>Occupez un bâtiment (tout de suite)</French>
-				<Russian>Занять здание (постоянно)</Russian>
-				<German>Gebäude besetzen (sofort)</German>
-				<English>Garrison Building (instant)</English>
-			</Key>
-			<Key ID="STR_UN_GARRISON">
-				<Original>Un-Garrison</Original>
-				<French>Arrête occupation</French>
-				<Russian>Уйти из здания</Russian>
-				<German>Besetzung aufheben</German>
-				<English>Un-Garrison</English>
-			</Key>
-			<Key ID="STR_SEARCH_AND_GARRISON_BUILDING">
-				<Original>Search and Garrison Building</Original>
-				<French>Cherchez et occupez un bâtiment</French>
-				<Russian>Обыскать и занять здание</Russian>
-				<German>Suche und besetze ein Gebäude</German>
-				<English>Search and Garrison Building</English>
-			</Key>
-			<Key ID="STR_PATROL">
-				<Original>Patrol</Original>
-				<French>Patrouiller</French>
-				<Russian>Патруль</Russian>
-				<German>Patrouillieren</German>
-				<English>Patrol</English>
-			</Key>
-		</Container>
-	</Package>
-	<Package name="Ares Curator Dialogs">
-		<Container name="Reinforcements">
-			<Key ID="STR_NO_TARGET_MARKER">
-				<Original>You have to place a target marker first!</Original>
-				<French>On a besoin d'un marqueur de cible!</French>
-				<German>Du brauchst zuerst ein Ziel Marker!</German>
-				<English>You have to place a target marker first!</English>
-			</Key>			
-			<Key ID="STR_NO_LZ">
-				<Original>No LZ avaiable!</Original>
-				<French>Il n'y a pas de ZA disponible!</French>
-				<Russian>Нет точки встречи!</Russian>
-				<German>Kein LZ verfügbar!</German>
-				<English>No LZ avaiable!</English>
-			</Key>
-			<Key ID="STR_NO_RP">
-				<Original>No RP avaiable!</Original>
-				<French>Il n'y a pas de RV sont disponible!</French>
-				<Russian>Нет точки встречи!</Russian>
-				<German>Kein Tpt verfügbar!</German>
-				<English>No RP avaiable!</English>
-			</Key>
-			<Key ID="STR_RANDOM">
-				<Original>Random</Original>
-				<French>Aléatoire</French>
-				<Russian>Рандом</Russian>
-				<German>Zufall</German>
-				<English>Random</English>
-			</Key>
-			<Key ID="STR_NEAREST">
-				<Original>Nearest</Original>
-				<French>Le plus proche</French>
-				<Russian>Ближайшая</Russian>
-				<German>Nächstgelegener</German>
-				<English>Nearest</English>
-			</Key>
-			<Key ID="STR_FARTHEST">
-				<Original>Farthest</Original>
-				<French>Le plus loin</French>
-				<Russian>Дальняя</Russian>
-				<German>Weitestes</German>
-				<English>Farthest</English>
-			</Key>
-			<Key ID="STR_LEAST_USED">
-				<Original>Least Used</Original>
-				<French>Le moins utilisé</French>
-				<Russian>Менее использованная</Russian>
-				<German>Am wenigsten gebraucht</German>
-				<English>Least Used</English>
-			</Key>
-			<Key ID="STR_SIDE">
-				<Original>Side</Original>
-				<French>Camp</French>
-				<Russian>Сторона</Russian>
-				<German>Seite</German>
-				<English>Side</English>
-			</Key>
-			<Key ID="STR_GROUP">
-				<Original>Group</Original>
-				<French>Groupe</French>
-				<Russian>Группа</Russian>
-				<German>Gruppe</German>
-				<English>Group</English>
-			</Key>
-			<Key ID="STR_NO_ONE">
-				<Original>No one</Original>
-				<French>Personne</French>
-				<Russian>Фракция</Russian>
-				<German>Niemanden</German>
-				<English>No one</English>
-			</Key>
-			<Key ID="STR_FACTION">
-				<Original>Faction</Original>
-				<French>Fraction</French>
-				<Russian>Фракция</Russian>
-				<German>Fraktion</German>
-				<English>Faction</English>
-			</Key>
-			<Key ID="STR_VEHICLE_CATEGORY">
-				<Original>Vehicle Category</Original>
-				<French>Catégorie du Véhicule</French>
-				<Russian>Категория транспорта</Russian>
-				<German>Fahrzeugkategorie</German>
-				<English>Vehicle Category</English>
-			</Key>
-			<Key ID="STR_VEHICLE">
-				<Original>Vehicle</Original>
-				<French>Véhicule</French>
-				<Russian>Транспорт</Russian>
-				<German>Fahrzeug</German>
-				<English>Vehicle</English>
-			</Key>
-			<Key ID="STR_VEHICLE_BEHAVIOUR">
-				<Original>Vehicle Behaviour</Original>
-				<French>Comportement du Véhicule</French>
-				<Russian>Поведение транспорта</Russian>
-				<German>Varhalten des Fahrzeuges</German>
-				<English>Vehicle Behaviour</English>
-			</Key>
-			<Key ID="STR_LZ_DZ">
-				<Original>LZ/DZ</Original>
-				<French>ZA/DZ</French>
-				<Russian>Зона посадки/сброса</Russian>
-				<German>LZ/DZ</German>
-				<English>LZ/DZ</English>
-			</Key>
-			<Key ID="STR_GROUP_RP">
-				<Original>Group RP</Original>
-				<French>RV du groupe</French>
-				<Russian>Точка встречи группы</Russian>
-				<German>Tpt der Gruppe</German>
-				<English>Group RP</English>
-			</Key>
-			<Key ID="STR_INFANTRY_GROUP">
-				<Original>Infantry Group</Original>
-				<French>Groupe d'infanterie</French>
-				<Russian>Группа пехоты</Russian>
-				<German>Infanterie Gruppe</German>
-				<English>Infantry Group</English>
-			</Key>
-			<Key ID="STR_GROUP_BEHAVIOUR">
-				<Original>Group Behaviour</Original>
-				<French>Comportement du Groupe</French>
-				<Russian>Поведение группы</Russian>
-				<German>Verhalten der Gruppe</German>
-				<English>Group Behaviour</English>
-			</Key>
-			<Key ID="STR_RTB_DESPAWN">
-				<Original>RTB and Despawn</Original>
-				<French>Retournez et déspawn</French>
-				<Russian>Вернуться на базу(деспаун)</Russian>
-				<German>Komm zurück und Despawn</German>
-				<English>RTB and Despawn</English>
-			</Key>
-			<Key ID="STR_STAY_AT_LZ">
-				<Original>Stay at LZ</Original>
-				<French>Restez à ZA</French>
-				<Russian>Оставаться на зоне посадки</Russian>
-				<German>Bleit beim LZ</German>
-				<English>Stay at LZ</English>
-			</Key>
-			<Key ID="STR_DEFAULT">
-				<Original>Default</Original>
-				<French>Valeur par Défaut</French>
-				<Russian>Стандарт</Russian>
-				<German>Standardwert</German>
-				<English>Default</English>
-			</Key>
-			<Key ID="STR_RELAXED">
-				<Original>Relaxed</Original>
-				<French>Sûr</French>
-				<Russian>Спокойно</Russian>
-				<German>Sicher</German>
-				<English>Relaxed</English>
-			</Key>
-			<Key ID="STR_CAUTIOUS">
-				<Original>Cautious</Original>
-				<French>Conscient</French>
-				<Russian>Настороже</Russian>
-				<German>Vorsichtig</German>
-				<English>Cautious</English>
-			</Key>
-			<Key ID="STR_COMBAT">
-				<Original>Combat</Original>
-				<French>Combate</French>
-				<Russian>Бой</Russian>
-				<German>Kampfbereit</German>
-				<English>Combat</English>
-			</Key>
-			<Key ID="STR_ALL">
-				<Original>All</Original>
-				<French>Tous</French>
-				<Russian>Все</Russian>
-				<German>Alle</German>
-				<English>All</English>
-			</Key>
-			<Key ID="STR_SELECTION">
-				<Original>Selection</Original>
-				<French>Sélection</French>
-				<Russian>Выбор игрока</Russian>
-				<German>Auswahl</German>
-				<English>Selection</English>
-			</Key>
-			<Key ID="STR_MODE">
-				<Original>Mode</Original>
-				<French>Mode</French>
-				<Russian>Режим</Russian>
-				<German>Modus</German>
-				<English>Mode</English>
-			</Key>
-			<Key ID="STR_TELEPORT_PLAYERS">
-				<Original>Teleported %1 players to %2</Original>
-				<French>%1 joueurs ont été téléportés à %2</French>
-				<Russian>Телепортировано %1 игроков к %2</Russian>
-				<German>%1 Spieler wuren nach %2 teleportiert</German>
-				<English>Teleported %1 players to %2</English>
-			</Key>
-			<Key ID="STR_ALL_OBJECTS_IN_MISSION">
-				<Original>All objects in mission</Original>
-				<French>Tous l'objets dans la mission</French>
-				<Russian>Все объекты миссии</Russian>
-				<German>Alle Objekte in der Mission</German>
-				<English>All objects in mission</English>
-			</Key>
-			<Key ID="STR_ALL_OBJECTS_WITHIN">
-				<Original>All objects within</Original>
-				<French>Tous l'objects à moins de</French>
-				<Russian>Все объекты в пределах</Russian>
-				<German>Alle Objekte innerhalb</German>
-				<English>All objects within</English>
-			</Key>
-			<Key ID="STR_RANGE">
-				<Original>Range</Original>
-				<French>Portée</French>
-				<Russian>Диапазон</Russian>
-				<German>Reichweite</German>
-				<English>Range</English>
-			</Key>
-			<Key ID="STR_REMOVE">
-				<Original>Remove</Original>
-				<French>Supprimez</French>
-				<Russian>Убрать</Russian>
-				<German>Entfernen</German>
-				<English>Remove</English>
-			</Key>
-			<Key ID="STR_ADD">
-				<Original>Add</Original>
-				<French>Ajoutez</French>
-				<Russian>Добавить</Russian>
-				<German>Hinzufügen</German>
-				<English>Add</English>
-			</Key>
-			<Key ID="STR_REMOVED_OBJEKTE_FROM_ZEUS">
-				<Original>%1 objects were removed from Zeus</Original>
-				<French>%1 objects ont été supprimés à Zeus</French>
-				<Russian>%1 объект(ов) убран(ы) из Зевса</Russian>
-				<German>%1 Objekte wurden von Zeus entfernt</German>
-				<English>%1 objects were removed from Zeus</English>
-			</Key>
-			<Key ID="STR_ADD_OBJEKTE_TO_ZEUS">
-				<Original>%1 objects were added to Zeus</Original>
-				<French>%1 objects ont été ajoutés à Zeus</French>
-				<Russian>%1 объект(ов) добавлены в Зевса</Russian>
-				<German>%1 Objekte wurden zu Zeus hinzugefügt</German>
-				<English>%1 objects were added to Zeus</English>
-			</Key>
-			<Key ID="STR_TRUE">
-				<Original>True</Original>
-				<French>Vrais</French>
-				<Russian>Да</Russian>
-				<German>Wahr</German>
-				<English>True</English>
-			</Key>
-			<Key ID="STR_FALSE">
-				<Original>False</Original>
-				<French>Faut</French>
-				<Russian>Нет</Russian>
-				<German>Falsch</German>
-				<English>False</English>
-			</Key>
-			<Key ID="STR_ZEUS_IS_NOW_VISIBLE">
-				<Original>Zeus is now visible</Original>
-				<French>Zeus est visible maitnenat</French>
-				<Russian>Зевс теперь видимый</Russian>
-				<German>Zeus ist jetzt sichtbar</German>
-				<English>Zeus is now visible</English>
-			</Key>
-			<Key ID="STR_ZEUS_IS_NOW_HIDDEN">
-				<Original>Zeus is now hidden</Original>
-				<French>Zeus est caché maitnenat</French>
-				<Russian>Зевс теперь невидимый</Russian>
-				<German>Zeus ist jetzt unsichtbar</German>
-				<English>Zeus is now hidden</English>
-			</Key>
-			<Key ID="STR_MESSAGE">
-				<Original>Message</Original>
-				<French>Message</French>
-				<Russian>Сообщение</Russian>
-				<German>Mitteilung</German>
-				<English>Message</English>
-			</Key>
-			<Key ID="STR_ZEUS_HAS_LEFT_SIDE_CHANNEL">
-				<Original>Zeus has left your side channel</Original>
-				<French>Zeus a quitté votre canal du camp</French>
-				<Russian>Зевс покинул ваш канал стороны</Russian>
-				<German>Zeus hat den Kanal deiner Seite verlassen</German>
-				<English>Zeus has left your side channel</English>
-			</Key>
-			<Key ID="STR_ZEUS_HAS_ENTERED_SIDE_CHAT">
-				<Original>Zeus has entered your side channel</Original>
-				<French>Zeus as entré votre canal du camp</French>
-				<Russian>Зевс вошел в ваш канал стороны</Russian>
-				<German>Zeus hat den Kanal deiner Seite betreten</German>
-				<English>Zeus has entered your side channel</English>
-			</Key>
-			<Key ID="STR_CHANGE_SIDE_FOR">
-				<Original>Change side for</Original>
-				<French>Changez le camp de</French>
-				<Russian>Изменить сторону для</Russian>
-				<German>Seite wechseln von</German>
-				<English>Change side for</English>
-			</Key>
-			<Key ID="STR_SELECTED_PLAYER">
-				<Original>Selected player only</Original>
-				<French>Seulement le jouer choisi</French>
-				<Russian>Только выбранный игрок</Russian>
-				<German>Nur der ausgewählte Spieler</German>
-				<English>Selected player only</English>
-			</Key>
-			<Key ID="STR_OBJECT">
-				<Original>Object</Original>
-				<French>Objet</French>
-				<Russian>Объект</Russian>
-				<German>Objekt</German>
-				<English>Object</English>
-			</Key>			
-			<Key ID="STR_NO_OBJECT_SELECTED">
-				<Original>No object selected!</Original>
-				<French>Pas d'objet a été choisi!</French>
-				<Russian>Объект не выбран!</Russian>
-				<German>Kein Objekt wurde ausgewählt!</German>
-				<English>No object selected!</English>
-			</Key>
-			<Key ID="STR_NOT_PLACED_ON_UNIT">
-				<Original>This modul has to be placed on a unit!</Original>
-				<French>Il faut mettre ce module sur une unité!</French>
-				<German>Dieses Modul muss auf eine Einheit plaziert werden!</German>
-				<English>This modul has to be placed on a unit!</English>
-			</Key>	
-			<Key ID="STR_NO_GROUP_SELECTED">
-				<Original>No group selected!</Original>
-				<French>Pas de groupe a été choisi!</French>
-				<Russian>Группа не выбрана!</Russian>
-				<German>Keine Gruppe wurde ausgewählt!</German>
-				<English>No group selected!</English>
-			</Key>	
-			<Key ID="STR_NO_TARGET_AVAIABLE">
-				<Original>No target avaiable!</Original>
-				<French>Il n'y a pas de cible disponible!</French>
-				<Russian>Нет цели!</Russian>
-				<German>Keine Ziel verfügbar!</German>
-				<English>No target avaiable!</English>
-			</Key>	
-			<Key ID="STR_NO_TARGET_IN_RANGE">
-				<Original>No target in range!</Original>
-				<French>Il n'y a pas de cible à portée!</French>
-				<Russian>Нет цели в диапазоне!</Russian>
-				<German>Keine Ziel in Reichweite!</German>
-				<English>No target in range!</English>
-			</Key>
-			<Key ID="STR_ENTIRE_MAP">
-				<Original>Entire map</Original>
-				<French>tout la carte</French>
-				<Russian>Вся карта</Russian>
-				<German>Die gesammte Karte</German>
-				<English>Entire map</English>
-			</Key>
-			<Key ID="STR_ENTIRE_GROUP">
-				<Original>Entire m</Original>
-				<French>tout le groupe</French>
-				<Russian>Целая группа</Russian>
-				<German>Die gesammte Gruppe</German>
-				<English>Entire group</English>
-			</Key>
-			<Key ID="STR_SELECT_PLAYERS">
-				<Original>Select players</Original>
-				<French>Choisissez le joueurs</French>
-				<Russian>Выбранные игроки</Russian>
-				<German>Wähle die Spieler aus</German>
-				<English>Selected players</English>
-			</Key>
-			<Key ID="STR_CHANGED_SIDE_FOR_PLAYERS">
-				<Original>Changed side for %1 players</Original>
-				<French>Vous avez changé le camp pour %1 joueurs</French>
-				<Russian>Изменена сторона для %1 игрока(ов)</Russian>
-				<German>Sie haben die Seite für %1 Spieler gewechselt</German>
-				<English>Changed side for %1 players</English>
-			</Key>
-			<Key ID="STR_NO_PLAYER_IN_SELECTION">
-				<Original>No player in selection!</Original>
-				<French>Pas de joueur a été choisi!</French>
-				<Russian>Игрок не выбран!</Russian>
-				<German>Keine Spiler ausgewählt!</German>
-				<English>No player in selection!</English>
-			</Key>
-			<Key ID="STR_SELECT_X_APPLIED_TO_MODULE">
-				<Original>Select %1 to which the module should be applied!</Original>
-				<French>Choisissez %1 à qui le module est employé!</French>
-				<Russian>Выберите %1 к которому должен быть привязан модуль!</Russian>
-				<German>Wähle %1 auf die das Modul angewendet werden soll!</German>
-				<English>Select %1 to which the module should be applied!</English>
-			</Key>
-			<Key ID="STR_SELECTION_SUBMITTED">
-				<Original>Selection submitted!</Original>
-				<French>Vous avez confimé votre sélection!</French>
-				<Russian>Выбор сделан!</Russian>
-				<German>Auswahl bestätigt!</German>
-				<English>Selection submitted!</English>
-			</Key>
-			<Key ID="STR_SELECTION_CANCLED">
-				<Original>Selection cancled!</Original>
-				<French>Vous avez abandonné votre sélection!</French>
-				<Russian>Выбор отменен!</Russian>
-				<German>Auswahl abgebrochen!</German>
-				<English>Selection cancled!</English>
-			</Key>
-			<Key ID="STR_EXTEND">
-				<Original>Extend</Original>
-				<French>Etendue</French>
-				 <Russian>Расширить</Russian>
-				<German>Ausmass</German>
-				<English>Extend</English>
-			</Key>
-			<Key ID="STR_CATEGORY">
-				<Original>Category</Original>
-				<French>Catégorie</French>
-				<Russian>Категория</Russian>
-				<German>Kategorie</German>
-				<English>Category</English>
-			</Key>
-			<Key ID="STR_NEW_CATEGORY">
-				<Original>New category</Original>
-				<French>Nouvelle catégorie</French>
-				<Russian>Новая категория</Russian>
-				<German>Neue Kategorie</German>
-				<English>New category</English>
-			</Key>
-			<Key ID="STR_TYPE">
-				<Original>Type</Original>
-				<French>Type</French>
-				<Russian>Тип</Russian>
-				<German>Typ</German>
-				<English>Type</English>
-			</Key>
-			<Key ID="STR_NAME">
-				<Original>Name</Original>
-				<French>Nom</French>
-				<Russian>Имя</Russian>
-				<German>Name</German>
-				<English>Name</English>
-			</Key>
-			<Key ID="STR_LOADING_">
-				<Original>Loading ...</Original>
-				<French>Charger ...</French>
-				<Russian>Загрузка...</Russian>
-				<German>Ladet ...</German>
-				<English>Loading ...</English>
-			</Key>
-			<Key ID="STR_BLUE_LIGHT">
-				<Original>Blue Light</Original>
-				<French>Lumière bleue</French>
-				<Russian>Синий свет</Russian>
-				<German>Blaues Licht</German>
-				<English>Blue Light</English>
-			</Key>
-			<Key ID="STR_RED_LIGHT">
-				<Original>Red Light</Original>
-				<French>Lumière rouge</French>
-				<Russian>Красный свет</Russian>
-				<German>Rotes Licht</German>
-				<English>Red Light</English>
-			</Key>
-			<Key ID="STR_GREEN_LIGHT">
-				<Original>Green Light</Original>
-				<French>Lumière verte</French>
-				<Russian>Зеленый свет</Russian>
-				<German>Grünes Licht</German>
-				<English>Green Light</English>
-			</Key>
-			<Key ID="STR_WHITE_LIGHT">
-				<Original>White Light</Original>
-				<French>Lumière blanche</French>
-				<Russian>Белый свет</Russian>
-				<German>Weisses Licht</German>
-				<English>White Light</English>
-			</Key>
-			<Key ID="STR_YELLOW_LIGHT">
-				<Original>Yellow Light</Original>
-				<French>Lumière jaune</French>
-				<Russian>Желтый свет</Russian>
-				<German>Gelbes Licht</German>
-				<English>Yellow Light</English>
-			</Key>
-			<Key ID="STR_VEHICLE_FIRE">
-				<Original>Vehicle Fire</Original>
-				<French>Feu d'un véhicule</French>
-				<Russian>Дым горящего транспорта</Russian>
-				<German>Fahrzeug Feuer</German>
-				<English>Vehicle Fire</English>
-			</Key>
-			<Key ID="STR_SMALL_OILY_SMOKE">
-				<Original>Small Oily Smoke</Original>
-				<French>Petite fumée huileuse</French>
-				<Russian>Малый дым от топлива</Russian>
-				<German>Kleiner Öl-Rauch</German>
-				<English>Small Oily Smoke</English>
-			</Key>
-			<Key ID="STR_MEDIUM_OILY_SMOKE">
-				<Original>Medium Oily Smoke</Original>
-				<French>Moyenne fumée huileuse</French>
-				<Russian>Средний дым от топлива</Russian>
-				<German>Mittelgrosser Öl-Rauch</German>
-				<English>Medium Oily Smoke</English>
-			</Key>
-			<Key ID="STR_LARGE_OILY_SMOKE">
-				<Original>Large Oily Smoke</Original>
-				<French>Grande fumée huileuse</French>
-				<Russian>Большой дым от топлива</Russian>
-				<German>Grosser Öl-Rauch</German>
-				<English>Large Oily Smoke</English>
-			</Key>
-			<Key ID="STR_SMALL_WOOD_SMOKE">
-				<Original>Small Wood Smoke</Original>
-				<French>Petite fumée de bois</French>
-				<Russian>Малый древесный дым</Russian>
-				<German>kleiner Holzrauch</German>
-				<English>Small Wood Smoke</English>
-			</Key>
-			<Key ID="STR_MEDIUM_WOOD_SMOKE">
-				<Original>Medium Wood Smoke</Original>
-				<French>Moyenne fumée de bois</French>
-				<Russian>Средний древесный дым</Russian>
-				<German>Mittelgrosser Holzrauch</German>
-				<English>Medium Wood Smoke</English>
-			</Key>
-			<Key ID="STR_LARGE_WOOD_SMOKE">
-				<Original>Large Wood Smoke</Original>
-				<French>Grande fumée de bois</French>
-				<Russian>Большой древесный дым</Russian>
-				<German>Grosser Holzrauch</German>
-				<English>Large Wood Smoke</English>
-			</Key>
-			<Key ID="STR_SMALL_MIXED_SMOKE">
-				<Original>Small Mixed Smoke</Original>
-				<French>Petite fumée mixte</French>
-				<Russian>Малый смешанный дым</Russian>
-				<German>Kleiner gemischter Rauch</German>
-				<English>Small Mixed Smoke</English>
-			</Key>
-			<Key ID="STR_LARGE_MIXED_SMOKE">
-				<Original>Large Mixed Smoke</Original>
-				<French>Grande fumée mixte</French>
-				<Russian>Большой смешанный дым</Russian>
-				<German>Grosser gemischter Rauch</German>
-				<English>Large Mixed Smoke</English>
-			</Key>
-			<Key ID="STR_YOU_ARE_BEING_TELEPORTED">
-				<Original>You are being teleported...</Original>
-				<French>Vous êtes téléporté...</French>
-				<Russian>Вас телепортируют...</Russian>
-				<German>Sie werden teleportiert...</German>
-				<English>You are being teleported...</English>
-			</Key>
-			<Key ID="STR_SUPPRESS_X">
-				<Original>Suppress %1</Original>
-				<French>Supprimez %1</French>
-				<Russian>Подавленение %1</Russian>
-				<German>Unterdrücke %1</German>
-				<English>Suppress %1</English>
-			</Key>	
-			<Key ID="STR_CREATED_SUPPRESSION_TARGET">
-				<Original>Created Suppression Target '%1'</Original>
-				<French>Le cible de suppression '%1' a été créé</French>
-				<Russian>Создана цель подавления '%1'</Russian>
-				<German>Das Unterstützungsfeuerziel '%1' wurde definiert</German>
-				<English>Created Suppression Target '%1'</English>
-			</Key>	
-			<Key ID="STR_CREATED_ARTILLERY_TARGET">
-				<Original>Created Artillery Target '%1'</Original>
-				<French>La cible d'artillerie '%1' a été créé</French>
-				<Russian>Создана цель артиллерии '%1'</Russian>
-				<German>Das Artillerieziel '%1' wurde definiert</German>
-				<English>Created Artillery Target '%1'</English>
-			</Key>	
-			<Key ID="STR_TARGET">
-				<Original>Target %1</Original>
-				<French>Cible %1</French>
-				<Russian>Цель %1</Russian>
-				<German>Ziel %1</German>
-				<English>Target %1</English>
-			</Key>	
-			<Key ID="STR_SELECT_BATTERY_TO_FIRE">
-				<Original>Select battery to fire</Original>
-				<French>Choisissez une batterie pour la mission de tir</French>
-				<Russian>Выбрать баттарею для огня</Russian>
-				<German>Wähle eine Batterie für den Feuerbefehl aus</German>
-				<English>Select battery to fire</English>
-			</Key>	
-			<Key ID="STR_MARKER">
-				<Original>Marker</Original>
-				<French>Marqueur</French>
-				<Russian>Маркер</Russian>
-				<German>Markierung</German>
-				<English>Marker</English>
-			</Key>	
-			<Key ID="STR_GRID">
-				<Original>Grid</Original>
-				<French>Coordonnées</French>
-				<Russian>Квадрат</Russian>
-				<German>Koordinaten</German>
-				<English>Grid</English>
-			</Key>	
-			<Key ID="STR_BATTERY">
-				<Original>Battery</Original>
-				<French>Batterie</French>
-				<Russian>Баттарея</Russian>
-				<German>Batterie</German>
-				<English>Battery</English>
-			</Key>	
-			<Key ID="STR_NO_NEARBY_ARTILLERY_UNITS">
-				<Original>No nearby artillery units!</Original>
-				<French>Il n'y a pas d'artillerie proche!</French>
-				<Russian>Нет артиллерии в диапазоне!</Russian>
-				<German>Keine Artillerie in der Nähe!</German>
-				<English>No nearby artillery units!</English>
-			</Key>	
-			<Key ID="STR_NUMBER_OF_UNITS_INVOLVED">
-				<Original>Number of units involved</Original>
-				<French>Nombre d'unité engagée</French>
-				<Russian>Число участвующих юнитов</Russian>
-				<German>Anzahl involvierter Einheiten</German>
-				<English>Number of units involved</English>
-			</Key>				
-			<Key ID="STR_ROUNDS">
-				<Original>Rounds</Original>
-				<French>Tirs</French>
-				<Russian>Снаряды</Russian>
-				<German>Schüsse</German>
-				<English>Rounds</English>
-			</Key>	
-			<Key ID="STR_AMMO">
-				<Original>Ammo</Original>
-				<French>Munition</French>
-				<Russian>Боеприпасы</Russian>
-				<German>Munition</German>
-				<English>Ammo</English>
-			</Key>	
-			<Key ID="STR_GRID_EAST_WEST_XXX">
-				<Original>Grid East-West (XXX)</Original>
-				<French>L'est-ouest coordonnées (XXX)</French>
-				<Russian>Квадрат Восток-Запад (XXX)</Russian>
-				<German>Ost-West Koordinaten (XXX)</German>
-				<English>Grid East-West (XXX)</English>
-			</Key>	
-			<Key ID="STR_GRID_NORTH_SOUTH_XXX">
-				<Original>Grid North-South (XXX)</Original>
-				<French>Nord-sud coordonnées (XXX)</French>
-				<Russian>Квадрат Север-Юг (XXX)</Russian>
-				<German>Nord-Süd Koordinaten (XXX)</German>
-				<English>Grid North-South (XXX)</English>
-			</Key>	
-			<Key ID="STR_FIRE_ROUNDS_AND_ETA">
-				<Original>Firing %1 rounds of '%2' at target. ETA %3 s.</Original>
-				<French>Tirez %1 coups du type '%2'. Heure d'arrivée estimée: %3 s.</French>
-				<Russian>Стреляю %1 снаряд(ов) от '%2' по цели. Время %3 с.</Russian>
-				<German>Feuere %1 Schüsse vom Typ '%2'. Voraussichtilche Ankunftszeit: %3 s.</German>
-				<English>Firing %1 rounds of '%2' at target. ETA %3 s.</English>
-			</Key>	
-			<Key ID="STR_COPIED_UNITS">
-				<Original>Copied %1 units!</Original>
-				<French>%1 unités ont été copiées!</French>
-				<Russian>Скопировано %1 юнит(ов)!</Russian>
-				<German>%1 Einheiten kopiert!</German>
-				<English>Copied %1 units!</English>
-			</Key>	
-			<Key ID="STR_INTEL_WAS_SHARED_WITH_SIDE">
-				<Original>(The intel was shared with your side)</Original>
-				<French>(Le renseignement a été transmis à votre camp)</French>
-				<Russian>(Развед.данные отправлены вашей стороне)</Russian>
-				<German>(Der Hinweis wurde mit deiner Seite geteilt)</German>
-				<English>(The intel was shared with your side)</English>
-			</Key>		
-			<Key ID="STR_INTEL_WAS_SHARED_WITH_NONE">
-				<Original>(The intel was shared with no one)</Original>
-				<French>(Le renseignement n'a été transmis à personne)</French>
-				<Russian>(Развед.данные не отправлены никому)</Russian>
-				<German>(Der Hinweis wurde mit niemanden geteilt)</German>
-				<English>(The intel was shared with no one)</English>
-			</Key>		
-			<Key ID="STR_INTEL_WAS_SHARED_WITH_GROUP">
-				<Original>(The intel was shared with your group)</Original>
-				<French>(Le renseignement a été transmis à votre groupe)</French>
-				<Russian>(Развед.данные отправлены вашей группе) </Russian>
-				<German>(Der Hinweis wurde mit deiner Gruppe geteilt)</German>
-				<English>(The intel was shared with your group)</English>
-			</Key>	
-			<Key ID="STR_INTEL_SHARED_WITH">
-				<Original>Intel shared with</Original>
-				<French>Transmettez le renseignement à</French>
-				<Russian>Отправление</Russian>
-				<German>Hinweis teilen mit</German>
-				<English>Intel shared with</English>
-			</Key>	
-			<Key ID="STR_INTEL_TITLE">
-				<Original>Intel Title</Original>
-				<French>Titre du renseignement</French>
-				<Russian>Заголовок</Russian>
-				<German>Titel des Hinweises</German>
-				<English>Intel Title</English>
-			</Key>	
-			<Key ID="STR_INTEL_TEXT">
-				<Original>Intel Text</Original>
-				<French>Texte du renseignement</French>
-				<Russian>Текст</Russian>
-				<German>Text des Hinweises</German>
-				<English>Intel Text</English>
-			</Key>	
-			<Key ID="STR_INTEL_FOUND">
-				<Original>%1 found intel %2!</Original>
-				<French>%1 a trouvé le renseignement %2!</French>
-				<Russian>%1 нашел развед.данные %2!</Russian>
-				<German>%1 hat den Hinweis %2 gefunden!</German>
-				<English>%1 found intel %2!</English>
-			</Key>	
-			<Key ID="STR_PICK_UP_INTEL">
-				<Original>Pick up intel</Original>
-				<French>Ramassez le renseignement</French>
-				<Russian>Подобрать развед.данные</Russian>
-				<German>Hinweis sammeln</German>
-				<English>Pick up intel</English>
-			</Key>
-			<Key ID="STR_DELETE_OBJECT_ON_COMPLETION">
-				<Original>Delete object on completion</Original>
-				<French>Supprimez l'objet à la fin</French>
-				<German>Nach das Objekt am Ende löschen</German>
-				<English>Delete object on completion</English>
-			</Key>
-			<Key ID="STR_ACTION_TEXT">
-				<Original>Action text</Original>
-				<French>Le text de l'action</French>
-				<German>Aktionstext</German>
-				<English>Action text</English>
-			</Key>	
-			<Key ID="STR_ACTION_DURATION">
-				<Original>Action duration</Original>
-				<French>La durée de l'action</French>
-				<German>Dauer der Aktion</German>
-				<English>Action duration</English>
-			</Key>				
-			<Key ID="STR_UNITS">
-				<Original>Units</Original>
-				<French>Unitéd</French>
-				<Russian>Юниты</Russian>
-				<German>Einheiten</German>
-				<English>Units</English>
-			</Key>
-			<Key ID="STR_UNIT_RP">
-				<Original>Unit RP</Original>
-				<French>RV de l'unité</French>
-				<Russian>Точка встречи юнитов</Russian>
-				<German>Treffpunkt der Einheit</German>
-				<English>Unit RP</English>
-			</Key>	
-			<Key ID="STR_UNIT_BEHAVIOUR">
-				<Original>Unit behaviour</Original>
-				<French>Comportement de l'unité</French>
-				<Russian>Поведение юнитов</Russian>
-				<German>Verhalten der Einheit</German>
-				<English>Unit behaviour</English>
-			</Key>	
-			<Key ID="STR_NOT_IMPLEMENTED_AT_THE_MOMENT">
-				<Original>Not implemented at the moment!</Original>
-				<French>N'est pas disponible en ce moment!</French>
-				<Russian>Не внедрено в данный момент!</Russian>
-				<German>Nicht implementiert im Moment!</German>
-				<English>Not implemented at the moment!</English>
-			</Key>	
-			<Key ID="STR_HEAD">
-				<Original>Head</Original>
-				<French>Tête</French>
-				<Russian>Голова</Russian>
-				<German>Kopf</German>
-				<English>Head</English>
-			</Key>		
-			<Key ID="STR_TORSO">
-				<Original>Torso</Original>
-				<French>Torse</French>
-				<Russian>Торс</Russian>
-				<German>Torso</German>
-				<English>Torso</English>
-			</Key>		
-			<Key ID="STR_ARMS">
-				<Original>Arms</Original>
-				<French>Bras</French>
-				<Russian>Руки</Russian>
-				<German>Arme</German>
-				<English>Arms</English>
-			</Key>		
-			<Key ID="STR_LEGS">
-				<Original>Legs</Original>
-				<French>Jambes</French>
-				<Russian>Ноги</Russian>
-				<German>Beine</German>
-				<English>Legs</English>
-			</Key>		
-			<Key ID="STR_RIGHT_ARM">
-				<Original>Right Arm</Original>
-				<French>Bras droit</French>
-				<Russian>Правая рука</Russian>
-				<German>Rechter Arm</German>
-				<English>Right Arm</English>
-			</Key>		
-			<Key ID="STR_LEFT_ARM">
-				<Original>Left Arm</Original>
-				<French>Bras gauche</French>
-				<Russian>Левая рука</Russian>
-				<German>Linker Arm</German>
-				<English>Left Arm</English>
-			</Key>		
-			<Key ID="STR_RIGHT_LEG">
-				<Original>Right Leg</Original>
-				<French>Jambe droite</French>
-				<Russian>Правая нога</Russian>
-				<German>Rechtes Bein</German>
-				<English>Right Leg</English>
-			</Key>		
-			<Key ID="STR_LEFT_LEG">
-				<Original>Left Leg</Original>
-				<French>Jambe gauche</French>
-				<Russian>Левая нога</Russian>
-				<German>Linkes Bein</German>
-				<English>Left Leg</English>
-			</Key>		
-			<Key ID="STR_UNCONSIOUS_">
-				<Original>Unconscious</Original>
-				<French>Evanouissement</French>
-				<Russian>Без сознания</Russian>
-				<German>Bewusstlos</German>
-				<English>Unconscious</English>
-			</Key>		
-			<Key ID="STR_HEALTH_CHANGED">
-				<Original>Unit's health changed!</Original>
-				<French>La santé de l'unité a été modifiée!</French>
-				<Russian>Здоровье юнита изменено</Russian>
-				<German>Die Gesundheit der Einheit wurde geändert!</German>
-				<English>Unit's health changed!</English>
-			</Key>		
-			<Key ID="STR_LIGHT_INJURY">
-				<Original>Light</Original>
-				<French>Légèrement</French>
-				<Russian>Легкая</Russian>
-				<German>Leicht</German>
-				<English>Light</English>
-			</Key>		
-			<Key ID="STR_SEVERE">
-				<Original>Severe</Original>
-				<French>Grièvement</French>
-				<Russian>Серьезная</Russian>
-				<German>Schwer</German>
-				<English>Severe</English>
-			</Key>		
-			<Key ID="STR_NONE_INJURY">
-				<Original>None</Original>
-				<French>Aucune</French>
-				<Russian>Никакая</Russian>
-				<German>Keine</German>
-				<English>None</English>
-			</Key>		
-			<Key ID="STR_TRANSITION">
-				<Original>Transition</Original>
-				<French>Transition</French>
-				<Russian>Переход</Russian>
-				<German>Übergang</German>
-				<English>Transition</English>
-			</Key>		
-			<Key ID="STR_IMMEDIATE">
-				<Original>immediate</Original>
-				<French>tout de suite</French>
-				<Russian>Немедленно</Russian>
-				<German>sofort</German>
-				<English>immediate</English>
-			</Key>		
-			<Key ID="STR_SMOOTH">
-				<Original>smooth</Original>
-				<French>harmonieuse</French>
-				<Russian>Плавно</Russian>
-				<German>fliessend</German>
-				<English>smooth</English>
-			</Key>		
-			<Key ID="STR_OVERCAST">
-				<Original>Overcast</Original>
-				<French>Couverture</French>
-				<Russian>Облачность</Russian>
-				<German>Bedeckung</German>
-				<English>Overcast</English>
-			</Key>		
-			<Key ID="STR_RAIN_">
-				<Original>Rain (Overcast > 50%)</Original>
-				<French>Pluie (Couverture > 50%)</French>
-				<Russian>Дождь (Облачность > 50%)</Russian>
-				<German>Regen (Bedeckung > 50%)</German>
-				<English>Rain (Overcast > 50%)</English>
-			</Key>		
-			<Key ID="STR_LIGHTNINGS_">
-				<Original>Lightnings (Overcast ≈ 100%)</Original>
-				<French>Eclairs (Couverture ≈ 100%)</French>
-				<Russian>Молнии (Облачность ≈ 100%)</Russian>
-				<German>Blitze (Bedeckung ≈ 100%)</German>
-				<English>Lightnings (Overcast ≈ 100%)</English>
-			</Key>			
-			<Key ID="STR_RAINBOW_">
-				<Original>Rainbow (Overcast ≈ 50%)</Original>
-				<French>Arc de ciel (Couverture ≈ 50%)</French>
-				<Russian>Радуга (Облачность ≈ 50%)</Russian>
-				<German>Regenbogen (Bedeckung ≈ 50%)</German>
-				<English>Rainbow (Overcast ≈ 50%)</English>
-			</Key>		
-			<Key ID="STR_ALLOWED">
-				<Original>Allowed</Original>
-				<French>Autorisé</French>
-				<Russian>Разрешено</Russian>
-				<German>Erlaubt</German>
-				<English>Allowed</English>
-			</Key>		
-			<Key ID="STR_PROHIBITED">
-				<Original>Prohibited</Original>
-				<French>Interdit</French>
-				<Russian>Запрещено</Russian>
-				<German>Verboten</German>
-				<English>Prohibited</English>
-			</Key>		
-			<Key ID="STR_WIND_FORCE">
-				<Original>Wind Force</Original>
-				<French>Foce du vent</French>
-				<Russian>Сила ветра</Russian>
-				<German>Wind Stärke</German>
-				<English>Wind Force</English>
-			</Key>		
-			<Key ID="STR_WIND_DIRECTION">
-				<Original>Wind Direction</Original>
-				<French>Direction du vent</French>
-				<Russian>Направление ветра</Russian>
-				<German>Windrichtung</German>
-				<English>Wind Direction</English>
-			</Key>			
-			<Key ID="STR_WAVES">
-				<Original>Waves</Original>
-				<French>Vagues</French>
-				<Russian>Волны</Russian>
-				<German>Wellen</German>
-				<English>Waves</English>
-			</Key>			
-			<Key ID="STR_FOG_SETTING">
-				<Original>Fog Setting</Original>
-				<French>Cofiguration du brouillard</French>
-				<Russian>Туман</Russian>
-				<German>Nebeleinstellung</German>
-				<English>Fog Setting</English>
-			</Key>			
-			<Key ID="STR_FOG_DECAY">
-				<Original>Fog Decay</Original>
-				<French>Décomposition du brouillard</French>
-				<Russian>Плотность тумана</Russian>
-				<German>Nebelabfall</German>
-				<English>Fog Decay</English>
-			</Key>			
-			<Key ID="STR_Fog_Altitude_ASL">
-				<Original>Fog Altitude (ASL)</Original>
-				<French>Altitude du brouillard</French>
-				<Russian>Высота тумана(ур.моря)</Russian>
-				<German>Nebel Höhe (ü. M.)</German>
-				<English>Fog Altitude (ASL)</English>
-			</Key>			
-			<Key ID="STR_INTENSITY">
-				<Original>Intensity</Original>
-				<French>Intensité</French>
-				<Russian>Интенсивность</Russian>
-				<German>Intensität</German>
-				<English>Intensity</English>
-			</Key>			
-			<Key ID="STR_VERY_WEAK">
-				<Original>very weak</Original>
-				<French>très faible</French>
-				<Russian>Очень слабо</Russian>
-				<German>sehr schwach</German>
-				<English>very weak</English>
-			</Key>			
-			<Key ID="STR_WEAK">
-				<Original>weak</Original>
-				<French>faible</French>
-				<Russian>Слабо</Russian>
-				<German>schwach</German>
-				<English>weak</English>
-			</Key>			
-			<Key ID="STR_MEDIUM">
-				<Original>medium</Original>
-				<French>moyen</French>
-				<Russian>Средне</Russian>
-				<German>mittel</German>
-				<English>medium</English>
-			</Key>			
-			<Key ID="STR_STRONG">
-				<Original>strong</Original>
-				<French>fort</French>
-				<Russian>Сильно</Russian>
-				<German>stark</German>
-				<English>strong</English>
-			</Key>			
-			<Key ID="STR_INCLUDE_AI">
-				<Original>Include AI</Original>
-				<French>IA incluse</French>
-				<Russian>Включая ИИ</Russian>
-				<German>Inklusive KI</German>
-				<English>Include AI</English>
-			</Key>			
-			<Key ID="STR_INCLUDE_EMPTY_VEHICLES">
-				<Original>Include Empty Vehicles</Original>
-				<French>Véhicule vide inclus</French>
-				<Russian>Включая объекты</Russian>
-				<German>Inklusive leere Fahrzeuge</German>
-				<English>Include Empty Vehicles</English>
-			</Key>			
-			<Key ID="STR_INCLUDE_OBJECTS">
-				<Original>Include Objects</Original>
-				<French>Objets inclus</French>
-				<Russian>Включая объекты</Russian>
-				<German>Inklusive Objekte</German>
-				<English>Include Objects</English>
-			</Key>			
-			<Key ID="STR_INCLUDE_MARKERS">
-				<Original>Include Markers</Original>
-				<French>Marqueurs inclus</French>
-				<Russian>Включая маркеры</Russian>
-				<German>Inklusive Markierungen</German>
-				<English>Include Markers</English>
-			</Key>			
-			<Key ID="STR_YES">
-				<Original>Yes</Original>
-				<French>Oui</French>
-				<Russian>Да</Russian>
-				<German>Ja</German>
-				<English>Yes</English>
-			</Key>			
-			<Key ID="STR_NO">
-				<Original>No</Original>
-				<French>Non</French>
-				<Russian>Нет</Russian>
-				<German>Nein</German>
-				<English>No</English>
-			</Key>
-			<Key ID="STR_MINEFIELD">
-				<Original>Minefield</Original>
-				<French>Champ de mines</French>
-				<Russian>Минное поле</Russian>
-				<German>Minenfeld</German>
-				<English>Minefield</English>
-			</Key>
-			<Key ID="STR_EXPLOSIVE">
-				<Original>Explosive</Original>
-				<French>Charge explosive</French>
-				<Russian>Взрывчатка</Russian>
-				<German>Sprengladung</German>
-				<English>Explosive</English>
-			</Key>
-			<Key ID="STR_NUMBER_OF_MINES">
-				<Original>Number of mines</Original>
-				<French>Nombre de mines</French>
-				<Russian>Кол-во мин</Russian>
-				<German>Anzahl Minen</German>
-				<English>Number of mines</English>
-			</Key>
-			<Key ID="STR_RADIUS">
-				<Original>Radius</Original>
-				<French>Radius</French>
-				<Russian>Радиус</Russian>
-				<German>Radius</German>
-				<English>Radius</English>
-			</Key>
-			<Key ID="STR_WARNING_SIGNS">
-				<Original>Warning Signs</Original>
-				<French>Signals de danger</French>
-				<Russian>Предупредительные знаки</Russian>
-				<German>Warnschilder</German>
-				<English>Warning Signs</English>
-			</Key>	
-			<Key ID="STR_OBJECT_ATTCHED">
-				<Original>Object attached!</Original>
-				<French>L'object a été attaché!</French>
-				<Russian>Объект присоединен!</Russian>
-				<German>Objekt wurde befestigen!</German>
-				<English>Object attached!</English>
-			</Key>
-			<Key ID="STR_OBJECT_DETACHED">
-				<Original>Object detached!</Original>
-				<French>L'objet a été détaché!</French>
-				<Russian>Объект отсоединен!</Russian>
-				<German>Objekt wurde losgemacht!</German>
-				<English>Object detached!</English>
-			</Key>			
-			<Key ID="STR_ENABLE_SIMULATION">
-				<Original>Enable simulation</Original>
-				<French>Autorisez la simulation</French>
-				<Russian>Включить моделирование</Russian>
-				<German>Simulation erlauben</German>
-				<English>Enable simulation</English>
-			</Key>			
-			<Key ID="STR_TRANSFER_OWNERSHIP">
-				<Original>Transfer ownership</Original>
-				<French>Transférez la propriété</French>
-				<German>Besitztum verschieben</German>
-				<English>Transfer ownership</English>
-			</Key>	
-			<Key ID="STR_TRANSFER_TO">
-				<Original>Transfer to</Original>
-				<French>Transférez à</French>
-				<German>Besitztum an</German>
-				<English>Transfer to</English>
-			</Key>	
-			<Key ID="STR_SERVER">
-				<Original>Server</Original>
-				<French>Serveur</French>
-				<German>Server</German>
-				<English>Server</English>
-			</Key>
-			<Key ID="STR_HEIGHT">
-				<Original>Height</Original>
-				<French>Hauteur</French>
-				<Russian>Высота</Russian>
-				<German>Höhe</German>
-				<English>Height</English>
-			</Key>			
-			<Key ID="STR_GENERATED_SQF_FROM_MISSION_OBJECTS">
-				<Original>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</Original>
-				<French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
-				<Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 юнит(ов) )</Russian>
-				<German>SQF wurde generiert aus Missions Objekten (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
-				<English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
-			</Key>			
-			<Key ID="STR_COPY_PASTE_DIALOG">
-				<Original>Copy/Paste Dialog</Original>
-				<French>Copier/Coller Dialogue</French>
-				<Russian>Копировать/Вставить диалог</Russian>
-				<German>Kopieren/Einfügen Dialog</German>
-				<English>Copy/Paste Dialog</English>
-			</Key>			
-			<Key ID="STR_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS">
-				<Original>Copy/Paste clipboard contents using CTRL+C and CTRL+V</Original>
-				<French>Copier/Coller le contenu du presse-papier avec CTRL+C et CTRL+V</French>
-				<Russian>Копировать/Вставить код используя CTRL+C и CTRL+V</Russian>
-				<German>Kopieren/Einfügen des Inhaltes der Zwischenablage mit CTRL+C und CTRL+V</German>
-				<English>Copy/Paste clipboard contents using CTRL+C and CTRL+V</English>
-			</Key>			
-			<Key ID="STR_WRITE_OR_PASTE_CODE">
-				<Original>Write or paste code in the box below</Original>
-				<French>Ecrivez ou collez code dans le box au-dessous</French>
-				<Russian>Пропишите или вставьте код в строку ниже</Russian>
-				<German>Schreibe or füge Code in die untere Box ein</German>
-				<English>Write or paste code in the box below</English>
-			</Key>	
-			<Key ID="STR_AUTHOR">
-				<Original>Author</Original>
-				<French>Auteur</French>
-				<Russian>Автор</Russian>
-				<German>Autor</German>
-				<English>Author</English>
-			</Key>	
-			<Key ID="STR_DEFAULT">
-				<Original>Default</Original>
-				<French>Standard</French>
-				<Russian>Стандартно</Russian>
-				<German>Standard</German>
-				<English>Default</English>
-			</Key>	
-			<Key ID="STR_EMPTY">
-				<Original>Empty</Original>
-				<French>Vide</French>
-				<Russian>Пусто</Russian>
-				<German>Leer</German>
-				<English>Empty</English>
-			</Key>	
-			<Key ID="STR_DELETE_COMPOSITION">
-				<Original>Delete Composition</Original>
-				<French>Supprimez une composition</French>
-				<Russian>Удалить композицию</Russian>
-				<German>Komposition löschen</German>
-				<English>Delete Composition</English>
-			</Key>		
-			<Key ID="STR_DO_YOU_WANT_TO_DELETE_X">
-				<Original>Do you want to delete %1?</Original>
-				<French>Voulez-vous supprimer %1?</French>
-				<Russian>Вы хотите удалить %1?</Russian>
-				<German>Do you want to delete %1?</German>
-				<English>Do you want to delete %1?</English>
-			</Key>			
-			<Key ID="STR_ENTRY_ALREADY_EXISTS">
-				<Original>Entry already exists!</Original>
-				<French>Il y a déjà cette entrée!</French>
-				<Russian>Название уже существует!</Russian>
-				<German>Der Eintrag existiert bereits!</German>
-				<English>Entry already exists!</English>
-			</Key>			
-			<Key ID="STR_CHANGES_SAVED">
-				<Original>CHANGES WERE SAVED!</Original>
-				<French>LES MODIFICATIONS ONT ÉTÉ ENREGISTRÉ!</French>
-				<Russian>ИЗМЕНЕНИЯ СОХРАНЕНЫ!</Russian>
-				<German>ÄNDERUNGEN WURDEN GESPEICHERT!</German>
-				<English>CHANGES WERE SAVED!</English>
-			</Key>
-			<Key ID="STR_STANCE">
-			  <Original>Stance</Original>
-			  <French>Position</French>
-			  <Spanish>Postura</Spanish>
-			  <Italian>Posizione</Italian>
-			  <Polish>Postawa</Polish>
-			  <Russian>Позиция</Russian>
-			  <German>Haltung</German>
-			  <Czech>Postoj</Czech>
-			  <English>Stance</English>
-			  <Portuguese>Postura</Portuguese>
-			</Key>
-			<Key ID="STR_PRONE">
-			  <Original>Prone</Original>
-			  <French>À plat ventre</French>
-			  <Spanish>tumbado.</Spanish>
-			  <Italian>A terra</Italian>
-			  <Polish>padnij</Polish>
-			  <Russian>лечь.</Russian>
-			  <German>Hinlegen</German>
-			  <Czech>k zemi</Czech>
-			  <English>Prone</English>
-			  <Portuguese>Deitar</Portuguese>
-			</Key>
-			<Key ID="STR_CROUCH">
-			  <Original>Crouch</Original>
-			  <French>Accroupi</French>
-			  <Spanish>agáchese.</Spanish>
-			  <Italian>Abbassati</Italian>
-			  <Polish>przykucnij</Polish>
-			  <Russian>пригнуться.</Russian>
-			  <German>Ducken</German>
-			  <Czech>zaklekni</Czech>
-			  <English>Crouch</English>
-			  <Portuguese>Agachar-se</Portuguese>
-			</Key>
-			<Key ID="STR_STAND">
-			  <Original>Stand</Original>
-			  <French>Debout</French>
-			  <Spanish>en pie.</Spanish>
-			  <Italian>In piedi</Italian>
-			  <Polish>wstać</Polish>
-			  <Russian>стоять.</Russian>
-			  <German>Aufstehen</German>
-			  <Czech>vztyk</Czech>
-			  <English>Stand</English>
-			  <Portuguese>Ficar de pé</Portuguese>
-			</Key>			
-			<Key ID="STR_FIRE_MODE">
-				<Original>Fire mode</Original>
-				<French>Le mode de tir</French>
-				<German>Schiessmodus</German>
-				<English>Fire mode</English>
-			</Key>			
-			<Key ID="STR_AUTOMATIC">
-				<Original>automatic</Original>
-				<French>automatique</French>
-				<German>automatisch</German>
-				<English>automatic</English>
-			</Key>				
-			<Key ID="STR_BURST">
-				<Original>burst</Original>
-				<French>le tir en rafales</French>
-				<German>Feuerstoss</German>
-				<English>burst</English>
-			</Key>				
-			<Key ID="STR_SINGLE_SHOT">
-				<Original>semi-automatic</Original>
-				<French>semi-automatique</French>
-				<German>halbautomatisch</German>
-				<English>semi-automatic</English>
-			</Key>				
-			<Key ID="STR_DURATION">
-				<Original>Duration</Original>
-				<French>La durée</French>
-				<German>Dauer</German>
-				<English>Duration</English>
-			</Key>
-			<Key ID="STR_TIE_UNIT">
-				<Original>Tie unit</Original>
-				<French>Entraver l'unité</French>
-				<German>Einheit fesseln</German>
-				<English>Tie unit</English>
-			</Key>	
-			<Key ID="STR_RELEASE_UNIT">
-				<Original>Release unit</Original>
-				<French>Libérez l'unité</French>
-				<German>Einheit befreien</German>
-				<English>Release unit</English>
-			</Key>	
-			<Key ID="STR_RELEASE_N_LEAD_UNIT">
-				<Original>Release and lead</Original>
-				<French>Libérez et commandez</French>
-				<German>Befreien und kommandieren</German>
-				<English>Release and lead</English>
-			</Key>	
-			<Key ID="STR_INTERACTION">
-				<Original>Interaction</Original>
-				<French>Interaction</French>
-				<German>Interaktion</German>
-				<English>Interaction</English>
-			</Key>	
-			<Key ID="STR_INTERACTION">
-				<Original>Interaction</Original>
-				<French>Interaction</French>
-				<German>Interaktion</German>
-				<English>Interaction</English>
-			</Key>		
-		</Container>
-		<Container name="cfg Waypoints">
-			<Key ID="STR_LOITER_HELI">
-				<Original>LOITER (HELI)</Original>
-				<French>VOL EN ATTENTE (HÉLICO)</French>
-				<Russian>ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
-				<German>HERUMFLIEGEN (HELI)</German>
-				<English>LOITER (HELI)</English>
-			</Key>	
-			<Key ID="STR_LIFT_CLOSEST">
-				<Original>LIFT CLOSEST CARGO</Original>
-				<French>Lever le plus proche</French>
-				<Russian>ПОДНЯТЬ БЛИЖАЙШИЙ ГРУЗ</Russian>
-				<German>Nächste Ladung heben</German>
-				<English>LIFT CLOSEST CARGO</English>
-			</Key>	
-			<Key ID="STR_ACE_FASTROPING">
-				<Original>ACE FAST-ROPING</Original>
-				<French>ACE FAST-ROPING</French>
-				<Russian>АСЕ ПРЫЖОК С ТРОСОМ</Russian>
-				<German>ACE FAST-ROPING</German>
-				<English>ACE FAST-ROPING</English>
-			</Key>	
-			<Key ID="STR_SEARCH_BUILDING">
-				<Original>SEARCH BUILDING</Original>
-				<French>PERQUISITIONNER</French>
-				<Russian>ОБЫСК ЗДАНИЯ</Russian>
-				<German>GEBÄUDE DURCHSUCHEN</German>
-				<English>SEARCH BUILDING</English>
-			</Key>				
-		</Container>
-		<Container name="cfg Hints">
-			<Key ID="STR_PLACING_MODULES">
-				<Original>Placing Modules</Original>
-			</Key>
-			<Key ID="STR_PLACING_MODULES_DESCRIPTION">
-				<Original>
-					The Ares Modules have informative icons in the module tree.%1The most common are described here:
-					%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
-					%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This modul has to be placed on units.
-					%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options avaiable depend on the choice!
-					%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
-					%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options avaiable depend on the choice!
-					%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
-				</Original>
-			</Key>
-			<Key ID="STR_PLACING_MODULES_TIP">
-				<Original>
-					For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-				</Original>
-			</Key>
-			<Key ID="STR_SELECTION_OPTION">
-				<Original>Selection Option</Original>
-				<French>L'option de choix</French>
-				<Russian>Опция выбора</Russian>
-				<German>Auswahl Option</German>
-				<English>Selection Option</English>
-			</Key>
-			<Key ID="STR_SELECTION_OPTION_DESCRIPTION">
-				<Original>
-					Some modules have the option to select objects on which it is apply to.
-					%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-					%1You can cancle the selection mode with %3[ESCAPE]%4.
-				</Original>
-				<French>
-					Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
-					%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
-					%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
-				</French>
-				<Russian>
-					Некоторые модули имеют опцию выбора объектов, к которым они присоединяются.
-					%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
-					%1Вы можете отменить выбор используя %3[ESCAPE]%4.
-				</Russian>
-				<German>
-					Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
-					%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl bestätigen mit der %3[EINGABETASTE]%4.
-					%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
-				</German>
-				<English>
-					Some modules have the option to select objects on which it is apply to.
-					%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-					%1You can cancle the selection mode with %3[ESCAPE]%4.
-				</English>
-			</Key>
-			<Key ID="STR_SELECTION_OPTION_TIP">
-				<Original>
-					You can read on top what the module want you to select.
-				</Original>
-				<French>
-					Il est écrié au-dessus qu'est-ce que vous devez choisir.
-				</French>
-				<Russian>
-					Вы можете прочесть сверху, какой модуль вы хотите использовать
-				</Russian>
-				<German>
-					Oben steht jeweis geschrieben, was du auswählen sollst.
-				</German>
-				<Original>
-					You can read on top what the module want you to select.
-				</English>
-			</Key>
-			<Key ID="STR_PLACING_MODULES_TIP">
-				<English>
-					For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-				</Original>
-			</Key>
-			<Key ID="STR_KEY_ASSIGNMENT">
-				<Original>Additional Key Assignment</Original>
-				<Russian>Назначение доп. ключей</Russian>
-			</Key>
-			<Key ID="STR_KEY_ASSIGNMENT_DESCRIPTION">
-				<Original>
-					Additional key assignments aviable:
-					%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
-					%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
-					%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
-					%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-					%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
-					%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group an advanced composition.
-					%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup an advanced composition.
-				</Original>
-			</Key>
-			<Key ID="STR_EXECUTE_CODE">
-				<Original>Execute Code Module</Original>
-				<Russian>Модуль активации кода</Russian>
-			</Key>
-			<Key ID="STR_EXECUTE_CODE_DESCRIPTION">
-				<Original>
-					The execute code module is only aviable if the server allows clients using it!
-					%1%1There are two built-in params avaiable:
-					%1%2%3_this select 0%4   POSITION:   position where the module was placed.
-					%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
-				</Original>
-			</Key>
-			<Key ID="STR_ARES_FIELD_MANUAL">
-				<Original>Ares Field Manual</Original>
-				<French>Le manuel d'Ares</French>
-				<Russian>Путеводитель Ares</Russian>
-				<German>Handbuch des Ares</German>
-				<English>Ares Field Manual</English>
-			</Key>
-			<Key ID="STR_ARES_FIELD_MANUAL_DESCRIPTION">
-				<Original>
-					Open the %3Field Manual%4 avaiable in the escape menu for useful informations.
-				</Original>
-				<French>
-					Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
-				</French>
-				<Russian>
-					Откройте %3Путеводитель%4 в меню игры для полезной информации.
-				</Russian>
-				<German>
-					Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
-				</German>
-				<English>
-					Open the %3Field Manual%4 avaiable in the escape menu for informations.
-				</English>
-			</Key>
-			<Key ID="STR_RC_VEHICLE_CREW">
-				<Original>Remote Control Vehicle Crew</Original>
-				<Russian>Дистанционный контроль экипажа</Russian>
-			</Key>
-			<Key ID="STR_RC_VEHICLE_CREW_DESCRIPTION">
-				<Original>
-					You How to remote control a specific unit in a vehicle:
-					%1 1) Select the unit in the object list on your left.
-					%1 2) A new icon popes up on the vehicle corresponding to the target unit.
-					%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
-				</Original>
-			</Key>
-		</Container>
-	</Package>
+  <Package name="Curator Display">
+    <Container name="Vehicle Categories">
+      <Key ID="STR_CARS">
+        <Original>Cars</Original>
+        <English>Cars</English>
+        <Czech>Vozy</Czech>
+        <French>Voitures</French>
+        <Spanish>Coches</Spanish>
+        <Italian>Auto</Italian>
+        <Polish>Samochody</Polish>
+        <Portuguese>Carros</Portuguese>
+        <Russian>Автомобили</Russian>
+        <German>Autos</German>
+      </Key>
+      <Key ID="STR_PLANES">
+        <Original>Planes</Original>
+        <English>Planes</English>
+        <Czech>Letadla</Czech>
+        <French>Avions</French>
+        <Spanish>Aviones</Spanish>
+        <Italian>Aeroplani</Italian>
+        <Polish>Samoloty</Polish>
+        <Portuguese>Aviões</Portuguese>
+        <Russian>Самолеты</Russian>
+        <German>Flugzeuge</German>
+      </Key>
+      <Key ID="STR_APCS">
+        <Original>APCs</Original>
+        <English>APCs</English>
+        <Czech>BVP</Czech>
+        <French>VTT</French>
+        <Spanish>Vehículos de personal</Spanish>
+        <Italian>Veicoli trasporto truppe</Italian>
+        <Polish>Pojazdy opancerzone</Polish>
+        <Portuguese>VBTPs</Portuguese>
+        <Russian>БТР</Russian>
+        <German>Truppentransporter</German>
+      </Key>
+      <Key ID="STR_TANKS">
+        <Original>Tanks</Original>
+        <English>Tanks</English>
+        <Czech>Tanky</Czech>
+        <French>Chars</French>
+        <Spanish>Tanques</Spanish>
+        <Italian>Carri</Italian>
+        <Polish>Czołgi</Polish>
+        <Portuguese>Tanques</Portuguese>
+        <Russian>Танки</Russian>
+        <German>Panzer</German>
+      </Key>
+      <Key ID="STR_SHIPS">
+        <Original>Boats</Original>
+        <English>Boats</English>
+        <Czech>Lodě</Czech>
+        <French>Bateaux</French>
+        <Spanish>Botes</Spanish>
+        <Italian>Barche</Italian>
+        <Polish>Łodzie</Polish>
+        <Portuguese>Barcos</Portuguese>
+        <Russian>Лодки</Russian>
+        <German>Boote</German>
+      </Key>
+      <Key ID="STR_CHOPPERS">
+        <Original>Helicopters</Original>
+        <English>Helicopters</English>
+        <Czech>Vrtulníky</Czech>
+        <French>Hélicoptères</French>
+        <Spanish>Helicópteros</Spanish>
+        <Italian>Elicotteri</Italian>
+        <Polish>Śmigłowce</Polish>
+        <Portuguese>Helicópteros</Portuguese>
+        <Russian>Вертолеты</Russian>
+        <German>Helikopter</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_APC">
+        <Original>APC</Original>
+        <English>APC</English>
+        <Czech>APC</Czech>
+        <French>APC</French>
+        <Spanish>APC</Spanish>
+        <Italian>APC</Italian>
+        <Polish>APC</Polish>
+        <Portuguese>APC</Portuguese>
+        <Russian>БТР</Russian>
+        <German>MTW</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_IFV">
+        <Original>IFV</Original>
+        <English>IFV</English>
+        <Czech>IFV</Czech>
+        <French>IFV</French>
+        <Spanish>VCI</Spanish>
+        <Italian>IFV</Italian>
+        <Polish>BWP</Polish>
+        <Portuguese>IFV</Portuguese>
+        <Russian>БМП</Russian>
+        <German>SPz</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_TRUCK">
+        <Original>Truck</Original>
+        <English>Truck</English>
+        <Czech>Truck</Czech>
+        <French>Truck</French>
+        <Spanish>Camiones</Spanish>
+        <Italian>Truck</Italian>
+        <Polish>Ciężarówka</Polish>
+        <Portuguese>Truck</Portuguese>
+        <Russian>Грузовик</Russian>
+        <German>LKW</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_CAR">
+        <Original>Car</Original>
+        <English>Car</English>
+        <Czech>Car</Czech>
+        <French>Car</French>
+        <Spanish>Coches</Spanish>
+        <Italian>Car</Italian>
+        <Polish>Samochód</Polish>
+        <Portuguese>Car</Portuguese>
+        <Russian>Машина</Russian>
+        <German>Auto</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_TANK">
+        <Original>Tank</Original>
+        <English>Tank</English>
+        <Czech>Tank</Czech>
+        <French>Tank</French>
+        <Spanish>Tanques</Spanish>
+        <Italian>Tank</Italian>
+        <Polish>Czołg</Polish>
+        <Portuguese>Tank</Portuguese>
+        <Russian>Танк</Russian>
+        <German>Panzer</German>
+      </Key>
+      <Key ID="STR_RHSUSF_VEHCLASS_MRAP">
+        <Original>MRAP</Original>
+        <English>MRAP</English>
+        <Czech>MRAP</Czech>
+        <French>MRAP</French>
+        <Spanish>MRAP</Spanish>
+        <Italian>MRAP</Italian>
+        <Polish>MRAP</Polish>
+        <Portuguese>MRAPs</Portuguese>
+        <Russian>Бронемашина</Russian>
+        <German>MRAP</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_AIRPLANE">
+        <Original>Aircraft</Original>
+        <English>Aircraft</English>
+        <Czech>Aircraft</Czech>
+        <French>Aircraft</French>
+        <Spanish>Aviones</Spanish>
+        <Italian>Aircraft</Italian>
+        <Polish>Samolot</Polish>
+        <Portuguese>Aircraft</Portuguese>
+        <Russian>Самолёт</Russian>
+        <German>Flugzeuge</German>
+      </Key>
+      <Key ID="STR_RHS_VEHCLASS_HELICOPTER">
+        <Original>Helicopter</Original>
+        <English>Helicopter</English>
+        <Czech>Helicopter</Czech>
+        <French>Helicopter</French>
+        <Spanish>Helicopteros</Spanish>
+        <Italian>Helicopter</Italian>
+        <Polish>Śmigłowiec</Polish>
+        <Portuguese>Helicopter</Portuguese>
+        <Russian>Вертолёт</Russian>
+        <German>Hubschrauber</German>
+      </Key>
+    </Container>
+    <Container name="Module Categories">
+      <Key ID="STR_AUDIO">
+        <Original>Audio</Original>
+        <English>Audio</English>
+        <Czech>Audio</Czech>
+        <French>Sons</French>
+        <Spanish>Sonido</Spanish>
+        <Italian>Audio</Italian>
+        <Polish>Dźwięk</Polish>
+        <Portuguese>Áudio</Portuguese>
+        <Russian>Аудио</Russian>
+        <German>Audio</German>
+      </Key>
+      <Key ID="STR_EFFECTS">
+        <Original>Effects</Original>
+        <English>Effects</English>
+        <Czech>Efekty</Czech>
+        <French>Effets</French>
+        <Spanish>Efectos</Spanish>
+        <Italian>Effetti</Italian>
+        <Polish>Efekty</Polish>
+        <Portuguese>Efeitos</Portuguese>
+        <Russian>Эффекты</Russian>
+        <German>Effekte</German>
+      </Key>
+      <Key ID="STR_OBJECTIVES">
+        <Original>Objectives</Original>
+        <English>Objectives</English>
+        <Czech>Cíle</Czech>
+        <French>Objectifs</French>
+        <Spanish>Objetivos</Spanish>
+        <Italian>Obiettivi</Italian>
+        <Polish>Cele</Polish>
+        <Portuguese>Objetivos</Portuguese>
+        <Russian>Цели</Russian>
+        <German>Einsatzziele</German>
+      </Key>
+      <Key ID="STR_FIRE_SUPPORT">
+        <Original>Fire Support</Original>
+        <English>Fire Support</English>
+        <Czech>Palebná podpora</Czech>
+        <French>Appui-feu</French>
+        <Spanish>Apoyo</Spanish>
+        <Italian>Supporto di fuoco</Italian>
+        <Polish>Wsparcie ogniowe</Polish>
+        <Portuguese>Apoio de fogo</Portuguese>
+        <Russian>Огневая поддержка</Russian>
+        <German>Feuerunterstützung</German>
+      </Key>
+      <Key ID="STR_FLARES">
+        <Original>Flares</Original>
+        <English>Flares</English>
+        <Czech>Světlice</Czech>
+        <French>Fusées</French>
+        <Spanish>Bengalas</Spanish>
+        <Italian>Razzi luminosi</Italian>
+        <Polish>Flary</Polish>
+        <Portuguese>Sinalizadores</Portuguese>
+        <Russian>Сигнальные ракеты</Russian>
+        <German>Leuchtsignale</German>
+      </Key>
+      <Key ID="STR_CHEM_LIGHTS">
+        <Original>Chem lights</Original>
+        <English>Chem lights</English>
+        <Czech>Chemická světla</Czech>
+        <French>Bâtons lumineux</French>
+        <Spanish>Luces químicas</Spanish>
+        <Italian>Luci chimiche</Italian>
+        <Polish>Świetliki</Polish>
+        <Portuguese>Luzes químicas</Portuguese>
+        <Russian>ХИС</Russian>
+        <German>Leuchtstäbe</German>
+      </Key>
+      <Key ID="STR_SMOKE_SHELLS">
+        <Original>Smoke shells</Original>
+        <English>Smoke shells</English>
+        <Czech>Dýmovnice</Czech>
+        <French>Fumigènes</French>
+        <Spanish>Proyectiles de humo</Spanish>
+        <Italian>Proiettili fumogeni</Italian>
+        <Polish>Pociski dymne</Polish>
+        <Portuguese>Projéteis de fumaça</Portuguese>
+        <Russian>Дымовые снаряды</Russian>
+        <German>Rauchgranaten</German>
+      </Key>
+      <Key ID="STR_RESPAWN">
+        <Original>Respawn</Original>
+        <English>Respawn</English>
+        <Czech>Oživit</Czech>
+        <French>Réapparition</French>
+        <Spanish>Reaparición</Spanish>
+        <Italian>Rigenerazione</Italian>
+        <Polish>Odrodzenie</Polish>
+        <Portuguese>Ressurgimento</Portuguese>
+        <Russian>Возрождение</Russian>
+        <German>Respawn</German>
+      </Key>
+      <Key ID="STR_SCENARIO_FLOW">
+        <Original>Scenario Flow</Original>
+        <English>Scenario Flow</English>
+        <Czech>Průběh scénáře</Czech>
+        <French>Déroulement du scénario</French>
+        <Spanish>Flujo del escenario</Spanish>
+        <Italian>Flusso scenario</Italian>
+        <Polish>Przebieg scenariusza</Polish>
+        <Portuguese>Fluxo de cenário</Portuguese>
+        <Russian>Ход сценария</Russian>
+        <German>Szenario-Fluss</German>
+      </Key>
+      <Key ID="STR_ANIMALS">
+        <Original>Animals</Original>
+        <English>Animals</English>
+        <Czech>Zvířata</Czech>
+        <French>Animaux</French>
+        <Spanish>Animales</Spanish>
+        <Italian>Animali</Italian>
+        <Polish>Zwierzęta</Polish>
+        <Portuguese>Animais</Portuguese>
+        <Russian>Животные</Russian>
+        <German>Tiere</German>
+      </Key>
+      <Key ID="STR_PLAYERS">
+        <Original>Players</Original>
+        <English>Players</English>
+        <French>Joueur</French>
+        <Russian>Игроки</Russian>
+        <German>Spieler</German>
+      </Key>
+      <Key ID="STR_TRAINING">
+        <Original>Training</Original>
+        <English>Training</English>
+        <Czech>Trénink</Czech>
+        <French>Entraînement</French>
+        <Spanish>Instrucción</Spanish>
+        <Italian>Addestramento</Italian>
+        <Polish>Trening</Polish>
+        <Portuguese>Treino</Portuguese>
+        <Russian>Тренировка</Russian>
+        <German>Training</German>
+      </Key>
+      <Key ID="STR_ENVIRONMENT">
+        <Original>Environment</Original>
+        <English>Environment</English>
+        <Czech>Prostředí</Czech>
+        <French>Environnement</French>
+        <Spanish>Entorno</Spanish>
+        <Italian>Ambiente</Italian>
+        <Polish>Środowisko</Polish>
+        <Portuguese>Ambiente</Portuguese>
+        <Russian>Окружение</Russian>
+        <German>Umgebung</German>
+      </Key>
+      <Key ID="STR_ZEUS">
+        <Original>Zeus</Original>
+        <English>Zeus</English>
+        <Czech>Zeus</Czech>
+        <French>Zeus</French>
+        <Spanish>Zeus</Spanish>
+        <Italian>Zeus</Italian>
+        <Polish>Zeus</Polish>
+        <Portuguese>Zeus</Portuguese>
+        <Russian>Zeus</Russian>
+        <German>Zeus</German>
+      </Key>
+    </Container>
+    <Container name="Ares Module Categories">
+      <Key ID="STR_PLAYER">
+        <Original>Player</Original>
+        <English>Player</English>
+        <French>Joueur</French>
+        <Russian>Игрок</Russian>
+        <German>Spieler</German>
+      </Key>
+      <Key ID="STR_TELEPORT">
+        <Original>Teleport</Original>
+        <English>Teleport</English>
+        <French>Téléport</French>
+        <Russian>Телепорт</Russian>
+        <German>Teleport</German>
+      </Key>
+      <Key ID="STR_SPAWN">
+        <Original>Spawn</Original>
+        <English>Spawn</English>
+        <French>Spawn</French>
+        <Russian>Создать</Russian>
+        <German>Spawn</German>
+      </Key>
+      <Key ID="STR_SAVE_LOAD">
+        <Original>Save/Load</Original>
+        <English>Save/Load</English>
+        <French>Ouvrir/Enregistrer</French>
+        <Russian>Сохранить/Загрузить</Russian>
+        <German>Speichern/Laden</German>
+      </Key>
+      <Key ID="STR_REINFORCEMENTS">
+        <Original>Reinforcements</Original>
+        <English>Reinforcements</English>
+        <French>Renforcement</French>
+        <Russian>Подкрепления</Russian>
+        <German>Verstärkung</German>
+      </Key>
+      <Key ID="STR_EQUIPMENT">
+        <Original>Equipment</Original>
+        <English>Equipment</English>
+        <French>Equipment</French>
+        <Russian>Экипировка</Russian>
+        <German>Ausrüstung</German>
+      </Key>
+      <Key ID="STR_DEV_TOOLS">
+        <Original>Development Tools</Original>
+        <English>Development Tools</English>
+        <French>Outil de Développement</French>
+        <Russian>Инструменты разработчика</Russian>
+        <German>Werkzeuge für Entwicklung</German>
+      </Key>
+      <Key ID="STR_AI_BEHAVIOUR">
+        <Original>AI Behaviours</Original>
+        <English>AI Behaviour</English>
+        <French>IA Comportement</French>
+        <Russian>Поведение ИИ</Russian>
+        <German>KI Verhalten</German>
+      </Key>
+      <Key ID="STR_BUILDINGS">
+        <Original>Buildings</Original>
+        <English>Buildings</English>
+        <French>Bâtiments</French>
+        <Russian>Здания</Russian>
+        <German>Gebäude</German>
+      </Key>
+      <Key ID="STR_OBJECTS">
+        <Original>Objects</Original>
+        <English>Objects</English>
+        <French>Objets</French>
+        <Russian>Объекты</Russian>
+        <German>Objekte</German>
+      </Key>
+      <Key ID="STR_BASIS_OBJECT">
+        <Original>Basis Object</Original>
+        <English>Basis Object</English>
+        <French>L'objet de base</French>
+        <Russian>Базовые объекты</Russian>
+        <German>Basisobjekt</German>
+      </Key>
+      <Key ID="STR_ARSENAL">
+        <Original>Arsenal</Original>
+        <English>Arsenal</English>
+        <French>Arsenal</French>
+        <Russian>Арсенал</Russian>
+        <German>Arsenal</German>
+      </Key>
+    </Container>
+    <Container name="Ares Modules">
+      <Key ID="STR_INJURY">
+        <Original>Injury</Original>
+        <English>Injury</English>
+        <French>Blessure</French>
+        <Russian>Ранения</Russian>
+        <German>Verletzungen</German>
+      </Key>
+      <Key ID="STR_HEAL">
+        <Original>Heal</Original>
+        <English>Heal</English>
+        <French>Guérir</French>
+        <Russian>Здоровье юнита изменено</Russian>
+        <German>Heilen</German>
+      </Key>
+      <Key ID="STR_AMBIENT_ANIMATION">
+        <Original>Ambient Animation</Original>
+        <English>Ambient Animation</English>
+        <French>Animation de l'ambience</French>
+        <Russian>Атмосферные анимации</Russian>
+        <German>Ambient Animation</German>
+      </Key>
+      <Key ID="STR_CHATTER">
+        <Original>Chatter</Original>
+        <English>Chatter</English>
+        <French>Tchatter</French>
+        <Russian>Радио переговоры</Russian>
+        <German>Chatten</German>
+      </Key>
+      <Key ID="STR_SIT_ON_CHAIR">
+        <Original>Have a Seat</Original>
+        <English>Have a Seat</English>
+        <French>Prendre Place</French>
+        <Russian>Усадить на стул</Russian>
+        <German>Nimm Platz</German>
+      </Key>
+      <Key ID="STR_CHANGE_ABILITIES">
+        <Original>Change Abilities</Original>
+        <English>Change Abilities</English>
+        <French>Modifier Talent</French>
+        <Russian>Изменить возможности</Russian>
+        <German>Fähigkeiten ändern</German>
+      </Key>
+      <Key ID="STR_BIND_VAR">
+        <Original>Bind Variable to Object</Original>
+        <English>Bind Variable to Object</English>
+        <French>Associer Variable avec Objet</French>
+        <Russian>Указать имя объекта</Russian>
+        <German>Variable an Objekt binden</German>
+      </Key>
+      <Key ID="STR_ADVANCED_WEATHER_CHANGE">
+        <Original>Advanced Weather Change</Original>
+        <English>Advanced Weather Change</English>
+        <French>Changer le Temps (Avancée)</French>
+        <Russian>Продвинутое изменение погоды</Russian>
+        <German>Erweiterte Wetter Modifikation</German>
+      </Key>
+      <Key ID="STR_EARTHQUAKE">
+        <Original>Earthquake</Original>
+        <English>Earthquake</English>
+        <French>Séisme</French>
+        <Russian>Землетрясение</Russian>
+        <German>Erdbeben</German>
+      </Key>
+      <Key ID="STR_ARTILLERY_FIRE_MISSION">
+        <Original>Artillery Fire Mission</Original>
+        <English>Artillery Fire Mission</English>
+        <French>Artillerie (Mission de Tir)</French>
+        <Russian>Артиллерийский огонь</Russian>
+        <German>Artillerie Feuerbefehl</German>
+      </Key>
+      <Key ID="STR_CREATE_ARTILLERY_TARGET">
+        <Original>Create Artillery Target</Original>
+        <English>Create Artillery Target</English>
+        <French>Créez un cible d'artillerie</French>
+        <Russian>Создать цель артиллерии</Russian>
+        <German>Definiere ein Artillerieziel</German>
+      </Key>
+      <Key ID="STR_CREATE_SUPPRESSION_TARGET">
+        <Original>Create Suppression Target</Original>
+        <English>Create Suppression Target</English>
+        <French>Créez un cible de suppression</French>
+        <Russian>Создать цель подавления</Russian>
+        <German>Definiere ein Unterstützungsfeuerziel</German>
+      </Key>
+      <Key ID="STR_SUPPRESIVE_FIRE">
+        <Original>Suppressive Fire</Original>
+        <English>Suppressive Fire</English>
+        <French>Tir de Suppression</French>
+        <Russian>Подавление</Russian>
+        <German>Unterstützungsfeuer</German>
+      </Key>
+      <Key ID="STR_CREATE_NEW_RP">
+        <Original>Create new RP</Original>
+        <English>Create new RP</English>
+        <French>Créer un noveau RV</French>
+        <Russian>Создать точку встречи</Russian>
+        <German>Definire ein neuer Tpt</German>
+      </Key>
+      <Key ID="STR_CREATE_NEW_LZ">
+        <Original>Create new LZ</Original>
+        <English>Create new LZ</English>
+        <French>Créer une nouvelle ZA</French>
+        <Russian>Создать зону посадки</Russian>
+        <German>Definiere ein neues LZ</German>
+      </Key>
+      <Key ID="STR_SPAWN_UNITS">
+        <Original>Spawn Units</Original>
+        <English>Spawn Units</English>
+        <French>Spawn Unité</French>
+        <Russian>Точка появления ИИ</Russian>
+        <German>Spawn Einheit</German>
+      </Key>
+      <Key ID="STR_MINES_EXPLOSIVES">
+        <Original>Mines/Explosives</Original>
+        <English>Mines/Explosives</English>
+        <French>Mines/Charges explosive</French>
+        <Russian>Мины/Взрывчатка</Russian>
+        <German>Minen/Sprengladungen</German>
+      </Key>
+      <Key ID="STR_ADD_REMOVE_EDITABLE_OBJECTS">
+        <Original>Add/Remove editable Objects</Original>
+        <English>Add/Remove editable Objects</English>
+        <French>Ajoutez/Supprimez l'objet éditable</French>
+        <Russian>Добавить/Убрать объекты Зевса</Russian>
+        <German>Entferne/Füge edierbare Objekte (hinzu)</German>
+      </Key>
+      <Key ID="STR_HIDE_ZEUS">
+        <Original>Hide Zeus</Original>
+        <English>Hide Zeus</English>
+        <French>Cachez Zeus</French>
+        <Russian>Скрыть Зевса</Russian>
+        <German>Versteck Zeus</German>
+      </Key>
+      <Key ID="STR_HINT">
+        <Original>Hint</Original>
+        <English>Hint</English>
+        <French>Indice</French>
+        <Russian>Совет</Russian>
+        <German>Hinweis</German>
+      </Key>
+      <Key ID="STR_SWITCH_SIDE_CHANNEL_OF_ZEUS">
+        <Original>Switch side channel of Zeus</Original>
+        <English>Switch side channel of Zeus</English>
+        <French>Changez le canal du camp de Zeus</French>
+        <Russian>Сменить канал стороны</Russian>
+        <German>Seitenkanal von Zeus wechseln</German>
+      </Key>
+      <Key ID="STR_CREATE_TP">
+        <Original>Create teleporter</Original>
+        <English>Create teleporter</English>
+        <French>Créez un téléport</French>
+        <Russian>Создать телепорт</Russian>
+        <German>Erstelle einen Teleporter</German>
+      </Key>
+      <Key ID="STR_CHANGE_SIDE_OF_PLAYER">
+        <Original>Change side of player</Original>
+        <English>Change side of player</English>
+        <French>Changez le camp du joueur</French>
+        <Russian>Уничтожить здания</Russian>
+        <German>Seite des Spielers wechseln</German>
+      </Key>
+      <Key ID="STR_DESTROY_BUILDINGS">
+        <Original>Destroy Buildings</Original>
+        <English>Destroy Buildings</English>
+        <French>Détruisiez Bâtiments</French>
+        <Russian>Создать эффект</Russian>
+        <German>Gebäude zerstören</German>
+      </Key>
+      <Key ID="STR_ADVANCED_COMPOSITION">
+        <Original>Advanced Composition</Original>
+        <English>Advanced Composition</English>
+        <French>Composition avancée</French>
+        <Russian>Композиции объектов</Russian>
+        <German>Erweiterte Kompositionen</German>
+      </Key>
+      <Key ID="STR_SPAWN_EFFECT">
+        <Original>Spawn Effect</Original>
+        <English>Spawn Effect</English>
+        <French>Spawn Effet</French>
+        <Russian>Источник света</Russian>
+        <German>Effekt spawnen</German>
+      </Key>
+      <Key ID="STR_LIGHT_SOURCE">
+        <Original>Light Source</Original>
+        <English>Light Source</English>
+        <French>Source Lumineuse</French>
+        <Russian>Источник света</Russian>
+        <German>Lichtquelle</German>
+      </Key>
+      <Key ID="STR_PERSISTENT_SMOKE_PILLAR">
+        <Original>Persistent Smoke Pillar</Original>
+        <English>Persistent Smoke Pillar</English>
+        <French>Panache de Fumée persistent</French>
+        <Russian>Постоянный источник дыма</Russian>
+        <German>Bleibende Rauchwolke</German>
+      </Key>
+      <Key ID="STR_CREATE_EDIT_INTEL">
+        <Original>Create/Edit Intel</Original>
+        <English>Create/Edit Intel</English>
+        <French>Créez/Modifiez un renseignement</French>
+        <Russian>Создать/Изменить развед.данные</Russian>
+        <German>Hinweis platzieren/bearbeiten</German>
+      </Key>
+      <Key ID="STR_SPAWN_INTEL">
+        <Original>Spawn Intel</Original>
+        <English>Spawn Intel</English>
+        <French>Créez un renseignement</French>
+        <Russian>Создать развед.данные</Russian>
+        <German>Hinweis spawnen</German>
+      </Key>
+	  <Key ID="STR_SPAWN_EMPTY_OBJECT">
+        <Original>Spawn Empty Object</Original>
+        <English>Spawn Empty Object</English>
+        <French>Créez un objet vide</French>
+        <German>Ein leeres Objekt spawnen</German>
+      </Key>
+      <Key ID="STR_ACE_INJURY">
+        <Original>ACE Injury</Original>
+        <English>ACE Injury</English>
+        <French>ACE blessures</French>
+        <Russian>ACE Ранения</Russian>
+        <German>ACE Verletzungen</German>
+      </Key>
+      <Key ID="STR_INJURY_WITHOUT_ACE">
+        <Original>Injury (without ACE)</Original>
+        <English>Injury (without ACE)</English>
+        <French>Blessures (sans ACE)</French>
+        <Russian>Ранения (Без ACE)</Russian>
+        <German>Verletzungen (ohne ACE)</German>
+      </Key>
+      <Key ID="STR_ADD_FILTERED">
+        <Original>Add filtered ...</Original>
+        <English>Add filtered ...</English>
+        <French>Ajoutez Arsenal filtrée ...</French>
+        <Russian>Добавить ограниченный...</Russian>
+        <German>Gefiltert hinzufügen ...</German>
+      </Key>
+      <Key ID="STR_ADD_FULL">
+        <Original>Add full</Original>
+        <English>Add full</English>
+        <French>Ajoutez Arsenal complète</French>
+        <Russian>Добавить полный</Russian>
+        <German>Komplettes Arsenal hinzufügen</German>
+      </Key>
+      <Key ID="STR_COPY_TO_CLIPBOARD">
+        <Original>Copy to Clipboard</Original>
+        <English>Copy to Clipboard</English>
+        <French>Ajoutez au presse-papier</French>
+        <Russian>Скопировать</Russian>
+        <German>In Zwischenablage kopieren</German>
+      </Key>
+      <Key ID="STR_PASTE_N_REPLACE">
+        <Original>Paste and Replace</Original>
+        <English>Paste and Replace</English>
+        <French>Collez et Remplacez</French>
+        <Russian>Вставить и заменить</Russian>
+        <German>Einfügen und Ersetzen</German>
+      </Key>
+      <Key ID="STR_PASTE_N_COMBINE">
+        <Original>Paste and Combine</Original>
+        <English>Paste and Combine</English>
+        <French>Collez et Combinez</French>
+        <Russian>Вставить и скомбинировать</Russian>
+        <German>Einfügen und Kombinieren</German>
+      </Key>
+      <Key ID="STR_CREATE_BASIC_NATO">
+        <Original>Create Basic NATO</Original>
+        <English>Create Basic NATO</English>
+        <French>Créez OTAN Arsenal de base</French>
+        <Russian>Создать стандарт НАТО</Russian>
+        <German>Spawn NATO Grundausrüstung</German>
+      </Key>
+      <Key ID="STR_CREATE_BASIC_CSAT">
+        <Original>Create Basic CSAT</Original>
+        <English>Create Basic CSAT</English>
+        <French>Créez CSAT Arsenal de base</French>
+        <Russian>Создать стандарт CSAT</Russian>
+        <German>Spawn CSAT Grundausrüstung</German>
+      </Key>
+      <Key ID="STR_CREATE_BASIC_AAF">
+        <Original>Create Basic AAF</Original>
+        <English>Create Basic AAF</English>
+        <French>Créez AAF Arsenal de base</French>
+        <Russian>Создать стандарт AAF</Russian>
+        <German>Spawn AAF Grundausrüstung</German>
+      </Key>
+      <Key ID="STR_CREATE_BASIC_GUERILLA">
+        <Original>Create Basic Guerilla</Original>
+        <English>Create Basic Guerilla</English>
+        <French>Créez Guérilla Arsenal de base</French>
+        <Russian>Создать стандарт повстанцев</Russian>
+        <German>Spawn Guerilla Grundausrüstung</German>
+      </Key>
+      <Key ID="STR_COPY_MISSION_SQF">
+        <Original>Copy mission SQF</Original>
+        <English>Copy mission SQF</English>
+        <French>Copiez SQF de la mission</French>
+        <Russian>Скопировать SQF миссию</Russian>
+        <German>Kopiere Missions SQF</German>
+      </Key>
+      <Key ID="STR_TOGGLE_SIMULATION">
+        <Original>Enable/Disable Simulation</Original>
+        <English>Enable/Disable Simulation</English>
+        <French>Autorisez/Interdisez la simulation</French>
+        <Russian>Вкл/Выкл Моделирование</Russian>
+        <German>Simulation erlauben/verbieten</German>
+      </Key>
+      <Key ID="STR_ATTACH_TO">
+        <Original>Attach To</Original>
+        <English>Attach To</English>
+        <French>Attchez l'objet à</French>
+        <Russian>Присоединить</Russian>
+        <German>An andres Objekt befestigen</German>
+      </Key>
+      <Key ID="STR_CHANGE_HEIGHT">
+        <Original>Change height</Original>
+        <English>Change height</English>
+        <French>Changez la hauteur</French>
+        <Russian>Сменить высоту</Russian>
+        <German>Höhe ändern</German>
+      </Key>
+      <Key ID="STR_SURRENDER_UNIT">
+        <Original>Surrender Unit</Original>
+        <English>Surrender Unit</English>
+        <French>Capitulation</French>
+        <Russian>Взять в плен юнита</Russian>
+        <German>Einheit ergibt sich</German>
+      </Key>
+      <Key ID="STR_GARRISON_INSTANT">
+        <Original>Garrison Building (instant)</Original>
+        <English>Garrison Building (instant)</English>
+        <French>Occupez un bâtiment (tout de suite)</French>
+        <Russian>Занять здание (постоянно)</Russian>
+        <German>Gebäude besetzen (sofort)</German>
+      </Key>
+      <Key ID="STR_UN_GARRISON">
+        <Original>Un-Garrison</Original>
+        <English>Un-Garrison</English>
+        <French>Arrête occupation</French>
+        <Russian>Уйти из здания</Russian>
+        <German>Besetzung aufheben</German>
+      </Key>
+      <Key ID="STR_SEARCH_AND_GARRISON_BUILDING">
+        <Original>Search and Garrison Building</Original>
+        <English>Search and Garrison Building</English>
+        <French>Cherchez et occupez un bâtiment</French>
+        <Russian>Обыскать и занять здание</Russian>
+        <German>Suche und besetze ein Gebäude</German>
+      </Key>
+      <Key ID="STR_PATROL">
+        <Original>Patrol</Original>
+        <English>Patrol</English>
+        <French>Patrouiller</French>
+        <Russian>Патруль</Russian>
+        <German>Patrouillieren</German>
+      </Key>
+    </Container>
+  </Package>
+  <Package name="Ares Curator Dialogs">
+    <Container name="Common">
+      <Key ID="STR_NO_TARGET_MARKER">
+        <Original>You have to place a target marker first!</Original>
+        <English>You have to place a target marker first!</English>
+        <French>On a besoin d'un marqueur de cible!</French>
+        <Russian>Сначала вы должны разместить маркер цели!</Russian>
+        <German>Du brauchst zuerst ein Ziel Marker!</German>
+      </Key>
+      <Key ID="STR_NO_LZ">
+        <Original>No LZ avaiable!</Original>
+        <English>No LZ avaiable!</English>
+        <French>Il n'y a pas de ZA disponible!</French>
+        <Russian>Нет точки встречи!</Russian>
+        <German>Kein LZ verfügbar!</German>
+      </Key>
+      <Key ID="STR_NO_RP">
+        <Original>No RP avaiable!</Original>
+        <English>No RP avaiable!</English>
+        <French>Il n'y a pas de RV sont disponible!</French>
+        <Russian>Нет точки встречи!</Russian>
+        <German>Kein Tpt verfügbar!</German>
+      </Key>
+      <Key ID="STR_RANDOM">
+        <Original>Random</Original>
+        <English>Random</English>
+        <French>Aléatoire</French>
+        <Russian>Рандом</Russian>
+        <German>Zufall</German>
+      </Key>
+      <Key ID="STR_NEAREST">
+        <Original>Nearest</Original>
+        <English>Nearest</English>
+        <French>Le plus proche</French>
+        <Russian>Ближайшая</Russian>
+        <German>Nächstgelegener</German>
+      </Key>
+      <Key ID="STR_FARTHEST">
+        <Original>Farthest</Original>
+        <English>Farthest</English>
+        <French>Le plus loin</French>
+        <Russian>Дальняя</Russian>
+        <German>Weitestes</German>
+      </Key>
+      <Key ID="STR_LEAST_USED">
+        <Original>Least Used</Original>
+        <English>Least Used</English>
+        <French>Le moins utilisé</French>
+        <Russian>Менее использованная</Russian>
+        <German>Am wenigsten gebraucht</German>
+      </Key>
+      <Key ID="STR_SIDE">
+        <Original>Side</Original>
+        <English>Side</English>
+        <French>Camp</French>
+        <Russian>Сторона</Russian>
+        <German>Seite</German>
+      </Key>
+      <Key ID="STR_GROUP">
+        <Original>Group</Original>
+        <English>Group</English>
+        <French>Groupe</French>
+        <Russian>Группа</Russian>
+        <German>Gruppe</German>
+      </Key>
+      <Key ID="STR_NO_ONE">
+        <Original>No one</Original>
+        <English>No one</English>
+        <French>Personne</French>
+        <Russian>Фракция</Russian>
+        <German>Niemanden</German>
+      </Key>
+      <Key ID="STR_FACTION">
+        <Original>Faction</Original>
+        <English>Faction</English>
+        <French>Fraction</French>
+        <Russian>Фракция</Russian>
+        <German>Fraktion</German>
+      </Key>
+      <Key ID="STR_VEHICLE_CATEGORY">
+        <Original>Vehicle Category</Original>
+        <English>Vehicle Category</English>
+        <French>Catégorie du Véhicule</French>
+        <Russian>Категория транспорта</Russian>
+        <German>Fahrzeugkategorie</German>
+      </Key>
+      <Key ID="STR_VEHICLE">
+        <Original>Vehicle</Original>
+        <English>Vehicle</English>
+        <French>Véhicule</French>
+        <Russian>Транспорт</Russian>
+        <German>Fahrzeug</German>
+      </Key>
+      <Key ID="STR_VEHICLE_BEHAVIOUR">
+        <Original>Vehicle Behaviour</Original>
+        <English>Vehicle Behaviour</English>
+        <French>Comportement du Véhicule</French>
+        <Russian>Поведение транспорта</Russian>
+        <German>Varhalten des Fahrzeuges</German>
+      </Key>
+      <Key ID="STR_LZ_DZ">
+        <Original>LZ/DZ</Original>
+        <English>LZ/DZ</English>
+        <French>ZA/DZ</French>
+        <Russian>Зона посадки/сброса</Russian>
+        <German>LZ/DZ</German>
+      </Key>
+      <Key ID="STR_GROUP_RP">
+        <Original>Group RP</Original>
+        <English>Group RP</English>
+        <French>RV du groupe</French>
+        <Russian>Точка встречи группы</Russian>
+        <German>Tpt der Gruppe</German>
+      </Key>
+      <Key ID="STR_INFANTRY_GROUP">
+        <Original>Infantry Group</Original>
+        <English>Infantry Group</English>
+        <French>Groupe d'infanterie</French>
+        <Russian>Группа пехоты</Russian>
+        <German>Infanterie Gruppe</German>
+      </Key>
+      <Key ID="STR_GROUP_BEHAVIOUR">
+        <Original>Group Behaviour</Original>
+        <English>Group Behaviour</English>
+        <French>Comportement du Groupe</French>
+        <Russian>Поведение группы</Russian>
+        <German>Verhalten der Gruppe</German>
+      </Key>
+      <Key ID="STR_RTB_DESPAWN">
+        <Original>RTB and Despawn</Original>
+        <English>RTB and Despawn</English>
+        <French>Retournez et déspawn</French>
+        <Russian>Вернуться на базу(деспаун)</Russian>
+        <German>Komm zurück und Despawn</German>
+      </Key>
+      <Key ID="STR_STAY_AT_LZ">
+        <Original>Stay at LZ</Original>
+        <English>Stay at LZ</English>
+        <French>Restez à ZA</French>
+        <Russian>Оставаться на зоне посадки</Russian>
+        <German>Bleit beim LZ</German>
+      </Key>
+      <Key ID="STR_DEFAULT">
+        <Original>Default</Original>
+        <English>Default</English>
+        <French>Valeur par Défaut</French>
+        <Russian>Стандарт</Russian>
+        <German>Standardwert</German>
+      </Key>
+      <Key ID="STR_RELAXED">
+        <Original>Relaxed</Original>
+        <English>Relaxed</English>
+        <French>Sûr</French>
+        <Russian>Спокойно</Russian>
+        <German>Sicher</German>
+      </Key>
+      <Key ID="STR_CAUTIOUS">
+        <Original>Cautious</Original>
+        <English>Cautious</English>
+        <French>Conscient</French>
+        <Russian>Настороже</Russian>
+        <German>Vorsichtig</German>
+      </Key>
+      <Key ID="STR_COMBAT">
+        <Original>Combat</Original>
+        <English>Combat</English>
+        <French>Combate</French>
+        <Russian>Бой</Russian>
+        <German>Kampfbereit</German>
+      </Key>
+      <Key ID="STR_CARELESS">
+        <Original>Careless</Original>
+        <English>Careless</English>
+        <French>Inattentif</French>
+        <German>Unachtsam</German>
+      </Key>
+      <Key ID="STR_ALL">
+        <Original>All</Original>
+        <English>All</English>
+        <French>Tous</French>
+        <Russian>Все</Russian>
+        <German>Alle</German>
+      </Key>
+      <Key ID="STR_SELECTION">
+        <Original>Selection</Original>
+        <English>Selection</English>
+        <French>Sélection</French>
+        <Russian>Выбор игрока</Russian>
+        <German>Auswahl</German>
+      </Key>
+      <Key ID="STR_MODE">
+        <Original>Mode</Original>
+        <English>Mode</English>
+        <French>Mode</French>
+        <Russian>Режим</Russian>
+        <German>Modus</German>
+      </Key>
+      <Key ID="STR_TELEPORT_PLAYERS">
+        <Original>Teleported %1 players to %2</Original>
+        <English>Teleported %1 players to %2</English>
+        <French>%1 joueurs ont été téléportés à %2</French>
+        <Russian>Телепортировано %1 игроков к %2</Russian>
+        <German>%1 Spieler wuren nach %2 teleportiert</German>
+      </Key>
+      <Key ID="STR_ALL_OBJECTS_IN_MISSION">
+        <Original>All objects in mission</Original>
+        <English>All objects in mission</English>
+        <French>Tous l'objets dans la mission</French>
+        <Russian>Все объекты миссии</Russian>
+        <German>Alle Objekte in der Mission</German>
+      </Key>
+      <Key ID="STR_ALL_OBJECTS_WITHIN">
+        <Original>All objects within</Original>
+        <English>All objects within</English>
+        <French>Tous l'objects à moins de</French>
+        <Russian>Все объекты в пределах</Russian>
+        <German>Alle Objekte innerhalb</German>
+      </Key>
+      <Key ID="STR_RANGE">
+        <Original>Range</Original>
+        <English>Range</English>
+        <French>Portée</French>
+        <Russian>Диапазон</Russian>
+        <German>Reichweite</German>
+      </Key>
+      <Key ID="STR_REMOVE">
+        <Original>Remove</Original>
+        <English>Remove</English>
+        <French>Supprimez</French>
+        <Russian>Убрать</Russian>
+        <German>Entfernen</German>
+      </Key>
+      <Key ID="STR_ADD">
+        <Original>Add</Original>
+        <English>Add</English>
+        <French>Ajoutez</French>
+        <Russian>Добавить</Russian>
+        <German>Hinzufügen</German>
+      </Key>
+      <Key ID="STR_REMOVED_OBJEKTE_FROM_ZEUS">
+        <Original>%1 objects were removed from Zeus</Original>
+        <English>%1 objects were removed from Zeus</English>
+        <French>%1 objects ont été supprimés à Zeus</French>
+        <Russian>%1 объект(ов) убран(ы) из Зевса</Russian>
+        <German>%1 Objekte wurden von Zeus entfernt</German>
+      </Key>
+      <Key ID="STR_ADD_OBJEKTE_TO_ZEUS">
+        <Original>%1 objects were added to Zeus</Original>
+        <English>%1 objects were added to Zeus</English>
+        <French>%1 objects ont été ajoutés à Zeus</French>
+        <Russian>%1 объект(ов) добавлены в Зевса</Russian>
+        <German>%1 Objekte wurden zu Zeus hinzugefügt</German>
+      </Key>
+      <Key ID="STR_TRUE">
+        <Original>True</Original>
+        <English>True</English>
+        <French>Vrais</French>
+        <Russian>Да</Russian>
+        <German>Wahr</German>
+      </Key>
+      <Key ID="STR_FALSE">
+        <Original>False</Original>
+        <English>False</English>
+        <French>Faut</French>
+        <Russian>Нет</Russian>
+        <German>Falsch</German>
+      </Key>
+      <Key ID="STR_ZEUS_IS_NOW_VISIBLE">
+        <Original>Zeus is now visible</Original>
+        <English>Zeus is now visible</English>
+        <French>Zeus est visible maitnenat</French>
+        <Russian>Зевс теперь видимый</Russian>
+        <German>Zeus ist jetzt sichtbar</German>
+      </Key>
+      <Key ID="STR_ZEUS_IS_NOW_HIDDEN">
+        <Original>Zeus is now hidden</Original>
+        <English>Zeus is now hidden</English>
+        <French>Zeus est caché maitnenat</French>
+        <Russian>Зевс теперь невидимый</Russian>
+        <German>Zeus ist jetzt unsichtbar</German>
+      </Key>
+      <Key ID="STR_MESSAGE">
+        <Original>Message</Original>
+        <English>Message</English>
+        <French>Message</French>
+        <Russian>Сообщение</Russian>
+        <German>Mitteilung</German>
+      </Key>
+      <Key ID="STR_ZEUS_HAS_LEFT_SIDE_CHANNEL">
+        <Original>Zeus has left your side channel</Original>
+        <English>Zeus has left your side channel</English>
+        <French>Zeus a quitté votre canal du camp</French>
+        <Russian>Зевс покинул ваш канал стороны</Russian>
+        <German>Zeus hat den Kanal deiner Seite verlassen</German>
+      </Key>
+      <Key ID="STR_ZEUS_HAS_ENTERED_SIDE_CHAT">
+        <Original>Zeus has entered your side channel</Original>
+        <English>Zeus has entered your side channel</English>
+        <French>Zeus as entré votre canal du camp</French>
+        <Russian>Зевс вошел в ваш канал стороны</Russian>
+        <German>Zeus hat den Kanal deiner Seite betreten</German>
+      </Key>
+      <Key ID="STR_CHANGE_SIDE_FOR">
+        <Original>Change side for</Original>
+        <English>Change side for</English>
+        <French>Changez le camp de</French>
+        <Russian>Изменить сторону для</Russian>
+        <German>Seite wechseln von</German>
+      </Key>
+      <Key ID="STR_SELECTED_PLAYER">
+        <Original>Selected player only</Original>
+        <English>Selected player only</English>
+        <French>Seulement le jouer choisi</French>
+        <Russian>Только выбранный игрок</Russian>
+        <German>Nur der ausgewählte Spieler</German>
+      </Key>
+      <Key ID="STR_OBJECT">
+        <Original>Object</Original>
+        <English>Object</English>
+        <French>Objet</French>
+        <Russian>Объект</Russian>
+        <German>Objekt</German>
+      </Key>
+      <Key ID="STR_NO_OBJECT_SELECTED">
+        <Original>No object selected!</Original>
+        <English>No object selected!</English>
+        <French>Pas d'objet a été choisi!</French>
+        <Russian>Объект не выбран!</Russian>
+        <German>Kein Objekt wurde ausgewählt!</German>
+      </Key>
+      <Key ID="STR_NOT_PLACED_ON_UNIT">
+        <Original>This modul has to be placed on a unit!</Original>
+        <English>This modul has to be placed on a unit!</English>
+        <French>Il faut mettre ce module sur une unité!</French>
+        <Russian>Этот модуль должен быть установлен на юните!</Russian>
+        <German>Dieses Modul muss auf eine Einheit plaziert werden!</German>
+      </Key>
+      <Key ID="STR_NO_GROUP_SELECTED">
+        <Original>No group selected!</Original>
+        <English>No group selected!</English>
+        <French>Pas de groupe a été choisi!</French>
+        <Russian>Группа не выбрана!</Russian>
+        <German>Keine Gruppe wurde ausgewählt!</German>
+      </Key>
+      <Key ID="STR_NO_TARGET_AVAIABLE">
+        <Original>No target avaiable!</Original>
+        <English>No target avaiable!</English>
+        <French>Il n'y a pas de cible disponible!</French>
+        <Russian>Нет цели!</Russian>
+        <German>Keine Ziel verfügbar!</German>
+      </Key>
+      <Key ID="STR_NO_TARGET_IN_RANGE">
+        <Original>No target in range!</Original>
+        <English>No target in range!</English>
+        <French>Il n'y a pas de cible à portée!</French>
+        <Russian>Нет цели в диапазоне!</Russian>
+        <German>Keine Ziel in Reichweite!</German>
+      </Key>
+      <Key ID="STR_ENTIRE_MAP">
+        <Original>Entire map</Original>
+        <English>Entire map</English>
+        <French>tout la carte</French>
+        <Russian>Вся карта</Russian>
+        <German>Die gesammte Karte</German>
+      </Key>
+      <Key ID="STR_ENTIRE_GROUP">
+        <Original>Entire m</Original>
+        <English>Entire group</English>
+        <French>tout le groupe</French>
+        <Russian>Целая группа</Russian>
+        <German>Die gesammte Gruppe</German>
+      </Key>
+      <Key ID="STR_SELECT_PLAYERS">
+        <Original>Select players</Original>
+        <English>Selected players</English>
+        <French>Choisissez le joueurs</French>
+        <Russian>Выбранные игроки</Russian>
+        <German>Wähle die Spieler aus</German>
+      </Key>
+      <Key ID="STR_CHANGED_SIDE_FOR_PLAYERS">
+        <Original>Changed side for %1 players</Original>
+        <English>Changed side for %1 players</English>
+        <French>Vous avez changé le camp pour %1 joueurs</French>
+        <Russian>Изменена сторона для %1 игрока(ов)</Russian>
+        <German>Sie haben die Seite für %1 Spieler gewechselt</German>
+      </Key>
+      <Key ID="STR_NO_PLAYER_IN_SELECTION">
+        <Original>No player in selection!</Original>
+        <English>No player in selection!</English>
+        <French>Pas de joueur a été choisi!</French>
+        <Russian>Игрок не выбран!</Russian>
+        <German>Keine Spiler ausgewählt!</German>
+      </Key>
+      <Key ID="STR_SELECT_X_APPLIED_TO_MODULE">
+        <Original>Select %1 to which the module should be applied!</Original>
+        <English>Select %1 to which the module should be applied!</English>
+        <French>Choisissez %1 à qui le module est employé!</French>
+        <Russian>Выберите %1 к которому должен быть привязан модуль!</Russian>
+        <German>Wähle %1 auf die das Modul angewendet werden soll!</German>
+      </Key>
+      <Key ID="STR_SELECTION_SUBMITTED">
+        <Original>Selection submitted!</Original>
+        <English>Selection submitted!</English>
+        <French>Vous avez confimé votre sélection!</French>
+        <Russian>Выбор сделан!</Russian>
+        <German>Auswahl bestätigt!</German>
+      </Key>
+      <Key ID="STR_SELECTION_CANCLED">
+        <Original>Selection cancled!</Original>
+        <English>Selection cancled!</English>
+        <French>Vous avez abandonné votre sélection!</French>
+        <Russian>Выбор отменен!</Russian>
+        <German>Auswahl abgebrochen!</German>
+      </Key>
+      <Key ID="STR_EXTEND">
+        <Original>Extend</Original>
+        <English>Extend</English>
+        <French>Etendue</French>
+        <Russian>Расширить</Russian>
+        <German>Ausmass</German>
+      </Key>
+      <Key ID="STR_CATEGORY">
+        <Original>Category</Original>
+        <English>Category</English>
+        <French>Catégorie</French>
+        <Russian>Категория</Russian>
+        <German>Kategorie</German>
+      </Key>
+      <Key ID="STR_SUBCATEGORY">
+        <Original>Subcategory</Original>
+        <English>Subcategory</English>
+        <French>Sous-catégorie</French>
+        <German>Unterkategorie</German>
+      </Key>
+      <Key ID="STR_NEW_CATEGORY">
+        <Original>New category</Original>
+        <English>New category</English>
+        <French>Nouvelle catégorie</French>
+        <Russian>Новая категория</Russian>
+        <German>Neue Kategorie</German>
+      </Key>
+      <Key ID="STR_TYPE">
+        <Original>Type</Original>
+        <English>Type</English>
+        <French>Type</French>
+        <Russian>Тип</Russian>
+        <German>Typ</German>
+      </Key>
+      <Key ID="STR_NAME">
+        <Original>Name</Original>
+        <English>Name</English>
+        <French>Nom</French>
+        <Russian>Имя</Russian>
+        <German>Name</German>
+      </Key>
+      <Key ID="STR_LOADING_">
+        <Original>Loading ...</Original>
+        <English>Loading ...</English>
+        <French>Charger ...</French>
+        <Russian>Загрузка...</Russian>
+        <German>Ladet ...</German>
+      </Key>
+      <Key ID="STR_BLUE_LIGHT">
+        <Original>Blue Light</Original>
+        <English>Blue Light</English>
+        <French>Lumière bleue</French>
+        <Russian>Синий свет</Russian>
+        <German>Blaues Licht</German>
+      </Key>
+      <Key ID="STR_RED_LIGHT">
+        <Original>Red Light</Original>
+        <English>Red Light</English>
+        <French>Lumière rouge</French>
+        <Russian>Красный свет</Russian>
+        <German>Rotes Licht</German>
+      </Key>
+      <Key ID="STR_GREEN_LIGHT">
+        <Original>Green Light</Original>
+        <English>Green Light</English>
+        <French>Lumière verte</French>
+        <Russian>Зеленый свет</Russian>
+        <German>Grünes Licht</German>
+      </Key>
+      <Key ID="STR_WHITE_LIGHT">
+        <Original>White Light</Original>
+        <English>White Light</English>
+        <French>Lumière blanche</French>
+        <Russian>Белый свет</Russian>
+        <German>Weisses Licht</German>
+      </Key>
+      <Key ID="STR_YELLOW_LIGHT">
+        <Original>Yellow Light</Original>
+        <English>Yellow Light</English>
+        <French>Lumière jaune</French>
+        <Russian>Желтый свет</Russian>
+        <German>Gelbes Licht</German>
+      </Key>
+      <Key ID="STR_VEHICLE_FIRE">
+        <Original>Vehicle Fire</Original>
+        <English>Vehicle Fire</English>
+        <French>Feu d'un véhicule</French>
+        <Russian>Дым горящего транспорта</Russian>
+        <German>Fahrzeug Feuer</German>
+      </Key>
+      <Key ID="STR_SMALL_OILY_SMOKE">
+        <Original>Small Oily Smoke</Original>
+        <English>Small Oily Smoke</English>
+        <French>Petite fumée huileuse</French>
+        <Russian>Малый дым от топлива</Russian>
+        <German>Kleiner Öl-Rauch</German>
+      </Key>
+      <Key ID="STR_MEDIUM_OILY_SMOKE">
+        <Original>Medium Oily Smoke</Original>
+        <English>Medium Oily Smoke</English>
+        <French>Moyenne fumée huileuse</French>
+        <Russian>Средний дым от топлива</Russian>
+        <German>Mittelgrosser Öl-Rauch</German>
+      </Key>
+      <Key ID="STR_LARGE_OILY_SMOKE">
+        <Original>Large Oily Smoke</Original>
+        <English>Large Oily Smoke</English>
+        <French>Grande fumée huileuse</French>
+        <Russian>Большой дым от топлива</Russian>
+        <German>Grosser Öl-Rauch</German>
+      </Key>
+      <Key ID="STR_SMALL_WOOD_SMOKE">
+        <Original>Small Wood Smoke</Original>
+        <English>Small Wood Smoke</English>
+        <French>Petite fumée de bois</French>
+        <Russian>Малый древесный дым</Russian>
+        <German>kleiner Holzrauch</German>
+      </Key>
+      <Key ID="STR_MEDIUM_WOOD_SMOKE">
+        <Original>Medium Wood Smoke</Original>
+        <English>Medium Wood Smoke</English>
+        <French>Moyenne fumée de bois</French>
+        <Russian>Средний древесный дым</Russian>
+        <German>Mittelgrosser Holzrauch</German>
+      </Key>
+      <Key ID="STR_LARGE_WOOD_SMOKE">
+        <Original>Large Wood Smoke</Original>
+        <English>Large Wood Smoke</English>
+        <French>Grande fumée de bois</French>
+        <Russian>Большой древесный дым</Russian>
+        <German>Grosser Holzrauch</German>
+      </Key>
+      <Key ID="STR_SMALL_MIXED_SMOKE">
+        <Original>Small Mixed Smoke</Original>
+        <English>Small Mixed Smoke</English>
+        <French>Petite fumée mixte</French>
+        <Russian>Малый смешанный дым</Russian>
+        <German>Kleiner gemischter Rauch</German>
+      </Key>
+      <Key ID="STR_LARGE_MIXED_SMOKE">
+        <Original>Large Mixed Smoke</Original>
+        <English>Large Mixed Smoke</English>
+        <French>Grande fumée mixte</French>
+        <Russian>Большой смешанный дым</Russian>
+        <German>Grosser gemischter Rauch</German>
+      </Key>
+      <Key ID="STR_YOU_ARE_BEING_TELEPORTED">
+        <Original>You are being teleported...</Original>
+        <English>You are being teleported...</English>
+        <French>Vous êtes téléporté...</French>
+        <Russian>Вас телепортируют...</Russian>
+        <German>Sie werden teleportiert...</German>
+      </Key>
+      <Key ID="STR_SUPPRESS_X">
+        <Original>Suppress %1</Original>
+        <English>Suppress %1</English>
+        <French>Supprimez %1</French>
+        <Russian>Подавленение %1</Russian>
+        <German>Unterdrücke %1</German>
+      </Key>
+      <Key ID="STR_CREATED_SUPPRESSION_TARGET">
+        <Original>Created Suppression Target '%1'</Original>
+        <English>Created Suppression Target '%1'</English>
+        <French>Le cible de suppression '%1' a été créé</French>
+        <Russian>Создана цель подавления '%1'</Russian>
+        <German>Das Unterstützungsfeuerziel '%1' wurde definiert</German>
+      </Key>
+      <Key ID="STR_CREATED_ARTILLERY_TARGET">
+        <Original>Created Artillery Target '%1'</Original>
+        <English>Created Artillery Target '%1'</English>
+        <French>La cible d'artillerie '%1' a été créé</French>
+        <Russian>Создана цель артиллерии '%1'</Russian>
+        <German>Das Artillerieziel '%1' wurde definiert</German>
+      </Key>
+      <Key ID="STR_TARGET">
+        <Original>Target %1</Original>
+        <English>Target %1</English>
+        <French>Cible %1</French>
+        <Russian>Цель %1</Russian>
+        <German>Ziel %1</German>
+      </Key>
+      <Key ID="STR_SELECT_BATTERY_TO_FIRE">
+        <Original>Select battery to fire</Original>
+        <English>Select battery to fire</English>
+        <French>Choisissez une batterie pour la mission de tir</French>
+        <Russian>Выбрать баттарею для огня</Russian>
+        <German>Wähle eine Batterie für den Feuerbefehl aus</German>
+      </Key>
+      <Key ID="STR_MARKER">
+        <Original>Marker</Original>
+        <English>Marker</English>
+        <French>Marqueur</French>
+        <Russian>Маркер</Russian>
+        <German>Markierung</German>
+      </Key>
+      <Key ID="STR_GRID">
+        <Original>Grid</Original>
+        <English>Grid</English>
+        <French>Coordonnées</French>
+        <Russian>Квадрат</Russian>
+        <German>Koordinaten</German>
+      </Key>
+      <Key ID="STR_BATTERY">
+        <Original>Battery</Original>
+        <English>Battery</English>
+        <French>Batterie</French>
+        <Russian>Баттарея</Russian>
+        <German>Batterie</German>
+      </Key>
+      <Key ID="STR_NO_NEARBY_ARTILLERY_UNITS">
+        <Original>No nearby artillery units!</Original>
+        <English>No nearby artillery units!</English>
+        <French>Il n'y a pas d'artillerie proche!</French>
+        <Russian>Нет артиллерии в диапазоне!</Russian>
+        <German>Keine Artillerie in der Nähe!</German>
+      </Key>
+      <Key ID="STR_NUMBER_OF_UNITS_INVOLVED">
+        <Original>Number of units involved</Original>
+        <English>Number of units involved</English>
+        <French>Nombre d'unité engagée</French>
+        <Russian>Число участвующих юнитов</Russian>
+        <German>Anzahl involvierter Einheiten</German>
+      </Key>
+      <Key ID="STR_ROUNDS">
+        <Original>Rounds</Original>
+        <English>Rounds</English>
+        <French>Tirs</French>
+        <Russian>Снаряды</Russian>
+        <German>Schüsse</German>
+      </Key>
+      <Key ID="STR_AMMO">
+        <Original>Ammo</Original>
+        <English>Ammo</English>
+        <French>Munition</French>
+        <Russian>Боеприпасы</Russian>
+        <German>Munition</German>
+      </Key>
+      <Key ID="STR_GRID_EAST_WEST_XXX">
+        <Original>Grid East-West (XXX)</Original>
+        <English>Grid East-West (XXX)</English>
+        <French>L'est-ouest coordonnées (XXX)</French>
+        <Russian>Квадрат Восток-Запад (XXX)</Russian>
+        <German>Ost-West Koordinaten (XXX)</German>
+      </Key>
+      <Key ID="STR_GRID_NORTH_SOUTH_XXX">
+        <Original>Grid North-South (XXX)</Original>
+        <English>Grid North-South (XXX)</English>
+        <French>Nord-sud coordonnées (XXX)</French>
+        <Russian>Квадрат Север-Юг (XXX)</Russian>
+        <German>Nord-Süd Koordinaten (XXX)</German>
+      </Key>
+      <Key ID="STR_FIRE_ROUNDS_AND_ETA">
+        <Original>Firing %1 rounds of '%2' at target. ETA %3 s.</Original>
+        <English>Firing %1 rounds of '%2' at target. ETA %3 s.</English>
+        <French>Tirez %1 coups du type '%2'. Heure d'arrivée estimée: %3 s.</French>
+        <Russian>Стреляю %1 снаряд(ов) от '%2' по цели. Время %3 с.</Russian>
+        <German>Feuere %1 Schüsse vom Typ '%2'. Voraussichtilche Ankunftszeit: %3 s.</German>
+      </Key>
+      <Key ID="STR_COPIED_UNITS">
+        <Original>Copied %1 units!</Original>
+        <English>Copied %1 units!</English>
+        <French>%1 unités ont été copiées!</French>
+        <Russian>Скопировано %1 юнит(ов)!</Russian>
+        <German>%1 Einheiten kopiert!</German>
+      </Key>
+      <Key ID="STR_INTEL_WAS_SHARED_WITH_SIDE">
+        <Original>(The intel was shared with your side)</Original>
+        <English>(The intel was shared with your side)</English>
+        <French>(Le renseignement a été transmis à votre camp)</French>
+        <Russian>(Развед.данные отправлены вашей стороне)</Russian>
+        <German>(Der Hinweis wurde mit deiner Seite geteilt)</German>
+      </Key>
+      <Key ID="STR_INTEL_WAS_SHARED_WITH_NONE">
+        <Original>(The intel was shared with no one)</Original>
+        <English>(The intel was shared with no one)</English>
+        <French>(Le renseignement n'a été transmis à personne)</French>
+        <Russian>(Развед.данные не отправлены никому)</Russian>
+        <German>(Der Hinweis wurde mit niemanden geteilt)</German>
+      </Key>
+      <Key ID="STR_INTEL_WAS_SHARED_WITH_GROUP">
+        <Original>(The intel was shared with your group)</Original>
+        <English>(The intel was shared with your group)</English>
+        <French>(Le renseignement a été transmis à votre groupe)</French>
+        <Russian>(Развед.данные отправлены вашей группе) </Russian>
+        <German>(Der Hinweis wurde mit deiner Gruppe geteilt)</German>
+      </Key>
+      <Key ID="STR_INTEL_SHARED_WITH">
+        <Original>Intel shared with</Original>
+        <English>Intel shared with</English>
+        <French>Transmettez le renseignement à</French>
+        <Russian>Отправление</Russian>
+        <German>Hinweis teilen mit</German>
+      </Key>
+      <Key ID="STR_INTEL_TITLE">
+        <Original>Intel Title</Original>
+        <English>Intel Title</English>
+        <French>Titre du renseignement</French>
+        <Russian>Заголовок</Russian>
+        <German>Titel des Hinweises</German>
+      </Key>
+      <Key ID="STR_INTEL_TEXT">
+        <Original>Intel Text</Original>
+        <English>Intel Text</English>
+        <French>Texte du renseignement</French>
+        <Russian>Текст</Russian>
+        <German>Text des Hinweises</German>
+      </Key>
+      <Key ID="STR_INTEL_FOUND">
+        <Original>%1 found intel %2!</Original>
+        <English>%1 found intel %2!</English>
+        <French>%1 a trouvé le renseignement %2!</French>
+        <Russian>%1 нашел развед.данные %2!</Russian>
+        <German>%1 hat den Hinweis %2 gefunden!</German>
+      </Key>
+      <Key ID="STR_PICK_UP_INTEL">
+        <Original>Pick up intel</Original>
+        <English>Pick up intel</English>
+        <French>Ramassez le renseignement</French>
+        <Russian>Подобрать развед.данные</Russian>
+        <German>Hinweis sammeln</German>
+      </Key>
+      <Key ID="STR_DELETE_OBJECT_ON_COMPLETION">
+        <Original>Delete object on completion</Original>
+        <English>Delete object on completion</English>
+        <French>Supprimez l'objet à la fin</French>
+        <Russian>Удалить объект после выполнения</Russian>
+        <German>Nach das Objekt am Ende löschen</German>
+      </Key>
+      <Key ID="STR_ACTION_TEXT">
+        <Original>Action text</Original>
+        <English>Action text</English>
+        <French>Le text de l'action</French>
+        <Russian>Название действия</Russian>
+        <German>Aktionstext</German>
+      </Key>
+      <Key ID="STR_ACTION_DURATION">
+        <Original>Action duration</Original>
+        <English>Action duration</English>
+        <French>La durée de l'action</French>
+        <Russian>Длительность действия</Russian>
+        <German>Dauer der Aktion</German>
+      </Key>
+      <Key ID="STR_UNITS">
+        <Original>Units</Original>
+        <English>Units</English>
+        <French>Unitéd</French>
+        <Russian>Юниты</Russian>
+        <German>Einheiten</German>
+      </Key>
+      <Key ID="STR_UNIT_RP">
+        <Original>Unit RP</Original>
+        <English>Unit RP</English>
+        <French>RV de l'unité</French>
+        <Russian>Точка встречи юнитов</Russian>
+        <German>Treffpunkt der Einheit</German>
+      </Key>
+      <Key ID="STR_UNIT_BEHAVIOUR">
+        <Original>Unit behaviour</Original>
+        <English>Unit behaviour</English>
+        <French>Comportement de l'unité</French>
+        <Russian>Поведение юнитов</Russian>
+        <German>Verhalten der Einheit</German>
+      </Key>
+      <Key ID="STR_NOT_IMPLEMENTED_AT_THE_MOMENT">
+        <Original>Not implemented at the moment!</Original>
+        <English>Not implemented at the moment!</English>
+        <French>N'est pas disponible en ce moment!</French>
+        <Russian>Не внедрено в данный момент!</Russian>
+        <German>Nicht implementiert im Moment!</German>
+      </Key>
+      <Key ID="STR_HEAD">
+        <Original>Head</Original>
+        <English>Head</English>
+        <French>Tête</French>
+        <Russian>Голова</Russian>
+        <German>Kopf</German>
+      </Key>
+      <Key ID="STR_TORSO">
+        <Original>Torso</Original>
+        <English>Torso</English>
+        <French>Torse</French>
+        <Russian>Торс</Russian>
+        <German>Torso</German>
+      </Key>
+      <Key ID="STR_ARMS">
+        <Original>Arms</Original>
+        <English>Arms</English>
+        <French>Bras</French>
+        <Russian>Руки</Russian>
+        <German>Arme</German>
+      </Key>
+      <Key ID="STR_LEGS">
+        <Original>Legs</Original>
+        <English>Legs</English>
+        <French>Jambes</French>
+        <Russian>Ноги</Russian>
+        <German>Beine</German>
+      </Key>
+      <Key ID="STR_RIGHT_ARM">
+        <Original>Right Arm</Original>
+        <English>Right Arm</English>
+        <French>Bras droit</French>
+        <Russian>Правая рука</Russian>
+        <German>Rechter Arm</German>
+      </Key>
+      <Key ID="STR_LEFT_ARM">
+        <Original>Left Arm</Original>
+        <English>Left Arm</English>
+        <French>Bras gauche</French>
+        <Russian>Левая рука</Russian>
+        <German>Linker Arm</German>
+      </Key>
+      <Key ID="STR_RIGHT_LEG">
+        <Original>Right Leg</Original>
+        <English>Right Leg</English>
+        <French>Jambe droite</French>
+        <Russian>Правая нога</Russian>
+        <German>Rechtes Bein</German>
+      </Key>
+      <Key ID="STR_LEFT_LEG">
+        <Original>Left Leg</Original>
+        <English>Left Leg</English>
+        <French>Jambe gauche</French>
+        <Russian>Левая нога</Russian>
+        <German>Linkes Bein</German>
+      </Key>
+      <Key ID="STR_UNCONSIOUS_">
+        <Original>Unconscious</Original>
+        <English>Unconscious</English>
+        <French>Evanouissement</French>
+        <Russian>Без сознания</Russian>
+        <German>Bewusstlos</German>
+      </Key>
+      <Key ID="STR_HEALTH_CHANGED">
+        <Original>Unit's health changed!</Original>
+        <English>Unit's health changed!</English>
+        <French>La santé de l'unité a été modifiée!</French>
+        <Russian>Здоровье юнита изменено</Russian>
+        <German>Die Gesundheit der Einheit wurde geändert!</German>
+      </Key>
+      <Key ID="STR_LIGHT_INJURY">
+        <Original>Light</Original>
+        <English>Light</English>
+        <French>Légèrement</French>
+        <Russian>Легкая</Russian>
+        <German>Leicht</German>
+      </Key>
+      <Key ID="STR_SEVERE">
+        <Original>Severe</Original>
+        <English>Severe</English>
+        <French>Grièvement</French>
+        <Russian>Серьезная</Russian>
+        <German>Schwer</German>
+      </Key>
+      <Key ID="STR_NONE_INJURY">
+        <Original>None</Original>
+        <English>None</English>
+        <French>Aucune</French>
+        <Russian>Никакая</Russian>
+        <German>Keine</German>
+      </Key>
+      <Key ID="STR_TRANSITION">
+        <Original>Transition</Original>
+        <English>Transition</English>
+        <French>Transition</French>
+        <Russian>Переход</Russian>
+        <German>Übergang</German>
+      </Key>
+      <Key ID="STR_IMMEDIATE">
+        <Original>immediate</Original>
+        <English>immediate</English>
+        <French>tout de suite</French>
+        <Russian>Немедленно</Russian>
+        <German>sofort</German>
+      </Key>
+      <Key ID="STR_SMOOTH">
+        <Original>smooth</Original>
+        <English>smooth</English>
+        <French>harmonieuse</French>
+        <Russian>Плавно</Russian>
+        <German>fliessend</German>
+      </Key>
+      <Key ID="STR_OVERCAST">
+        <Original>Overcast</Original>
+        <English>Overcast</English>
+        <French>Couverture</French>
+        <Russian>Облачность</Russian>
+        <German>Bedeckung</German>
+      </Key>
+      <Key ID="STR_RAIN_">
+        <Original>Rain (Overcast &gt; 50%)</Original>
+        <English>Rain (Overcast &gt; 50%)</English>
+        <French>Pluie (Couverture &gt; 50%)</French>
+        <Russian>Дождь (Облачность &gt; 50%)</Russian>
+        <German>Regen (Bedeckung &gt; 50%)</German>
+      </Key>
+      <Key ID="STR_LIGHTNINGS_">
+        <Original>Lightnings (Overcast ≈ 100%)</Original>
+        <English>Lightnings (Overcast ≈ 100%)</English>
+        <French>Eclairs (Couverture ≈ 100%)</French>
+        <Russian>Молнии (Облачность ≈ 100%)</Russian>
+        <German>Blitze (Bedeckung ≈ 100%)</German>
+      </Key>
+      <Key ID="STR_RAINBOW_">
+        <Original>Rainbow (Overcast ≈ 50%)</Original>
+        <English>Rainbow (Overcast ≈ 50%)</English>
+        <French>Arc de ciel (Couverture ≈ 50%)</French>
+        <Russian>Радуга (Облачность ≈ 50%)</Russian>
+        <German>Regenbogen (Bedeckung ≈ 50%)</German>
+      </Key>
+      <Key ID="STR_ALLOWED">
+        <Original>Allowed</Original>
+        <English>Allowed</English>
+        <French>Autorisé</French>
+        <Russian>Разрешено</Russian>
+        <German>Erlaubt</German>
+      </Key>
+      <Key ID="STR_PROHIBITED">
+        <Original>Prohibited</Original>
+        <English>Prohibited</English>
+        <French>Interdit</French>
+        <Russian>Запрещено</Russian>
+        <German>Verboten</German>
+      </Key>
+      <Key ID="STR_WIND_FORCE">
+        <Original>Wind Force</Original>
+        <English>Wind Force</English>
+        <French>Foce du vent</French>
+        <Russian>Сила ветра</Russian>
+        <German>Wind Stärke</German>
+      </Key>
+      <Key ID="STR_WIND_DIRECTION">
+        <Original>Wind Direction</Original>
+        <English>Wind Direction</English>
+        <French>Direction du vent</French>
+        <Russian>Направление ветра</Russian>
+        <German>Windrichtung</German>
+      </Key>
+      <Key ID="STR_WAVES">
+        <Original>Waves</Original>
+        <English>Waves</English>
+        <French>Vagues</French>
+        <Russian>Волны</Russian>
+        <German>Wellen</German>
+      </Key>
+      <Key ID="STR_FOG_SETTING">
+        <Original>Fog Setting</Original>
+        <English>Fog Setting</English>
+        <French>Cofiguration du brouillard</French>
+        <Russian>Туман</Russian>
+        <German>Nebeleinstellung</German>
+      </Key>
+      <Key ID="STR_FOG_DECAY">
+        <Original>Fog Decay</Original>
+        <English>Fog Decay</English>
+        <French>Décomposition du brouillard</French>
+        <Russian>Плотность тумана</Russian>
+        <German>Nebelabfall</German>
+      </Key>
+      <Key ID="STR_Fog_Altitude_ASL">
+        <Original>Fog Altitude (ASL)</Original>
+        <English>Fog Altitude (ASL)</English>
+        <French>Altitude du brouillard</French>
+        <Russian>Высота тумана(ур.моря)</Russian>
+        <German>Nebel Höhe (ü. M.)</German>
+      </Key>
+      <Key ID="STR_INTENSITY">
+        <Original>Intensity</Original>
+        <English>Intensity</English>
+        <French>Intensité</French>
+        <Russian>Интенсивность</Russian>
+        <German>Intensität</German>
+      </Key>
+      <Key ID="STR_VERY_WEAK">
+        <Original>very weak</Original>
+        <English>very weak</English>
+        <French>très faible</French>
+        <Russian>Очень слабо</Russian>
+        <German>sehr schwach</German>
+      </Key>
+      <Key ID="STR_WEAK">
+        <Original>weak</Original>
+        <English>weak</English>
+        <French>faible</French>
+        <Russian>Слабо</Russian>
+        <German>schwach</German>
+      </Key>
+      <Key ID="STR_MEDIUM">
+        <Original>medium</Original>
+        <English>medium</English>
+        <French>moyen</French>
+        <Russian>Средне</Russian>
+        <German>mittel</German>
+      </Key>
+      <Key ID="STR_STRONG">
+        <Original>strong</Original>
+        <English>strong</English>
+        <French>fort</French>
+        <Russian>Сильно</Russian>
+        <German>stark</German>
+      </Key>
+      <Key ID="STR_INCLUDE_AI">
+        <Original>Include AI</Original>
+        <English>Include AI</English>
+        <French>IA incluse</French>
+        <Russian>Включая ИИ</Russian>
+        <German>Inklusive KI</German>
+      </Key>
+      <Key ID="STR_INCLUDE_EMPTY_VEHICLES">
+        <Original>Include Empty Vehicles</Original>
+        <English>Include Empty Vehicles</English>
+        <French>Véhicule vide inclus</French>
+        <Russian>Включая объекты</Russian>
+        <German>Inklusive leere Fahrzeuge</German>
+      </Key>
+      <Key ID="STR_INCLUDE_OBJECTS">
+        <Original>Include Objects</Original>
+        <English>Include Objects</English>
+        <French>Objets inclus</French>
+        <Russian>Включая объекты</Russian>
+        <German>Inklusive Objekte</German>
+      </Key>
+      <Key ID="STR_INCLUDE_MARKERS">
+        <Original>Include Markers</Original>
+        <English>Include Markers</English>
+        <French>Marqueurs inclus</French>
+        <Russian>Включая маркеры</Russian>
+        <German>Inklusive Markierungen</German>
+      </Key>
+      <Key ID="STR_YES">
+        <Original>Yes</Original>
+        <English>Yes</English>
+        <French>Oui</French>
+        <Russian>Да</Russian>
+        <German>Ja</German>
+      </Key>
+      <Key ID="STR_NO">
+        <Original>No</Original>
+        <English>No</English>
+        <French>Non</French>
+        <Russian>Нет</Russian>
+        <German>Nein</German>
+      </Key>
+      <Key ID="STR_MINEFIELD">
+        <Original>Minefield</Original>
+        <English>Minefield</English>
+        <French>Champ de mines</French>
+        <Russian>Минное поле</Russian>
+        <German>Minenfeld</German>
+      </Key>
+      <Key ID="STR_EXPLOSIVE">
+        <Original>Explosive</Original>
+        <English>Explosive</English>
+        <French>Charge explosive</French>
+        <Russian>Взрывчатка</Russian>
+        <German>Sprengladung</German>
+      </Key>
+      <Key ID="STR_NUMBER_OF_MINES">
+        <Original>Number of mines</Original>
+        <English>Number of mines</English>
+        <French>Nombre de mines</French>
+        <Russian>Кол-во мин</Russian>
+        <German>Anzahl Minen</German>
+      </Key>
+      <Key ID="STR_RADIUS">
+        <Original>Radius</Original>
+        <English>Radius</English>
+        <French>Radius</French>
+        <Russian>Радиус</Russian>
+        <German>Radius</German>
+      </Key>
+      <Key ID="STR_WARNING_SIGNS">
+        <Original>Warning Signs</Original>
+        <English>Warning Signs</English>
+        <French>Signals de danger</French>
+        <Russian>Предупредительные знаки</Russian>
+        <German>Warnschilder</German>
+      </Key>
+      <Key ID="STR_OBJECT_ATTCHED">
+        <Original>Object attached!</Original>
+        <English>Object attached!</English>
+        <French>L'object a été attaché!</French>
+        <Russian>Объект присоединен!</Russian>
+        <German>Objekt wurde befestigen!</German>
+      </Key>
+      <Key ID="STR_OBJECT_DETACHED">
+        <Original>Object detached!</Original>
+        <English>Object detached!</English>
+        <French>L'objet a été détaché!</French>
+        <Russian>Объект отсоединен!</Russian>
+        <German>Objekt wurde losgemacht!</German>
+      </Key>
+      <Key ID="STR_ENABLE_SIMULATION">
+        <Original>Enable simulation</Original>
+        <English>Enable simulation</English>
+        <French>Autorisez la simulation</French>
+        <Russian>Включить моделирование</Russian>
+        <German>Simulation erlauben</German>
+      </Key>
+      <Key ID="STR_TRANSFER_OWNERSHIP">
+        <Original>Transfer ownership</Original>
+        <English>Transfer ownership</English>
+        <French>Transférez la propriété</French>
+        <Russian>Передать владение</Russian>
+        <German>Besitztum verschieben</German>
+      </Key>
+      <Key ID="STR_TRANSFER_TO">
+        <Original>Transfer to</Original>
+        <English>Transfer to</English>
+        <French>Transférez à</French>
+        <Russian>Передать</Russian>
+        <German>Besitztum an</German>
+      </Key>
+      <Key ID="STR_SERVER">
+        <Original>Server</Original>
+        <English>Server</English>
+        <French>Serveur</French>
+        <Russian>Серверу</Russian>
+        <German>Server</German>
+      </Key>
+      <Key ID="STR_HEIGHT">
+        <Original>Height</Original>
+        <English>Height</English>
+        <French>Hauteur</French>
+        <Russian>Высота</Russian>
+        <German>Höhe</German>
+      </Key>
+      <Key ID="STR_GENERATED_SQF_FROM_MISSION_OBJECTS">
+        <Original>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</Original>
+        <English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
+        <French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
+        <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 юнит(ов) )</Russian>
+        <German>SQF wurde generiert aus Missions Objekten (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
+      </Key>
+      <Key ID="STR_COPY_PASTE_DIALOG">
+        <Original>Copy/Paste Dialog</Original>
+        <English>Copy/Paste Dialog</English>
+        <French>Copier/Coller Dialogue</French>
+        <Russian>Копировать/Вставить диалог</Russian>
+        <German>Kopieren/Einfügen Dialog</German>
+      </Key>
+      <Key ID="STR_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS">
+        <Original>Copy/Paste clipboard contents using CTRL+C and CTRL+V</Original>
+        <English>Copy/Paste clipboard contents using CTRL+C and CTRL+V</English>
+        <French>Copier/Coller le contenu du presse-papier avec CTRL+C et CTRL+V</French>
+        <Russian>Копировать/Вставить код используя CTRL+C и CTRL+V</Russian>
+        <German>Kopieren/Einfügen des Inhaltes der Zwischenablage mit CTRL+C und CTRL+V</German>
+      </Key>
+      <Key ID="STR_WRITE_OR_PASTE_CODE">
+        <Original>Write or paste code in the box below</Original>
+        <English>Write or paste code in the box below</English>
+        <French>Ecrivez ou collez code dans le box au-dessous</French>
+        <Russian>Пропишите или вставьте код в строку ниже</Russian>
+        <German>Schreibe or füge Code in die untere Box ein</German>
+      </Key>
+      <Key ID="STR_AUTHOR">
+        <Original>Author</Original>
+        <English>Author</English>
+        <French>Auteur</French>
+        <Russian>Автор</Russian>
+        <German>Autor</German>
+      </Key>
+      <Key ID="STR_EMPTY">
+        <Original>Empty</Original>
+        <English>Empty</English>
+        <French>Vide</French>
+        <Russian>Пусто</Russian>
+        <German>Leer</German>
+      </Key>
+      <Key ID="STR_DELETE_COMPOSITION">
+        <Original>Delete Composition</Original>
+        <English>Delete Composition</English>
+        <French>Supprimez une composition</French>
+        <Russian>Удалить композицию</Russian>
+        <German>Komposition löschen</German>
+      </Key>
+      <Key ID="STR_DO_YOU_WANT_TO_DELETE_X">
+        <Original>Do you want to delete %1?</Original>
+        <English>Do you want to delete %1?</English>
+        <French>Voulez-vous supprimer %1?</French>
+        <Russian>Вы хотите удалить %1?</Russian>
+        <German>Do you want to delete %1?</German>
+      </Key>
+      <Key ID="STR_ENTRY_ALREADY_EXISTS">
+        <Original>Entry already exists!</Original>
+        <English>Entry already exists!</English>
+        <French>Il y a déjà cette entrée!</French>
+        <Russian>Название уже существует!</Russian>
+        <German>Der Eintrag existiert bereits!</German>
+      </Key>
+      <Key ID="STR_CHANGES_SAVED">
+        <Original>CHANGES WERE SAVED!</Original>
+        <English>CHANGES WERE SAVED!</English>
+        <French>LES MODIFICATIONS ONT ÉTÉ ENREGISTRÉ!</French>
+        <Russian>ИЗМЕНЕНИЯ СОХРАНЕНЫ!</Russian>
+        <German>ÄNDERUNGEN WURDEN GESPEICHERT!</German>
+      </Key>
+      <Key ID="STR_STANCE">
+        <Original>Stance</Original>
+        <English>Stance</English>
+        <Czech>Postoj</Czech>
+        <French>Position</French>
+        <Spanish>Postura</Spanish>
+        <Italian>Posizione</Italian>
+        <Polish>Postawa</Polish>
+        <Portuguese>Postura</Portuguese>
+        <Russian>Позиция</Russian>
+        <German>Haltung</German>
+      </Key>
+      <Key ID="STR_PRONE">
+        <Original>Prone</Original>
+        <English>Prone</English>
+        <Czech>k zemi</Czech>
+        <French>À plat ventre</French>
+        <Spanish>tumbado.</Spanish>
+        <Italian>A terra</Italian>
+        <Polish>padnij</Polish>
+        <Portuguese>Deitar</Portuguese>
+        <Russian>лечь.</Russian>
+        <German>Hinlegen</German>
+      </Key>
+      <Key ID="STR_CROUCH">
+        <Original>Crouch</Original>
+        <English>Crouch</English>
+        <Czech>zaklekni</Czech>
+        <French>Accroupi</French>
+        <Spanish>agáchese.</Spanish>
+        <Italian>Abbassati</Italian>
+        <Polish>przykucnij</Polish>
+        <Portuguese>Agachar-se</Portuguese>
+        <Russian>пригнуться.</Russian>
+        <German>Ducken</German>
+      </Key>
+      <Key ID="STR_STAND">
+        <Original>Stand</Original>
+        <English>Stand</English>
+        <Czech>vztyk</Czech>
+        <French>Debout</French>
+        <Spanish>en pie.</Spanish>
+        <Italian>In piedi</Italian>
+        <Polish>wstać</Polish>
+        <Portuguese>Ficar de pé</Portuguese>
+        <Russian>стоять.</Russian>
+        <German>Aufstehen</German>
+      </Key>
+      <Key ID="STR_FIRE_MODE">
+        <Original>Fire mode</Original>
+        <English>Fire mode</English>
+        <French>Le mode de tir</French>
+        <Russian>Режим стрельбы</Russian>
+        <German>Schiessmodus</German>
+      </Key>
+      <Key ID="STR_AUTOMATIC">
+        <Original>automatic</Original>
+        <English>automatic</English>
+        <French>automatique</French>
+        <Russian>Автоматический</Russian>
+        <German>automatisch</German>
+      </Key>
+      <Key ID="STR_BURST">
+        <Original>burst</Original>
+        <English>burst</English>
+        <French>le tir en rafales</French>
+        <Russian>Очередями</Russian>
+        <German>Feuerstoss</German>
+      </Key>
+      <Key ID="STR_SINGLE_SHOT">
+        <Original>semi-automatic</Original>
+        <English>semi-automatic</English>
+        <French>semi-automatique</French>
+        <Russian>Полу-автомат</Russian>
+        <German>halbautomatisch</German>
+      </Key>
+      <Key ID="STR_DURATION">
+        <Original>Duration</Original>
+        <English>Duration</English>
+        <French>La durée</French>
+        <Russian>Длительность</Russian>
+        <German>Dauer</German>
+      </Key>
+      <Key ID="STR_TIE_UNIT">
+        <Original>Tie unit</Original>
+        <English>Tie unit</English>
+        <French>Entraver l'unité</French>
+        <Russian>Связать юнита</Russian>
+        <German>Einheit fesseln</German>
+      </Key>
+      <Key ID="STR_RELEASE_UNIT">
+        <Original>Release unit</Original>
+        <English>Release unit</English>
+        <French>Libérez l'unité</French>
+        <Russian>Освободить юнита</Russian>
+        <German>Einheit befreien</German>
+      </Key>
+      <Key ID="STR_RELEASE_N_LEAD_UNIT">
+        <Original>Release and lead</Original>
+        <English>Release and lead</English>
+        <French>Libérez et commandez</French>
+        <Russian>Освободить и взять командование</Russian>
+        <German>Befreien und kommandieren</German>
+      </Key>
+      <Key ID="STR_INTERACTION">
+        <Original>Interaction</Original>
+        <English>Interaction</English>
+        <French>Interaction</French>
+        <Russian>Взаимодействие</Russian>
+        <German>Interaktion</German>
+      </Key>
+      <Key ID="STR_HOLD_FIRE">
+        <Original>Hold fire</Original>
+        <English>Hold fire</English>
+        <French>Ne pas tirer</French>
+        <German>Nicht schiessen</German>
+      </Key>
+      <Key ID="STR_HOLD_FIRE_DEFEND">
+        <Original>Hold fire, defend only</Original>
+        <English>Hold fire, defend only</English>
+        <French>Ne pas tirer, défendre seulement</French>
+        <German>Nicht schiessen, nur verteidigen</German>
+      </Key>
+      <Key ID="STR_HOLD_FIRE_ENGAGE">
+        <Original>Hold fire, engage at will</Original>
+        <English>Hold fire, engage at will</English>
+        <French>Ne pas tirer, attaquer à volonté</French>
+        <German>Nicht schiessen, angreiffen nach Belieben</German>
+      </Key>
+      <Key ID="STR_FIRE_AT_WILL">
+        <Original>Fire at will</Original>
+        <English>Fire at will</English>
+        <French>Feu à volonté</French>
+        <German>Nach Belieben schiessen</German>
+      </Key>
+      <Key ID="STR_FIRE_ENGAGE">
+        <Original>Fire at will, engage at will</Original>
+        <English>Fire at will, engage at will</English>
+        <French>Feu à volonté, attaquer à volonté</French>
+        <German>Nach Belieben schiessen und angreiffen</German>
+      </Key>
+      <Key ID="STR_HEADLIGHT_SEARCHLIGHT">
+        <Original>Headlight/Searchlight</Original>
+        <English>Headlight/Searchlight</English>
+        <French>Phare</French>
+        <German>Scheinwerfer</German>
+      </Key>
+      <Key ID="STR_SWITCH_ON">
+        <Original>Switch on</Original>
+        <English>Switch on</English>
+        <French>Allumer</French>
+        <German>Einschalten</German>
+      </Key>
+      <Key ID="STR_SWITCH_OFF">
+        <Original>Switch off</Original>
+        <English>Switch off</English>
+        <French>Eteindre</French>
+        <German>Ausschalten</German>
+      </Key>
+      <Key ID="STR_SKILL">
+        <Original>Skill</Original>
+        <English>Skill</English>
+        <French>Compétence</French>
+		<Russian>Hавык</Russian>
+        <German>Können</German>
+      </Key>
+      <Key ID="STR_AIMING_ACCURACY">
+        <Original>Aiming accuracy</Original>
+        <English>Aiming accuracy</English>
+        <French>Précision de tir</French>
+        <German>Zielgenauigkeit</German>
+      </Key>
+      <Key ID="STR_AIMING_SHAKE">
+        <Original>Aiming shake</Original>
+        <English>Aiming shake</English>
+        <French>Aiming shake</French>
+        <German>Schwanken</German>
+      </Key>
+      <Key ID="STR_AIMING_SPEED">
+        <Original>Aiming speed</Original>
+        <English>Aiming speed</English>
+        <French>Vitesse de visée</French>
+        <German>Zielgeschwindigkeit</German>
+      </Key>
+      <Key ID="STR_ENDURANCE">
+        <Original>Endurance</Original>
+        <English>Endurance</English>
+        <French>Endurance</French>
+        <German>Ausdauer</German>
+      </Key>
+      <Key ID="STR_SPOT_DISTANCE">
+        <Original>Spot distance</Original>
+        <English>Spot distance</English>
+        <French>Distance d'indentification</French>
+        <German>Erkennungsdistanz</German>
+      </Key>
+      <Key ID="STR_SPOT_TIME">
+        <Original>Spot time</Original>
+        <English>Spot time</English>
+        <French>Durée d'indentification</French>
+        <German>Erkennungsdauer</German>
+      </Key>
+      <Key ID="STR_COURAGE">
+        <Original>Courage</Original>
+        <English>Courage</English>
+        <French>Courage</French>
+        <German>Mut</German>
+      </Key>
+      <Key ID="STR_RELOAD_SPEED">
+        <Original>Reload speed</Original>
+        <English>Reload speed</English>
+        <French>Vitesse de rechargement</French>
+        <German>Nachladegeschwindigkeit</German>
+      </Key>
+      <Key ID="STR_COMMANIDNG">
+        <Original>Commanding</Original>
+        <English>Commanding</English>
+        <French>Commander</French>
+        <German>Befehlen</German>
+      </Key>
+    </Container>
+    <Container name="cfg Waypoints">
+      <Key ID="STR_LOITER_HELI">
+        <Original>LOITER (HELI)</Original>
+        <English>LOITER (HELI)</English>
+        <French>VOL EN ATTENTE (HÉLICO)</French>
+        <Russian>ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
+        <German>HERUMFLIEGEN (HELI)</German>
+      </Key>
+      <Key ID="STR_LIFT_CLOSEST">
+        <Original>LIFT CLOSEST CARGO</Original>
+        <English>LIFT CLOSEST CARGO</English>
+        <French>Lever le plus proche</French>
+        <Russian>ПОДНЯТЬ БЛИЖАЙШИЙ ГРУЗ</Russian>
+        <German>Nächste Ladung heben</German>
+      </Key>
+      <Key ID="STR_ACE_FASTROPING">
+        <Original>ACE FAST-ROPING</Original>
+        <English>ACE FAST-ROPING</English>
+        <French>ACE FAST-ROPING</French>
+        <Russian>АСЕ ПРЫЖОК С ТРОСОМ</Russian>
+        <German>ACE FAST-ROPING</German>
+      </Key>
+      <Key ID="STR_SEARCH_BUILDING">
+        <Original>SEARCH BUILDING</Original>
+        <English>SEARCH BUILDING</English>
+        <French>PERQUISITIONNER</French>
+        <Russian>ОБЫСК ЗДАНИЯ</Russian>
+        <German>GEBÄUDE DURCHSUCHEN</German>
+      </Key>
+    </Container>
+    <Container name="cfg Hints">
+      <Key ID="STR_PLACING_MODULES">
+        <Original>Placing Modules</Original>
+        <Russian>Установка модулей</Russian>
+      </Key>
+      <Key ID="STR_PLACING_MODULES_DESCRIPTION">
+        <Original>
+			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This modul has to be placed on units.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options avaiable depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options avaiable depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
+		</Original>
+      </Key>
+      <Key ID="STR_PLACING_MODULES_TIP">
+        <Original>
+			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+		</Original>
+        <Russian>
+			Модули, примененные на объекты или юнитов, чаще всего могут быть либо поставлены на объект, либо на землю, чтобы применить модуль для большего количества объектов.
+		</Russian>
+      </Key>
+      <Key ID="STR_SELECTION_OPTION">
+        <Original>Selection Option</Original>
+        <English>Selection Option</English>
+        <French>L'option de choix</French>
+        <Russian>Опция выбора</Russian>
+        <German>Auswahl Option</German>
+      </Key>
+      <Key ID="STR_SELECTION_OPTION_DESCRIPTION">
+        <Original>
+			Some modules have the option to select objects on which it is apply to.
+			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+			%1You can cancle the selection mode with %3[ESCAPE]%4.
+		</Original>
+        <English>
+			Some modules have the option to select objects on which it is apply to.
+			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+			%1You can cancle the selection mode with %3[ESCAPE]%4.
+		</English>
+        <French>
+			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
+			%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
+			%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
+		</French>
+        <Russian>
+			Некоторые модули имеют опцию выбора объектов, к которым они присоединяются.
+			%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
+			%1Вы можете отменить выбор используя %3[ESCAPE]%4.
+		</Russian>
+        <German>
+			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
+			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl bestätigen mit der %3[EINGABETASTE]%4.
+			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
+		</German>
+      </Key>
+      <Key ID="STR_SELECTION_OPTION_TIP">
+        <Original>
+			You can read on top what the module want you to select.
+		</Original>
+        <English>
+			You can read on top what the module want you to select.
+		</English>
+        <French>
+			Il est écrié au-dessus qu'est-ce que vous devez choisir.
+		</French>
+        <Russian>
+			Вы можете прочесть сверху, какой модуль вы хотите использовать
+		</Russian>
+        <German>
+			Oben steht jeweis geschrieben, was du auswählen sollst.
+		</German>
+      </Key>
+      <Key ID="STR_PLACING_MODULES_TIP">
+        <Original>
+			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+		</Original>
+      </Key>
+      <Key ID="STR_KEY_ASSIGNMENT">
+        <Original>Additional Key Assignment</Original>
+        <Russian>Назначение доп. ключей</Russian>
+      </Key>
+      <Key ID="STR_KEY_ASSIGNMENT_DESCRIPTION">
+        <Original>
+			Additional key assignments aviable:
+			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
+			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
+			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
+			%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
+			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group an advanced composition.
+			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup an advanced composition.
+		</Original>
+      </Key>
+      <Key ID="STR_EXECUTE_CODE">
+        <Original>Execute Code Module</Original>
+        <Russian>Модуль активации кода</Russian>
+      </Key>
+      <Key ID="STR_EXECUTE_CODE_DESCRIPTION">
+        <Original>
+			The execute code module is only aviable if the server allows clients using it!
+			%1%1There are two built-in params avaiable:
+			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
+			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+		</Original>
+      </Key>
+      <Key ID="STR_ARES_FIELD_MANUAL">
+        <Original>Ares Field Manual</Original>
+        <English>Ares Field Manual</English>
+        <French>Le manuel d'Ares</French>
+        <Russian>Путеводитель Ares</Russian>
+        <German>Handbuch des Ares</German>
+      </Key>
+      <Key ID="STR_ARES_FIELD_MANUAL_DESCRIPTION">
+        <Original>
+			Open the %3Field Manual%4 avaiable in the escape menu for useful informations.
+		</Original>
+        <English>
+			Open the %3Field Manual%4 avaiable in the escape menu for informations.
+		</English>
+        <French>
+			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
+		</French>
+        <Russian>
+			Откройте %3Путеводитель%4 в меню игры для полезной информации.
+		</Russian>
+        <German>
+			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
+		</German>
+      </Key>
+      <Key ID="STR_RC_VEHICLE_CREW">
+        <Original>Remote Control Vehicle Crew</Original>
+        <Russian>Дистанционный контроль экипажа</Russian>
+      </Key>
+      <Key ID="STR_RC_VEHICLE_CREW_DESCRIPTION">
+        <Original>
+			You How to remote control a specific unit in a vehicle:
+			%1 1) Select the unit in the object list on your left.
+			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
+			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+		</Original>
+      </Key>
+    </Container>
+  </Package>
 </Project>

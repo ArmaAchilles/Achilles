@@ -103,17 +103,16 @@ _placeholder setPos [0,0,0];
 		if ((vehicle _unit) isEqualTo _unit) then
 		{
 			_muzzle = (weaponState _unit) select 1;
-			//hint str _muzzle;
 			_mode = weaponState _unit select 2;
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
 				{
-					_unit doTarget _target;
 					sleep 0.1;
 					_unit forceWeaponFire [_muzzle, _mode];
 					_unit setvehicleammo 1;
 				};
+				_unit doTarget _target;
 				sleep _ceaseFireTime;
 			};
 		} else
@@ -123,7 +122,6 @@ _placeholder setPos [0,0,0];
 			{
 				_turrets_path = (assignedVehicleRole _unit) select 1;		
 				_muzzle = weaponState [_vehicle, _turrets_path] select 1;
-				systemChat str [_turrets_path,_muzzle];
 				for "_" from 0 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
