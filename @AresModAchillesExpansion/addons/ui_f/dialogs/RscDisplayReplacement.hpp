@@ -17,9 +17,23 @@ class RscDisplayCurator
 {
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
 };
-
+/*
+class RscStandardDisplay;
+class RscDisplayMain: RscStandardDisplay
+{
+	//onLoad = "createDisplay ""Ares_Welcome_Dialog"";";
+	class Controls 
+	{
+		class AchillesIntroMessage : RscText
+		{
+			onLoad = "(ctrlparent (_this select 0)) createDisplay ""Ares_Welcome_Dialog"";";
+		};
+	};
+};
+*/
 // load external resources
 class RscControlsGroupNoScrollbars;
+class RscControlsGroupNoHScrollbars;
 class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 
 // load external attributes

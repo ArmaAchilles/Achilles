@@ -11,7 +11,7 @@ _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_F
 {
 	_targetChoices pushBack (name _x);
 } forEach _allTargets;
-if (count _allTargets == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select target
 _dialogResult = 

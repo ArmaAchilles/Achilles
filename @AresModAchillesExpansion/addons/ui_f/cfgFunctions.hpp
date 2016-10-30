@@ -3,6 +3,13 @@ class CfgFunctions
 {
 	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Ares_fnc_...." )
 	{
+		class ui_f_init
+		{
+			file = "\achilles\ui_f\functions\init";
+			
+			class onGameStarted;
+		};
+		
 		class ui_f_displayCurator
 		{
 			file = "\achilles\ui_f\functions\displayCurator";

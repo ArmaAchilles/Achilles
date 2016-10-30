@@ -105,7 +105,9 @@
 class IGUIBack;
 class RscFrame;
 class RscEdit;
+class RscTitle;
 class RscText;
+class RscStructuredText;
 class RscToolbox;
 class RscCombo;
 class RscButton;

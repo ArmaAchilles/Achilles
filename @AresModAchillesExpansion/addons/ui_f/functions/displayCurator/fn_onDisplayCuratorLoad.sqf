@@ -37,7 +37,7 @@ _this spawn
 		Ares_Shift_Key_Pressed = false;
 		
 		// execute init
-		[] call Achilles_fnc_init;
+		[] call Achilles_fnc_onCuratorStart;
 		
 		// wait until zeus has truly entered the interface
 		waitUntil {not isNull (findDisplay 312)};

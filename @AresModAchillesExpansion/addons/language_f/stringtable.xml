@@ -2388,5 +2388,17 @@
 		</Original>
       </Key>
     </Container>
+	<Container name="Main Menu">
+	  <Key ID="STR_INTRO_TITLE">
+        <Original>Ares Mod - Achilles Expansion 0.0.4</Original>
+      </Key>
+      <Key ID="STR_INTRO_MESSAGE">
+        <Original>
+			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+			Latest features: &lt;br /&gt;
+			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
+		</Original>
+      </Key>
+	</Container>
   </Package>
 </Project>
