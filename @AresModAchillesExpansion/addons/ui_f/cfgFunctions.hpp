@@ -56,6 +56,7 @@ class CfgFunctions
 			class RscDisplayAttributes_Chatter;
 			class RscDisplayAtttributes_ChangeSkills;
 			class RscDisplayAttributes_SpawnEmptyObject;
+			class RscDisplayAttributes_selectAIUnits;
 		};
 	};
 	

@@ -98,44 +98,49 @@ _placeholder setPos [0,0,0];
 		
 		
 		_unit lookAt _target;
-		sleep (random [2,3,4]);
-		
-		if ((vehicle _unit) isEqualTo _unit) then
+		// Check if mate is in line of fire
+		_intersection = lineIntersectsWith [eyePos _unit, getPosASL _target,objNull,_unit,true];
+		systemChat str _intersection;
+		if (side (_intersection select (count _intersection - 1)) != side _unit) then 
 		{
-			_muzzle = (weaponState _unit) select 1;
-			_mode = weaponState _unit select 2;
-			for "_" from 1 to _duration do
+			sleep (random [2,3,4]);
+			
+			if ((vehicle _unit) isEqualTo _unit) then
 			{
-				for "_" from 1 to _fireRepeater do
-				{
-					sleep 0.1;
-					_unit forceWeaponFire [_muzzle, _mode];
-					_unit setvehicleammo 1;
-				};
-				_unit doTarget _target;
-				sleep _ceaseFireTime;
-			};
-		} else
-		{
-			_vehicle = vehicle _unit;
-			if (_unit == gunner _vehicle) then 
-			{
-				_turrets_path = (assignedVehicleRole _unit) select 1;		
-				_muzzle = weaponState [_vehicle, _turrets_path] select 1;
-				for "_" from 0 to _duration do
+				_muzzle = (weaponState _unit) select 1;
+				_mode = weaponState _unit select 2;
+				for "_" from 1 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
 					{
-						_unit lookAt _target;
 						sleep 0.1;
-						_unit fireAtTarget [_vehicle, _muzzle];
-						_vehicle setvehicleammo 1;
+						_unit forceWeaponFire [_muzzle, _mode];
+						_unit setvehicleammo 1;
 					};
+					_unit doTarget _target;
 					sleep _ceaseFireTime;
+				};
+			} else
+			{
+				_vehicle = vehicle _unit;
+				if (_unit == gunner _vehicle) then 
+				{
+					_turrets_path = (assignedVehicleRole _unit) select 1;		
+					_muzzle = weaponState [_vehicle, _turrets_path] select 1;
+					for "_" from 0 to _duration do
+					{
+						for "_" from 1 to _fireRepeater do
+						{
+							_unit lookAt _target;
+							sleep 0.1;
+							_unit fireAtTarget [_vehicle, _muzzle];
+							_vehicle setvehicleammo 1;
+						};
+						sleep _ceaseFireTime;
+					};
 				};
 			};
 		};
-		
 		_unit setSkill ["aimingAccuracy", _aiming];
 		_unit setUnitPos "AUTO";
 		_units joinSilent _old_group;

@@ -29,9 +29,9 @@ class CfgPatches
 			"Ares_Module_Bahaviour_UnGarrison",
 			"Ares_Module_Dev_Tools_Execute_Code",
 			"Ares_Module_Dev_Tools_Create_Mission_SQF",
-			"Ares_Module_Equipment_Lights",
-			"Ares_Module_Equipment_Nvgs",
-			"Ares_Module_Equipment_Thermals",
+			"Ares_Module_Equipment_Turret_Optics",
+			"Ares_Module_Equipment_Flashlight_IR_ON_OFF",
+			"Ares_Module_Equipment_NVD_TACLIGHT_IR",
 			"Ares_Module_Player_Teleport",
 			"Ares_Module_Player_Create_Teleporter",
 			"Ares_Module_Player_Change_Player_Side",
@@ -44,7 +44,7 @@ class CfgPatches
 			"Ares_Module_Zeus_Add_Remove_Editable_Objects",
 			"Ares_Module_Zeus_Visibility",
 			"Ares_Module_Zeus_Hint",
-			"Ares_Module_Zeus_Switch_Side",
+			"Ares_Module_Zeus_Switch_Side"
 		};
 		
 		requiredAddons[] = 

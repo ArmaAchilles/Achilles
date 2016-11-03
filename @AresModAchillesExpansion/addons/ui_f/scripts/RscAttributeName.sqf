@@ -19,7 +19,13 @@ switch _mode do
 		_text = ctrltext _ctrlValue;
 		if (_text != name _entity) then
 		{
-			[_entity, _text] remoteExec ["setName",-2,_entity];
+			if (local _entity) then
+			{
+				_entity setName _text;
+			} else
+			{
+				[_entity, _text] remoteExec ["setName",-2,_entity];
+			};
 		};
 	};
 	case "onUnload": {};

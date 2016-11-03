@@ -779,6 +779,24 @@
         <Russian>Патруль</Russian>
         <German>Patrouillieren</German>
       </Key>
+	  <Key ID="STR_NVD_TACLIGHT_IR">
+        <Original>NVD/Tactical Light/IR</Original>
+        <English>NVD/Tactical Light/IR</English>
+        <French>JVN/Lampe tactique/IR</French>
+        <German>Nachtsichtgerät/Taktisches Licht/IR</German>
+      </Key>
+      <Key ID="STR_TACLIGHT_IR_ON_OFF">
+        <Original>Tactical Light/IR Laser On/Off</Original>
+        <English>Tactical Light/IR Laser On/Off</English>
+        <French>Allumez/Eteindez la Lampe/ le Laser IR </French>
+        <German>Taktisches Licht/IR Laser an/aus</German>
+      </Key>
+      <Key ID="STR_ADD_REMOVE_TURRET_OPTICS">
+        <Original>Add/Remove Turret Optics</Original>
+        <English>Add/Remove Turret Optics</English>
+        <French>Ajoutez/Supprimez l'optique de tourelle/</French>
+        <German>Fügen/Entferne Geschützoptik (hinzu)</German>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -791,15 +809,15 @@
         <German>Du brauchst zuerst ein Ziel Marker!</German>
       </Key>
       <Key ID="STR_NO_LZ">
-        <Original>No LZ avaiable!</Original>
-        <English>No LZ avaiable!</English>
+        <Original>No LZ available!</Original>
+        <English>No LZ available!</English>
         <French>Il n'y a pas de ZA disponible!</French>
         <Russian>Нет точки встречи!</Russian>
         <German>Kein LZ verfügbar!</German>
       </Key>
       <Key ID="STR_NO_RP">
-        <Original>No RP avaiable!</Original>
-        <English>No RP avaiable!</English>
+        <Original>No RP available!</Original>
+        <English>No RP available!</English>
         <French>Il n'y a pas de RV sont disponible!</French>
         <Russian>Нет точки встречи!</Russian>
         <German>Kein Tpt verfügbar!</German>
@@ -1111,6 +1129,12 @@
         <Russian>Объект не выбран!</Russian>
         <German>Kein Objekt wurde ausgewählt!</German>
       </Key>
+      <Key ID="STR_NO_UNIT_SELECTED">
+        <Original>No unit selected!</Original>
+        <English>No unit selected!</English>
+        <French>Pas d'unité a été choisi!</French>
+        <German>Keine Einheit wurde ausgewählt!</German>
+      </Key>
       <Key ID="STR_NOT_PLACED_ON_UNIT">
         <Original>This modul has to be placed on a unit!</Original>
         <English>This modul has to be placed on a unit!</English>
@@ -1126,8 +1150,8 @@
         <German>Keine Gruppe wurde ausgewählt!</German>
       </Key>
       <Key ID="STR_NO_TARGET_AVAIABLE">
-        <Original>No target avaiable!</Original>
-        <English>No target avaiable!</English>
+        <Original>No target available!</Original>
+        <English>No target available!</English>
         <French>Il n'y a pas de cible disponible!</French>
         <Russian>Нет цели!</Russian>
         <German>Keine Ziel verfügbar!</German>
@@ -1654,6 +1678,12 @@
         <English>None</English>
         <French>Aucune</French>
         <Russian>Никакая</Russian>
+        <German>Keine</German>
+      </Key>
+      <Key ID="STR_NONE_EQUIPMENT">
+        <Original>None</Original>
+        <English>None</English>
+        <French>Aucun</French>
         <German>Keine</German>
       </Key>
       <Key ID="STR_TRANSITION">
@@ -2212,6 +2242,90 @@
         <French>Commander</French>
         <German>Befehlen</German>
       </Key>
+      <Key ID="STR_INCLUDE_VEHICLES">
+        <Original>Include vehicles</Original>
+        <English>Include vehicles</English>
+        <French>Véhicule inclus</French>
+        <German>inklusive Fahrzeuge</German>
+      </Key>
+      <Key ID="STR_AVAILABLE">
+        <Original>available</Original>
+        <English>available</English>
+        <French>disponible</French>
+        <German>verfügbar</German>
+      </Key>
+      <Key ID="STR_UNAVAILABLE">
+        <Original>unavailable</Original>
+        <English>unavailable</English>
+        <French>pas disponible</French>
+        <German>nicht verfügbar</German>
+      </Key>
+      <Key ID="STR_UNCHANGED">
+        <Original>unchanged</Original>
+        <English>unchanged</English>
+        <French>tel quel</French>
+        <German>unverändert</German>
+      </Key>
+      <Key ID="STR_NVD">
+        <Original>NVD</Original>
+        <English>NVD</English>
+        <French>JVN</French>
+        <German>Nachtsichtgerät</German>
+      </Key>
+      <Key ID="STR_THERMALS">
+        <Original>Thermal optics</Original>
+        <English>Thermal optics</English>
+        <French>Caméra thermique</French>
+        <German>Wärmebildkamera</German>
+      </Key>
+      <Key ID="STR_TAC_LIGHT">
+        <Original>Tactical light</Original>
+        <English>Tactical light</English>
+        <French>Lampe tactique</French>
+        <German>Taktisches Licht</German>
+      </Key>
+      <Key ID="STR_IR_LASER_POINTER">
+        <Original>IR Laser Pointer</Original>
+        <English>IR Laser Pointer</English>
+        <French>Pointeur laser IR</French>
+        <German>IR Laserpointer</German>
+      </Key>
+      <Key ID="STR_FORCED_ON">
+        <Original>forced on</Original>
+        <English>forced on</English>
+        <French>allumez forcément</French>
+        <German>zwingend angeschaltet</German>
+      </Key>
+      <Key ID="STR_FORCED_OFF">
+        <Original>forced off</Original>
+        <English>forced off</English>
+        <French>éteindez forcément</French>
+        <German>zwingend ausgeschaltet</German>
+      </Key>
+      <Key ID="STR_THERMALS">
+        <Original>Thermal optics</Original>
+        <English>Thermal optics</English>
+        <French>Caméra thermique</French>
+        <German>Wärmebildkamera</German>
+      </Key>
+      <Key ID="STR_TACLIGHT_IR">
+        <Original>Tactical Light/IR</Original>
+        <English>Tactical Light/IR</English>
+        <French>Lampe tactique/IR</French>
+        <German>Taktisches Licht/IR</German>
+      </Key>
+      <Key ID="STR_APPLIED_MODULE_TO_X_OBJECTS">
+        <Original>Applied module to %1 objects!</Original>
+        <English>Applied module to %1 objects!</English>
+        <French>Vous avez appliqué le module à 1% objets!</French>
+        <German>Modul wurde an %1 Objekte angewendet!</German>
+      </Key>
+      <Key ID="STR_APPLIED_MODULE_TO_X_UNITS">
+        <Original>Applied module to %1 units!</Original>
+        <English>Applied module to %1 units!</English>
+        <French>Vous avez appliqué le module à 1% unités!</French>
+        <German>Modul wurde an %1 Einheiten angewendet!</German>
+      </Key>						
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">
@@ -2253,9 +2367,9 @@
 			The Ares Modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This modul has to be placed on units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options avaiable depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options avaiable depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
 		</Original>
       </Key>
@@ -2346,7 +2460,7 @@
       <Key ID="STR_EXECUTE_CODE_DESCRIPTION">
         <Original>
 			The execute code module is only aviable if the server allows clients using it!
-			%1%1There are two built-in params avaiable:
+			%1%1There are two built-in params available:
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
 		</Original>
@@ -2360,10 +2474,10 @@
       </Key>
       <Key ID="STR_ARES_FIELD_MANUAL_DESCRIPTION">
         <Original>
-			Open the %3Field Manual%4 avaiable in the escape menu for useful informations.
+			Open the %3Field Manual%4 available in the escape menu for useful informations.
 		</Original>
         <English>
-			Open the %3Field Manual%4 avaiable in the escape menu for informations.
+			Open the %3Field Manual%4 available in the escape menu for informations.
 		</English>
         <French>
 			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.

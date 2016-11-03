@@ -4,24 +4,23 @@ class Ares_Equipment_Module_Base : Ares_Module_Base
 	//Category = "Equipment";
 };
 
-class Ares_Module_Equipment_Nvgs : Ares_Equipment_Module_Base
+class Ares_Module_Equipment_Turret_Optics : Ares_Equipment_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "Add/Remove NVG's";
-	function = "Ares_fnc_EquipmentNvgs";
+	displayName = "$STR_ADD_REMOVE_TURRET_OPTICS";
+	function = "Ares_fnc_EquipmentTurretOptics";
 };
 
-class Ares_Module_Equipment_Thermals : Ares_Equipment_Module_Base
+class Ares_Module_Equipment_Flashlight_IR_ON_OFF : Ares_Equipment_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "Add/Remove Thermals";
-	function = "Ares_fnc_EquipmentThermals";
+	displayName = "$STR_TACLIGHT_IR_ON_OFF";
+	function = "Ares_fnc_EquipmentFlashlightIRLaserOnOff";
 };
 
-class Ares_Module_Equipment_Lights : Ares_Equipment_Module_Base
+class Ares_Module_Equipment_NVD_TACLIGHT_IR : Ares_Equipment_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "Lights On/Off";
-	function = "Ares_fnc_EquipmentLights";
+	displayName = "$STR_NVD_TACLIGHT_IR";
+	function = "Ares_fnc_EquipmentNVDRailAttachment";
 };
-
