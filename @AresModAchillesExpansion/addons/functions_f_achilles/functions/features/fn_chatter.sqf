@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/5/16
-//	VERSION: 1.0
-//	FILE: Achilles\functions\events\fn_chatter.sqf
+//	DATE: 4/11/16
+//	VERSION: 2.0
+//	FILE: Achilles\functions_f_achilles\functions\features\fn_chatter.sqf
 //  DESCRIPTION: AI chatter in chat
 //
 //	ARGUMENTS:
@@ -23,16 +23,16 @@ if (isNull _unit) then
 {
 	_dialogResult =
 	[
-		"Chatter (CROSSROAD):",
+		(localize "STR_CHATTER") + " (CROSSROAD):",
 		[
-			["Side:",
+			[localize "STR_SIDE",
 			[
-				"west",
-				"east",
-				"independent",
-				"civilian"
+				"BLUEFOR",
+				"OPFOR",
+				localize "STR_INDEPENDENT",
+				localize "STR_CIVILIANS"
 			]],
-			["Message:",""
+			[localize "STR_MESSAGE",""
 			]
 		],
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
@@ -53,16 +53,17 @@ if (isNull _unit) then
 {
 	_dialogResult =
 	[
-		format ["Chatter (%1):", name _unit],
+		(localize "STR_CHATTER") + format [" (%1):", name _unit],
 		[
-			["Channel:",
+			[localize "STR_CHANNEL",
 			[
-				"global",
-				"side",
-				"vehicle chat",
-				"command chat"
+				localize "STR_GLOBAL",
+				localize "STR_SIDE",
+				localize "STR_VEHICLE",
+				localize "STR_COMMAND",
+				localize "STR_ZEUS"
 			]],
-			["Message:",""
+			[localize "STR_MESSAGE",""
 			]
 		],
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
@@ -76,11 +77,16 @@ if (isNull _unit) then
 		case 1: {'sideChat'};
 		case 2: {'vehicleChat'};
 		case 3: {'commandChat'};
+		case 4:	{''};
 	};
 	_message = _dialogResult select 1;
+	
+	// if zeus channel
+	if (_chat_type == "") exitWith {[player,_message] remoteExec ['sideChat',0];};
+	
 	if (!isPlayer _unit) then
 	{
-		_message = "(" + (name _unit) + " [AI]) " + _message; 
+		_message = "(" + (name _unit) + " [" + localize "STR_AI" + "]) " + _message; 
 	};
 	[_unit,_message] remoteExec [_chat_type,0];
 };

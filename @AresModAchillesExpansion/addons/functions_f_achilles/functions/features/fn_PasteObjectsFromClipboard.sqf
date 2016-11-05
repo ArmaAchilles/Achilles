@@ -31,7 +31,8 @@ _object_list = [];
 		case (_type isKindOf "Man"):
 		{
 			_groupID = _x select 1;
-			_loadout = _x select 3;
+			_loadout = _x select 3 select 0;
+			_goggles = _x select 3 select 1;
 			_groupIndex = _createdGroupsId find _groupID;
 			_group = if (_groupIndex == -1) then 
 			{
@@ -46,6 +47,8 @@ _object_list = [];
 			_unit = _group createUnit [_type, _pos, [], 0, "FORM"];
 			_unit setDir _dir;
 			_unit setUnitLoadout _loadout;
+			// delay is needed, since built-in randomization of face and goggles is also delayed
+			[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
 			if (_pos select 2 > 10) then
 			{
 				_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
@@ -81,7 +84,8 @@ _object_list = [];
 					_type = _x select 0;
 					_groupID = _x select 1;
 					_side = _x select 2;
-					_loadout = _x select 3;
+					_loadout = _x select 3 select 0;
+					_goggles = _x select 3 select 1;
 					_role = _x select 4;
 					_groupIndex = _createdGroupsId find _groupID;
 					_group = if (_groupIndex == -1) then 
@@ -96,6 +100,7 @@ _object_list = [];
 					};
 					_unit = _group createUnit [_type, [0,0,0], [], 0, "FORM"];
 					_unit setUnitLoadout _loadout;
+					[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
 					switch (count _role) do
 					{
 						case 0: {};

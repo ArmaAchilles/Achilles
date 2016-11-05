@@ -1101,6 +1101,31 @@
         <Russian>Зевс вошел в ваш канал стороны</Russian>
         <German>Zeus hat den Kanal deiner Seite betreten</German>
       </Key>
+      <Key ID="STR_CHANNEL">
+        <Original>Channel</Original>
+        <English>Channel</English>
+        <French>Canal</French>
+        <German>Kanal</German>
+      </Key>
+      <Key ID="STR_GLOBAL">
+        <Original>Global</Original>
+        <English>Global</English>
+        <French>Globale</French>
+        <German>Global</German>
+      </Key>
+      <Key ID="STR_COMMAND">
+        <Original>command</Original>
+        <English>command</English>
+        <French>commande</French>
+        <German>Befehl</German>
+      </Key>
+      <Key ID="STR_AI">
+        <Original>AI</Original>
+        <English>AI</English>
+        <French>IA</French>
+        <Russian>ИИ</Russian>
+        <German>KI</German>
+      </Key>
       <Key ID="STR_CHANGE_SIDE_FOR">
         <Original>Change side for</Original>
         <English>Change side for</English>
@@ -2325,7 +2350,20 @@
         <English>Applied module to %1 units!</English>
         <French>Vous avez appliqué le module à 1% unités!</French>
         <German>Modul wurde an %1 Einheiten angewendet!</German>
-      </Key>						
+      </Key>
+      <Key ID="STR_CIVILIANS">
+        <Original>Civilians</Original>
+        <English>Civilians</English>
+		<French>Civils</French>
+		<Russian>Гражданское население</Russian>
+        <German>Zivilisten</German>
+      </Key>
+      <Key ID="STR_INDEPENDENT">
+        <Original>Independent</Original>
+        <English>Independent</English>
+		<French>Indépendant</French>
+		<Russian>Независимые</Russian>
+        <German>Unabhängig</German>					
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">

@@ -25,6 +25,7 @@ class CfgFunctions
 			class getVehicleAmmoDef;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
+			class checkLineOfFire2D;
 		};
 		
 		class functions_f_features

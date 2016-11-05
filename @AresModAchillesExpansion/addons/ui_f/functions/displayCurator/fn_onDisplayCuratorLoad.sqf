@@ -73,11 +73,15 @@ _this spawn
 			waitUntil {sleep 1; (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player]) == player};
 		};
 		
+		/*
 		//add key event handlers to curator inteface (based on suggestion of Zarkant)
 		_mousearea = _display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA;
 		_mousearea ctrlAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
 		_mousearea ctrlAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
+		*/
 		
+		_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
+		_display displayAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
 		
 		// handle module tree loading
 		[false] call Achilles_fnc_OnModuleTreeLoad;

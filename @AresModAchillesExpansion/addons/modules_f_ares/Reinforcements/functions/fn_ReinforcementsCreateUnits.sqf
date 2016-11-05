@@ -9,7 +9,7 @@ _spawnPosition = position _logic;
 
 // Get the UI control
 
-_side_names = ["OPFOR","BLUEFOR","INDEPENDENT"];
+_side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
 _sides = [east,west,independent];
 
 _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
