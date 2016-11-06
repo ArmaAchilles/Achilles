@@ -11,6 +11,9 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 
+V.0.0.4c (Achilles Expansion (alpha version))
+* Fix:     Player edit menu was broken.
+
 V.0.0.4 (Achilles Expansion (alpha version))
 * Change:  Teleport player: Teleport entire vehcile is now optional.
 * Change:  Instant occupation does distribute large group (>8 members) on different buildings (by Grezvany13)
@@ -28,9 +31,9 @@ V.0.0.4 (Achilles Expansion (alpha version))
 * Feature: Headlight/Searchlight option (vehicle edit menu)
 * Feature: Unit edit menu: Arsenal and Skill button; set unit name for chatter module
 * Fix:     Suppressive fire: 
-		   - Broke down when more than 2 "suppression target modules" were available. 
-		   - Unit did not cease fire if group mate is in line of fire.
-		   - Suppressive fire: Units went "crazy" in mechanized and motorized groups.
+           - Broke down when more than 2 "suppression target modules" were available. 
+           - Unit did not cease fire if group mate is in line of fire.
+           - Suppressive fire: Units went "crazy" in mechanized and motorized groups.
 * Fix:     Logger for loading achilles modules was not removed.
 * Fix:     Client side script errors reported in RPT log file.
 * Fix:     Wind force of 0 is no longer possible (prevents flares from being stuck in the air).
@@ -45,39 +48,39 @@ V.0.0.3 (Achilles Expansion (alpha version))
            This might lead to unintented losses of some functionalities (please report!)
 * Change:  Optimized the way the add-on is initialized
            - No script runs at all when player is not Zeus.
-		   - Loading of modules is now directly coupled with the Zeus Display.
+           - Loading of modules is now directly coupled with the Zeus Display.
 * Change:  Updated Russian Translation (by Igor Nikolaev).
 * Change:  Warning message in case Ares is loaded too.
 * Change:  Save SQF Module is now based on world positions (not final yet!!!)
 * Change:  Replaced BIS_fnc_destroy City by the Achilles function in the earthquake module.
-		   (Fix: earthquake undid previous destruction)
+           (Fix: earthquake undid previous destruction)
 * Feature: Create Advanced Compositions: Now supports turrets
 * Feature: Options for suppresive fire module (Stance, Fire Mode, time)
 * Feature: Surrender with Apex Progress Bar Action and more options
 * Feature: Create Intel now supports Apex Progress Bar Action 
-		   => many new options are possible e.g. hacking laptop/get intel from enemy unit/pick up intel or whatever
+           => many new options are possible e.g. hacking laptop/get intel from enemy unit/pick up intel or whatever
 * Feature: Option to teleport zeus instant in teleport player module
 * Feature: toggle destroy buildings for earthquake
 * Feature: Transfer ownership module (allows transfering units/objects to server)
-* Fix:     Intels could not be properly edited	
+* Fix:     Intels could not be properly edited
 * Fix:     RHS reinforcements were broken due to renaming of Vehicle Classes in the last RHS update 
-* Fix:     Switch player side was broken		   
+* Fix:     Switch player side was broken
 * Fix:     Several functionalities did not work on non-local units (e.g. players):
-		   - "LEFT CTRL + G" - eject 
-		   - Ambient Animations
-		   Note: The functionalities should now even work on players.
+           - "LEFT CTRL + G" - eject 
+           - Ambient Animations
+           Note: The functionalities should now even work on players.
 * Fix:     Spawn Light Source and Peristent Smoke Pillar did work for clients without Achilles
 * Fix:     Injury Module (Vanilla Version): random option led to death with high probabilty
 * Fix:     Script errors caused by canceling selection option
 * Fix:     Compositions were not accessible in Eden editor (fixed by S. Crowe)
 * Fix:     Custom Modules could not be added in mission init phase (e.g. init.sqf)
-* Fix:     Units could not properly have a seat on chairs from advanced compositions	   
+* Fix:     Units could not properly have a seat on chairs from advanced compositions       
 * Fix:     Animal Category is back, although it will be replaced as soon as the new animal spawn module is finished
 * Fix:     ERROR IN FIELD MANUAL: Wrong hotkey for Deep Copy/Paste
 * Fix:     Flagpole teleporter did not account for height.
 * Fix:     There were several bugs in case custom add-ons were not unlocked for Zeus
            - Could not move and delete target logics
-		   - Ares modules were not avaiable in recent modules
+           - Ares modules were not avaiable in recent modules
 * Fix:     Error message was missing when fire support modules had a lack of possible targets
 
 V.0.0.2 (Achilles Expansion (alpha version))
