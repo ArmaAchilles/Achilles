@@ -72,14 +72,12 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 			class Controls: controls 
 			{
 				// Trick to get attributes in the right order
-				delete Skill;
 				delete Lock;
 				delete RespawnVehicle;
 				delete RespawnPosition;
 				delete Exec;
 				
 				class Ammo: RscAttributeAmmo {};
-				class Skill2: RscAttributeSkill {};
 				class Lock2: RscAttributeLock {};
 				class Headlight: RscAttributeHeadlight {};
 				class RespawnVehicle2: RscAttributeRespawnVehicle {};
