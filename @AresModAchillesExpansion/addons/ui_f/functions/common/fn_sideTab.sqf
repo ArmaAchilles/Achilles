@@ -12,7 +12,6 @@ switch _mode do
 	case "onLoad": 
 	{
 		_display = _caller;
-		diag_log format ["_default_side_index2 = %1",_default_side_index];
 		uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1', _index], -1];
 		_default_side_idc = IDC_SIDE_ICONS select _default_side_index;
 		_default_control =  _display displayCtrl _default_side_idc;

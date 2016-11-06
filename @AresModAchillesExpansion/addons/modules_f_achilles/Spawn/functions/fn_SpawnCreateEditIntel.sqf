@@ -10,7 +10,6 @@
 
 #define INTEL_OBJECTS 		["Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Map_F","Land_Map_unfolded_F","Land_Laptop_unfolded_F","Land_MobilePhone_smart_F","Land_Tablet_01_F","Land_Tablet_02_F"]
 #define SEARCH_ICON			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"
-#define ACTION_CONDITION	"player distance _target < 3"
 
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -47,6 +46,7 @@ if (_dialogCount == 7) then
 {
 	_type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
+	_object setPos (position _logic);
 	[[_object], true] call Ares_fnc_AddUnitsToCurator;
 	
 	// save parameters
@@ -60,8 +60,13 @@ if (_dialogCount == 7) then
 
 _marker = createMarker [str _object, _object];
 
+// remove previous action
+remoteExec ["", _object];
+_object remoteExec ["RemoveAllActions", 0];
+
 _execute = 
 {
+	private ["_object","_finder","_arguments","_curator","_title","_text","_marker","_shared","_delete","_target"];
 	_object = _this select 0;
 	_finder = _this select 1;
 	_arguments = _this select 3;
@@ -84,8 +89,8 @@ _execute =
 	_actionName,		// Title of the action
 	SEARCH_ICON,			// Idle icon shown on screen
 	SEARCH_ICON,			// Progress icon shown on screen
-	ACTION_CONDITION,	// Condition for the action to be shown
-	ACTION_CONDITION,	// Condition for the action to progress
+	"_this distance _target < 3",	// Condition for the action to be shown
+	"_caller distance _target < 3",	// Condition for the action to progress
 	{},			// Code executed when action starts
 	{},			// Code executed on every progress tick
 	_execute,	// Code executed on completion
@@ -93,7 +98,7 @@ _execute =
 	[player,_title,_text,_marker,_shared,_delete],			// Arguments passed to the scripts
 	_duration,	// Action duration
 	0,			// Priority
-	true,		// Remove on completion
+	false,		// Remove on completion
 	false		// Show in unconscious state 
 ] remoteExec ["BIS_fnc_holdActionAdd",0,_object];
 

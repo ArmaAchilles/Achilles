@@ -15,7 +15,8 @@ _dialogResult = [
 	[ 
 		[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
 		["", ["..."]],
-		[localize "STR_SIDE","ALLSIDE"]
+		[localize "STR_SIDE","ALLSIDE"],
+		[localize "STR_INCLUDE_VEHICLES",[localize "STR_FALSE",localize "STR_TRUE"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_selectPlayers"
 ] call Ares_fnc_ShowChooseDialog;
@@ -62,9 +63,10 @@ if (count _playersToTeleport == 0) exitWith
 	["No players in selection!"] call Ares_fnc_ShowZeusMessage; 
 	playSound "FD_Start_F";
 };
+_includeVehicles = if ((_dialogResult select 3) == 0) then {false} else {true};
 
 // Call the teleport function.
-[_playersToTeleport, _tp_pos] call Ares_fnc_TeleportPlayers;
+[_playersToTeleport, _tp_pos, true, _includeVehicles] call Ares_fnc_TeleportPlayers;
 
 [objNull, format["Teleported %1 players to %2", (count _playersToTeleport), _tp_pos]] call bis_fnc_showCuratorFeedbackMessage;
 

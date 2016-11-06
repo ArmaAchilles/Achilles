@@ -12,7 +12,7 @@ _object_to_attach = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _object_to_attach) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 		
-if (not (_object_to_attach getVariable ['attached', false])) then
+if (isNull (_object_to_attach getVariable ['attached', ObjNull])) then
 {
 	_object_to_attach_to = ([localize "STR_OBJECT", true] call Achilles_fnc_SelectUnits);
 	if (isNil "_object_to_attach_to") exitWith {};
@@ -21,11 +21,11 @@ if (not (_object_to_attach getVariable ['attached', false])) then
 	_phi = direction _object_to_attach;
 	_object_to_attach attachTo [_object_to_attach_to];
 	[_object_to_attach, (_phi - _phi_zero)] remoteExec ['setDir',0,true];
-	_object_to_attach setVariable ['attached', true];
+	_object_to_attach setVariable ['attached', _object_to_attach_to];
 	[localize "STR_OBJECT_ATTCHED"] call Ares_fnc_ShowZeusMessage;
 } else {
 	detach _object_to_attach;
-	_object_to_attach setVariable ['attached', false];
+	_object_to_attach setVariable ['attached', ObjNull];
 	[localize "STR_OBJECT_DETACHED"] call Ares_fnc_ShowZeusMessage;
 };
 

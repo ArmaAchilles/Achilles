@@ -196,6 +196,7 @@ switch (_mode) do
 		{
 			if (true) then
 			{
+				disableSerialization;
 				_tvPath = uiNamespace getVariable ["Ares_composition_last_choice", []];
 				if (_tvPath select 0 == 0) exitWith {closeDialog 0;};
 				if (count _tvPath < 3) exitWith {closeDialog 0;};

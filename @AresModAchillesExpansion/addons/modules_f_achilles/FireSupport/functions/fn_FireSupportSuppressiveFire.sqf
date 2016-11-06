@@ -11,7 +11,7 @@ _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_F
 {
 	_targetChoices pushBack (name _x);
 } forEach _allTargets;
-if (count _allTargets == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select target
 _dialogResult = 
@@ -67,6 +67,30 @@ if (isNull _unit) exitWith {[localize "STR_NO_GROUP_SELECTED"] call Ares_fnc_Sho
 _old_group = group _unit;
 _units = units _old_group;
 
+// force unit to change formation if not in combat
+if (behaviour leader _old_group != "COMBAT") then
+{
+	// set formation
+	_old_group setBehaviour "AWARE";
+	_units apply {_x setUnitPos "MIDDLE"};
+	if (formation _old_group != "LINE") then
+	{
+		_old_group setFormation "LINE";
+		// wait until unit is in formation
+		sleep 2;
+		waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
+	};
+	// orientate line perpendicular to target
+	_old_group setFormDir ([leader _old_group,_selectedTarget] call BIS_fnc_dirTo);
+	// wait until unit is in formation
+	sleep 2;
+	waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
+	_units apply {_x setUnitPos "AUTO"};
+};
+
+// get rid of vehicle crew except gunner
+_units = _units select {gunner vehicle _x == _x};
+
 // store original group in place holder
 [] spawn {{if (count units _x==0) then {deleteGroup _x}} forEach allGroups};
 _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
@@ -82,6 +106,10 @@ _placeholder setPos [0,0,0];
 		_fireModeIndex = _this select 4;
 		_duration = _this select 5;
 		_placeholder = _this select 6;
+		
+		// cease fire if group mate is too close to line of fire
+		if (not ([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
+		
 		_old_group = group _placeholder;
 		_aiming = _unit skill "aimingAccuracy";
 		_unit setSkill ["aimingAccuracy", 0.2];
@@ -96,24 +124,23 @@ _placeholder setPos [0,0,0];
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
-		
 		_unit lookAt _target;
+		
 		sleep (random [2,3,4]);
 		
 		if ((vehicle _unit) isEqualTo _unit) then
 		{
 			_muzzle = (weaponState _unit) select 1;
-			//hint str _muzzle;
 			_mode = weaponState _unit select 2;
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
 				{
-					_unit doTarget _target;
 					sleep 0.1;
 					_unit forceWeaponFire [_muzzle, _mode];
 					_unit setvehicleammo 1;
 				};
+				_unit doTarget _target;
 				sleep _ceaseFireTime;
 			};
 		} else
@@ -123,7 +150,6 @@ _placeholder setPos [0,0,0];
 			{
 				_turrets_path = (assignedVehicleRole _unit) select 1;		
 				_muzzle = weaponState [_vehicle, _turrets_path] select 1;
-				systemChat str [_turrets_path,_muzzle];
 				for "_" from 0 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
@@ -137,10 +163,10 @@ _placeholder setPos [0,0,0];
 				};
 			};
 		};
-		
 		_unit setSkill ["aimingAccuracy", _aiming];
 		_unit setUnitPos "AUTO";
 		_units joinSilent _old_group;
+		_old_group setBehaviour "AWARE";
 		deleteVehicle _placeholder;
 	};
 } forEach _units;

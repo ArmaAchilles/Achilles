@@ -11,13 +11,42 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 
+V.0.0.4 (Achilles Expansion (alpha version))
+* Change:  Teleport player: Teleport entire vehcile is now optional.
+* Change:  Instant occupation does distribute large group (>8 members) on different buildings (by Grezvany13)
+* Change:  Revised equipment module category.
+* Change:  Chatter module now sets mouse cursor on text box automatically.
+* Change:  Remote control chatter: Acces to zeus chat was not avialabel.
+* Change:  Sort player and group lists in alphabetic order (Player Module Category).
+* Change:  Suppressive fire: group lines up perpendicular to target direction (except in combat).
+* Feature: A few new Advanced Compositions from Apex Protocol campaign.
+* Feature: Updated Russian Translation (by Igor Nikolaev).
+* Feature: Achilles Dialog windows can be moved.
+* Feature: Damage vehicle components button is implemented (edit vehicle menu).
+* Feature: Behaviour careless and combat modes (from "hold fire" to "fire and engage at will").
+* Feature: Set ammunition slider (vehicle and unit edit menu).
+* Feature: Headlight/Searchlight option (vehicle edit menu)
+* Feature: Unit edit menu: Arsenal and Skill button; set unit name for chatter module
+* Fix:     Suppressive fire: 
+		   - Broke down when more than 2 "suppression target modules" were available. 
+		   - Unit did not cease fire if group mate is in line of fire.
+		   - Suppressive fire: Units went "crazy" in mechanized and motorized groups.
+* Fix:     Logger for loading achilles modules was not removed.
+* Fix:     Client side script errors reported in RPT log file.
+* Fix:     Wind force of 0 is no longer possible (prevents flares from being stuck in the air).
+* Fix:     Remote controlled units were not able to untie a surrendered unit or pick up an intel.
+* Fix:     Issues that occure when multiple intels were created (not fully proven to be fixed).
+* Fix:     Compatibility issues between Ares and TFAR (not fully proven to be fixed)
+
+
+
 V.0.0.3 (Achilles Expansion (alpha version))
 * Change:  Heavily reorganized scripts and compartmentalized pbo similar to vanilla add-ons
            This might lead to unintented losses of some functionalities (please report!)
 * Change:  Optimized the way the add-on is initialized
            - No script runs at all when player is not Zeus.
 		   - Loading of modules is now directly coupled with the Zeus Display.
-* Change:  Russian translation extended (by Igor Nikolaev).
+* Change:  Updated Russian Translation (by Igor Nikolaev).
 * Change:  Warning message in case Ares is loaded too.
 * Change:  Save SQF Module is now based on world positions (not final yet!!!)
 * Change:  Replaced BIS_fnc_destroy City by the Achilles function in the earthquake module.

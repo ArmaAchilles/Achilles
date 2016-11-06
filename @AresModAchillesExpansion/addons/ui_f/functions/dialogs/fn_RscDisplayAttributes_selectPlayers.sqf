@@ -26,13 +26,20 @@ switch (_mode) do
 {
 	case "LOADED": 
 	{
-		_mode_ctrl = _dialog displayCtrl IDC_MODE_COMBO;
-		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_0", 0];
-		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
-		_last_choice = if (_last_choice < lbSize _mode_ctrl) then {_last_choice} else {(lbSize _mode_ctrl) - 1};
-		_mode_ctrl lbSetCurSel _last_choice;
-		
-		[0,_mode_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_selectPlayers;
+		{
+			_ctrl = _dialog displayCtrl (IDC_MODE_COMBO + _x);
+			if (not isNull _ctrl) then
+			{
+				_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
+				_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+				_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+				_ctrl lbSetCurSel _last_choice;
+				if (_x == 0) then
+				{
+					[0,_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_selectPlayers;
+				};
+			};
+		} forEach [0,3];
 	};
 	case "0":
 	{
@@ -86,11 +93,13 @@ switch (_mode) do
 				{
 					_selection_list = (allPlayers - entities "HeadlessClient_F");
 					{_selection_ctrl lbAdd name _x} forEach _selection_list;
+					_selection_list sort true;
 					_dialog setVariable ["selection_mode","player"];
 					_selection_lable ctrlSetText (localize "STR_PLAYER");
 				} else 
 				{
 					_selection_list = [{_return = false; {if (isPlayer _x) exitWith {_return = true}} forEach units _x; _return}, allGroups] call Achilles_fnc_filter;
+					_selection_list sort true;
 					{_selection_ctrl lbAdd groupId _x} forEach _selection_list;
 					_dialog setVariable ["selection_mode","group"];
 					_selection_lable ctrlSetText (localize "STR_GROUP");

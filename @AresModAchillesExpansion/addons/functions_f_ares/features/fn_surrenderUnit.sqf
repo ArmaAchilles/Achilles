@@ -22,7 +22,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define UNTIE_ICON				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa"
-#define	ACTION_CONDITION		"player distance _target < 3"
 
 
 _unit =					_this select 0;
@@ -41,18 +40,18 @@ if (_animIndex == -1) then
 	_unit setCaptive false;
 
 	// terminate animation
-	[_unit,""] remoteExec ["switchMove",0];
+	//[_unit,""] remoteExec ["switchMove",0];
 	[_unit,"TERMINATE",false] call Achilles_fnc_ambientAnim;
+	
+	// remove the action
+	remoteExec ["",_unit];	// remove from JIP queue
+	_unit remoteExec ["RemoveAllActions", 0];
 	
 	if (_termination == 0) then 
 	{
 		[_unit] join _caller;
 	};
 	_unit setVariable ["AresCaptureState",-1,true];
-	
-	// remove previous action from unit
-	remoteExec ["",_unit];	// remove from JIP queue
-	_unit remoteExec ["removeAllActions",0];
 	
 	if (_termination == 2) then
 	{
@@ -74,20 +73,27 @@ if (_animIndex == -1) then
 		_actionName,	// Title of the action
 		UNTIE_ICON,			// Idle icon shown on screen
 		UNTIE_ICON,			// Progress icon shown on screen
-		ACTION_CONDITION,	// Condition for the action to be shown
-		ACTION_CONDITION,	// Condition for the action to progress
+		"_this distance _target < 3",	// Condition for the action to be shown
+		"_caller distance _target < 3",	// Condition for the action to progress
 		{},		// Code executed when action starts
 		{},		// Code executed on every progress tick
 		{
 			_unit = _this select 0;
 			_caller = _this select 1;
+			_id = _this select 2;
+			
+			// remove the action
+			remoteExec ["",_unit];	// remove from JIP queue
+			_unit remoteExec ["RemoveAllActions", 0];
+			
 			[_unit,_caller,[-1,-1]] remoteExec ["Ares_fnc_surrenderUnit",_unit];
+			
 		},		// Code executed on completion
 		{},		// Code executed on interrupted
 		[],		// Arguments passed to the scripts
 		7,		// Action duration
 		0,		// Priority
-		true,	// Remove on completion
+		false,	// Remove on completion
 		false	// Show in unconscious state 
 	] remoteExec ["BIS_fnc_holdActionAdd",0,_unit];
 	

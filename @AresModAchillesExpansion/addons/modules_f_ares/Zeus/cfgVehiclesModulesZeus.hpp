@@ -1,6 +1,7 @@
 class Ares_Zeus_Module_Base : Ares_Module_Base
 {
 	subCategory = "$STR_ZEUS";
+	//Category = "Curator";
 };
 
 class Ares_Module_Zeus_Add_Remove_Editable_Objects : Ares_Zeus_Module_Base

@@ -6,3 +6,4 @@
 #include "dialogs\RscDialogDynamic.hpp"
 #include "dialogs\RscDialogExecuteCode.hpp"
 #include "dialogs\RscDisplayReplacement.hpp"
+#include "dialogs\RscDialogWelcome.hpp"

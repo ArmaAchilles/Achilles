@@ -1,7 +1,7 @@
 class Ares_Dynamic_Dialog
 {
 	idd = 133798;
-	movingEnable = false;
+	movingEnable = true;
 	
 	class controls 
 	{
@@ -12,6 +12,7 @@ class Ares_Dynamic_Dialog
 		class Ares_Title: RscText
 		{
 			idc = 1000;
+			moving = 1;
 
 			text = "Execute Code"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;

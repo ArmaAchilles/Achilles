@@ -3,11 +3,11 @@ class CfgFunctions
 {
 	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Achilles_fnc_...." )
 	{
-		class init
+		class Init
 		{
 			file = "\achilles\functions_f_achilles\functions\init";
 			
-			class Init;
+			class onCuratorStart;
 		}
 		class functions_f_common
 		{
@@ -16,9 +16,16 @@ class CfgFunctions
 			class map;
 			class filter;
 			class sum;
+			class arrayMean;
+			class pushBack;
 			class TextToVariableName;
 			class HigherConfigHierarchyLevel;
 			class ClassNamesWhichInheritsFromCfgClass;
+			class getAllTurretConfig;
+			class getVehicleAmmoDef;
+			class getUnitAmmoDef;
+			class setUnitAmmoDef;
+			class checkLineOfFire2D;
 		};
 		
 		class functions_f_features
@@ -38,6 +45,8 @@ class CfgFunctions
 			class SwitchZeusSide;
 			class CopyObjectsToClipboard;
 			class PasteObjectsFromClipboard;
+			class damageComponents;
+			class changeSkills;
 		};
 	};
 };

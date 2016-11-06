@@ -1,6 +1,7 @@
 class Ares_Dev_Tools_Module_Base : Ares_Module_Base
 {
 	subCategory = "$STR_DEV_TOOLS";
+	//Category = "DevTools";
 };
 
 class Ares_Module_Dev_Tools_Execute_Code : Ares_Dev_Tools_Module_Base
