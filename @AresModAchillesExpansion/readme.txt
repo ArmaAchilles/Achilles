@@ -11,6 +11,9 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 
+V.0.0.4c (Achilles Expansion (alpha version))
+* Fix:     Player edit menu was broken.
+
 V.0.0.4 (Achilles Expansion (alpha version))
 * Change:  Teleport player: Teleport entire vehcile is now optional.
 * Change:  Instant occupation does distribute large group (>8 members) on different buildings (by Grezvany13)
@@ -62,9 +65,9 @@ V.0.0.3 (Achilles Expansion (alpha version))
 * Feature: Option to teleport zeus instant in teleport player module
 * Feature: toggle destroy buildings for earthquake
 * Feature: Transfer ownership module (allows transfering units/objects to server)
-* Fix:     Intels could not be properly edited	
+* Fix:     Intels could not be properly edited
 * Fix:     RHS reinforcements were broken due to renaming of Vehicle Classes in the last RHS update 
-* Fix:     Switch player side was broken		   
+* Fix:     Switch player side was broken
 * Fix:     Several functionalities did not work on non-local units (e.g. players):
            - "LEFT CTRL + G" - eject 
            - Ambient Animations
@@ -74,7 +77,7 @@ V.0.0.3 (Achilles Expansion (alpha version))
 * Fix:     Script errors caused by canceling selection option
 * Fix:     Compositions were not accessible in Eden editor (fixed by S. Crowe)
 * Fix:     Custom Modules could not be added in mission init phase (e.g. init.sqf)
-* Fix:     Units could not properly have a seat on chairs from advanced compositions	   
+* Fix:     Units could not properly have a seat on chairs from advanced compositions       
 * Fix:     Animal Category is back, although it will be replaced as soon as the new animal spawn module is finished
 * Fix:     ERROR IN FIELD MANUAL: Wrong hotkey for Deep Copy/Paste
 * Fix:     Flagpole teleporter did not account for height.
