@@ -46,6 +46,7 @@ if (_dialogCount == 7) then
 {
 	_type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
+	_object setPos (position _logic);
 	[[_object], true] call Ares_fnc_AddUnitsToCurator;
 	
 	// save parameters
@@ -59,10 +60,13 @@ if (_dialogCount == 7) then
 
 _marker = createMarker [str _object, _object];
 
+// remove previous action
+remoteExec ["", _object];
 _object remoteExec ["RemoveAllActions", 0];
 
 _execute = 
 {
+	private ["_object","_finder","_arguments","_curator","_title","_text","_marker","_shared","_delete","_target"];
 	_object = _this select 0;
 	_finder = _this select 1;
 	_arguments = _this select 3;
@@ -94,7 +98,7 @@ _execute =
 	[player,_title,_text,_marker,_shared,_delete],			// Arguments passed to the scripts
 	_duration,	// Action duration
 	0,			// Priority
-	true,		// Remove on completion
+	false,		// Remove on completion
 	false		// Show in unconscious state 
 ] remoteExec ["BIS_fnc_holdActionAdd",0,_object];
 

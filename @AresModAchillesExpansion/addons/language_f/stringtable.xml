@@ -337,13 +337,6 @@
       </Key>
     </Container>
     <Container name="Ares Module Categories">
-      <Key ID="STR_PLAYER">
-        <Original>Player</Original>
-        <English>Player</English>
-        <French>Joueur</French>
-        <Russian>Игрок</Russian>
-        <German>Spieler</German>
-      </Key>
       <Key ID="STR_TELEPORT">
         <Original>Teleport</Original>
         <English>Teleport</English>
@@ -2363,7 +2356,8 @@
         <English>Independent</English>
 		<French>Indépendant</French>
 		<Russian>Независимые</Russian>
-        <German>Unabhängig</German>					
+        <German>Unabhängig</German>
+      </Key>
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">
@@ -2469,11 +2463,6 @@
         <German>
 			Oben steht jeweis geschrieben, was du auswählen sollst.
 		</German>
-      </Key>
-      <Key ID="STR_PLACING_MODULES_TIP">
-        <Original>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-		</Original>
       </Key>
       <Key ID="STR_KEY_ASSIGNMENT">
         <Original>Additional Key Assignment</Original>

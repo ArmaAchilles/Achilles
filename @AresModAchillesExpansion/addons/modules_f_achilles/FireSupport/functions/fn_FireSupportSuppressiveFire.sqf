@@ -122,6 +122,7 @@ _placeholder setPos [0,0,0];
 		
 		_new_group = createGroup (side _unit);
 		[_unit] join _new_group;
+		_new_group setBehaviour "COMBAT";
 		
 		_unit lookAt _target;
 		
@@ -165,6 +166,7 @@ _placeholder setPos [0,0,0];
 		_unit setSkill ["aimingAccuracy", _aiming];
 		_unit setUnitPos "AUTO";
 		_units joinSilent _old_group;
+		_old_group setBehaviour "AWARE";
 		deleteVehicle _placeholder;
 	};
 } forEach _units;

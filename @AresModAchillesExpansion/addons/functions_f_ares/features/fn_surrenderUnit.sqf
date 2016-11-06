@@ -43,6 +43,10 @@ if (_animIndex == -1) then
 	//[_unit,""] remoteExec ["switchMove",0];
 	[_unit,"TERMINATE",false] call Achilles_fnc_ambientAnim;
 	
+	// remove the action
+	remoteExec ["",_unit];	// remove from JIP queue
+	_unit remoteExec ["RemoveAllActions", 0];
+	
 	if (_termination == 0) then 
 	{
 		[_unit] join _caller;
@@ -80,7 +84,7 @@ if (_animIndex == -1) then
 			
 			// remove the action
 			remoteExec ["",_unit];	// remove from JIP queue
-			[_unit,_id] remoteExec ["BIS_fnc_holdActionRemove",0];
+			_unit remoteExec ["RemoveAllActions", 0];
 			
 			[_unit,_caller,[-1,-1]] remoteExec ["Ares_fnc_surrenderUnit",_unit];
 			
