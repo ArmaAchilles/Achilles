@@ -12,10 +12,19 @@ class CfgScriptPaths
 	AresDisplays = "\achilles\ui_f\scripts\";
 };
 
-// couple achilles init with curator display
 class RscDisplayCurator 
 {
+	// couple achilles init with curator display
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
+	
+	// change remove map satelite texture
+	class ControlsBackground 
+	{
+		class Map: RscMapControl 
+		{
+			maxSatelliteAlpha = 0;
+		};
+	};
 };
 /*
 class RscStandardDisplay;
