@@ -91,15 +91,15 @@ switch (_mode) do
 				_selection_list = [];
 				if (_comboIndex == 4) then
 				{
-					_selection_list = (allPlayers - entities "HeadlessClient_F");
+					_selection_list = (allplayers - entities "HeadlessClient_F");
+					_selection_list = [_selection_list,[],{name _x},"ASCEND"] call BIS_fnc_sortBy;
 					{_selection_ctrl lbAdd name _x} forEach _selection_list;
-					_selection_list sort true;
 					_dialog setVariable ["selection_mode","player"];
 					_selection_lable ctrlSetText (localize "STR_PLAYER");
 				} else 
 				{
 					_selection_list = [{_return = false; {if (isPlayer _x) exitWith {_return = true}} forEach units _x; _return}, allGroups] call Achilles_fnc_filter;
-					_selection_list sort true;
+					_selection_list = [_selection_list,[],{groupId _x},"ASCEND"] call BIS_fnc_sortBy;
 					{_selection_ctrl lbAdd groupId _x} forEach _selection_list;
 					_dialog setVariable ["selection_mode","group"];
 					_selection_lable ctrlSetText (localize "STR_GROUP");
