@@ -91,7 +91,7 @@ switch (_mode) do
 				_selection_list = [];
 				if (_comboIndex == 4) then
 				{
-					_selection_list = (allunits - entities "HeadlessClient_F");
+					_selection_list = (allplayers - entities "HeadlessClient_F");
 					_selection_list = [_selection_list,[],{name _x},"ASCEND"] call BIS_fnc_sortBy;
 					{_selection_ctrl lbAdd name _x} forEach _selection_list;
 					_dialog setVariable ["selection_mode","player"];
