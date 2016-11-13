@@ -11,6 +11,10 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 
+V.0.0.4d (Achilles Expansion (alpha version))
+* Feature: Updated Russian Translation (by Igor Nikolaev).
+* Fix:     Single unit player teleport option was broken.
+
 V.0.0.4c (Achilles Expansion (alpha version))
 * Fix:     Player edit menu was broken.
 
