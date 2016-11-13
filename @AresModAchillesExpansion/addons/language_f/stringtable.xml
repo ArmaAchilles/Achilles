@@ -574,14 +574,14 @@
         <Original>Change side of player</Original>
         <English>Change side of player</English>
         <French>Changez le camp du joueur</French>
-        <Russian>Уничтожить здания</Russian>
+        <Russian>Изменить сторону юнита</Russian>
         <German>Seite des Spielers wechseln</German>
       </Key>
       <Key ID="STR_DESTROY_BUILDINGS">
         <Original>Destroy Buildings</Original>
         <English>Destroy Buildings</English>
         <French>Détruisiez Bâtiments</French>
-        <Russian>Создать эффект</Russian>
+        <Russian>Уничтожить здания</Russian>
         <German>Gebäude zerstören</German>
       </Key>
       <Key ID="STR_ADVANCED_COMPOSITION">
@@ -595,7 +595,7 @@
         <Original>Spawn Effect</Original>
         <English>Spawn Effect</English>
         <French>Spawn Effet</French>
-        <Russian>Источник света</Russian>
+        <Russian>Создать эффект</Russian>
         <German>Effekt spawnen</German>
       </Key>
       <Key ID="STR_LIGHT_SOURCE">
@@ -625,12 +625,6 @@
         <French>Créez un renseignement</French>
         <Russian>Создать развед.данные</Russian>
         <German>Hinweis spawnen</German>
-      </Key>
-	  <Key ID="STR_SPAWN_EMPTY_OBJECT">
-        <Original>Spawn Empty Object</Original>
-        <English>Spawn Empty Object</English>
-        <French>Créez un objet vide</French>
-        <German>Ein leeres Objekt spawnen</German>
       </Key>
       <Key ID="STR_ACE_INJURY">
         <Original>ACE Injury</Original>
@@ -776,19 +770,28 @@
         <Original>NVD/Tactical Light/IR</Original>
         <English>NVD/Tactical Light/IR</English>
         <French>JVN/Lampe tactique/IR</French>
+		<Russian>ПНВ/Тактический фонарик/ИК</Russian>
         <German>Nachtsichtgerät/Taktisches Licht/IR</German>
       </Key>
       <Key ID="STR_TACLIGHT_IR_ON_OFF">
         <Original>Tactical Light/IR Laser On/Off</Original>
         <English>Tactical Light/IR Laser On/Off</English>
         <French>Allumez/Eteindez la Lampe/ le Laser IR </French>
+		<Russian>Фонарик/ИК лазер Вкл/Выкл</Russian>
         <German>Taktisches Licht/IR Laser an/aus</German>
       </Key>
       <Key ID="STR_ADD_REMOVE_TURRET_OPTICS">
         <Original>Add/Remove Turret Optics</Original>
         <English>Add/Remove Turret Optics</English>
         <French>Ajoutez/Supprimez l'optique de tourelle/</French>
+		<Russian>Добавить/Убрать оптику турелям</Russian>
         <German>Fügen/Entferne Geschützoptik (hinzu)</German>
+      </Key>
+	  <Key ID="STR_SPAWN_EMPTY_OBJECT">
+        <Original>Spawn Empty Object</Original>
+        <English>Spawn Empty Object</English>
+        <French>Créez un objet vide</French>
+        <German>Ein leeres Objekt spawnen</German>
       </Key>
     </Container>
   </Package>
@@ -962,12 +965,6 @@
         <Russian>Бой</Russian>
         <German>Kampfbereit</German>
       </Key>
-      <Key ID="STR_CARELESS">
-        <Original>Careless</Original>
-        <English>Careless</English>
-        <French>Inattentif</French>
-        <German>Unachtsam</German>
-      </Key>
       <Key ID="STR_ALL">
         <Original>All</Original>
         <English>All</English>
@@ -1093,24 +1090,6 @@
         <French>Zeus as entré votre canal du camp</French>
         <Russian>Зевс вошел в ваш канал стороны</Russian>
         <German>Zeus hat den Kanal deiner Seite betreten</German>
-      </Key>
-      <Key ID="STR_CHANNEL">
-        <Original>Channel</Original>
-        <English>Channel</English>
-        <French>Canal</French>
-        <German>Kanal</German>
-      </Key>
-      <Key ID="STR_GLOBAL">
-        <Original>Global</Original>
-        <English>Global</English>
-        <French>Globale</French>
-        <German>Global</German>
-      </Key>
-      <Key ID="STR_COMMAND">
-        <Original>command</Original>
-        <English>command</English>
-        <French>commande</French>
-        <German>Befehl</German>
       </Key>
       <Key ID="STR_AI">
         <Original>AI</Original>
@@ -1250,12 +1229,6 @@
         <French>Catégorie</French>
         <Russian>Категория</Russian>
         <German>Kategorie</German>
-      </Key>
-      <Key ID="STR_SUBCATEGORY">
-        <Original>Subcategory</Original>
-        <English>Subcategory</English>
-        <French>Sous-catégorie</French>
-        <German>Unterkategorie</German>
       </Key>
       <Key ID="STR_NEW_CATEGORY">
         <Original>New category</Original>
@@ -1698,12 +1671,6 @@
         <Russian>Никакая</Russian>
         <German>Keine</German>
       </Key>
-      <Key ID="STR_NONE_EQUIPMENT">
-        <Original>None</Original>
-        <English>None</English>
-        <French>Aucun</French>
-        <German>Keine</German>
-      </Key>
       <Key ID="STR_TRANSITION">
         <Original>Transition</Original>
         <English>Transition</English>
@@ -1855,7 +1822,7 @@
         <Original>Include Empty Vehicles</Original>
         <English>Include Empty Vehicles</English>
         <French>Véhicule vide inclus</French>
-        <Russian>Включая объекты</Russian>
+        <Russian>Включая пустые машины</Russian>
         <German>Inklusive leere Fahrzeuge</German>
       </Key>
       <Key ID="STR_INCLUDE_OBJECTS">
@@ -2155,48 +2122,56 @@
         <Original>Hold fire</Original>
         <English>Hold fire</English>
         <French>Ne pas tirer</French>
+		<Russian>Удерживаться от огня</Russian>
         <German>Nicht schiessen</German>
       </Key>
       <Key ID="STR_HOLD_FIRE_DEFEND">
         <Original>Hold fire, defend only</Original>
         <English>Hold fire, defend only</English>
         <French>Ne pas tirer, défendre seulement</French>
+		<Russian>Удерживаться от огня, обороняться</Russian>
         <German>Nicht schiessen, nur verteidigen</German>
       </Key>
       <Key ID="STR_HOLD_FIRE_ENGAGE">
         <Original>Hold fire, engage at will</Original>
         <English>Hold fire, engage at will</English>
         <French>Ne pas tirer, attaquer à volonté</French>
+		<Russian>Удерживаться от огня, уничтожать по желанию</Russian>
         <German>Nicht schiessen, angreiffen nach Belieben</German>
       </Key>
       <Key ID="STR_FIRE_AT_WILL">
         <Original>Fire at will</Original>
         <English>Fire at will</English>
         <French>Feu à volonté</French>
+		<Russian>Стрелять по желанию</Russian>
         <German>Nach Belieben schiessen</German>
       </Key>
       <Key ID="STR_FIRE_ENGAGE">
         <Original>Fire at will, engage at will</Original>
         <English>Fire at will, engage at will</English>
         <French>Feu à volonté, attaquer à volonté</French>
+		<Russian>Стрелять по желанию, уничтожать по желанию</Russian>
         <German>Nach Belieben schiessen und angreiffen</German>
       </Key>
       <Key ID="STR_HEADLIGHT_SEARCHLIGHT">
         <Original>Headlight/Searchlight</Original>
         <English>Headlight/Searchlight</English>
         <French>Phare</French>
+		<Russian>Фары/Прожектор</Russian>
         <German>Scheinwerfer</German>
       </Key>
       <Key ID="STR_SWITCH_ON">
         <Original>Switch on</Original>
         <English>Switch on</English>
         <French>Allumer</French>
+		<Russian>Включить</Russian>
         <German>Einschalten</German>
       </Key>
       <Key ID="STR_SWITCH_OFF">
         <Original>Switch off</Original>
         <English>Switch off</English>
         <French>Eteindre</French>
+		<Russian>Выключить</Russian>
         <German>Ausschalten</German>
       </Key>
       <Key ID="STR_SKILL">
@@ -2210,138 +2185,161 @@
         <Original>Aiming accuracy</Original>
         <English>Aiming accuracy</English>
         <French>Précision de tir</French>
+		<Russian>Точность прицеливания</Russian>
         <German>Zielgenauigkeit</German>
       </Key>
       <Key ID="STR_AIMING_SHAKE">
         <Original>Aiming shake</Original>
         <English>Aiming shake</English>
         <French>Aiming shake</French>
+		<Russian>Тряска прицеливания</Russian>
         <German>Schwanken</German>
       </Key>
       <Key ID="STR_AIMING_SPEED">
         <Original>Aiming speed</Original>
         <English>Aiming speed</English>
         <French>Vitesse de visée</French>
+		<Russian>Скорость прицеливания</Russian>
         <German>Zielgeschwindigkeit</German>
       </Key>
       <Key ID="STR_ENDURANCE">
         <Original>Endurance</Original>
         <English>Endurance</English>
         <French>Endurance</French>
+		<Russian>Выносливость</Russian>
         <German>Ausdauer</German>
       </Key>
       <Key ID="STR_SPOT_DISTANCE">
         <Original>Spot distance</Original>
         <English>Spot distance</English>
         <French>Distance d'indentification</French>
+		<Russian>Дистанция обнаружения</Russian>
         <German>Erkennungsdistanz</German>
       </Key>
       <Key ID="STR_SPOT_TIME">
         <Original>Spot time</Original>
         <English>Spot time</English>
         <French>Durée d'indentification</French>
+		<Russian>Время обнаружения</Russian>
         <German>Erkennungsdauer</German>
       </Key>
       <Key ID="STR_COURAGE">
         <Original>Courage</Original>
         <English>Courage</English>
         <French>Courage</French>
+		<Russian>Смелость</Russian>
         <German>Mut</German>
       </Key>
       <Key ID="STR_RELOAD_SPEED">
         <Original>Reload speed</Original>
         <English>Reload speed</English>
         <French>Vitesse de rechargement</French>
+		<Russian>Скорость перезарядки</Russian>
         <German>Nachladegeschwindigkeit</German>
       </Key>
       <Key ID="STR_COMMANIDNG">
         <Original>Commanding</Original>
         <English>Commanding</English>
         <French>Commander</French>
+		<Russian>Командование</Russian>
         <German>Befehlen</German>
       </Key>
       <Key ID="STR_INCLUDE_VEHICLES">
         <Original>Include vehicles</Original>
         <English>Include vehicles</English>
         <French>Véhicule inclus</French>
+		<Russian>Включая машины</Russian>
         <German>inklusive Fahrzeuge</German>
       </Key>
       <Key ID="STR_AVAILABLE">
         <Original>available</Original>
         <English>available</English>
         <French>disponible</French>
+		<Russian>Доступно</Russian>
         <German>verfügbar</German>
       </Key>
       <Key ID="STR_UNAVAILABLE">
         <Original>unavailable</Original>
         <English>unavailable</English>
         <French>pas disponible</French>
+		<Russian>Недоступно</Russian>
         <German>nicht verfügbar</German>
       </Key>
       <Key ID="STR_UNCHANGED">
         <Original>unchanged</Original>
         <English>unchanged</English>
         <French>tel quel</French>
+		<Russian>Нетронуто</Russian>
         <German>unverändert</German>
       </Key>
       <Key ID="STR_NVD">
         <Original>NVD</Original>
         <English>NVD</English>
         <French>JVN</French>
+		<Russian>ПНВ</Russian>
         <German>Nachtsichtgerät</German>
       </Key>
       <Key ID="STR_THERMALS">
         <Original>Thermal optics</Original>
         <English>Thermal optics</English>
         <French>Caméra thermique</French>
+		<Russian>ИК оптика</Russian>
         <German>Wärmebildkamera</German>
       </Key>
       <Key ID="STR_TAC_LIGHT">
         <Original>Tactical light</Original>
         <English>Tactical light</English>
         <French>Lampe tactique</French>
+		<Russian>Тактический фонарик</Russian>
         <German>Taktisches Licht</German>
       </Key>
       <Key ID="STR_IR_LASER_POINTER">
         <Original>IR Laser Pointer</Original>
         <English>IR Laser Pointer</English>
         <French>Pointeur laser IR</French>
+		<Russian>ИК лазер</Russian>
         <German>IR Laserpointer</German>
       </Key>
       <Key ID="STR_FORCED_ON">
         <Original>forced on</Original>
         <English>forced on</English>
         <French>allumez forcément</French>
+		<Russian>включить силой</Russian>
         <German>zwingend angeschaltet</German>
       </Key>
       <Key ID="STR_FORCED_OFF">
         <Original>forced off</Original>
         <English>forced off</English>
         <French>éteindez forcément</French>
+		<Russian>выключить силой</Russian>
         <German>zwingend ausgeschaltet</German>
       </Key>
       <Key ID="STR_THERMALS">
         <Original>Thermal optics</Original>
         <English>Thermal optics</English>
         <French>Caméra thermique</French>
+		<Russian>ИК оптика</Russian>
         <German>Wärmebildkamera</German>
       </Key>
       <Key ID="STR_TACLIGHT_IR">
         <Original>Tactical Light/IR</Original>
         <English>Tactical Light/IR</English>
         <French>Lampe tactique/IR</French>
+		<Russian>Тактический фонарик/ИК</Russian>
         <German>Taktisches Licht/IR</German>
       </Key>
       <Key ID="STR_APPLIED_MODULE_TO_X_OBJECTS">
         <Original>Applied module to %1 objects!</Original>
         <English>Applied module to %1 objects!</English>
         <French>Vous avez appliqué le module à 1% objets!</French>
+		<Russian>Применен модуль к %1 объекту(ам)!</Russian>
         <German>Modul wurde an %1 Objekte angewendet!</German>
       </Key>
       <Key ID="STR_APPLIED_MODULE_TO_X_UNITS">
         <Original>Applied module to %1 units!</Original>
         <English>Applied module to %1 units!</English>
         <French>Vous avez appliqué le module à 1% unités!</French>
+		<Russian>Применен модуль к %1 объекту(ам)!</Russian>
         <German>Modul wurde an %1 Einheiten angewendet!</German>
       </Key>
       <Key ID="STR_CIVILIANS">
@@ -2357,6 +2355,42 @@
 		<French>Indépendant</French>
 		<Russian>Независимые</Russian>
         <German>Unabhängig</German>
+      </Key>
+      <Key ID="STR_NONE_EQUIPMENT">
+        <Original>None</Original>
+        <English>None</English>
+        <French>Aucun</French>
+        <German>Keine</German>
+      </Key>
+      <Key ID="STR_CARELESS">
+        <Original>Careless</Original>
+        <English>Careless</English>
+        <French>Inattentif</French>
+        <German>Unachtsam</German>
+      </Key>
+      <Key ID="STR_CHANNEL">
+        <Original>Channel</Original>
+        <English>Channel</English>
+        <French>Canal</French>
+        <German>Kanal</German>
+      </Key>
+      <Key ID="STR_GLOBAL">
+        <Original>Global</Original>
+        <English>Global</English>
+        <French>Globale</French>
+        <German>Global</German>
+      </Key>
+      <Key ID="STR_COMMAND">
+        <Original>command</Original>
+        <English>command</English>
+        <French>commande</French>
+        <German>Befehl</German>
+      </Key>
+      <Key ID="STR_SUBCATEGORY">
+        <Original>Subcategory</Original>
+        <English>Subcategory</English>
+        <French>Sous-catégorie</French>
+        <German>Unterkategorie</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
