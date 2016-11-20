@@ -10,6 +10,10 @@ As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is 
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Changelists
+V.0.0.5 (Achilles Expansion (alpha version))
+* Feature: Added several missing vanilla objects to UI tree
+           - Wrecks, Walls, Fences, Structures, Rocks, Runins, Signs, Equipment, Things
+* Feature: Collapse UI trees by default when opening interface
 
 V.0.0.4d (Achilles Expansion (alpha version))
 * Feature: Updated Russian Translation (by Igor Nikolaev).

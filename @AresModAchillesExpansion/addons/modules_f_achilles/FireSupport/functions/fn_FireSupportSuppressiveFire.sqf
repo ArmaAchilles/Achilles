@@ -170,6 +170,6 @@ _placeholder setPos [0,0,0];
 		deleteVehicle _placeholder;
 	};
 } forEach _units;
-sleep 15;
+sleep _duration;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
