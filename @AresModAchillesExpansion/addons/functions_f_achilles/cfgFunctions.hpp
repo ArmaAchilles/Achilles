@@ -3,12 +3,6 @@ class CfgFunctions
 {
 	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Achilles_fnc_...." )
 	{
-		class Init
-		{
-			file = "\achilles\functions_f_achilles\functions\init";
-			
-			class onCuratorStart;
-		}
 		class functions_f_common
 		{
 			file = "\achilles\functions_f_achilles\functions\common";

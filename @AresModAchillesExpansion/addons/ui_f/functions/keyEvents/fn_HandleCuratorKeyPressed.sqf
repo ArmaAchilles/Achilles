@@ -29,6 +29,15 @@ switch (_key) do
 			if (Ares_Shift_Key_Pressed) then
 			{
 				// SHIFT + G ¦---> eject passengers
+				
+				//Broadcast eject functions
+				if (isNil "Achilles_var_eject_init_done") then
+				{
+					publicVariable "Achilles_fnc_chute";
+					publicVariableServer "Achilles_fnc_eject_passengers";
+					Achilles_var_eject_init_done = true;
+				};
+				
 				(curatorSelected select 0) remoteExecCall ["Achilles_fnc_eject_passengers",2];
 				_handled = true;
 			};

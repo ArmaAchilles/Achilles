@@ -11,6 +11,13 @@
 #define INTEL_OBJECTS 		["Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Map_F","Land_Map_unfolded_F","Land_Laptop_unfolded_F","Land_MobilePhone_smart_F","Land_Tablet_01_F","Land_Tablet_02_F"]
 #define SEARCH_ICON			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"
 
+//Broadcast intel function
+if (isNil "Achilles_var_intel_init_done") then
+{
+	publicVariable "Ares_fnc_addIntel";
+	Achilles_var_intel_init_done = true;
+};
+
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 _dialog_title = localize "STR_SPAWN_INTEL";

@@ -1,6 +1,7 @@
 class Achilles_ACE_Module_Base : Achilles_Module_Base
 {
-	subCategory = "ACE";
+	//subCategory = "ACE";
+	category = "ACE";
 	icon = "achilles\data_f_achilles\icons\icon_default_unit.paa";
 	picture = "achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "achilles\data_f_achilles\icons\icon_default_unit.paa";

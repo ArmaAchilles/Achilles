@@ -1,7 +1,7 @@
 class Achilles_Environment_Module_Base : Achilles_Module_Base
 {
-	subCategory = "$STR_ENVIRONMENT";
-	//Category = "Environment";
+	//subCategory = "$STR_ENVIRONMENT";
+	Category = "Environment";
 };
 
 class Achilles_Set_Weather_Module : Achilles_Environment_Module_Base

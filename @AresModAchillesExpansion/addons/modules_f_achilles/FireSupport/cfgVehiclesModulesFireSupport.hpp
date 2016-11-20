@@ -1,7 +1,7 @@
 class Achilles_Fire_Support_Module_Base : Achilles_Module_Base
 {
-	subCategory = "$STR_FIRE_SUPPORT";
-	//category = "Ordnance";
+	//subCategory = "$STR_FIRE_SUPPORT";
+	category = "Ordnance";
 };
 
 class Achilles_Artillery_Fire_Mission_Module : Achilles_Fire_Support_Module_Base

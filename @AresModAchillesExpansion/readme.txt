@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+NOTE: THIS IS THE COMMUNITY EDITION (CED) OF ACHILLES WHICH IS NOT INTENDED FOR VANILLA SERVERS
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 Ares is a mod aimed expanding the tools available to Zeus so that it is possible to create more varied and compelling missions. The goal is to add simple useful functionality to Zeus without requiring extra mods running on other clients or the server.
 
 Ares is designed to work with dedicated servers which may be running missions that allow JIP and respawn. The new functionality it is aimed at running with trusted players in a structured mission and is not recommended for general 'public server' play.
@@ -10,6 +14,9 @@ As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is 
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Changelists
+
+V.CED.0.0.4d (Achilles Expansion CED (alpha version))
+* Change: Achilles initalization is optimized
 
 V.0.0.4d (Achilles Expansion (alpha version))
 * Feature: Updated Russian Translation (by Igor Nikolaev).

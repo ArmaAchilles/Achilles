@@ -1,5 +1,12 @@
 #define IDC_RSCATTRIBUTEAMMO_VALUE	14375
 
+//Broadcast set ammo function
+if (isNil "Achilles_var_setammo_init_done") then
+{
+	publicVariable "Achilles_fnc_setUnitAmmoDef";
+	Achilles_var_setammo_init_done = true;
+};
+
 _mode = _this select 0;
 _params = _this select 1;
 _unit = _this select 2;
