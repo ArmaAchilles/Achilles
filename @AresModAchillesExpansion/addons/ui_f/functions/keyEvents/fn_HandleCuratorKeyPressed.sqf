@@ -18,18 +18,18 @@ switch (_key) do
 			if (Ares_Shift_Key_Pressed) then
 			{
 				// CTRL + SHIFT + G ¦---> ungroup objects
-				[(curatorSelected select 0), false] call Achilles_fnc_ACS_toggleGrouping;
+				[curatorSelected select 0] call Achilles_fnc_ungroupObjects;
 			} else
 			{
 				// CTRL + G ¦---> group obects
-				[(curatorSelected select 0), true] call Achilles_fnc_ACS_toggleGrouping;
+				[curatorSelected select 0] call Achilles_fnc_groupObjects;
 			};
 		} else
 		{
 			if (Ares_Shift_Key_Pressed) then
 			{
 				// SHIFT + G ¦---> eject passengers
-				(curatorSelected select 0) remoteExecCall ["Achilles_fnc_eject_passengers",2];
+				[curatorSelected select 0] remoteExecCall ["Achilles_fnc_eject_passengers",2];
 				_handled = true;
 			};
 		};

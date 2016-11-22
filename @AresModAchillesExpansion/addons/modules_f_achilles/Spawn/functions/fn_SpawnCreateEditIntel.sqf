@@ -27,7 +27,7 @@ _dialog_options =
 if (isNull _object) then
 {
 	_dialog_title = localize "STR_CREATE_EDIT_INTEL";
-	_dialog_options = [[localize "STR_OBJECT",[{getText (configfile >> "CfgVehicles" >> _this >> "displayName")}, INTEL_OBJECTS] call Achilles_fnc_map]] + _dialog_options;
+	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
 };
 Achilles_var_currentIntel = _object;
 _dialogResult = [_dialog_title, _dialog_options,"Achilles_fnc_RscDisplayAtttributes_SpawnIntel"] call Ares_fnc_ShowChooseDialog;

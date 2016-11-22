@@ -59,7 +59,7 @@ switch (_mode) do
 					} else
 					{
 						_unsorted_objectNames = [_unsorted_objectNames,[_categoryIndex,_subcategoryIndex],_object_name] call Achilles_fnc_pushBack;
-						_unsorted_objectClasses = [_unsorted_objectClasses,[_categoryIndex,_subcategoryIndex],_object_class] call Achilles_fnc_pushBack;				
+						_unsorted_objectClasses = [_unsorted_objectClasses,[_categoryIndex,_subcategoryIndex],_object_class] call Achilles_fnc_pushBack;			
 					};
 				};
 			} forEach ((configfile >> "CfgVehicles" >> "Static") call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass);

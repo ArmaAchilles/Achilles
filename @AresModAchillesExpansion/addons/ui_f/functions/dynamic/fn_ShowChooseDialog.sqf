@@ -74,7 +74,7 @@ _createdDialogOk = createDialog "Ares_Dynamic_Dialog";
 _dialog = findDisplay DYNAMIC_GUI_IDD;
 
 // translate the bottom line of the dialog
-_row_heights = [{_choices = _this select 1; if (_choices in ["ALLSIDE","SIDE"]) then {GtC_H(4.1)} else {TOTAL_ROW_HEIGHT};},_choicesArray] call Achilles_fnc_map;
+_row_heights = _choicesArray apply {_choices = _x select 1; if (_choices in ["ALLSIDE","SIDE"]) then {GtC_H(4.1)} else {TOTAL_ROW_HEIGHT};};
 _yCoord = (_row_heights call Achilles_fnc_sum) + TOTAL_ROW_HEIGHT + GtC_H(0.4);
 
 _yCoord = _yCoord + (0.4 * GUI_GRID_H);

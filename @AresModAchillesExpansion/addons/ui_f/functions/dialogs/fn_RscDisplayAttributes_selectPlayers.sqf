@@ -98,7 +98,7 @@ switch (_mode) do
 					_selection_lable ctrlSetText (localize "STR_PLAYER");
 				} else 
 				{
-					_selection_list = [{_return = false; {if (isPlayer _x) exitWith {_return = true}} forEach units _x; _return}, allGroups] call Achilles_fnc_filter;
+					_selection_list = allGroups select {_return = false; {if (isPlayer _x) exitWith {_return = true}} forEach units _x; _return};
 					_selection_list = [_selection_list,[],{groupId _x},"ASCEND"] call BIS_fnc_sortBy;
 					{_selection_ctrl lbAdd groupId _x} forEach _selection_list;
 					_dialog setVariable ["selection_mode","group"];

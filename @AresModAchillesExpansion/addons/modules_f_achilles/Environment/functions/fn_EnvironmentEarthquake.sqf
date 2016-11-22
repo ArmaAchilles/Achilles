@@ -21,7 +21,7 @@ _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 _radius = parseNumber (_dialogResult select 1);
-_units = [{_this in allPlayers},(_epicenter nearEntities ['Man',_radius])] call Achilles_fnc_filter;
+_units = (_epicenter nearEntities ['Man',_radius]) select {_x in allPlayers};
 if (not (player in _units)) then {_units pushBack player};
 [(_dialogResult select 0) + 1] remoteExec ['BIS_fnc_earthquake',_units,false];
 sleep ((random 3) + 5);

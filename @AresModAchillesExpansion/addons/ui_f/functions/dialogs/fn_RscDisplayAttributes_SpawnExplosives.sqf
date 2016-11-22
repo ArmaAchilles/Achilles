@@ -54,7 +54,7 @@ switch (_mode) do
 				_ctrl ctrlCommit 0;
 			} forEach (OTHER_LABEL_IDCs + OTHER_CTRL_IDCs);
 			
-			_mine_types = [{not (_this isKindOf "ModuleExplosive_F")},_explosive_types] call Achilles_fnc_filter;
+			_mine_types = _explosive_types select {not (_x isKindOf "ModuleExplosive_F")};
 			lbClear _type_ctrl;
 			{_type_ctrl lbAdd (getText (configfile >> "CfgVehicles" >> _x >> "displayName"))} forEach _mine_types;
 			_dialog setVariable ["type_list", _mine_types];

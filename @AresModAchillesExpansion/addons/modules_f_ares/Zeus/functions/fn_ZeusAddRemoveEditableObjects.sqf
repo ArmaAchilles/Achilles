@@ -49,7 +49,7 @@ if (count _dialogResult > 0) then
 	_addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
 	
 	// protect the main curator module from deletion
-	_objectsToRemove = [{typeOf _this != "ModuleCurator_F"}, _objectsToRemove] call Achilles_fnc_filter;
+	_objectsToRemove = _objectsToRemove select {typeOf _x != "ModuleCurator_F"};
 	[_objectsToRemove, _addObject] call Ares_fnc_AddUnitsToCurator;
 
 	_displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);

@@ -40,19 +40,19 @@ if (isNull _unitUnderCursor) then
 		};
 		case 1: 
 		{
-			[{alive _this}, allPlayers] call Achilles_fnc_filter;
+			allPlayers select {alive _x};
 		};
 		case 2: 
 		{
 			_selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
-			[{isPlayer _this},_selection] call Achilles_fnc_filter;
+			_selection select {isPlayer _x};
 		};
 		case 3: 
 		{
 			_side_index = _dialogResult select 2;
 			_side = [east,west,independent,civilian] select (_side_index - 1);
-			[{(alive _this) and (side _this == _side)}, allPlayers] call Achilles_fnc_filter
+			allPlayers select {(alive _x) and (side _x == _side)};
 		};
 		case 4:
 		{

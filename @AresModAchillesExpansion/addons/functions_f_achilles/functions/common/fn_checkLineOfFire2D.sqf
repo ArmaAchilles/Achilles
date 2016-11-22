@@ -16,7 +16,7 @@
 //	_this:				BOOL	- Returns false if one obstalce of a given list is too close to the line of fire; true otherwise
 //
 //	Example:
-//	[{_this>1},[1,2,3]] call Achilles_fnc_filter; //returns [2,3]
+//	[_shooter,_target,[_obstacle_1,_obstacle_2],2] call Achilles_fnc_checkLineOfFire2D; //returns true or false
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 private ["_shooter","_target","_obstacles","_minimal_radius","_free_line_of_fire"];

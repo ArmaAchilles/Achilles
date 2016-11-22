@@ -1,5 +1,5 @@
 name = "Ares Mod - Achilles Expansion (0.0.5)";
-picture = "achilles_Insignia.paa";
+picture = "Achilles_Icon_005.paa";
 actionName = "Website";
 action = "https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?p=3031548";
 tooltip = "Ares Mod - Achilles Expansion (0.0.5)";

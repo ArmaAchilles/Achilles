@@ -218,7 +218,7 @@ switch (_mode) do
 		_infantry_groups = _dialog getVariable ["infantry_groups",[]];
 		if (count _infantry_groups == 0) exitWith {};
 		_current_cfgGroups = _infantry_groups select _current_side select _current_faction;
-		_current_GroupNames = [{getText (_this >> "name")},_current_cfgGroups] call Achilles_fnc_map;
+		_current_GroupNames = _current_cfgGroups apply {getText (_x >> "name")};
 		
 		_group_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_GROUP;
 		lbClear _group_ctrl;

@@ -13,8 +13,6 @@ class CfgFunctions
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
 			
-			class map;
-			class filter;
 			class sum;
 			class arrayMean;
 			class pushBack;
@@ -26,6 +24,8 @@ class CfgFunctions
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
 			class checkLineOfFire2D;
+			class matrixTranspose;
+			class vectorMap;
 		};
 		
 		class functions_f_features
@@ -47,6 +47,8 @@ class CfgFunctions
 			class PasteObjectsFromClipboard;
 			class damageComponents;
 			class changeSkills;
+			class groupObjects;
+			class ungroupObjects;
 		};
 	};
 };

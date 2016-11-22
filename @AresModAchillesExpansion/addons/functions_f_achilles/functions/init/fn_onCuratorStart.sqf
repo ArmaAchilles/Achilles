@@ -32,6 +32,7 @@ publicVariableServer "Achilles_fnc_eject_passengers";
 _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
+_curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
 
 // trick to unlock module addons for Zeus (part 2)
 if (isNil "Achilles_fnc_serverInitDone") then
