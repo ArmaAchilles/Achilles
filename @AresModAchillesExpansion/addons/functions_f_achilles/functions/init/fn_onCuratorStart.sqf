@@ -27,6 +27,9 @@ publicVariableServer "Achilles_fnc_eject_passengers";
 // load basic advanced compositions
 [] spawn compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
 
+// Enable the selected VisionModes for Zeus
+[] call Achilles_fnc_setCuratorVisionModes;
+
 // Add curator event handlers
 
 _curatorModule = getassignedcuratorLogic player;

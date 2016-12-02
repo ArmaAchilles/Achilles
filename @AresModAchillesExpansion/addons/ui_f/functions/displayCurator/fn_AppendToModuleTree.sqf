@@ -13,15 +13,16 @@
 //	_this select 4:		STRING	- module class name in config
 //	_this select 5:		INTEGER	- value associated to the tree entry
 //	_this select 6:		STRING	- path of *.paa icon file
+//	_this select 7:		STRING	- path of *.paa icon file
 //
 //	RETURNS:
 //	_this				ARRAY	- updated list of all category display names
 //
 //	Example:
-//	_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon] call Achilles_fnc_AppendToModuleTree;
+//	_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon,_addonIcon] call Achilles_fnc_AppendToModuleTree;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_ctrl","_category_list","_categoryName","_moduleDisplayName","_moduleClassName","_value","_moduleIcon"];
+private ["_ctrl","_category_list","_categoryName","_moduleDisplayName","_moduleClassName","_value","_moduleIcon","_addonIcon"];
 
 _ctrl				= _this select 0;
 _category_list		= _this select 1;
@@ -30,6 +31,7 @@ _moduleDisplayName 	= _this select 3;
 _moduleClassName	= _this select 4;
 _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
+_addonIcon          = _this select 7;
 
 _categoryIndex = _category_list find _categoryName;
 
@@ -49,5 +51,10 @@ _newPath = [_categoryIndex, _moduleIndex];
 _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
+
+if (_addonIcon != '') then
+{
+    _ctrl tvSetPictureRight [_newPath, _addonIcon];
+};
 
 _category_list;
