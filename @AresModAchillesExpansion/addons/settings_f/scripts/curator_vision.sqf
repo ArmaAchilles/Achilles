@@ -13,71 +13,71 @@
 [
     "achilles_curator_vision_nvg",
     "CHECKBOX",
-    "Enable NVG",
-    "Curator Vision Modes",
+    localize "STR_VISION_MODES_NVG",
+    localize "STR_VISION_MODES",
     true
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_whitehot",
     "CHECKBOX",
-    "Enable Thermal - White Hot",
-    "Curator Vision Modes",
+    localize "STR_VISION_MODES_WHITEHOT",
+    localize "STR_VISION_MODES",
     true
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_blackhot",
     "CHECKBOX",
-    "Enable Thermal - Black Hot",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_BLACKHOT",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_greenhotcold",
     "CHECKBOX",
-    "Enable Thermal - Green Hot / Green Cold",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_GREENHOTCOLD",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_blackhotgreencold",
     "CHECKBOX",
-    "Enable Thermal - Black Hot / Green Cold",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_BLACKHOTGREENCOLD",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_redhot",
     "CHECKBOX",
-    "Enable Thermal - Red Hot",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_REDHOT",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_blackhotredcold",
     "CHECKBOX",
-    "Enable Thermal - Black Hot / Red Cold",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_BLACKHOTREDCOLD",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_whitehotredcold",
     "CHECKBOX",
-    "Enable Thermal - White Hot / Red Cold",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_WHITEHOTREDCOLD",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;
 
 [
     "achilles_curator_vision_redgreen",
     "CHECKBOX",
-    "Enable Thermal - Red&Green / White Hot",
-    "Curator Vision Modes",
-    true
+    localize "STR_VISION_MODES_REDGREEN",
+    localize "STR_VISION_MODES",
+    false
 ] call cba_settings_fnc_init;

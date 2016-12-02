@@ -33,6 +33,19 @@ _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
 _addonIcon          = _this select 7;
 
+switch (achilles_module_icons) do
+{
+    case "helmet": {
+        _moduleIcon = "\achilles\data_f_ares\icons\icon_ares.paa";
+        _addonIcon = "";
+    };
+    case "info": {
+        _addonIcon = "";
+    };
+    /* change nothing */
+    // case "dlc";
+};
+
 _categoryIndex = _category_list find _categoryName;
 
 if (_categoryIndex == -1) then
