@@ -25,7 +25,7 @@ private _output_vector = [];
 
 {
 	_element = _x vectorDotProduct _vector;
-	_output_vector pushBack _element;
+	_output_vector pushBack +_element;
 } forEach _matrix;
 
 _output_vector;

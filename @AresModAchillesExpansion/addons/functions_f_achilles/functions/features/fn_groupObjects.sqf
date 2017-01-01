@@ -15,8 +15,6 @@
 //	[_center_object,_object_1,_object_2] call Achilles_fnc_groupObjects;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define UNITARY_BASIS_CORRECTION [[-1,0,0],[0,0,1],[0,-1,0]]
-
 _object_list = param [0,[],[[]]];
 _center_object = _object_list param [0,objNull,[objNull]];
 _object_list = _object_list - [_center_object];
@@ -32,9 +30,9 @@ _vector_up =  vectorUp _center_object;
 _vector_perpendicular = _vector_dir vectorCrossProduct _vector_up;
 
 // define transformation matrices
-_internal_to_standard = [_vector_dir, _vector_up, _vector_perpendicular];
-_standard_to_internal = [_internal_to_standard] call Achilles_fnc_matrixTranspose;
+_standard_to_internal = [_vector_dir, _vector_up, _vector_perpendicular];
 
+[_center_object,false] remoteExec ["enableSimulationGlobal",2];
 _group_attributes = [];
 
 {
@@ -44,11 +42,12 @@ _group_attributes = [];
 	_vector_center_object = _object_pos vectorDiff _center_pos;
 	_attributes = [_vector_center_object, vectorDir _object, vectorUp _object] apply 
 	{
-		_tmp = [UNITARY_BASIS_CORRECTION, _x] call Achilles_fnc_vectorMap;
-		_return = [_standard_to_internal, _tmp] call Achilles_fnc_vectorMap;
+		_return = [_standard_to_internal, _x] call Achilles_fnc_vectorMap;
 		_return;
 	};
 	_group_attributes pushBack ([_object] + _attributes);
+	
+	[_object,false] remoteExec ["enableSimulationGlobal",2];
 } forEach _object_list;
 
 [_object_list, false] call Ares_fnc_AddUnitsToCurator;

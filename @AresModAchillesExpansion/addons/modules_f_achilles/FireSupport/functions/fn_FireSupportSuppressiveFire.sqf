@@ -1,3 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Kex
+//	DATE: 12/18/16
+//	VERSION: 5.0
+//	FILE: achilles\modules_f_achilles\FireSupport\functions\fn_FireSupportSuppressiveFire.sqf
+//  DESCRIPTION: Function for suppressive fire module
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // find unit to perform suppressiove fire
@@ -13,7 +21,7 @@ _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_F
 } forEach _allTargets;
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-// select target
+// select parameters
 _dialogResult = 
 [
 	localize "STR_SUPPRESIVE_FIRE",
@@ -29,8 +37,6 @@ if (count _dialogResult == 0) exitWith {};
 _stanceIndex = _dialogResult select 1;
 _fireModeIndex = _dialogResult select 2;
 _duration = parseNumber (_dialogResult select 3);
-
-// get target logic
 _targetChooseAlgorithm = _dialogResult select 0;
 
 // Choose a target to fire at
@@ -92,7 +98,6 @@ if (behaviour leader _old_group != "COMBAT") then
 _units = _units select {gunner vehicle _x == _x};
 
 // store original group in place holder
-[] spawn {{if (count units _x==0) then {deleteGroup _x}} forEach allGroups};
 _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
@@ -124,8 +129,9 @@ _placeholder setPos [0,0,0];
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
-		_unit lookAt _target;
+		_unit doTarget _target;
 		
+		//ensure asynchronous fire within a group
 		sleep (random [2,3,4]);
 		
 		if ((vehicle _unit) isEqualTo _unit) then
@@ -170,6 +176,8 @@ _placeholder setPos [0,0,0];
 		deleteVehicle _placeholder;
 	};
 } forEach _units;
-sleep _duration;
 
+//clean up
+sleep _duration;
+[] spawn {{if (count units _x==0) then {deleteGroup _x}} forEach allGroups};
 #include "\achilles\modules_f_ares\module_footer.hpp"

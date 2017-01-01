@@ -24,7 +24,20 @@ if (count _object_list == 0) exitWith {};
 	_group_attributes = _center_object getVariable ["Achilles_var_groupAttributes",nil];
 	if (not isNil "_group_attributes") then
 	{
-		[_group_attributes apply {_x select 0}, true] call Ares_fnc_AddUnitsToCurator;
+		_objects = _group_attributes apply 
+		{
+			_object = _x select 0;
+			if (_object getVariable ["enabledSimulation",true]) then
+			{
+				[_object,true] remoteExec ["enableSimulationGlobal",2];
+			};
+			_object;
+		};
+		[_objects, true] call Ares_fnc_AddUnitsToCurator;
 		_center_object setVariable ["Achilles_var_groupAttributes",nil];
+		if (_center_object getVariable ["enabledSimulation",true]) then
+		{
+			[_center_object,true] remoteExec ["enableSimulationGlobal",2];
+		};
 	};
 } forEach _object_list;

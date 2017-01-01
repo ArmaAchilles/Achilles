@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 8/19/16
 //	VERSION: 2.0
-//	FILE: Achilles\functions\fn_BehaviourAnimation.sqf
+//	FILE: achilles\modules_f_achilles\Behaviour\fn_BehaviourAnimation.sqf
 //  DESCRIPTION: Function for the module Animations
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

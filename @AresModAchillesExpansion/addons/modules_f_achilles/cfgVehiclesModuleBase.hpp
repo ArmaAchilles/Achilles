@@ -40,6 +40,11 @@ class CfgVehicles
 			description = "Achilles Module Base";
 		};
 	};
+	
+	class All;
+	class Thing : All {};
+	class ModuleEmpty_F : Thing {};
+	
 	#include "ACE\cfgVehiclesModulesACE.hpp"
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "Buildings\cfgVehiclesModulesBuildings.hpp"
@@ -48,6 +53,7 @@ class CfgVehicles
 	#include "Environment\cfgVehiclesModulesEnvironment.hpp"
 	#include "FireSupport\cfgVehiclesModulesFireSupport.hpp"
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
+	#include "Replacement\cfgVehiclesModulesReplacement.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
 	
 	// config replacement: remove vanilla effect modules and training category
