@@ -27,8 +27,10 @@ publicVariableServer "Achilles_fnc_eject_passengers";
 // load basic advanced compositions
 [] spawn compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
 
-// Add curator event handlers
+//prevent drawing mines
+missionnamespace setvariable ["bis_fnc_drawMinefields_active",true,true];
 
+// Add curator event handlers
 _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];

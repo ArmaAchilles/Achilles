@@ -73,6 +73,11 @@ if (isNull _unit) exitWith {[localize "STR_NO_GROUP_SELECTED"] call Ares_fnc_Sho
 _old_group = group _unit;
 _units = units _old_group;
 
+//save and remove waypoints
+_current_wp = [_old_group,(currentWaypoint _old_group) - 1];
+_waypoints = waypoints _old_group;
+//_waypoint_storage
+
 // force unit to change formation if not in combat
 if (behaviour leader _old_group != "COMBAT") then
 {

@@ -1,8 +1,11 @@
 
 class CfgFunctions
 {
-	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Achilles_fnc_...." )
+	class Achilles
 	{
+		project = "Ares Mod - Achilles Expansion";
+		tag = "Achilles";
+		
 		class Init
 		{
 			file = "\achilles\functions_f_achilles\functions\init";
@@ -49,6 +52,19 @@ class CfgFunctions
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
+		};
+	};
+	class A3_Functions_F_Curator
+	{
+		class Curator
+		{
+			delete showCuratorAttributes;
+		};
+		class Achilles
+		{
+			file = "\achilles\functions_f_achilles\functions\replacement";
+			
+			class showCuratorAttributes;
 		};
 	};
 };

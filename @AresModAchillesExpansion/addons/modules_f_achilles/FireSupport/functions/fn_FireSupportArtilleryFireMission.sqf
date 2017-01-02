@@ -9,7 +9,25 @@ if (isNil "Ares_FireArtilleryFunction") then
 		_ammoType = _this select 2;
 		_roundsToFire = _this select 3;
 		enableEngineArtillery true;
-		_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
+		if (_artilleryUnit isKindOf "Mortar_01_base_F") then
+		{
+			[_artilleryUnit,_targetPos,_ammoType,_roundsToFire] spawn
+			{
+				_artilleryUnit = _this select 0;
+				_targetPos = _this select 1;
+				_ammoType = _this select 2;
+				_roundsToFire = _this select 3;	
+				for "_i" from 1 to _roundsToFire do
+				{
+					waitUntil {not alive _artilleryUnit or (unitReady _artilleryUnit)};
+					_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
+					sleep 1;
+				};
+			};
+		} else
+		{
+			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
+		};
 	};
 	publicVariable "Ares_FireArtilleryFunction";
 };

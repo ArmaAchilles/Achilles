@@ -45,6 +45,7 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
+			"A3_Modules_F_Bootcamp_Misc",
 			"achilles_language_f",
 			"achilles_functions_f_ares",
 			"achilles_functions_f_achilles",

@@ -11,7 +11,6 @@ class CfgFunctions
 		#include "Buildings\cfgFunctionsBuildings.hpp"
 		#include "Effects\cfgFunctionsEffects.hpp"
 		#include "Objects\cfgFunctionsObjects.hpp"
-		#include "Replacement\cfgFunctionsReplacement.hpp"
 		#include "Spawn\cfgFunctionsSpawn.hpp"
 	};
 };

@@ -50,15 +50,11 @@ class RscControlsGroupNoHScrollbars;
 class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 
 // load external attributes
-class RscAttributeRank : RscControlsGroupNoScrollbars {};
 class RscAttributeDamage : RscControlsGroupNoScrollbars {};
 class RscAttributeFuel : RscControlsGroupNoScrollbars {};
 class RscAttributeLock : RscControlsGroupNoScrollbars {};
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
-class RscAttributeFormation: RscControlsGroupNoScrollbars {};
-class RscAttributeSpeedMode: RscControlsGroupNoScrollbars {};
-class RscAttributeUnitPos: RscControlsGroupNoScrollbars {};
 class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars {};
 class RscAttributeRespawnPosition : RscControlsGroupNoScrollbars 
 {

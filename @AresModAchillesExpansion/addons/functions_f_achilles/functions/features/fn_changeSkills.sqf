@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 9/17/16
-//	VERSION: 1.0
-//	FILE: Achilles\functions_f_achilles\functions\features\fn_changeSkills.sqf
+//	DATE: 1/1/17
+//	VERSION: 2.0
 //  DESCRIPTION: function that allows changing units skills
 //
 //	ARGUMENTS:
@@ -47,14 +46,23 @@ if (isNull (_units select 0)) then
 };
 if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
+
 {
 	[_x,_dialogResult] spawn 
 	{
 		_unit = _this select 0;
-		_dialogResult = _this select 1;
+		_attribute_values = _this select 1;
 		{
-			_skillValue = linearConversion [0,1,(_dialogResult select _forEachIndex),0.2,1];
-			_unit setSkill [_x, _skillValue];
+			_skill_type = _x;
+			_skill_value = _attribute_values select _forEachIndex;
+			_skill_value = linearConversion [0,1,_skill_value,0.2,1];
+			if (local _unit) then
+			{
+				_unit setSkill [_skill_type, _skill_value];
+			} else
+			{
+				[_unit, [_skill_type, _skill_value]] remoteExec ["setSkill", _unit];
+			};
 		} forEach SKILLS;
 	};
 } forEach _units;

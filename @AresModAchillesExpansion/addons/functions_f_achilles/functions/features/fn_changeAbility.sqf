@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/4/16
-//	VERSION: 1.0
-//	FILE: Achilles\functions\events\fn_changeAbility.sqf
+//	DATE: 1/1/17
+//	VERSION: 2.0
 //  DESCRIPTION: function that allows changing units abilities
 //
 //	ARGUMENTS:
@@ -46,15 +45,22 @@ if (isNull (_units select 0)) then
 };
 if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
+
 {
 	[_x,_dialogResult] spawn 
 	{
 		_unit = _this select 0;
-		_dialogResult = _this select 1;
+		_attribute_values = _this select 1;
 		{
-			_section = _x;
-			_mode = _dialogResult select _forEachIndex;
-			if (_mode == 0) then {_unit enableAI _section} else {_unit disableAI _section};
+			_ability_type = _x;
+			_mode = _attribute_values select _forEachIndex;
+			if (local _unit) then
+			{
+				if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
+			} else
+			{
+				if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
+			};
 		} forEach ABILITIES;
 	};
 } forEach _units;
