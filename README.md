@@ -12,7 +12,7 @@ My intention is to fix and further expand Ares with "Ares Mod - Achilles Expansi
 
 Notes:
 - The add-on is a modified standalone version of Ares Mod and has to be run with CBA.
-- DO NOT RUN this mod with Ares at the same time. All features from Ares are included anyway. 
+- **DO NOT RUN** this mod with Ares at the same time. All features from Ares are included anyway. 
 - ACE3 is optional, but is requiered to unlock certain additional features.
 - Moreover, only Zeus need to have the add-on installed as it was the case for Ares Mod.
 
