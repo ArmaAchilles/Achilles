@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 12/18/16
-//	VERSION: 5.0
-//	FILE: achilles\modules_f_achilles\FireSupport\functions\fn_FireSupportSuppressiveFire.sqf
+//	DATE: 1/3/17
+//	VERSION: 6.0
 //  DESCRIPTION: Function for suppressive fire module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -74,9 +73,30 @@ _old_group = group _unit;
 _units = units _old_group;
 
 //save and remove waypoints
-_current_wp = [_old_group,(currentWaypoint _old_group) - 1];
-_waypoints = waypoints _old_group;
-//_waypoint_storage
+_current_wp_id = currentWaypoint _old_group;
+_waypoint_count = count waypoints _old_group;
+_waypoints = [];
+private "_start_wp_pos";
+if (_current_wp_id < _waypoint_count) then
+{
+	for "_i" from (_waypoint_count - 1) to 1 step -1 do
+	{
+		_waypoints pushBack 
+		[
+			waypointPosition [_old_group, _i],
+			waypointType [_old_group, _i],
+			waypointBehaviour [_old_group, _i],
+			waypointCombatMode [_old_group, _i],
+			waypointFormation [_old_group, _i],
+			waypointSpeed [_old_group, _i],
+			waypointScript [_old_group, _i]
+		];
+		deleteWaypoint [_old_group, _i];
+	};
+	_start_wp_pos = waypointPosition [_old_group, 0];
+	[_old_group, 0] setWaypointPosition [position leader _old_group, 0];
+	_old_group setCurrentWaypoint [_old_group, 0];
+};
 
 // force unit to change formation if not in combat
 if (behaviour leader _old_group != "COMBAT") then
@@ -183,6 +203,21 @@ _placeholder setPos [0,0,0];
 } forEach _units;
 
 //clean up
-sleep _duration;
-[] spawn {{if (count units _x==0) then {deleteGroup _x}} forEach allGroups};
+sleep _duration + 5;
+[] spawn {{if (count units _x == 0) then {deleteGroup _x}} forEach allGroups};
+if (count _waypoints > 0 and (not isNull _old_group)) then
+{
+	reverse _waypoints;
+	{
+		_wp = _old_group addWaypoint [_x select 0, 0];
+		_wp setWaypointType (_x select 1);
+		_wp setWaypointBehaviour (_x select 2);
+		_wp setWaypointCombatMode (_x select 3);
+		_wp setWaypointFormation (_x select 4);
+		_wp setWaypointSpeed (_x select 5);
+		_wp setWaypointScript (_x select 6);
+	} forEach _waypoints;
+	[_old_group, 0] setWaypointPosition [_start_wp_pos, 0];
+	_old_group setCurrentWaypoint [_old_group, _current_wp_id];
+};
 #include "\achilles\modules_f_ares\module_footer.hpp"

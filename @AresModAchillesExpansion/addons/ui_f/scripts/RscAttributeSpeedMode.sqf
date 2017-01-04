@@ -56,7 +56,9 @@ switch _mode do {
 	case "confirmed": {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeSpeedMode_selected",0];
+		diag_log _selectedIndex;
 		_selected = _states select _selectedIndex;
+		diag_log _selected;
 		if (typename _entity == typename []) then 
 		{
 			_group = _entity select 0;
@@ -68,18 +70,17 @@ switch _mode do {
 					_group setspeedmode _selected;
 				} else
 				{
-					[_group,_selected] remoteExec ["setspeedmode", leader _group];
+					[_group, _selected] remoteExec ["setspeedmode",leader _group];
 				};
 			};
 			_entity setwaypointspeed _selected;
-		} else 
-		{
+		} else {
 			if (local _entity) then
 			{
 				_entity setspeedmode _selected;
 			} else
 			{
-				[_entity,_selected] remoteExec ["setspeedmode", leader _entity];
+				[_entity, _selected] remoteExec ["setspeedmode",leader _entity];
 			};
 			_entity setvariable ["updated",true,true];
 		};

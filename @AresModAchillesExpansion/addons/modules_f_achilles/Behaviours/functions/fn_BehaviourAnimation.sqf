@@ -1,13 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 8/19/16
-//	VERSION: 2.0
-//	FILE: achilles\modules_f_achilles\Behaviour\fn_BehaviourAnimation.sqf
+//	DATE: 4/1/17
+//	VERSION: 3.0
 //  DESCRIPTION: Function for the module Animations
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 #include "\achilles\modules_f_ares\module_header.hpp"
+
+//Broadcast animation function
+if (isNil "Achilles_var_animation_init_done") then
+{
+	publicVariable "Achilles_fnc_ambientAnimGetParams";
+	publicVariable "Achilles_fnc_ambientAnim";
+	Achilles_var_animation_init_done = true;
+};
 
 _units = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 

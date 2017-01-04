@@ -1,5 +1,12 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+//Broadcast search building function
+if (isNil "Achilles_var_zen_occupy_house_init_done") then
+{
+	publicVariable "Ares_fnc_ZenOccupyHouse";
+	Achilles_var_zen_occupy_house_init_done = true;
+};
+
 _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
 _doesGroupContainAnyPlayer = false;
@@ -15,7 +22,13 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
-	[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+	if (local _groupUnderCursor) then
+	{
+		[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+	} else
+	{
+		[(getPos _logic), (units _groupUnderCursor), 150, true, false] remoteExec ["Ares_fnc_ZenOccupyHouse", leader _groupUnderCursor];
+	};
 	[objnull, "Garrisoned nearest building."] call bis_fnc_showCuratorFeedbackMessage;
 };
 

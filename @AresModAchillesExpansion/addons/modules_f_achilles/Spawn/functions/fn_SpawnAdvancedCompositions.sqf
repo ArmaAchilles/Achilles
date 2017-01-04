@@ -1,8 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Kex
+//	DATE: 1/3/17
+//	VERSION: 2.0
+//  DESCRIPTION: Function for module "spawn advanced composition"
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 #define CHAIRS_CLASS_NAMES 		["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"]
 #define IDD_COMPOSITIONS 		133799
 
 #include "\achilles\modules_f_ares\module_header.hpp"
+
+// load basic advanced compositions
+if (isNil "Achilles_var_acs_init_done") then
+{
+	[] call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
+	Achilles_var_acs_init_done = true;
+};
 
 private '_center_object';
 _spawn_pos = position _logic;

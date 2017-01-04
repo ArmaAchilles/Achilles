@@ -1,5 +1,12 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+//Broadcast surrender function
+if (isNil "Achilles_var_surrender_init_done") then
+{
+	publicVariable "Ares_fnc_surrenderUnit";
+	Achilles_var_surrender_init_done = true;
+};
+
 _unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
 
 // selection option

@@ -1,7 +1,7 @@
 class Achilles_Objects_Module_Base : Achilles_Module_Base
 {
-	subCategory = "$STR_OBJECTS";
-	//Category = "Objects";
+	//subCategory = "$STR_OBJECTS";
+	Category = "Objects";
 };
 
 class Achilles_Toggle_Simulation_Module : Achilles_Objects_Module_Base

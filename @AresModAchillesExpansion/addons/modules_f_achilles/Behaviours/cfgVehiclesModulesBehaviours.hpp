@@ -1,7 +1,7 @@
 class Achilles_Behaviours_Module_Base : Achilles_Module_Base
 {
-	subCategory = "$STR_AI_BEHAVIOUR";
-	//Category = "Behaviours";
+	//subCategory = "$STR_AI_BEHAVIOUR";
+	Category = "Behaviours";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };

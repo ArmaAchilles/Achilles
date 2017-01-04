@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex (based on Anton Struyk's version)
-//	DATE: 7/18/16
-//	VERSION: 1.0
-//	FILE: achilles\ui_f\functions\displayCurator\fn_onDisplayCuratorLoad.sqf
+//	AUTHOR: Kex
+//	DATE: 1/3/17
+//	VERSION: 3.0
 //  DESCRIPTION: Called when display curator is loaded
 //
 //	ARGUMENTS:
@@ -32,26 +31,16 @@ _this spawn
 		_main_display = findDisplay 46;
 		_main_display displayAddEventHandler ["KeyDown", { _this call Achilles_fnc_HandleRemoteKeyPressed; }];
 		
+		// reject player if both mods are running (saves players from themselves)
+		if (isClass (configfile >> "CfgPatches" >> "Ares")) then {while {true} do {sleep 1; hint "Error: Please unload Ares Mod!"; systemChat "Ares Mod and Ares Mod - Achilles Expansion are standalone add-ons and are NOT compatible with each other!"}};
+		
 		// initialize key variables
 		Ares_Ctrl_Key_Pressed = false;
 		Ares_Shift_Key_Pressed = false;
 		
 		// execute init
-		[] call Achilles_fnc_onCuratorStart;
+		[_tree_ctrl] call Achilles_fnc_onCuratorStart;
 		
-		// wait until zeus has truly entered the interface
-		waitUntil {not isNull (findDisplay 312)};
-		
-		// Wait until Zeus modules are avaiable (e.g. respawns has to be placed before)
-		waitUntil {_tree_ctrl tvText [(_tree_ctrl tvCount []) - 1] == localize "STR_ZEUS"};
-
-		// reject player if both mods are running (saves players from themselves)
-		if (isClass (configfile >> "CfgPatches" >> "Ares")) then {while {true} do {sleep 1; hint "Error: Please unload Ares Mod!"; systemChat "Ares Mod and Ares Mod - Achilles Expansion are standalone add-ons and are NOT compatible with each other!"}};
-		
-		// wait until init is completed
-		//waitUntil {not isNil "Achilles_fnc_serverInitDone"};
-		_curator_module = getAssignedCuratorLogic player;
-		while {not ("achilles_modules_f_achilles" in curatorAddons _curator_module)} do {sleep 1;};
 		Achilles_curator_init_done = true;
 		
 		// display advanced hints
@@ -64,16 +53,9 @@ _this spawn
 		waitUntil {sleep 1; (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", player]) == player};
 	};
 	
-	/*
-	//add key event handlers to curator inteface (based on suggestion of Zarkant)
-	_mousearea = _display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA;
-	_mousearea ctrlAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
-	_mousearea ctrlAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
-	*/
-	
 	_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
 	_display displayAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
 	
 	// handle module tree loading
-	[false] call Achilles_fnc_OnModuleTreeLoad;
+	[true] call Achilles_fnc_OnModuleTreeLoad;
 };

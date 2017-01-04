@@ -34,7 +34,6 @@ class CfgFunctions
 			class ArsenalSetup;
 			class GenerateArsenalBlacklist;
 			class GenerateArsenalDataList;
-			class MakePlayerInvisible;
 			class SearchBuilding;
 			class surrenderUnit;
 			class TeleportPlayers;
