@@ -3,7 +3,7 @@
 
 ##Add-on description:
 
-This Arma III Add-;on expands the Zeus Real-Time Editor with new features.
+This Arma III Add-on expands the Zeus Real-Time Editor with new features.
 
 First of all, I want to thank to [Anton Struyk](https://github.com/astruyk) for his [Ares Mod](https://github.com/astruyk/Ares) which expands the Zeus real-time editor with valuable features.
 No one would argue that this mod changed completely the way we play Zeus and I can't think of playing without it.
