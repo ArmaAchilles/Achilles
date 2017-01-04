@@ -47,6 +47,7 @@ class CfgFunctions
 			class PasteObjectsFromClipboard;
 			class damageComponents;
 			class changeSkills;
+            class setCuratorVisionModes;
 		};
 	};
 };

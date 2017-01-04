@@ -24,7 +24,8 @@ class CfgPatches
 			"achilles_functions_f_ares",
 			"achilles_functions_f_achilles",
 			"achilles_data_f_achilles",
-			"achilles_data_f_ares"
+			"achilles_data_f_ares",
+            "achilles_settings_f"
 		};
 	};
 };
@@ -32,3 +33,4 @@ class CfgPatches
 #include "cfgFunctions.hpp"
 #include "cfgResources.hpp"
 #include "cfgHints.hpp"
+#include "cfgMods.hpp"
