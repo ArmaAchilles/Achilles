@@ -1,7 +1,7 @@
 #Ares Mod - Achilles Expansion
 ![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/(0.0.5)/Achilles_Logo_Github.png)
 
-##Add-on description:
+####Add-on description:
 
 This Arma III Add-on expands the Zeus Real-Time Editor with new features.
 
@@ -16,7 +16,7 @@ Notes:
 - ACE3 is optional, but is requiered to unlock certain additional features.
 - Moreover, only Zeus need to have the add-on installed as it was the case for Ares Mod.
 
-##Links:
+####Links:
 - [Check Achilles Wiki.](https://github.com/oOKexOo/AresModAchillesExpansion/wiki)
 - [Check licence and full list of contributers.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/license.txt)
 - [Check full change logs.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/readme.txt)
