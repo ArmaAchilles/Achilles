@@ -49,7 +49,11 @@ if (not _custom_only) then
 		_categoryName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "subCategory");
 		_moduleDisplayName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "displayName");
 		_moduleIcon = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "icon");
-		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon] call Achilles_fnc_AppendToModuleTree;
+
+        _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ''] call BIS_fnc_returnConfigEntry;
+        _addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ''] call BIS_fnc_returnConfigEntry;
+
+		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon,_addonIcon] call Achilles_fnc_AppendToModuleTree;
 	} forEach _all_modules;
 };
 

@@ -2575,5 +2575,53 @@
 		</Original>
       </Key>
 	</Container>
+    <Container name="Settings">
+        <Key ID="STR_MODULE_INTERFACE">
+            <Original>Achilles - Modules Interface</Original>
+        </Key>
+        <Key ID="STR_MODULE_ICONS">
+            <Original>Which icons should be displayed in the Module Tree</Original>
+        </Key>
+        <Key ID="STR_MODULE_ICONS_HELMET">
+            <Original>Helmet Icons</Original>
+        </Key>
+        <Key ID="STR_MODULE_ICONS_INFO">
+            <Original>Informative Icons</Original>
+        </Key>
+        <Key ID="STR_MODULE_ICONS_DLC">
+            <Original>Informative Icons + DLC Icons</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES">
+            <Original>Achilles - Curator Vision Modes</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_NVG">
+            <Original>Enable NVG</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_WHITEHOT">
+            <Original>Enable Thermal - White Hot</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_BLACKHOT">
+            <Original>Enable Thermal - Black Hot</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_GREENHOTCOLD">
+            <Original>Enable Thermal - Green Hot / Green Cold</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_BLACKHOTGREENCOLD">
+            <Original>Enable Thermal - Black Hot / Green Cold</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_REDHOT">
+            <Original>Enable Thermal - Red Hot</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_BLACKHOTREDCOLD">
+            <Original>Enable Thermal - Black Hot / Red Cold</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_WHITEHOTREDCOLD">
+            <Original>Enable Thermal - White Hot / Red Cold</Original>
+        </Key>
+        <Key ID="STR_VISION_MODES_REDGREEN">
+            <Original>Enable Thermal - Red/Green / White Hot</Original>
+        </Key>
+
+    </Container>
   </Package>
 </Project>

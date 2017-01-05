@@ -52,6 +52,7 @@ class CfgFunctions
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
+            class setCuratorVisionModes;
 		};
 	};
 	class A3_Functions_F_Curator

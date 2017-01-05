@@ -41,6 +41,9 @@ if (not (missionnamespace getvariable ["bis_fnc_drawMinefields_active",false])) 
 	missionnamespace setvariable ["bis_fnc_drawMinefields_active",true,true];
 };
 
+// Enable the selected VisionModes for Zeus
+[] call Achilles_fnc_setCuratorVisionModes;
+
 // Add curator event handlers
 _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
