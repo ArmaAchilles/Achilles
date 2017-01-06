@@ -16,6 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS,$STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
 
 private ["_display","_ctrl","_category_list","_all_modules","_subCategories","_categoryName","_tvData","_tvBranch","_moduleClassName","_categoryIndex","_newPath"];
 
@@ -35,27 +36,39 @@ _all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares
 _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_achilles" >> "units"));
 
 // Get all Vanilla Categories
+
+
 for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
 	_categoryName = _ctrl tvText [_i];
+	if (Achilles_var_moduleTreeHelmet and (_categoryName in ACHILLES_CATEGORIES)) then
+	{
+		_ctrl tvSetPicture [[_i], "\achilles\data_f_ares\icons\icon_ares.paa"];
+	};
 	_category_list pushBack _categoryName;
 };
 
-if (not _custom_only) then
+
+
+// add dlc icons
+for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
-	// Add Ares modules
+	for "_j" from 0 to ((_ctrl tvCount [_i]) - 1) do
 	{
-		_moduleClassName = _x;
-		_categoryName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "subCategory");
-		_moduleDisplayName = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "displayName");
-		_moduleIcon = gettext (configFile >> "CfgVehicles" >> _moduleClassName >> "icon");
-
-        _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ''] call BIS_fnc_returnConfigEntry;
-        _addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ''] call BIS_fnc_returnConfigEntry;
-
-		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon,_addonIcon] call Achilles_fnc_AppendToModuleTree;
-	} forEach _all_modules;
+		_path = [_i,_j];
+		_moduleClassName = _ctrl tvData _path;
+		if (Achilles_var_moduleTreeDLC) then
+		{
+			_dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
+			_addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
+			if (_addonIcon != "") then
+			{
+				_ctrl tvSetPictureRight [_path, _addonIcon];
+			};
+		};
+	};
 };
+
 
 // Add Custom modules
 if (not isNil "Ares_Custom_Modules") then
@@ -78,10 +91,11 @@ _category_list sort true;
 Ares_category_list = _category_list;
 
 
-
+/*
 _tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
 
 //Add missing objects: Rocks
+
 _categoryName = getText (configfile >> "CfgEditorCategories" >> "EdCat_Environment" >> "displayName");
 _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 _subCategoryName = getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Rocks" >> "displayName");
@@ -99,9 +113,31 @@ _categoryName = getText (configfile >> "CfgEditorCategories" >> "EdCat_Environme
 _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 
 //{} forEach ((configfile >> "CfgVehicles" >> "Ruins_F") call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass);
+*/
 
+//collapse unit tree or remove faction
+{
+	_tree_ctrl = _display displayCtrl _x;
+	for "_i" from ((_tree_ctrl tvCount []) - 1) to 0 step -1 do
+	{
+		_path = [_i];
+		_faction_name = _tree_ctrl tvText _path;
+		if (_faction_name in Achilles_var_excludedFactions) then
+		{
+			_tree_ctrl tvDelete _path;
+		} else
+		{
+			_tree_ctrl tvCollapse _path;
+		};
+	};
+} forEach
+[
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER
+];
 
-//collapse all unit trees
+//collapse unit trees
 {
 	_tree_ctrl = _display displayCtrl _x;
 	for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
@@ -110,14 +146,33 @@ _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 	};
 } forEach
 [
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER,
 	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV,
 	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY
 ];
 
-//collapse all group trees
+//collapse group trees or remove faction
+{
+	_tree_ctrl = _display displayCtrl _x;
+	for "_i" from ((_tree_ctrl tvCount [0]) - 1) to 0 step -1 do
+	{
+		_path = [0,_i];
+		_faction_name = _tree_ctrl tvText _path;
+		if (_faction_name in Achilles_var_excludedFactions) then
+		{
+			_tree_ctrl tvDelete _path;
+		} else
+		{
+			_tree_ctrl tvCollapse _path;
+		};
+	};
+} forEach
+[
+	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST,
+	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST,
+	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER
+];
+
+//collapse group trees
 {
 	_tree_ctrl = _display displayCtrl _x;
 	for "_i" from 0 to ((_tree_ctrl tvCount [0]) - 1) do
@@ -126,9 +181,29 @@ _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 	};
 } forEach
 [
-	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST,
-	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST,
-	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER,
 	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_CIV,
 	IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EMPTY
 ];
+
+// Add DLC icons to empty objects to remind player which he can place for non-apex users.
+if (Achilles_var_moduleTreeDLC) then
+{
+	_tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
+	for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
+	{
+		for "_j" from 0 to ((_tree_ctrl tvCount [_i]) - 1) do
+		{
+			for "_k" from 0 to ((_tree_ctrl tvCount [_i,_j]) - 1) do
+			{
+				_path = [_i,_j,_k];
+				_moduleClassName = _tree_ctrl tvData _path;
+				_dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
+				_addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
+				if (_addonIcon != "") then
+				{
+					_tree_ctrl tvSetPictureRight [_path, _addonIcon];
+				};
+			};
+		};
+	};
+};

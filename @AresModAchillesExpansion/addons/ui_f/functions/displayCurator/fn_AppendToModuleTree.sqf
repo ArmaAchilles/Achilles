@@ -31,7 +31,7 @@ _moduleDisplayName 	= _this select 3;
 _moduleClassName	= _this select 4;
 _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
-_addonIcon          = _this select 7;
+_addonIcon          = param [7,"\achilles\data_f_achilles\icons\icon_achilles_small.paa",[""]];
 
 switch (achilles_module_icons) do
 {
@@ -65,8 +65,9 @@ _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
 
-if (_addonIcon != '') then
+if (_addonIcon != "") then
 {
+
     _ctrl tvSetPictureRight [_newPath, _addonIcon];
 };
 

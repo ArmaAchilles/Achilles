@@ -2576,20 +2576,32 @@
       </Key>
 	</Container>
     <Container name="Settings">
+        <Key ID="STR_AVAILABLE_FACTIONS">
+            <Original>Achilles - Available Factions</Original>
+			<English>Achilles - Available Factions</English>
+			<French>Achilles - Fraction disponible</French>
+			<German>Achilles - Verfügbare Fraktionen</German>
+        </Key>
         <Key ID="STR_MODULE_INTERFACE">
             <Original>Achilles - Modules Interface</Original>
+			<English>Achilles - Modules Interface</English>
+			<French>Achilles - Interface de Modules</French>
+			<German>Achilles - Modul Benutzeroberfläche</German>
         </Key>
         <Key ID="STR_MODULE_ICONS">
             <Original>Which icons should be displayed in the Module Tree</Original>
         </Key>
         <Key ID="STR_MODULE_ICONS_HELMET">
-            <Original>Helmet Icons</Original>
-        </Key>
-        <Key ID="STR_MODULE_ICONS_INFO">
-            <Original>Informative Icons</Original>
+            <Original>Ares Helmet Icons</Original>
+			<English>Ares Helmet Icons</English>
+			<French>Symbole de casque d'Ares</French>
+			<German>Ares Helm Symbole</German>
         </Key>
         <Key ID="STR_MODULE_ICONS_DLC">
-            <Original>Informative Icons + DLC Icons</Original>
+            <Original>DLC Icons</Original>
+			<English>DLC Icons</English>
+			<French>Symbole de DLC</French>
+			<German>DLC Symbole</German>
         </Key>
         <Key ID="STR_VISION_MODES">
             <Original>Achilles - Curator Vision Modes</Original>

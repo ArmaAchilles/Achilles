@@ -16,6 +16,7 @@
     localize "STR_VISION_MODES_NVG",
     localize "STR_VISION_MODES",
     true
+	
 ] call cba_settings_fnc_init;
 
 [
