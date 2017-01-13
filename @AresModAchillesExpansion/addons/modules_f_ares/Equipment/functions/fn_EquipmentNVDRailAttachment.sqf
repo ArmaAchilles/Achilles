@@ -137,7 +137,7 @@ if (isNil "_units") exitWith {};
 				};
 			};
 		}	
-	] remoteExec ["BIS_fnc_spawn",_x];
+	] remoteExec ["spawn",_x];
 } forEach _units;
 
 [localize "STR_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;

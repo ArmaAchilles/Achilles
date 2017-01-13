@@ -16,7 +16,7 @@ _dialogResult =
 			localize "STR_RADIUS","","50"
 		],
 		[
-			localize "STR_TYPE",[localize "STR_ALL",localize "STR_UNITS",localize "STR_VEHICLE",localize "STR_STATIC_OBJECTS"]
+			localize "STR_TYPE",[localize "STR_ALL",localize "STR_UNITS",localize "STR_VEHICLE",localize "STR_STATIC_OBJECTS",localize "STR_GAME_LOGIC"]
 		],
 		[
 			localize "STR_MODE",[localize "STR_ALL",localize "STR_SIDE"]
@@ -55,6 +55,7 @@ if (_range_mode == 0) then
 		};
 		case 2: {nearestObjects [_center_pos,["Car","Tank","Air","Ship"],_radius]};
 		case 3: {nearestObjects [_center_pos,["Static"],_radius]};
+		case 4: {nearestObjects [_center_pos,["Logic"],_radius]};
 	};
 } else
 {
@@ -63,7 +64,7 @@ if (_range_mode == 0) then
 		case 0: {allMissionObjects ""};
 		case 1: 
 		{
-			_units = allUnits;
+			_units = (allUnits + vehicles);
 			if (_dialogResult select 4 == 1) then
 			{
 				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
@@ -75,6 +76,7 @@ if (_range_mode == 0) then
 		};
 		case 2: {vehicles};
 		case 3: {allMissionObjects "Static"};
+		case 4: {allMissionObjects "Logic"};
 	};	
 };
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;

@@ -61,7 +61,8 @@ switch (_mode) do
 				_ctrl ctrlEnable false;
 				_ctrl ctrlCommit 0;
 			} forEach [IDC_RADIUS_COMBO,IDC_RADIUS_LABLE];
-		};	
+		};
+		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_1", _comboIndex];
 	};
 	case "3":
 	{

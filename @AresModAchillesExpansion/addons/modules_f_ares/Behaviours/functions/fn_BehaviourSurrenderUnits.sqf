@@ -6,6 +6,13 @@ if (isNil "Achilles_var_surrender_init_done") then
 	publicVariable "Ares_fnc_surrenderUnit";
 	Achilles_var_surrender_init_done = true;
 };
+//Broadcast animation function
+if (isNil "Achilles_var_animation_init_done") then
+{
+	publicVariable "Achilles_fnc_ambientAnimGetParams";
+	publicVariable "Achilles_fnc_ambientAnim";
+	Achilles_var_animation_init_done = true;
+};
 
 _unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
 
@@ -14,6 +21,7 @@ if (isNull (_unitsToSurrender select 0)) then
 {
 	_unitsToSurrender = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 };
+if (isNil "_unitsToSurrender") exitWith {};
 if (count _unitsToSurrender == 0) exitWith {};
 
 private _nextCaptureStateDialogResult = nil;

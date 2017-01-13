@@ -41,6 +41,7 @@ if (_animIndex == -1) then
 
 	// terminate animation
 	//[_unit,""] remoteExec ["switchMove",0];
+	_anim_state = animationState _unit;
 	[_unit,"TERMINATE",false] call Achilles_fnc_ambientAnim;
 	
 	// remove the action
@@ -49,6 +50,7 @@ if (_animIndex == -1) then
 	
 	if (_termination == 0) then 
 	{
+		waitUntil {sleep 1; not alive _unit or (_anim_state != animationState _unit)};
 		[_unit] join _caller;
 	};
 	_unit setVariable ["AresCaptureState",-1,true];

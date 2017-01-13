@@ -87,9 +87,22 @@ else
 };
 
 if (isNil "_units") exitWith {};
+
 {
-	_x enableGunLights _taclight;
-	_x enableIRLasers _IR;
+	_unit = _x;
+	if (local _unit) then
+	{
+		_unit enableGunLights _taclight;
+		_unit enableIRLasers _IR;
+	} else
+	{
+		[[_unit,_taclight,_IR],
+		{
+			params ["_unit","_taclight","_IR"];
+			_unit enableGunLights _taclight;
+			_unit enableIRLasers _IR;			
+		}] remoteExec ["spawn",_unit];
+	};
 } forEach _units;
 
 [localize "STR_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;
