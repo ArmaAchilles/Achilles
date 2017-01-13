@@ -25,6 +25,8 @@ _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 _ar_loaded = isClass (configfile >> "CfgPatches" >> "AR_AdvancedRappelling");
 if (not _ace_loaded and not _ar_loaded) exitWith {true};
 
+//////////////////////////////////////
+// executed on second script call
 if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith 
 {
 	_group setVariable ["Achilles_var_fastrope",nil];
@@ -73,6 +75,8 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 	};
 	true
 };
+//
+//////////////////////////////////////
 
 // Kex: check if vehicle is capable of FRIES and if true equip it with FIRES
 _rope_available = true;

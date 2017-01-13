@@ -9,7 +9,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private ["_buildings","_extend_count","_damage_fnc","_mean_damage"];
+private ["_buildings","_damage_fnc","_mean_damage"];
 
 _center_pos = position _logic;
 
@@ -20,8 +20,7 @@ _dialogResult =
 		[localize "STR_SELECTION", [localize "STR_NEAREST", localize "STR_RANGE"]],
 		[localize "STR_MEAN_DAMAGE",[localize "STR_NO_DAMAGE",localize "STR_LIGHT_INJURY",localize "STR_SEVERE",localize "STR_FULL_DAMAGE"],2],
 		[localize "STR_DISTRIBUTION",[localize "STR_DELTA",localize "STR_UNIFORM", localize "STR_NORMAL_DISTRIBUTION"]],
-		[(localize "STR_RANGE") + " [m]","","100"],
-		[localize "STR_EXTEND","SLIDER",1]
+		[(localize "STR_RANGE") + " [m]","","100"]
 	],
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;
@@ -32,23 +31,13 @@ switch (_dialogResult select 0) do
 {
 	case 0:	
 	{
-		_buildings = [nearestBuilding _center_pos];
-		_extend_count = 1;
+		_buildings = nearestObjects [_center_pos, ["Building"], 50];
+		_buildings resize 1;
 	};
 	case 1: 
 	{
 		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 3)];
-		_extend_count = round ((count _buildings) * (_dialogResult select 4));
 	};
-};
-
-_buildings_to_damage = [];
-
-for "_i" from 1 to _extend_count do
-{
-	_building = selectRandom _buildings;
-	_buildings_to_damage pushBack _building;
-	_buildings = _buildings - [_building];
 };
 
 _mean_damage_type = _dialogResult select 1;
@@ -61,7 +50,7 @@ if (isNil "Achilles_var_damageBuildings_init_done") then
 	Achilles_var_damageBuildings_init_done = true;
 };
 
-[_buildings_to_damage,_mean_damage_type,_distribution_type] remoteExec ["Achilles_fnc_damageBuildings",2];
+[_buildings,_mean_damage_type,_distribution_type] remoteExec ["Achilles_fnc_damageBuildings",2];
 
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

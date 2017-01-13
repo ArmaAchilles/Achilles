@@ -737,6 +737,12 @@
         <Russian>Присоединить</Russian>
         <German>An andres Objekt befestigen</German>
       </Key>
+      <Key ID="STR_CHANGE_ALTITUDE">
+        <Original>Change altitude</Original>
+        <English>Change altitude</English>
+        <French>Changez l'altitude</French>
+        <German>Höhe ändern</German>
+      </Key>
       <Key ID="STR_CHANGE_HEIGHT">
         <Original>Change height</Original>
         <English>Change height</English>
@@ -1854,6 +1860,13 @@
         <French>Altitude du brouillard</French>
         <Russian>Высота тумана(ур.моря)</Russian>
         <German>Nebel Höhe (ü. M.)</German>
+      </Key>
+      <Key ID="STR_Altitude_ASL">
+        <Original>Altitude (ASL)</Original>
+        <English>Altitude (ASL)</English>
+        <French>Altitude du brouillard</French>
+        <Russian>Высота (ур.моря)</Russian>
+        <German>Höhe (ü. M.)</German>
       </Key>
       <Key ID="STR_INTENSITY">
         <Original>Intensity</Original>

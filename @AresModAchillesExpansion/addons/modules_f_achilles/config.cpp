@@ -18,6 +18,7 @@ class CfgPatches
 			"Achilles_Chatter_Module",
 			"Achilles_Sit_On_Chair_Module",
 			"Achilles_Change_Ability_Module",
+			"Achilles_Change_Altitude_Module",
 			"Achilles_Buildings_Destroy_Module",
 			"Achilles_Toggle_Light_Module",
 			"Achilles_Bind_Variable_Module",

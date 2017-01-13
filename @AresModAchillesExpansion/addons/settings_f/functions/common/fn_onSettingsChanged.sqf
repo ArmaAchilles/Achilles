@@ -5,6 +5,12 @@
 //  DESCRIPTION: Function that is executed when reloading the interface
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+if (isNull (findDisplay 312)) exitWith 
+{
+	Achilles_var_reloadDisplay = nil;
+	Achilles_var_reloadVisionModes = nil;
+};
+
 if (not isNil "Achilles_var_reloadDisplay") then
 {
 	// reload display

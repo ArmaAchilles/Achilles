@@ -5,4 +5,5 @@ class Achilles_Behaviours_Function_Base
 	class BehaviourChatter {};
 	class BehaviourSitOnChair {};
 	class BehaviourChangeAbility {};
+	class BehaviourAltitude {};
 };

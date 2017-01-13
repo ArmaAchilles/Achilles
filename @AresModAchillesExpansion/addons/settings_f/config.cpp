@@ -22,7 +22,7 @@ class CfgPatches
 
 class Extended_PreInit_EventHandlers
 {
-    class achilles
+    class achilles_fnc_settingsPreInit
     {
         init = "call compile preProcessFileLineNumbers '\achilles\settings_f\scripts\XEH_preInit.sqf'";
     };

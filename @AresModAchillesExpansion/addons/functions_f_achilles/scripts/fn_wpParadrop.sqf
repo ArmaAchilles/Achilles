@@ -12,13 +12,25 @@
 	Returns:
 	BOOL
 */
-systemChat "HH";
 private ["_group","_start_pos","_end_pos","_target","_wp"];
 _group = _this param [0,grpnull,[grpnull]];
+
+//////////////////////////////////////
+// executed on second script call
 if (not isNil {_group getVariable ["Achilles_var_paradrop",nil]}) exitWith 
 {
 	_group setVariable ["Achilles_var_paradrop",nil];
 	true
+};
+//
+//////////////////////////////////////
+
+// initialize required functions
+if (isNil "Achilles_var_eject_init_done") then
+{
+	publicVariable "Achilles_fnc_chute";
+	publicVariableServer "Achilles_fnc_eject_passengers";
+	Achilles_var_eject_init_done = true;
 };
 _end_pos = _this param [1,[],[[]],3];
 _target = _this param [2,objnull,[objnull]];

@@ -44,6 +44,10 @@ if (not (missionnamespace getvariable ["bis_fnc_drawMinefields_active",false])) 
 	missionnamespace setvariable ["bis_fnc_drawMinefields_active",true,true];
 };
 
+// Initialize settings variables
+Achilles_var_reloadDisplay = nil; 
+Achilles_var_reloadVisionModes = nil;
+
 // Enable the selected VisionModes for Zeus
 [] call Achilles_fnc_setCuratorVisionModes;
 

@@ -2,8 +2,8 @@
 #define BASE_CTRL_IDC		20000
 #define IDD_DYNAMIC_GUI		133798
 #define DAMAGE_SLIDER_IDC	20001
-#define LABEL_IDCs			[10003,10004]
-#define CTRL_IDCs			[20003,20004]
+#define LABEL_IDCs			[10003]
+#define CTRL_IDCs			[20003]
 
 private ["_mode", "_ctrl", "_comboIndex"];
 

@@ -231,7 +231,6 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_ctrl_type = if (_choices == "SLIDER") then {"RscXSliderH"} else {"RscEdit"};
 			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex];
 			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
-			_ctrl ctrlSetBackgroundColor [0, 0, 0, 1];
 			_ctrl ctrlCommit 0;
 			if (_choices == "SLIDER") then
 			{
@@ -239,6 +238,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 				_defaultChoice = if (typeName _defaultChoice == "SCALAR" and _defaultChoice != -1) then {_defaultChoice} else {0};
 				
 				_ctrl sliderSetRange [0,1];
+				_ctrl ctrlSetBackgroundColor [0, 0, 0, 1];
 				_ctrl sliderSetPosition _defaultChoice;
 				_ctrl ctrlSetEventHandler ["KeyUp", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], sliderPosition (_this select 0)];"];
 				_ctrl ctrlSetEventHandler ["MouseButtonUp", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], sliderPosition (_this select 0)];"];
@@ -249,6 +249,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 				_defaultChoice = if (typeName _defaultChoice == "STRING") then {_defaultChoice} else {""};
 			
 				_ctrl ctrlSetText _defaultChoice;
+				_ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
 				_ctrl ctrlSetEventHandler ["KeyUp", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], ctrlText (_this select 0)];"];
 			};
 			_ctrl ctrlCommit 0;
