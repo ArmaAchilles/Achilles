@@ -53,6 +53,7 @@ class CfgFunctions
 			class groupObjects;
 			class ungroupObjects;
             class setCuratorVisionModes;
+			class damageBuildings;
 		};
 	};
 	class A3_Functions_F_Curator

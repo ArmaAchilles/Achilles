@@ -13,3 +13,4 @@
 #include "module_icons.sqf"
 #include "curator_vision.sqf"
 #include "available_factions.sqf"
+#include "keybindings.sqf"

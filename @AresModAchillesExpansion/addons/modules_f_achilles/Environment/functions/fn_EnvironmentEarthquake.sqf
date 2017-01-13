@@ -33,7 +33,7 @@ if (_dialogResult select 2 == 0) then
 	_extend_count = round ((count _buildings) * (exp ((_dialogResult select 0) - 3)) / 2);
 	for "_i" from 1 to _extend_count do
 	{
-		_building = _buildings select (floor random count _buildings);
+		_building = selectRandom _buildings;
 		_building setDamage 1;
 		_buildings = _buildings - [_building];
 	};

@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-#define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS,$STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
+#define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS",localize "STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
 
 private ["_display","_ctrl","_category_list","_all_modules","_subCategories","_categoryName","_tvData","_tvBranch","_moduleClassName","_categoryIndex","_newPath"];
 
@@ -43,7 +43,7 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 	_categoryName = _ctrl tvText [_i];
 	if (Achilles_var_moduleTreeHelmet and (_categoryName in ACHILLES_CATEGORIES)) then
 	{
-		_ctrl tvSetPicture [[_i], "\achilles\data_f_ares\icons\icon_ares.paa"];
+		_ctrl tvSetPicture [[_i], "\achilles\data_f_achilles\icons\icon_achilles_small.paa"];
 	};
 	_category_list pushBack _categoryName;
 };

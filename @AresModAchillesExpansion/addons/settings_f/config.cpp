@@ -11,7 +11,9 @@ class CfgPatches
 		versionAr[] = {0,0,3};
 
 		units[] = {};
-		requiredAddons[] = {
+		requiredAddons[] = 
+		{
+			"A3_UI_F",
             "cba_main",
             "cba_xeh"
         };
@@ -25,3 +27,6 @@ class Extended_PreInit_EventHandlers
         init = "call compile preProcessFileLineNumbers '\achilles\settings_f\scripts\XEH_preInit.sqf'";
     };
 };
+
+#include "cfgFunctions.hpp"
+#include "cfgResources.hpp"

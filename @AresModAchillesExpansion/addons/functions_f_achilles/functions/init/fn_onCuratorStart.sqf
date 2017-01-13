@@ -7,6 +7,8 @@
 
 _tree_ctrl = param [0,controlNull,[controlNull]];
 
+private _display_reload = false;
+
 // trick to unlock ares/achilles modules for Zeus if mission was not set up properly
 if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player))) then
 {
@@ -33,6 +35,7 @@ if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic
 	uiSleep 0.1;
 	openCuratorInterface;
 	cutText ["","BLACK IN", 0.1, true];
+	_display_reload = true;
 };
 
 //prevent drawing mines
@@ -50,3 +53,4 @@ _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
 
+_display_reload;

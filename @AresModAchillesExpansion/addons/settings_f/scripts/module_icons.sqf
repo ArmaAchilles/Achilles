@@ -6,8 +6,9 @@
     "CHECKBOX",
     localize "STR_MODULE_ICONS_HELMET",
     localize "STR_MODULE_INTERFACE",
-    false
-	
+    false,
+	false,
+	{Achilles_var_reloadDisplay = true}	
 ] call cba_settings_fnc_init;
 
 [
@@ -15,6 +16,7 @@
     "CHECKBOX",
     localize "STR_MODULE_ICONS_DLC",
     localize "STR_MODULE_INTERFACE",
-    True
-	
+    true,
+	false,
+	{Achilles_var_reloadDisplay = true}	
 ] call cba_settings_fnc_init;

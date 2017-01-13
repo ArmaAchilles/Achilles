@@ -33,19 +33,6 @@ _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
 _addonIcon          = param [7,"\achilles\data_f_achilles\icons\icon_achilles_small.paa",[""]];
 
-switch (achilles_module_icons) do
-{
-    case "helmet": {
-        _moduleIcon = "\achilles\data_f_ares\icons\icon_ares.paa";
-        _addonIcon = "";
-    };
-    case "info": {
-        _addonIcon = "";
-    };
-    /* change nothing */
-    // case "dlc";
-};
-
 _categoryIndex = _category_list find _categoryName;
 
 if (_categoryIndex == -1) then
@@ -55,6 +42,10 @@ if (_categoryIndex == -1) then
 	_tvData = "Ares_Module_Empty"; // All of the categories use the 'Empty' module. There's no logic associated with them.
 	_tvBranch = _ctrl tvAdd [[], _categoryName];
 	_ctrl tvSetData [[_tvBranch], _tvData];
+	if (Achilles_var_moduleTreeHelmet) then
+	{
+		_ctrl tvSetPicture [[_tvBranch], _addonIcon];
+	};
 	_categoryIndex = count _category_list;
 	_category_list pushBack _categoryName;
 };
@@ -65,7 +56,7 @@ _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
 
-if (_addonIcon != "") then
+if (Achilles_var_moduleTreeDLC) then
 {
 
     _ctrl tvSetPictureRight [_newPath, _addonIcon];

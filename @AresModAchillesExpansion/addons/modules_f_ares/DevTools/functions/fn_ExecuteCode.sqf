@@ -37,7 +37,7 @@ if (_dialogResult == 1) then
 		case 3: 
 		{
 			_JIP_id = [_params, compile _pastedText] remoteExec ["spawn",0,_logic];
-			_logic setName format ["JIP queue %1", _JIP_id];
+			_logic setName format ["Execute Code: JIP queue %1", _JIP_id];
 			_deleteModuleOnExit = false;
 		};
 	};

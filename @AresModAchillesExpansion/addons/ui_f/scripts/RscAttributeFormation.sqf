@@ -78,7 +78,7 @@ switch _mode do {
 		{
 			_group = _entity select 0;
 			_wp_id = _entity select 1;
-			if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+			if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
 			{
 				if (local _group) then
 				{

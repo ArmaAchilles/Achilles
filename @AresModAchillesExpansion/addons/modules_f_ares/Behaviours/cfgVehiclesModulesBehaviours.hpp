@@ -53,7 +53,7 @@ class Ares_Module_Behaviour_Search_Nearby_And_Garrison : Ares_Behaviours_Module_
 class Ares_Module_Behaviour_Patrol : Ares_Behaviours_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_PATROL";
+	displayName = "$STR_PATROL_LOITER";
 	function = "Ares_fnc_BehaviourPatrol";
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";

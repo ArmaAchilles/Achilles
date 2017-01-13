@@ -58,6 +58,7 @@ class CfgFunctions
 			class RscDisplayAtttributes_ChangeSkills;
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
+			class RscDisplayAttributes_editableObjects;
 		};
 	};
 	

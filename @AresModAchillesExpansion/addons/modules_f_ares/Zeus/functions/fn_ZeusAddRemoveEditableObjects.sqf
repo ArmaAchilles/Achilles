@@ -1,59 +1,89 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+_center_pos = position _logic;
+
 _dialogResult = 
+[
+	localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
-		localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
 		[
-			[
-				localize "STR_MODE", [localize "STR_ADD", localize "STR_REMOVE"]
-			],
-			[
-				localize "STR_RANGE",
-				[
-					localize "STR_ALL_OBJECTS_IN_MISSION",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 50m",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 100m",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 500m",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 1km",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 2km",
-					localize "STR_ALL_OBJECTS_WITHIN" + " 5km"
-				], 
-				1
-			]
+			localize "STR_MODE", [localize "STR_ADD", localize "STR_REMOVE"]
+		],
+		[
+			localize "STR_RANGE",[localize "STR_RADIUS",localize "STR_ALL_OBJECTS_IN_MISSION"]
+		],
+		[
+			localize "STR_RADIUS","","50"
+		],
+		[
+			localize "STR_TYPE",[localize "STR_ALL",localize "STR_UNITS",localize "STR_VEHICLE",localize "STR_STATIC_OBJECTS"]
+		],
+		[
+			localize "STR_MODE",[localize "STR_ALL",localize "STR_SIDE"]
+		],
+		[
+			localize "STR_SIDE","SIDE"
 		]
-	] call Ares_fnc_ShowChooseDialog;
+	],
+	"Achilles_fnc_RscDisplayAttributes_editableObjects"
+] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult > 0) then
+if (count _dialogResult == 0) exitWith {};
+_addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
+_range_mode = _dialogResult select 1;
+_obj_type = _dialogResult select 3;
+
+private _objectsToProcess = [];
+
+if (_range_mode == 0) then
 {
-	// Grab objects in the selected radius
-	_objectsToRemove = [];
-	if (_dialogResult select 1 == 0) then
+	_radius = parseNumber (_dialogResult select 2);
+	_objectsToProcess = switch (_obj_type) do
 	{
-		_objectsToRemove = allMissionObjects "All";
-	}
-	else
-	{
-		_radius = 50;
-		switch (_dialogResult select 1) do
+		case 0: {nearestObjects [_center_pos,[],_radius]};
+		case 1: 
 		{
-			case 1: { _radius = 50; };
-			case 2: { _radius = 100; };
-			case 3: { _radius = 500; };
-			case 4: { _radius = 1000; };
-			case 5: { _radius = 2000; };
-			case 6: { _radius = 5000; };
-			default { _radius = 50; };
+			_units = nearestObjects [_center_pos,["Man","Car","Tank","Air","Ship"],_radius];
+			if (_dialogResult select 4 == 1) then
+			{
+				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				_units select {(side _x) isEqualTo _side};
+			} else
+			{
+				_units;
+			};
 		};
-		_objectsToRemove = nearestObjects [(position _logic), ["All"], _radius];
+		case 2: {nearestObjects [_center_pos,["Car","Tank","Air","Ship"],_radius]};
+		case 3: {nearestObjects [_center_pos,["Static"],_radius]};
 	};
-	_addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
-	
-	// protect the main curator module from deletion
-	_objectsToRemove = _objectsToRemove select {typeOf _x != "ModuleCurator_F"};
-	[_objectsToRemove, _addObject] call Ares_fnc_AddUnitsToCurator;
-
-	_displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
-	[objNull, format [_displayText, count _objectsToRemove]] call bis_fnc_showCuratorFeedbackMessage;
+} else
+{
+	_objectsToProcess = switch (_obj_type) do
+	{
+		case 0: {allMissionObjects ""};
+		case 1: 
+		{
+			_units = allUnits;
+			if (_dialogResult select 4 == 1) then
+			{
+				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				_units select {(side _x) isEqualTo _side};
+			} else
+			{
+				_units;
+			};
+		};
+		case 2: {vehicles};
+		case 3: {allMissionObjects "Static"};
+	};	
 };
+[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
+
+// protect the main curator module from deletion
+_objectsToProcess = _objectsToProcess select {typeOf _x != "ModuleCurator_F"};
+[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
+
+_displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
+[objNull, format [_displayText, count _objectsToProcess]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

@@ -2,6 +2,8 @@ class Ares_Equipment_Module_Base : Ares_Module_Base
 {
 	//subCategory = "$STR_EQUIPMENT";
 	Category = "Equipment";
+	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };
 
 class Ares_Module_Equipment_Turret_Optics : Ares_Equipment_Module_Base

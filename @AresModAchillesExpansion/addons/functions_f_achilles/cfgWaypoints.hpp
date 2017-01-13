@@ -25,6 +25,13 @@ class cfgWaypoints
 			file = "\achilles\functions_f_achilles\scripts\fn_wpLand.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_position.paa";
 		};
+		class Paradrop
+		{
+			displayName = "$STR_PARADROP";
+			displayNameDebug = "PARADROP";
+			file = "\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf";
+			icon = "\achilles\data_f_achilles\icons\icon_dropzone.paa";
+		};
 		class SearchBuilding
 		{
 			displayName = "$STR_SEARCH_BUILDING";

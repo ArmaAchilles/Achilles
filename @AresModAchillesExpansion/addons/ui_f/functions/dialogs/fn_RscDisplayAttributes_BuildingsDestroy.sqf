@@ -1,8 +1,9 @@
 
 #define BASE_CTRL_IDC		20000
 #define IDD_DYNAMIC_GUI		133798
-#define LABEL_IDCs			[10001,10002]
-#define CTRL_IDCs			[20001,20002]
+#define DAMAGE_SLIDER_IDC	20001
+#define LABEL_IDCs			[10003,10004]
+#define CTRL_IDCs			[20003,20004]
 
 private ["_mode", "_ctrl", "_comboIndex"];
 
@@ -16,17 +17,16 @@ switch (_mode) do
 	case "LOADED":
 	{
 		_dialog = findDisplay IDD_DYNAMIC_GUI;
-		for "_i" from 0 to 1 do
 		{
-			_ctrl = _dialog displayCtrl (BASE_CTRL_IDC + _i);
-			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _i], 0];
+			_ctrl = _dialog displayCtrl (BASE_CTRL_IDC + _x);
+			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
 			_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
 			_ctrl lbSetCurSel _last_choice;
-			if (_i == 0) then
+			if (_x == 0) then
 			{
 				[0,_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_BuildingsDestroy;
 			};
-		};
+		} forEach [0,1,2,4];
 	};
 	case "0":
 	{

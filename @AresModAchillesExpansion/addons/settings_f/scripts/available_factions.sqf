@@ -31,6 +31,7 @@ _faction_names = [];
 					{
 						Achilles_var_excludedFactions pushBack '" + _faction_name + "';
 					};
+					Achilles_var_reloadDisplay = true;
 				")
 			] call cba_settings_fnc_init;
 		};

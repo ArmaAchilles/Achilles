@@ -39,6 +39,7 @@ _dialogResult =
 		[localize "STR_VEHICLE",["loading ..."]],
 		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
 		[localize "STR_LZ_DZ", _lzOptions],
+		[localize "STR_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_FASTROPING",localize "STR_PARADROP"]],
 		[localize "STR_INFANTRY_GROUP", [localize "STR_LOADING_"]],
 		[localize "STR_UNIT_RP", _rpOptions],
 		[localize "STR_UNIT_BEHAVIOUR", [localize "STR_DEFAULT", localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]]
@@ -54,8 +55,8 @@ _infantryGroup = Ares_var_reinforcement_infantry_group;
 _vehicleType = Ares_var_reinforcement_vehicle_class;
 _dialogVehicleBehaviour = _dialogResult select 4;
 _dialogLzAlgorithm = _dialogResult select 5;
-_dialogRpAlgorithm = _dialogResult select 7;
-_dialogUnitBehaviour = _dialogResult select 8;
+_dialogRpAlgorithm = _dialogResult select 8;
+_dialogUnitBehaviour = _dialogResult select 9;
 _lzSize = 20;	// TODO make this a dialog parameter?
 _rpSize = 20;	// TODO make this a dialog parameters?
 
@@ -101,7 +102,21 @@ _vehicle = _vehicleInfo select 0;
 _vehicleGroup = _vehicleInfo select 2;
 //_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
 _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
-_vehicleUnloadWp setWaypointType "TR UNLOAD";
+if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
+{
+	_vehicleUnloadWp setWaypointType "SCRIPTED";
+	_script = if (_dialogResult select 6 == 1) then 
+	{
+		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
+	} else
+	{
+		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf";
+	};
+	_vehicleUnloadWp setWaypointScript _script;
+} else
+{
+	_vehicleUnloadWp setWaypointType "TR UNLOAD";
+};
 
 // Make the driver full skill. This makes him less likely to do dumb things
 // when they take contact.

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
+  <Package name="General">
+	<Container name="Project Titles">
+		 <Key ID="STR_ARES_MOD_ACHILLES_EXPANSION">
+			<Original>Ares Mod - Achilles Expansion</Original>
+		 </Key>
+	</Container>
+  </Package>
   <Package name="Curator Display">
     <Container name="Vehicle Categories">
       <Key ID="STR_CARS">
@@ -577,10 +584,16 @@
         <Russian>Изменить сторону юнита</Russian>
         <German>Seite des Spielers wechseln</German>
       </Key>
-      <Key ID="STR_DESTROY_BUILDINGS">
-        <Original>Destroy Buildings</Original>
-        <English>Destroy Buildings</English>
-        <French>Détruisiez Bâtiments</French>
+      <Key ID="STR_TOGGLE_LAMPS">
+        <Original>Toggle lamps</Original>
+        <English>Toggle lamps</English>
+        <French>Allumez/Eteindez des lamps</French>
+        <German>Lampen ein-/ausschalten</German>
+      </Key>
+      <Key ID="STR_DAMAGE_BUILDINGS">
+        <Original>Damage Buildings</Original>
+        <English>Damage Buildings</English>
+        <French>Abîmez des Bâtiments</French>
         <Russian>Уничтожить здания</Russian>
         <German>Gebäude zerstören</German>
       </Key>
@@ -765,6 +778,13 @@
         <French>Patrouiller</French>
         <Russian>Патруль</Russian>
         <German>Patrouillieren</German>
+      </Key>
+      <Key ID="STR_PATROL_LOITER">
+        <Original>Patrol/Loiter (Heli)</Original>
+        <English>Patrol/Loiter (Heli)</English>
+		<Russian>Патруль/ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
+        <French>Patrouiller/Circuler (Hélico)</French>
+        <German>Patrouillieren/Kreisen (Heli)</German>
       </Key>
 	  <Key ID="STR_NVD_TACLIGHT_IR">
         <Original>NVD/Tactical Light/IR</Original>
@@ -1223,6 +1243,37 @@
         <Russian>Расширить</Russian>
         <German>Ausmass</German>
       </Key>
+
+      <Key ID="STR_MEAN_DAMAGE">
+        <Original>Mean damage</Original>
+        <English>Mean damage</English>
+        <French>Dommage moyen</French>
+        <German>Mittlerer Schaden</German>
+      </Key>
+      <Key ID="STR_DISTRIBUTION">
+        <Original>Distribution</Original>
+        <English>Distribution</English>
+        <French>Distribution</French>
+        <German>Verteilung</German>
+      </Key>
+      <Key ID="STR_DELTA">
+        <Original>Delta</Original>
+        <English>Delta</English>
+        <French>Delta</French>
+        <German>Delta</German>
+      </Key>
+      <Key ID="STR_UNIFORM">
+        <Original>uniform</Original>
+        <English>uniform</English>
+        <French>uniforme</French>
+        <German>gleichmässig</German>
+      </Key>
+      <Key ID="STR_NORMAL_DISTRIBUTION">
+        <Original>Normal</Original>
+        <English>Normal</English>
+        <French>Normale</French>
+        <German>Normal</German>
+      </Key>
       <Key ID="STR_CATEGORY">
         <Original>Category</Original>
         <English>Category</English>
@@ -1559,6 +1610,15 @@
         <Russian>Юниты</Russian>
         <German>Einheiten</German>
       </Key>
+      <Key ID="STR_STATIC_OBJECTS">
+        <Original>Static objects</Original>
+        <English>Static objects</English>
+        <French>Objets statiques</French>
+        <German>Statische Objekte</German>
+      </Key>
+      <Key ID="STR_GAME_LOGIC">
+        <Original>Game Logic</Original>
+      </Key>
       <Key ID="STR_UNIT_RP">
         <Original>Unit RP</Original>
         <English>Unit RP</English>
@@ -1657,10 +1717,22 @@
         <Russian>Легкая</Russian>
         <German>Leicht</German>
       </Key>
+      <Key ID="STR_NO_DAMAGE">
+        <Original>None</Original>
+        <English>None</English>
+        <French>Aucune</French>
+        <German>Kein</German>
+      </Key>
+      <Key ID="STR_FULL_DAMAGE">
+        <Original>Full</Original>
+        <English>Full</English>
+        <French>Totale</French>
+        <German>Voll</German>
+      </Key>
       <Key ID="STR_SEVERE">
         <Original>Severe</Original>
         <English>Severe</English>
-        <French>Grièvement</French>
+        <French>Considérable</French>
         <Russian>Серьезная</Russian>
         <German>Schwer</German>
       </Key>
@@ -1747,6 +1819,13 @@
         <French>Direction du vent</French>
         <Russian>Направление ветра</Russian>
         <German>Windrichtung</German>
+      </Key>
+      <Key ID="STR_DIRECTION">
+        <Original>Direction</Original>
+        <English>Direction</English>
+        <French>Direction</French>
+        <Russian>Направление</Russian>
+        <German>Richtung</German>
       </Key>
       <Key ID="STR_WAVES">
         <Original>Waves</Original>
@@ -2397,9 +2476,27 @@
       <Key ID="STR_LOITER_HELI">
         <Original>LOITER (HELI)</Original>
         <English>LOITER (HELI)</English>
-        <French>VOL EN ATTENTE (HÉLICO)</French>
+        <French>CIRCULEZ (HÉLICO)</French>
         <Russian>ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
-        <German>HERUMFLIEGEN (HELI)</German>
+        <German>KREISEN (HELI)</German>
+      </Key>
+      <Key ID="STR_DELAY_AT_WP">
+        <Original>Delay at waypoint</Original>
+        <English>Delay at waypoint</English>
+        <French>Retardement au point de cheminement</French>
+        <German>Verzögerung beim Wegpunkt</German>
+      </Key>
+      <Key ID="STR_CLOCKWISE">
+        <Original>clockwise</Original>
+        <English>clockwise</English>
+        <French>sens horaire</French>
+        <German>im Uhrzeigersinn</German>
+      </Key>
+      <Key ID="STR_COUNTERCLOCKWISE">
+        <Original>counterclockwise</Original>
+        <English>counterclockwise</English>
+        <French>sens antihoraire</French>
+        <German>gegen den Uhrzeigersinn</German>
       </Key>
       <Key ID="STR_LIFT_CLOSEST">
         <Original>LIFT CLOSEST CARGO</Original>
@@ -2408,12 +2505,18 @@
         <Russian>ПОДНЯТЬ БЛИЖАЙШИЙ ГРУЗ</Russian>
         <German>Nächste Ladung heben</German>
       </Key>
-      <Key ID="STR_ACE_FASTROPING">
-        <Original>ACE FAST-ROPING</Original>
-        <English>ACE FAST-ROPING</English>
-        <French>ACE FAST-ROPING</French>
-        <Russian>АСЕ ПРЫЖОК С ТРОСОМ</Russian>
-        <German>ACE FAST-ROPING</German>
+      <Key ID="STR_FASTROPING">
+        <Original>FAST-ROPING (ACE/AR)</Original>
+        <English>FAST-ROPING (ACE/AR)</English>
+        <French>FAST-ROPING (ACE/AR)</French>
+        <Russian>ПРЫЖОК С ТРОСОМ (ACE/AR)</Russian>
+        <German>FAST-ROPING (ACE/AR)</German>
+      </Key>
+      <Key ID="STR_PARADROP">
+        <Original>PARADROP</Original>
+        <English>PARADROP</English>
+        <French>PARACHUTAGE</French>
+        <German>FALLSCHIRMABSPRUNG</German>
       </Key>
       <Key ID="STR_SEARCH_BUILDING">
         <Original>SEARCH BUILDING</Original>
@@ -2510,8 +2613,8 @@
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
 			%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
-			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group an advanced composition.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup an advanced composition.
+			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
+			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
 		</Original>
       </Key>
       <Key ID="STR_EXECUTE_CODE">
@@ -2592,10 +2695,10 @@
             <Original>Which icons should be displayed in the Module Tree</Original>
         </Key>
         <Key ID="STR_MODULE_ICONS_HELMET">
-            <Original>Ares Helmet Icons</Original>
-			<English>Ares Helmet Icons</English>
-			<French>Symbole de casque d'Ares</French>
-			<German>Ares Helm Symbole</German>
+            <Original>Helmet Icons on Category level</Original>
+			<English>Helmet Icons on Category level</English>
+			<French>Symbole de Casque au Niveau des Catégories</French>
+			<German>Helm Symbole auf Kategorie Level</German>
         </Key>
         <Key ID="STR_MODULE_ICONS_DLC">
             <Original>DLC Icons</Original>
@@ -2633,7 +2736,24 @@
         <Key ID="STR_VISION_MODES_REDGREEN">
             <Original>Enable Thermal - Red/Green / White Hot</Original>
         </Key>
-
+        <Key ID="STR_KEY_EJECT_PASSENGERS">
+            <Original>Eject/paradrop passengers of selected vehicle</Original>
+        </Key>
+        <Key ID="STR_KEY_DEEP_COPY">
+            <Original>Deep copy selected units</Original>
+        </Key>
+        <Key ID="STR_KEY_DEEP_PASTE">
+            <Original>Paste deep copied units</Original>
+        </Key>
+        <Key ID="STR_KEY_COUNTERMEASURE">
+            <Original>Selected unit throws smoke / uses countermeasure</Original>
+        </Key>
+        <Key ID="STR_KEY_GROUP">
+            <Original>Group selected objects</Original>
+        </Key>
+        <Key ID="STR_KEY_UNGROUP">
+            <Original>Ungroup selected objects</Original>
+        </Key>
     </Container>
   </Package>
 </Project>

@@ -4,9 +4,10 @@ _mode = _this select 0;
 _params = _this select 1;
 _class = _this select 2;
 
-switch _mode do {
-	case "onLoad": {
-
+switch _mode do 
+{
+	case "onLoad": 
+	{
 		_display = _params select 0;
 		_displayConfig = configfile >> _class;
 
@@ -30,7 +31,8 @@ switch _mode do {
 		//--- Show fake map in the background
 		_ctrlMap = _display displayctrl IDC_RSCDISPLAYCURATOR_MAINMAP;
 		_ctrlMap ctrlenable false;
-		if (visiblemap) then {
+		if (visiblemap) then 
+		{
 			_ctrlCuratorMap = (finddisplay IDD_RSCDISPLAYCURATOR) displayctrl IDC_RSCDISPLAYCURATOR_MAINMAP;
 			_ctrlMap ctrlmapanimadd [0,ctrlmapscale _ctrlCuratorMap,_ctrlCuratorMap ctrlmapscreentoworld [0.5,0.5]];
 			ctrlmapanimcommit _ctrlMap;
@@ -110,7 +112,8 @@ switch _mode do {
 		_ctrlButtonCustom ctrlcommit 0;
 
 		//--- Close the display when entity is altered
-		[_display] spawn {
+		[_display] spawn 
+		{
 			disableserialization;
 			_display = _this select 0;
 			_target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
@@ -134,7 +137,5 @@ switch _mode do {
 			_display closedisplay 2;
 		};
 	};
-	case "onUnload": {
-
-	};
+	case "onUnload": {};
 };
