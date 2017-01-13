@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Kex
+//	DATE: 1/3/17
+//	VERSION: 6.0
+//  DESCRIPTION: Function for suppressive fire module
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // find unit to perform suppressiove fire
@@ -13,7 +20,7 @@ _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_F
 } forEach _allTargets;
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-// select target
+// select parameters
 _dialogResult = 
 [
 	localize "STR_SUPPRESIVE_FIRE",
@@ -29,8 +36,6 @@ if (count _dialogResult == 0) exitWith {};
 _stanceIndex = _dialogResult select 1;
 _fireModeIndex = _dialogResult select 2;
 _duration = parseNumber (_dialogResult select 3);
-
-// get target logic
 _targetChooseAlgorithm = _dialogResult select 0;
 
 // Choose a target to fire at
@@ -67,6 +72,32 @@ if (isNull _unit) exitWith {[localize "STR_NO_GROUP_SELECTED"] call Ares_fnc_Sho
 _old_group = group _unit;
 _units = units _old_group;
 
+//save and remove waypoints
+_current_wp_id = currentWaypoint _old_group;
+_waypoint_count = count waypoints _old_group;
+_waypoints = [];
+private "_start_wp_pos";
+if (_current_wp_id < _waypoint_count) then
+{
+	for "_i" from (_waypoint_count - 1) to 1 step -1 do
+	{
+		_waypoints pushBack 
+		[
+			waypointPosition [_old_group, _i],
+			waypointType [_old_group, _i],
+			waypointBehaviour [_old_group, _i],
+			waypointCombatMode [_old_group, _i],
+			waypointFormation [_old_group, _i],
+			waypointSpeed [_old_group, _i],
+			waypointScript [_old_group, _i]
+		];
+		deleteWaypoint [_old_group, _i];
+	};
+	_start_wp_pos = waypointPosition [_old_group, 0];
+	[_old_group, 0] setWaypointPosition [position leader _old_group, 0];
+	_old_group setCurrentWaypoint [_old_group, 0];
+};
+
 // force unit to change formation if not in combat
 if (behaviour leader _old_group != "COMBAT") then
 {
@@ -92,7 +123,6 @@ if (behaviour leader _old_group != "COMBAT") then
 _units = _units select {gunner vehicle _x == _x};
 
 // store original group in place holder
-[] spawn {{if (count units _x==0) then {deleteGroup _x}} forEach allGroups};
 _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
@@ -124,8 +154,9 @@ _placeholder setPos [0,0,0];
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
-		_unit lookAt _target;
+		_unit doTarget _target;
 		
+		//ensure asynchronous fire within a group
 		sleep (random [2,3,4]);
 		
 		if ((vehicle _unit) isEqualTo _unit) then
@@ -170,6 +201,23 @@ _placeholder setPos [0,0,0];
 		deleteVehicle _placeholder;
 	};
 } forEach _units;
-sleep 15;
 
+//clean up
+sleep _duration + 5;
+[] spawn {{if (count units _x == 0) then {deleteGroup _x}} forEach allGroups};
+if (count _waypoints > 0 and (not isNull _old_group)) then
+{
+	reverse _waypoints;
+	{
+		_wp = _old_group addWaypoint [_x select 0, 0];
+		_wp setWaypointType (_x select 1);
+		_wp setWaypointBehaviour (_x select 2);
+		_wp setWaypointCombatMode (_x select 3);
+		_wp setWaypointFormation (_x select 4);
+		_wp setWaypointSpeed (_x select 5);
+		_wp setWaypointScript (_x select 6);
+	} forEach _waypoints;
+	[_old_group, 0] setWaypointPosition [_start_wp_pos, 0];
+	_old_group setCurrentWaypoint [_old_group, _current_wp_id];
+};
 #include "\achilles\modules_f_ares\module_footer.hpp"

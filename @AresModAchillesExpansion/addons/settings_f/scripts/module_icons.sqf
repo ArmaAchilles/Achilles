@@ -1,0 +1,22 @@
+/**
+ *
+ */
+[
+    "Achilles_var_moduleTreeHelmet",
+    "CHECKBOX",
+    localize "STR_MODULE_ICONS_HELMET",
+    localize "STR_MODULE_INTERFACE",
+    false,
+	false,
+	{Achilles_var_reloadDisplay = true}	
+] call cba_settings_fnc_init;
+
+[
+    "Achilles_var_moduleTreeDLC",
+    "CHECKBOX",
+    localize "STR_MODULE_ICONS_DLC",
+    localize "STR_MODULE_INTERFACE",
+    true,
+	false,
+	{Achilles_var_reloadDisplay = true}	
+] call cba_settings_fnc_init;

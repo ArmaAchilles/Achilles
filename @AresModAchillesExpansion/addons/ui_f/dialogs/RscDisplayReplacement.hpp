@@ -12,11 +12,24 @@ class CfgScriptPaths
 	AresDisplays = "\achilles\ui_f\scripts\";
 };
 
-// couple achilles init with curator display
+
 class RscDisplayCurator 
 {
+	// couple achilles init with curator display
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
+	
+	/*
+	// change remove map satelite texture
+	class ControlsBackground 
+	{
+		class Map: RscMapControl 
+		{
+			maxSatelliteAlpha = 0;
+		};
+	};
+	*/
 };
+
 /*
 class RscStandardDisplay;
 class RscDisplayMain: RscStandardDisplay
@@ -37,15 +50,11 @@ class RscControlsGroupNoHScrollbars;
 class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 
 // load external attributes
-class RscAttributeRank : RscControlsGroupNoScrollbars {};
 class RscAttributeDamage : RscControlsGroupNoScrollbars {};
 class RscAttributeFuel : RscControlsGroupNoScrollbars {};
 class RscAttributeLock : RscControlsGroupNoScrollbars {};
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
-class RscAttributeFormation: RscControlsGroupNoScrollbars {};
-class RscAttributeSpeedMode: RscControlsGroupNoScrollbars {};
-class RscAttributeUnitPos: RscControlsGroupNoScrollbars {};
 class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars {};
 class RscAttributeRespawnPosition : RscControlsGroupNoScrollbars 
 {

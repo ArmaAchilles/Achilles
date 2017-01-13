@@ -5,7 +5,7 @@
 
 _spawnPos = position _logic;
 
-_category_names = [{getText (configfile >> "CfgVehicles" >> _this >> "displayName")}, EFFECT_MODULES] call Achilles_fnc_map;
+_category_names = EFFECT_MODULES apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
 
 _dialogResult = 
 [

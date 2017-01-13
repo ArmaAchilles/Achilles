@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 9/17/16
-//	VERSION: 2.0
-//	FILE: functions_f_achilles\functions\features\fn_damageComponents.sqf
+//	DATE: 1/1/17
+//	VERSION: 3.0
 //  DESCRIPTION: opens the "damage components" dialog for vehicles.
 //
 //	ARGUMENTS:
@@ -31,6 +30,20 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
+
+if (local _vehicle) then
 {
-	_vehicle setHitIndex [_forEachIndex,_x];
-} forEach _dialogResult;
+	{
+		_vehicle setHitIndex [_forEachIndex,_x];
+	} forEach _dialogResult;
+} else
+{
+	[[_vehicle,_dialogResult],
+	{
+		_vehicle = _this select 0;
+		_attribute_values = _this select 1;
+		{
+			_vehicle setHitIndex [_forEachIndex,_x];
+		} forEach _attribute_values;
+	}] remoteExec ["spawn",_vehicle];
+};

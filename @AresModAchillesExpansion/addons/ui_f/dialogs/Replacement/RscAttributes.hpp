@@ -72,11 +72,31 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 	};
 };
 
-// modify skill script
+// modify script
 
 class RscAttributeSkill: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeSkill"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeUnitPos: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeUnitPos"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeRank: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeRank"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeFormation: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeFormation"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeSpeedMode: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeSpeedMode"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
 };
 
 // define class name

@@ -1,7 +1,7 @@
 class Achilles_Behaviours_Module_Base : Achilles_Module_Base
 {
-	subCategory = "$STR_AI_BEHAVIOUR";
-	//Category = "Behaviours";
+	//subCategory = "$STR_AI_BEHAVIOUR";
+	Category = "Behaviours";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };
@@ -42,4 +42,13 @@ class Achilles_Change_Ability_Module : Achilles_Behaviours_Module_Base
 	_generalMacro = "Achilles_Change_Ability_Module";
 	displayName = "$STR_CHANGE_ABILITIES";
 	function = "Achilles_fnc_BehaviourChangeAbility";
+};
+
+class Achilles_Change_Altitude_Module : Achilles_Behaviours_Module_Base
+{
+	scopeCurator = 2;
+	curatorCanAttach = 1;
+	_generalMacro = "Achilles_Change_Altitude_Module";
+	displayName = "$STR_CHANGE_ALTITUDE";
+	function = "Achilles_fnc_BehaviourAltitude";
 };

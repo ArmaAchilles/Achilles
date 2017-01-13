@@ -33,7 +33,9 @@ class CfgVehicles
 		isTriggerActivated = 0;	// 1 for module waiting until all synced triggers are activated
 		isDisposable = 0;		// 1 if modules is to be disabled once it's activated (i.e., repeated trigger activation won't work)
 		// curatorInfoType = "RscDisplayAttributeModuleNuke";	// Menu displayed when the module is placed or double-clicked on by Zeus
-		
+
+		dlc = "Ares";
+
 		class Arguments {};
 		class ModuleDescription: ModuleDescription
 		{
@@ -44,6 +46,7 @@ class CfgVehicles
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "DevTools\cfgVehiclesModulesDevTools.hpp"
 	#include "Equipment\cfgVehiclesModulesEquipment.hpp"
+	#include "FireSupport\cfgVehiclesModulesFireSupport.hpp"
 	#include "Player\cfgVehiclesModulesPlayer.hpp"
 	#include "Reinforcements\cfgVehiclesModulesReinforcements.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"

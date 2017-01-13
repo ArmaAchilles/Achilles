@@ -1,8 +1,11 @@
 
 class CfgFunctions
 {
-	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Achilles_fnc_...." )
+	class Achilles
 	{
+		project = "Ares Mod - Achilles Expansion";
+		tag = "Achilles";
+		
 		class Init
 		{
 			file = "\achilles\functions_f_achilles\functions\init";
@@ -13,8 +16,6 @@ class CfgFunctions
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
 			
-			class map;
-			class filter;
 			class sum;
 			class arrayMean;
 			class pushBack;
@@ -26,6 +27,8 @@ class CfgFunctions
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
 			class checkLineOfFire2D;
+			class matrixTranspose;
+			class vectorMap;
 		};
 		
 		class functions_f_features
@@ -47,6 +50,23 @@ class CfgFunctions
 			class PasteObjectsFromClipboard;
 			class damageComponents;
 			class changeSkills;
+			class groupObjects;
+			class ungroupObjects;
+            class setCuratorVisionModes;
+			class damageBuildings;
+		};
+	};
+	class A3_Functions_F_Curator
+	{
+		class Curator
+		{
+			delete showCuratorAttributes;
+		};
+		class Achilles
+		{
+			file = "\achilles\functions_f_achilles\functions\replacement";
+			
+			class showCuratorAttributes;
 		};
 	};
 };

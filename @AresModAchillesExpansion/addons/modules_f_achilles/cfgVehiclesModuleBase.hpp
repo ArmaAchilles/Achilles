@@ -33,20 +33,28 @@ class CfgVehicles
 		isTriggerActivated = 0;	// 1 for module waiting until all synced triggers are activated
 		isDisposable = 0;		// 1 if modules is to be disabled once it's activated (i.e., repeated trigger activation won't work)
 		// curatorInfoType = "RscDisplayAttributeModuleNuke";	// Menu displayed when the module is placed or double-clicked on by Zeus
-		
+
+        dlc = "Achilles";
+
 		class Arguments {};
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Achilles Module Base";
 		};
 	};
+	
+	class All;
+	class Thing : All {};
+	class ModuleEmpty_F : Thing {};
+	
 	#include "ACE\cfgVehiclesModulesACE.hpp"
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "Buildings\cfgVehiclesModulesBuildings.hpp"
 	#include "DevTools\cfgVehiclesModulesDevTools.hpp"
 	#include "Effects\cfgVehiclesModuleEffects.hpp"
-	#include "Environment\cfgVehiclesModulesEnvironment.hpp"
 	#include "FireSupport\cfgVehiclesModulesFireSupport.hpp"
+	#include "Environment\cfgVehiclesModulesEnvironment.hpp"
+	#include "MissionFlow\cfgVehiclesModulesMissionFlow.hpp"
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
 	

@@ -21,7 +21,7 @@ _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 _radius = parseNumber (_dialogResult select 1);
-_units = [{_this in allPlayers},(_epicenter nearEntities ['Man',_radius])] call Achilles_fnc_filter;
+_units = (_epicenter nearEntities ['Man',_radius]) select {_x in allPlayers};
 if (not (player in _units)) then {_units pushBack player};
 [(_dialogResult select 0) + 1] remoteExec ['BIS_fnc_earthquake',_units,false];
 sleep ((random 3) + 5);
@@ -33,7 +33,7 @@ if (_dialogResult select 2 == 0) then
 	_extend_count = round ((count _buildings) * (exp ((_dialogResult select 0) - 3)) / 2);
 	for "_i" from 1 to _extend_count do
 	{
-		_building = _buildings select (floor random count _buildings);
+		_building = selectRandom _buildings;
 		_building setDamage 1;
 		_buildings = _buildings - [_building];
 	};

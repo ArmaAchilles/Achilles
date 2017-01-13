@@ -1,7 +1,7 @@
 class Ares_Arsenal_Module_Base : Ares_Module_base
 {
-	subCategory = "$STR_ARSENAL";
-	//Category = "Arsenal";	
+	//subCategory = "$STR_ARSENAL";
+	Category = "Arsenal";	
 };
 
 class Ares_Module_Arsenal_AddFull : Ares_Arsenal_Module_Base

@@ -1,3 +1,10 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: by Anton Struy, modified by Kex
+//	DATE: 3/1/17
+//	VERSION: 3.0
+//  DESCRIPTION: Function for "artillery fire mission" module
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // initalize artillery fire function
@@ -9,7 +16,25 @@ if (isNil "Ares_FireArtilleryFunction") then
 		_ammoType = _this select 2;
 		_roundsToFire = _this select 3;
 		enableEngineArtillery true;
-		_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
+		if (_artilleryUnit isKindOf "Mortar_01_base_F") then
+		{
+			[_artilleryUnit,_targetPos,_ammoType,_roundsToFire] spawn
+			{
+				_artilleryUnit = _this select 0;
+				_targetPos = _this select 1;
+				_ammoType = _this select 2;
+				_roundsToFire = _this select 3;	
+				for "_i" from 1 to _roundsToFire do
+				{
+					waitUntil {not alive _artilleryUnit or (unitReady _artilleryUnit)};
+					_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
+					sleep 1;
+				};
+			};
+		} else
+		{
+			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
+		};
 	};
 	publicVariable "Ares_FireArtilleryFunction";
 };
@@ -101,7 +126,7 @@ _numberOfGuns = [];
 
 if (_mode == 0) then
 {
-	_allTargetsUnsorted = allMissionObjects "Achilles_Create_Artillery_Target_Module";
+	_allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
 	if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 	_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 	_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/5/16
-//	VERSION: 1.0
+//	DATE: 4/1/17
+//	VERSION: 2.0
 //	FILE: Achilles\modules\fn_DevToolsBindVariable.sqf
 //  DESCRIPTION: Module for binding variables to objects
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +20,7 @@ _dialogResult = [
 if (count _dialogResult > 0) then 
 {
 	_var = _dialogResult select 0;
-	[(compile format["%1 = _this;",_var]), _object, 0] call Ares_fnc_BroadcastCode;
+	_object call compile format["%1 = _this;",_var];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

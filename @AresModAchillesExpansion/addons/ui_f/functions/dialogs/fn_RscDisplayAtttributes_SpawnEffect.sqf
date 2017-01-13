@@ -52,7 +52,7 @@ switch (_mode) do
 			} forEach [IDC_LABLE_TYPE,IDC_CTRL_TYPE];
 			
 			_classNames = (configfile >> "CfgVehicles" >> _module_category) call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass;
-			_displayNames = [{getText (configfile >> "CfgVehicles" >> _this >> "displayName")},_classNames] call Achilles_fnc_map;
+			_displayNames = _classNames apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
 			lbClear _type_ctrl;
 			{_type_ctrl lbAdd _x} forEach _displayNames;
 		};

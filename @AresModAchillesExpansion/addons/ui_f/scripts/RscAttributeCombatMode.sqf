@@ -40,7 +40,8 @@ _colors =
 ];
 
 switch _mode do {
-	case "onLoad": {
+	case "onLoad":
+	{
 
 		_display = _params select 0;
 
@@ -62,7 +63,8 @@ switch _mode do {
 		_selectedIDC = _idcs select _selectedIndex;
 		['onButtonClick',[_display displayctrl _selectedIDC,0]] call RscAttributeCombatMode;
 	};
-	case "onButtonClick": {
+	case "onButtonClick":
+	{
 		_ctrlSelected = _params select 0;
 		_delay = _params select 1;
 		_display = ctrlparent _ctrlSelected;
@@ -80,15 +82,35 @@ switch _mode do {
 
 		RscAttributeCombatMode_selected = _idcs find (ctrlidc _ctrlSelected);
 	};
-	case "confirmed": {
+	case "confirmed":
+	{
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeCombatMode_selected",0];
 		_selected = _states select _selectedIndex;
-		if (typename _entity == typename []) then {
-			if (currentwaypoint (_entity select 0) == (_entity select 1) && _selected != "UNCHANGED") then {(_entity select 0) setcombatmode _selected;};
+		if (typename _entity == typename []) then 
+		{
+			_group = _entity select 0;
+			_wp_id = _entity select 1;
+			if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+			{
+				if (local _group) then
+				{
+					_group setcombatmode _selected;
+				} else
+				{
+					[_group,_selected] remoteExec ["setcombatmode", leader _group];
+				};
+			};
 			_entity setwaypointcombatmode _selected;
-		} else {
-			_entity setcombatmode _selected;
+		} else 
+		{
+			if (local _entity) then
+			{
+				_entity setcombatmode _selected;
+			} else
+			{
+				[_entity,_selected] remoteExec ["setcombatmode", leader _entity];
+			};
 			_entity setvariable ["updated",true,true];
 		};
 		false

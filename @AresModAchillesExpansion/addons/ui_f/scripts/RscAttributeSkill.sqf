@@ -17,12 +17,32 @@ switch _mode do
 	};
 	case "confirmed": 
 	{
-		private "_unit";
+		private "_leader";
 		_display = _params select 0;
 		_ctrlValue = _display displayctrl IDC_RSCATTRIBUTESKILL_VALUE;
-		if (typename _entity == typename grpnull) then {_unit = leader _entity; _entity = units _entity} else {_unit = _entity; _entity = [_entity];};
-		if (abs (skill _unit - sliderposition _ctrlValue * 0.1) < 0.01) exitWith {};
-		{_x setskill (sliderposition _ctrlValue * 0.1);} foreach _entity;
+		_skill_value = (sliderposition _ctrlValue) * 0.1;
+		if (typename _entity == typename grpnull) then 
+		{
+			_leader = leader _entity;
+			_entity = units _entity
+		} else 
+		{
+			_leader = _entity;
+			_entity = [_entity];
+		};
+		if (abs (skill _leader - _skill_value) < 0.01) exitWith {};
+		if (local _leader) then
+		{
+			{_x setskill _skill_value;} foreach _entity;
+		} else
+		{
+			[[_entity,_skill_value],
+			{
+				_entity = _this select 0;
+				_skill_value = _this select 1;
+				{_x setskill _skill_value;} foreach _entity;
+			}] remoteExec ["spawn",_leader];
+		};
 	};
 	case "onUnload": {};
 };

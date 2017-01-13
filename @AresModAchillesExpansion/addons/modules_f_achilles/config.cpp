@@ -18,13 +18,13 @@ class CfgPatches
 			"Achilles_Chatter_Module",
 			"Achilles_Sit_On_Chair_Module",
 			"Achilles_Change_Ability_Module",
+			"Achilles_Change_Altitude_Module",
 			"Achilles_Buildings_Destroy_Module",
+			"Achilles_Toggle_Light_Module",
 			"Achilles_Bind_Variable_Module",
 			"Achilles_Set_Weather_Module",
 			"Achilles_Earthquake_Module",
-			"Achilles_Artillery_Fire_Mission_Module",
 			"Achilles_Suppressive_Fire_Module",
-			"Achilles_Create_Artillery_Target_Module",
 			"Achilles_Create_Suppression_Target_Module",
 			"Achilles_Toggle_Simulation_Module",
 			"Achilles_Transfer_Ownership_Module",
@@ -45,7 +45,9 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
+			"A3_Modules_F_Bootcamp_Misc",
 			"achilles_language_f",
+			"achilles_modules_f_ares",
 			"achilles_functions_f_ares",
 			"achilles_functions_f_achilles",
 			"achilles_data_f_achilles",
@@ -90,5 +92,5 @@ class CfgPatches
 };
 
 #include "cfgFunctions.hpp"
-//#include "cfgFactionClasses.hpp"
+#include "cfgFactionClasses.hpp"
 #include "cfgVehiclesModuleBase.hpp"

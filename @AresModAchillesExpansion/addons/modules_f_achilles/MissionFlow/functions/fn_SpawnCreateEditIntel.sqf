@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/23/16
+//	DATE: 1/3/17
 //	VERSION: 1.0
-//	FILE: Ares\Spawn\fn_SpawnCreateEditIntel.sqf
 //  DESCRIPTION: Function that creates an intel
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -10,6 +9,13 @@
 
 #define INTEL_OBJECTS 		["Land_File1_F","Land_File2_F","Land_FilePhotos_F","Land_Map_F","Land_Map_unfolded_F","Land_Laptop_unfolded_F","Land_MobilePhone_smart_F","Land_Tablet_01_F","Land_Tablet_02_F"]
 #define SEARCH_ICON			"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa"
+
+//Broadcast intel function
+if (isNil "Achilles_var_intel_init_done") then
+{
+	publicVariable "Ares_fnc_addIntel";
+	Achilles_var_intel_init_done = true;
+};
 
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -27,7 +33,7 @@ _dialog_options =
 if (isNull _object) then
 {
 	_dialog_title = localize "STR_CREATE_EDIT_INTEL";
-	_dialog_options = [[localize "STR_OBJECT",[{getText (configfile >> "CfgVehicles" >> _this >> "displayName")}, INTEL_OBJECTS] call Achilles_fnc_map]] + _dialog_options;
+	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
 };
 Achilles_var_currentIntel = _object;
 _dialogResult = [_dialog_title, _dialog_options,"Achilles_fnc_RscDisplayAtttributes_SpawnIntel"] call Ares_fnc_ShowChooseDialog;

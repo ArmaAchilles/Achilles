@@ -7,6 +7,7 @@ class CfgFunctions
 		#include "Behaviours\cfgFunctionsBehaviours.hpp"
 		#include "DevTools\cfgFunctionsDevTools.hpp"
 		#include "Equipment\cfgFunctionsEquipment.hpp"
+		#include "FireSupport\cfgFunctionsFireSupport.hpp"
 		#include "Player\cfgFunctionsPlayer.hpp"
 		#include "Reinforcements\cfgFunctionsReinforcements.hpp"
 		#include "Spawn\cfgFunctionsSpawn.hpp"

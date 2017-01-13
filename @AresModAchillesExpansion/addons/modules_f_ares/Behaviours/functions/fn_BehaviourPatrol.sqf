@@ -32,28 +32,19 @@ if (not isNull _groupUnderCursor) then
 		private ["_dialogResult"];
 		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Ares_fnc_LogMessage;
 		_dialogResult =
-			["Begin Patrol",
+			[localize "STR_PATROL_LOITER",
 					[
-						["Size of patrol grid:", ["50m", "100m", "150m", "200m", "500m"]],
-						["Behaviour:", ["Relaxed", "Cautious", "Searching"]],
-						["Direction:", ["Clockwise", "Counter-Clockwise"]],
-						["Delay at waypoints:", ["None", "15s", "30s", "1m"]]
+						[(localize "STR_RADIUS") + " [m]", "", "100"],
+						[localize "STR_GROUP_BEHAVIOUR", [localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]],
+						[localize "STR_DIRECTION", [localize "STR_CLOCKWISE", localize "STR_COUNTERCLOCKWISE"]],
+						[localize "STR_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
 			
 		["BehaviourPatrol: Prompt complete!"] call Ares_fnc_LogMessage;
 		if (count _dialogResult > 0) then
 		{
-			_radius = 50;
-			switch (_dialogResult select 0) do
-			{
-				case 0: { _radius = 50; };
-				case 1: { _radius = 100; };
-				case 2: { _radius = 150; };
-				case 3: { _radius = 200; };
-				case 4: { _radius = 500; };
-				default { _radius = 50; };
-			};
+			_radius = parseNumber (_dialogResult select 0);
 			
 			switch (_dialogResult select 1) do
 			{
@@ -106,29 +97,45 @@ if (not isNull _groupUnderCursor) then
 			{
 				deleteWaypoint ((waypoints _groupUnderCursor) select 0);
 			};
-
-			// Make a circle with the unit's current location at the center.
-			_numberOfWaypoints = 6;
-			_degreesPerWaypoint =  360 / _numberOfWaypoints;
-			if (!_moveClockwise) then
-			{
-				_degreesPerWaypoint = _degreesPerWaypoint * -1;
-			};
-			_centerPoint = position _logic;
-			for "_waypointNumber" from 0 to (_numberOfWaypoints - 1) do
-			{
-				private ["_currentDegrees"];
-				_currentDegrees = _degreesPerWaypoint * _waypointNumber;
-				_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, _currentDegrees] call BIS_fnc_relPos, 5];
-				_waypoint setWaypointTimeout _delay;
-			};
 			
-			// Add a waypoint at the location of the first WP. We started at 0 degrees.
-			// We don't delay the cycle WP since then we'd have double-time before moving.
-			_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, 0] call BIS_fnc_relPos, 5];
-			_waypoint setWaypointType "CYCLE";
-			
-			[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
+			if (vehicle (leader _groupUnderCursor) isKindOf "Air") then
+			{
+				// aircrafts: Loiter in the area
+				_centerPoint = position vehicle (leader _groupUnderCursor);
+				_centerPoint set [2,0];
+				_waypoint = _groupUnderCursor addWaypoint [_centerPoint,0];
+				_waypoint setWaypointType "LOITER";
+				_waypoint setWaypointLoiterRadius _radius;
+				if (not _moveClockwise) then
+				{
+					_waypoint setWaypointLoiterType "CIRCLE_L";
+				};
+			} else
+			{
+				// ground forces: Patrol the area
+				// Make a circle with the unit's current location at the center.
+				_numberOfWaypoints = 6;
+				_degreesPerWaypoint =  360 / _numberOfWaypoints;
+				if (!_moveClockwise) then
+				{
+					_degreesPerWaypoint = _degreesPerWaypoint * -1;
+				};
+				_centerPoint = position _logic;
+				for "_waypointNumber" from 0 to (_numberOfWaypoints - 1) do
+				{
+					private ["_currentDegrees"];
+					_currentDegrees = _degreesPerWaypoint * _waypointNumber;
+					_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, _currentDegrees] call BIS_fnc_relPos, 5];
+					_waypoint setWaypointTimeout _delay;
+				};
+				
+				// Add a waypoint at the location of the first WP. We started at 0 degrees.
+				// We don't delay the cycle WP since then we'd have double-time before moving.
+				_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, 0] call BIS_fnc_relPos, 5];
+				_waypoint setWaypointType "CYCLE";
+				
+				[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
+			};
 		}
 		else
 		{

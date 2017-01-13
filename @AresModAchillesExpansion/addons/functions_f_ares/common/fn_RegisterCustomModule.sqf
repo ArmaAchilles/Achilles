@@ -1,6 +1,24 @@
-/*
-	Registers a new module to be displayed in the Ares custom module tree.
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	AUTHOR: Anton Struyk
+//
+//  DESCRIPTION: Registers a new module to be displayed in the Ares custom module tree.
+//
+//	ARGUMENTS:
+//	_this select 0:		STRING	- Module Category Name (if the name already exists, the modul will be appended to that category)
+//	_this select 1:		STRING	- Module Name (the same name can be used multiple times, but this is not recommended)
+//	_this select 2:		CODE	- Code that is executed when the module is placed.
+//
+//		ARGUMENTS FOR THE CODE
+//		_this select 0: 	ARRAY	- Returns position AGLS where the module was placed.
+//		_this select 1:		OBJECT  - Returns ObjNull or the object on which the module was placed.
+//
+//	RETURNS:
+//	nothing (procedure)
+//
+//	Example:
+//	["My Category", "My Module", { systemChat name (_this select 1); }] call Ares_fnc_RegisterCustomModule;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 

@@ -29,6 +29,7 @@ class CfgFunctions
 			class HandleRemoteKeyPressed;
 			class HandleCuratorObjectDoubleClicked;
 			class HandleCuratorObjectPlaced;
+			class HandleCuratorObjectEdited;
 		};
 		
 		class ui_f_common
@@ -57,6 +58,7 @@ class CfgFunctions
 			class RscDisplayAtttributes_ChangeSkills;
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
+			class RscDisplayAttributes_editableObjects;
 		};
 	};
 	

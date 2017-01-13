@@ -9,22 +9,17 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private ["_buildings","_extend_count"];
+private ["_buildings","_damage_fnc","_mean_damage"];
 
 _center_pos = position _logic;
 
-_extend = [];
-for "_i" from 1 to 10 do
-{
-	_extend pushBack (str (_i * 10) + "%");
-};
-
 _dialogResult = 
 [
-	localize "STR_DESTROY_BUILDINGS",
+	localize "STR_DAMAGE_BUILDINGS",
 	[
 		[localize "STR_SELECTION", [localize "STR_NEAREST", localize "STR_RANGE"]],
-		[localize "STR_EXTEND",_extend],
+		[localize "STR_MEAN_DAMAGE",[localize "STR_NO_DAMAGE",localize "STR_LIGHT_INJURY",localize "STR_SEVERE",localize "STR_FULL_DAMAGE"],2],
+		[localize "STR_DISTRIBUTION",[localize "STR_DELTA",localize "STR_UNIFORM", localize "STR_NORMAL_DISTRIBUTION"]],
 		[(localize "STR_RANGE") + " [m]","","100"]
 	],
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
@@ -36,22 +31,26 @@ switch (_dialogResult select 0) do
 {
 	case 0:	
 	{
-		_buildings = [nearestObject  [_center_pos, "Building"]];
-		_extend_count = 1;
+		_buildings = nearestObjects [_center_pos, ["Building"], 50];
+		_buildings resize 1;
 	};
 	case 1: 
 	{
-		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 2)];
-		_extend_count = round ((count _buildings) * ((_dialogResult select 1) + 1) / 10);
+		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 3)];
 	};
 };
 
-for "_i" from 1 to _extend_count do
+_mean_damage_type = _dialogResult select 1;
+_distribution_type = _dialogResult select 2;
+
+//Broadcast damage function to server
+if (isNil "Achilles_var_damageBuildings_init_done") then
 {
-	_building = _buildings select (floor random count _buildings);
-	_building setDamage 1;
-	_buildings = _buildings - [_building];
+	publicVariableServer "Achilles_fnc_damageBuildings";
+	Achilles_var_damageBuildings_init_done = true;
 };
+
+[_buildings,_mean_damage_type,_distribution_type] remoteExec ["Achilles_fnc_damageBuildings",2];
 
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
