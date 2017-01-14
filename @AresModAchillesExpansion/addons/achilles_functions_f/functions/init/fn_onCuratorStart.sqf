@@ -10,7 +10,7 @@ _tree_ctrl = param [0,controlNull,[controlNull]];
 private _display_reload = false;
 
 // trick to unlock ares/achilles modules for Zeus if mission was not set up properly
-if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player))) then
+if (not ("achilles_modules_f" in (curatorAddons getAssignedCuratorLogic player))) then
 {
 	_logic = (createGroup sideLogic) createUnit ["Achilles_Module_Base", getPos player, [], 0, "NONE"];
 	_logic = (createGroup sideLogic) createUnit ["Ares_Module_Base", getPos player, [], 0, "NONE"];
@@ -24,11 +24,11 @@ if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic
 	[[getAssignedCuratorLogic player],
 	{
 		_curatorModule = _this select 0;
-		_curatorModule addCuratorAddons ["achilles_modules_f_achilles","achilles_modules_f_ares"];
+		_curatorModule addCuratorAddons ["achilles_modules_f","achilles_modules_f_ares"];
 	}] remoteExec ["spawn",2];
 	
 	// reload interface
-	waitUntil {sleep 1; "achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player)};
+	waitUntil {sleep 1; "achilles_modules_f" in (curatorAddons getAssignedCuratorLogic player)};
 	cutText ["","BLACK OUT", 0.1,true];
 	uiSleep 0.1;
 	(findDisplay 312) closeDisplay 0;

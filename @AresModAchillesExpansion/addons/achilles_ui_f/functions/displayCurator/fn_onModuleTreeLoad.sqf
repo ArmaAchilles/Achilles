@@ -33,7 +33,7 @@ _ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 //prepare lists
 _category_list = [];
 _all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
-_all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_achilles" >> "units"));
+_all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f" >> "units"));
 
 // Get all Vanilla Categories
 

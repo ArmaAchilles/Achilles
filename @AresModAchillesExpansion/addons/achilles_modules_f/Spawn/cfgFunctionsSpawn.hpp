@@ -1,6 +1,6 @@
 class Achilles_Spawn_Function_Base
 {
-	file = "\achilles\modules_f_achilles\Spawn\functions";
+	file = "\achilles\modules_f\Spawn\functions";
 
 	class SpawnEffect;
 	class SpawnAdvancedCompositions;
