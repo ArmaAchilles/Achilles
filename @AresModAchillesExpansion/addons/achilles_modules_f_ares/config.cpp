@@ -60,7 +60,7 @@ class CfgPatches
 			"achilles_language_f",
 			"achilles_functions_f_ares",
 			"achilles_functions_f_achilles",
-			"achilles_data_f_achilles",
+			"achilles_data_f",
 			"achilles_data_f_ares",
 			"cba_main"
 		};
