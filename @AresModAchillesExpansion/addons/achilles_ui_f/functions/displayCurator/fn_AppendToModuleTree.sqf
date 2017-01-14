@@ -31,7 +31,7 @@ _moduleDisplayName 	= _this select 3;
 _moduleClassName	= _this select 4;
 _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
-_addonIcon          = param [7,"\achilles\data_f_achilles\icons\icon_achilles_small.paa",[""]];
+_addonIcon          = param [7,"\achilles\data_f\icons\icon_achilles_small.paa",[""]];
 
 _categoryIndex = _category_list find _categoryName;
 

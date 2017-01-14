@@ -176,7 +176,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		class HeadlightOn: RscActivePicture 
 		{
 			idc = 113627;
-			text = "achilles\data_f_achilles\icons\icon_headlightOn.paa";
+			text = "achilles\data_f\icons\icon_headlightOn.paa";
 			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -187,7 +187,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		class HeadlightOff: HeadlightOn
 		{
 			idc = 113630;
-			text = "achilles\data_f_achilles\icons\icon_headlightOff.paa";
+			text = "achilles\data_f\icons\icon_headlightOff.paa";
 			x = "19.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -244,7 +244,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		class HoldFire: RscActivePicture 
 		{
 			idc = 123472;
-			text = "achilles\data_f_achilles\icons\icon_hold_fire.paa";
+			text = "achilles\data_f\icons\icon_hold_fire.paa";
 			x = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -254,7 +254,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		class HoldFireDefend : HoldFire
 		{
 			idc = 123471;
-			text = "achilles\data_f_achilles\icons\icon_hold_fire_defend.paa";
+			text = "achilles\data_f\icons\icon_hold_fire_defend.paa";
 			x = "13.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -265,7 +265,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		class HoldFireEngage: HoldFire
 		{
 			idc = 123474;
-			text = "achilles\data_f_achilles\icons\icon_hold_fire_engage.paa";
+			text = "achilles\data_f\icons\icon_hold_fire_engage.paa";
 			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -276,7 +276,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		class Fire: HoldFire
 		{
 			idc = 123475;
-			text = "achilles\data_f_achilles\icons\icon_hold_fire.paa";
+			text = "achilles\data_f\icons\icon_hold_fire.paa";
 			x = "18.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -287,7 +287,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		class FireEngage: HoldFire
 		{
 			idc = 123469;
-			text = "achilles\data_f_achilles\icons\icon_hold_fire_engage.paa";
+			text = "achilles\data_f\icons\icon_hold_fire_engage.paa";
 			x = "21 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -322,7 +322,7 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 		class Careless: RscActivePicture 
 		{
 			idc = 23472;
-			text = "achilles\data_f_achilles\icons\icon_careless.paa";
+			text = "achilles\data_f\icons\icon_careless.paa";
 			x = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";

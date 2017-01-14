@@ -20,6 +20,6 @@ class Achilles_Earthquake_Module : Achilles_Environment_Module_Base
 	_generalMacro = "Achilles_Earthquake_Module";
 	displayName = "$STR_EARTHQUAKE";
 	function = "Achilles_fnc_EnvironmentEarthquake";
-	icon = "\achilles\data_f_achilles\icons\icon_position.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_position.paa";
+	icon = "\achilles\data_f\icons\icon_position.paa";
+	portrait = "\achilles\data_f\icons\icon_position.paa";
 };

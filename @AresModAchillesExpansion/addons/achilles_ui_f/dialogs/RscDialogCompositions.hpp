@@ -114,7 +114,7 @@ class Ares_composition_Dialog
 		{
 			idc = 2030;
 
-			text = "\achilles\data_f_achilles\icons\icon_achilles_dialog.paa";
+			text = "\achilles\data_f\icons\icon_achilles_dialog.paa";
 			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;

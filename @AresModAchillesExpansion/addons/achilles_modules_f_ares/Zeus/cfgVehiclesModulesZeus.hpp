@@ -9,8 +9,8 @@ class Ares_Module_Zeus_Add_Remove_Editable_Objects : Ares_Zeus_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_ADD_REMOVE_EDITABLE_OBJECTS";
 	function = "Ares_fnc_ZeusAddRemoveEditableObjects";
-	icon = "\achilles\data_f_achilles\icons\icon_position.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_position.paa";
+	icon = "\achilles\data_f\icons\icon_position.paa";
+	portrait = "\achilles\data_f\icons\icon_position.paa";
 };
 
 class Ares_Module_Zeus_Visibility : Ares_Zeus_Module_Base

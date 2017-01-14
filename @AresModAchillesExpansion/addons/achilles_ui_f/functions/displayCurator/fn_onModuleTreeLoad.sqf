@@ -43,7 +43,7 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 	_categoryName = _ctrl tvText [_i];
 	if (Achilles_var_moduleTreeHelmet and (_categoryName in ACHILLES_CATEGORIES)) then
 	{
-		_ctrl tvSetPicture [[_i], "\achilles\data_f_achilles\icons\icon_achilles_small.paa"];
+		_ctrl tvSetPicture [[_i], "\achilles\data_f\icons\icon_achilles_small.paa"];
 	};
 	_category_list pushBack _categoryName;
 };

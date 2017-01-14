@@ -78,7 +78,7 @@ class Ares_Dynamic_Dialog
 		{
 			idc = 2030;
 			style = 48;
-			text = "\achilles\data_f_achilles\icons\icon_achilles_dialog.paa";
+			text = "\achilles\data_f\icons\icon_achilles_dialog.paa";
 			x = 0.2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.15 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1.6 * GUI_GRID_W;

@@ -9,8 +9,8 @@ class Ares_Module_Arsenal_AddFull : Ares_Arsenal_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_ADD_FULL";
 	function = "Ares_fnc_ArsenalAddFull";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f\icons\icon_object.paa";
+	portrait = "\achilles\data_f\icons\icon_object.paa";
 };
 
 class Ares_Module_Arsenal_AddCustom : Ares_Arsenal_Module_Base
@@ -18,8 +18,8 @@ class Ares_Module_Arsenal_AddCustom : Ares_Arsenal_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_ADD_FILTERED";
 	function = "Ares_fnc_ArsenalAddCustom";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f\icons\icon_object.paa";
+	portrait = "\achilles\data_f\icons\icon_object.paa";
 };
 
 class Ares_Module_Arsenal_Copy_To_Clipboard : Ares_Arsenal_Module_Base
@@ -27,8 +27,8 @@ class Ares_Module_Arsenal_Copy_To_Clipboard : Ares_Arsenal_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_COPY_TO_CLIPBOARD";
 	function = "Ares_fnc_ArsenalCopyToClipboard";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f\icons\icon_object.paa";
+	portrait = "\achilles\data_f\icons\icon_object.paa";
 };
 
 class Ares_Module_Arsenal_Paste_Replace: Ares_Arsenal_Module_Base
@@ -36,8 +36,8 @@ class Ares_Module_Arsenal_Paste_Replace: Ares_Arsenal_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_PASTE_N_REPLACE";
 	function = "Ares_fnc_ArsenalPasteReplace";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f\icons\icon_object.paa";
+	portrait = "\achilles\data_f\icons\icon_object.paa";
 };
 
 class Ares_Module_Arsenal_Paste_Combine : Ares_Arsenal_Module_base
@@ -45,8 +45,8 @@ class Ares_Module_Arsenal_Paste_Combine : Ares_Arsenal_Module_base
 	scopeCurator = 2;
 	displayName = "$STR_PASTE_N_COMBINE";
 	function = "Ares_fnc_ArsenalPasteCombine";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f\icons\icon_object.paa";
+	portrait = "\achilles\data_f\icons\icon_object.paa";
 };
 
 class Ares_Module_Arsenal_Create_Nato : Ares_Arsenal_Module_Base

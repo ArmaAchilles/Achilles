@@ -10,8 +10,8 @@ class Ares_Artillery_Fire_Mission_Module : Ares_Fire_Support_Module_Base
 	_generalMacro = "Ares_Artillery_Fire_Mission_Module";
 	displayName = "$STR_ARTILLERY_FIRE_MISSION";
 	function = "Ares_fnc_FireSupportArtilleryFireMission";
-	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	icon = "\achilles\data_f\icons\icon_unit.paa";
+	portrait = "\achilles\data_f\icons\icon_unit.paa";
 };
 
 class Ares_Create_Artillery_Target_Module : Ares_Fire_Support_Module_Base

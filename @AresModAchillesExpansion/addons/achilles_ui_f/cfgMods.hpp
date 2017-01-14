@@ -30,9 +30,9 @@ class CfgMods {
         description = "Achilles Expansion (AE) includes Ares Mod with even more functionalites. Some functionalities only work with ACE mod, but those mods are not mandatory in order to run Ares (AE) properly.";
         overview = "Achilles Expansion (AE) includes Ares Mod with even more functionalites. Some functionalities only work with ACE mod, but those mods are not mandatory in order to run Ares (AE) properly.";
 
-        picture = "\achilles\data_f_achilles\pictures\Achilles_Insignia.paa";
-        logo = "\achilles\data_f_achilles\icons\icon_achilles_hint.paa";
-        logoOver = "\achilles\data_f_achilles\icons\icon_achilles_hint.paa";
-        logoSmall = "\achilles\data_f_achilles\icons\icon_achilles_small.paa";
+        picture = "\achilles\data_f\pictures\Achilles_Insignia.paa";
+        logo = "\achilles\data_f\icons\icon_achilles_hint.paa";
+        logoOver = "\achilles\data_f\icons\icon_achilles_hint.paa";
+        logoSmall = "\achilles\data_f\icons\icon_achilles_small.paa";
     };
 };

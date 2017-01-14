@@ -2,8 +2,8 @@ class Achilles_Behaviours_Module_Base : Achilles_Module_Base
 {
 	//subCategory = "$STR_AI_BEHAVIOUR";
 	Category = "Behaviours";
-	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
+	icon = "\achilles\data_f\icons\icon_default_unit.paa";
+	portrait = "\achilles\data_f\icons\icon_default_unit.paa";
 };
 
 class Achilles_Animation_Module : Achilles_Behaviours_Module_Base
@@ -31,8 +31,8 @@ class Achilles_Sit_On_Chair_Module : Achilles_Behaviours_Module_Base
 	_generalMacro = "Achilles_Sit_On_Chair_Module";
 	displayName = "$STR_SIT_ON_CHAIR";
 	function = "Achilles_fnc_BehaviourSitOnChair";
-	icon = "\achilles\data_f_achilles\icons\icon_chair.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_chair.paa";
+	icon = "\achilles\data_f\icons\icon_chair.paa";
+	portrait = "\achilles\data_f\icons\icon_chair.paa";
 };
 
 class Achilles_Change_Ability_Module : Achilles_Behaviours_Module_Base

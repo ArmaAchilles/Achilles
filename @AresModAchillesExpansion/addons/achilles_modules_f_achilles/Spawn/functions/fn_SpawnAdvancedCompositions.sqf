@@ -14,7 +14,7 @@
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
 {
-	[] call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
+	[] call compile preprocessFileLineNumbers "\achilles\data_f\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
 	Achilles_var_acs_init_done = true;
 };
 
