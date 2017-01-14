@@ -10,6 +10,8 @@ As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is 
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Changelists
+V.0.0.6 (Achilles Expansion (alpha version))
+
 V.0.0.5 (Achilles Expansion (alpha version))
 * Change:	Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
 * Change:	Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see #40)
