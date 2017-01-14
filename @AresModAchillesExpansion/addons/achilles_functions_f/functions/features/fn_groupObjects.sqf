@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 11/20/16
 //	VERSION: 1.0
-//	FILE: Achilles\functions_f_achilles\features\fn_groupObjects.sqf
+//	FILE: achilles\functions_f\features\fn_groupObjects.sqf
 //  DESCRIPTION: Group given objects
 //
 //	ARGUMENTS:

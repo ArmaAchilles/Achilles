@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 11/20/16
 //	VERSION: 1.0
-//	FILE: Achilles\functions_f_achilles\common\fn_vectorMap.sqf
+//	FILE: achilles\functions_f\common\fn_vectorMap.sqf
 //  DESCRIPTION: Maps the transposed row vector with given transformation matrix
 //
 //	ARGUMENTS:

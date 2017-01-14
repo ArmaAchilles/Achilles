@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 11/20/16
 //	VERSION: 1.0
-//	FILE: Achilles\functions_f_achilles\features\fn_ungroupObjects.sqf
+//	FILE: achilles\functions_f\features\fn_ungroupObjects.sqf
 //  DESCRIPTION: Ungroup a group of objects if center object is in input array
 //
 //	ARGUMENTS:

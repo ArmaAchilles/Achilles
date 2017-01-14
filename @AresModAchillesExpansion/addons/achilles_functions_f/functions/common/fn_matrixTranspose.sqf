@@ -2,7 +2,7 @@
 //	AUTHOR: Kyle Kotowick
 //	DATE: 11/20/16
 //	VERSION: 1.0
-//	FILE: Achilles\functions_f_achilles\common\fn_matrixTranspose.sqf
+//	FILE: achilles\functions_f\common\fn_matrixTranspose.sqf
 //  DESCRIPTION: Transposes given matrix 
 //
 //	ARGUMENTS:

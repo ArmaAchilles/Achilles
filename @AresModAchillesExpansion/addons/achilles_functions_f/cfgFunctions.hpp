@@ -8,13 +8,13 @@ class CfgFunctions
 		
 		class Init
 		{
-			file = "\achilles\functions_f_achilles\functions\init";
+			file = "\achilles\functions_f\functions\init";
 			
 			class onCuratorStart;
 		}
 		class functions_f_common
 		{
-			file = "\achilles\functions_f_achilles\functions\common";
+			file = "\achilles\functions_f\functions\common";
 			
 			class sum;
 			class arrayMean;
@@ -33,7 +33,7 @@ class CfgFunctions
 		
 		class functions_f_features
 		{
-			file = "\achilles\functions_f_achilles\functions\features";
+			file = "\achilles\functions_f\functions\features";
 			
 			class ACS_toggleGrouping;
 			class ambientAnim;
@@ -64,7 +64,7 @@ class CfgFunctions
 		};
 		class Achilles
 		{
-			file = "\achilles\functions_f_achilles\functions\replacement";
+			file = "\achilles\functions_f\functions\replacement";
 			
 			class showCuratorAttributes;
 		};

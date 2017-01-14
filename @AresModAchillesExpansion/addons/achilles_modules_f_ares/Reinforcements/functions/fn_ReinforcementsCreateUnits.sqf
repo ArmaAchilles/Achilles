@@ -107,10 +107,10 @@ if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
 	_script = if (_dialogResult select 6 == 1) then 
 	{
-		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
+		"\achilles\functions_f\scripts\fn_wpFastrope.sqf";
 	} else
 	{
-		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf";
+		"\achilles\functions_f\scripts\fn_wpParadrop.sqf";
 	};
 	_vehicleUnloadWp setWaypointScript _script;
 } else

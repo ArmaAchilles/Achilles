@@ -59,7 +59,7 @@ class CfgPatches
 			"A3_Modules_F_Curator",
 			"achilles_language_f",
 			"achilles_functions_f_ares",
-			"achilles_functions_f_achilles",
+			"achilles_functions_f",
 			"achilles_data_f",
 			"achilles_data_f_ares",
 			"cba_main"

@@ -49,7 +49,7 @@ class CfgPatches
 			"achilles_language_f",
 			"achilles_modules_f_ares",
 			"achilles_functions_f_ares",
-			"achilles_functions_f_achilles",
+			"achilles_functions_f",
 			"achilles_data_f",
 			"achilles_data_f_ares"
 		};

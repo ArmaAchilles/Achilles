@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class achilles_functions_f_achilles
+	class achilles_functions_f
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;

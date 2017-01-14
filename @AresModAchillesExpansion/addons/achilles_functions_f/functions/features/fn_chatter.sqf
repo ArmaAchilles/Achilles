@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 4/11/16
 //	VERSION: 2.0
-//	FILE: Achilles\functions_f_achilles\functions\features\fn_chatter.sqf
+//	FILE: achilles\functions_f\functions\features\fn_chatter.sqf
 //  DESCRIPTION: AI chatter in chat
 //
 //	ARGUMENTS:
