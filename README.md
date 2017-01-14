@@ -10,9 +10,8 @@ No one would argue that this mod changed completely the way we play Zeus and I c
 Unfortunately, Ares hasn't been updated for ages.
 My intention is to fix and further expand Ares with "Ares Mod - Achilles Expansion".
 
-###Add-on description:
+###Required Add-ons:
 
-Required Add-ons:
 - [CBA_A3](https://steamcommunity.com/sharedfiles/filedetails/?id=450814997)
 - [ACE3](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262) (optional)
 - [Advanced Rappelling](https://steamcommunity.com/sharedfiles/filedetails/?id=713709341) (optional)
