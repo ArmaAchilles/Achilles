@@ -470,7 +470,7 @@
         <English>Bind Variable to Object</English>
         <French>Associer Variable avec Objet</French>
         <Russian>Указать имя объекта</Russian>
-        <German>Variable an Objekt befestigen</German>
+        <German>Variable an Objekt binden</German>
       </Key>
       <Key ID="STR_ADVANCED_WEATHER_CHANGE">
         <Original>Advanced Weather Change</Original>
