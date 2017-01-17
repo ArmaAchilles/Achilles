@@ -37,7 +37,7 @@ Achilles integrates code from the following mods or scripts:
 Translations:
 * English (by Kex)
 * French (by Kex)
-* German (by Kex)
+* German (by Kex; revised by KiritoKun223)
 * Russian (by Igor Nikolaev)
 
 
