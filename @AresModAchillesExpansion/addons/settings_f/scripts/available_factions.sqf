@@ -26,10 +26,10 @@ _faction_names = [];
 					params [""_value""]; 
 					if (_value) then 
 					{
-						Achilles_var_excludedFactions = Achilles_var_excludedFactions - ['" + _faction_name + "']
+						Achilles_var_excludedFactions = Achilles_var_excludedFactions - [""" + _faction_name + """]
 					} else
 					{
-						Achilles_var_excludedFactions pushBack '" + _faction_name + "';
+						Achilles_var_excludedFactions pushBack """ + _faction_name + """;
 					};
 					Achilles_var_reloadDisplay = true;
 				")
