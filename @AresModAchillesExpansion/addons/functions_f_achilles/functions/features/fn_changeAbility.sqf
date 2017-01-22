@@ -14,7 +14,7 @@
 //	[_unit] call Achilles_fnc_changeAbility;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET"]
+#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET","PATH"]
 
 private ["_selection","_dialogResult","_mode"];
 
@@ -33,7 +33,8 @@ _dialogResult =
 		["FSM:",["true","false"]],
 		["Move:",["true","false"]],
 		["Suppression:",["true","false"]],
-		["Target:",["true","false"]]
+		["Target:",["true","false"]],
+		["Path:",["true","false"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
