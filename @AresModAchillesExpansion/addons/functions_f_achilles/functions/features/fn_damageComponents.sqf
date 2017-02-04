@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 1/1/17
-//	VERSION: 3.0
+//	DATE: 2/4/17
+//	VERSION: 4.0
 //  DESCRIPTION: opens the "damage components" dialog for vehicles.
 //
 //	ARGUMENTS:
@@ -16,11 +16,17 @@
 
 // get params
 _vehicle = _this select 0;
-_components = (getAllHitPointsDamage _vehicle) select 0;
 
-// truncation of array given by dialog space (important components are usually below the truncation)
-_components = _components select [0,14];
-_entries	= _components apply {[_x,"SLIDER"]};
+_entries = [];
+
+_allHitPointsDamage = getAllHitPointsDamage _vehicle;
+
+for "_i" from 0 to (count (_allHitPointsDamage select 0) - 1) do
+{
+	_component = _allHitPointsDamage select 0 select _i;
+	if (_component == "") then {_component = _allHitPointsDamage select 1 select _i};
+	_entries pushBack [_component,"SLIDER"];
+};
 
 _dialogResult = 
 [

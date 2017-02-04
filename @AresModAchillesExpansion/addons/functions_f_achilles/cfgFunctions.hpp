@@ -54,6 +54,7 @@ class CfgFunctions
 			class ungroupObjects;
             class setCuratorVisionModes;
 			class damageBuildings;
+			class vehicleArsenal;
 		};
 	};
 	class A3_Functions_F_Curator

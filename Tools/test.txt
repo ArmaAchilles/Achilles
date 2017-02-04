@@ -1,0 +1,30 @@
+* Change: Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
+* Change: Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see #40)
+* Change: "Destroy Buildings" Module was changed to "Damage Buildings" Module (=more options).
+* Change: "Patrol" module was changed to "Patrol/Loiter (Heli)" => Loiter waypoint for aircrafts.
+* Change: Default assigned hotkey to eject passengers has changed from `LEFT SHIFT` + `G` to `V`.
+* Change: For logged-in admins the "execute code" module is in any case available.
+* Change: "Bind variable to object" variable is no longer public, but still global.
+* Change: Postpone initialization of global functions to the point they are needed (like CED version).
+* Feature: Toggle street lamps module
+* Feature: Autocollapse Tree (see #26) 
+* Feature: Apex symbol in front of apex objects and warning message.
+* Feature: CBA settings framework (by @Grezvany13).
+* Feature: Settings: Helmet & DLC icons for module tree (by @Grezvany13).
+* Feature: Settings: Zeus vison modes (by @Grezvany13).
+* Feature: Settings: Set available factions for module tree (especially useful for addons like CUP).
+* Feature: Settings: Customizable hotkeys.
+* Feature: Waypoint: Paradrop waypoint.
+* Feature: Waypoint: Improved fastroping waypoint; ACE3 or Advanced Rappeling (AR) is needed. The latter is used if both are loaded. (Note that ACE3 fastroping does not work properly in MP in contrast to AR)
+* Feature: Reinforcement Module: Type of waypoint can be selected: Land, fastroping or paradrop.
+* Feature: JIP option for execute code.
+* Feature: Module "Change Altitude": Change altitude for aircrafts, divers and submarines (Note: In some cases you have to place a waypoint to get the desired effect!).
+* Feature: Improve "Add objects to Zeus" module (shorter radius, Filters)
+* Fix: Non-local surrendered units stuck after release in cetain cases.
+* Fix: Implement solution similar to CED (see #27).
+* Fix: Player manned vehicles cannot be edited (see [BIS forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3132117))
+* Fix: Advanced attributes do not work for non-local units (see #38)
+* Fix: "Garrison building instant" module does not work for non-local units.
+* Fix: Suppressive fire does not work properly with move waypoints.
+* Fix: Mines were marked on map (check ACE3 solution?)
+* Fix: Mortar only fire one shell (see #36)

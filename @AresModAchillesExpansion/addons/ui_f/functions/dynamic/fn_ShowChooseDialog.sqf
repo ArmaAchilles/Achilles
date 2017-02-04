@@ -44,10 +44,12 @@ if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
 #define DYNAMIC_GUI_IDD			133798
 #define DYNAMIC_TITLE_IDC		1000
 #define DYNAMIC_BG_IDC			2000
+#define DYNAMIC_CTRL_GROUP		7000
 #define	DYNAMIC_BOTTOM_IDCs		[2010,3000,3010]
 
 #define BG_WIDTH				(40 * GUI_GRID_W)
-#define START_ROW_Y				(2 * GUI_GRID_H + GUI_GRID_Y)
+#define START_ROW_Y				(0 * GUI_GRID_H + GUI_GRID_Y)
+#define MAX_ROW_Y				(29.4 * GUI_GRID_H + GUI_GRID_Y)
 #define LABEL_COMBO_DELTA_Y		(0.5 * GUI_GRID_H + GUI_GRID_Y)
 #define LABEL_COLUMN_X			(0.5 * GUI_GRID_W + GUI_GRID_X)
 #define LABEL_WIDTH				(39 * GUI_GRID_W)
@@ -75,9 +77,19 @@ _dialog = findDisplay DYNAMIC_GUI_IDD;
 
 // translate the bottom line of the dialog
 _row_heights = _choicesArray apply {_choices = _x select 1; if (_choices in ["ALLSIDE","SIDE"]) then {GtC_H(4.1)} else {TOTAL_ROW_HEIGHT};};
-_yCoord = (_row_heights call Achilles_fnc_sum) + TOTAL_ROW_HEIGHT + GtC_H(0.4);
+_tot_height = _row_heights call Achilles_fnc_sum;
+if (_tot_height > MAX_ROW_Y) then {_tot_height = MAX_ROW_Y};
 
-_yCoord = _yCoord + (0.4 * GUI_GRID_H);
+_yCoord = _tot_height + TOTAL_ROW_HEIGHT + GtC_H(0.4);
+
+// Resize ctrl group
+_ctrl_group = _dialog displayCtrl DYNAMIC_CTRL_GROUP;
+_pos = ctrlPosition _ctrl_group;
+_pos set [3,_yCoord-(_pos select 1)];
+_ctrl_group ctrlSetPosition _pos;
+_ctrl_group ctrlCommit 0;
+
+_yCoord = _yCoord + GtC_H(0.4);
 
 {
 	_bottomCtrl = _dialog displayCtrl _x;
@@ -130,7 +142,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 	};
 
 	// Create the label for this entry
-	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex];
+	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 	_choiceLabel ctrlSetText _choiceName;
 	_choiceLabel ctrlSetBackgroundColor [0,0,0,0.6];
 	
@@ -142,7 +154,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		_choiceLabel ctrlCommit 0;
 		
 		// Create the combo box for this entry and populate it.		
-		_choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex];
+		_choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 		_choiceCombo ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 		_choiceLabel ctrlSetBackgroundColor [0,0,0,0.5];
 		_choiceCombo ctrlCommit 0;
@@ -183,7 +195,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_choiceLabel ctrlCommit 0;
 			
 			// create entry background
-			_ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex];
+			_ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_yCoord = _yCoord + GtC_H(0.5);
 			_ctrl ctrlSetBackgroundColor [1,1,1,0.1];
 			_ctrl ctrlSetPosition [GtC_X(8),_yCoord,GtC_W(31),GtC_H(3)];
@@ -194,7 +206,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_xCoord = GtC_X(12.5);
 			{
 				_icon = _x;
-				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex];
+				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex, _ctrl_group];
 				_ctrl ctrlSetBackgroundColor [1,1,1,1];
 				_ctrl ctrlSetActiveColor [1,1,1,1];
 				_side_name = toUpper (if (_foreachindex == 0) then {"ZEUS"} else {(_foreachindex - 1) call bis_fnc_sideName});
@@ -229,7 +241,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			
 			// create the control element
 			_ctrl_type = if (_choices == "SLIDER") then {"RscXSliderH"} else {"RscEdit"};
-			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex];
+			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 			_ctrl ctrlCommit 0;
 			if (_choices == "SLIDER") then

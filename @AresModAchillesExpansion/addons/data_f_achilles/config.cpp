@@ -10,9 +10,12 @@ class CfgPatches
 		versionStr = "0.0.1";
 		versionAr[] = {0,0,1};
 		
-		units[] = {};
+		units[] = {"Land_BluntStone_26"};
 
-		requiredAddons[] = {"A3_Structures_F","A3_Structures_F_Mil"};
+		requiredAddons[] = {"A3_Structures_F","A3_Structures_F_Mil","A3_Rocks_F"};
+		
+		// this prevents any patched class from requiring this addon
+        addonRootClass = "A3_Structures_F";
 	};
 };
 
@@ -24,72 +27,20 @@ class CfgVehicles
 	{
 		scopeCurator = 2;
 	};
-	class RoadBarrier_small_F : RoadCone_L_F
-	{
-		scopeCurator = 2;
-	};
-	
 	class Static : All {};
-	
-	class HBarrier_base_F : Static {};
-	class Land_HBarrierTower_F : HBarrier_base_F 
+	class Rocks_base_F : Static {};
+	class Land_BluntStone_26: FloatingStructure_F 
 	{
+		author = "$STR_A3_Bohemia_Interactive";
+		mapSize = 3.800000;
+		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_BluntStone_02.jpg";
+		_generalMacro = "Land_BluntStone_02";
+		scope = 2;
 		scopeCurator = 2;
-	};
-	class Land_HBarrier_1_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrierWall_corridor_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrierWall6_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrierWall_corner_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrierBig_F : HBarrier_base_F {};
-	class Land_HBarrier_Big_F : Land_HBarrierBig_F
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrier_3_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrier_5_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_HBarrierWall4_F : HBarrier_base_F 
-	{
-		scopeCurator = 2;
-	};
-	
-	class BagFence_base_F : Static {};
-	class Land_BagFence_Short_F : BagFence_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_BagFence_Round_F : BagFence_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_BagFence_Long_F : BagFence_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_BagFence_End_F : BagFence_base_F 
-	{
-		scopeCurator = 2;
-	};
-	class Land_BagFence_Corner_F : BagFence_base_F 
-	{
-		scopeCurator = 2;
+		displayName = "Land_BluntStone_020";
+		model = "\A3\Rocks_F\Blunt\BluntStone_02.p3d";
+		icon = "iconObject_elipse_H";
+		accuracy = 1000;
 	};
 };
 
