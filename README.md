@@ -10,10 +10,16 @@ No one would argue that this mod changed completely the way we play Zeus and I c
 Unfortunately, Ares hasn't been updated for ages.
 My intention is to fix and further expand Ares with "Ares Mod - Achilles Expansion".
 
+###Required Add-ons:
+
+- [CBA_A3](https://steamcommunity.com/sharedfiles/filedetails/?id=450814997)
+- [ACE3](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262) (optional)
+- [Advanced Rappelling](https://steamcommunity.com/sharedfiles/filedetails/?id=713709341) (optional)
+
 Notes:
-- The add-on is a modified standalone version of Ares Mod and has to be run with CBA.
+- The add-on is a modified standalone version of Ares Mod.
 - **DO NOT RUN** this mod with Ares at the same time. All features from Ares are included anyway. 
-- ACE3 is optional, but is requiered to unlock certain additional features.
+- ACE3 and Advanced Rappelling are optional, but are requiered to unlock certain additional features.
 - Moreover, only Zeus need to have the add-on installed as it was the case for Ares Mod.
 
 ###Links:

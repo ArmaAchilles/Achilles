@@ -1817,7 +1817,7 @@
         <English>Wind Force</English>
         <French>Foce du vent</French>
         <Russian>Сила ветра</Russian>
-        <German>Wind Stärke</German>
+        <German>Windstärke</German>
       </Key>
       <Key ID="STR_WIND_DIRECTION">
         <Original>Wind Direction</Original>
@@ -2034,7 +2034,7 @@
         <English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
         <French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
         <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 юнит(ов) )</Russian>
-        <German>SQF wurde generiert aus Missions Objekten (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
+        <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
       </Key>
       <Key ID="STR_COPY_PASTE_DIALOG">
         <Original>Copy/Paste Dialog</Original>
@@ -2542,6 +2542,7 @@
     <Container name="cfg Hints">
       <Key ID="STR_PLACING_MODULES">
         <Original>Placing Modules</Original>
+        <German>Module platzieren</German>
         <Russian>Установка модулей</Russian>
 	      <German>Module platzieren</German>
       </Key>
@@ -2555,11 +2556,23 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
 		</Original>
+        <German>
+			Die Ares Module haben Icons, welche ihre Eigenschaften darstellen.%1Die, die am meisten vorkommen, sind hier beschrieben:
+			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Dieses Modul kann auf eine Einheit, aber auch irgendwo anders platziert werden. Die verfügbaren Modul-Optionen hängen davon ab!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, aber oft auch auf eine Einheit.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann auf ein Objekt, aber auch überall anders platziert werden. Die verfügbaren Modul-Optionen hängen davon ab!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf die Position angewendet, auf der es platziert wurde.
+		</German>
       </Key>
       <Key ID="STR_PLACING_MODULES_TIP">
         <Original>
 			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
+        <German>
+			Bei Modulen, welche du auf Objekten oder Einheiten anwenden kannst, ist es oft der Fall, dass du sie entweder auf eine Einheit, oder auch in der Nähe platzieren kannst, um ihren Effekt auf mehrere Einheiten anzuwenden..
+		</German>
         <Russian>
 			Модули, примененные на объекты или юнитов, чаще всего могут быть либо поставлены на объект, либо на землю, чтобы применить модуль для большего количества объектов.
 		</Russian>
@@ -2578,12 +2591,12 @@
         <Original>
 			Some modules have the option to select objects on which it is apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</Original>
         <English>
 			Some modules have the option to select objects on which it is apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</English>
         <French>
 			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
@@ -2603,10 +2616,10 @@
       </Key>
       <Key ID="STR_SELECTION_OPTION_TIP">
         <Original>
-			You can read on top what the module want you to select.
+			You can read on top what the module wants you to select.
 		</Original>
         <English>
-			You can read on top what the module want you to select.
+			You can read on top what the module wants you to select.
 		</English>
         <French>
 			Il est écrié au-dessus qu'est-ce que vous devez choisir.
@@ -2620,6 +2633,7 @@
       </Key>
       <Key ID="STR_KEY_ASSIGNMENT">
         <Original>Additional Key Assignment</Original>
+        <German>Zusätzliche Tastenbelegungen</German>
         <Russian>Назначение доп. ключей</Russian>
       </Key>
       <Key ID="STR_KEY_ASSIGNMENT_DESCRIPTION">
@@ -2634,18 +2648,19 @@
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
 		</Original>
         <German>
-			Weitere verfübare Tastenzuweisungen:
-			%1%1%2Drücke %3[L STRG]%4 + 2x %3[LMB]%4 auf eine Einheit, um diese zu steuern.
-			%1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) aus einem Fahrzeug zu werfen. (Fallschirmsprung für Flugzeuge/Helikopter).
-			%1%2Drücke %3[L STRG]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten (mit allen Eigenschaften) zu kopieren.
-			%1%2Drücke %3[L STRG]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten (mit allen Eigenschaften) einzufügen.
-			%1%2Wenn du eine Einheit auswählst und %11 drückst, wirft diese Rauch oder Kontermaßnahmen ab.
-			%1%2Drücke %3[L STRG]%4 + %3[G]%4 um Objekte zu gruppieren.
-			%1%2Drücke %3[L STRG]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
+			Verfügbare zusätzliche Tastenbelegungen:
+			%1%1%2Drücke %3[Links STRG]%4 + 2x %3[LMB]%4 auf eine Einheit, um diese zu steuern.
+			%1%2Drücke %3[Links Shift]%4 + %3[G]%4 um Passagiere eines Fahrzeugs (auch Spieler) zum Abspringen zu zwingen (Fallschirmsprung bei Flugzeugen).
+			%1%2Drücke %3[Links STRG]%4 + %3[Links Shift]%4 + %3[C]%4 um Einheiten, mit allen Eigenschaften, zu kopieren.
+			%1%2Drücke %3[Links STRG]%4 + %3[Links Shift]%4 + %3[V]%4 um Einheiten, mit allen Eigenschaften, einzufügen.
+			%1%2Wenn du eine Einheit auswählst und %11 drückst, setzt sie Kontermaßnahmen ein (wenn verfügbar).
+			%1%2Drücke %3[Links STRG]%4 + %3[G]%4 um Objekte zu gruppieren.
+			%1%2Drücke %3[Links STRG]%4 + %3[Links Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
 		</German>
       </Key>
       <Key ID="STR_EXECUTE_CODE">
         <Original>Execute Code Module</Original>
+	<German>Modul um Code auszuführen</German>
         <Russian>Модуль активации кода</Russian>
       </Key>
       <Key ID="STR_EXECUTE_CODE_DESCRIPTION">
@@ -2656,10 +2671,10 @@
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
 		</Original>
         <German>
-			Das Modul zum Ausführen von Skripten ist nur verfügbar, wenn der Server dies erlaubt!
-			%1%1Es gibt 2 eingebaute Parameter:
-			%1%2%3_this select 0%4   POSITION:   Position wo das Modul platziert wird.
-			%1%2%3_this select 1%4   OBJECT:     Gibt ObjNull zurück, oder das Objekt auf dem das Modul platziert wurde.
+			Das Modul um Code auszuführen ist nur verfügbar, wenn der Server dem Client erlaubt dies zu nutzen!
+			%1%1Es sind 2 eingebaute Parameter verfügbar:
+			%1%2%3_this select 0%4   POSITION:   Position, wo das Modul platziert wurde.
+			%1%2%3_this select 1%4   OBJECT:     Gibt ObjNull zurück, oder das Objekt, auf dem das Modul platziert wurde.
 		</German>
       </Key>
       <Key ID="STR_ARES_FIELD_MANUAL">
@@ -2688,6 +2703,7 @@
       </Key>
       <Key ID="STR_RC_VEHICLE_CREW">
         <Original>Remote Control Vehicle Crew</Original>
+        <German>Crew eines Fahrzeugs übernehmen</German>
         <Russian>Дистанционный контроль экипажа</Russian>
       </Key>
       <Key ID="STR_RC_VEHICLE_CREW_DESCRIPTION">
@@ -2698,10 +2714,10 @@
 			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
 		</Original>
         <German>
-			Wie man eine Einheit in einem Fahrzeug steuert:
-			%1 1) Wähle die Einheit in der Objekt-Liste auf der linken Seite aus.
-			%1 2) Das Icon der Einheit erscheint im Fahrzeug, welches zu der Einheit gehört.
-			%1 3) Drücke %3[L STRG]%4 + 2x %3[RMB]%4 auf das Icon der Einheit.
+			Wie man die Steuerung einer Einheit in einem Fahrzeug übernimmt:
+			%1 1) Wähle die Einheit in der Objekt-Leiste (links) aus.
+			%1 2) Es erscheint ein neues Icon im Farhzeug, welches zu dieser Einheit gehört.
+			%1 3) Drücke %3[Links STRG]%4 + 2x %3[RMB]%4 auf das Icon der Einheit.
 		</German>
       </Key>
     </Container>
@@ -2732,6 +2748,7 @@
         </Key>
         <Key ID="STR_MODULE_ICONS">
             <Original>Which icons should be displayed in the Module Tree</Original>
+            <German>Welche Icons im Modul-Baum angezeigt werden sollen</German>
         </Key>
         <Key ID="STR_MODULE_ICONS_HELMET">
             <Original>Helmet Icons on Category level</Original>
