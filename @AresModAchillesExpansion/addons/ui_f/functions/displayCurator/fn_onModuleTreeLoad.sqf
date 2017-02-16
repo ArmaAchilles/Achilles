@@ -116,39 +116,48 @@ _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 */
 
 //collapse unit tree or remove faction
+if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) then
 {
-	_tree_ctrl = _display displayCtrl _x;
-	for "_i" from ((_tree_ctrl tvCount []) - 1) to 0 step -1 do
 	{
-		_path = [_i];
-		_faction_name = _tree_ctrl tvText _path;
-		if (_faction_name in Achilles_var_excludedFactions) then
+		_tree_ctrl = _display displayCtrl _x;
+		for "_i" from ((_tree_ctrl tvCount []) - 1) to 0 step -1 do
 		{
-			_tree_ctrl tvDelete _path;
-		} else
-		{
-			_tree_ctrl tvCollapse _path;
+			_path = [_i];
+			_faction_name = _tree_ctrl tvText _path;
+			if (_faction_name in Achilles_var_excludedFactions) then
+			{
+				_tree_ctrl tvDelete _path;
+			} else
+			{
+				if (Achilles_var_moduleTreeCollapse) then
+				{
+					_tree_ctrl tvCollapse _path;
+				};
+			};
 		};
-	};
-} forEach
-[
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER
-];
+	} forEach
+	[
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER
+	];
+};
 
 //collapse unit trees
+if (Achilles_var_moduleTreeCollapse) then
 {
-	_tree_ctrl = _display displayCtrl _x;
-	for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
 	{
-		_tree_ctrl tvCollapse [_i];
-	};
-} forEach
-[
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV,
-	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY
-];
+		_tree_ctrl = _display displayCtrl _x;
+		for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
+		{
+			_tree_ctrl tvCollapse [_i];
+		};
+	} forEach
+	[
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY
+	];
+};
 
 //collapse group trees or remove faction
 {

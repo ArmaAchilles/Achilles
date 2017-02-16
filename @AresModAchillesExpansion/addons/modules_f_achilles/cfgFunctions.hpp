@@ -12,6 +12,7 @@ class CfgFunctions
 		#include "Effects\cfgFunctionsEffects.hpp"
 		#include "MissionFlow\cfgFunctionsMissionFlow.hpp"
 		#include "Objects\cfgFunctionsObjects.hpp"
+		#include "Replacement\cfgFunctionsReplacement.hpp"
 		#include "Spawn\cfgFunctionsSpawn.hpp"
 	};
 };

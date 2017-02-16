@@ -57,4 +57,11 @@ _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
 
+// Unlock all available attributes
+_curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesobject",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];
+
 _display_reload;
