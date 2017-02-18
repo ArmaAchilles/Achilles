@@ -10,7 +10,7 @@
  * ["Test_Setting_4", "COLOR",    ["-test color-",    "-tooltip-"], "My Category", [1,1,0], false, {diag_log text format ["Color Setting Changed: %1", _this];}] call cba_settings_fnc_init;
 */
 
-#include "module_icons.sqf"
+#include "module_tree.sqf"
 #include "curator_vision.sqf"
 #include "available_factions.sqf"
 #include "keybindings.sqf"

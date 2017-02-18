@@ -72,6 +72,7 @@ class RscAttributeRespawnPosition : RscControlsGroupNoScrollbars
 
 // include modified attributes
 #include "Replacement\RscAttributes.hpp"
+#include "Replacement\RscAttributeInventory.hpp"
 
 // include modified dialogs and displays
 #include "Replacement\RscDisplayAttributesMan.hpp"

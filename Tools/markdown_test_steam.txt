@@ -1,5 +1,5 @@
 * Change: Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
-* Change: Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see #40)
+* Change: Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/40]#40[/url])
 * Change: "Destroy Buildings" Module was changed to "Damage Buildings" Module (=more options).
 * Change: "Patrol" module was changed to "Patrol/Loiter (Heli)" => Loiter waypoint for aircrafts.
 * Change: Default assigned hotkey to eject passengers has changed from `LEFT SHIFT` + `G` to `V`.
@@ -7,7 +7,7 @@
 * Change: "Bind variable to object" variable is no longer public, but still global.
 * Change: Postpone initialization of global functions to the point they are needed (like CED version).
 * Feature: Toggle street lamps module
-* Feature: Autocollapse Tree (see #26) 
+* Feature: Autocollapse Tree (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/26]#26[/url]) 
 * Feature: Apex symbol in front of apex objects and warning message.
 * Feature: CBA settings framework (by @Grezvany13).
 * Feature: Settings: Helmet & DLC icons for module tree (by @Grezvany13).
@@ -20,11 +20,11 @@
 * Feature: JIP option for execute code.
 * Feature: Module "Change Altitude": Change altitude for aircrafts, divers and submarines (Note: In some cases you have to place a waypoint to get the desired effect!).
 * Feature: Improve "Add objects to Zeus" module (shorter radius, Filters)
-* Fix: Non-local surrendered units stuck after release in cetain cases.
-* Fix: Implement solution similar to CED (see #27).
-* Fix: Player manned vehicles cannot be edited (see [BIS forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3132117))
-* Fix: Advanced attributes do not work for non-local units (see #38)
-* Fix: "Garrison building instant" module does not work for non-local units.
-* Fix: Suppressive fire does not work properly with move waypoints.
-* Fix: Mines were marked on map (check ACE3 solution?)
-* Fix: Mortar only fire one shell (see #36)
+* Fix:  Non-local surrendered units stuck after release in cetain cases.
+* Fix:  Implement solution similar to CED (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/27]#27[/url]).
+* Fix:  Player manned vehicles cannot be edited (see [url=https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3132117]BIS forum[/url])
+* Fix:  Advanced attributes do not work for non-local units (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/38]#38[/url])
+* Fix:  "Garrison building instant" module does not work for non-local units.
+* Fix:  Suppressive fire does not work properly with move waypoints.
+* Fix:  Mines were marked on map (check ACE3 solution?)
+* Fix:  Mortar only fire one shell (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/36]#36[/url])

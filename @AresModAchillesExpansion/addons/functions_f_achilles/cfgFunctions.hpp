@@ -29,6 +29,7 @@ class CfgFunctions
 			class checkLineOfFire2D;
 			class matrixTranspose;
 			class vectorMap;
+			class dikToLetter;
 		};
 		
 		class functions_f_features

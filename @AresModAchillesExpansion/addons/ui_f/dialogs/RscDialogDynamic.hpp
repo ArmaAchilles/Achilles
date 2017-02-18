@@ -32,7 +32,7 @@ class Ares_Dynamic_Dialog
 			h = 22.5 * GUI_GRID_H;
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
-		class Ares_Content : RscControlsGroup
+		class Ares_Content: RscControlsGroup
 		{
 			idc = 7000
 			x = 0 * GUI_GRID_W + GUI_GRID_X;

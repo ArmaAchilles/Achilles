@@ -2484,6 +2484,18 @@
         <French>Sous-catégorie</French>
         <German>Unterkategorie</German>
       </Key>
+      <Key ID="STR_WEAPON_SPECIFIC">
+        <Original>Weapon-specific</Original>
+        <English>Weapon-specific</English>
+        <French>Spécifique à l'arme</French>
+        <German>Waffenspezifisch</German>
+      </Key>
+	  <Key ID="STR_VAR">
+        <Original>Variable</Original>
+        <English>Variable</English>
+        <French>Variable</French>
+        <German>Variable</German>
+      </Key>
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">
@@ -2761,6 +2773,12 @@
 			<English>DLC Icons</English>
 			<French>Symbole de DLC</French>
 			<German>DLC Symbole</German>
+        </Key>
+        <Key ID="STR_COLLAPSE_TREE_BY_DEFAULT">
+            <Original>Collapse module tree by default</Original>
+			<English>Collapse module tree by default</English>
+			<French>Réduirez l'arbre de modules par défaut</French>
+			<German>Modul-Baum standardmäßig schließen</German>
         </Key>
         <Key ID="STR_VISION_MODES">
             <Original>Achilles - Curator Vision Modes</Original>

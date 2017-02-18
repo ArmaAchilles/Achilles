@@ -76,7 +76,16 @@ _createdDialogOk = createDialog "Ares_Dynamic_Dialog";
 _dialog = findDisplay DYNAMIC_GUI_IDD;
 
 // translate the bottom line of the dialog
-_row_heights = _choicesArray apply {_choices = _x select 1; if (_choices in ["ALLSIDE","SIDE"]) then {GtC_H(4.1)} else {TOTAL_ROW_HEIGHT};};
+_row_heights = _choicesArray apply 
+{
+	_choices = _x select 1;
+	switch (_choices) do 
+	{
+		case "ALLSIDE"; case "SIDE": {GtC_H(4.1)};
+		case "MESSAGE": {TOTAL_ROW_HEIGHT + 4*COMBO_HEIGHT};
+		default {TOTAL_ROW_HEIGHT};
+	};
+};
 _tot_height = _row_heights call Achilles_fnc_sum;
 if (_tot_height > MAX_ROW_Y) then {_tot_height = MAX_ROW_Y};
 
@@ -188,6 +197,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 	}
 	else 
 	{
+		_choices = toUpper _choices;
 		if (_choices in ["ALLSIDE","SIDE"]) then
 		{
 			// set entry label position
@@ -234,15 +244,21 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_yCoord = _yCoord + GtC_H(3.1);
 		} else
 		{
-		
+			_add_height = if (_choices == "MESSAGE") then {4*COMBO_HEIGHT} else {0};
+			
 			// set entry label position
-			_choiceLabel ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
+			_choiceLabel ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
 			_choiceLabel ctrlCommit 0;
 			
 			// create the control element
-			_ctrl_type = if (_choices == "SLIDER") then {"RscXSliderH"} else {"RscEdit"};
+			_ctrl_type = switch (_choices) do
+			{
+				case "SLIDER": {"RscXSliderH"};
+				case "MESSAGE": {"RscAchillesMessageEdit"};
+				default {"RscAchillesEdit"};
+			};
 			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
 			_ctrl ctrlCommit 0;
 			if (_choices == "SLIDER") then
 			{
@@ -268,7 +284,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 				
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
 			// Move onto the next row
-			_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
+			_yCoord = _yCoord + TOTAL_ROW_HEIGHT + _add_height;
 		};
 	};
 } forEach _choicesArray;
@@ -277,7 +293,9 @@ uiNamespace setVariable ["Ares_ChooseDialog_Result", -1];
 
 if (_ResourceScript != "") then {call compile format["[""LOADED""] call %1;",_ResourceScript]};
 
-waitUntil { !dialog };
+Ares_var_showChooseDialog = true;
+_dialog displayAddEventHandler ["unload",{Ares_var_showChooseDialog = nil}];
+waitUntil { isNil "Ares_var_showChooseDialog" };
 
 if (_ResourceScript != "") then {call compile format["[""UNLOAD""] call %1;",_ResourceScript]};
 
