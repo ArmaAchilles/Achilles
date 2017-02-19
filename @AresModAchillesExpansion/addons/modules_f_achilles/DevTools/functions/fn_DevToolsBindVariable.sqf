@@ -14,8 +14,8 @@ if (isNull _object) exitWith {["No object selected!"] call Ares_fnc_ShowZeusMess
 _dialogResult = [
 	localize "STR_BIND_VAR",
 	[
-		[localize "STR_VAR",""]
-		[localize "STR_MODE",["Local","Public"]];
+		[localize "STR_VAR",""],
+		[localize "STR_MODE",["Local","Public"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 if (count _dialogResult > 0) then 

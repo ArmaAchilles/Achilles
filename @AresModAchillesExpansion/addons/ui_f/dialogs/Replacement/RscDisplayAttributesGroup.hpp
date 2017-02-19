@@ -1,6 +1,11 @@
 
 class RscDisplayAttributesGroup: RscDisplayAttributes 
 {
+	scriptName = "RscDisplayAttributesGroup";
+	scriptPath = "AresDisplays";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesGroup"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesGroup"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	
 	class Controls : Controls 
 	{
 		class Content: Content 

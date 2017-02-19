@@ -1,5 +1,5 @@
 
-#include "\a3\ui_f_curator\UI\displays\RscDisplayAttributes.sqf"
+#include "RscDisplayAttributes.sqf"
 
 _ctrlButtonCustom = _display displayctrl 30004;
 

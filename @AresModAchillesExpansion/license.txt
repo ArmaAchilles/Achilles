@@ -20,10 +20,11 @@ Ares integrates code from the following mods or scripts:
 
 Achilles Expansion includes contributions by the following coders:
 * Kex
+* Grezvany13 (Several contributions & support)
 * Talya (Assistance in general, even if he wasn't always aware of that ;) )
 * S.Crowe (ACE healing and Eden compatibilty of compositions)
 * Zakant (bug fixes and improval of code efficency)
-* Grezvany13 (several contributions & support)
+* Shukari (Available factions bug fix)
 
 
 Achilles integrates code from the following mods or scripts:

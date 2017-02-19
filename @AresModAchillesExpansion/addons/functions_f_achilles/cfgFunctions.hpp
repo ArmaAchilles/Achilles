@@ -56,6 +56,7 @@ class CfgFunctions
             class setCuratorVisionModes;
 			class damageBuildings;
 			class vehicleArsenal;
+			class preplaceMode;
 		};
 	};
 	class A3_Functions_F_Curator

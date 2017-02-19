@@ -394,9 +394,10 @@ switch _mode do {
 		
 		_cursel = lnbcurselrow _ctrlList;
 		_arsenal = _ctrlList lnbvalue [_cursel,3];
+		_value = _ctrlList lnbvalue [_cursel,0];
 		_arsenal = 1 - _arsenal;
 		_ctrlList lnbsetvalue [[_cursel,3], _arsenal];
-		_alpha = if (_arsenal == 1) then {1} else {0.5};
+		_alpha = if (_arsenal == 1 or _value > 0) then {1} else {0.5};
 		_ctrlList lnbsetcolor [[_cursel,1],[1,1,1,_alpha]];
 		_ctrlList lnbsetcolor [[_cursel,2],[1,1,1,_alpha]];
 		_ctrlList lnbsetcolor [[_cursel,3],[1,1,1,_alpha]];
