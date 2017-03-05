@@ -43,7 +43,6 @@ class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 // load external attributes
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
-class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars {};
 
 // include modified attributes
 #include "Replacement\RscAttributes.hpp"

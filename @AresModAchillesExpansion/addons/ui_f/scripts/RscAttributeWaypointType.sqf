@@ -39,10 +39,17 @@ switch _mode do {
 			_value = _values select _valueID;
 			_valueConfig = [_value,configfile] call bis_fnc_configpath;
 			if (isclass _valueConfig) then {
-				_entity setwaypointtype "SCRIPTED";
-				_entity setwaypointscript gettext (_valueConfig >> "file");
+				_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
+				{
+					_x setwaypointtype "SCRIPTED";
+					_x setwaypointscript gettext (_valueConfig >> "file");
+				} forEach _curatorSelectedWPs;
 			} else {
-				_entity setwaypointtype _value;
+				if (_value == waypointtype _entity) exitWith {};
+				_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
+				{
+					_x setwaypointtype _value;
+				} forEach _curatorSelectedWPs;
 			};
 		};
 	};

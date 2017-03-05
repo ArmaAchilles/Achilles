@@ -33,11 +33,16 @@ if (isClass (configfile >> "CfgPatches" >> "ace_main")) then
 	if (count _selected_units == 0) exitWith {};
 	
 	{
-		[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
+		if (local _x) then
+		{
+			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
+		} else
+		{
+			[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x];
+		};
 	} forEach _selected_units;
 } else
 {
-	
 	if (_mode == "single") then
 	{
 		["Headled"] call Ares_fnc_ShowZeusMessage;
@@ -53,10 +58,6 @@ if (isClass (configfile >> "CfgPatches" >> "ace_main")) then
 
 	// Vanilla Injury System
 	{
-		_x setHitPointDamage ["hitHead", 0];
-		_x setHitPointDamage ["hitBody", 0];
-		_x setHitPointDamage ["hitHands", 0];
-		_x setHitPointDamage ["hitLegs", 0];
 		_x setDamage 0;
 	} forEach _selected_units;
 };

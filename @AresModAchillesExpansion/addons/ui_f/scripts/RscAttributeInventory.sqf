@@ -558,64 +558,79 @@ switch _mode do {
 	case "confirmed": {
 		_display = _params select 0;
 
-		clearweaponcargoglobal _entity;
-		clearmagazinecargoglobal _entity;
-		clearbackpackcargoglobal _entity;
-		clearitemcargoglobal _entity;
-
-		_entity call bis_fnc_removeVirtualItemCargo;
-		_entity call bis_fnc_removeVirtualWeaponCargo;
-		_entity call bis_fnc_removeVirtualMagazineCargo;
-		_entity call bis_fnc_removeVirtualBackpackCargo;
-
 		_classes = RscAttributeInventory_cargo select 0;
 		_values = RscAttributeInventory_cargo select 1;
-		{
-			if (_x != 0) then {
-				_class = _classes select _foreachindex;
-				switch true do {
-					case (getnumber (configfile >> "cfgweapons" >> _class >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _class)): {
-						_entity additemcargoglobal [_class,abs _x];
-					};
-					case (isclass (configfile >> "cfgweapons" >> _class)): {
-						_entity addweaponcargoglobal [_class,abs _x];
-					};
-					case (isclass (configfile >> "cfgmagazines" >> _class)): {
-						_entity addmagazinecargoglobal [_class,abs _x];
-					};
-					case (isclass (configfile >> "cfgvehicles" >> _class)): {
-						_entity addbackpackcargoglobal [_class,abs _x];
-					};
-				};
-			};
-		} foreach _values;
 		
 		_items = [];
 		_weapons = [];
 		_magazines = [];
 		_backpacks = [];
+		
+		{
+			if (_x != 0) then {
+				_class = _classes select _foreachindex;
+				switch true do {
+					case (getnumber (configfile >> "cfgweapons" >> _class >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _class)): {
+						_items pushBack [_class,abs _x];
+					};
+					case (isclass (configfile >> "cfgweapons" >> _class)): {
+						_weapons pushBack [_class,abs _x];
+					};
+					case (isclass (configfile >> "cfgmagazines" >> _class)): {
+						_magazines pushBack [_class,abs _x];
+					};
+					case (isclass (configfile >> "cfgvehicles" >> _class)): {
+						_backpacks pushBack [_class,abs _x];
+					};
+				};
+			};
+		} foreach _values;
+		
+		_virtual_items = [];
+		_virtual_weapons = [];
+		_virtual_magazines = [];
+		_virtual_backpacks = [];
 
 		{
 			switch true do {
 				case (getnumber (configfile >> "cfgweapons" >> _x >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _x)): {
-					_items pushBack _x;
+					_virtual_items pushBack _x;
 				};
 				case (isclass (configfile >> "cfgweapons" >> _x)): {
-					_weapons pushBack _x;
+					_virtual_weapons pushBack _x;
 				};
 				case (isclass (configfile >> "cfgmagazines" >> _x)): {
-					_magazines pushBack _x;
+					_virtual_magazines pushBack _x;
 				};
 				case (isclass (configfile >> "cfgvehicles" >> _x)): {
-					_backpacks pushBack _x;
+					_virtual_backpacks pushBack _x;
 				};
 			};
 		} forEach RscAttributeInventory_cargoVirtual;
+		
+		_curatorSelected = ["cargo"] call Achilles_fnc_getCuratorSelected;
+		{
+			_box = _x;
+			
+			clearitemcargoglobal _box;
+			clearweaponcargoglobal _box;
+			clearmagazinecargoglobal _box;
+			clearbackpackcargoglobal _box;
 
-		[_entity,_items,true] call bis_fnc_addVirtualItemCargo;
-		[_entity,_weapons,true] call bis_fnc_addVirtualWeaponCargo;
-		[_entity,_magazines,true] call bis_fnc_addVirtualMagazineCargo;
-		[_entity,_backpacks,true] call bis_fnc_addVirtualBackpackCargo;
+			_box call bis_fnc_removeVirtualItemCargo;
+			_box call bis_fnc_removeVirtualWeaponCargo;
+			_box call bis_fnc_removeVirtualMagazineCargo;
+			_box call bis_fnc_removeVirtualBackpackCargo;
+			
+			{_box additemcargoglobal _x} forEach _items;
+			{_box addweaponcargoglobal _x} forEach _weapons;
+			{_box addmagazinecargoglobal _x} forEach _magazines;
+			{_box addbackpackcargoglobal _x} forEach _backpacks;
+			[_box, _virtual_items,true] call bis_fnc_addVirtualItemCargo;
+			[_box, _virtual_weapons,true] call bis_fnc_addVirtualWeaponCargo;
+			[_box, _virtual_magazines,true] call bis_fnc_addVirtualMagazineCargo;
+			[_box, _virtual_backpacks,true] call bis_fnc_addVirtualBackpackCargo;
+		} forEach _curatorSelected;
 	};
 	case "onUnload": {
 		//RscAttributeInventory_list = nil;

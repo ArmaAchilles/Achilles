@@ -37,19 +37,25 @@ _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 
+_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+
 if (local _vehicle) then
 {
 	{
-		_vehicle setHitIndex [_forEachIndex,_x];
-	} forEach _dialogResult;
+		{
+			_x setHitIndex [_forEachIndex,_x];
+		} forEach _dialogResult;
+	} forEach _curatorSelected;
 } else
 {
-	[[_vehicle,_dialogResult],
 	{
-		_vehicle = _this select 0;
-		_attribute_values = _this select 1;
+		[[_x,_dialogResult],
 		{
-			_vehicle setHitIndex [_forEachIndex,_x];
-		} forEach _attribute_values;
-	}] remoteExec ["spawn",_vehicle];
+			_vehicle = _this select 0;
+			_attribute_values = _this select 1;
+			{
+				_vehicle setHitIndex [_forEachIndex,_x];
+			} forEach _attribute_values;
+		}] remoteExec ["spawn",_x];
+	} forEach _curatorSelected;
 };

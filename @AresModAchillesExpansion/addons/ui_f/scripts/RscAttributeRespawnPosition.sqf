@@ -95,8 +95,7 @@ switch _mode do {
 		};
 		_curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
 		{
-			_entity = _x;
-			_IDs = _entity getvariable ["RscAttributeRespawnPosition_ids",[]];
+			_IDs = _x getvariable ["RscAttributeRespawnPosition_ids",[]];
 
 			//--- Remove
 			{_x call bis_fnc_removerespawnposition;} foreach _IDs;
@@ -105,14 +104,14 @@ switch _mode do {
 			if (_selected != 4) then {
 				//--- Add
 				_side = _selected call bis_fnc_sideType;
-				_respawnID = [_side,_entity] call bis_fnc_addrespawnposition;
+				_respawnID = [_side,_x] call bis_fnc_addrespawnposition;
 				_IDs set [_selected,_respawnID];
-				_entity setvariable ["RscAttributeRespawnPosition_ids",_IDs,true];
+				_x setvariable ["RscAttributeRespawnPosition_ids",_IDs,true];
 			} else {
-				_entity setvariable ["RscAttributeRespawnPosition_ids",nil,true];
+				_x setvariable ["RscAttributeRespawnPosition_ids",nil,true];
 			};
-			_entity setvariable ["updated",true,true];
 		} forEach _curatorSelected;
+		_entity setvariable ["updated",true,true];
 		false
 	};
 	case "onUnload": {

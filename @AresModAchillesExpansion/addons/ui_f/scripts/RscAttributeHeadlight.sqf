@@ -73,9 +73,12 @@ switch _mode do
 		_light = _states select _selectedIndex;
 		if ((_entity getVariable ["headlight","auto"]) isEqualTo _light) exitwith {};
 		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+		if (_light isEqualTo "auto") exitWith 
+		{
+			{_x setVariable ["headlight","auto",true]} forEach _curatorSelected;
+		};
 		{
 			_x setVariable ["headlight",_light,true];
-			if (_light isEqualTo "auto") exitWith {};
 			_codeBlock = 
 			{
 				_entity = _this select 0;

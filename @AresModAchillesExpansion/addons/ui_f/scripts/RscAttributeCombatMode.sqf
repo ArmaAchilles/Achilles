@@ -89,28 +89,37 @@ switch _mode do {
 		_selected = _states select _selectedIndex;
 		if (typename _entity == typename []) then 
 		{
-			_group = _entity select 0;
-			_wp_id = _entity select 1;
-			if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+			if (waypointCombatMode _entity == _selected) exitWith {};
+			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
-				if (local _group) then
+				_group = _x select 0;
+				_wp_id = _x select 1;
+				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
 				{
-					_group setcombatmode _selected;
-				} else
-				{
-					[_group,_selected] remoteExec ["setcombatmode", leader _group];
+					if (local _group) then
+					{
+						_group setcombatmode _selected;
+					} else
+					{
+						[_group, _selected] remoteExec ["setcombatmode", leader _group];
+					};
 				};
-			};
-			_entity setwaypointcombatmode _selected;
+				_x setwaypointcombatmode _selected;
+			} forEach _curatorSelectedWPs;
 		} else 
 		{
-			if (local _entity) then
+			if (combatMode leader _entity == _selected) exitWith {};
+			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
-				_entity setcombatmode _selected;
-			} else
-			{
-				[_entity,_selected] remoteExec ["setcombatmode", leader _entity];
-			};
+				_leader = leader _x;
+				if (local _leader) then
+				{
+					_x setcombatmode _selected;
+				} else
+				{
+					[_x,_selected] remoteExec ["setcombatmode", _leader];
+				};
+			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};
 		false

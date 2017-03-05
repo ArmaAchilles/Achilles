@@ -114,6 +114,11 @@ class RscAttributeSpeedMode: RscControlsGroupNoScrollbars
 	onSetFocus = "[_this,""RscAttributeSpeedMode"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
 };
 
+class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars
+{
+	onSetFocus = "[_this,""RscAttributeRespawnVehicle"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
 class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeRespawnPosition"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";

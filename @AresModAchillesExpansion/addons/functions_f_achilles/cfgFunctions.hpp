@@ -65,12 +65,14 @@ class CfgFunctions
 		class Curator
 		{
 			delete showCuratorAttributes;
+			delete curatorObjectPlaced;
 		};
 		class Achilles
 		{
 			file = "\achilles\functions_f_achilles\functions\replacement";
 			
 			class showCuratorAttributes;
+			class curatorObjectPlaced;
 		};
 	};
 };

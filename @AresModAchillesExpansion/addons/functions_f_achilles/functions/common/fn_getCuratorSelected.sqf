@@ -2,13 +2,13 @@
 //	AUTHOR: Kex
 //	DATE: 2/26/17
 //	VERSION: 1.0
-//  DESCRIPTION: Get current selected units, vehicles or groups by curator
+//  DESCRIPTION: Get current selected units, vehicles , waypoints or groups by curator
 //
 //	ARGUMENTS:
-//	_this select 0:		STRING	- either "man", "vehicle" or "group"
+//	_this select 0:		STRING	- either "man" (units including crew), "vehicle" (vehicles), "cargo" (any object that can store items), "group" (groups), "wp" (waypoints)
 //
 //	RETURNS:
-//	_this:				ARRAY	- array of selected units or groups
+//	_this:				ARRAY	- array of selected objects, waypoints or groups
 //
 //	Example:
 //	["man"] call Achilles_fnc_getCuratorSelected;
@@ -45,9 +45,22 @@ switch (_mode) do
 			};
 		} forEach (curatorSelected select 0);			
 	};
+	case "cargo":
+	{
+		{
+			if (getNumber (configfile >> "CfgVehicles" >> typeOf _x >> "transportMaxMagazines") > 0) then
+			{
+				_selected pushBack _x;
+			};
+		} forEach (curatorSelected select 0);		
+	};
 	case "group":
 	{
 		_selected = (curatorSelected select 1);
+	};
+	case "wp":
+	{
+		_selected = (curatorSelected select 2);
 	};
 };
 _selected;
