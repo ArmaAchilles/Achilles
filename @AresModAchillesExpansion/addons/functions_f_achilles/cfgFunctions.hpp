@@ -30,6 +30,7 @@ class CfgFunctions
 			class matrixTranspose;
 			class vectorMap;
 			class dikToLetter;
+			class getCuratorSelected;
 		};
 		
 		class functions_f_features

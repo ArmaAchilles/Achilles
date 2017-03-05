@@ -43,7 +43,7 @@ if (_range_mode == 0) then
 		case 0: {nearestObjects [_center_pos,[],_radius]};
 		case 1: 
 		{
-			_units = nearestObjects [_center_pos,["Man","Car","Tank","Air","Ship"],_radius];
+			_units = nearestObjects [_center_pos,["LandVehicle","Tank","Air","Ship"],_radius];
 			if (_dialogResult select 4 == 1) then
 			{
 				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
@@ -53,7 +53,7 @@ if (_range_mode == 0) then
 				_units;
 			};
 		};
-		case 2: {nearestObjects [_center_pos,["Car","Tank","Air","Ship"],_radius]};
+		case 2: {nearestObjects [_center_pos,["LandVehicle","Air","Ship"],_radius]};
 		case 3: {nearestObjects [_center_pos,["Static"],_radius]};
 		case 4: {nearestObjects [_center_pos,["Logic"],_radius]};
 	};

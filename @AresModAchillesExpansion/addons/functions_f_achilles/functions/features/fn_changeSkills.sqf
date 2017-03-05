@@ -23,7 +23,7 @@ private ["_dialogResult","_mode","_units","_unit","_choices"];
 _entity = _this select 0;
 _is_single_unit = (typeName _entity == "OBJECT");
 _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
-
+/*
 _skill_choices = 
 [		
 	[localize "STR_AIMING_ACCURACY","SLIDER"],
@@ -123,3 +123,4 @@ _skill_values = _dialogResult select [_number_of_traits,count #SKILLS];
 		} forEach SKILLS;
 	};
 } forEach _units;
+*/

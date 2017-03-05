@@ -19,7 +19,12 @@ switch _mode do
 		_text = ctrltext _ctrlValue;
 		if (_text != name _entity) then
 		{
-			[_entity, _text] remoteExec ["setName",0,_entity];
+			_curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
+			[[_curatorSelected, _text], {
+				_entities = _this select 0;
+				_text = _this select 1;
+				{if (alive _x) then {_x setName _text}} foreach _entities;
+			}] remoteExec ["spawn", -2, _entity];
 		};
 	};
 	case "onUnload": {};
