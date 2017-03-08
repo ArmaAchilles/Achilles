@@ -44,6 +44,11 @@ class RscAttributeWaypointType: RscControlsGroupNoScrollbars
 	};
 };
 
+class RscAttributeWaypointTimeout: RscControlsGroupNoScrollbars
+{
+	onSetFocus = "[_this,""RscAttributeWaypointTimeout"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
 // include combat modes attribute
 class RscDisplayAttributesWaypoint: RscDisplayAttributes
 {

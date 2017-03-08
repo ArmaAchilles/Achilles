@@ -23,12 +23,15 @@ class CfgFunctions
 			class HigherConfigHierarchyLevel;
 			class ClassNamesWhichInheritsFromCfgClass;
 			class getAllTurretConfig;
+			class weaponsAllTurrets;
 			class getVehicleAmmoDef;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
 			class checkLineOfFire2D;
 			class matrixTranspose;
 			class vectorMap;
+			class dikToLetter;
+			class getCuratorSelected;
 		};
 		
 		class functions_f_features
@@ -54,6 +57,8 @@ class CfgFunctions
 			class ungroupObjects;
             class setCuratorVisionModes;
 			class damageBuildings;
+			class vehicleArsenal;
+			class preplaceMode;
 		};
 	};
 	class A3_Functions_F_Curator
@@ -61,12 +66,14 @@ class CfgFunctions
 		class Curator
 		{
 			delete showCuratorAttributes;
+			delete curatorObjectPlaced;
 		};
 		class Achilles
 		{
 			file = "\achilles\functions_f_achilles\functions\replacement";
 			
 			class showCuratorAttributes;
+			class curatorObjectPlaced;
 		};
 	};
 };

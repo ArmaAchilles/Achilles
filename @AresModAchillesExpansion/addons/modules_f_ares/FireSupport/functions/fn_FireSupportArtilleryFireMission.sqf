@@ -139,7 +139,7 @@ if (_mode == 0) then
 		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_MARKER"],
 		[
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
+			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
 			[localize "STR_AMMO", _artilleryAmmo],
 			[format [localize "STR_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;

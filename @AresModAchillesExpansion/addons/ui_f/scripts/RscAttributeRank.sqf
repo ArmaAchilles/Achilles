@@ -50,8 +50,15 @@ switch _mode do
 	{
 		_display = _params select 0;
 		_rankID = uinamespace getvariable ["RscAttributeRank_rank",0];
-		_rank = _rankID call bis_fnc_rankparams;
-		_unit setUnitRank _rank;
+		_mode = if (_unit isKindOf "Man") then {"man"} else {"vehicle"};
+		if (_rankID != rankID _unit) then
+		{
+			_rank = _rankID call bis_fnc_rankparams;
+			_curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
+			{
+				_x setUnitRank _rank;
+			} forEach _curatorSelected;
+		};
 		false
 	};
 	case "onUnload": {

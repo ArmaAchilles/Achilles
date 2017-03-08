@@ -514,19 +514,31 @@
         <Russian>Подавление</Russian>
         <German>Unterstützungsfeuer</German>
       </Key>
+      <Key ID="STR_CREATE_CAS_TARGET">
+        <Original>Create CAS Target</Original>
+        <English>Create CAS Target</English>
+        <French>Créez un cible de AAR</French>
+        <German>Definiere ein Luftunterstützungsziel</German>
+      </Key>
+      <Key ID="STR_ADVANCED_CAS">
+        <Original>Advanced CAS</Original>
+        <English>Advanced CAS</English>
+        <French>AAR (avancée)</French>
+        <German>Erweiterte Luftunterstützung</German>
+      </Key>
       <Key ID="STR_CREATE_NEW_RP">
         <Original>Create new RP</Original>
         <English>Create new RP</English>
         <French>Créer un noveau RV</French>
         <Russian>Создать точку встречи</Russian>
-        <German>Definire ein neuer Tpt</German>
+        <German>Definiere ein neuer Tpt</German>
       </Key>
       <Key ID="STR_CREATE_NEW_LZ">
         <Original>Create new LZ</Original>
         <English>Create new LZ</English>
         <French>Créer une nouvelle ZA</French>
         <Russian>Создать зону посадки</Russian>
-        <German>Definiere ein neues LZ</German>
+        <German>Definiere eine neue LZ</German>
       </Key>
       <Key ID="STR_SPAWN_UNITS">
         <Original>Spawn Units</Original>
@@ -547,14 +559,14 @@
         <English>Add/Remove editable Objects</English>
         <French>Ajoutez/Supprimez l'objet éditable</French>
         <Russian>Добавить/Убрать объекты Зевса</Russian>
-        <German>Entferne/Füge edierbare Objekte (hinzu)</German>
+        <German>Entferne/Füge editierbare Objekte (hinzu)</German>
       </Key>
       <Key ID="STR_HIDE_ZEUS">
         <Original>Hide Zeus</Original>
         <English>Hide Zeus</English>
         <French>Cachez Zeus</French>
         <Russian>Скрыть Зевса</Russian>
-        <German>Versteck Zeus</German>
+        <German>Verstecke Zeus</German>
       </Key>
       <Key ID="STR_HINT">
         <Original>Hint</Original>
@@ -654,15 +666,15 @@
         <German>Verletzungen (ohne ACE)</German>
       </Key>
       <Key ID="STR_ADD_FILTERED">
-        <Original>Add filtered ...</Original>
-        <English>Add filtered ...</English>
+        <Original>Add filtered Arsenal...</Original>
+        <English>Add filtered Arsenal...</English>
         <French>Ajoutez Arsenal filtrée ...</French>
         <Russian>Добавить ограниченный...</Russian>
-        <German>Gefiltert hinzufügen ...</German>
+        <German>Gefiltertes Arsenal hinzufügen ...</German>
       </Key>
       <Key ID="STR_ADD_FULL">
-        <Original>Add full</Original>
-        <English>Add full</English>
+        <Original>Add Arsenal full</Original>
+        <English>Add Arsenal full</English>
         <French>Ajoutez Arsenal complète</French>
         <Russian>Добавить полный</Russian>
         <German>Komplettes Arsenal hinzufügen</German>
@@ -735,7 +747,7 @@
         <English>Attach To</English>
         <French>Attchez l'objet à</French>
         <Russian>Присоединить</Russian>
-        <German>An andres Objekt befestigen</German>
+        <German>An anderem Objekt befestigen</German>
       </Key>
       <Key ID="STR_CHANGE_ALTITUDE">
         <Original>Change altitude</Original>
@@ -828,21 +840,21 @@
         <English>You have to place a target marker first!</English>
         <French>On a besoin d'un marqueur de cible!</French>
         <Russian>Сначала вы должны разместить маркер цели!</Russian>
-        <German>Du brauchst zuerst ein Ziel Marker!</German>
+        <German>Du brauchst zuerst einen Ziel Marker!</German>
       </Key>
       <Key ID="STR_NO_LZ">
         <Original>No LZ available!</Original>
         <English>No LZ available!</English>
         <French>Il n'y a pas de ZA disponible!</French>
         <Russian>Нет точки встречи!</Russian>
-        <German>Kein LZ verfügbar!</German>
+        <German>Keine LZ verfügbar!</German>
       </Key>
       <Key ID="STR_NO_RP">
         <Original>No RP available!</Original>
         <English>No RP available!</English>
         <French>Il n'y a pas de RV sont disponible!</French>
         <Russian>Нет точки встречи!</Russian>
-        <German>Kein Tpt verfügbar!</German>
+        <German>Kein Sammelpunkt verfügbar!</German>
       </Key>
       <Key ID="STR_RANDOM">
         <Original>Random</Original>
@@ -919,7 +931,7 @@
         <English>Vehicle Behaviour</English>
         <French>Comportement du Véhicule</French>
         <Russian>Поведение транспорта</Russian>
-        <German>Varhalten des Fahrzeuges</German>
+        <German>Verhalten des Fahrzeuges</German>
       </Key>
       <Key ID="STR_LZ_DZ">
         <Original>LZ/DZ</Original>
@@ -933,7 +945,7 @@
         <English>Group RP</English>
         <French>RV du groupe</French>
         <Russian>Точка встречи группы</Russian>
-        <German>Tpt der Gruppe</German>
+        <German>Sammelpunkt der Gruppe</German>
       </Key>
       <Key ID="STR_INFANTRY_GROUP">
         <Original>Infantry Group</Original>
@@ -954,14 +966,14 @@
         <English>RTB and Despawn</English>
         <French>Retournez et déspawn</French>
         <Russian>Вернуться на базу(деспаун)</Russian>
-        <German>Komm zurück und Despawn</German>
+        <German>Zurück zur Basis und Despawn</German>
       </Key>
       <Key ID="STR_STAY_AT_LZ">
         <Original>Stay at LZ</Original>
         <English>Stay at LZ</English>
         <French>Restez à ZA</French>
         <Russian>Оставаться на зоне посадки</Russian>
-        <German>Bleit beim LZ</German>
+        <German>Bleibt bei LZ</German>
       </Key>
       <Key ID="STR_DEFAULT">
         <Original>Default</Original>
@@ -1017,7 +1029,7 @@
         <English>Teleported %1 players to %2</English>
         <French>%1 joueurs ont été téléportés à %2</French>
         <Russian>Телепортировано %1 игроков к %2</Russian>
-        <German>%1 Spieler wuren nach %2 teleportiert</German>
+        <German>%1 Spieler wurden nach %2 teleportiert</German>
       </Key>
       <Key ID="STR_ALL_OBJECTS_IN_MISSION">
         <Original>All objects in mission</Original>
@@ -1163,7 +1175,7 @@
         <English>This modul has to be placed on a unit!</English>
         <French>Il faut mettre ce module sur une unité!</French>
         <Russian>Этот модуль должен быть установлен на юните!</Russian>
-        <German>Dieses Modul muss auf eine Einheit plaziert werden!</German>
+        <German>Dieses Modul muss auf eine Einheit platziert werden!</German>
       </Key>
       <Key ID="STR_NO_GROUP_SELECTED">
         <Original>No group selected!</Original>
@@ -1177,24 +1189,24 @@
         <English>No target available!</English>
         <French>Il n'y a pas de cible disponible!</French>
         <Russian>Нет цели!</Russian>
-        <German>Keine Ziel verfügbar!</German>
+        <German>Kein Ziel verfügbar!</German>
       </Key>
       <Key ID="STR_NO_TARGET_IN_RANGE">
         <Original>No target in range!</Original>
         <English>No target in range!</English>
         <French>Il n'y a pas de cible à portée!</French>
         <Russian>Нет цели в диапазоне!</Russian>
-        <German>Keine Ziel in Reichweite!</German>
+        <German>Kein Ziel in Reichweite!</German>
       </Key>
       <Key ID="STR_ENTIRE_MAP">
         <Original>Entire map</Original>
         <English>Entire map</English>
         <French>tout la carte</French>
         <Russian>Вся карта</Russian>
-        <German>Die gesammte Karte</German>
+        <German>Die gesamte Karte</German>
       </Key>
       <Key ID="STR_ENTIRE_GROUP">
-        <Original>Entire m</Original>
+        <Original>Entire group</Original>
         <English>Entire group</English>
         <French>tout le groupe</French>
         <Russian>Целая группа</Russian>
@@ -1202,7 +1214,7 @@
       </Key>
       <Key ID="STR_SELECT_PLAYERS">
         <Original>Select players</Original>
-        <English>Selected players</English>
+        <English>Select players</English>
         <French>Choisissez le joueurs</French>
         <Russian>Выбранные игроки</Russian>
         <German>Wähle die Spieler aus</German>
@@ -1219,7 +1231,7 @@
         <English>No player in selection!</English>
         <French>Pas de joueur a été choisi!</French>
         <Russian>Игрок не выбран!</Russian>
-        <German>Keine Spiler ausgewählt!</German>
+        <German>Keine Spieler ausgewählt!</German>
       </Key>
       <Key ID="STR_SELECT_X_APPLIED_TO_MODULE">
         <Original>Select %1 to which the module should be applied!</Original>
@@ -1247,7 +1259,7 @@
         <English>Extend</English>
         <French>Etendue</French>
         <Russian>Расширить</Russian>
-        <German>Ausmass</German>
+        <German>Ausmaß</German>
       </Key>
 
       <Key ID="STR_MEAN_DAMAGE">
@@ -1313,7 +1325,7 @@
         <English>Loading ...</English>
         <French>Charger ...</French>
         <Russian>Загрузка...</Russian>
-        <German>Ladet ...</German>
+        <German>Lädt ...</German>
       </Key>
       <Key ID="STR_BLUE_LIGHT">
         <Original>Blue Light</Original>
@@ -1341,7 +1353,7 @@
         <English>White Light</English>
         <French>Lumière blanche</French>
         <Russian>Белый свет</Russian>
-        <German>Weisses Licht</German>
+        <German>Weißes Licht</German>
       </Key>
       <Key ID="STR_YELLOW_LIGHT">
         <Original>Yellow Light</Original>
@@ -1369,14 +1381,14 @@
         <English>Medium Oily Smoke</English>
         <French>Moyenne fumée huileuse</French>
         <Russian>Средний дым от топлива</Russian>
-        <German>Mittelgrosser Öl-Rauch</German>
+        <German>Mittelgroßer Öl-Rauch</German>
       </Key>
       <Key ID="STR_LARGE_OILY_SMOKE">
         <Original>Large Oily Smoke</Original>
         <English>Large Oily Smoke</English>
         <French>Grande fumée huileuse</French>
         <Russian>Большой дым от топлива</Russian>
-        <German>Grosser Öl-Rauch</German>
+        <German>Großer Öl-Rauch</German>
       </Key>
       <Key ID="STR_SMALL_WOOD_SMOKE">
         <Original>Small Wood Smoke</Original>
@@ -1390,14 +1402,14 @@
         <English>Medium Wood Smoke</English>
         <French>Moyenne fumée de bois</French>
         <Russian>Средний древесный дым</Russian>
-        <German>Mittelgrosser Holzrauch</German>
+        <German>Mittelgroßer Holzrauch</German>
       </Key>
       <Key ID="STR_LARGE_WOOD_SMOKE">
         <Original>Large Wood Smoke</Original>
         <English>Large Wood Smoke</English>
         <French>Grande fumée de bois</French>
         <Russian>Большой древесный дым</Russian>
-        <German>Grosser Holzrauch</German>
+        <German>Großer Holzrauch</German>
       </Key>
       <Key ID="STR_SMALL_MIXED_SMOKE">
         <Original>Small Mixed Smoke</Original>
@@ -1411,7 +1423,7 @@
         <English>Large Mixed Smoke</English>
         <French>Grande fumée mixte</French>
         <Russian>Большой смешанный дым</Russian>
-        <German>Grosser gemischter Rauch</German>
+        <German>Großer gemischter Rauch</German>
       </Key>
       <Key ID="STR_YOU_ARE_BEING_TELEPORTED">
         <Original>You are being teleported...</Original>
@@ -1419,6 +1431,12 @@
         <French>Vous êtes téléporté...</French>
         <Russian>Вас телепортируют...</Russian>
         <German>Sie werden teleportiert...</German>
+      </Key>
+      <Key ID="STR_CAS_X">
+        <Original>CAS Target %1</Original>
+        <English>CAS Target %1</English>
+        <French>Le cible de AAR %1</French>
+        <German>Luftunterstützungsziel %1</German>
       </Key>
       <Key ID="STR_SUPPRESS_X">
         <Original>Suppress %1</Original>
@@ -1593,7 +1611,7 @@
         <English>Delete object on completion</English>
         <French>Supprimez l'objet à la fin</French>
         <Russian>Удалить объект после выполнения</Russian>
-        <German>Nach das Objekt am Ende löschen</German>
+        <German>Danach das Objekt am Ende löschen</German>
       </Key>
       <Key ID="STR_ACTION_TEXT">
         <Original>Action text</Original>
@@ -1729,6 +1747,12 @@
         <French>Aucune</French>
         <German>Kein</German>
       </Key>
+      <Key ID="STR_NO_AMMO">
+        <Original>Out of ammunition!</Original>
+        <English>Out of ammunition!</English>
+        <French>Il n'y a pas de munition!</French>
+        <German>Keine Munition!</German>
+      </Key>
       <Key ID="STR_FULL_DAMAGE">
         <Original>Full</Original>
         <English>Full</English>
@@ -1768,7 +1792,7 @@
         <English>smooth</English>
         <French>harmonieuse</French>
         <Russian>Плавно</Russian>
-        <German>fliessend</German>
+        <German>fließend</German>
       </Key>
       <Key ID="STR_OVERCAST">
         <Original>Overcast</Original>
@@ -1964,7 +1988,7 @@
         <English>Number of mines</English>
         <French>Nombre de mines</French>
         <Russian>Кол-во мин</Russian>
-        <German>Anzahl Minen</German>
+        <German>Anzahl der Minen</German>
       </Key>
       <Key ID="STR_RADIUS">
         <Original>Radius</Original>
@@ -1985,7 +2009,7 @@
         <English>Object attached!</English>
         <French>L'object a été attaché!</French>
         <Russian>Объект присоединен!</Russian>
-        <German>Objekt wurde befestigen!</German>
+        <German>Objekt wurde befestigt!</German>
       </Key>
       <Key ID="STR_OBJECT_DETACHED">
         <Original>Object detached!</Original>
@@ -2083,7 +2107,7 @@
         <English>Do you want to delete %1?</English>
         <French>Voulez-vous supprimer %1?</French>
         <Russian>Вы хотите удалить %1?</Russian>
-        <German>Do you want to delete %1?</German>
+        <German>Möchtest du %1 löschen?</German>
       </Key>
       <Key ID="STR_ENTRY_ALREADY_EXISTS">
         <Original>Entry already exists!</Original>
@@ -2152,7 +2176,7 @@
         <English>Fire mode</English>
         <French>Le mode de tir</French>
         <Russian>Режим стрельбы</Russian>
-        <German>Schiessmodus</German>
+        <German>Feuermodus</German>
       </Key>
       <Key ID="STR_AUTOMATIC">
         <Original>automatic</Original>
@@ -2166,7 +2190,7 @@
         <English>burst</English>
         <French>le tir en rafales</French>
         <Russian>Очередями</Russian>
-        <German>Feuerstoss</German>
+        <German>Feuerstoß</German>
       </Key>
       <Key ID="STR_SINGLE_SHOT">
         <Original>semi-automatic</Original>
@@ -2215,35 +2239,35 @@
         <English>Hold fire</English>
         <French>Ne pas tirer</French>
 		<Russian>Удерживаться от огня</Russian>
-        <German>Nicht schiessen</German>
+        <German>Feuer halten</German>
       </Key>
       <Key ID="STR_HOLD_FIRE_DEFEND">
         <Original>Hold fire, defend only</Original>
         <English>Hold fire, defend only</English>
         <French>Ne pas tirer, défendre seulement</French>
 		<Russian>Удерживаться от огня, обороняться</Russian>
-        <German>Nicht schiessen, nur verteidigen</German>
+        <German>Nicht schießen, nur verteidigen</German>
       </Key>
       <Key ID="STR_HOLD_FIRE_ENGAGE">
         <Original>Hold fire, engage at will</Original>
         <English>Hold fire, engage at will</English>
         <French>Ne pas tirer, attaquer à volonté</French>
 		<Russian>Удерживаться от огня, уничтожать по желанию</Russian>
-        <German>Nicht schiessen, angreiffen nach Belieben</German>
+        <German>Nicht schießen, angreifen nach Belieben</German>
       </Key>
       <Key ID="STR_FIRE_AT_WILL">
         <Original>Fire at will</Original>
         <English>Fire at will</English>
         <French>Feu à volonté</French>
 		<Russian>Стрелять по желанию</Russian>
-        <German>Nach Belieben schiessen</German>
+        <German>Nach Belieben schießen</German>
       </Key>
       <Key ID="STR_FIRE_ENGAGE">
         <Original>Fire at will, engage at will</Original>
         <English>Fire at will, engage at will</English>
         <French>Feu à volonté, attaquer à volonté</French>
 		<Russian>Стрелять по желанию, уничтожать по желанию</Russian>
-        <German>Nach Belieben schiessen und angreiffen</German>
+        <German>Nach Belieben schießen und angreifen</German>
       </Key>
       <Key ID="STR_HEADLIGHT_SEARCHLIGHT">
         <Original>Headlight/Searchlight</Original>
@@ -2425,7 +2449,7 @@
         <English>Applied module to %1 objects!</English>
         <French>Vous avez appliqué le module à 1% objets!</French>
 		<Russian>Применен модуль к %1 объекту(ам)!</Russian>
-        <German>Modul wurde an %1 Objekte angewendet!</German>
+        <German>Modul wurde an %1 Objekten angewendet!</German>
       </Key>
       <Key ID="STR_APPLIED_MODULE_TO_X_UNITS">
         <Original>Applied module to %1 units!</Original>
@@ -2483,6 +2507,54 @@
         <English>Subcategory</English>
         <French>Sous-catégorie</French>
         <German>Unterkategorie</German>
+      </Key>
+      <Key ID="STR_WEAPON_SPECIFIC">
+        <Original>Weapon-specific</Original>
+        <English>Weapon-specific</English>
+        <French>Spécifique à l'arme</French>
+        <German>Waffenspezifisch</German>
+      </Key>
+	  <Key ID="STR_VAR">
+        <Original>Variable</Original>
+        <English>Variable</English>
+        <French>Variable</French>
+        <German>Variable</German>
+      </Key>
+	  <Key ID="STR_CLS">
+        <Original>Combat Lifesaver</Original>
+        <English>Combat Lifesaver</English>
+        <French>Infirmier</French>
+        <German>Feldsanitäter</German>
+      </Key>
+	  <Key ID="STR_DOCTOR">
+        <Original>Doctor</Original>
+        <English>Doctor</English>
+        <French>Docteur</French>
+        <German>Arzt</German>
+      </Key>
+	  <Key ID="STR_MEDICINE">
+        <Original>Medicine</Original>
+        <English>Medicine</English>
+        <French>Médecine</French>
+        <German>Medizin</German>
+      </Key>
+	  <Key ID="STR_ENGINEER">
+        <Original>Engineer</Original>
+        <English>Engineer</English>
+        <French>Réparateur</French>
+        <German>Reparateur</German>
+      </Key>
+	  <Key ID="STR_EOD">
+        <Original>EOD</Original>
+        <English>EOD</English>
+        <French>EOD</French>
+        <German>Kampfmittelbeseitigung</German>
+      </Key>
+	  <Key ID="STR_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
+        <Original>Move spawn position logic and press ENTER</Original>
+        <English>Move spawn position logic and press ENTER</English>
+        <French>Déplacez la position de spawn et appuiez sur la touche entrée</French>
+        <German>Verschiebe die Spawnposition und drücke ENTER</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
@@ -2543,6 +2615,7 @@
       <Key ID="STR_PLACING_MODULES">
         <Original>Placing Modules</Original>
         <Russian>Установка модулей</Russian>
+	      <German>Module platzieren</German>
       </Key>
       <Key ID="STR_PLACING_MODULES_DESCRIPTION">
         <Original>
@@ -2562,6 +2635,9 @@
         <Russian>
 			Модули, примененные на объекты или юнитов, чаще всего могут быть либо поставлены на объект, либо на землю, чтобы применить модуль для большего количества объектов.
 		</Russian>
+        <German>
+			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
+		</German>
       </Key>
       <Key ID="STR_SELECTION_OPTION">
         <Original>Selection Option</Original>
@@ -2719,53 +2795,75 @@
 			<French>Symbole de DLC</French>
 			<German>DLC Symbole</German>
         </Key>
+        <Key ID="STR_COLLAPSE_TREE_BY_DEFAULT">
+            <Original>Collapse module tree by default</Original>
+			<English>Collapse module tree by default</English>
+			<French>Réduirez l'arbre de modules par défaut</French>
+			<German>Modul-Baum standardmäßig schließen</German>
+        </Key>
         <Key ID="STR_VISION_MODES">
             <Original>Achilles - Curator Vision Modes</Original>
+		<German>Achilles - Zeus Sichtmodis</German>
         </Key>
         <Key ID="STR_VISION_MODES_NVG">
             <Original>Enable NVG</Original>
+            <German>Aktiviere Nachtsicht</German>
         </Key>
         <Key ID="STR_VISION_MODES_WHITEHOT">
             <Original>Enable Thermal - White Hot</Original>
+            <German>Aktiviere Thermal - Weiß = Heiß</German>
         </Key>
         <Key ID="STR_VISION_MODES_BLACKHOT">
             <Original>Enable Thermal - Black Hot</Original>
+            <German>Aktiviere Thermal - Schwarz = Warm</German>
         </Key>
         <Key ID="STR_VISION_MODES_GREENHOTCOLD">
             <Original>Enable Thermal - Green Hot / Green Cold</Original>
+            <German>Aktiviere Thermal - Grün = Heiß / Schwarz = Kalt</German>
         </Key>
         <Key ID="STR_VISION_MODES_BLACKHOTGREENCOLD">
             <Original>Enable Thermal - Black Hot / Green Cold</Original>
+            <German>Aktiviere Thermal - Schwarz = Heiß / Grün = Kalt</German>
         </Key>
         <Key ID="STR_VISION_MODES_REDHOT">
             <Original>Enable Thermal - Red Hot</Original>
+            <German>Aktiviere Thermal - Rot = Heiß</German>
         </Key>
         <Key ID="STR_VISION_MODES_BLACKHOTREDCOLD">
             <Original>Enable Thermal - Black Hot / Red Cold</Original>
+            <German> Aktiviere Thermal - Schwarz = Heiß / Rot = Kalt</German>
         </Key>
         <Key ID="STR_VISION_MODES_WHITEHOTREDCOLD">
             <Original>Enable Thermal - White Hot / Red Cold</Original>
+            <German>Aktiviere Thermal - Weiß = Heiß / Rot = Kalt</German>
         </Key>
         <Key ID="STR_VISION_MODES_REDGREEN">
             <Original>Enable Thermal - Red/Green / White Hot</Original>
+            <German>Aktiviere Thermal - Rot/Grün / Weiß = Heiß</German>
         </Key>
         <Key ID="STR_KEY_EJECT_PASSENGERS">
             <Original>Eject/paradrop passengers of selected vehicle</Original>
+            <German>Insassen des ausgewählten Fahrzeugs auswerfen</German>
         </Key>
         <Key ID="STR_KEY_DEEP_COPY">
             <Original>Deep copy selected units</Original>
+            <German>Einheiten mit allen Eigenschaften kopieren</German>
         </Key>
         <Key ID="STR_KEY_DEEP_PASTE">
             <Original>Paste deep copied units</Original>
+            <German>Einheiten mit allen Eigenschaften einfügen</German>
         </Key>
         <Key ID="STR_KEY_COUNTERMEASURE">
             <Original>Selected unit throws smoke / uses countermeasure</Original>
+            <German>Ausgewählte Einheit wirft Rauch / nutzt Kontermaßnahmen</German>
         </Key>
         <Key ID="STR_KEY_GROUP">
             <Original>Group selected objects</Original>
+            <German>Ausgewählte Objekte gruppieren</German>
         </Key>
         <Key ID="STR_KEY_UNGROUP">
             <Original>Ungroup selected objects</Original>
+            <German>Gruppierung von ausgewählten Objekten aufheben</German>
         </Key>
     </Container>
   </Package>

@@ -72,25 +72,31 @@ switch _mode do
 		_selectedIndex = uinamespace getvariable ["RscAttributeHeadlight_selected",0];
 		_light = _states select _selectedIndex;
 		if ((_entity getVariable ["headlight","auto"]) isEqualTo _light) exitwith {};
-		_entity setVariable ["headlight",_light,true];
-		if (_light isEqualTo "auto") exitWith {};
-		_codeBlock = 
+		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+		if (_light isEqualTo "auto") exitWith 
 		{
-			_entity = _this select 0;
-			_light = _this select 1;
-			while {(alive _entity) and ((_entity getVariable ["headlight","auto"]) isEqualTo _light)} do
+			{_x setVariable ["headlight","auto",true]} forEach _curatorSelected;
+		};
+		{
+			_x setVariable ["headlight",_light,true];
+			_codeBlock = 
 			{
-				sleep 0.01;
-				_entity setpilotlight _light;
+				_entity = _this select 0;
+				_light = _this select 1;
+				while {(alive _entity) and ((_entity getVariable ["headlight","auto"]) isEqualTo _light)} do
+				{
+					sleep 0.01;
+					_entity setpilotlight _light;
+				};
 			};
-		};
-		if (local _entity) then 
-		{
-			[_entity,_light] spawn _codeBlock;
-		} else 
-		{
-			[[_entity,_light],_codeBlock] remoteExec ["BIS_fnc_spawn", _entity];
-		};
+			if (local _x) then 
+			{
+				[_x,_light] spawn _codeBlock;
+			} else 
+			{
+				[[_x,_light],_codeBlock] remoteExec ["spawn", _x];
+			};
+		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false
 	};

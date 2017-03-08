@@ -82,30 +82,40 @@ switch _mode do {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeBehaviour_selected",0];
 		_selected = _states select _selectedIndex;
+		
 		if (typename _entity == typename []) then 
 		{
-			_group = _entity select 0;
-			_wp_id = _entity select 1;
-			if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+			if (waypointbehaviour _entity == _selected) exitWith {};
+			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
-				if (local _group) then
+				_group = _x select 0;
+				_wp_id = _x select 1;
+				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
 				{
-					_group setbehaviour _selected;
-				} else
-				{
-					[_group,_selected] remoteExec ["setbehaviour", leader _group];
+					if (local _group) then
+					{
+						_group setbehaviour _selected;
+					} else
+					{
+						[_group,_selected] remoteExec ["setbehaviour", leader _group];
+					};
 				};
-			};
-			_entity setwaypointbehaviour _selected;
+				_x setwaypointbehaviour _selected;
+			} forEach _curatorSelectedWPs;
 		} else 
 		{
-			if (local leader _entity) then
+			if (behaviour leader _entity == _selected) exitWith {};
+			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
-				_entity setbehaviour _selected;
-			} else
-			{
-				[_entity,_selected] remoteExec ["setbehaviour", leader _entity];
-			};
+				_leader = leader _x;
+				if (local _leader) then
+				{
+					_x setbehaviour _selected;
+				} else
+				{
+					[_x, _selected] remoteExec ["setbehaviour", _leader];
+				};
+			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};
 		false

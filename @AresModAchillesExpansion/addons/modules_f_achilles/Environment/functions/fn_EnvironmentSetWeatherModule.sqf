@@ -1,6 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
-#define SHARP_DECAY_VALUE 0.2
-#define SMOOTH_DECAY_VALUE 0.002
+#define SHARP_DECAY_VALUE 1
+#define SMOOTH_DECAY_VALUE 0.01
 
 _altitudes = [0, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 100, 125, 150, 200, 300];
 _altitudeDisplayValues = [];

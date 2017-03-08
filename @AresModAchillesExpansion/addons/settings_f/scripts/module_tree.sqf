@@ -20,3 +20,13 @@
 	false,
 	{Achilles_var_reloadDisplay = true}	
 ] call cba_settings_fnc_init;
+
+[
+    "Achilles_var_moduleTreeCollapse",
+    "CHECKBOX",
+    localize "STR_COLLAPSE_TREE_BY_DEFAULT",
+    localize "STR_MODULE_INTERFACE",
+    true,
+	false,
+	{Achilles_var_reloadDisplay = true}	
+] call cba_settings_fnc_init;

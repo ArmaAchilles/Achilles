@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 1/1/17
-//	VERSION: 3.0
+//	DATE: 2/4/17
+//	VERSION: 4.0
 //  DESCRIPTION: opens the "damage components" dialog for vehicles.
 //
 //	ARGUMENTS:
@@ -16,11 +16,17 @@
 
 // get params
 _vehicle = _this select 0;
-_components = (getAllHitPointsDamage _vehicle) select 0;
 
-// truncation of array given by dialog space (important components are usually below the truncation)
-_components = _components select [0,14];
-_entries	= _components apply {[_x,"SLIDER"]};
+_entries = [];
+
+_allHitPointsDamage = getAllHitPointsDamage _vehicle;
+
+for "_i" from 0 to (count (_allHitPointsDamage select 0) - 1) do
+{
+	_component = _allHitPointsDamage select 0 select _i;
+	if (_component == "") then {_component = _allHitPointsDamage select 1 select _i};
+	_entries pushBack [_component,"SLIDER"];
+};
 
 _dialogResult = 
 [
@@ -31,19 +37,25 @@ _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 
+_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+
 if (local _vehicle) then
 {
 	{
-		_vehicle setHitIndex [_forEachIndex,_x];
-	} forEach _dialogResult;
+		{
+			_x setHitIndex [_forEachIndex,_x];
+		} forEach _dialogResult;
+	} forEach _curatorSelected;
 } else
 {
-	[[_vehicle,_dialogResult],
 	{
-		_vehicle = _this select 0;
-		_attribute_values = _this select 1;
+		[[_x,_dialogResult],
 		{
-			_vehicle setHitIndex [_forEachIndex,_x];
-		} forEach _attribute_values;
-	}] remoteExec ["spawn",_vehicle];
+			_vehicle = _this select 0;
+			_attribute_values = _this select 1;
+			{
+				_vehicle setHitIndex [_forEachIndex,_x];
+			} forEach _attribute_values;
+		}] remoteExec ["spawn",_x];
+	} forEach _curatorSelected;
 };

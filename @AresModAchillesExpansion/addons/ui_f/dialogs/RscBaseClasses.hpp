@@ -109,7 +109,9 @@ class RscTitle;
 class RscText;
 class RscStructuredText;
 class RscToolbox;
+class RscCheckbox;
 class RscCombo;
+class RscListNBox;
 class RscButton;
 class RscButtonMenu;
 class RscButtonMenuOK;
@@ -117,8 +119,23 @@ class RscButtonMenuCancel;
 class RscButtonImages;
 class RscSlider;
 class RscXSliderH;
+class ScrollBar;
 class RscControlsGroup;
+class RscControlsGroupNoScrollbars;
+class RscControlsGroupNoHScrollbars;
 class RscMapControl;
 class RscActivePicture;
 class RscPicture;
 class RscTree;
+
+// Achilles base classes
+class RscAchillesEdit: RscEdit
+{		
+	autocomplete = "general";
+};
+class RscAchillesMessageEdit: RscAchillesEdit
+{
+	style = 16;
+	linespacing = 1;
+	default = 1;
+};

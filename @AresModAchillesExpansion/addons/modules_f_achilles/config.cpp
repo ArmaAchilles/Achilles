@@ -26,6 +26,8 @@ class CfgPatches
 			"Achilles_Earthquake_Module",
 			"Achilles_Suppressive_Fire_Module",
 			"Achilles_Create_Suppression_Target_Module",
+			"Achilles_CAS_Module",
+			"Achilles_Create_CAS_Target_Module",
 			"Achilles_Toggle_Simulation_Module",
 			"Achilles_Transfer_Ownership_Module",
 			"Achilles_Attach_To_Module",

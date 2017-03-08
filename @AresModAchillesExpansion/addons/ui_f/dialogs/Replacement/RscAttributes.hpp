@@ -74,19 +74,34 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 
 // modify script
 
+class RscAttributeRank: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeRank"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
 class RscAttributeSkill: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeSkill"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
 };
 
+class RscAttributeFuel: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeFuel"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeDamage: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeDamage"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeLock: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeLock"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
 class RscAttributeUnitPos: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeUnitPos"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-};
-
-class RscAttributeRank: RscControlsGroupNoScrollbars 
-{
-	onSetFocus = "[_this,""RscAttributeRank"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeFormation: RscControlsGroupNoScrollbars 
@@ -97,6 +112,27 @@ class RscAttributeFormation: RscControlsGroupNoScrollbars
 class RscAttributeSpeedMode: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeSpeedMode"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars
+{
+	onSetFocus = "[_this,""RscAttributeRespawnVehicle"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeRespawnPosition"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+
+	class controls 
+	{
+		class Title: RscText {};
+		class Background: RscText {};
+		class West: RscActivePicture {};
+		class East: West {};
+		class Guer: West {};
+		class Civ: West {};
+		class Disabled: West {};
+	};
 };
 
 // define class name

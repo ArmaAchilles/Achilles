@@ -19,9 +19,6 @@ switch (_mode) do
 		_vehicle = BIS_fnc_initCuratorAttributes_target;		
 		_damageValues = (getAllHitPointsDamage _vehicle) select 2;
 		
-		// truncation of array given by dialog space (important components are usually below the truncation)
-		_damageValues = _damageValues select [0,14];
-		
 		// set initial slider values
 		{
 			_ctrl = _dialog displayCtrl (IDC_CTRL_BASE + _forEachIndex);

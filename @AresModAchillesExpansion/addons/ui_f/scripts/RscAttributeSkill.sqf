@@ -17,31 +17,31 @@ switch _mode do
 	};
 	case "confirmed": 
 	{
-		private "_leader";
+		private ["_mode", "_unit","_curatorSelected"];
 		_display = _params select 0;
 		_ctrlValue = _display displayctrl IDC_RSCATTRIBUTESKILL_VALUE;
 		_skill_value = (sliderposition _ctrlValue) * 0.1;
-		if (typename _entity == typename grpnull) then 
-		{
-			_leader = leader _entity;
-			_entity = units _entity
-		} else 
-		{
-			_leader = _entity;
-			_entity = [_entity];
+		if (typename _entity == typename grpnull) then {
+			_selectedGroups = ["group"] call Achilles_fnc_getCuratorSelected;
+			_curatorSelected = [];
+			{_curatorSelected append units _x} forEach _selectedGroups;
+			_unit = leader _entity;
+		} else {
+			_curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
+			_unit = _entity;
 		};
-		if (abs (skill _leader - _skill_value) < 0.01) exitWith {};
-		if (local _leader) then
-		{
-			{_x setskill _skill_value;} foreach _entity;
-		} else
-		{
-			[[_entity,_skill_value],
+		_previousSkillValue = skill _unit;
+		if (abs (_skill_value - _previousSkillValue) > 0.01) then {
+			if (local _entity) then
 			{
-				_entity = _this select 0;
-				_skill_value = _this select 1;
-				{_x setskill _skill_value;} foreach _entity;
-			}] remoteExec ["spawn",_leader];
+				{_x setskill _skill_value;} foreach _curatorSelected;
+			} else {
+				[[_curatorSelected, _skill_value], {
+					_entities = _this select 0;
+					_skill_value = _this select 1;
+					{_x setskill _skill_value;} foreach _entities;
+				}] remoteExec ["spawn", _unit];
+			};		
 		};
 	};
 	case "onUnload": {};

@@ -97,13 +97,19 @@ if (not isNull _groupUnderCursor) then
 			{
 				deleteWaypoint ((waypoints _groupUnderCursor) select 0);
 			};
-			
-			if (vehicle (leader _groupUnderCursor) isKindOf "Air") then
+			_leader_vehicle = vehicle (leader _groupUnderCursor);
+			if (_leader_vehicle isKindOf "Air") then
 			{
 				// aircrafts: Loiter in the area
-				_centerPoint = position vehicle (leader _groupUnderCursor);
+				_centerPoint = position _leader_vehicle;
 				_centerPoint set [2,0];
-				_waypoint = _groupUnderCursor addWaypoint [_centerPoint,0];
+				_wp_id = 0;
+				if (not isEngineOn _leader_vehicle) then
+				{
+					_waypoint = _groupUnderCursor addWaypoint [_centerPoint vectorAdd ((vectorDir _leader_vehicle) vectorMultiply 300), _wp_id];
+					_wp_id = 1;
+				};
+				_waypoint = _groupUnderCursor addWaypoint [_centerPoint, _wp_id];
 				_waypoint setWaypointType "LOITER";
 				_waypoint setWaypointLoiterRadius _radius;
 				if (not _moveClockwise) then

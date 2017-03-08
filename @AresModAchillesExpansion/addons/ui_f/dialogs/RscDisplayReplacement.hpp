@@ -17,17 +17,10 @@ class RscDisplayCurator
 {
 	// couple achilles init with curator display
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
-	
-	/*
-	// change remove map satelite texture
-	class ControlsBackground 
+	class Controls 
 	{
-		class Map: RscMapControl 
-		{
-			maxSatelliteAlpha = 0;
-		};
+		#include "Replacement\RscDisplayAttributesModuleTree.hpp"
 	};
-	*/
 };
 
 /*
@@ -45,33 +38,15 @@ class RscDisplayMain: RscStandardDisplay
 };
 */
 // load external resources
-class RscControlsGroupNoScrollbars;
-class RscControlsGroupNoHScrollbars;
 class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 
 // load external attributes
-class RscAttributeDamage : RscControlsGroupNoScrollbars {};
-class RscAttributeFuel : RscControlsGroupNoScrollbars {};
-class RscAttributeLock : RscControlsGroupNoScrollbars {};
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
-class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars {};
-class RscAttributeRespawnPosition : RscControlsGroupNoScrollbars 
-{
-	class controls 
-	{
-		class Title: RscText {};
-		class Background: RscText {};
-		class West: RscActivePicture {};
-		class East: West {};
-		class Guer: West {};
-		class Civ: West {};
-		class Disabled: West {};
-	};
-};
 
 // include modified attributes
 #include "Replacement\RscAttributes.hpp"
+#include "Replacement\RscAttributeInventory.hpp"
 
 // include modified dialogs and displays
 #include "Replacement\RscDisplayAttributesMan.hpp"

@@ -54,7 +54,15 @@ Achilles_var_reloadVisionModes = nil;
 // Add curator event handlers
 _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
+_curatorModule addEventHandler ["CuratorGroupPlaced", { _this call Achilles_fnc_HandleCuratorGroupPlaced; }];
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
+
+// Unlock all available attributes
+_curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesobject",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
+_curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];
 
 _display_reload;

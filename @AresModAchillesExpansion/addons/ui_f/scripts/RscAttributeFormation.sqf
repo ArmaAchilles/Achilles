@@ -76,28 +76,37 @@ switch _mode do {
 		
 		if (typename _entity == typename []) then 
 		{
-			_group = _entity select 0;
-			_wp_id = _entity select 1;
-			if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
+			if (waypointformation _entity == _selected) exitWith {};
+			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
-				if (local _group) then
+				_group = _x select 0;
+				_wp_id = _x select 1;
+				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
 				{
-					_group setformation _selected;
-				} else
-				{
-					[_group,_selected] remoteExec ["setformation", leader _group];
+					if (local _group) then
+					{
+						_group setformation _selected;
+					} else
+					{
+						[_group,_selected] remoteExec ["setformation", leader _group];
+					};
 				};
-			};
-			_entity setwaypointformation _selected;
+				_x setwaypointformation _selected;
+			} forEach _curatorSelectedWPs;
 		} else 
 		{
-			if (local _entity) then
+			if (formation leader _entity == _selected) exitWith {};
+			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
-				_entity setformation _selected;
-			} else
-			{
-				[_entity,_selected] remoteExec ["setformation", leader _entity];
-			};
+				_leader = leader _x;
+				if (local _leader) then
+				{
+					_x setformation _selected;
+				} else
+				{
+					[_x,_selected] remoteExec ["setformation", _leader];
+				};
+			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};
 		false
