@@ -52,6 +52,7 @@ if (_dialogCount == 7) then
 {
 	_type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
+	[_object, false] remoteExec ["enableSimulationGlobal", 2];
 	_object setPos (position _logic);
 	[[_object], true] call Ares_fnc_AddUnitsToCurator;
 	

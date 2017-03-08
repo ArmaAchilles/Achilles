@@ -514,6 +514,18 @@
         <Russian>Подавление</Russian>
         <German>Unterstützungsfeuer</German>
       </Key>
+      <Key ID="STR_CREATE_CAS_TARGET">
+        <Original>Create CAS Target</Original>
+        <English>Create CAS Target</English>
+        <French>Créez un cible de AAR</French>
+        <German>Definiere ein Luftunterstützungsziel</German>
+      </Key>
+      <Key ID="STR_ADVANCED_CAS">
+        <Original>Advanced CAS</Original>
+        <English>Advanced CAS</English>
+        <French>AAR (avancée)</French>
+        <German>Erweiterte Luftunterstützung</German>
+      </Key>
       <Key ID="STR_CREATE_NEW_RP">
         <Original>Create new RP</Original>
         <English>Create new RP</English>
@@ -1420,6 +1432,12 @@
         <Russian>Вас телепортируют...</Russian>
         <German>Sie werden teleportiert...</German>
       </Key>
+      <Key ID="STR_CAS_X">
+        <Original>CAS Target %1</Original>
+        <English>CAS Target %1</English>
+        <French>Le cible de AAR %1</French>
+        <German>Luftunterstützungsziel %1</German>
+      </Key>
       <Key ID="STR_SUPPRESS_X">
         <Original>Suppress %1</Original>
         <English>Suppress %1</English>
@@ -1728,6 +1746,12 @@
         <English>None</English>
         <French>Aucune</French>
         <German>Kein</German>
+      </Key>
+      <Key ID="STR_NO_AMMO">
+        <Original>Out of ammunition!</Original>
+        <English>Out of ammunition!</English>
+        <French>Il n'y a pas de munition!</French>
+        <German>Keine Munition!</German>
       </Key>
       <Key ID="STR_FULL_DAMAGE">
         <Original>Full</Original>
@@ -2495,6 +2519,42 @@
         <English>Variable</English>
         <French>Variable</French>
         <German>Variable</German>
+      </Key>
+	  <Key ID="STR_CLS">
+        <Original>Combat Lifesaver</Original>
+        <English>Combat Lifesaver</English>
+        <French>Infirmier</French>
+        <German>Feldsanitäter</German>
+      </Key>
+	  <Key ID="STR_DOCTOR">
+        <Original>Doctor</Original>
+        <English>Doctor</English>
+        <French>Docteur</French>
+        <German>Arzt</German>
+      </Key>
+	  <Key ID="STR_MEDICINE">
+        <Original>Medicine</Original>
+        <English>Medicine</English>
+        <French>Médecine</French>
+        <German>Medizin</German>
+      </Key>
+	  <Key ID="STR_ENGINEER">
+        <Original>Engineer</Original>
+        <English>Engineer</English>
+        <French>Réparateur</French>
+        <German>Reparateur</German>
+      </Key>
+	  <Key ID="STR_EOD">
+        <Original>EOD</Original>
+        <English>EOD</English>
+        <French>EOD</French>
+        <German>Kampfmittelbeseitigung</German>
+      </Key>
+	  <Key ID="STR_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
+        <Original>Move spawn position logic and press ENTER</Original>
+        <English>Move spawn position logic and press ENTER</English>
+        <French>Déplacez la position de spawn et appuiez sur la touche entrée</French>
+        <German>Verschiebe die Spawnposition und drücke ENTER</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

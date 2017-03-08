@@ -4,7 +4,8 @@ class Add: RscControlsGroupNoScrollbars
 	{
 		class CreateUnitsWest: RscTree 
 		{
-			h = "safezoneH - 15.4 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			//h = "safezoneH - 15.4 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			h = "safezoneH - 19.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
 		
@@ -18,10 +19,11 @@ class Add: RscControlsGroupNoScrollbars
 			moving = 1;
 
 			text = "Spawn Attributes"; //--- ToDo: Localize;
-			x= "2 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			y= "safezoneH - 10.2 * ((	((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w= "19 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			h= "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = "2 * (((safezoneW / safezoneH) min 1.2) / 40)";
+			//y= "safezoneH - 10.2 * ((	((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			y = "safezoneH - 6.5 * ((	((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "19 * (((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0.518,0.016,0,0.8};
 			sizeEx = 1.2 * GUI_GRID_H;
 		};
@@ -30,7 +32,8 @@ class Add: RscControlsGroupNoScrollbars
 			idc = 2020;
 
 			x = "0.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "safezoneH - 10.2 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			//y = "safezoneH - 10.2 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			y = "safezoneH - 6.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "2.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0.518,0.016,0,0.8};
@@ -41,7 +44,8 @@ class Add: RscControlsGroupNoScrollbars
 
 			text = "\achilles\data_f_achilles\icons\icon_achilles_dialog.paa";
 			x = "0.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "safezoneH - 10.2 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			//y = "safezoneH - 10.2 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			y = "safezoneH - 6.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "2.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
@@ -50,11 +54,14 @@ class Add: RscControlsGroupNoScrollbars
 			idc = 2000;
 
 			x = "0.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "safezoneH - 8.7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			//y = "safezoneH - 8.7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			y = "safezoneH - 5.0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "11.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "7.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			//h = "7.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			h = "3.8 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
+		/*
 		class Ares_Button_Unit: RscButtonMenu
 		{
 			idc = 2401;
@@ -82,6 +89,7 @@ class Add: RscControlsGroupNoScrollbars
 			w = "10.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
+		*/
 		class Ares_Label_Crew: RscText
 		{
 			idc = 1020;

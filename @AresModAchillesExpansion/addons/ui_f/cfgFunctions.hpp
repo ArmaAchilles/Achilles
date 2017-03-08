@@ -29,6 +29,7 @@ class CfgFunctions
 			class HandleRemoteKeyPressed;
 			class HandleCuratorObjectDoubleClicked;
 			class HandleCuratorObjectPlaced;
+			class HandleCuratorGroupPlaced;
 			class HandleCuratorObjectEdited;
 		};
 		

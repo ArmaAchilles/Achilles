@@ -17,13 +17,31 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_object = param [0, objNull, [objNull]];
-_position = getPosWorld _object;
-_object enableSimulationGlobal false;
-_object setPos [0,0,0];
+private ["_center_object", "_objects_list"];
+_entity = param [0, objNull, [objNull, grpNull]];
+if (isNull _entity) exitWith {};
 
-_logic = (createGroup sideLogic) createUnit ["Achilles_Helpers_Position", [0,0,0], [], 0, "NONE"];
-_logic setPosWorld _position;
+if (typeName _entity == typeName grpNull) then 
+{
+	_center_object = leader _entity;
+	_objects_list = units _entity;
+} else 
+{
+	_center_object = _entity;
+	_objects_list = [_entity];
+};
+
+_center_pos = getPosWorld _center_object;
+_pos_list = [];
+{
+	_pos = (getPosWorld _x) vectorDiff _center_pos;
+	_pos_list pushBack _pos;
+	_x enableSimulation false;
+	_x setPos [0,0,0];
+} forEach _objects_list;
+
+private _logic = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
+_logic setPosWorld _center_pos;
 [[_logic], true] call Ares_fnc_AddUnitsToCurator;
 
 disableSerialization;
@@ -36,7 +54,7 @@ Achilles_var_submit_selection = nil;
 playSound "FD_Finish_F";
 //[["Ares","SelectionOption"]] call BIS_fnc_advHint;
 
-_ctrlMessage ctrlsettext (localize "STR_SELECT_X_APPLIED_TO_MODULE");
+_ctrlMessage ctrlsettext (localize "STR_MOVE_SPAWN_POSITION_AND_PRESS_ENTER");
 _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0;
 _ctrlMessage ctrlsetfade 0;
@@ -64,16 +82,20 @@ if (! Achilles_var_submit_selection) exitWith
 	[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; 
 	playSound "FD_Start_F";
 	deleteVehicle _logic;
-	{deleteVehicle _x} forEach crew _object;
-	deleteVehicle _object;
+	{
+		{deleteVehicle _x} forEach (crew _x);
+		deleteVehicle _x;
+	} forEach _objects_list;
 	nil
 };
 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
-_position = getPosWorld _logic;
+_center_pos = getPosWorld _logic;
+{
+	_x setPosWorld ((_pos_list select _forEachIndex) vectorAdd _center_pos);
+	_x enableSimulation true;
+} forEach _objects_list;
 deleteVehicle _logic;
-_object setPosWorld _position;
-_object enableSimulationGlobal true;
-_position;
+_center_pos;

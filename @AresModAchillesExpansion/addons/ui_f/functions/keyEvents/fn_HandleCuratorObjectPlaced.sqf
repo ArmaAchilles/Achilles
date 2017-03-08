@@ -35,13 +35,3 @@ if (not isNil "Achilles_var_specifyPositionBeforeSpawn") then
 		[_placedObject] spawn Achilles_fnc_PreplaceMode;
 	};
 };
-
-if (not isNil "Achilles_var_unitAttributesOnSpawn") then
-{
-	
-};
-
-if (not isNil "Achilles_var_vehicleAttributesOnSpawn") then
-{
-	
-};

@@ -1,3 +1,9 @@
+class RscDisplayAttributesInventory: RscDisplayAttributes
+{
+	// prevent automatical opening of ammo box inventory
+	filterAttributes = 1;
+};
+
 class RscAttributeInventory: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";

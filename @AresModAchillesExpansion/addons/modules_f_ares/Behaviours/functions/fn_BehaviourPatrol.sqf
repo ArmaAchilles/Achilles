@@ -106,7 +106,7 @@ if (not isNull _groupUnderCursor) then
 				_wp_id = 0;
 				if (not isEngineOn _leader_vehicle) then
 				{
-					_waypoint = _groupUnderCursor addWaypoint [_centerPoint vectorAdd ((vectorDir _leader_vehicle) vectorMultiply 100), _wp_id];
+					_waypoint = _groupUnderCursor addWaypoint [_centerPoint vectorAdd ((vectorDir _leader_vehicle) vectorMultiply 300), _wp_id];
 					_wp_id = 1;
 				};
 				_waypoint = _groupUnderCursor addWaypoint [_centerPoint, _wp_id];

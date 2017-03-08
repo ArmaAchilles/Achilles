@@ -15,7 +15,7 @@ Ares integrates code from the following mods or scripts:
 * Kronzky's String manipulation functions
     * http://kronzky.info/snippets/strings/index.htm
 * Vernei's Base Templates
-    * http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531 )
+    * http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531)
 
 
 Achilles Expansion includes contributions by the following coders:
