@@ -1,8 +1,3 @@
-class RscDisplayAttributesInventory: RscDisplayAttributes
-{
-	// prevent automatical opening of ammo box inventory
-	filterAttributes = 1;
-};
 
 class RscAttributeInventory: RscControlsGroupNoScrollbars
 {

@@ -5,7 +5,7 @@ class Add: RscControlsGroupNoScrollbars
 		class CreateUnitsWest: RscTree 
 		{
 			//h = "safezoneH - 15.4 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			h = "safezoneH - 19.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			h = "safezoneH - 11.7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
 		

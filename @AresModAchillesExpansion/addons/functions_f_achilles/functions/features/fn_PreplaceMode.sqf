@@ -17,7 +17,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private ["_center_object", "_objects_list"];
+private ["_center_object", "_objects_list","_pos"];
 _entity = param [0, objNull, [objNull, grpNull]];
 if (isNull _entity) exitWith {};
 
@@ -31,22 +31,22 @@ if (typeName _entity == typeName grpNull) then
 	_objects_list = [_entity];
 };
 
-_center_pos = getPosWorld _center_object;
-_pos_list = [];
+private _center_pos = position _center_object;
+private _pos_list = [];
 {
-	_pos = (getPosWorld _x) vectorDiff _center_pos;
+	_pos = (position _x) vectorDiff _center_pos;
 	_pos_list pushBack _pos;
 	_x enableSimulation false;
 	_x setPos [0,0,0];
 } forEach _objects_list;
 
-private _logic = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
-_logic setPosWorld _center_pos;
+private _logic_group = createGroup sideLogic;
+private _logic = _logic_group createUnit ["Module_f", _center_pos, [], 0, "NONE"];
 [[_logic], true] call Ares_fnc_AddUnitsToCurator;
 
 disableSerialization;
-_display = finddisplay IDD_RSCDISPLAYCURATOR;
-_ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
+private _display = finddisplay IDD_RSCDISPLAYCURATOR;
+private _ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
 
 Achilles_var_submit_selection = nil;
 
@@ -82,6 +82,7 @@ if (! Achilles_var_submit_selection) exitWith
 	[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; 
 	playSound "FD_Start_F";
 	deleteVehicle _logic;
+	deleteGroup _logic_group;
 	{
 		{deleteVehicle _x} forEach (crew _x);
 		deleteVehicle _x;
@@ -92,10 +93,11 @@ if (! Achilles_var_submit_selection) exitWith
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
-_center_pos = getPosWorld _logic;
+_center_pos = position _logic;
 {
-	_x setPosWorld ((_pos_list select _forEachIndex) vectorAdd _center_pos);
+	_x setPos ((_pos_list select _forEachIndex) vectorAdd _center_pos);
 	_x enableSimulation true;
 } forEach _objects_list;
 deleteVehicle _logic;
+deleteGroup _logic_group;
 _center_pos;

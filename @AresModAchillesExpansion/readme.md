@@ -11,6 +11,35 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 V.0.0.6 (Achilles Expansion (alpha version))
+* Change:	Create Intel: Simulation of new created intel is no longer enabled.
+* Change:	Ammo box inventory is no longer opened automatically on spawn.
+* Change:	Add/Remove editable objects: Extend search pattern to static turrets for type "units" and "vehicles".
+* Change:	Update ACE module category name to ACE3 3.9.0.
+* Change:	"Bind variable to object" module: Global variable is optional.
+* Change:	Enlarge Attributes window to prevent the need of scroll bars.
+* Change:	Intel: enlarge description section.
+* Change:	Maximal # rounds for arty changed to 10.
+* Change:	Improve inventory dialog (improved performance by caching data; separated virtual arsenal (VA) from normal inventory; numpad keybinding: +/- (useful to make fast changes), * = VA, / = weapon sepecific); double click on weapon => weapon specific; sorted alphabetic, press letter/number to switch between entries; include faceware)
+* Feature:	Fire Support: Attack chopper CAS (target logic + module; might be laggy)
+* Feature:	Names of target/LZ/RP logics can be specified.
+* Feature:	Ares_fnc_showChooseDialog: New control type: "MESSAGE" (see [Achilles Wiki](https://github.com/oOKexOo/AresModAchillesExpansion/wiki/Custom-Modules))
+* Feature:	Settings: Auto-collapse module tree is optional
+* Feature:	Implement scroll bar for Ares_fnc_showChooseDialog
+* Feature:	Pre-placing mode (Allows defining spawn position prior to spawning the asset/module; especially useful for carriers).
+* Feature:	Additional way to spawn vehicles without crew.
+* Feature:	Edit unit attributes: Change unit traits (Medic, EOD, engineer); Vanilla & ACE3 version.
+* Feature:	Change Ability: PATH (by @Grezvany13).
+* Feature:	Attributes window: Changed attributes are applied on all selected units/vehicles/ammo boxes/groups (as in Eden editor; real game changer!).
+* Fix:		Healing module did not work for non-local units.
+* Fix:		Patrol/Loiter Module: Fails when chopper is not in the air.
+* Fix:		Ares_fnc_ShowChooseDialog: Variable scope issue ([BIS forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3157509))
+* Fix:		If fog decay was set to 0 a strange behaviour was observed (see [youtube](https://www.youtube.com/watch?v=vksk_BiC3o4)).
+* Fix:		Achilles object attributes are incomptatible with "Set Attributes - X" modules.
+* Fix:		Damage vehicle components: Not all components were available and some component names went missing.
+* Fix:		Translation corrections for German (by @KiritoKun223)
+* Fix:		Factions with apostrophe in the name lead to errors (fixed by @shukari).
+* Fix:		Unessecary creation of dependency on achilles_data_f_achilles when placing compositions in Eden ([BIS Forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3140115)).
+* Fix:		Mines were still revealed to players (0.0.5 only removed the map markers...).
 
 V.0.0.5 (Achilles Expansion (alpha version))
 * Change:	Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
