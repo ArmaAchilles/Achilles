@@ -169,18 +169,23 @@ switch (_anim_set) do
 	case "CIV_HIDE":
 	{
 		_anims = ["Acts_CivilHiding_1","Acts_CivilHiding_2"];
+		_noWeapon = true;
 	};
 	case "CIV_SHOCK":
 	{
 		_anims = ["Acts_CivilShocked_1","Acts_CivilShocked_2"];
+		_noWeapon = true;
 	};
 	case "TALK_CIV":
 	{
 		_anims = ["Acts_CivilTalking_1","Acts_CivilTalking_2"];
+		_noWeapon = true;		
 	};
 	case "LISTEN_CIV":
 	{
 		_anims = ["Acts_CivilListening_1","Acts_CivilListening_2"];
+		_noWeapon = true;
+		
 	};
 	case "SHIELD_FROM_SUN":
 	{
