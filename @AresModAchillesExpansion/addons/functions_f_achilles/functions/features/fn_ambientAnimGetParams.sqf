@@ -150,6 +150,46 @@ switch (_anim_set) do
 	{	
 		_anims = ["amovpsitmstpslowwrfldnon","amovpsitmstpslowwrfldnon_weaponcheck1","amovpsitmstpslowwrfldnon_weaponcheck2"];
 	};
+	case "INJURY_CHEST":
+	{
+		_anims = ["Acts_CivilinjuredChest_1"];
+	};
+	case "INJURY_HEAD":
+	{
+		_anims = ["Acts_CivilInjuredHead_1"];
+	};
+	case "INJURY_ARM":
+	{
+		_anims = ["Acts_CivilInjuredArms_1"];
+	};
+	case "INJURY_LEG":
+	{
+		_anims = ["Acts_CivilInjuredLegs_1"];
+	};
+	case "CIV_HIDE":
+	{
+		_anims = ["Acts_CivilHiding_1","Acts_CivilHiding_2"];
+	};
+	case "CIV_SHOCK":
+	{
+		_anims = ["Acts_CivilShocked_1","Acts_CivilShocked_2"];
+	};
+	case "TALK_CIV":
+	{
+		_anims = ["Acts_CivilTalking_1","Acts_CivilTalking_2"];
+	};
+	case "LISTEN_CIV":
+	{
+		_anims = ["Acts_CivilListening_1","Acts_CivilListening_2"];
+	};
+	case "SHIELD_FROM_SUN":
+	{
+		_anims = ["Acts_ShieldFromSun_Loop"];
+	};
+	case "SHOWING_THE_WAY":
+	{
+		_anims = ["Acts_ShowingTheRightWay_loop"];
+	};
 };
 
 [_anims,_noWeapon]
