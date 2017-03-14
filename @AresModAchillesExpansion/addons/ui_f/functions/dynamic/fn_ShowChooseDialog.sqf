@@ -137,14 +137,16 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 	
 	private _choiceName_varName = _choiceName call Achilles_fnc_TextToVariableName;
 	
-	_defaultChoice = 0;
+	private _defaultChoice = 0;
+	private _force_default = false;
 	if (count _x > 2) then
 	{
 		_defaultChoice = _x select 2;
+		_force_default = _x param [3, false, [false]];
 	};
 	
-	// If this dialog is named, attmept to get the default value from a previously displayed version
-	if (_titleText != "") then
+	// If this dialog is named, attempt to get the default value from a previously displayed version
+	if (_titleText != "" and not _force_default) then
 	{
 		_defaultVariableId = format["%1_%2", _titleVariableIdentifier, _forEachIndex];
 		_defaultChoice = uiNamespace getVariable [_defaultVariableId, _defaultChoice];
