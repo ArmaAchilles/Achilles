@@ -13,6 +13,7 @@ Changelists
 V.0.0.6c (Achilles Expansion (alpha version))
 * Fix:		Spawn attributes ticks were not updated after reopening zeus interface.
 * Fix:		Target/LZ/RP logics default value was always the same & wrong message.
+* Fix:		Static artillery from third-party add-ons did not fire multiple rounds.
 
 V.0.0.6 (Achilles Expansion (alpha version))
 * Change:	Create Intel: Simulation of new created intel is no longer enabled.
