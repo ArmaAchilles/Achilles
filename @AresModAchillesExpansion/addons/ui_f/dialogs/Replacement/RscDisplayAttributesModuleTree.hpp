@@ -107,6 +107,7 @@ class Add: RscControlsGroupNoScrollbars
 		{
 			idc = 2801;
 			checked = 1;
+			onLoad = "if (isNil ""Achilles_var_deleteCrewOnSpawn"") then {(_this select 0) cbSetChecked true} else {(_this select 0) cbSetChecked false}";
 			onCheckedChanged = "Achilles_var_deleteCrewOnSpawn = if (_this select 1 == 0) then {true} else {nil}";
 			x = "9.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "safezoneH - 4.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
@@ -116,7 +117,6 @@ class Add: RscControlsGroupNoScrollbars
 		class Ares_Label_Position: RscText
 		{
 			idc = 1020;
-
 			text = "Specify position"; //--- ToDo: Localize;
 			shadow = 0;
 			font = "PuristaLight";
@@ -129,6 +129,7 @@ class Add: RscControlsGroupNoScrollbars
 		class Ares_Checkbox_Position: RscCheckbox
 		{
 			idc = 2800;
+			onLoad = "if (isNil ""Achilles_var_specifyPositionBeforeSpawn"") then {(_this select 0) cbSetChecked false} else {(_this select 0) cbSetChecked true}";
 			onCheckedChanged = "Achilles_var_specifyPositionBeforeSpawn = if (_this select 1 == 0) then {nil} else {true}";
 			x = "9.5 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "safezoneH - 3.4 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: by Anton Struy, modified by Kex
-//	DATE: 3/1/17
-//	VERSION: 3.0
+//	DATE: 3/16/17
+//	VERSION: 4.0
 //  DESCRIPTION: Function for "artillery fire mission" module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,21 +16,25 @@ if (isNil "Ares_FireArtilleryFunction") then
 		_ammoType = _this select 2;
 		_roundsToFire = _this select 3;
 		enableEngineArtillery true;
-		if (_artilleryUnit isKindOf "Mortar_01_base_F") then
+		if (_artilleryUnit isKindOf "StaticWeapon") then
 		{
-			[_artilleryUnit,_targetPos,_ammoType,_roundsToFire] spawn
-			{
-				_artilleryUnit = _this select 0;
-				_targetPos = _this select 1;
-				_ammoType = _this select 2;
-				_roundsToFire = _this select 3;	
-				for "_i" from 1 to _roundsToFire do
+			_artilleryUnit addEventHandler 
+			[
+				"Fired",
+				"_artilleryUnit = _this select 0;
+				_artilleryUnit commandArtilleryFire [" + str _targetPos + "," + str _ammoType + ", 1];
+				_count = _artilleryUnit getVariable [""Ares_arty_cout"", 1];
+				_count = _count + 1;
+				if (_count >= " + str _roundsToFire + ") then
 				{
-					waitUntil {not alive _artilleryUnit or (unitReady _artilleryUnit)};
-					_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
-					sleep 1;
-				};
-			};
+					_artilleryUnit removeAllEventHandlers ""Fired"";
+					_artilleryUnit setVariable [""Ares_arty_cout"", nil];
+				} else
+				{
+					_artilleryUnit setVariable [""Ares_arty_cout"", _count];
+				}"
+			];
+			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
 		} else
 		{
 			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
