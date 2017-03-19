@@ -48,7 +48,7 @@ if (_is_single_unit) then
 		[
 			[localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_CLS", localize "STR_DOCTOR"]],
 			[localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"]],
-			[localize "STR_EXPLOSIVE_SPECIALIST",[localize "STR_FALSE", localize "STR_TRUE"]]
+			[localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"]]
 		]
 	} else
 	{
