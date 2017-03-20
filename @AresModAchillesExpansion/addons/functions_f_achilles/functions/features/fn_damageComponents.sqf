@@ -42,8 +42,9 @@ _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 if (local _vehicle) then
 {
 	{
+		_vehicle = _x;
 		{
-			_x setHitIndex [_forEachIndex,_x];
+			_vehicle setHitIndex [_forEachIndex,_x];
 		} forEach _dialogResult;
 	} forEach _curatorSelected;
 } else
