@@ -7,42 +7,6 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-// initalize artillery fire function
-if (isNil "Ares_FireArtilleryFunction") then
-{
-	Ares_FireArtilleryFunction = {
-		_artilleryUnit = _this select 0;
-		_targetPos = _this select 1;
-		_ammoType = _this select 2;
-		_roundsToFire = _this select 3;
-		enableEngineArtillery true;
-		if (_artilleryUnit isKindOf "StaticWeapon") then
-		{
-			_artilleryUnit addEventHandler 
-			[
-				"Fired",
-				"_artilleryUnit = _this select 0;
-				_artilleryUnit commandArtilleryFire [" + str _targetPos + "," + str _ammoType + ", 1];
-				_count = _artilleryUnit getVariable [""Ares_arty_cout"", 1];
-				_count = _count + 1;
-				if (_count >= " + str _roundsToFire + ") then
-				{
-					_artilleryUnit removeAllEventHandlers ""Fired"";
-					_artilleryUnit setVariable [""Ares_arty_cout"", nil];
-				} else
-				{
-					_artilleryUnit setVariable [""Ares_arty_cout"", _count];
-				}"
-			];
-			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
-		} else
-		{
-			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
-		};
-	};
-	publicVariable "Ares_FireArtilleryFunction";
-};
-
 private ["_objects","_guns","_rounds","_ammo","_targetPos"];
 
 _objects = nearestObjects [(_this select 0), ["All"], 150];
@@ -231,7 +195,7 @@ if (_roundEta == -1) exitWith { [localize "STR_NO_TARGET_IN_RANGE"] call Ares_fn
 
 // Fire the guns
 {
-	[[_x, _targetPos, _ammo, _rounds], "Ares_FireArtilleryFunction", _x] call BIS_fnc_MP;
+	[_x, [_targetPos, _ammo, _rounds]] remoteExec ["commandArtilleryFire", _x];
 } forEach _gunsToFire;
 [localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
 

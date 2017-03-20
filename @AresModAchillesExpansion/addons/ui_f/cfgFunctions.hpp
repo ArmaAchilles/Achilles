@@ -56,7 +56,6 @@ class CfgFunctions
 			class RscDisplayAtttributes_SpawnIntel;
 			class RscDisplayAtttributes_DamageComponents;
 			class RscDisplayAttributes_Chatter;
-			class RscDisplayAtttributes_ChangeSkills;
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;

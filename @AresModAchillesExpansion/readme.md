@@ -11,9 +11,12 @@ You can download the latest version of CBA from the developer website here: http
 
 Changelists
 V.0.0.6d (Achilles Expansion (alpha version))
+* Change:	Artillery fire support module: Removed workaround (BIS fixed it).
+* Fix:		Add/Remove objects to Zeus: Type "Unit" did not select soldiers. Moreover, it did select empty vehicles.
 * Fix:		Ares Compositions did not work properly in 1.68.
 * Fix:		Damage Vehicle Components: Did not work for local units.
 * Fix:		Cange Skills/Traits: EOD label was missing in ACE version.
+* Fix:		Cange Skills/Traits: EOD and engineer did not work for ACE.
 
 V.0.0.6c (Achilles Expansion (alpha version))
 * Fix:		Spawn attributes ticks were not updated after reopening zeus interface.
