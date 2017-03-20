@@ -43,14 +43,14 @@ if (_range_mode == 0) then
 		case 0: {nearestObjects [_center_pos,[],_radius]};
 		case 1: 
 		{
-			_units = nearestObjects [_center_pos,["LandVehicle","Tank","Air","Ship"],_radius];
+			_units = nearestObjects [_center_pos,["Man","LandVehicle","Air","Ship"],_radius];
 			if (_dialogResult select 4 == 1) then
 			{
 				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
-				_units select {(side _x) isEqualTo _side};
+				_units select {(side _x) isEqualTo _side and count crew _x > 0};
 			} else
 			{
-				_units;
+				_units select {count crew _x > 0};
 			};
 		};
 		case 2: {nearestObjects [_center_pos,["LandVehicle","Air","Ship"],_radius]};
