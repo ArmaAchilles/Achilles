@@ -1,7 +1,7 @@
-#Ares Mod - Achilles Expansion
+# Ares Mod - Achilles Expansion
 ![Logo](https://github.com/oOKexOo/AresModAchillesExpansion/blob/(0.0.5)/Achilles_Logo_Github.png)
 
-###Add-on description:
+### Add-on description:
 
 This Arma III Add-on expands the Zeus Real-Time Editor with new features.
 
@@ -10,7 +10,7 @@ No one would argue that this mod changed completely the way we play Zeus and I c
 Unfortunately, Ares hasn't been updated for ages.
 My intention is to fix and further expand Ares with "Ares Mod - Achilles Expansion".
 
-###Required Add-ons:
+### Required Add-ons:
 
 - [CBA_A3](https://steamcommunity.com/sharedfiles/filedetails/?id=450814997)
 - [ACE3](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262) (optional)
@@ -22,7 +22,7 @@ Notes:
 - ACE3 and Advanced Rappelling are optional, but are requiered to unlock certain additional features.
 - Moreover, only Zeus need to have the add-on installed as it was the case for Ares Mod.
 
-###Links:
+### Links:
 - [Check Achilles Wiki.](https://github.com/oOKexOo/AresModAchillesExpansion/wiki)
 - [Check Achilles Tutorial Series.](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg)
 - [Check licence and full list of contributers.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/license.txt)
