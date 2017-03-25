@@ -34,7 +34,7 @@ class Ares_Dynamic_Dialog
 		};
 		class Ares_Content: RscControlsGroup
 		{
-			idc = 7000
+			idc = 7000;
 			x = 0 * GUI_GRID_W + GUI_GRID_X;
 			y = 1.9 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
