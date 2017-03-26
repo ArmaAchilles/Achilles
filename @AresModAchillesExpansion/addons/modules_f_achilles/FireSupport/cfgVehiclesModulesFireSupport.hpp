@@ -40,6 +40,6 @@ class Achilles_Create_CAS_Target_Module : Achilles_Fire_Support_Module_Base
 	_generalMacro = "Achilles_Create_CAS_Target_Module";
 	displayName = "$STR_CREATE_CAS_TARGET";
 	function = "Achilles_fnc_FireSupportCreateCASTarget";
-	icon = "\achilles\data_f_ares\icons\icon_artillery_target.paa";
-	portrait = "\achilles\data_f_ares\icons\icon_artillery_target.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_cas_target.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_cas_target.paa";
 };
