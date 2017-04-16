@@ -29,7 +29,7 @@ Achilles_var_submit_selection = nil;
 
 // Inform curator what he has to do
 playSound "FD_Finish_F";
-[["Ares","SelectionOption"]] call BIS_fnc_advHint;
+[["Ares","SelectionOption"],15,"not isNil ""Achilles_var_submit_selection""",35,"not isNil ""Achilles_var_submit_selection""",true,true] call BIS_fnc_advHint;
 
 _ctrlMessage ctrlsettext toupper (format [localize "STR_SELECT_X_APPLIED_TO_MODULE",_type]);
 _ctrlMessage ctrlsetfade 1;

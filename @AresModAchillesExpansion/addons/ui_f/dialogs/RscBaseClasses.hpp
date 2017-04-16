@@ -1,3 +1,7 @@
+// close dialog values
+#define IDC_OK				1
+#define IDC_CANCLE			2
+
 // Control types
 #define CT_STATIC           0
 #define CT_BUTTON           1

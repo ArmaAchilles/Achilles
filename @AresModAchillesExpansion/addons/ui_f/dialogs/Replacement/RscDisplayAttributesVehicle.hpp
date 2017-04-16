@@ -88,19 +88,19 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		class ButtonBehaviour : ButtonCustom 
 		{
 			text = "BEHAVIOUR";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			onMouseButtonClick = "[localize ""STR_NOT_IMPLEMENTED_AT_THE_MOMENT""] call Ares_fnc_ShowZeusMessage; playSound ""FD_Start_F""";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
 			text = "CARGO";
-			onMouseButtonClick = "createdialog 'RscDisplayAttributesInventory'";
+			onMouseButtonClick = "createDialog ""RscDisplayAttributesInventory""";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
 			text = "AMMO";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			onMouseButtonClick = "[localize ""STR_NOT_IMPLEMENTED_AT_THE_MOMENT""] call Ares_fnc_ShowZeusMessage; playSound ""FD_Start_F""";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow

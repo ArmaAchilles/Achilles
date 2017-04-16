@@ -31,6 +31,10 @@ if (!isPlayer _unit) then
 	unassignVehicle _unit;
 	[_unit] orderGetIn false;
 	sleep 1;
+	
+	// if the unit already has a chute
+	if (toLower backpack _unit == "b_parachute") then {removeBackpack _unit};
+
 	_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
 	_chute setPos (getPos _unit);
 	_chute setDir (getDir _unit);
@@ -45,6 +49,10 @@ if (!isPlayer _unit) then
 	// for player units
 	_unit action ["Eject", vehicle _unit];
 	_backpack_class = backpack _unit;
+	
+	// if the unit already have a chute
+	if (toLower _backpack_class == "b_parachute") then {_backpack_class = ""};
+	
 	if (_backpack_class != "") then
 	{
 		_container = backpackContainer _unit;
