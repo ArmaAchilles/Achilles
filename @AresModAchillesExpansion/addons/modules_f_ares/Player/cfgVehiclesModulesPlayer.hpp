@@ -34,6 +34,7 @@ class Ares_Module_Player_Change_Player_Side : Ares_Player_Module_Base
 class ModuleBootcampStage_F : Module_F {};
 class ModulePunishment_F : ModuleBootcampStage_F
 {
+	scopeCurator = 2;
 	category = "Player";
 };
 

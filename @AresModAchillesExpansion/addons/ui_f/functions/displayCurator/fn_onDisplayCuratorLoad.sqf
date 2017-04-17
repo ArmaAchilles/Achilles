@@ -45,7 +45,7 @@ _this spawn
 		Achilles_curator_init_done = true;
 		
 		// display advanced hints
-		[["Ares", "AresFieldManual"],15,"",35,"",true,true] call BIS_fnc_advHint;
+		[["Ares", "AresFieldManual"],15,"",35,"",true] call BIS_fnc_advHint;
 	};
 	// prevent unessecary double execution of functions below
 	if (_display_reload) exitWith {};

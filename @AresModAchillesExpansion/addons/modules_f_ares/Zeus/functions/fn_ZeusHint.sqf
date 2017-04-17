@@ -10,6 +10,6 @@ _dialogResult =
 
 if (count (_dialogResult select 0) == 0) exitWith {};
 
-(_dialogResult select 0) remoteExec ["Hint", 0];
+(parseText (_dialogResult select 0)) remoteExec ["Hint", 0];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

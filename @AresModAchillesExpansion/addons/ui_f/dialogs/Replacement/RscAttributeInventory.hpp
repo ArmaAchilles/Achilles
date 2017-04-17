@@ -1,7 +1,7 @@
 
 class RscAttributeInventory: RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	
 	class controls 
 	{

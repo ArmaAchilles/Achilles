@@ -60,6 +60,13 @@ class CfgFunctions
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
 		};
+		
+		class ui_f_replacement
+		{
+			file = "\achilles\ui_f\functions\replacement";
+			
+			class initCuratorAttribute;
+		}
 	};
 	
 	class Ares

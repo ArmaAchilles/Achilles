@@ -40,7 +40,7 @@ class RscDisplayAttributes
 // define class ammo for vehicles and units
 class RscAttributeAmmo: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeAmmo"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeAmmo"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 14775;
 	x = "7 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
 	y = "10 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
@@ -76,52 +76,52 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 
 class RscAttributeRank: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeRank"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeRank"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeSkill: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeSkill"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeSkill"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeFuel: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeFuel"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeFuel"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeDamage: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeDamage"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeDamage"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeLock: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeLock"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeLock"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeUnitPos: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeUnitPos"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeUnitPos"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeFormation: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeFormation"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeFormation"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeSpeedMode: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeSpeedMode"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeSpeedMode"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeRespawnVehicle"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeRespawnVehicle"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeRespawnPosition"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeRespawnPosition"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 
 	class controls 
 	{
@@ -139,7 +139,7 @@ class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars
 
 class RscAttributeName: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeName"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeName"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 119279;
 	x = "7 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
 	y = "10 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
@@ -176,7 +176,7 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 
 class RscAttributeHeadlight: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeHeadlight"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeHeadlight"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 114725;
 	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
@@ -247,7 +247,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 // define combat modes for groups and waypoints
 class RscAttributeCombatMode : RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeCombatMode"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeCombatMode"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 124569;
 	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
@@ -347,7 +347,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 // implement careless option for groups and waypoints
 class RscAttributeBehaviour: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeBehaviour"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeBehaviour"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	class controls 
 	{
 		class Title: RscText 
