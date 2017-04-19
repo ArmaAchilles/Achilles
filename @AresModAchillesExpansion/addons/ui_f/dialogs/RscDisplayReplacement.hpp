@@ -12,7 +12,6 @@ class CfgScriptPaths
 	AresDisplays = "\achilles\ui_f\scripts\";
 };
 
-
 class RscDisplayCurator 
 {
 	// couple achilles init with curator display

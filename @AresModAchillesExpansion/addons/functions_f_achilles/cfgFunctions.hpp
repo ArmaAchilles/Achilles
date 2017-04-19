@@ -57,8 +57,22 @@ class CfgFunctions
 			class ungroupObjects;
             class setCuratorVisionModes;
 			class damageBuildings;
-			class vehicleArsenal;
+			// class garage;
 			class preplaceMode;
+		};
+	};
+
+	class A3_Mark
+	{
+		class Vehicles
+		{
+			delete garage; 
+		};
+		class Achilles
+		{
+			file = "\achilles\functions_f_achilles\functions\replacement";
+			class garage;
+			class garageZeus;
 		};
 	};
 	class A3_Functions_F_Curator

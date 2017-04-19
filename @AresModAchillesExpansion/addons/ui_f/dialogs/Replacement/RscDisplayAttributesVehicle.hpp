@@ -32,8 +32,9 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		};
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "BEHAVIOUR";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			text = "GARAGE";
+			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
+								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
