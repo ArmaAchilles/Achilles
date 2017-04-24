@@ -105,7 +105,7 @@
 #define GUI_GRID_WAbs	(1)
 #define GUI_GRID_HAbs	(1)
 
-// Forward declare the default base classes.
+// Forward declare some default base classes.
 class IGUIBack;
 class RscFrame;
 class RscEdit;
@@ -124,6 +124,7 @@ class RscButtonImages;
 class RscSlider;
 class RscXSliderH;
 class ScrollBar;
+class RscProgress;
 class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 class RscControlsGroupNoHScrollbars;
@@ -131,6 +132,19 @@ class RscMapControl;
 class RscActivePicture;
 class RscPicture;
 class RscTree;
+
+// Forward declare some 3den base classes.
+class ctrlDefault;
+class ctrlDefaultText: ctrlDefault {};
+class ctrlCombo: ctrlDefaultText {};
+class ctrlEdit: ctrlDefaultText {};
+class ctrlStatic: ctrlDefaultText {};
+class ctrlStaticFrame: ctrlStatic {};
+class ctrlStaticPicture: ctrlStatic {};
+class ctrlXSliderV: ctrlDefault {};
+class ctrlXSliderH: ctrlXSliderV {};
+class ctrlControlsGroup: ctrlDefault {};
+class ctrlControlsGroupNoScrollbars: ctrlControlsGroup {};
 
 // Achilles base classes
 class RscAchillesEdit: RscEdit

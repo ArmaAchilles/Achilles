@@ -47,6 +47,7 @@ class CfgFunctions
 			class RscDisplayAttributes_selectPlayers;
 			class RscDisplayAttributes_Create_Reinforcement;
 			class RscDisplayAttributes_BuildingsDestroy;
+			class RscDisplayAttributes_LockDoors;
 			class RscDisplayAtttributes_SpawnEffect;
 			class RscDisplayAttributes_SpawnAdvancedComposition;
 			class RscDisplayAttributes_manageAdvancedComposition;

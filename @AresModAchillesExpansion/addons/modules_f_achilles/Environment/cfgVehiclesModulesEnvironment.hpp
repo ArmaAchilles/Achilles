@@ -14,6 +14,16 @@ class Achilles_Set_Weather_Module : Achilles_Environment_Module_Base
 	portrait = "\a3\Modules_F_Curator\Data\portraitWeather_ca.paa";
 };
 
+class Achilles_Set_Date_Module : Achilles_Environment_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_Set_Date_Module";
+	displayName = "$STR_SET_DATE";
+	function = "Achilles_fnc_EnvironmentSetDate";
+	icon = "\a3\Modules_F_Curator\Data\portraitSkiptime_ca.paa";
+	portrait = "\a3\Modules_F_Curator\Data\portraitSkiptime_ca.paa";
+};
+
 class Achilles_Earthquake_Module : Achilles_Environment_Module_Base
 {
 	scopeCurator = 2;

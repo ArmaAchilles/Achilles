@@ -54,7 +54,7 @@ private _switch_anim_mode = false; // true if we only switch the animation
 
 //Terminate previous animation
 if (_anim_set == "TERMINATE") exitWith {_unit call Achilles_fnc_ambientAnim_terminate};
-if (not isNil "Achilles_var_animations") then 
+if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then 
 {
 	_unit call Achilles_fnc_ambientAnim_terminate;
 	_switch_anim_mode = true;

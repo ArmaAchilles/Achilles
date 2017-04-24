@@ -54,6 +54,9 @@ class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
 #include "Replacement\RscDisplayAttributesGroup.hpp"
 #include "Replacement\RscDisplayWaypointAttributes.hpp"
 
+// include module displays
+#include "Replacement\RscDisplayAttributesSetDate.hpp"
+
 // include music from description.ext
 class RscAttributeMusic : RscControlsGroupNoScrollbars 
 {

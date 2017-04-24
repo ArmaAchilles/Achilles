@@ -2,8 +2,16 @@
 // add 3 additional custom buttons to standard curator dialog
 class RscDisplayAttributes 
 {
+	movingEnable = true;
 	class Controls
 	{
+		class Title : RscText
+		{
+			moving = 1;
+		};
+		class Background : RscText {};
+		class ButtonOK : RscButtonMenuOK {};
+		class ButtonCancel : RscButtonMenuCancel {};
 		class ButtonCustom : RscButtonMenu {};
 		class ButtonCustomLeft : RscButtonMenu 
 		{

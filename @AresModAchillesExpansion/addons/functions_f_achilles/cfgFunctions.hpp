@@ -57,8 +57,8 @@ class CfgFunctions
 			class ungroupObjects;
             class setCuratorVisionModes;
 			class damageBuildings;
-			// class garage;
 			class preplaceMode;
+			class addBreachDoorAction;
 		};
 	};
 
