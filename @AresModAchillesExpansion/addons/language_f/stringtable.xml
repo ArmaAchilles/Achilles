@@ -531,7 +531,7 @@
         <English>Create new RP</English>
         <French>Créer un noveau RV</French>
         <Russian>Создать точку встречи</Russian>
-        <German>Definiere ein neuer Tpt</German>
+        <German>Definiere einen neuen Sammelpunkt</German>
       </Key>
       <Key ID="STR_CREATE_NEW_LZ">
         <Original>Create new LZ</Original>
@@ -545,7 +545,7 @@
         <English>Spawn Units</English>
         <French>Spawn Unité</French>
         <Russian>Точка появления ИИ</Russian>
-        <German>Spawn Einheit</German>
+        <German>Einheiten Spawnen</German>
       </Key>
       <Key ID="STR_MINES_EXPLOSIVES">
         <Original>Mines/Explosives</Original>
@@ -823,7 +823,7 @@
         <English>Add/Remove Turret Optics</English>
         <French>Ajoutez/Supprimez l'optique de tourelle/</French>
 		<Russian>Добавить/Убрать оптику турелям</Russian>
-        <German>Fügen/Entferne Geschützoptik (hinzu)</German>
+        <German>Füge/Entferne Geschützoptik (hinzu)</German>
       </Key>
 	  <Key ID="STR_SPAWN_EMPTY_OBJECT">
         <Original>Spawn Empty Object</Original>
@@ -840,7 +840,7 @@
         <English>You have to place a target marker first!</English>
         <French>On a besoin d'un marqueur de cible!</French>
         <Russian>Сначала вы должны разместить маркер цели!</Russian>
-        <German>Du brauchst zuerst einen Ziel Marker!</German>
+        <German>Du musst zuerst einen Ziel Marker platzieren!</German>
       </Key>
       <Key ID="STR_NO_LZ">
         <Original>No LZ available!</Original>
@@ -952,7 +952,7 @@
         <English>Infantry Group</English>
         <French>Groupe d'infanterie</French>
         <Russian>Группа пехоты</Russian>
-        <German>Infanterie Gruppe</German>
+        <German>Infanteriegruppe</German>
       </Key>
       <Key ID="STR_GROUP_BEHAVIOUR">
         <Original>Group Behaviour</Original>
@@ -1662,7 +1662,7 @@
         <English>Not implemented at the moment!</English>
         <French>N'est pas disponible en ce moment!</French>
         <Russian>Не внедрено в данный момент!</Russian>
-        <German>Nicht implementiert im Moment!</German>
+        <German>Im Moment nicht implementiert!</German>
       </Key>
       <Key ID="STR_HEAD">
         <Original>Head</Original>
@@ -1841,7 +1841,7 @@
         <English>Wind Force</English>
         <French>Foce du vent</French>
         <Russian>Сила ветра</Russian>
-        <German>Wind Stärke</German>
+        <German>Windstärke</German>
       </Key>
       <Key ID="STR_WIND_DIRECTION">
         <Original>Wind Direction</Original>
@@ -1883,7 +1883,7 @@
         <English>Fog Altitude (ASL)</English>
         <French>Altitude du brouillard</French>
         <Russian>Высота тумана(ур.моря)</Russian>
-        <German>Nebel Höhe (ü. M.)</German>
+        <German>Nebelhöhe (ü. M.)</German>
       </Key>
       <Key ID="STR_Altitude_ASL">
         <Original>Altitude (ASL)</Original>
@@ -2058,7 +2058,7 @@
         <English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
         <French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
         <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 юнит(ов) )</Russian>
-        <German>SQF wurde generiert aus Missions Objekten (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
+        <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
       </Key>
       <Key ID="STR_COPY_PASTE_DIALOG">
         <Original>Copy/Paste Dialog</Original>
@@ -2627,6 +2627,15 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
 		</Original>
+        <German>
+			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
+			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Einheiten platziert werden. Die Modul-Optionen hängen davon ab!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, manchmal kann es aber auch auf Einheiten platziert werden.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
+		</German>
       </Key>
       <Key ID="STR_PLACING_MODULES_TIP">
         <Original>
@@ -2669,7 +2678,7 @@
 		</Russian>
         <German>
 			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
-			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl bestätigen mit der %3[EINGABETASTE]%4.
+			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
 			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
 		</German>
       </Key>
@@ -2705,6 +2714,16 @@
 			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
 		</Original>
+        <German>
+			Weitere verfügbare Tastenzuweisungen:
+			%1%1%2Drücke %3[L Strg]%4 + 2x %3[LMB]%4 auf das Icon einer Einheit, um die Einheit fernzusteuern.
+			%1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) eines Fahrzeugs abspringen zu lassen (Fallschirmsprung bei Flugzeugen).
+			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten mit allen Eigenschaften zu kopieren.
+			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten mit allen Eigenschaften einzufügen.
+			%1%2Wenn du eine Einheit auswählst und %11 drückst, wird diese Rauch oder Kontermaßnahmen verwenden, falls verfügbar.
+			%1%2Drücke %3[L Strg]%4 + %3[G]%4 um Objekte zu gruppieren.
+			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
+		</German>
       </Key>
       <Key ID="STR_EXECUTE_CODE">
         <Original>Execute Code Module</Original>
@@ -2717,6 +2736,12 @@
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
 		</Original>
+        <German>
+			Das Execute Code Module ist nur verfügbar, wenn der Server die Nutzung erlaubt!
+			%1%1Es sind 2 eingebaute Parameter verfügbar:
+			%1%2%3_this select 0%4   POSITION:   Position auf der das Modul platziert wurde.
+			%1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
+		</German>
       </Key>
       <Key ID="STR_ARES_FIELD_MANUAL">
         <Original>Ares Field Manual</Original>
