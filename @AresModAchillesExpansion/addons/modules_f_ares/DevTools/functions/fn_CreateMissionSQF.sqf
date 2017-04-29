@@ -140,7 +140,7 @@ if (!_includeEmptyObjects) then { _emptyObjects = []; };
 _totalUnitsProcessed = 0;
 {
 	_output pushBack format [
-		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; _newObject setVectorDirAndUp [%4, %5];",
+		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject];",
 		(typeOf _x),
 		(position _x),
 		(getPosWorld _x),

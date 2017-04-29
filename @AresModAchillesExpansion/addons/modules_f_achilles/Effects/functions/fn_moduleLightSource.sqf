@@ -76,18 +76,19 @@ switch _mode do {
 		_source lightAttachObject [_sourceObject,[0,0,0]];
 		[[_source,_color],
 		{
-			_source = _this select 0;
-			_color = _this select 1;
+			params ["_source","_color"];
 			_source setLightBrightness 1.0;
 			_source setLightAmbient  _color;
 			_source setLightColor _color;
-		}] remoteExec ["BIS_fnc_spawn",0,true];
-		
+		}] remoteExec ["spawn",0,_source];
+		_sourceObject setVariable ["LightAttributes",[_color, [1,1,1,1]]];
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;
 		deleteVehicle _logic;
 		
-		waitUntil {sleep 1; isNull _sourceObject};
-		deletevehicle _source;
+		_sourceObject setVariable ["source", _source];
+		_sourceObject addEventHandler ["Deleted", {_source = (_this select 0) getVariable "source"; deletevehicle _source}];
+		
+		[_sourceObject] call Achilles_fnc_lightSourceAttributes;
 	};
 };
 

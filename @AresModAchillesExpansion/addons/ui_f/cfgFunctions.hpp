@@ -49,6 +49,7 @@ class CfgFunctions
 			class RscDisplayAttributes_BuildingsDestroy;
 			class RscDisplayAttributes_LockDoors;
 			class RscDisplayAtttributes_SpawnEffect;
+			class RscDisplayAttributes_editLigthSource;
 			class RscDisplayAttributes_SpawnAdvancedComposition;
 			class RscDisplayAttributes_manageAdvancedComposition;
 			class RscDisplayAttributes_createAdvancedComposition;

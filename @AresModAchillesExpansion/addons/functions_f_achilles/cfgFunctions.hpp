@@ -59,6 +59,7 @@ class CfgFunctions
 			class damageBuildings;
 			class preplaceMode;
 			class addBreachDoorAction;
+			class breachStun;
 		};
 	};
 

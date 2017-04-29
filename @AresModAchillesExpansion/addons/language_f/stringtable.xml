@@ -831,6 +831,26 @@
         <French>Créez un objet vide</French>
         <German>Ein leeres Objekt spawnen</German>
       </Key>
+	  <Key ID="STR_LOCK_DOORS">
+        <Original>Lock doors</Original>
+        <English>Lock doors</English>
+        <French>Verrouillez la porte</French>
+      </Key>
+	  <Key ID="STR_SET_DATE">
+        <Original>Set date</Original>
+        <English>Set date</English>
+        <French>Modifiez la date</French>
+      </Key>
+	  <Key ID="STR_SHOW_IN_CONFIG">
+        <Original>Show in config</Original>
+        <English>Show in config</English>
+		<French>Montrez la config</French>
+      </Key>
+	  <Key ID="STR_SHOW_IN_ANIM_VIEWER">
+        <Original>Show in anim viewer</Original>
+        <English>Show in anim viewer</English>
+		<French>Ouvrez la visionneuse d'animation</French>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -2555,6 +2575,70 @@
         <English>Move spawn position logic and press ENTER</English>
         <French>Déplacez la position de spawn et appuiez sur la touche entrée</French>
         <German>Verschiebe die Spawnposition und drücke ENTER</German>
+      </Key>
+	  <Key ID="STR_PREVIEW">
+        <Original>Preview</Original>
+        <English>Preview</English>
+        <French>Aperçu</French>
+      </Key>
+	  <Key ID="STR_UNBREACHABLE">
+        <Original>unbreachable</Original>
+        <English>unbreachable</English>
+		<German>unaufbrechbar</German>
+      </Key>
+	  <Key ID="STR_BREACHABLE">
+        <Original>breachable</Original>
+        <English>breachable</English>
+		<German>aufbrechbar</German>
+      </Key>
+	  <Key ID="STR_OPEN">
+        <Original>open</Original>
+        <English>open</English>
+        <French>ouvert</French>
+		<German>offen</German>
+      </Key>
+	  <Key ID="STR_DOOR_STATUS_CHANGED">
+        <Original>CHANGED STATUS OF %1 DOORS!</Original>
+        <English>CHANGED STATUS OF %1 DOORS!</English>
+      </Key>
+	  <Key ID="STR_GARAGE">
+        <Original>GARAGE</Original>
+        <English>GARAGE</English>
+		<French>GARAGE</French>
+      </Key>
+	  <Key ID="STR_CARGO">
+        <Original>CARGO</Original>
+        <English>CARGO</English>
+		<French>INVENTAIRE</French>
+      </Key>
+	  <Key ID="STR_AMMO">
+        <Original>AMMO</Original>
+        <English>AMMO</English>
+		<French>MUNITIONS</French>
+      </Key>
+	  <Key ID="STR_DAMAGE">
+        <Original>DAMAGE</Original>
+        <English>DAMAGE</English>
+		<French>DÉGÂTS</French>
+      </Key>
+	  <Key ID="STR_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
+        <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
+        <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
+      </Key>
+	  <Key ID="STR_CONST_ATTENUATION">
+        <Original>Constant attenuation</Original>
+        <English>Constant attenuation</English>
+		<French>Atténuation constante</French>
+      </Key>
+	  <Key ID="STR_LINEAR_ATTENUATION">
+        <Original>Linear attenuation</Original>
+        <English>Linear attenuation</English>
+		<French>Atténuation linéique</French>
+      </Key>
+	  <Key ID="STR_QUADRATIC_ATTENUATION">
+        <Original>Quadratic attenuation</Original>
+        <English>Quadratic attenuation</English>
+		<French>Atténuation quadratique</French>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

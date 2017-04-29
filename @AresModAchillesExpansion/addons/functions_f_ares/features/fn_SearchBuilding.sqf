@@ -92,7 +92,7 @@ if (_delete_waypoint) then
 // Go through all the nearby buildings and make sure they at least have one searchable space. If they
 // do then add them to our list of candidates.
 _bldgArray = [];
-_tempArray = nearestObjects [_initialPos, ["building"], _srchRad];
+_tempArray = nearestObjects [_initialPos, ["building"], _srchRad, true];
 _t = count _tempArray;  // count number of buildings in array
 _t = _t - 1;
 for [{_b = 0},{_b <= _t},{_b = _b+1}] do

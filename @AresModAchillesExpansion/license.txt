@@ -33,7 +33,9 @@ Achilles integrates code from the following mods or scripts:
 * Kyle Kotowick's matrix transpose script
 * ACE fast-roping waypoint 
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda).
-* Some curator display functions (by BIS)
+* The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only dirctly adapted code is the breach stun function)
+    * http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202
+* Some curator display and module functions/configs (by BIS)
 
 Translations:
 * English (by Kex)
@@ -43,3 +45,4 @@ Translations:
 
 
 Ares as well as Achilles Expansion are provided without warranty. Use at your own risk.
+This product may contain traces of GoT/ASoIaF spoilers.

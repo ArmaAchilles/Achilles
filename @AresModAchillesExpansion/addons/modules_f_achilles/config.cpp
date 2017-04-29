@@ -23,6 +23,8 @@ class CfgPatches
 			"Achilles_Buildings_LockDoors_Module",
 			"Achilles_Buildings_ToggleLight_Module",
 			"Achilles_Bind_Variable_Module",
+			"Achilles_DevTools_ShowInAnimViewer",
+			"Achilles_DevTools_ShowInConfig",
 			"Achilles_Set_Weather_Module",
 			"Achilles_Set_Date_Module",
 			"Achilles_Earthquake_Module",

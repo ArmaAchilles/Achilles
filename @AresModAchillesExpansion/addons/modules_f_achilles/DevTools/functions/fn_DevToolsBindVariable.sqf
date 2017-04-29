@@ -9,7 +9,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-if (isNull _object) exitWith {["No object selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 _dialogResult = [
 	localize "STR_BIND_VAR",

@@ -21,6 +21,9 @@ class Achilles_Buildings_LockDoors_Module : Achilles_Buildings_Module_Base
 	_generalMacro = "Achilles_Buildings_LockDoors_Module";
 	displayName = "$STR_LOCK_DOORS";
 	function = "Achilles_fnc_LockDoors";
+	icon = "\achilles\data_f_achilles\icons\icon_door.paa";
+	picture = "\achilles\data_f_achilles\icons\icon_door.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_door.paa";
 };
 
 class Achilles_Buildings_ToggleLight_Module : Achilles_Buildings_Module_Base

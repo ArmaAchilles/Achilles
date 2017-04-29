@@ -112,7 +112,35 @@ class Ares_ExecuteCode_Dialog
 			style = 16;
 			linespacing = 1;
 			default = 1;
-			
+			/*
+			// -- TO Do: Have to wait for ebSetCursor command...
+			onKeyDown = "params[""_ctrl"",""_key""]; \
+						_handled = false; \
+						switch (_key) do \
+						{ \
+							case 15: \
+							{ \
+								_display = ctrlParent _ctrl;\
+								_txt = ctrlText _ctrl; \
+								_txt = _txt + ""    ""; \
+								_ctrl ctrlSetText _txt; \
+								ctrlSetFocus (_display displayCtrl 4000); \
+								ctrlSetFocus _ctrl; \
+								_handled = true; \
+							}; \
+							case 28: \
+							{ \
+								_display = ctrlParent _ctrl;\
+								_txt = ctrlText _ctrl; \
+								_txt = _txt + toString[0x0D,0x0A]; \
+								_ctrl ctrlSetText _txt; \
+								ctrlSetFocus (_display displayCtrl 4000); \
+								ctrlSetFocus  _ctrl; \
+								_handled = true; \
+							}; \
+						}; \
+						_handled";
+			*/
 			autocomplete = "scripting";
 
 			x = 1 * GUI_GRID_W + GUI_GRID_X;
@@ -147,3 +175,4 @@ class Ares_ExecuteCode_Dialog
 		////////////////////////////////////////////////////////
 	};
 };
+

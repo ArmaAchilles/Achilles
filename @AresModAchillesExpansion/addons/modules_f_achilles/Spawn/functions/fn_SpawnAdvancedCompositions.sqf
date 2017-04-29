@@ -63,7 +63,6 @@ _center_object setPos _spawn_pos;
 [_center_object,true] remoteExec ["enableSimulationGlobal",2];
 _center_object setVariable ["ACS_attached_objects",_attached_objects];
 _center_object setVariable ["ACS_center_dir", _center_dir];
-[_center_object, _attached_objects] spawn {waitUntil {sleep 1; isNull (_this select 0)}; {deleteVehicle _x} forEach (_this select 1)};
-
+_center_object addEventHandler ["Deleted", {_attached_objects = (_this select 0) getVariable ["ACS_attached_objects", []]; {deleteVehicle _x} forEach _attached_objects}];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
