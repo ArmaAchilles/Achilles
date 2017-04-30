@@ -60,6 +60,9 @@ class CfgFunctions
 			class preplaceMode;
 			class addBreachDoorAction;
 			class breachStun;
+			class setACEInjury;
+			class setVanillaInjury;
+			class SuppressiveFire;
 		};
 	};
 

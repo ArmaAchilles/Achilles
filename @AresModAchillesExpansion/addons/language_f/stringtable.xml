@@ -1740,12 +1740,11 @@
         <Russian>Левая нога</Russian>
         <German>Linkes Bein</German>
       </Key>
-      <Key ID="STR_UNCONSIOUS_">
-        <Original>Unconscious</Original>
-        <English>Unconscious</English>
-        <French>Evanouissement</French>
-        <Russian>Без сознания</Russian>
-        <German>Bewusstlos</German>
+      <Key ID="STR_FORCE_UNCONSIOUSNESS">
+        <Original>Force unconsciousness</Original>
+        <English>Force unconsciousness</English>
+        <French>Evanouissement forcé</French>
+        <German>Bewusstlosigkeit erzwingen</German>
       </Key>
       <Key ID="STR_HEALTH_CHANGED">
         <Original>Unit's health changed!</Original>
@@ -1760,6 +1759,12 @@
         <French>Légèrement</French>
         <Russian>Легкая</Russian>
         <German>Leicht</German>
+      </Key>
+      <Key ID="STR_MODERATE_INJURY">
+        <Original>moderate</Original>
+        <English>moderate </English>
+        <French>modérée</French>
+        <German>mittelschwer</German>
       </Key>
       <Key ID="STR_NO_DAMAGE">
         <Original>None</Original>
@@ -2639,6 +2644,80 @@
         <Original>Quadratic attenuation</Original>
         <English>Quadratic attenuation</English>
 		<French>Atténuation quadratique</French>
+      </Key>
+	  <Key ID="STR_HIGH">
+        <Original>high</Original>
+        <English>high</English>
+		<French>haute</French>
+		<German>hoch</German>
+      </Key>
+	  <Key ID="STR_NORMAL">
+        <Original>normal</Original>
+        <English>normal</English>
+		<French>normale</French>
+		<German>normal</German>
+      </Key>
+	  <Key ID="STR_LOW">
+        <Original>low</Original>
+        <English>low</English>
+		<French>basse</French>
+		<German>tief</German>
+      </Key>
+	  <Key ID="STR_TOO_LOW">
+        <Original>too low</Original>
+        <English>too low</English>
+		<French>trop basse</French>
+		<German>zu tief</German>
+      </Key>
+	  <Key ID="STR_PAIN_LEVEL">
+        <Original>Pain level</Original>
+        <English>Pain level</English>
+		<French>Douleur</French>
+      </Key>
+	  <Key ID="STR_HEARTH_RATE">
+        <Original>Hearth rate</Original>
+        <English>Hearth rate</English>
+		<French>Fréquence cardiaque</French>
+		<German>Herzfrequenz</German>
+	  </Key>
+	  <Key ID="STR_BLOOD_VOLUME">
+        <Original>Blood volume</Original>
+        <English>Blood volume</English>
+		<French>Volémie</French>
+		<German>Blutvolumen</German>
+      </Key>
+	  <Key ID="STR_BULLET">
+        <Original>Bullet</Original>
+        <English>Bullet</English>
+		<French>Balle</French>
+      </Key>
+	  <Key ID="STR_GRENADE">
+        <Original>Grenade</Original>
+        <English>Grenade</English>
+		<French>Grenade</French>
+		<German>Granate</German>
+      </Key>
+	  <Key ID="STR_STAB">
+        <Original>Stab</Original>
+        <English>Stab</English>
+		<French>Coup de couteau</French>
+		<German>Stichwunde</German>
+      </Key>
+	  <Key ID="STR_SHRAPNEL">
+        <Original>Shrapnel</Original>
+        <English>Shrapnel</English>
+		<French>Shrapnel</French>
+		<German>Schrapnell</German>
+      </Key>
+	  <Key ID="STR_CRASH">
+        <Original>Crash</Original>
+        <English>Crash</English>
+		<French>Collision</French>
+      </Key>
+	  <Key ID="STR_LINE_UP">
+        <Original>Line up</Original>
+        <English>Line up</English>
+		<French>Ligne</French>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
