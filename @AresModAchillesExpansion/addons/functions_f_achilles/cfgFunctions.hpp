@@ -45,7 +45,6 @@ class CfgFunctions
 			class Chatter;
 			class changeAbility;
 			class chute;
-			class halo;
 			class eject_passengers;
 			class LaunchCM;
 			class SwitchZeusSide;

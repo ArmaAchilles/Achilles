@@ -35,6 +35,7 @@ class CfgPatches
 			"Achilles_Toggle_Simulation_Module",
 			"Achilles_Transfer_Ownership_Module",
 			"Achilles_Attach_To_Module",
+			"Achilles_Make_Invincible_Module",
 			"Achilles_Set_Height_Module",
 			"Achilles_Module_Manage_Advanced_Compositions",
 			"Achilles_Module_Spawn_Effects",

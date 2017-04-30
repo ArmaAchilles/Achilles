@@ -111,6 +111,8 @@ _placeholder setPos [0,0,0];
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
+		_unit doWatch objNull;
+		_unit doWatch _target;
 		_unit doTarget _target;
 		_unit doTarget _target;
 		

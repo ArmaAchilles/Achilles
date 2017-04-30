@@ -851,6 +851,11 @@
         <English>Show in anim viewer</English>
 		<French>Ouvrez la visionneuse d'animation</French>
       </Key>
+	  <Key ID="STR_MAKE_INVINCIBLE">
+        <Original>Make invincible</Original>
+        <English>Make invincible</English>
+		<French>Rendre invincible</French>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">

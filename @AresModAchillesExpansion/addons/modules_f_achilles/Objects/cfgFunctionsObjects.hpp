@@ -4,6 +4,7 @@ class Achilles_Objects_Function_Base
 
 	class ObjectsToggleSimulation {};
 	class ObjectsAttachTo {};
+	class ModuleObjectsMakeInvincible {};
 	class ObjectsSetHeight {};
 	class ObjectsTransferOwnership {};
 };

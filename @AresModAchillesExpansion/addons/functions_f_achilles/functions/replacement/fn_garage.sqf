@@ -165,6 +165,30 @@ switch _mode do {
 		with missionnamespace do {
 			[missionnamespace,"garageClosed",[displaynull,uinamespace getvariable ["BIS_fnc_arsenal_toggleSpace",false]]] call bis_fnc_callscriptedeventhandler;
 		};
+		
+		if (!isNil "_isAchilles") then
+		{
+			_template_unit = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+			_template_type = typeOf _template_unit;		
+			_anim_cfgs = [configFile >> "cfgVehicles" >> _template_type >> "AnimationSources"] call bis_fnc_returnChildren;
+			_anims = [];
+			{
+				_sourceName = configName _x;
+				_sourcePhase = _template_unit animationPhase _sourceName;
+				_anims pushBack [_sourceName,_sourcePhase];
+			} forEach _anim_cfgs;
+			_textures = getObjectTextures _template_unit;
+			_curatorSelected = (["vehicle"] call Achilles_fnc_getCuratorSelected);
+			{
+				_vehicle = _x;
+				if (_template_type == typeof _vehicle) then //--- Change only objects of the same type 
+				{
+					{_vehicle animate _x} forEach _anims;
+					{_vehicle setObjectTextureGlobal [_foreachindex, _x]} forEach _textures;
+				};
+			} foreach _curatorSelected;
+		};
+		
 		"Exit" call bis_fnc_arsenal;
 	};
 
@@ -874,7 +898,13 @@ switch _mode do {
 				_animations pushback (_ctrlListAnimations lbdata _i);
 				_animations pushback (_checkboxTextures find (_ctrlListAnimations lbpicture _i));
 			};
-			[_center,_textures,_animations] call bis_fnc_initVehicle;
+			if (isNil "_isAchilles" or {local _center}) then
+			{
+				[_center,_textures,_animations] call bis_fnc_initVehicle;
+			} else
+			{
+				[_center,_textures,_animations] remoteExecCall ["bis_fnc_initVehicle",_center];
+			};
 		};
 
 		["SetCrewStatus",[_display]] call bis_fnc_garage;
@@ -1150,7 +1180,14 @@ switch _mode do {
 				};
 			} foreach _importArray;
 
-			[_center,_textures,_animations] call bis_fnc_initVehicle;
+			if (isNil "_isAchilles" or {local _center}) then
+			{
+				[_center,_textures,_animations] call bis_fnc_initVehicle;
+			} else
+			{
+				[_center,_textures,_animations] remoteExecCall ["bis_fnc_initVehicle",_center];
+			};
+			
 			if !(is3DEN or {!isNil "_isAchilles"}) then {
 				{_center deletevehiclecrew _x;} foreach (crew _center);
 				[_center,_crew] call bis_fnc_initVehicleCrew;
@@ -1260,7 +1297,7 @@ switch _mode do {
 				if (getnumber (configfile >> "cfgvehicles" >> _vehType >> "forceInGarage") > 0) then {_vehModel = _vehModel + ":" + _vehType;};
 				_lbAdd = _ctrlList lnbaddrow [_name];
 				_categoryIndex = -1;
-				if (is3DEN or !isNil "_isAchilles") then {_categoryIndex = 0;} else {{if (_vehModel in _x) exitwith {_categoryIndex = _foreachindex;}} foreach _data;};
+				if (is3DEN or {!isNil "_isAchilles"}) then {_categoryIndex = 0;} else {{if (_vehModel in _x) exitwith {_categoryIndex = _foreachindex;}} foreach _data;};
 				_ctrlList lbsetvalue [_lbAdd,_categoryIndex];
 
 				if (_categoryIndex < 0) then {_ctrlList lnbsetcolor [[_lbAdd,0],[1,1,1,0.25]];};
@@ -1310,7 +1347,7 @@ switch _mode do {
 						_display = _this select 3;
 
 						[_center,[profilenamespace,_name]] call bis_fnc_loadvehicle;
-						if (is3DEN or !isNil "_isAchilles") then {
+						if (is3DEN or {!isNil "_isAchilles"}) then {
 							['SelectItem',[_display,_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _categoryIndex),_categoryIndex]] call bis_fnc_garage;
 						} else {
 
@@ -1355,7 +1392,7 @@ switch _mode do {
 
 
 		//--- Apply the look on all selected objects
-		if (is3DEN or !isNil "_isAchilles") then {
+		if (is3DEN) then {
 			_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
 			_centerType = typeof _center;
 			_customization = _center call bis_fnc_getVehicleCustomization;
