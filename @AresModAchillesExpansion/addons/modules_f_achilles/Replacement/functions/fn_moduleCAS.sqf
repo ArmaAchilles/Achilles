@@ -2,10 +2,8 @@ _logic = _this select 0;
 _units = _this select 1;
 _activated = _this select 2;
 
-(str clientOwner) remoteExecCall ["systemChat",-2];
-
 if (_activated and {local _logic}) then {
-	("exec " + str clientOwner) remoteExecCall ["systemChat",-2];
+	
 	//--- Wait for params to be set
 	if (_logic call bis_fnc_isCuratorEditable) then {
 		waituntil {!isnil {_logic getvariable "vehicle"} || isnull _logic};
