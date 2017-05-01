@@ -2,11 +2,10 @@ _logic = _this select 0;
 _units = _this select 1;
 _activated = _this select 2;
 
-//--- Terminate on client (unless it's curator who created the module)
-if (!isserver && {local _x} count (objectcurators _logic) == 0) exitwith {};
+(str clientOwner) remoteExecCall ["systemChat",-2];
 
-if (_activated) then {
-	
+if (_activated and {local _logic}) then {
+	("exec " + str clientOwner) remoteExecCall ["systemChat",-2];
 	//--- Wait for params to be set
 	if (_logic call bis_fnc_isCuratorEditable) then {
 		waituntil {!isnil {_logic getvariable "vehicle"} || isnull _logic};
@@ -19,7 +18,6 @@ if (_activated) then {
 		_logic hideobject false;
 		_logic setpos position _logic;
 	};
-	if !(isserver) exitwith {};
 
 	_planeClass = _logic getvariable ["vehicle","B_Plane_CAS_01_F"];
 	_planeCfg = configfile >> "cfgvehicles" >> _planeClass;

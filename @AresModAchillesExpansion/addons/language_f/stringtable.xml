@@ -856,6 +856,11 @@
         <English>Make invincible</English>
 		<French>Rendre invincible</French>
       </Key>
+	  <Key ID="STR_CAS_BOMB_STRIKE">
+        <Original>CAS - Bomb Strike</Original>
+        <English>CAS - Bomb Strike</English>
+		<French>AAR - Bombe</French>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -2718,6 +2723,11 @@
         <Original>Crash</Original>
         <English>Crash</English>
 		<French>Collision</French>
+      </Key>
+	  <Key ID="STR_INCLUDE_CREW">
+        <Original>Include crew</Original>
+        <English>Include crew</English>
+		<French>Équipage inclus</French>
       </Key>
 	  <Key ID="STR_LINE_UP">
         <Original>Line up</Original>

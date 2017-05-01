@@ -1,30 +1,35 @@
-* Change: Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
-* Change: Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/40]#40[/url])
-* Change: "Destroy Buildings" Module was changed to "Damage Buildings" Module (=more options).
-* Change: "Patrol" module was changed to "Patrol/Loiter (Heli)" => Loiter waypoint for aircrafts.
-* Change: Default assigned hotkey to eject passengers has changed from `LEFT SHIFT` + `G` to `V`.
-* Change: For logged-in admins the "execute code" module is in any case available.
-* Change: "Bind variable to object" variable is no longer public, but still global.
-* Change: Postpone initialization of global functions to the point they are needed (like CED version).
-* Feature: Toggle street lamps module
-* Feature: Autocollapse Tree (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/26]#26[/url]) 
-* Feature: Apex symbol in front of apex objects and warning message.
-* Feature: CBA settings framework (by @Grezvany13).
-* Feature: Settings: Helmet & DLC icons for module tree (by @Grezvany13).
-* Feature: Settings: Zeus vison modes (by @Grezvany13).
-* Feature: Settings: Set available factions for module tree (especially useful for addons like CUP).
-* Feature: Settings: Customizable hotkeys.
-* Feature: Waypoint: Paradrop waypoint.
-* Feature: Waypoint: Improved fastroping waypoint; ACE3 or Advanced Rappeling (AR) is needed. The latter is used if both are loaded. (Note that ACE3 fastroping does not work properly in MP in contrast to AR)
-* Feature: Reinforcement Module: Type of waypoint can be selected: Land, fastroping or paradrop.
-* Feature: JIP option for execute code.
-* Feature: Module "Change Altitude": Change altitude for aircrafts, divers and submarines (Note: In some cases you have to place a waypoint to get the desired effect!).
-* Feature: Improve "Add objects to Zeus" module (shorter radius, Filters)
-* Fix:  Non-local surrendered units stuck after release in cetain cases.
-* Fix:  Implement solution similar to CED (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/27]#27[/url]).
-* Fix:  Player manned vehicles cannot be edited (see [url=https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3132117]BIS forum[/url])
-* Fix:  Advanced attributes do not work for non-local units (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/38]#38[/url])
-* Fix:  "Garrison building instant" module does not work for non-local units.
-* Fix:  Suppressive fire does not work properly with move waypoints.
-* Fix:  Mines were marked on map (check ACE3 solution?)
-* Fix:  Mortar only fire one shell (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/36]#36[/url])
+* Change:	ACE injury module: Adjusted damage levels.
+* Change:	Removed side restriction for vanilla CAS modules.
+* Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).
+* Change:	All dialog windows are movable now.
+* Change:	Module "Hint" makes use of "MESSAGE" control type.
+* Change:	Forced advanced hint window for selection option.
+* Change:	Cargo Attributes: Larger dialog window.
+* Change:	Replace icon for CAS Target.
+* Change:	Replace waitUnit delete by "deleted" event handler (e.g. advanced compositions).
+* Feature:	Make object invincible module.
+* Feature:	Suppressive fire module: Line-up is now an option and no longer handled automatically.
+* Feature:	ACE injury module: injury types, pain level, blood volume and hearth rate.
+* Feature:	Add/remove Zeus objects can now handle simple objects (EXPERIMENTAL - DO NOT YET SUPPORT FEATURES SUCH AS COPY/PASTE, ADV. COMPOSITIONS, SAVE MISSION SQF, ...).
+* Feature:	Show config and animation viewer modules.
+* Feature:	Vehicle garage from Eden editor.
+* Feature:	Create TPs: Custom names can be given to teleport flags.
+* Feature:	Hint Module: Support XML syntax (allows including images).
+* Feature:	Recovered vanilla CAS bomb strike module (dunno why it was hidden).
+* Feature:	Vanilla CAS modules: Implemented general config solution => support any 3rd party add-on.
+* Feature:	Implement additional ambient animations (see comment by [GHC] RandomMusic).
+* Feature:	New options for garrison module (max # men & placing radius)
+* Feature:	Set date module.
+* Feature:	Attribute window for light sources: RGB, radius and attenuation.
+* Feature:	"Lock door" module (including breach option, inspired by [url=http://www.armaholic.com/page.php?id=30573 ]Sushi Breach Script[/url]).
+* Fix:		ACE injury module: Untreatable unconsciousness.
+* Fix:		Suppressive fire module: Did not work for non-local units.
+* Fix:		Add/remove Zeus objects: Exclude curator module from being added to Zeus interface.
+* Fix:		Locality issue with vectordir and -up changes (e.g. Spawn Advanced Compositions).
+* Fix:		Pressing attribute buttons (e.g. arsenal) undid changes of attributes in the main window.
+* Fix:		Effect modules were placed by setVehiclePosition algorithm (inaccurate position).
+* Fix:		Punishment module was missing.
+* Fix:		Force AI to chute: Exception handling for units that already have a chute was missing.
+* Fix:		Syntax error in dynamic dialog cfg   (fixed by @shukari)
+* Fix:		Missing error message for modules such as "Hava a seat".
+* Fix:		Flaws in garrison building position search algorithm (see [url=https://github.com/oOKexOo/AresModAchillesExpansion/issues/37 ]#37[/url])

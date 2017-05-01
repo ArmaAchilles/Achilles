@@ -37,6 +37,9 @@ if (count _simpleObjects > 0) then
 	
 	if (_addToCurator) then
 	{
+		_simpleObjects = _simpleObjects select {isNull (attachedTo _x)};
+		if (count _simpleObjects == 0) exitWith {};
+		
 		_logic_list = [];
 		_logic_group = createGroup sideLogic;
 		

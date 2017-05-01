@@ -30,6 +30,10 @@ class CfgPatches
 			"Achilles_Earthquake_Module",
 			"Achilles_Suppressive_Fire_Module",
 			"Achilles_Create_Suppression_Target_Module",
+			"Achilles_Module_FireSupport_CASGun",
+			"Achilles_Module_FireSupport_CASMissile",
+			"Achilles_Module_FireSupport_CASGunMissile",
+			"Achilles_Module_FireSupport_CASBomb",
 			"Achilles_CAS_Module",
 			"Achilles_Create_CAS_Target_Module",
 			"Achilles_Toggle_Simulation_Module",
@@ -41,7 +45,7 @@ class CfgPatches
 			"Achilles_Module_Spawn_Effects",
 			"Achilles_Module_Spawn_Intel",
 			"Achilles_Module_Spawn_Advanced_Composition",
-			"Achilles_Module_Spawn_Explosives"
+			"Achilles_Module_Spawn_Explosives",
 		};
 
 		requiredAddons[] =

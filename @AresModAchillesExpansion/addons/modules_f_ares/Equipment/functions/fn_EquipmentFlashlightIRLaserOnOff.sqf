@@ -100,7 +100,7 @@ if (isNil "_units") exitWith {};
 		{
 			params ["_unit","_taclight","_IR"];
 			_unit enableGunLights _taclight;
-			_unit enableIRLasers _IR;			
+			_unit enableIRLasers _IR;		
 		}] remoteExec ["spawn",_unit];
 	};
 } forEach _units;
