@@ -34,6 +34,7 @@ V.0.0.7 (Achilles Expansion (alpha version)
 * Feature:	Set date module.
 * Feature:	Attribute window for light sources: RGB, radius and attenuation.
 * Feature:	"Lock door" module (including breach option, inspired by [Sushi Breach Script](http://www.armaholic.com/page.php?id=30573)).
+Went missing in previous versions: Instant occupation does distribute large group (>8 members) on different buildings (@Grezvany13).
 * Fix:		ACE injury module: Untreatable unconsciousness.
 * Fix:		Suppressive fire module: Did not work for non-local units.
 * Fix:		Add/remove Zeus objects: Exclude curator module from being added to Zeus interface.
