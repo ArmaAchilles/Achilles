@@ -1,8 +1,8 @@
 
 class RscAttributeInventory: RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
-	
+	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	h = "29 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	class controls 
 	{
 		class ArrowLeft: RscButtonMenu 
@@ -73,7 +73,25 @@ class RscAttributeInventory: RscControlsGroupNoScrollbars
 			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "12.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			h = "24.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		
+		class ListBackground : RscText
+		{
+			h = "25.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+		};
+		
+		class Load : RscProgress
+		{
+			y = "28 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 	};
+};
+
+class RscDisplayAttributesInventory : RscDisplayAttributes 
+{
+	scriptName = "RscDisplayAttributesInventory";
+	scriptPath = "AresDisplays";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesInventory"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesInventory"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 };

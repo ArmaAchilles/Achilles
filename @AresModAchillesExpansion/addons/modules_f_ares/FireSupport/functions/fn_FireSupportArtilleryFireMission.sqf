@@ -9,7 +9,7 @@
 
 private ["_objects","_guns","_rounds","_ammo","_targetPos"];
 
-_objects = nearestObjects [(_this select 0), ["All"], 150];
+_objects = nearestObjects [(_this select 0), ["All"], 150, true];
 
 // Filter for artillery
 _filteredObjects = [];

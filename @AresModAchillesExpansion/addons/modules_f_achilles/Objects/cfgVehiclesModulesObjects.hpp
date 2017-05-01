@@ -22,6 +22,15 @@ class Achilles_Attach_To_Module : Achilles_Objects_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
+class Achilles_Make_Invincible_Module : Achilles_Objects_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_Make_Invincible_Module";
+	displayName = "$STR_MAKE_INVINCIBLE";
+	function = "Achilles_fnc_ModuleObjectsMakeInvincible";
+	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+};
 class Achilles_Set_Height_Module : Achilles_Objects_Module_Base
 {
 	scopeCurator = 2;

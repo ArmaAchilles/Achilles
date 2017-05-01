@@ -22,12 +22,15 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
+	_unitCount = count (units _groupUnderCursor);
+	_fillEvenly = if (_unitCount >= 8) then {true} else {false};
+	
 	if (local _groupUnderCursor) then
 	{
-		[(getPos _logic), (units _groupUnderCursor), 150, true, false] call Ares_fnc_ZenOccupyHouse;
+		[(getPos _logic), (units _groupUnderCursor), 150, true, _fillEvenly] call Ares_fnc_ZenOccupyHouse;
 	} else
 	{
-		[(getPos _logic), (units _groupUnderCursor), 150, true, false] remoteExec ["Ares_fnc_ZenOccupyHouse", leader _groupUnderCursor];
+		[(getPos _logic), (units _groupUnderCursor), 150, true, _fillEvenly] remoteExec ["Ares_fnc_ZenOccupyHouse", leader _groupUnderCursor];
 	};
 	[objnull, "Garrisoned nearest building."] call bis_fnc_showCuratorFeedbackMessage;
 };

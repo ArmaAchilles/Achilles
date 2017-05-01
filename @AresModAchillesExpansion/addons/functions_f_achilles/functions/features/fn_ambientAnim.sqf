@@ -50,9 +50,15 @@ Achilles_fnc_ambientAnim_terminate =
 	};
 };
 
+private _switch_anim_mode = false; // true if we only switch the animation
+
 //Terminate previous animation
 if (_anim_set == "TERMINATE") exitWith {_unit call Achilles_fnc_ambientAnim_terminate};
-if (not isNil "Achilles_var_animations") then {_unit call Achilles_fnc_ambientAnim_terminate};
+if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then 
+{
+	_unit call Achilles_fnc_ambientAnim_terminate;
+	_switch_anim_mode = true;
+};
 
 // get anim params
 _params = _anim_set call Achilles_fnc_ambientAnimGetParams;
@@ -68,14 +74,11 @@ _unit setVariable ["Achilles_var_noWeapon", _noWeapon,true];
 //surpress the unit "intelligence"
 {_unit disableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 
-//detach unit, if already attached to something
-detach _unit;
-
 //remove primary weapon if requested
 if (_noWeapon) then
 {
 	_primWeapon = primaryWeapon _unit;
-	_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true];
+	if (not _switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
 	_unit removeWeapon _primWeapon;
 };
 

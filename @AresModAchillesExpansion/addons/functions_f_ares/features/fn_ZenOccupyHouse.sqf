@@ -43,7 +43,7 @@ _Zen_ExtendPosition = {
 if (_buildingRadius < 0) then {
     _buildingsArray = [nearestBuilding _center];
 } else {
-    _buildingsArray = nearestObjects [_center, ["building"], _buildingRadius];
+    _buildingsArray = nearestObjects [_center, ["building"], _buildingRadius, true];
 };
 
 _buildingPosArray = [];

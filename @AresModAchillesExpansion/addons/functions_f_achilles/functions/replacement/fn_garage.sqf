@@ -1,3 +1,6 @@
+if (is3DEN && {_fnc_scriptName == "bis_fnc_garage"}) exitwith {_this call bis_fnc_garage3DEN;};
+if (!(isnull finddisplay 312) && {_fnc_scriptName == "bis_fnc_garage"}) exitwith {_this call BIS_fnc_garageZeus;};
+
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
@@ -9,26 +12,52 @@ _mode = [_this,0,"Open",[displaynull,""]] call bis_fnc_param;
 _this = [_this,1,[]] call bis_fnc_param;
 _fullVersion = missionnamespace getvariable ["BIS_fnc_arsenal_fullGarage",false];
 
-//--- Rewrite left side IDCs to 3DEN specific ones
-#define IDC_RSCDISPLAYGARAGE_TAB_CAR		-1
-#define IDC_RSCDISPLAYGARAGE_TAB_ARMOR		-1
-#define IDC_RSCDISPLAYGARAGE_TAB_HELI		-1
-#define IDC_RSCDISPLAYGARAGE_TAB_PLANE		-1
-#define IDC_RSCDISPLAYGARAGE_TAB_NAVAL		-1
-#define IDC_RSCDISPLAYGARAGE_TAB_STATIC		-1
+#ifdef FNC_IS3DEN
+	//--- Rewrite left side IDCs to 3DEN specific ones
+	#define IDC_RSCDISPLAYGARAGE_TAB_CAR		-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_ARMOR		-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_HELI		-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_PLANE		-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_NAVAL		-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_STATIC		-1
 
-#define IDC_RSCDISPLAYGARAGE_TAB_SUBCREW	-1
-#define IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION	IDC_RSCDISPLAYGARAGE3DEN_TAB_SUBANIMATION
-#define IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE	IDC_RSCDISPLAYGARAGE3DEN_TAB_SUBTEXTURE
+	#define IDC_RSCDISPLAYGARAGE_TAB_SUBCREW	-1
+	#define IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION	IDC_RSCDISPLAYGARAGE3DEN_TAB_SUBANIMATION
+	#define IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE	IDC_RSCDISPLAYGARAGE3DEN_TAB_SUBTEXTURE
 
-#define IDCS_LEFT\
-	IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION,\
-	IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE
+	#define IDCS_LEFT\
+		IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION,\
+		IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE
 
-#define IDCS_RIGHT	
-#define INITTYPES
+	#define IDCS_RIGHT	
+	#define INITTYPES
 
-#define IDCS	[IDCS_LEFT]
+	#define IDCS	[IDCS_LEFT]
+#else
+	#define IDCS_LEFT\
+		IDC_RSCDISPLAYGARAGE_TAB_CAR,\
+		IDC_RSCDISPLAYGARAGE_TAB_ARMOR,\
+		IDC_RSCDISPLAYGARAGE_TAB_HELI,\
+		IDC_RSCDISPLAYGARAGE_TAB_PLANE,\
+		IDC_RSCDISPLAYGARAGE_TAB_NAVAL,\
+		IDC_RSCDISPLAYGARAGE_TAB_STATIC
+
+	#define IDCS_RIGHT\
+		IDC_RSCDISPLAYGARAGE_TAB_SUBCREW,\
+		IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION,\
+		IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE
+
+	#define INITTYPES\
+			_types = [];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_CAR,["carx"]];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_ARMOR,["tankx"]];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_HELI,["helicopterx"]];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_PLANE,["airplanex"]];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_NAVAL,["shipx","sumbarinex"]];\
+			_types set [IDC_RSCDISPLAYGARAGE_TAB_STATIC,[""]];
+
+	#define IDCS	[IDCS_LEFT,IDCS_RIGHT]
+#endif
 
 
 #define STATS\
@@ -51,8 +80,13 @@ switch _mode do {
 		};
 		with uinamespace do {
 			_displayMission = [] call (uinamespace getvariable "bis_fnc_displayMission");
-			_displayClass = "RscDisplayGarage3DEN";
-			if !(isnull finddisplay 312) then {_displayMission = finddisplay 312;};
+			_displayClass = "RscDisplayGarage";
+			switch (true) do
+			{
+				case (!isNil "_isAchilles"): {_displayMission = finddisplay 312; _displayClass = "RscDisplayGarage3DEN";};
+				case (is3DEN): {_displayMission = finddisplay 313; _displayClass = "RscDisplayGarage3DEN";};
+				default {};
+			};
 			_displayMission createdisplay _displayClass;
 		};
 	};
@@ -131,45 +165,135 @@ switch _mode do {
 		with missionnamespace do {
 			[missionnamespace,"garageClosed",[displaynull,uinamespace getvariable ["BIS_fnc_arsenal_toggleSpace",false]]] call bis_fnc_callscriptedeventhandler;
 		};
+		
+		if (!isNil "_isAchilles") then
+		{
+			_template_unit = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+			_template_type = typeOf _template_unit;		
+			_anim_cfgs = [configFile >> "cfgVehicles" >> _template_type >> "AnimationSources"] call bis_fnc_returnChildren;
+			_anims = [];
+			{
+				_sourceName = configName _x;
+				_sourcePhase = _template_unit animationPhase _sourceName;
+				_anims pushBack [_sourceName,_sourcePhase];
+			} forEach _anim_cfgs;
+			_textures = getObjectTextures _template_unit;
+			_curatorSelected = (["vehicle"] call Achilles_fnc_getCuratorSelected);
+			{
+				_vehicle = _x;
+				if (_template_type == typeof _vehicle) then //--- Change only objects of the same type 
+				{
+					{_vehicle animate _x} forEach _anims;
+					{_vehicle setObjectTextureGlobal [_foreachindex, _x]} forEach _textures;
+				};
+			} foreach _curatorSelected;
+		};
+		
 		"Exit" call bis_fnc_arsenal;
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "Preload": {
+		if (is3DEN or {!isNil "_isAchilles"}) then {
 
-		//--- 3DEN specific, load only animations and textures
-		["bis_fnc_garage_preload"] call bis_fnc_startloadingscreen;
-		private ["_data"];
-		_data = [];
-		_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
-		_centerFaction = faction _center;
-		{
-			_items = [];
+			//--- 3DEN specific, load only animations and textures
+			["bis_fnc_garage_preload"] call bis_fnc_startloadingscreen;
+			private ["_data"];
+			_data = [];
+			_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+			_centerFaction = faction _center;
 			{
-				_configName = configname _x;
-				_displayName = gettext (_x >> "displayName");
-				_factions = getarray (_x >> "factions");
-				if (count _factions == 0) then {_factions = [_centerFaction];};
-				if (
-					_displayName != ""
-					&&
-					{getnumber (_x >> "scope") > 1 || !isnumber (_x >> "scope")}
-					&&
-					{{_x == _centerFaction} count _factions > 0}
-				) then {
-					_items pushback [_x,_displayName];
-				};
-			} foreach (configproperties [_x,"isclass _x",true]);
-			_data pushback _items;
-		} foreach [
-			configfile >> "cfgvehicles" >> typeof _center >> "animationSources",
-			configfile >> "cfgvehicles" >> typeof _center >> "textureSources"
-		];
+				_items = [];
+				{
+					_configName = configname _x;
+					_displayName = gettext (_x >> "displayName");
+					_factions = getarray (_x >> "factions");
+					if (count _factions == 0) then {_factions = [_centerFaction];};
+					if (
+						_displayName != ""
+						&&
+						{getnumber (_x >> "scope") > 1 || !isnumber (_x >> "scope")}
+						&&
+						{{_x == _centerFaction} count _factions > 0}
+					) then {
+						_items pushback [_x,_displayName];
+					};
+				} foreach (configproperties [_x,"isclass _x",true]);
+				_data pushback _items;
+			} foreach [
+				configfile >> "cfgvehicles" >> typeof _center >> "animationSources",
+				configfile >> "cfgvehicles" >> typeof _center >> "textureSources"
+			];
 
-		missionnamespace setvariable ["bis_fnc_garage_data",_data];
-		["bis_fnc_garage_preload"] call bis_fnc_endloadingscreen;
-		BIS_fnc_garage_centerType = typeof _center;
-		true
+			missionnamespace setvariable ["bis_fnc_garage_data",_data];
+			["bis_fnc_garage_preload"] call bis_fnc_endloadingscreen;
+			BIS_fnc_garage_centerType = typeof _center;
+			true
+		} else {
+
+			//--- Non-3DEN, laod vehicle types sorted by category
+			if (isnil "_data" || cheatsenabled) then {
+				["bis_fnc_garage_preload"] call bis_fnc_startloadingscreen;
+
+				_data = [];
+				{
+					_data set [_x,[]];
+				} foreach [IDCS_LEFT];
+				_defaultCrew = gettext (configfile >> "cfgvehicles" >> "all" >> "crew");
+
+				{
+					_simulation = gettext (_x >> "simulation");
+					_items = switch tolower _simulation do {
+						case "car";
+						case "carx": {
+							_data select IDC_RSCDISPLAYGARAGE_TAB_CAR;
+						};
+						case "tank";
+						case "tankx": {
+							if (getnumber (_x >> "maxspeed") > 0) then {
+								_data select IDC_RSCDISPLAYGARAGE_TAB_ARMOR;
+							} else {
+								_data select IDC_RSCDISPLAYGARAGE_TAB_STATIC;
+							};
+						};
+						case "helicopter";
+						case "helicopterx";
+						case "helicopterrtd": {
+							_data select IDC_RSCDISPLAYGARAGE_TAB_HELI;
+						};
+						case "airplane";
+						case "airplanex": {
+							_data select IDC_RSCDISPLAYGARAGE_TAB_PLANE;
+						};
+						case "ship";
+						case "shipx";
+						case "submarinex": {
+							_data select IDC_RSCDISPLAYGARAGE_TAB_NAVAL;
+						};
+						default {[]};
+					};
+
+					//--- Sort vehicles by model (vehicles with the same model are displayed as one, with variable textures / animations)
+					_model = tolower gettext (_x >> "model");
+					if (getnumber (_x >> "forceInGarage") > 0) then {_model = _model + ":" + configname _x;}; //--- Force specific class
+					_modelID = _items find _model;
+					if (_modelID < 0) then {
+						_modelID = count _items;
+						_items pushback _model;
+						_items pushback [];
+					};
+					_modelData = _items select (_modelID + 1);
+					_modelData pushback _x;
+
+				} foreach ("isclass _x && {getnumber (_x >> 'scope') == 2} && {gettext (_x >> 'crew') != _defaultCrew}" configclasses (configfile >> "cfgvehicles"));
+
+				missionnamespace setvariable ["bis_fnc_garage_data",_data];
+				["bis_fnc_garage_preload"] call bis_fnc_endloadingscreen;
+				true
+			} else {
+				false
+			};
+		};
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -181,40 +305,76 @@ switch _mode do {
 			tolower gettext (configfile >> "RscCheckBox" >> "textureUnchecked"),
 			tolower gettext (configfile >> "RscCheckBox" >> "textureChecked")
 		];
-		_centerTextures = getobjecttextures _center;
-		_ctrlList = controlnull; //--- Used by ShowItemInfo
-		_cursel = -1; //--- Used by ShowItemInfo
-		{
-			_items = _x;
-			_idc = _foreachindex;
-			_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _foreachindex);
+		if (is3DEN or {!isNil "_isAchilles"}) then {
+			_centerTextures = getobjecttextures _center;
+			_ctrlList = controlnull; //--- Used by ShowItemInfo
+			_cursel = -1; //--- Used by ShowItemInfo
 			{
-				_configName = configname (_x select 0);
-				_displayName = _x select 1;
-				_lbAdd = _ctrlList lbadd _displayName;
-				_ctrlList lbsetdata [_lbAdd,_configName];
-				_ctrlList lbsettooltip [_lbAdd,_displayName];
-				if (_idc == 0) then {
-					_ctrlList lbsetpicture [_lbAdd,_checkboxTextures select ((_center animationphase _configName) max 0)];
-				} else {
-					_configTextures = getarray (configfile >> "cfgvehicles" >> typeof _center >> "texturesources" >> _configName >> "textures");
-					_selected = true;
-					if (count _configTextures == count _centerTextures) then {
-						{if (tolower _x find (_centerTextures select _foreachindex) < 0) exitwith {_selected = false;};} foreach _configTextures;
+				_items = _x;
+				_idc = _foreachindex;
+				_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _foreachindex);
+				{
+					_configName = configname (_x select 0);
+					_displayName = _x select 1;
+					_lbAdd = _ctrlList lbadd _displayName;
+					_ctrlList lbsetdata [_lbAdd,_configName];
+					_ctrlList lbsettooltip [_lbAdd,_displayName];
+					if (_idc == 0) then {
+						_ctrlList lbsetpicture [_lbAdd,_checkboxTextures select ((_center animationphase _configName) max 0)];
 					} else {
-						_selected = false;
+						_configTextures = getarray (configfile >> "cfgvehicles" >> typeof _center >> "texturesources" >> _configName >> "textures");
+						_selected = true;
+						if (count _configTextures == count _centerTextures) then {
+							{if (tolower _x find (_centerTextures select _foreachindex) < 0) exitwith {_selected = false;};} foreach _configTextures;
+						} else {
+							_selected = false;
+						};
+						_ctrlList lbsetpicture [_lbAdd,_checkboxTextures select _selected];
 					};
-					_ctrlList lbsetpicture [_lbAdd,_checkboxTextures select _selected];
+				} foreach _items;
+
+				_ctrlListDisabled = _display displayctrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + _foreachindex);
+				_ctrlListDisabled ctrlshow (lbsize _ctrlList == 0);
+			} foreach _data;
+
+			_cfg = configfile >> "cfgvehicles" >> typeof _center;
+			["ShowItemInfo",[_cfg,gettext (_cfg >> "displayName")]] call bis_fnc_arsenal;
+			["ShowItemStats",[_cfg]] call bis_fnc_garage;
+		} else {
+			{
+				_items = _x;
+				_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _foreachindex);
+				for "_i" from 0 to (count _items - 1) step 2 do {
+					_model = _items select _i;
+					_modelData = _items select (_i + 1);
+					_modelExample = _modelData select 0;
+					_displayName = gettext (_modelExample >> "displayName");
+					_lbAdd = _ctrlList lbadd _displayName;
+					_ctrlList lbsetpicture [_lbAdd,gettext (_modelExample >> "picture")];
+					_ctrlList lbsetdata [_lbAdd,_model];
+					_ctrlList lbsetvalue [_lbAdd,_i];
+					_ctrlList lbsettooltip [_lbAdd,_displayName];
+					if (_fullVersion) then {
+						_addons = configsourceaddonlist _modelExample;
+						if (count _addons > 0) then {
+							_dlcs = configsourcemodlist (configfile >> "CfgPatches" >> _addons select 0);
+							if (count _dlcs > 0) then {
+								_ctrlList lbsetpictureright [_lbAdd,gettext (configfile >> "cfgMods" >> (_dlcs select 0) >> "logo")];
+							};
+						};
+						//_ctrlList lbsetpictureright [_lbAdd,gettext ((configfile >> "cfgMods" >> gettext (_modelExample >> "dlc")) >> "logo")];
+					};
 				};
-			} foreach _items;
+				lbsort _ctrlList;
 
-			_ctrlListDisabled = _display displayctrl (IDC_RSCDISPLAYARSENAL_LISTDISABLED + _foreachindex);
-			_ctrlListDisabled ctrlshow (lbsize _ctrlList == 0);
-		} foreach _data;
-
-		_cfg = configfile >> "cfgvehicles" >> typeof _center;
-		["ShowItemInfo",[_cfg,gettext (_cfg >> "displayName")]] call bis_fnc_arsenal;
-		["ShowItemStats",[_cfg]] call bis_fnc_garage;
+				//--- Select previously selected item (must be done after sorting)
+				for "_i" from 0 to (lbsize _ctrlList - 1) do {
+					if ((_ctrlList lbdata _i) == bis_fnc_garage_centerType) then {
+						_ctrlList lbsetcursel _i;
+					};
+				} foreach _data;
+			} foreach _data;
+		};
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -293,6 +453,19 @@ switch _mode do {
 				_ctrlList ctrlcommit FADE_DELAY;
 			} foreach [IDC_RSCDISPLAYARSENAL_LIST,IDC_RSCDISPLAYARSENAL_LISTDISABLED];
 		} foreach [IDCS_RIGHT];
+
+		//--- Right sidebar
+		if !(is3DEN or {!isNil "_isAchilles"}) then {
+			{
+				_ctrl = _display displayctrl _x;
+				_ctrl ctrlsetfade 0;
+				_ctrl ctrlcommit FADE_DELAY;
+			} foreach [
+				IDC_RSCDISPLAYARSENAL_LINETABRIGHT,
+				IDC_RSCDISPLAYARSENAL_FRAMERIGHT,
+				IDC_RSCDISPLAYARSENAL_BACKGROUNDRIGHT
+			];
+		};
 
 		['TabSelectRight',[_display,IDC_RSCDISPLAYGARAGE_TAB_SUBCREW]] call bis_fnc_garage;
 	};
@@ -725,7 +898,13 @@ switch _mode do {
 				_animations pushback (_ctrlListAnimations lbdata _i);
 				_animations pushback (_checkboxTextures find (_ctrlListAnimations lbpicture _i));
 			};
-			[_center,_textures,_animations] call bis_fnc_initVehicle;
+			if (isNil "_isAchilles" or {local _center}) then
+			{
+				[_center,_textures,_animations] call bis_fnc_initVehicle;
+			} else
+			{
+				[_center,_textures,_animations] remoteExecCall ["bis_fnc_initVehicle",_center];
+			};
 		};
 
 		["SetCrewStatus",[_display]] call bis_fnc_garage;
@@ -923,23 +1102,46 @@ switch _mode do {
 				if (_x == "createvehicle" && !_isVehicle) then {
 					_vehClass = _importArray select _foreachindex + 1; //--- ToDo: Detect old createVehicle syntax
 					_vehModel = tolower gettext (configfile >> "cfgvehicles" >> _vehClass >> "model");
+					if (is3DEN or {!isNil "_isAchilles"}) then {
 
-					if (_vehModel == gettext (_centerCfg >> "model")) then {
-						_isVehicle = true;
-					} else {
+						if (_vehModel == gettext (_centerCfg >> "model")) then {
+							_isVehicle = true;
+						} else {
 
-						//--- Only settings of the same object can be imported in 3DEN
-						[
-							"showMessage",
+							//--- Only settings of the same object can be imported in 3DEN
 							[
-								_display,
-								format [
-									"Cannot import settings of %1 to %2!", // ToDo: Localize
-									gettext (configfile >> "cfgvehicles" >> _vehClass >> "displayName"),
-									gettext (_centerCfg >> "displayName")
+								"showMessage",
+								[
+									_display,
+									format [
+										"Cannot import settings of %1 to %2!", // ToDo: Localize
+										gettext (configfile >> "cfgvehicles" >> _vehClass >> "displayName"),
+										gettext (_centerCfg >> "displayName")
+									]
 								]
-							]
-						] call bis_fnc_arsenal;
+							] call bis_fnc_arsenal;
+						};
+					} else {
+						_vehModelForced = _vehModel + ":" + _vehClass;
+						_isVehicle = false;
+						{
+							_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _x);
+							for "_l" from 0 to (lbsize _ctrlList - 1) do {
+								if ((_ctrlList lbdata _l) == _vehModel) then {
+									_ctrlList lbsetcursel _l;
+									_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+									_centerCfg = configfile >> "cfgvehicles" >> typeof _center;
+									_isVehicle = true;
+								};
+								if ((_ctrlList lbdata _l) == _vehModelForced) exitwith {
+									_ctrlList lbsetcursel _l;
+									_center = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
+									_centerCfg = configfile >> "cfgvehicles" >> typeof _center;
+									_isVehicle = true;
+								};
+							};
+							if (_isVehicle) exitwith {};
+						} foreach [IDCS_LEFT];
 					};
 				};
 				if (_isVehicle) then {
@@ -978,7 +1180,20 @@ switch _mode do {
 				};
 			} foreach _importArray;
 
-			[_center,_textures,_animations] call bis_fnc_initVehicle;
+			if (isNil "_isAchilles" or {local _center}) then
+			{
+				[_center,_textures,_animations] call bis_fnc_initVehicle;
+			} else
+			{
+				[_center,_textures,_animations] remoteExecCall ["bis_fnc_initVehicle",_center];
+			};
+			
+			if !(is3DEN or {!isNil "_isAchilles"}) then {
+				{_center deletevehiclecrew _x;} foreach (crew _center);
+				[_center,_crew] call bis_fnc_initVehicleCrew;
+				{_x setbehaviour "careless";} foreach (crew _center);
+				["SetCrewStatus",[_display]] call bis_fnc_garage;
+			};
 		};
 		endloadingscreen;
 	};
@@ -992,6 +1207,42 @@ switch _mode do {
 
 		_br = tostring [13,10];
 		_export = "";
+		if (_exportMode == "init" && !(is3den or {!isNil "_isAchilles"})) then {
+
+			//--- Get all classes using the model
+			_export = "comment ""Related vehicle classes:"";" + _br;
+			_data = missionnamespace getvariable "bis_fnc_garage_data";
+			_modelData = [];
+
+			_currentTextures = getobjecttextures _center;//_center getvariable ["bis_fnc_initVehicle_textures",[]];
+			{_currentTextures set [_foreachindex,tolower _x];} foreach _currentTextures;
+
+			{
+				_items = _x;
+				_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _foreachindex);
+				if (lbcursel _ctrlList >= 0) then {
+					_i = _ctrlList lbvalue lbcursel _ctrlList;
+					_modelData = _items select (_i + 1);
+					{
+						_export = _export + format ["comment ""%1"";" + _br,configname _x];
+						if (_centerType == "") then {
+							_textureList = getarray (_x >> "textureList");
+							for "_i" from 0 to (count _textureList - 1) step 2 do {
+								_textureSource = _textureList select _i;
+								_textures = getarray (_x >> "textureSources" >> _textureSource >> "textures");
+								_selected = true;
+								{if ((tolower _x) find (_currentTextures select _foreachindex) < 0) exitwith {_selected = false;};} foreach _textures; //--- First backslash may vary
+								if (_selected) then {_centerType = configname _x;};
+							};
+						};
+					} foreach _modelData;
+				};
+			} foreach _data;
+			_export = _export + _br;
+			if (count _modelData == 1) then {
+				_export = "";
+			};
+		};
 		if (_centerType == "") then {_centerType = typeof _center;};
 		_export = _export + ([_center,_centerType] call bis_fnc_exportVehicle);
 		_export spawn {copytoclipboard _this;};
@@ -1002,15 +1253,29 @@ switch _mode do {
 	case "buttonRandom": {
 		_display = _this select 0;
 
-		//--- Select random animations
-		_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION);
-		for "_i" from 0 to (lbsize _ctrlList - 1) do {
-			if (random 1 > 0.5) then {_ctrlList lbsetcursel _i;};
-		};
+		if (is3DEN or {!isNil "_isAchilles"}) then {
 
-		//--- Select random texture
-		_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE);
-		_ctrlList lbsetcursel floor random (lbsize _ctrlList);
+			//--- Select random animations
+			_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION);
+			for "_i" from 0 to (lbsize _ctrlList - 1) do {
+				if (random 1 > 0.5) then {_ctrlList lbsetcursel _i;};
+			};
+
+			//--- Select random texture
+			_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE);
+			_ctrlList lbsetcursel floor random (lbsize _ctrlList);
+			
+		} else {
+			//--- Select random vehicle type
+			{
+				_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _x);
+				_ctrlList lbsetcursel -1;
+			} foreach [IDCS_LEFT];
+
+			//--- Select random item
+			_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + (floor random (count [IDCS_LEFT] - 1)));
+			_ctrlList lbsetcursel (floor random (lbsize _ctrlList - 1));
+		};
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////
@@ -1027,12 +1292,12 @@ switch _mode do {
 			_name = _savedData select _i;
 			_vehData = _savedData select (_i + 1);
 			_vehType = _vehData select 0;
-			if (!is3DEN || {is3DEN && _vehType == _centerType}) then {
+			if ((!is3DEN and {!isNil "_isAchilles"}) || {is3DEN && _vehType == _centerType} || {!isNil "_isAchilles" && _vehType == _centerType}) then {
 				_vehModel = tolower gettext (configfile >> "cfgvehicles" >> _vehType >> "model");
 				if (getnumber (configfile >> "cfgvehicles" >> _vehType >> "forceInGarage") > 0) then {_vehModel = _vehModel + ":" + _vehType;};
 				_lbAdd = _ctrlList lnbaddrow [_name];
 				_categoryIndex = -1;
-				_categoryIndex = 0;
+				if (is3DEN or {!isNil "_isAchilles"}) then {_categoryIndex = 0;} else {{if (_vehModel in _x) exitwith {_categoryIndex = _foreachindex;}} foreach _data;};
 				_ctrlList lbsetvalue [_lbAdd,_categoryIndex];
 
 				if (_categoryIndex < 0) then {_ctrlList lnbsetcolor [[_lbAdd,0],[1,1,1,0.25]];};
@@ -1082,7 +1347,11 @@ switch _mode do {
 						_display = _this select 3;
 
 						[_center,[profilenamespace,_name]] call bis_fnc_loadvehicle;
-						['SelectItem',[_display,_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _categoryIndex),_categoryIndex]] call bis_fnc_garage;
+						if (is3DEN or {!isNil "_isAchilles"}) then {
+							['SelectItem',[_display,_display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + _categoryIndex),_categoryIndex]] call bis_fnc_garage;
+						} else {
+
+						};
 					};
 				};
 			} else {
@@ -1136,6 +1405,7 @@ switch _mode do {
 			set3DENAttributes [[_objects,"VehicleCustomization",[[],_anims]]];
 			set3DENAttributes [[_objects,"ObjectTexture",_texture]];
 		};
+
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////

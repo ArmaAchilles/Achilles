@@ -104,7 +104,7 @@ _execute =
 	{},			// Code executed on interrupted
 	[player,_title,_text,_marker,_shared,_delete],			// Arguments passed to the scripts
 	_duration,	// Action duration
-	0,			// Priority
+	20,			// Priority
 	false,		// Remove on completion
 	false		// Show in unconscious state 
 ] remoteExec ["BIS_fnc_holdActionAdd",0,_object];

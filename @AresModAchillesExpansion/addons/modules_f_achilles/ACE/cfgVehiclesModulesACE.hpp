@@ -12,7 +12,7 @@ class Achilles_ACE_Injury_Module : Achilles_ACE_Module_Base
 	scopeCurator = 2;
 	_generalMacro = "Achilles_ACE_Injury_Module";
 	displayName = "$STR_INJURY";
-	function = "Achilles_fnc_ACEInjury";
+	function = "Achilles_fnc_ModuleACEInjury";
 };
 
 class Achilles_ACE_Heal_Module : Achilles_ACE_Module_Base
@@ -20,5 +20,5 @@ class Achilles_ACE_Heal_Module : Achilles_ACE_Module_Base
 	scopeCurator = 2;
 	_generalMacro = "Achilles_ACE_Heal_Module";
 	displayName = "$STR_HEAL";
-	function = "Achilles_fnc_ACEHeal";
+	function = "Achilles_fnc_ModuleACEHeal";
 };

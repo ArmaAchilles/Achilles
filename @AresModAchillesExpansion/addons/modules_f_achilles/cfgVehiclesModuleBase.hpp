@@ -86,5 +86,4 @@ class CfgVehicles
 
 	class ModuleBootcampStage_F : Module_F {scopeCurator = 1;};
 	class ModuleHint_F : ModuleBootcampStage_F {scopeCurator = 1;};
-	class ModulePunishment_F : ModuleBootcampStage_F {scopeCurator = 1;};	
 };

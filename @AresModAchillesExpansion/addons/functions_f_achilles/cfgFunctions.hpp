@@ -45,7 +45,6 @@ class CfgFunctions
 			class Chatter;
 			class changeAbility;
 			class chute;
-			class halo;
 			class eject_passengers;
 			class LaunchCM;
 			class SwitchZeusSide;
@@ -57,8 +56,26 @@ class CfgFunctions
 			class ungroupObjects;
             class setCuratorVisionModes;
 			class damageBuildings;
-			class vehicleArsenal;
 			class preplaceMode;
+			class addBreachDoorAction;
+			class breachStun;
+			class setACEInjury;
+			class setVanillaInjury;
+			class SuppressiveFire;
+		};
+	};
+
+	class A3_Mark
+	{
+		class Vehicles
+		{
+			delete garage; 
+		};
+		class Achilles
+		{
+			file = "\achilles\functions_f_achilles\functions\replacement";
+			class garage;
+			class garageZeus;
 		};
 	};
 	class A3_Functions_F_Curator

@@ -28,7 +28,7 @@ sleep ((random 3) + 5);
 // if destroy buildings is allowed
 if (_dialogResult select 2 == 0) then
 {
-	_buildings = nearestObjects [_epicenter, ["Building"], _radius];
+	_buildings = nearestObjects [_epicenter, ["Building"], _radius, true];
 	// extend of destruction is exponential: 50% (strong), 18% (medium), 7% (weak), 2% (very weak)
 	_extend_count = round ((count _buildings) * (exp ((_dialogResult select 0) - 3)) / 2);
 	for "_i" from 1 to _extend_count do

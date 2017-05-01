@@ -94,7 +94,7 @@ if (_animIndex == -1) then
 		{},		// Code executed on interrupted
 		[],		// Arguments passed to the scripts
 		7,		// Action duration
-		0,		// Priority
+		20,		// Priority
 		false,	// Remove on completion
 		false	// Show in unconscious state 
 	] remoteExec ["BIS_fnc_holdActionAdd",0,_unit];

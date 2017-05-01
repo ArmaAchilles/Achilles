@@ -1,76 +1,33 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 1/3/17
-//	VERSION: 6.0
-//  DESCRIPTION: Function for suppressive fire module
+//	DATE: 4/30/17
+//	VERSION: 1.0
+//  DESCRIPTION: Forces the group of the given unit to suppress the given target
+//
+//	ARGUMENTS:
+//	_this select 0:		OBJECT	- Unit that is injured
+//	_this select 1:		ARRAY	- Target position given in world position (see getPosWorld)
+//	_this select 2:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (0 by default)
+//	_this select 4:		BOOL	- (optional) Line up before firing (false by default)
+//	_this select 5:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single (0 by default)
+//	_this select 6:		SCALAR	- (optional) Duration in sec (10 by default)
+//
+//	RETURNS:
+//	nothing (procedure)
+//
+//	Example:
+//	[_unit,_worldPos] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
-
-// find unit to perform suppressiove fire
-_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-
-// get list of possible targest
-_allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
-{
-	_targetChoices pushBack (name _x);
-} forEach _allTargets;
-if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-
-// select parameters
-_dialogResult = 
-[
-	localize "STR_SUPPRESIVE_FIRE",
-	[
-		[format [localize "STR_SUPPRESS_X", " "], _targetChoices],
-		[localize "STR_STANCE", [localize "STR_PRONE",localize "STR_CROUCH",localize "STR_STAND"]],
-		[localize "STR_FIRE_MODE", [localize "STR_AUTOMATIC", localize "STR_BURST", localize "STR_SINGLE_SHOT"]],
-		[localize "STR_DURATION", "", "10"]
-	]
-] call Ares_fnc_ShowChooseDialog;
-if (count _dialogResult == 0) exitWith {};
-
-_stanceIndex = _dialogResult select 1;
-_fireModeIndex = _dialogResult select 2;
-_duration = parseNumber (_dialogResult select 3);
-_targetChooseAlgorithm = _dialogResult select 0;
-
-// Choose a target to fire at
-_selectedTarget = objNull;
-switch (_targetChooseAlgorithm) do
-{
-	case 0: // Random
-	{
-		_selectedTarget = _allTargets call BIS_fnc_selectRandom;
-	};
-	case 1: // Nearest
-	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetNearest;
-	};
-	case 2: // Furthest
-	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetFarthest;
-	};
-	default // Specific target
-	{
-		_selectedTarget = _allTargets select (_targetChooseAlgorithm - 3);
-	};
-};
-
-// activate unit selection mode if module was not dropped on a unit
-if (isNull _unit) then
-{
-	_unit = ["group",true] call Achilles_fnc_SelectUnits;
-};
-if (isNil "_unit") exitWith {};
-if (isNull _unit) exitWith {[localize "STR_NO_GROUP_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-
+params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
 
 _old_group = group _unit;
 _units = units _old_group;
+
+//create target logic
+private _selectedTarget = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
+_selectedTarget setPosWorld _targetPos;
+
 
 //save and remove waypoints
 _current_wp_id = currentWaypoint _old_group;
@@ -99,7 +56,7 @@ if (_current_wp_id < _waypoint_count) then
 };
 
 // force unit to change formation if not in combat
-if (behaviour leader _old_group != "COMBAT") then
+if (_doLineUp) then
 {
 	// set formation
 	_old_group setBehaviour "AWARE";
@@ -154,6 +111,9 @@ _placeholder setPos [0,0,0];
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
+		_unit doWatch objNull;
+		_unit doWatch _target;
+		_unit doTarget _target;
 		_unit doTarget _target;
 		
 		//ensure asynchronous fire within a group
@@ -204,6 +164,7 @@ _placeholder setPos [0,0,0];
 
 //clean up
 sleep _duration + 5;
+deleteVehicle _selectedTarget;
 [] spawn {{if (count units _x == 0) then {deleteGroup _x}} forEach allGroups};
 if (count _waypoints > 0 and (not isNull _old_group)) then
 {
@@ -220,4 +181,3 @@ if (count _waypoints > 0 and (not isNull _old_group)) then
 	[_old_group, 0] setWaypointPosition [_start_wp_pos, 0];
 	_old_group setCurrentWaypoint [_old_group, _current_wp_id];
 };
-#include "\achilles\modules_f_ares\module_footer.hpp"

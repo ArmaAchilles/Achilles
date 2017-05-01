@@ -24,7 +24,7 @@ switch _mode do
 				_entities = _this select 0;
 				_text = _this select 1;
 				{if (alive _x) then {_x setName _text}} foreach _entities;
-			}] remoteExec ["spawn", -2, _entity];
+			}] remoteExec ["spawn", 0, _entity];
 		};
 	};
 	case "onUnload": {};

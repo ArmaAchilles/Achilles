@@ -35,11 +35,21 @@ _dialogResult =
 				"listen briefing",
 				"briefing",
 				"briefing (interactive)",
+				"listing (civilian)",
+				"talking (civilian)",
 				"listen to radio",
+				"shield from sun",
 				"navigate aircraft",
+				"showing a vehicle the way",
 				"treat wounded",
-				"wounded",
 				"combat wounded",
+				"wounded (general)",
+				"wounded (head)",
+				"wounded (chest)",
+				"wounded (arm)",
+				"wounded (leg)",
+				"shocked civilian",
+				"hiding civilian",
 				"sit captured",
 				"repair vehicle prone",
 				"repair vehicle kneel",
@@ -98,11 +108,13 @@ _anim = switch (_dialogResult select 0) do
 			case 1: {"BRIEFING_INTERACTIVE_2"};
 		};
 	};
-	case 10: {"LISTEN_TO_RADIO"};
-	case 11: {"NAVIGATE"};
-
-	
-	case 12:
+	case 10: {"LISTEN_CIV"};
+	case 11: {"TALK_CIV"};
+	case 12: {"LISTEN_TO_RADIO"};
+	case 13: {"SHIELD_FROM_SUN"};
+	case 14: {"NAVIGATE"};
+	case 15: {"SHOWING_THE_WAY"};	
+	case 16:
 	{
 		_case = round (random 1);
 		switch (_case) do
@@ -111,7 +123,8 @@ _anim = switch (_dialogResult select 0) do
 			case 1: {"KNEEL_TREAT_2"};
 		};
 	};
-	case 13:
+	case 17: {"PRONE_INJURED"};
+	case 18:
 	{
 		_case = round (random 1);
 		switch (_case) do
@@ -120,11 +133,16 @@ _anim = switch (_dialogResult select 0) do
 			case 1: {"PRONE_INJURED_NO_WEAP_2"};
 		};
 	};
-	case 14: {"PRONE_INJURED"};
-	case 15: {"CAPTURED_SIT"};
-	case 16: {"REPAIR_VEH_PRONE"};
-	case 17: {"REPAIR_VEH_KNEEL"};
-	case 18: {"REPAIR_VEH_STAND"};
+	case 19: {"INJURY_HEAD"};
+	case 20: {"INJURY_CHEST"};
+	case 21: {"INJURY_ARM"};
+	case 22: {"INJURY_LEG"};
+	case 23: {"CIV_SHOCK"};
+	case 24: {"CIV_HIDE"};
+	case 25: {"CAPTURED_SIT"};
+	case 26: {"REPAIR_VEH_PRONE"};
+	case 27: {"REPAIR_VEH_KNEEL"};
+	case 28: {"REPAIR_VEH_STAND"};
 };
 if (isNull (_units select 0)) then
 {

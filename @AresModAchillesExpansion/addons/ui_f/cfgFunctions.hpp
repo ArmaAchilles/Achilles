@@ -47,7 +47,9 @@ class CfgFunctions
 			class RscDisplayAttributes_selectPlayers;
 			class RscDisplayAttributes_Create_Reinforcement;
 			class RscDisplayAttributes_BuildingsDestroy;
+			class RscDisplayAttributes_LockDoors;
 			class RscDisplayAtttributes_SpawnEffect;
+			class RscDisplayAttributes_editLigthSource;
 			class RscDisplayAttributes_SpawnAdvancedComposition;
 			class RscDisplayAttributes_manageAdvancedComposition;
 			class RscDisplayAttributes_createAdvancedComposition;
@@ -60,6 +62,13 @@ class CfgFunctions
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
 		};
+		
+		class ui_f_replacement
+		{
+			file = "\achilles\ui_f\functions\replacement";
+			
+			class initCuratorAttribute;
+		}
 	};
 	
 	class Ares

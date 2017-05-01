@@ -12,7 +12,6 @@ class CfgScriptPaths
 	AresDisplays = "\achilles\ui_f\scripts\";
 };
 
-
 class RscDisplayCurator 
 {
 	// couple achilles init with curator display
@@ -47,6 +46,7 @@ class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
 // include modified attributes
 #include "Replacement\RscAttributes.hpp"
 #include "Replacement\RscAttributeInventory.hpp"
+#include "Replacement\RscAttributesModules.hpp"
 
 // include modified dialogs and displays
 #include "Replacement\RscDisplayAttributesMan.hpp"
@@ -54,8 +54,11 @@ class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
 #include "Replacement\RscDisplayAttributesGroup.hpp"
 #include "Replacement\RscDisplayWaypointAttributes.hpp"
 
+// include module displays
+#include "Replacement\RscDisplayAttributesSetDate.hpp"
+
 // include music from description.ext
 class RscAttributeMusic : RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeMusic"",""AresDisplays""] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";	
+	onSetFocus = "[_this,""RscAttributeMusic"",""AresDisplays""] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";	
 };

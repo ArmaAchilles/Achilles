@@ -11,7 +11,7 @@ _targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhoneticName;
 _target_name = format ["LZ %1", _targetPhoneticName];
 _dialogResult = 
 [
-	localize "STR_CREATE_NEW_LZ",
+	localize "STR_CREATE_TP",
 	[
 		[localize "STR_NAME", "", _target_name, true]
 	]

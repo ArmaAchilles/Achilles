@@ -10,6 +10,18 @@ _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
+if (toLower typeOf _handled_object == "module_f") then
+{
+	// hanlde logic for simple objects on first edit
+	_jip_id = _handled_object getVariable "needInit";
+	if (not isNil "_jip_id") then
+	{
+		_jip_id = _handled_object getVariable "needInit";
+		remoteExecCall ["", _jip_id];
+		_handled_object setVariable ["needInit", nil];
+	};
+};
+
 // if object is a center object of a group => correct position and orientation for other objects of the group
 _group_attributes = _handled_object getVariable ["Achilles_var_groupAttributes",nil];
 if (not isNil "_group_attributes") then
@@ -38,12 +50,8 @@ if (not isNil "_group_attributes") then
 			_return = [_internal_to_standard, _x] call Achilles_fnc_vectorMap;
 			_return;
 		};
-		if (local _object) then
-		{
-			_object setVectorDirAndUp _vectors_dir_up;
-		} else
-		{
-			[_object ,_vectors_dir_up] remoteExec ["setVectorDirAndUp",_object];
-		};	
+		
+		[_object ,_vectors_dir_up] remoteExec ["setVectorDirAndUp",0,_object];
+		
 	} forEach _group_attributes;
 };

@@ -40,10 +40,10 @@ if (_range_mode == 0) then
 	_radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
-		case 0: {nearestObjects [_center_pos,[],_radius]};
+		case 0: {nearestObjects [_center_pos, [],_radius, true]};
 		case 1: 
 		{
-			_units = nearestObjects [_center_pos,["Man","LandVehicle","Air","Ship"],_radius];
+			_units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
 			if (_dialogResult select 4 == 1) then
 			{
 				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
@@ -53,9 +53,9 @@ if (_range_mode == 0) then
 				_units select {count crew _x > 0};
 			};
 		};
-		case 2: {nearestObjects [_center_pos,["LandVehicle","Air","Ship"],_radius]};
-		case 3: {nearestObjects [_center_pos,["Static"],_radius]};
-		case 4: {nearestObjects [_center_pos,["Logic"],_radius]};
+		case 2: {nearestObjects [_center_pos, ["LandVehicle","Air","Ship"], _radius, true]};
+		case 3: {nearestObjects [_center_pos, ["Static"], _radius, true]};
+		case 4: {nearestObjects [_center_pos, ["Logic"], _radius, true]};
 	};
 } else
 {
@@ -79,7 +79,6 @@ if (_range_mode == 0) then
 		case 4: {allMissionObjects "Logic"};
 	};	
 };
-[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
 // protect the main curator module from deletion
 _objectsToProcess = _objectsToProcess select {typeOf _x != "ModuleCurator_F"};

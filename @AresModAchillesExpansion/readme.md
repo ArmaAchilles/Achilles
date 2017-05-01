@@ -10,6 +10,42 @@ As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is 
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Changelists
+V.0.0.7 (Achilles Expansion (alpha version)
+* Change:	ACE injury module: Adjusted damage levels.
+* Change:	Removed side restriction for vanilla CAS modules.
+* Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).
+* Change:	All dialog windows are movable now.
+* Change:	Module "Hint" makes use of "MESSAGE" control type.
+* Change:	Forced advanced hint window for selection option.
+* Change:	Cargo Attributes: Larger dialog window.
+* Change:	Replace icon for CAS Target.
+* Change:	Replace waitUnit delete by "deleted" event handler (e.g. advanced compositions).
+* Feature:	Make object invincible module.
+* Feature:	Suppressive fire module: Line-up is now an option and no longer handled automatically.
+* Feature:	ACE injury module: injury types, pain level, blood volume and hearth rate.
+* Feature:	Add/remove Zeus objects can now handle simple objects (EXPERIMENTAL - DO NOT YET SUPPORT FEATURES SUCH AS COPY/PASTE, ADV. COMPOSITIONS, SAVE MISSION SQF, ...).
+* Feature:	Show config and animation viewer modules.
+* Feature:	Vehicle garage from Eden editor.
+* Feature:	Create TPs: Custom names can be given to teleport flags.
+* Feature:	Hint Module: Support XML syntax (allows including images).
+* Feature:	Recovered vanilla CAS bomb strike module (dunno why it was hidden).
+* Feature:	Vanilla CAS modules: Implemented general config solution => support any 3rd party add-on.
+* Feature:	Implement additional ambient animations (see comment by [GHC] RandomMusic).
+* Feature:	Set date module.
+* Feature:	Attribute window for light sources: RGB, radius and attenuation.
+* Feature:	"Lock door" module (including breach option, inspired by [Sushi Breach Script](http://www.armaholic.com/page.php?id=30573)).
+Went missing in previous versions: Instant occupation does distribute large group (>8 members) on different buildings (@Grezvany13).
+* Fix:		ACE injury module: Untreatable unconsciousness.
+* Fix:		Suppressive fire module: Did not work for non-local units.
+* Fix:		Add/remove Zeus objects: Exclude curator module from being added to Zeus interface.
+* Fix:		Locality issue with vectordir and -up changes (e.g. Spawn Advanced Compositions).
+* Fix:		Pressing attribute buttons (e.g. arsenal) undid changes of attributes in the main window.
+* Fix:		Effect modules were placed by setVehiclePosition algorithm (inaccurate position).
+* Fix:		Punishment module was missing.
+* Fix:		Force AI to chute: Exception handling for units that already have a chute was missing.
+* Fix:		Syntax error in dynamic dialog cfg   (fixed by @shukari)
+* Fix:		Missing error message for modules such as "Hava a seat".
+
 V.0.0.6d (Achilles Expansion (alpha version))
 * Change:	Artillery fire support module: Removed workaround (BIS fixed it).
 * Fix:		Add/Remove objects to Zeus: Type "Unit" did not select soldiers. Moreover, it did select empty vehicles.
@@ -23,6 +59,7 @@ V.0.0.6c (Achilles Expansion (alpha version))
 * Fix:		Target/LZ/RP logics default value was always the same & wrong message.
 * Fix:		Static artillery from third-party add-ons did not fire multiple rounds.
 
+Changelists
 V.0.0.6 (Achilles Expansion (alpha version))
 * Change:	Create Intel: Simulation of new created intel is no longer enabled.
 * Change:	Ammo box inventory is no longer opened automatically on spawn.
