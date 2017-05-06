@@ -13,8 +13,7 @@ _codeBlock =
 
 		{
 			_x setUnitPos "AUTO";
-			// _x forceSpeed -1;
-			_x enableAI "PATH";
+			_x forceSpeed -1;
 			_x doMove _outsidePos;
 		} forEach(units _groupUnderCursor);
 	};

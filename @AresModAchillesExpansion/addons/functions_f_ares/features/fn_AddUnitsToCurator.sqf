@@ -9,9 +9,9 @@
 private _unitsToModify = [_this, 0, [], [[]]] call BIS_fnc_param;
 private _addToCurator = [_this, 1, true, [true]] call BIS_fnc_param;
 
-if (isNil "Ares_addUnitsToCuratorFunction") then
+if (isNil "Ares_addUnitsToCurator_server") then
 {
-	Ares_addUnitsToCuratorFunction =
+	Ares_addUnitsToCurator_server =
 	{
 		if (_this select 1) then
 		{
@@ -22,15 +22,16 @@ if (isNil "Ares_addUnitsToCuratorFunction") then
 			{ _x removeCuratorEditableObjects [(_this select 0), true]; } foreach allCurators;
 		};
 	};
-	publicVariable "Ares_addUnitsToCuratorFunction";
+	publicVariableServer "Ares_addUnitsToCurator_server";
 };
 
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
 
-[[_unitsToModify, _addToCurator], "Ares_addUnitsToCuratorFunction", false] call BIS_fnc_MP;
+[_unitsToModify, _addToCurator] remoteExec ["Ares_addUnitsToCurator_server", 2];
 
 // handle simple objects
+/*
 if (count _simpleObjects > 0) then
 {
 	private ["_object", "_logic", "_orient","_jip_id","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
@@ -82,5 +83,6 @@ if (count _simpleObjects > 0) then
 		} forEach _simpleObjects;
 	};
 };
+*/
 
 true
