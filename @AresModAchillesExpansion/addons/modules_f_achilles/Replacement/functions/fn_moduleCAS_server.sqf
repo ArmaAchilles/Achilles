@@ -159,12 +159,12 @@ waituntil {
 	};
 
 	sleep 0.01;
-	scriptdone _fire || {not alive _logic} || {isnull _plane}
+	scriptdone _fire || {isNull _logic} || {isnull _plane}
 };
 _plane setvelocity velocity _plane;
 _plane flyinheight _alt;
 
-if (alive _logic) then
+if (not isNull _logic) then
 {
 	sleep 1;
 	deletevehicle _logic;
