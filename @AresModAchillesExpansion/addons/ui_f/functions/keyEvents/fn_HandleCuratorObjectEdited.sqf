@@ -28,6 +28,7 @@ if (_handled_object isKindOf "logic") then
 		_slave = _handled_object getVariable "slave";
 		_slave setPosATL getPosATL _handled_object;
 		[_slave, direction _handled_object] remoteExecCall ["setDir", 0];
+		[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 	};
 };
 

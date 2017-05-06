@@ -37,7 +37,7 @@ switch _mode do {
 								{
 									_mode = _modes select 0;
 									if (_mode == "this") then {_mode = _x;};
-									_weapons set [count _weapons,[_x,_mode]];
+									_weapons pushBack [_x,_mode];
 								};
 							};
 						} foreach _weapon_cfgs;
@@ -54,7 +54,7 @@ switch _mode do {
 									{
 										_mode = _modes select 0;
 										if (_mode == "this") then {_mode = _x;};
-										_weapons set [count _weapons,[_x,_mode]];
+										_weapons pushBack [_x,_mode];
 									};
 								};
 							} foreach _weapon_cfgs;

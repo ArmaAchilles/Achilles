@@ -81,46 +81,6 @@ _plane setvariable ["logic",_logic];
 //--- Play radio
 [effectiveCommander _plane,"CuratorModuleCAS"] remoteExec ["bis_fnc_curatorSayMessage", _curator];
 
-//--- Debug - visualize tracers
-if (false) then {
-	BIS_draw3d = [];
-	//{deletemarker _x} foreach allmapmarkers;
-	_m = createmarker [str _logic,_pos];
-	_m setmarkertype "mil_dot";
-	_m setmarkersize [1,1];
-	_m setmarkercolor "colorgreen";
-	_plane addeventhandler [
-		"fired",
-		{
-			_projectile = _this select 6;
-			[_projectile,position _projectile] spawn {
-				_projectile = _this select 0;
-				_posStart = _this select 1;
-				_posEnd = _posStart;
-				_m = str _projectile;
-				_mColor = "colorred";
-				_color = [1,0,0,1];
-				if (speed _projectile < 1000) then {
-					_mColor = "colorblue";
-					_color = [0,0,1,1];
-				};
-				while {!isnull _projectile} do {
-					_posEnd = position _projectile;
-					sleep 0.01;
-				};
-				createmarker [_m,_posEnd];
-				_m setmarkertype "mil_dot";
-				_m setmarkersize [1,1];
-				_m setmarkercolor _mColor;
-				BIS_draw3d set [count BIS_draw3d,[_posStart,_posEnd,_color]];
-			};
-		}
-	];
-	if (isnil "BIS_draw3Dhandler") then {
-		BIS_draw3Dhandler = addmissioneventhandler ["draw3d",{{drawline3d _x;} foreach (missionnamespace getvariable ["BIS_draw3d",[]]);}];
-	};
-};
-
 //--- Approach
 _fire = [] spawn {waituntil {false}};
 _fireNull = true;
