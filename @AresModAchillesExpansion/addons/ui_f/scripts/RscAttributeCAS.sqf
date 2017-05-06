@@ -75,10 +75,11 @@ switch _mode do {
 		if (_index == -1) exitWith {hint "Error: Not a valid CAS module!"};
 		_cas_info_list = Achilles_var_CASPlaneInfoCache select _weaponTypesID;
 		{
-			systemChat str (_x select 0);
-			_planeCfg = (configfile >> "cfgvehicles" >> (_x select 0));
+			_planeClass = _x select 0;
+			_planeCfg = (configfile >> "cfgvehicles" >> _planeClass);
 			_lnbAdd = _ctrlValue lnbaddrow ["","",gettext (_planeCfg >> "displayName")];
 			_ctrlValue lnbSetValue [[_lnbAdd,0],_weaponTypesID];
+			_ctrlValue lnbSetData [[_lnbAdd,0],_planeClass];
 			_ctrlValue lnbSetValue  [[_lnbAdd,1],_forEachIndex];
 			_ctrlValue lnbsetpicture [[_lnbAdd,0],gettext (configfile >> "cfgfactionclasses" >> gettext (_planeCfg >> "faction") >> "icon")];
 			_ctrlValue lnbsetpicture [[_lnbAdd,1],gettext (_planeCfg >> "picture")];
@@ -111,18 +112,25 @@ switch _mode do {
 		_logic_group = createGroup sideLogic;
 		_helper = _logic_group createUnit ["module_f", getPosATL _logic, [], 0, "NONE"];
 		_helper setPosATL getPosATL _logic;
-		_helper setDir direction _logic;
+		[_helper, direction _logic] remoteExecCall ["setDir", 0];
 		_logic setVariable ["slave", _helper];
-		_logic addEventHandler ["Deleted", {_slave = (_this select 0) getVariable ["slave", objNull]; if(not isNull _slave) then {deleteVehicle _slave;}}];
 		_helper setVariable ["master", _logic];
-		_helper addEventHandler ["Deleted", {_master = (_this select 0) getVariable ["master", objNull]; if(not isNull _master) then {deleteVehicle _master;}}];
-		
+		_logic addEventHandler ["Deleted", 
+		{
+			_slave = (_this select 0) getVariable ["slave", objNull];
+			if(not isNull _slave) then {deleteVehicle _slave};
+		}];
+		_helper addEventHandler ["Deleted", 
+		{
+			_master = (_this select 0) getVariable ["master", objNull];
+			if(not isNull _master) then {deleteVehicle _master};
+		}];
 		
 		// handle CAS server side
 		_arguments = [player, _helper, _weaponTypesID] + _plane_info;
 		_arguments remoteExec ["Achilles_fnc_moduleCAS_server",2];
 		
-		missionnamespace setvariable ["RscATtributeCAS_selected", _vehicle];
+		missionnamespace setvariable ["RscATtributeCAS_selected", _plane_info select 0];
 	};
 	case "onUnload": {
 		if (!isnil "RscAttributePostProcess_default") then {

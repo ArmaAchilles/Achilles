@@ -1,8 +1,11 @@
 
-params["_curator","_logic","_weaponTypesID","_planeClass","_weapons","_gunner_is_driver"];
+params ["_curator", "_logic", "_weaponTypesID", "_planeClass", "_weapons", "_gunner_is_driver"];
 
 _planeCfg = configfile >> "cfgvehicles" >> _planeClass;
 if !(isclass _planeCfg) exitwith {["Vehicle class '%1' not found",_planeClass] call bis_fnc_error; false};
+
+//--- Restore custom direction
+_logic setdir (missionnamespace getvariable ["Achilles_var_CAS_dir", direction _logic]);
 
 //--- Get weapons
 _weaponTypes = switch _weaponTypesID do
@@ -14,9 +17,7 @@ _weaponTypes = switch _weaponTypesID do
 	default {[]};
 };
 
-
-// wait for logic position to be initialized
-_posATL = getPosATL _logic;
+_posATL = getposatl _logic;
 _pos = +_posATL;
 _pos set [2,(_pos select 2) + getterrainheightasl _pos];
 _dir = direction _logic;
@@ -63,22 +64,62 @@ _ehFired = _plane addeventhandler [
 			_plane removeeventhandler ["fired",_plane getvariable ["ehFired",-1]];
 			_projectile = _this select 6;
 			waituntil {isnull _projectile};
-			[0.005,4,[_plane getvariable ["logic",objnull],200]] remoteExecCall ["bis_fnc_shakeCuratorCamera",0];
+			[0.005,4,[_plane getvariable ["logic",objnull],200]] remoteExec ["bis_fnc_shakeCuratorCamera", 0];
 		};
 	}
 ];
 _plane setvariable ["ehFired",_ehFired];
-_plane setvariable ["logic",_logic];
 if (not _gunner_is_driver) then
 {
 	_plane setvariable ["gunner", gunner _plane];
 };
+_plane setvariable ["logic",_logic];
 
 //--- Show hint
-[["Curator","PlaceOrdnance"],nil,nil,nil,nil,nil,nil,true] remoteExecCall ["bis_fnc_advHint", _curator];
+[["Curator","PlaceOrdnance"],nil,nil,nil,nil,nil,nil,true] remoteExec ["bis_fnc_advHint",_curator];
 
 //--- Play radio
-[_plane, "CuratorModuleCAS"] remoteExecCall ["bis_fnc_curatorSayMessage", _curator];
+[effectiveCommander _plane,"CuratorModuleCAS"] remoteExec ["bis_fnc_curatorSayMessage", _curator];
+
+//--- Debug - visualize tracers
+if (false) then {
+	BIS_draw3d = [];
+	//{deletemarker _x} foreach allmapmarkers;
+	_m = createmarker [str _logic,_pos];
+	_m setmarkertype "mil_dot";
+	_m setmarkersize [1,1];
+	_m setmarkercolor "colorgreen";
+	_plane addeventhandler [
+		"fired",
+		{
+			_projectile = _this select 6;
+			[_projectile,position _projectile] spawn {
+				_projectile = _this select 0;
+				_posStart = _this select 1;
+				_posEnd = _posStart;
+				_m = str _projectile;
+				_mColor = "colorred";
+				_color = [1,0,0,1];
+				if (speed _projectile < 1000) then {
+					_mColor = "colorblue";
+					_color = [0,0,1,1];
+				};
+				while {!isnull _projectile} do {
+					_posEnd = position _projectile;
+					sleep 0.01;
+				};
+				createmarker [_m,_posEnd];
+				_m setmarkertype "mil_dot";
+				_m setmarkersize [1,1];
+				_m setmarkercolor _mColor;
+				BIS_draw3d set [count BIS_draw3d,[_posStart,_posEnd,_color]];
+			};
+		}
+	];
+	if (isnil "BIS_draw3Dhandler") then {
+		BIS_draw3Dhandler = addmissioneventhandler ["draw3d",{{drawline3d _x;} foreach (missionnamespace getvariable ["BIS_draw3d",[]]);}];
+	};
+};
 
 //--- Approach
 _fire = [] spawn {waituntil {false}};
@@ -88,14 +129,12 @@ _offset = if ({_x == "missilelauncher"} count _weaponTypes > 0) then {20} else {
 waituntil {
 	_fireProgress = _plane getvariable ["fireProgress",0];
 
-	_posATL_new = getPosATL _logic;
-	_dir_new = direction _logic;
 	//--- Update plane position when module was moved / rotated
-	if ((_posATL_new distance _posATL > 0 || {_dir_new != _dir}) && _fireProgress == 0) then {
-		_posATL = _posATL_new;
+	if ((getposatl _logic distance _posATL > 0 || direction _logic != _dir) && _fireProgress == 0) then {
+		_posATL = getposatl _logic;
 		_pos = +_posATL;
 		_pos set [2,(_pos select 2) + getterrainheightasl _pos];
-		_dir = _dir_new;
+		_dir = direction _logic;
 		missionnamespace setvariable ["Achilles_var_CAS_dir", _dir, true];
 
 		_planePos = [_pos,_dis,_dir + 180] call bis_fnc_relpos;
@@ -124,9 +163,9 @@ waituntil {
 
 
 		//--- Create laser target
-		_target = ((_posATL nearEntities ["LaserTarget",250])) param [0,objnull];
+		_target = ((position _logic nearEntities ["LaserTarget",250])) param [0,objnull];
 		if (isnull _target) then {
-			_target = createvehicle ["LaserTargetC",_posATL,[],0,"none"];
+			_target = createvehicle ["LaserTargetC",position _logic,[],0,"none"];
 		};
 		_plane reveal lasertarget _target;
 		_plane dowatch lasertarget _target;
@@ -159,16 +198,18 @@ waituntil {
 	};
 
 	sleep 0.01;
-	scriptdone _fire || {isNull _logic} || {isnull _plane}
+	scriptdone _fire || isnull _logic || isnull _plane
 };
 _plane setvelocity velocity _plane;
 _plane flyinheight _alt;
 
-if (not isNull _logic) then
+if !(isnull _logic) then
 {
 	sleep 1;
+	_master = _logic getvariable ["master", objnull];
+	if(not isNull _master) then {deleteVehicle _master};
 	deletevehicle _logic;
-	waituntil {_plane distance _pos > _dis || {!alive _plane}};
+	waituntil {_plane distance _pos > _dis || !alive _plane};
 };
 
 //--- Delete plane
