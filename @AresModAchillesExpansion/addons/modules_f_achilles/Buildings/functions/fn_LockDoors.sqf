@@ -144,7 +144,7 @@ if (_mode < 2) then
 		};
 	} forEach _logic_list;
 	
-	if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create a sufficient amount of door lock logics! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
+	if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
 	
 	[_logic_list + _sourceObject_list, true] call Ares_fnc_AddUnitsToCurator;
 	if (_mode == 1) then {publicVariable "Achilles_var_breachableDoors"};

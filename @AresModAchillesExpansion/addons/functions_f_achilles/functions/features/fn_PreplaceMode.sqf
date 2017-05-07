@@ -41,7 +41,7 @@ private _pos_list = [];
 } forEach _objects_list;
 
 private _logic_group = createGroup sideLogic;
-private _logic = _logic_group createUnit ["Module_f", _center_pos, [], 0, "NONE"];
+private _logic = _logic_group createUnit ["Module_f", _center_pos, [], 0, "CAN_COLLIDE"];
 [[_logic], true] call Ares_fnc_AddUnitsToCurator;
 
 disableSerialization;

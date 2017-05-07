@@ -15,8 +15,11 @@ Known issues:
 
 Changelists
 V.0.0.7c (Achilles Expansion (alpha version)
-* Fix:		Timing issue with add simple objects to curator (simple objects were move to [0,0,0] at low performance).
-* Fix:		Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
+* Change:	Removed versioning form the steam workshop title.
+* Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
+* Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
+* Fix:		Lock door module: Exception handling in the case not sufficient lock door logics could be allocated was missing.
+* Fix:		Lock door module: Houses that the module was reapplied were no longer locked.
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
