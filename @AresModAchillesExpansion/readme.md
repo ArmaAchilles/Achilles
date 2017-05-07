@@ -20,6 +20,7 @@ V.0.0.7c (Achilles Expansion (alpha version)
 * Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
 * Fix:		Lock door module: Exception handling in the case not sufficient lock door logics could be allocated was missing.
 * Fix:		Lock door module: Houses that the module was reapplied were no longer locked.
+* Fix:		Zeus interface: Scrolling down to the bottom of the right module tree shifted the entire right tool bar.
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
