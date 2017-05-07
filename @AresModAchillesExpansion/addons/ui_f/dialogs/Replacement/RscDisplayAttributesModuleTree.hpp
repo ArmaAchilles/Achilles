@@ -58,7 +58,7 @@ class Add: RscControlsGroupNoScrollbars
 			y = "safezoneH - 5.0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "11.0 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			//h = "7.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			h = "3.8 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			h = "3.0 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
 		/*

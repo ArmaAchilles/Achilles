@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 20/11/16
-//	VERSION: 1.0
-//	FILE: Achilles\ui_f\functions\keyEvents\fn_HandleCuratorObjectEdited.sqf
+//	DATE: 5/7/17
+//	VERSION: 3.0
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -10,15 +9,24 @@ _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
-if (toLower typeOf _handled_object == "module_f") then
+if (_handled_object isKindOf "logic") then
 {
-	// hanlde logic for simple objects on first edit
-	_jip_id = _handled_object getVariable "needInit";
-	if (not isNil "_jip_id") then
+	if (toLower typeOf _handled_object == "module_f") then
 	{
+		// hanlde logic for simple objects on first edit
 		_jip_id = _handled_object getVariable "needInit";
-		remoteExecCall ["", _jip_id];
-		_handled_object setVariable ["needInit", nil];
+		if (not isNil "_jip_id") then
+		{
+			_jip_id = _handled_object getVariable "needInit";
+			remoteExecCall ["", _jip_id];
+			_handled_object setVariable ["needInit", nil];
+		};
+	};
+	if(not isNull (_handled_object getVariable ["slave", objNull])) then
+	{
+		_slave = _handled_object getVariable "slave";
+		_slave setPosATL getPosATL _handled_object;
+		[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 	};
 };
 

@@ -9,7 +9,21 @@ Requirements:
 As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is running alongside @Ares if you are using Zeus. Clients that aren't running @Ares (e.g. non-zeus players) do not need to run @CBA_A3.
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
+Known issues:
+* CUP planes are not working properly for vanilla CAS module.
+* Reinforcement module may mix up groups of 3rd pary add-ons.
+
 Changelists
+V.0.0.7c (Achilles Expansion (alpha version)
+* Change:	Removed versioning form the steam workshop title.
+* Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
+* Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
+* Fix:		Lock door module: Exception handling in the case not sufficient lock door logics could be allocated was missing.
+* Fix:		Lock door module: Houses that the module was reapplied were no longer locked.
+* Fix:		Zeus interface: Scrolling down to the bottom of the right module tree shifted the entire right tool bar.
+* Fix:		Un-garrison module was broken.
+* Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
+
 V.0.0.7 (Achilles Expansion (alpha version)
 * Change:	ACE injury module: Adjusted damage levels.
 * Change:	Removed side restriction for vanilla CAS modules.

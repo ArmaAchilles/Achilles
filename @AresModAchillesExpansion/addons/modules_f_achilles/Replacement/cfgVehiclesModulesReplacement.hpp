@@ -3,10 +3,7 @@ class ModuleMine_F : ModuleEmpty_F
 	function = "Achilles_fnc_moduleMine";
 };
 
-class ModuleCAS_F : Module_F 
-{
-	function = "Achilles_fnc_moduleCAS";
-};
+class ModuleCAS_F : Module_F {};
 class ModuleCASGun_F : ModuleCAS_F 
 {
 	scopeCurator = 0;
@@ -18,7 +15,7 @@ class Achilles_Module_FireSupport_CASGun : ModuleCASGun_F
 	scope = 1;
 	scopeCurator = 2;
 	displayName = "$STR_A3_CfgVehicles_ModuleCAS_F_Arguments_Type_values_Gun";
-	function = "Achilles_fnc_moduleCAS";
+	function = "";
 	functionPriority = 1;	// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 	isGlobal = 2;			// 0 for server only execution, 1 for remote execution on all clients upon mission start, 2 for persistent execution
 	isTriggerActivated = 0;	// 1 for module waiting until all synced triggers are activated

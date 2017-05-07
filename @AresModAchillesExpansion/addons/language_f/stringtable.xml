@@ -2734,6 +2734,11 @@
         <English>Line up</English>
 		<French>Ligne</French>
       </Key>
+	  <Key ID="STR_MODULE_DOES_NOT_SUPPORT_SP">
+        <Original>This module does not support singleplayer mode</Original>
+        <English>This module does not support singleplayer mode</English>
+		<French>Ce module n'est pas compatible avec le jeu en solo</French>
+      </Key>
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">
