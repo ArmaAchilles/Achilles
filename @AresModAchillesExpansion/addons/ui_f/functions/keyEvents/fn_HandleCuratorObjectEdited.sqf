@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 20/11/16
-//	VERSION: 1.0
-//	FILE: Achilles\ui_f\functions\keyEvents\fn_HandleCuratorObjectEdited.sqf
+//	DATE: 5/7/17
+//	VERSION: 3.0
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,7 +26,6 @@ if (_handled_object isKindOf "logic") then
 	{
 		_slave = _handled_object getVariable "slave";
 		_slave setPosATL getPosATL _handled_object;
-		[_slave, direction _handled_object] remoteExecCall ["setDir", 0];
 		[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 	};
 };

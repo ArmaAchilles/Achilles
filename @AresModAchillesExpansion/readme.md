@@ -15,7 +15,8 @@ Known issues:
 
 Changelists
 V.0.0.7c (Achilles Expansion (alpha version)
-* Fix:		Temporary removal of simple object handling for adding objects to Zeus (current implementation was too flawed).
+* Fix:		Timing issue with add simple objects to curator (simple objects were move to [0,0,0] at low performance).
+* Fix:		Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 

@@ -31,6 +31,7 @@ class CfgFunctions
 			class HandleCuratorObjectPlaced;
 			class HandleCuratorGroupPlaced;
 			class HandleCuratorObjectEdited;
+			class HandleCuratorObjectDeleted;
 		};
 		
 		class ui_f_common

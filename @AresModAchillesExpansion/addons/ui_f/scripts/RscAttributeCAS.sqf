@@ -115,11 +115,6 @@ switch _mode do {
 		[_helper, direction _logic] remoteExecCall ["setDir", 0];
 		_logic setVariable ["slave", _helper];
 		_helper setVariable ["master", _logic];
-		_logic addEventHandler ["Deleted", 
-		{
-			_slave = (_this select 0) getVariable ["slave", objNull];
-			if(not isNull _slave) then {deleteVehicle _slave};
-		}];
 		_helper addEventHandler ["Deleted", 
 		{
 			_master = (_this select 0) getVariable ["master", objNull];
@@ -137,5 +132,11 @@ switch _mode do {
 			[nil,0,false] call bis_fnc_setPPeffectTemplate;
 		};
 		RscAttributePostProcess_default = nil;
+		
+		// cleanup if cancled
+		if (isNull (_logic getVariable ["slave", objNull])) then
+		{
+			deleteVehicle _logic;
+		};
 	};
 };
