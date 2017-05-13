@@ -13,7 +13,13 @@ Known issues:
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Changelists
+Changelists:
+
+V.0.0.8 (Achilles Expansion (alpha version)
+*
+*
+
+
 V.0.0.7c (Achilles Expansion (alpha version)
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
