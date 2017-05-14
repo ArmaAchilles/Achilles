@@ -49,6 +49,7 @@ class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
 #include "Replacement\RscAttributesModules.hpp"
 
 // include modified dialogs and displays
+
 #include "Replacement\RscDisplayAttributesMan.hpp"
 #include "Replacement\RscDisplayAttributesVehicle.hpp"
 #include "Replacement\RscDisplayAttributesGroup.hpp"
