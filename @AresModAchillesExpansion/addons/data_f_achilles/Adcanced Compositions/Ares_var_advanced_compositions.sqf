@@ -827,6 +827,37 @@ Achilles_var_compositions =
 			["Land_ChairWood_F",[3.12891,-3.39063,-1.10864],166.643,false],
 			["Land_ChairWood_F",[3.14209,-3.92383,-1.10771],112.587,false],
 			["Fridge_01_open_F",[5.42676,2.37891,-0.684086],29.5334,false]
+		]],
+		["USS Freedom (JETS)",
+		[
+			["Land_Carrier_01_hull_06_F",[0,0,0],0,false],
+			["Land_Carrier_01_base_F",[0,-28,0],0,false],
+			["Land_Carrier_01_hull_03_GEO_1_F",[15,-133,0],0,false],
+			["Land_Carrier_01_hull_03_GEO_2_F",[-15,-133,0],0,false],
+			["Land_Carrier_01_hull_04_GEO_1_F",[25,-88,0],0,false],
+			["Land_Carrier_01_hull_04_GEO_2_F",[-25,-88,0],0,false],
+			["Land_Carrier_01_hull_05_GEO_1_F",[25,-45,0],0,false],
+			["Land_Carrier_01_hull_05_GEO_2_F",[-25,-45,0],0,false],
+			["Land_Carrier_01_hull_06_GEO_1_F",[25,0,0],0,false],
+			["Land_Carrier_01_hull_06_GEO_2_F",[-25,0,0],0,false],
+			["Land_Carrier_01_hull_07_GEO_1_F",[25,47,0],0,false],
+			["Land_Carrier_01_hull_07_GEO_2_F",[-25,47,0],0,false],
+			["Land_Carrier_01_hull_08_GEO_1_F",[25,92,0],0,false],
+			["Land_Carrier_01_hull_08_GEO_2_F",[-25,92,0],0,false],
+			["Land_Carrier_01_hull_09_GEO_1_F",[25,137,0],0,false],
+			["Land_Carrier_01_hull_09_GEO_2_F",[-25,137,0],0,false],
+			["Land_Carrier_01_hull_01_F",[0,-190,0],0,false],
+			["Land_Carrier_01_hull_02_F",[0,-168,0],0,false],
+			["Land_Carrier_01_hull_03_F",[0,-133,0],0,false],
+			["Land_Carrier_01_hull_04_F",[0,-88,0],0,false],
+			["Land_Carrier_01_hull_05_F",[0,-45,0],0,false],
+			["Land_Carrier_01_hull_07_F",[0,47,0],0,false],
+			["Land_Carrier_01_hull_08_F",[0,92,0],0,false],
+			["Land_Carrier_01_hull_09_F",[0,137,0],0,false],
+			["Land_Carrier_01_island_01_F",[-30,82,23.5],0,false],
+			["Land_Carrier_01_island_02_F",[-30,82,23.5],0,false],
+			["Land_Carrier_01_island_03_F",[-45,82,0],0,false],
+			["DynamicAirport_01_F",[0.414063,-29.1445,23.695],0,false]
 		]]
 	]]
 ];

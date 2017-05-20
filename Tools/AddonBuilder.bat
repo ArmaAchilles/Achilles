@@ -1,9 +1,24 @@
 @echo off
 set startDir=%cd%
 
-REM /**********************************************/
+REM /******************************************************************************/
 REM Addon Builder script for windows (by Kex)
-REM /**********************************************/
+REM /******************************************************************************/
+REM
+REM Packs all folders in sourceDir and creates corresponding *.pbo in targetDir.
+REM The script is parallelized and will create a window for each source folder.
+REM
+REM Arguments:
+REM 1) (optional) version for bikey e.g. "0.0.1" ("dev" by default)
+REM
+REM Returns:
+REM nothing (procedure)
+REM
+REM Examples:
+REM 1) AddonBuilder.bat 0.0.1
+REM 2) AddonBuilder.bat
+REM
+REM /******************************************************************************/
 
 REM optional argument: version of bikey: <prefix>_<version>.biprivatekey
 set keyVersion=%1
