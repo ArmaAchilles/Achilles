@@ -11,6 +11,13 @@ class Achilles_Module_Spawn_Effects : Achilles_Spawn_Module_Base
 	function = "Achilles_fnc_SpawnEffect";
 };
 
+class Achilles_Module_Spawn_Carrier : Achilles_Spawn_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "USS Freedom";
+	function = "Achilles_fnc_SpawnCarrier";
+};
+
 class Achilles_Module_Spawn_Advanced_Composition : Achilles_Spawn_Module_Base
 {
 	scopeCurator = 2;

@@ -14,12 +14,30 @@ if (_handled_object isKindOf "logic") then
 	if (toLower typeOf _handled_object == "module_f") then
 	{
 		// hanlde logic for simple objects on first edit
+		/*
 		_jip_id = _handled_object getVariable "needInit";
 		if (not isNil "_jip_id") then
 		{
 			_jip_id = _handled_object getVariable "needInit";
 			remoteExecCall ["", _jip_id];
 			_handled_object setVariable ["needInit", nil];
+		};
+		*/
+		switch (true) do
+		{
+			case (not isNull (_handled_object getVariable ["carrier", objNull])):
+			{
+				_carrier = (_handled_object getVariable ["carrier", objNull]);
+				systemChat "edited hanlded";
+				[[_carrier,_handled_object],
+				{
+					params [_carrier,_handled_object];
+					_carrier setPosWorld getPosWorld _handled_object;
+					_carrier setDir getDir _handled_object;
+					_carrier setVectorUp [0,0,1];
+					[_carrier] call BIS_fnc_Carrier01PosUpdate;
+				}] remoteExec ["spawn",2];
+			};
 		};
 	};
 	if(not isNull (_handled_object getVariable ["slave", objNull])) then

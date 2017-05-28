@@ -5,44 +5,42 @@
 //  DESCRIPTION: Define position for object in advance
 //
 //	ARGUMENTS:
-//	_this select 0:		OBJECT	- Object that shall be placed
+//	_this select 0:		OBJECT / GROUP	- Object or group to be placed
 //
 //	RETURNS:
-//	_this:				ARRAY	- New world position coordinates
-//						NIL		- If mode was cancled
+//	nothing (procedure)
 //
 //	Example:
-//	_position = [_object] call Achilles_fnc_PreplaceMode;
+//	[_object] call Achilles_fnc_PreplaceMode;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private ["_center_object", "_objects_list","_pos"];
+private ["_objects_list","_pos"];
 _entity = param [0, objNull, [objNull, grpNull]];
 if (isNull _entity) exitWith {};
 
 if (typeName _entity == typeName grpNull) then 
 {
-	_center_object = leader _entity;
 	_objects_list = units _entity;
 } else 
 {
-	_center_object = _entity;
 	_objects_list = [_entity];
 };
-
-private _center_pos = position _center_object;
-private _pos_list = [];
+private _vehicles = [];
 {
-	_pos = (position _x) vectorDiff _center_pos;
-	_pos_list pushBack _pos;
 	_x enableSimulation false;
-	_x setPos [0,0,0];
+	if (vehicle _x == _x) then 
+	{
+		_pos = position _x;
+		_pos set [2,0];
+		if (surfaceIsWater _pos) then {_x setPosASL _pos} else {_x setPosATL _pos};
+		_x setVectorUp [0,0,1];
+	} else
+	{
+		_objects_list pushBackUnique (vehicle _x);
+	};
 } forEach _objects_list;
-
-private _logic_group = createGroup sideLogic;
-private _logic = _logic_group createUnit ["Module_f", _center_pos, [], 0, "CAN_COLLIDE"];
-[[_logic], true] call Ares_fnc_AddUnitsToCurator;
 
 disableSerialization;
 private _display = finddisplay IDD_RSCDISPLAYCURATOR;
@@ -81,23 +79,16 @@ if (! Achilles_var_submit_selection) exitWith
 {
 	[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; 
 	playSound "FD_Start_F";
-	deleteVehicle _logic;
-	deleteGroup _logic_group;
 	{
 		{deleteVehicle _x} forEach (crew _x);
 		deleteVehicle _x;
 	} forEach _objects_list;
-	nil
 };
 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
-_center_pos = position _logic;
 {
-	_x setPos ((_pos_list select _forEachIndex) vectorAdd _center_pos);
+	{_x enableSimulation true} forEach (crew _x);
 	_x enableSimulation true;
 } forEach _objects_list;
-deleteVehicle _logic;
-deleteGroup _logic_group;
-_center_pos;

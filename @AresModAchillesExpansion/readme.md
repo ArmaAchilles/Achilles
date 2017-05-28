@@ -13,7 +13,25 @@ Known issues:
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Changelists
+Changelists:
+
+V.0.0.8 (Achilles Expansion (alpha version)
+*
+*
+
+V.0.0.7d (Achilles Expansion (alpha version)
+* Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
+* Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
+* Feature:	Dynamic loadout as a vehicle attribute (ammo button).
+* Feature:	Deep copy works for dynamic loadouts.
+* Feature:	Spawn USS Freedom.
+* Fix:		Specify position (spawn attribute): Did not work for "Recent" tab.
+* Fix:		Vehicle respawn system was broken after 1.70 update.
+* Fix:		Set Date module was broken after 1.70 update.
+* Fix:		CAS modules: Most planes did not show up after 1.70 update.
+* Fix:		CAS modules did not support planes with dynamic loadouts.
+* Fix:		Earthquake module: Missing text in dialog (by CreepPork)
+
 V.0.0.7c (Achilles Expansion (alpha version)
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).

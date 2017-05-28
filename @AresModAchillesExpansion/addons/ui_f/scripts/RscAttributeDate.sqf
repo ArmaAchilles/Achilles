@@ -311,7 +311,7 @@ switch _mode do
 			1 fademusic 0;
 			if(_isNotZeus and hasInterface) then {cuttext ["","black out",1.5]};
 			uiSleep 2;
-			if(_isNotZeus and hasInterface) then {[0,0] call BIS_fnc_cinemaBorder};
+			// if(_isNotZeus and hasInterface) then {[0,0] call BIS_fnc_cinemaBorder};
 			if(isServer) then 
 			{
 				setDate _newDate;
@@ -354,7 +354,7 @@ switch _mode do
 				["","<br/>"]
 			];
 			_handle = [_output,safezoneX - 0.01,safeZoneY + (1 - 0.125) * safeZoneH,true,"<t align='right' size=1,1' >%1</t>"] call BIS_fnc_typeText2;
-			if(_isNotZeus) then {[1] call BIS_fnc_cinemaBorder};
+			// if(_isNotZeus) then {[1] call BIS_fnc_cinemaBorder};
 		}] remoteExec ["spawn",0];
 	};
 	case "onUnload": {};

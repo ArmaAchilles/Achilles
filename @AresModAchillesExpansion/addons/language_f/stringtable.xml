@@ -2586,8 +2586,8 @@
         <German>Kampfmittelbeseitigung</German>
       </Key>
 	  <Key ID="STR_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
-        <Original>Move spawn position logic and press ENTER</Original>
-        <English>Move spawn position logic and press ENTER</English>
+        <Original>Move spawn position and press ENTER</Original>
+        <English>Move spawn position and press ENTER</English>
         <French>Déplacez la position de spawn et appuiez sur la touche entrée</French>
         <German>Verschiebe die Spawnposition und drücke ENTER</German>
       </Key>
@@ -2620,21 +2620,25 @@
         <Original>GARAGE</Original>
         <English>GARAGE</English>
 		<French>GARAGE</French>
+		<German>GARAGE</German>
       </Key>
 	  <Key ID="STR_CARGO">
         <Original>CARGO</Original>
         <English>CARGO</English>
 		<French>INVENTAIRE</French>
+		<German>INVENTAR</German>
       </Key>
 	  <Key ID="STR_AMMO">
         <Original>AMMO</Original>
         <English>AMMO</English>
-		<French>MUNITIONS</French>
+		<French>MUNITION</French>
+		<German>MUNITION</German>
       </Key>
 	  <Key ID="STR_DAMAGE">
         <Original>DAMAGE</Original>
         <English>DAMAGE</English>
 		<French>DÉGÂTS</French>
+		<German>SCHADEN</German>
       </Key>
 	  <Key ID="STR_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
         <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
@@ -2644,16 +2648,19 @@
         <Original>Constant attenuation</Original>
         <English>Constant attenuation</English>
 		<French>Atténuation constante</French>
+		<German>konstanter Dämpfungsfaktor</German>
       </Key>
 	  <Key ID="STR_LINEAR_ATTENUATION">
         <Original>Linear attenuation</Original>
         <English>Linear attenuation</English>
 		<French>Atténuation linéique</French>
+		<German>linearer Dämpfungsfaktor</German>
       </Key>
 	  <Key ID="STR_QUADRATIC_ATTENUATION">
         <Original>Quadratic attenuation</Original>
         <English>Quadratic attenuation</English>
 		<French>Atténuation quadratique</French>
+		<German>Quadratischer Dämpfungsfaktor</German>
       </Key>
 	  <Key ID="STR_HIGH">
         <Original>high</Original>
@@ -2723,21 +2730,30 @@
         <Original>Crash</Original>
         <English>Crash</English>
 		<French>Collision</French>
+		<German>Kollision</German>
       </Key>
 	  <Key ID="STR_INCLUDE_CREW">
         <Original>Include crew</Original>
         <English>Include crew</English>
 		<French>Équipage inclus</French>
+		<German>Inlusive Besatzung</German>
       </Key>
 	  <Key ID="STR_LINE_UP">
         <Original>Line up</Original>
         <English>Line up</English>
 		<French>Ligne</French>
+		<German>KREISEN (HELI)</German>
       </Key>
 	  <Key ID="STR_MODULE_DOES_NOT_SUPPORT_SP">
         <Original>This module does not support singleplayer mode</Original>
         <English>This module does not support singleplayer mode</English>
 		<French>Ce module n'est pas compatible avec le jeu en solo</French>
+      </Key>
+	  <Key ID="STR_NO_DYNAMIC_LOADOUT">
+        <Original>no dynamic loadout available</Original>
+        <English>no dynamic loadout available</English>
+		<French>Pas de l'armement dynamique</French>
+		<German>Keine dynamische Bewaffnung verfügbar</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

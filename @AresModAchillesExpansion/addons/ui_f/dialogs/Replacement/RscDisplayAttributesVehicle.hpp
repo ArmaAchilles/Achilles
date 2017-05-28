@@ -46,7 +46,7 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
 			text = "$STR_AMMO";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
@@ -102,7 +102,7 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
 			text = "$STR_AMMO";
-			onMouseButtonClick = "[localize ""STR_NOT_IMPLEMENTED_AT_THE_MOMENT""] call Ares_fnc_ShowZeusMessage; playSound ""FD_Start_F""";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow

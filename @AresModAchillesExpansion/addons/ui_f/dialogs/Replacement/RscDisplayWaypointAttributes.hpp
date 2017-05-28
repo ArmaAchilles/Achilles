@@ -1,5 +1,3 @@
-#include "\a3\3den\UI\macros.inc"
-
 
 // replace Zeus waypoint icons by Eden waypoint icons
 class CfgCurator 

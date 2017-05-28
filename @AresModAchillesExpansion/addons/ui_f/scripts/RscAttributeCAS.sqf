@@ -24,7 +24,18 @@ switch _mode do {
 				_vehicle = configName (_planeCfg);
 				if ((_vehicle isKindOf "Plane") and (getNumber (_planeCfg >> "scope") == 2)) then
 				{
-					_weapon_cfgs = getarray (_planeCfg >> "weapons");
+					_weapon_classes = getarray (_planeCfg >> "weapons");
+					// find and add dynamic weapons to list
+					if (isClass (_planeCfg >> "Components" >> "TransportPylonsComponent")) then
+					{
+						_pylon_cfgs = (_planeCfg >> "Components" >> "TransportPylonsComponent" >> "pylons") call BIS_fnc_returnChildren;
+						{
+							_pylon_mag = getText (_x >> "attachment");
+							systemChat ("mag" + str _pylon_mag);
+							_weapon_classes pushBack getText (configFile >> "cfgMagazines" >> _pylon_mag >> "pylonWeapon");
+							if (count getArray (configFile >> "cfgMagazines" >> _pylon_mag >> "turret") > 0) then {_gunner_is_driver = false};
+						} forEach _pylon_cfgs;
+					};
 					{
 						_weaponTypes = _x;						
 						_weapons = [];
@@ -40,12 +51,13 @@ switch _mode do {
 									_weapons pushBack [_x,_mode];
 								};
 							};
-						} foreach _weapon_cfgs;
+						} foreach _weapon_classes;
 						if (count _weapons == 0) then 
 						{
-							_turret_cfgs = (_planeCfg >> "Turrets") call BIS_fnc_returnChildren;
+							_turret_cfgs = (_planeCfg >> "Turrets" >> "GunnerTurret") call BIS_fnc_returnChildren;
+							_turret_cfgs = _turret_cfgs select {getNumber (_x >> "primaryGunner") == 1};
 							if (count _turret_cfgs == 0) exitWith {};
-							_weapon_cfgs = getarray (_turret_cfgs select 0 >> "weapons");
+							_weapon_classes = getarray (_turret_cfgs select 0 >> "weapons");
 							{
 								if (tolower ((_x call bis_fnc_itemType) select 1) in _weaponTypes) then
 								{
@@ -57,7 +69,7 @@ switch _mode do {
 										_weapons pushBack [_x,_mode];
 									};
 								};
-							} foreach _weapon_cfgs;
+							} foreach _weapon_classes;
 							_gunner_is_driver = false;
 						};
 						if (count _weapons != 0) then
