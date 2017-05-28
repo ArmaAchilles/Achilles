@@ -15,7 +15,7 @@ _dialogResult =
 			localize "STR_STRONG"
 		]],
 		[format ["%1 [m]", localize "STR_RANGE"],"","100"],
-		[localize "STR_DESTROY_BUILDINGS", [localize "STR_YES", localize "STR_NO"]]
+		[localize "STR_DAMAGE_BUILDINGS", [localize "STR_YES", localize "STR_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
