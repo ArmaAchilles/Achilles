@@ -30,7 +30,8 @@ if (not isNil "Achilles_var_specifyPositionBeforeSpawn") then
 {
 	_curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
 	_ctrlModeUnits = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEUNITS;
-	if (ctrlScale _ctrlModeUnits == 1) then
+	_ctrlModeRecent = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODERECENT;
+	if (ctrlScale _ctrlModeUnits == 1 or {ctrlScale _ctrlModeRecent == 1}) then
 	{
 		[_placedObject] spawn Achilles_fnc_PreplaceMode;
 	};

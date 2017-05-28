@@ -13,15 +13,14 @@ private _dir = 180 + (_dialogResult select 0) * 45;
 
 [[getPosATL _logic, _dir],  
 {
-	params ["_posATL"];
+	params ["_posATL", "_dir"];
 	
 	_carrier = createVehicle ["Land_Carrier_01_base_F",_posATL,[],0,"CAN_COLLIDE"];
-	_carrier setVectorUp [0,0,1];
-	_carrier setDir _dir;
+	_carrier setVectorDirAndUp [[sin _dir, cos _dir, 0], [0,0,1]];
 	[_carrier] call BIS_fnc_Carrier01PosUpdate;
 	_carrier_parts = _carrier getVariable "bis_carrierParts";
 	{deleteVehicle (_x select 0)} forEach _carrier_parts;
-	[_carrier] call BIS_fnc_Carrier01Init;
+	[_carrier] remoteExecCall ["BIS_fnc_Carrier01Init", 0, _carrier];
 }] remoteExecCall ["call", 2];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
