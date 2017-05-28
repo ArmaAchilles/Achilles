@@ -215,8 +215,8 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "25 * 1/9 * 2.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			font = FONT_MONO;
-			colorBackground[] = {COLOR_OVERLAY_RGBA};
+			font = "EtelkaMonospacePro";
+			colorBackground[] = {0,0,0,0.5};
 			text = ":      :";
 		};
 		class Hour: ctrlEdit
@@ -230,7 +230,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			w = "25 * 1/9 * 0.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0,0,0,0};
-			font = FONT_MONO;
+			font = "EtelkaMonospacePro";
 		};
 		class Minute: Hour
 		{

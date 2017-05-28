@@ -43,7 +43,7 @@ switch _mode do {
 			};
 		} foreach _idcs;
 
-		_respawnID = [_unit,false] call bis_fnc_modulerespawnvehicle;
+		_respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
 		_selected = switch _respawnID do {
 			case 0;
 			case 1;
@@ -80,7 +80,7 @@ switch _mode do {
 	case "confirmed": {
 		_display = _params select 0;
 		_selected = uinamespace getvariable ["RscAttributeRespawnVehicle_selected",5];
-		_respawnID = [_unit,false] call bis_fnc_modulerespawnvehicle;
+		_respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
 
 		_selected = switch (_selected) do {
 			case 0: {3};
@@ -93,15 +93,17 @@ switch _mode do {
 
 		if (_selected != _respawnID) then
 		{
-			_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+			private _initCode = compile ("(_this select 0) setVariable [""Achilles_var_vehicleRespawnData"", " + str _selected  + ", true]; _this call bis_fnc_curatorrespawn;");
+			private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 			{
 				//--- Remove
-				[[_x,true],"bis_fnc_modulerespawnvehicle",false] call bis_fnc_mp;
+				[_x,true] remoteExec ["bis_fnc_modulerespawnvehicle", 2];
 
 				//--- Add
 				if (_selected >= 0) then {
-					[[_x,nil,nil,nil,{_this call bis_fnc_curatorrespawn;},_selected],"bis_fnc_modulerespawnvehicle",false] call bis_fnc_mp;
+					[_x,nil,nil,nil,_initCode,_selected] remoteExec ["bis_fnc_modulerespawnvehicle",2];
 				};
+				_x setVariable ["Achilles_var_vehicleRespawnData", _selected, true];
 			} forEach _curatorSelected;
 		};
 		_unit setvariable ["updated",true,true];

@@ -19,6 +19,16 @@ V.0.0.8 (Achilles Expansion (alpha version)
 *
 *
 
+V.0.0.7d (Achilles Expansion (alpha version)
+* Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
+* Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
+* Feature:	Spawn USS Freedom.
+* Feature:	Deep copy works for dynamic loadouts.
+* Fix:		Vehicle respawn system was broken after 1.70 update.
+* Fix:		Set Date module was broken after 1.70 update.
+* Fix:		CAS modules: Most planes did not show up after 1.70 update.
+* Fix:		CAS modules did not support planes with dynamic loadouts.
+* Fix:		Earthquake module: Missing text in dialog (by CreepPork)
 
 V.0.0.7c (Achilles Expansion (alpha version)
 * Change:	Removed versioning form the steam workshop title.

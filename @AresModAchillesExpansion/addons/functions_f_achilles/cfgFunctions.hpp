@@ -51,6 +51,7 @@ class CfgFunctions
 			class CopyObjectsToClipboard;
 			class PasteObjectsFromClipboard;
 			class damageComponents;
+			class changePylonAmmo;
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;

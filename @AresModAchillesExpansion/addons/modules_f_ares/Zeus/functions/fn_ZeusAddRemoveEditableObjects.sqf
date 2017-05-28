@@ -80,8 +80,8 @@ if (_range_mode == 0) then
 	};	
 };
 
-// protect the main curator module from deletion
-_objectsToProcess = _objectsToProcess select {typeOf _x != "ModuleCurator_F"};
+// protect the main essential module from being added
+_objectsToProcess = _objectsToProcess select {not (toLower typeOf _x in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"]) and {toLower ((typeOf _x) select [0,13]) != "modulecurator"}};
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
 _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);

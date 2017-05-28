@@ -28,7 +28,7 @@ _saved_vehicles = [];
 			{
 				_crew_info_array pushBack [typeOf _x, groupID group _x, side _x, [getUnitLoadout _x, goggles _x], assignedVehicleRole _x];
 			} forEach (crew _object);
-			_object_clipboard pushBack [typeOf _object, groupID group _object, side _object, [], (position _object) vectorDiff _center_pos, direction _object, _crew_info_array];
+			_object_clipboard pushBack [typeOf _object, groupID group _object, side _object, getPylonMagazines _object, (position _object) vectorDiff _center_pos, direction _object, _crew_info_array];
 		};
 		default
 		{
