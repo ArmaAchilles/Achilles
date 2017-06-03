@@ -2465,13 +2465,6 @@
 		<Russian>выключить силой</Russian>
         <German>zwingend ausgeschaltet</German>
       </Key>
-      <Key ID="STR_THERMALS">
-        <Original>Thermal optics</Original>
-        <English>Thermal optics</English>
-        <French>Caméra thermique</French>
-		<Russian>ИК оптика</Russian>
-        <German>Wärmebildkamera</German>
-      </Key>
       <Key ID="STR_TACLIGHT_IR">
         <Original>Tactical Light/IR</Original>
         <English>Tactical Light/IR</English>

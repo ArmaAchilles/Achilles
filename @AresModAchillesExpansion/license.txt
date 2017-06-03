@@ -25,6 +25,7 @@ Achilles Expansion includes contributions by the following coders:
 * S.Crowe (ACE healing and Eden compatibilty of compositions)
 * Zakant (bug fixes and improval of code efficency)
 * Shukari (Available factions bug fix)
+* CreepPork (bug fixes)
 
 
 Achilles integrates code from the following mods or scripts:
@@ -42,7 +43,6 @@ Translations:
 * French (by Kex)
 * German (by Kex; revised by KiritoKun223)
 * Russian (by Igor Nikolaev)
-
 
 Ares as well as Achilles Expansion are provided without warranty. Use at your own risk.
 This product may contain traces of GoT/ASoIaF spoilers.
