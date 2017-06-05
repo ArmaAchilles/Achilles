@@ -80,7 +80,7 @@ if (_canBeDefused == 0) then
 
     if (_random <= 70) then
     {
-      systemChat localize "STR_ENYO_DISARMED";
+      systemChat "Disarmed";
       _dummyObject setVariable["armed", false, true];
       _dummyObject setVariable["iedTriggered", false, true];
       _dummyObject setVariable["defused", true, true];
@@ -88,7 +88,7 @@ if (_canBeDefused == 0) then
     }
     else
     {
-      systemChat localize "STR_ENYO_FAILED_TO_DISARM";
+      systemChat "Failed to Disarm";
       _dummyObject setVariable["iedTriggered", true, true];
       _dummyObject setVariable["defused", false, true];
       _defused = false;
@@ -99,7 +99,7 @@ if (_canBeDefused == 0) then
   {
     [
       _object,
-      localize "STR_ENYO_DISARM",
+      "Disarm",
       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa",
       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa",
       "_this distance _target < 3 && 'ACE_DefusalKit' in (items _this + assignedItems _this)",
@@ -119,7 +119,7 @@ if (_canBeDefused == 0) then
   {
     [
       _object,
-      localize "STR_ENYO_DISARM",
+      "Disarm",
       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa",
       "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa",
       "_this distance _target < 3",

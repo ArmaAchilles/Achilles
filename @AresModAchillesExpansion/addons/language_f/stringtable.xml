@@ -3219,22 +3219,4 @@
         </Key>
     </Container>
   </Package>
-  <Package name="Interactions">
-    <Container name="Hold Action">
-      <Key ID="STR_ENYO_DISARM">
-        <Original>Disarm</Original>
-        <English>Disarm</English>
-      </Key>
-    </Container>
-    <Container name="Messages">
-      <Key ID="STR_ENYO_DISARMED">
-        <Original>Disarmed</Original>
-        <English>Disarmed</English>
-      </Key>
-      <Key ID="STR_ENYO_FAILED_TO_DISARM">
-        <Original>Failed to Disarm</Original>
-        <English>Failed to Disarm</English>
-      </Key>
-    </Container>
-  </Package>
 </Project>
