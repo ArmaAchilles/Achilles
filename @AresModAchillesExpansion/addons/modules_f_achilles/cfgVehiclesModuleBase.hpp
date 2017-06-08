@@ -58,6 +58,7 @@ class CfgVehicles
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
 	#include "Replacement\cfgVehiclesModulesReplacement.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
+	#include "Zeus\cfgVehiclesModulesZeus.hpp"
 	
 	// config replacement: remove vanilla effect modules and training category
 	class ModuleChemlight_F : Module_F {};

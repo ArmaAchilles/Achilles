@@ -64,7 +64,7 @@ if (isNull _unitUnderCursor) then
 		};
 	};
 	sleep 1;
-
+	if (isNil "_units") exitWith {};
 	if (count _units == 0) exitWith 
 	{
 		[localize "STR_NO_PLAYER_IN_SELECTION"] call Ares_fnc_ShowZeusMessage; 

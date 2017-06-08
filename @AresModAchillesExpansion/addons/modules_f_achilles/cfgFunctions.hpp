@@ -14,5 +14,6 @@ class CfgFunctions
 		#include "Objects\cfgFunctionsObjects.hpp"
 		#include "Replacement\cfgFunctionsReplacement.hpp"
 		#include "Spawn\cfgFunctionsSpawn.hpp"
+		#include "Zeus\cfgFunctionsZeus.hpp"
 	};
 };

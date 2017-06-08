@@ -2748,6 +2748,12 @@
 		<French>Pas de l'armement dynamique</French>
 		<German>Keine dynamische Bewaffnung verfügbar</German>
       </Key>
+	  <Key ID="STR_SWITCH_UNIT">
+        <Original>Switch unit</Original>
+        <English>Switch unit</English>
+		<French>Intervertissez l'unité</French>
+		<German>Einheit wechseln</German>
+      </Key>
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">

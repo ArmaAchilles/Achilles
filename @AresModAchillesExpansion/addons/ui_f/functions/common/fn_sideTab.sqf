@@ -35,13 +35,14 @@ switch _mode do
 		_display = ctrlParent _chosen_side_ctrl;
 		_chosen_side_idc = ctrlIDC _chosen_side_ctrl;
 		_new_side_index = IDC_SIDE_ICONS find _chosen_side_idc;
+		_old_side_index = uiNamespace getVariable [format['Ares_ChooseDialog_ReturnValue_%1', _index],-1];
+		if (_new_side_index == _old_side_index) exitWith {};
 		_color = if (_new_side_index == 0) then {[1,1,1,1]} else {(_new_side_index - 1) call bis_fnc_sideColor};
 		_color set [3,1];
 		_chosen_side_ctrl ctrlsettextcolor _color;
 		[_chosen_side_ctrl,1.2,0.1] call bis_fnc_ctrlsetscale;
 		_chosen_side_ctrl ctrlEnable false;
 		
-		_old_side_index = uiNamespace getVariable [format['Ares_ChooseDialog_ReturnValue_%1', _index],-1];
 		if (_old_side_index != -1) then
 		{
 			_old_side_idc = IDC_SIDE_ICONS select _old_side_index;

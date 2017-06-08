@@ -10,16 +10,26 @@ As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is 
 You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
 
 Known issues:
+* Switch Unit: .
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
 Changelists:
 
-V.0.0.8 (Achilles Expansion (alpha version)
-*
-*
+V.0.0.7f (Achilles Expansion (alpha version))
+* Change:	Only carrier base can be added to Zeus.
+* Feature:	USS Freedom is movable (position updates are delayed depending on server performance!).
+* Feature:	Switch Unit (an alternative to remote control, which gives full control over the unit).
+* Feature:	Side as a group attribute (new button).
+* Feature:	IED and Suicide Bomber modules (by @CreepPork).
+* Fix:		USS Freedom: Spawned twice in certain cases.
+* Fix:		Vanilla cycle waypoint issue for copied units (waypoint ended up on map origin).
+* Fix:		Ammo slider (vehicle attributes): Did not handle dynamic loadouts correctly.
+* Fix:		Align object horizontal (default key: X): Did not execute Achilles_fnc_HandleCuratorObjectEdited.
+* Fix:		Dynamic Dialog Side Control: Clicking on current selected side led to unintended behaviour.
+* Fix:		Exiting selection option: Did not work properly for a few modules.
 
-V.0.0.7d (Achilles Expansion (alpha version)
+V.0.0.7d (Achilles Expansion (alpha version))
 * Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
 * Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
 * Feature:	Dynamic loadout as a vehicle attribute (ammo button).
@@ -30,9 +40,9 @@ V.0.0.7d (Achilles Expansion (alpha version)
 * Fix:		Set Date module was broken after 1.70 update.
 * Fix:		CAS modules: Most planes did not show up after 1.70 update.
 * Fix:		CAS modules did not support planes with dynamic loadouts.
-* Fix:		Earthquake module: Missing text in dialog (by CreepPork)
+* Fix:		Earthquake module: Missing text in dialog (by @CreepPork)
 
-V.0.0.7c (Achilles Expansion (alpha version)
+V.0.0.7c (Achilles Expansion (alpha version))
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
 * Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
@@ -42,7 +52,7 @@ V.0.0.7c (Achilles Expansion (alpha version)
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
-V.0.0.7 (Achilles Expansion (alpha version)
+V.0.0.7 (Achilles Expansion (alpha version))
 * Change:	ACE injury module: Adjusted damage levels.
 * Change:	Removed side restriction for vanilla CAS modules.
 * Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).

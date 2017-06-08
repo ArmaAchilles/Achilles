@@ -33,7 +33,13 @@ class CfgFunctions
 			class dikToLetter;
 			class getCuratorSelected;
 		};
-		
+		class selectUnit
+		{
+			file = "\achilles\functions_f_achilles\functions\selectUnit";
+			
+			class switchUnit_start;
+			class switchUnit_exit;
+		};
 		class functions_f_features
 		{
 			file = "\achilles\functions_f_achilles\functions\features";

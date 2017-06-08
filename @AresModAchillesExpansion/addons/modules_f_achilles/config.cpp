@@ -46,7 +46,8 @@ class CfgPatches
 			"Achilles_Module_Spawn_Intel",
 			"Achilles_Module_Spawn_Advanced_Composition",
 			"Achilles_Module_Spawn_Explosives",
-			"Achilles_Module_Spawn_Carrier"
+			"Achilles_Module_Spawn_Carrier",
+			"Achilles_Module_Zeus_SwitchUnit"
 		};
 
 		requiredAddons[] =
