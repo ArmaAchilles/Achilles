@@ -5,17 +5,17 @@ class CfgFunctions
 	{
 		project = "Ares Mod - Achilles Expansion";
 		tag = "Achilles";
-		
+
 		class Init
 		{
 			file = "\achilles\functions_f_achilles\functions\init";
-			
+
 			class onCuratorStart;
 		}
 		class functions_f_common
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
-			
+
 			class sum;
 			class arrayMean;
 			class pushBack;
@@ -32,12 +32,16 @@ class CfgFunctions
 			class vectorMap;
 			class dikToLetter;
 			class getCuratorSelected;
+			class deadlyExplosion;
+			class disablingExplosion;
+			class fakeExplosion;
+			class hasACEExplosives;
 		};
-		
+
 		class functions_f_features
 		{
 			file = "\achilles\functions_f_achilles\functions\features";
-			
+
 			class ACS_toggleGrouping;
 			class ambientAnim;
 			class ambientAnimGetParams;
@@ -55,7 +59,7 @@ class CfgFunctions
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
-            class setCuratorVisionModes;
+      class setCuratorVisionModes;
 			class damageBuildings;
 			class preplaceMode;
 			class addBreachDoorAction;
@@ -63,6 +67,9 @@ class CfgFunctions
 			class setACEInjury;
 			class setVanillaInjury;
 			class SuppressiveFire;
+			class createIED;
+			class createSuicideBomber;
+			class IED_DamageHandler;
 		};
 	};
 
@@ -70,7 +77,7 @@ class CfgFunctions
 	{
 		class Vehicles
 		{
-			delete garage; 
+			delete garage;
 		};
 		class Achilles
 		{
@@ -89,7 +96,7 @@ class CfgFunctions
 		class Achilles
 		{
 			file = "\achilles\functions_f_achilles\functions\replacement";
-			
+
 			class showCuratorAttributes;
 			class curatorObjectPlaced;
 		};
