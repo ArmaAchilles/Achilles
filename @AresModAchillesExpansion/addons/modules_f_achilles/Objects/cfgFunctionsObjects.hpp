@@ -8,5 +8,5 @@ class Achilles_Objects_Function_Base
 	class ObjectsSetHeight {};
 	class ObjectsTransferOwnership {};
 	class ObjectsAddECM {};
-	class ObjectIED {};
+	class ObjectsIED {};
 };

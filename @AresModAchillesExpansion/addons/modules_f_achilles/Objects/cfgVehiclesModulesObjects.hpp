@@ -62,7 +62,7 @@ class Achilles_IED_Module : Enyo_Objects_Module_Base
 	curatorCanAttach = 1;
 	_generalMacro = "Achilles_IED_Module";
 	displayName = "$STR_ENYO_CREATE_IED";
-	function = "Achilles_fnc_ObjectIED";
+	function = "Achilles_fnc_ObjectsIED";
 };
 
 class Achilles_AddECM_Module : Enyo_Objects_Module_Base
@@ -71,5 +71,5 @@ class Achilles_AddECM_Module : Enyo_Objects_Module_Base
 	curatorCanAttach = 1;
 	_generalMacro = "Achilles_AddECM_Module";
 	displayName = "$STR_ENYO_ADD_ECM_TO_VEHICLE";
-	function = "Achilles_fnc_ObjectAddECM";
+	function = "Achilles_fnc_ObjectsAddECM";
 };
