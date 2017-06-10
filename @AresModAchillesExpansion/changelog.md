@@ -1,7 +1,3 @@
-Requirements                        <br>
-─────────────────────────────────── <br>
-CBA is mandatory since 0.0.5!
-
 Known issues                        <br>
 ─────────────────────────────────── <br>
 * Switch Unit for non-local units: Notable delay observed before control works.
