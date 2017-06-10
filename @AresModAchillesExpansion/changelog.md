@@ -1,23 +1,23 @@
-﻿Requirements <br>
-──────────── <br>
+Requirements                        <br>
+─────────────────────────────────── <br>
 CBA is mandatory since 0.0.5!
 
-Known issues <br>
-──────────── <br>
+Known issues                        <br>
+─────────────────────────────────── <br>
 * Switch Unit for non-local units: Notable delay observed before control works.
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
 Versioning (introduced since 0.0.8) <br>
 ─────────────────────────────────── <br>
-V.X.X.Xc							<br>
-  │ │ │└ hotfixes					<br>
-  │ │ └─ small update				<br>
-  │ └─── major update				<br>
-  └───── stage (alpha, beta, ...)	<br>
+V.X.X.Xc							              <br>
+  │ │ │└ hotfixes					          <br>
+  │ │ └─ small update				        <br>
+  │ └─── major update				        <br>
+  └───── stage (alpha, beta, ...)	  <br>
 
-Change log <br>
-────────── <br>
+Change log                          <br>
+─────────────────────────────────── <br>
 V.0.0.7f (Achilles Expansion (alpha version))
 * Change:	Only carrier base can be added to Zeus; deletion will affect all carrier parts
 * Feature:	Switch Unit (an alternative to remote control, which gives full control over the unit).
