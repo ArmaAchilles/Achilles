@@ -4,7 +4,7 @@
 	{
 		_moderator = _this select 1;
 		_curator_logic_group = group (getAssignedCuratorLogic player);
-		[_moderator] join player;
+		comment "[_moderator] join player;";
 		[[_moderator, _curator_logic_group],
 		{
 			_moderator = _this select 0;
