@@ -1,11 +1,11 @@
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
-
-Ares includes contributions by the following coders:
+﻿Ares includes contributions by the following coders<br>
+───────────────────────────────────────────────────<br>
 * Anton Struyk
 * TheOtherTaylor
 * JonasJurczok
 
-Ares integrates code from the following mods or scripts:
+Ares integrates code from the following mods or scripts<br>
+───────────────────────────────────────────────────────<br>
 * Curator Presets Mod (by Chessmaster)
     * https://github.com/chessmaster42/curatorPresets
 * Infantry Occupy House (by Zenophon)
@@ -17,8 +17,8 @@ Ares integrates code from the following mods or scripts:
 * Vernei's Base Templates
     * http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531)
 
-
-Achilles Expansion includes contributions by the following coders:
+Achilles Expansion includes contributions by the following coders<br>
+─────────────────────────────────────────────────────────────────<br>
 * Kex
 * Grezvany13 (Several contributions & support)
 * Talya (Assistance in general, even if he wasn't always aware of that ;) )
@@ -28,7 +28,8 @@ Achilles Expansion includes contributions by the following coders:
 * CreepPork (bug fixes)
 
 
-Achilles integrates code from the following mods or scripts:
+Achilles integrates code from the following mods or scripts<br>
+───────────────────────────────────────────────────────────<br>
 * AI HALO jump script (by cobra4v320)
     * http://www.armaholic.com/page.php?id=23113
 * Kyle Kotowick's matrix transpose script
@@ -44,6 +45,3 @@ Translations:
 * French (by Kex)
 * German (by Kex; revised by KiritoKun223)
 * Russian (by Igor Nikolaev)
-
-Ares as well as Achilles Expansion are provided without warranty. Use at your own risk.
-This product may contain traces of GoT/ASoIaF spoilers.
