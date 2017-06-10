@@ -6,11 +6,11 @@ Known issues                        <br>
 
 Versioning (introduced since 0.0.8) <br>
 ─────────────────────────────────── <br>
-V.X.X.Xc							              <br>
-  │ │ │└ hotfixes					          <br>
-  │ │ └─ small update				        <br>
-  │ └─── major update				        <br>
-  └───── stage (alpha, beta, ...)	  <br>
+V.X.X.Xc							<br>
+  │ │ │└ hotfixes					<br>
+  │ │ └─ small update				<br>
+  │ └─── major update				<br>
+  └───── stage (alpha, beta, ...)	<br>
 
 Change log                          <br>
 ─────────────────────────────────── <br>
