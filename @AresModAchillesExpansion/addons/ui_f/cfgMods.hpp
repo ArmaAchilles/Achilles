@@ -35,4 +35,21 @@ class CfgMods {
         logoOver = "\achilles\data_f_achilles\icons\icon_achilles_hint.paa";
         logoSmall = "\achilles\data_f_achilles\icons\icon_achilles_small.paa";
     };
+    class Enyo
+    {
+      dir = "@AresModAchillesExpension";
+      name = "Enyo Expansion";
+      author = "CreepPork_LV";
+      hidePicture = 0;
+      hideName = 1;
+
+      description = "The Enyo Expansion focuses more on bringing back the functionalites from MCC Sandbox 4 with improved support and them being updated to newest Arma 3 standards.";
+
+      overview = "The Enyo Expansion focuses more on bringing back the functionalites from MCC Sandbox 4 with improved support and them being updated to newest Arma 3 standards.";
+
+      picture = "\achilles\data_f_achilles\icons\icon_enyo_large.paa";
+      logo = "\achilles\data_f_achilles\icons\icon_enyo.paa";
+      logoOver = "\achilles\data_f_achilles\icons\icon_enyo_large.paa";
+      logoSmall = "\achilles\data_f_achilles\icons\icon_enyo.paa";
+    };
 };

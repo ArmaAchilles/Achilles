@@ -861,6 +861,18 @@
         <English>CAS - Bomb Strike</English>
 		<French>AAR - Bombe</French>
       </Key>
+      <Key ID="STR_ENYO_MODULE_BASE">
+        <Original>Enyo Module Base</Original>
+        <English>Enyo Module Base</English>
+      </Key>
+      <Key ID="STR_ENYO_SET_SUICIDE_BOMBER">
+        <Original>Set Suicide Bomber</Original>
+        <English>Set Suicide Bomber</English>
+      </Key>
+      <Key ID="STR_ENYO_CREATE_IED">
+        <Original>Create IED</Original>
+        <English>Create IED</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -1201,8 +1213,8 @@
         <German>Keine Einheit wurde ausgewählt!</German>
       </Key>
       <Key ID="STR_NOT_PLACED_ON_UNIT">
-        <Original>This modul has to be placed on a unit!</Original>
-        <English>This modul has to be placed on a unit!</English>
+        <Original>This module has to be placed on a unit!</Original>
+        <English>This module has to be placed on a unit!</English>
         <French>Il faut mettre ce module sur une unité!</French>
         <Russian>Этот модуль должен быть установлен на юните!</Russian>
         <German>Dieses Modul muss auf eine Einheit platziert werden!</German>
@@ -2759,6 +2771,122 @@
         <English>Brightness</English>
 		<French>Brillance</French>
 		<German>Helligkeit</German>
+	  </Key>
+      <Key ID="STR_ENYO_OBJECT_IS_IED">
+        <Original>Object is an IED already!</Original>
+        <English>Object is an IED already!</English>
+      </Key>
+      <Key ID="STR_ENYO_UNIT_IS_SB">
+        <Original>Unit is an Suicide Bomber already!</Original>
+        <English>Unit is an Suicide Bomber already!</English>
+      </Key>
+      <Key ID="STR_ENYO_OBJECTS_NOT_ALLOWED">
+        <Original>Objects not allowed! Use the Create IED module instead!</Original>
+        <English>Objects not allowed! Use the Create IED module instead!</English>
+      </Key>
+      <Key ID="STR_ENYO_UNITS_NOT_ALLOWED">
+        <Original>Units not allowed, use Suicide Bomber module instead!</Original>
+        <English>Units not allowed, use Suicide Bomber module instead!</English>
+      </Key>
+      <Key ID="STR_ENYO_NO_VEHICLE_SELECTED">
+        <Original>No vehicle selected!</Original>
+        <English>No vehicle selected!</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH">
+        <Original>Activation Side cannot match the unit's side!</Original>
+        <English>Activation Side cannot match the unit's side!</English>
+      </Key>
+      <Key ID="STR_ENYO_SET_UNIT_AS_SB">
+        <Original>Set Unit as an Suicide Bomber</Original>
+        <English>Set Unit as an Suicide Bomber</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_SIZE">
+        <Original>Explosion Size</Original>
+        <English>Explosion Size</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_SIZE_SMALL">
+        <Original>Small</Original>
+        <English>Small</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_SIZE_MEDIUM">
+        <Original>Medium</Original>
+        <English>Medium</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_SIZE_LARGE">
+        <Original>Large</Original>
+        <English>Large</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_EFFECT">
+        <Original>Explosion Effect</Original>
+        <English>Explosion Effect</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_EFFECT_DEADLY">
+        <Original>Deadly</Original>
+        <English>Deadly</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_EFFECT_DISABLING">
+        <Original>Disabling</Original>
+        <English>Disabling</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_EFFECT_FAKE">
+        <Original>Fake</Original>
+        <English>Fake</English>
+      </Key>
+      <Key ID="STR_ENYO_EXPLOSION_EFFECT_NONE">
+        <Original>None</Original>
+        <English>None</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_DISTANCE">
+        <Original>Activation Distance [m]</Original>
+        <English>Activation Distance [m]</English>
+      </Key>
+      <Key ID="STR_ENYO_PATROL_RADIUS">
+        <Original>Patrol Radius [m]</Original>
+        <English>Patrol Radius [m]</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_SIDE">
+        <Original>Activation Side</Original>
+        <English>Activation Side</English>
+      </Key>
+      <Key ID="STR_ENYO_ADD_ECM_TO_VEHICLE">
+        <Original>Add ECM to Vehicle</Original>
+        <English>Add ECM to Vehicle</English>
+      </Key>
+      <Key ID="STR_ENYO_ADD_ECM">
+        <Original>Add ECM</Original>
+        <English>Add ECM</English>
+      </Key>
+      <Key ID="STR_ENYO_SET_OBJECT_AS_IED">
+        <Original>Set Object as IED</Original>
+        <English>Set Object as IED</English>
+      </Key>
+      <Key ID="STR_ENYO_CAN_BE_DISARMED">
+        <Original>Can be Disarmed</Original>
+        <English>Can be Disarmed</English>
+      </Key>
+      <Key ID="STR_ENYO_DISARM_TIME">
+        <Original>Disarm Time [s]</Original>
+        <English>Disarm Time [s]</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_TYPE">
+        <Original>Activation Type</Original>
+        <English>Activation Type</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_TYPE_MANUAL">
+        <Original>Manual</Original>
+        <English>Manual</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_TYPE_PROXIMITY">
+        <Original>Proximity</Original>
+        <English>Proximity</English>
+      </Key>
+      <Key ID="STR_ENYO_ACTIVATION_TYPE_RADIO">
+        <Original>Radio</Original>
+        <English>Radio</English>
+      </Key>
+      <Key ID="STR_ENYO_IS_JAMMABLE">
+        <Original>Is Jammable</Original>
+        <English>Is Jammable</English>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
@@ -2825,7 +2953,7 @@
         <Original>
 			The Ares Modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This modul has to be placed on units.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
