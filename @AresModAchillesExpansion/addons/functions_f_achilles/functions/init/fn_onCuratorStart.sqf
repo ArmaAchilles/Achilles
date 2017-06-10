@@ -60,8 +60,6 @@ _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_
 _curatorModule addEventHandler ["CuratorObjectDeleted", {_this call Achilles_fnc_HandleCuratorObjectDeleted; }];
 _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fnc_HandleCuratorWpPlaced; }];
 
-Achilles_var_NVGBrightnessEffect = ppEffectCreate ["ColorCorrections", 312312];
-
 // Handle Disconnect
 [[],
 {

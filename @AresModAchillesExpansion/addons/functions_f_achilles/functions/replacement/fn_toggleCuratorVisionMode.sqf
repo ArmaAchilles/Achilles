@@ -44,11 +44,13 @@ if !(isnull curatorcamera) then {
 		};
 	};
 	
+	private _effect = missionNamespace getVariable "Achilles_var_NVGBrightnessEffect";
 	if(_mode == -2) then
 	{
-		if (isNil "Achilles_var_NVGBrightnessEffect") then
+		if (isNil "_effect") then
 		{
-			
+			_effect = ppEffectCreate ["ColorCorrections", 312312];
+			missionNamespace setVariable ["Achilles_var_NVGBrightnessEffect", _effect];
 			["onLoad", 
 			{
 				private _curator = getAssignedCuratorLogic player;
@@ -56,21 +58,25 @@ if !(isnull curatorcamera) then {
 				private _index = _curator getvariable ["bis_fnc_curatorVisionModes_current",0];
 				if (_modes select _index == -2) then
 				{
-					Achilles_var_NVGBrightnessEffect ppEffectEnable true;
+					(missionNamespace getVariable "Achilles_var_NVGBrightnessEffect") ppEffectEnable true;
 				};
 			}] call Achilles_fnc_addCuratorInterfaceEventHandler;
-			["onUnload", {Achilles_var_NVGBrightnessEffect ppEffectEnable false}] call Achilles_fnc_addCuratorInterfaceEventHandler;
+			["onUnload", {(missionNamespace getVariable "Achilles_var_NVGBrightnessEffect") ppEffectEnable false}] call Achilles_fnc_addCuratorInterfaceEventHandler;
 		};
 		
 		//--- NVG => enable brightness adjustment
-		Achilles_var_NVGBrightnessEffect ppEffectForceInNVG true;
-		Achilles_var_NVGBrightnessEffect ppEffectEnable true;
+		_effect ppEffectForceInNVG true;
+		_effect ppEffectEnable true;
 		private _brightness = player getVariable ["ace_nightvision_NVGBrightness", 0];
-		Achilles_var_NVGBrightnessEffect ppEffectAdjust [1, (_brightness + 1), 0, [0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 0, 1]];
-		Achilles_var_NVGBrightnessEffect ppEffectCommit 0;
+		_effect ppEffectAdjust [1, (_brightness + 1), 0, [0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 0, 1]];
+		_effect ppEffectCommit 0;
+		
 	} else
 	{
-		Achilles_var_NVGBrightnessEffect ppEffectEnable false;
+		if (not isNil "_effect") then
+		{
+			_effect ppEffectEnable false;
+		};
 	};
 	
 	([] call bis_fnc_rsclayer) cutrsc ["RscCuratorVisionModes","plain"];

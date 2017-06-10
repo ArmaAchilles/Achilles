@@ -121,7 +121,7 @@
 	localize "STR_KEY_INCREASENVGBRIGHTNESS", 
 	{
 		_handled = false;
-		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {not isNil "Achilles_var_NVGBrightnessEffect"} and {ppEffectEnabled Achilles_var_NVGBrightnessEffect}) then
+		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) then
 		{
 			[+1] call Achilles_fnc_changeNVGBrightness;
 			_handled = true;
@@ -138,7 +138,7 @@
 	localize "STR_KEY_DECREASEVGBRIGHTNESS", 
 	{
 		_handled = false;
-		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {not isNil "Achilles_var_NVGBrightnessEffect"} and {ppEffectEnabled Achilles_var_NVGBrightnessEffect}) then
+		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) then
 		{
 			[-1] call Achilles_fnc_changeNVGBrightness;
 			_handled = true;
