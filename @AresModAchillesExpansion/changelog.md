@@ -1,26 +1,27 @@
-Known issues                        <br>
+﻿Known issues                        <br>
 ─────────────────────────────────── <br>
 * Switch Unit for non-local units: Notable delay observed before control works.
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Versioning (introduced since 0.0.8) <br>
+Versioning (introduced with 0.0.8)  <br>
 ─────────────────────────────────── <br>
 V.X.X.Xc                            <br>
-  │ │ │└ hotfixes                   <br>
-  │ │ └─ small update               <br>
-  │ └─── major update               <br>
+  │ │ │└ hotfixes (optional)        <br>
+  │ │ └─ "small" update             <br>
+  │ └─── "major" update             <br>
   └───── stage (alpha, beta, ...)   <br>
 
 Change log                          <br>
 ─────────────────────────────────── <br>
-V.0.0.7f (Achilles Expansion (alpha version))
-* Change:	Only carrier base can be added to Zeus; deletion will affect all carrier parts
+V.0.0.8
+* Change:	Only carrier base can be added to Zeus; deletion will affect all carrier parts (the carrier is not movable though).
 * Feature:	Switch Unit (an alternative to remote control, which gives full control over the unit).
 * Feature:	Side as a group attribute (new button).
 * Feature:	Change Zeus vision mode brightness (feature inspired by ACE3; ALT+PAGE UP/DOWN by default)
 * Feature:	IED and Suicide Bomber modules (by @CreepPork).
 * Feature:	Implemented Achilles_fnc_addCuratorInterfaceEventHandler.
+* Feature:	Advanced Hint entry for "MESSAGE" control type about text formatting and the associated button.
 * Fix:		USS Freedom: Spawned twice in certain cases.
 * Fix:		Vanilla cycle waypoint issue for copied units (waypoint ended up on map origin).
 * Fix:		Ammo slider (vehicle attributes): Did not handle dynamic loadouts correctly.
@@ -28,7 +29,8 @@ V.0.0.7f (Achilles Expansion (alpha version))
 * Fix:		Dynamic Dialog Side Control: Clicking on current selected side led to unintended behaviour.
 * Fix:		Exiting selection option: Did not work properly for a few modules.
 * Fix:		"Selection option" and "specify position" modes missed exception handling: Exiting Zeus interface.
-* Fix:		"Specify position" modes missed exception handling: Exiting Zeus interface.
+* Fix:		"Specify position" in recent tab was also executed for Zeus modules
+* Fix:		"MESSAGE" control type did not handle newline characters (SHIFT+RETURN) (e.g. Spawn Intel Module)
 
 V.0.0.7d (Achilles Expansion (alpha version))
 * Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
