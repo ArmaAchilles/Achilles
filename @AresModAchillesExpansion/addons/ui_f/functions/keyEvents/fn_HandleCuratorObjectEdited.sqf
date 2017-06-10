@@ -67,9 +67,11 @@ switch (true) do
 			
 		} forEach _group_attributes;
 	};
-	
+	// does not yet work properly: e.g. catapults
+	/*
 	case (_handled_object isKindOf "Land_Carrier_01_base_F"):
 	{
 		[_handled_object] remoteExecCall ["BIS_fnc_Carrier01PosUpdate", 2];
 	};
+	*/
 };

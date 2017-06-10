@@ -32,7 +32,8 @@ Achilles integrates code from the following mods or scripts:
 * AI HALO jump script (by cobra4v320)
     * http://www.armaholic.com/page.php?id=23113
 * Kyle Kotowick's matrix transpose script
-* ACE fast-roping waypoint 
+* ACE3 fast-roping waypoint (by BaerMitUmlaut)
+* ACE3 change NVG brighness (by commy2)
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda).
 * The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only dirctly adapted code is the breach stun function)
     * http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202

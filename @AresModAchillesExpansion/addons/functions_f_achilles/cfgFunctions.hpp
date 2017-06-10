@@ -69,6 +69,7 @@ class CfgFunctions
 			class setACEInjury;
 			class setVanillaInjury;
 			class SuppressiveFire;
+			class changeNVGBrightness;
 		};
 	};
 
@@ -91,6 +92,7 @@ class CfgFunctions
 		{
 			delete showCuratorAttributes;
 			delete curatorObjectPlaced;
+			delete toggleCuratorVisionMode;
 		};
 		class Achilles
 		{
@@ -98,6 +100,7 @@ class CfgFunctions
 			
 			class showCuratorAttributes;
 			class curatorObjectPlaced;
+			class toggleCuratorVisionMode;
 		};
 	};
 };

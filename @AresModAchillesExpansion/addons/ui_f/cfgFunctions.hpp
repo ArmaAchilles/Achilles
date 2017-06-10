@@ -10,13 +10,15 @@ class CfgFunctions
 			class onGameStarted;
 		};
 		
-		class ui_f_displayCurator
+		class ui_f_eventHandler
 		{
-			file = "\achilles\ui_f\functions\displayCurator";
+			file = "\achilles\ui_f\functions\eventHandler";
 			
 			class AppendToModuleTree;
 			class onDisplayCuratorLoad;
+			class onDisplayCuratorUnload;
 			class onModuleTreeLoad;
+			class addCuratorInterfaceEventHandler;
 		};
 		
 		

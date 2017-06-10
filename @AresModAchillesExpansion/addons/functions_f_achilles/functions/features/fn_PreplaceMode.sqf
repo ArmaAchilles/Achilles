@@ -67,7 +67,7 @@ _handler_id = _display displayAddEventHandler ["KeyDown",
 }];
 
 // executed when the choice is submitted or cancled
-WaitUntil {!isNil "Achilles_var_submit_selection"};
+WaitUntil {!isNil "Achilles_var_submit_selection" or {isNull (getAssignedCuratorLogic player)}};
 
 // remove the key handler and the message
 _display displayRemoveEventHandler ["KeyDown", _handler_id];

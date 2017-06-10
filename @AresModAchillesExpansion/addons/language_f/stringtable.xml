@@ -2754,6 +2754,12 @@
 		<French>Intervertissez l'unité</French>
 		<German>Einheit wechseln</German>
       </Key>
+	  <Key ID="STR_BRIGHTNESS">
+        <Original>Brightness</Original>
+        <English>Brightness</English>
+		<French>Brillance</French>
+		<German>Helligkeit</German>
+      </Key>
     </Container>
     <Container name="cfg Waypoints">
       <Key ID="STR_LOITER_HELI">
@@ -3087,6 +3093,14 @@
         <Key ID="STR_KEY_UNGROUP">
             <Original>Ungroup selected objects</Original>
             <German>Gruppierung von ausgewählten Objekten aufheben</German>
+        </Key>
+        <Key ID="STR_KEY_INCREASENVGBRIGHTNESS">
+            <Original>Increase NVG brightness</Original>
+            <German>Nachtsicht Helligkeit erhöhen</German>
+        </Key>
+        <Key ID="STR_KEY_DECREASEVGBRIGHTNESS">
+            <Original>Decrease NVG brightness</Original>
+            <German>Nachtsicht Helligkeit verringern</German>
         </Key>
     </Container>
   </Package>

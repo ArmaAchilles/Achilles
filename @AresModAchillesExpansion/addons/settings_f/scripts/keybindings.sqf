@@ -114,3 +114,37 @@
 	"", 
 	[DIK_C, [false, false, false]]
 ] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	"Achilles_id_increaseNVGBrightness", 
+	localize "STR_KEY_INCREASENVGBRIGHTNESS", 
+	{
+		_handled = false;
+		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {not isNil "Achilles_var_NVGBrightnessEffect"} and {ppEffectEnabled Achilles_var_NVGBrightnessEffect}) then
+		{
+			[+1] call Achilles_fnc_changeNVGBrightness;
+			_handled = true;
+		};
+		_handled;
+	}, 
+	"", 
+	[DIK_PGUP, [false, false, true]]
+] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	"Achilles_id_decreaseNVGBrightness", 
+	localize "STR_KEY_DECREASEVGBRIGHTNESS", 
+	{
+		_handled = false;
+		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {not isNil "Achilles_var_NVGBrightnessEffect"} and {ppEffectEnabled Achilles_var_NVGBrightnessEffect}) then
+		{
+			[-1] call Achilles_fnc_changeNVGBrightness;
+			_handled = true;
+		};
+		_handled;
+	}, 
+	"", 
+	[DIK_PGDN, [false, false, true]]
+] call CBA_fnc_addKeybind;
