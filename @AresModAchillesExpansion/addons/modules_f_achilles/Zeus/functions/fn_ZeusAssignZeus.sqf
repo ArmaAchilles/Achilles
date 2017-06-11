@@ -25,14 +25,12 @@ _object setVariable ["isPromoted", true, true];
 
 _curator_logic_group = group (getAssignedCuratorLogic player);
 
-[[_object, _curator_logic_group],
-{
-  _object = _this select 0;
-  _curator_logic_group = _this select 1;
-  _object_pos = getPos _object;
-  Achilles_var_moderator_module = _curator_logic_group createUnit ["ModuleCurator_F", _object_pos, [], 0, ""];
-  _object assignCurator Achilles_var_moderator_module;
-  "You have been asigned as a Curator!" remoteExec ["hint", _object];
-}] remoteExec ["BIS_fnc_spawn", 2];
+_objectPos = getPos _object;
+
+_moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
+
+_object assignCurator _moderatorModule;
+
+["You are now a Curator!"] remoteExec ["hint", _object];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
