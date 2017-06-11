@@ -17,7 +17,7 @@ class Achilles_Module_Zeus_SwitchUnit : Achilles_Zeus_Module_Base
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
 };
 
-class Achilles_Module_Zeus_AssignZeus : Achilles_Zeus_Module_Base
+class Achilles_Module_Zeus_AssignZeus : Enyo_Zeus_Module_Base
 {
 	scopeCurator = 2;
 	displayName = "$STR_ASSIGN_ZEUS";
