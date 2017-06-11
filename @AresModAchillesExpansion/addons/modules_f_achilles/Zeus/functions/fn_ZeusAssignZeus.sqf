@@ -17,19 +17,17 @@ _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
-if (_object getVariable ["isPromoted", false]) exitWith {[localize "STR_UNIT_IS_PROMOTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
-
 if (!isPlayer _object) exitWith {[localize "STR_NO_PLAYER_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
-_object setVariable ["isPromoted", true, true];
+if (!isNull getAssignedCuratorLogic _object) exitWith {[localize "STR_UNIT_IS_PROMOTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
 _curator_logic_group = group (getAssignedCuratorLogic player);
 
 _objectPos = getPos _object;
 
-_moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
+Achilles_var_moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
 
-_object assignCurator _moderatorModule;
+[_object, Achilles_var_moderatorModule] remoteExecCall ["assignCurator", 2];
 
 ["You are now a Curator!"] remoteExec ["hint", _object];
 
