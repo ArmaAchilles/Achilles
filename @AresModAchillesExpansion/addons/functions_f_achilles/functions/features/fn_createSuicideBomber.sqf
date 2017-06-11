@@ -27,7 +27,8 @@ _activationDistance = parseNumber _activationDistance;
 
 if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide]};
 
-_sound = 1;
+// set 1 for debug sound
+_sound = 0;
 _targets = ["Car", "Tank", "Man"];
 
 removeAllWeapons _bomber;

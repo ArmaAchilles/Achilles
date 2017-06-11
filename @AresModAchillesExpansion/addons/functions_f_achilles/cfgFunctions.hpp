@@ -64,6 +64,7 @@ class CfgFunctions
 			class PasteObjectsFromClipboard;
 			class damageComponents;
 			class changePylonAmmo;
+			class changeSideAttribute;
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
@@ -101,6 +102,7 @@ class CfgFunctions
 		{
 			delete showCuratorAttributes;
 			delete curatorObjectPlaced;
+			delete curatorObjectEdited;
 			delete toggleCuratorVisionMode;
 		};
 		class Achilles
@@ -109,6 +111,7 @@ class CfgFunctions
 
 			class showCuratorAttributes;
 			class curatorObjectPlaced;
+			class curatorObjectEdited;
 			class toggleCuratorVisionMode;
 		};
 	};

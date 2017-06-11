@@ -40,3 +40,13 @@ class Achilles_DevTools_ShowInConfig : Achilles_Dev_Tools_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 };
+
+class Achilles_DevTools_FunctionViewer : Achilles_Dev_Tools_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_DevTools_ShowInConfig";
+	displayName = "$STR_FUNCTION_VIEWER";
+	function = "Achilles_fnc_DevToolsFunctionViewer";
+	icon = "\achilles\data_f_ares\icons\icon_default.paa";
+	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+};

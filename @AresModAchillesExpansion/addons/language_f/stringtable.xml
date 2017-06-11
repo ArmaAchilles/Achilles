@@ -465,6 +465,12 @@
         <Russian>Изменить возможности</Russian>
         <German>Fähigkeiten ändern</German>
       </Key>
+      <Key ID="STR_CHANGE_SIDE">
+        <Original>Change Side</Original>
+        <English>Change Side</English>
+        <French>Changez le camp</French>
+        <German>Seite wechseln</German>
+      </Key>
       <Key ID="STR_BIND_VAR">
         <Original>Bind Variable to Object</Original>
         <English>Bind Variable to Object</English>
@@ -643,13 +649,6 @@
         <French>Créez/Modifiez un renseignement</French>
         <Russian>Создать/Изменить развед.данные</Russian>
         <German>Hinweis platzieren/bearbeiten</German>
-      </Key>
-      <Key ID="STR_SPAWN_INTEL">
-        <Original>Spawn Intel</Original>
-        <English>Spawn Intel</English>
-        <French>Créez un renseignement</French>
-        <Russian>Создать развед.данные</Russian>
-        <German>Hinweis spawnen</German>
       </Key>
       <Key ID="STR_ACE_INJURY">
         <Original>ACE Injury</Original>
@@ -835,43 +834,55 @@
         <Original>Lock doors</Original>
         <English>Lock doors</English>
         <French>Verrouillez la porte</French>
+		<German>Tür abschließen</German>
       </Key>
 	  <Key ID="STR_SET_DATE">
         <Original>Set date</Original>
         <English>Set date</English>
         <French>Modifiez la date</French>
+		<German>Datum setzen</German>
       </Key>
 	  <Key ID="STR_SHOW_IN_CONFIG">
         <Original>Show in config</Original>
         <English>Show in config</English>
 		<French>Montrez la config</French>
+		<German>Datum setzen</German>
+      </Key>
+	  <Key ID="STR_FUNCTION_VIEWER">
+        <Original>Function viewer</Original>
+        <English>Function viewer</English>
+		<French>Montrez les functions</French>
+		<German>Funktionsviewer</German>
       </Key>
 	  <Key ID="STR_SHOW_IN_ANIM_VIEWER">
         <Original>Show in anim viewer</Original>
         <English>Show in anim viewer</English>
 		<French>Ouvrez la visionneuse d'animation</French>
+		<German>In Animationsviewer öffnen</German>
       </Key>
 	  <Key ID="STR_MAKE_INVINCIBLE">
         <Original>Make invincible</Original>
         <English>Make invincible</English>
 		<French>Rendre invincible</French>
+		<German>Unsterblich machen</German>
       </Key>
 	  <Key ID="STR_CAS_BOMB_STRIKE">
         <Original>CAS - Bomb Strike</Original>
         <English>CAS - Bomb Strike</English>
 		<French>AAR - Bombe</French>
-      </Key>
-      <Key ID="STR_ENYO_MODULE_BASE">
-        <Original>Enyo Module Base</Original>
-        <English>Enyo Module Base</English>
+		<German>CAS - Bombe</German>
       </Key>
       <Key ID="STR_ENYO_SET_SUICIDE_BOMBER">
         <Original>Set Suicide Bomber</Original>
         <English>Set Suicide Bomber</English>
+		<French>Terroriste suicidaire</French>
+		<German>Selbstmordattentäter setzen</German>
       </Key>
       <Key ID="STR_ENYO_CREATE_IED">
         <Original>Create IED</Original>
         <English>Create IED</English>
+		<French>Créez un EEI</French>
+		<German>Erstelle ein Sprengfalle</German>
       </Key>
     </Container>
   </Package>
@@ -1635,11 +1646,11 @@
         <German>Text des Hinweises</German>
       </Key>
       <Key ID="STR_INTEL_FOUND">
-        <Original>%1 found intel %2!</Original>
-        <English>%1 found intel %2!</English>
-        <French>%1 a trouvé le renseignement %2!</French>
-        <Russian>%1 нашел развед.данные %2!</Russian>
-        <German>%1 hat den Hinweis %2 gefunden!</German>
+        <Original>%1 found intel "%2"!</Original>
+        <English>%1 found intel "%2"!</English>
+        <French>%1 a trouvé le renseignement "%2"!</French>
+        <Russian>%1 нашел развед.данные "%2"!</Russian>
+        <German>%1 hat den Hinweis "%2" gefunden!</German>
       </Key>
       <Key ID="STR_PICK_UP_INTEL">
         <Original>Pick up intel</Original>
@@ -1932,12 +1943,12 @@
         <Russian>Высота тумана(ур.моря)</Russian>
         <German>Nebelhöhe (ü. M.)</German>
       </Key>
-      <Key ID="STR_Altitude_ASL">
-        <Original>Altitude (ASL)</Original>
-        <English>Altitude (ASL)</English>
-        <French>Altitude du brouillard</French>
+      <Key ID="STR_Altitude_ASL_ATL">
+        <Original>Altitude (ASL/ATL)</Original>
+        <English>Altitude (ASL/ATL)</English>
+        <French>Altitude</French>
         <Russian>Высота (ур.моря)</Russian>
-        <German>Höhe (ü. M.)</German>
+        <German>Höhe (ü. M./ü. Boden)</German>
       </Key>
       <Key ID="STR_INTENSITY">
         <Original>Intensity</Original>
@@ -1965,14 +1976,14 @@
         <English>medium</English>
         <French>moyen</French>
         <Russian>Средне</Russian>
-        <German>mittel</German>
+        <German>mittelschwer</German>
       </Key>
       <Key ID="STR_STRONG">
         <Original>strong</Original>
         <English>strong</English>
         <French>fort</French>
         <Russian>Сильно</Russian>
-        <German>stark</German>
+        <German>schwer</German>
       </Key>
       <Key ID="STR_INCLUDE_AI">
         <Original>Include AI</Original>
@@ -2695,6 +2706,7 @@
         <Original>Pain level</Original>
         <English>Pain level</English>
 		<French>Douleur</French>
+		<German>Schmerzlevel</German>
       </Key>
 	  <Key ID="STR_HEARTH_RATE">
         <Original>Hearth rate</Original>
@@ -2712,6 +2724,7 @@
         <Original>Bullet</Original>
         <English>Bullet</English>
 		<French>Balle</French>
+		<German>Kugel</German>
       </Key>
 	  <Key ID="STR_GRENADE">
         <Original>Grenade</Original>
@@ -2775,118 +2788,195 @@
       <Key ID="STR_ENYO_OBJECT_IS_IED">
         <Original>Object is an IED already!</Original>
         <English>Object is an IED already!</English>
+		<French>C'est déjà un EEI</French>
+		<German>Dies ist bereits eine Sprengfalle</German>
       </Key>
       <Key ID="STR_ENYO_UNIT_IS_SB">
         <Original>Unit is an Suicide Bomber already!</Original>
         <English>Unit is an Suicide Bomber already!</English>
+		<French>C'est déjà un terroriste suicidaire</French>
+		<German>Dies ist bereits ein Selbstmordattentäter</German>
       </Key>
       <Key ID="STR_ENYO_OBJECTS_NOT_ALLOWED">
         <Original>Objects not allowed! Use the Create IED module instead!</Original>
         <English>Objects not allowed! Use the Create IED module instead!</English>
+		<French>Des objets ne sont pas authorisés! Prenez un "Créez un EEI" module à défaut</French>
+		<German>Objekte sind nicht erlaubt! Benutze ein "Erstelle ein Sprengfalle" Modul stattdessen!</German>
       </Key>
       <Key ID="STR_ENYO_UNITS_NOT_ALLOWED">
         <Original>Units not allowed, use Suicide Bomber module instead!</Original>
         <English>Units not allowed, use Suicide Bomber module instead!</English>
+		<French>Des unités ne sont pas authorisés! Prenez un "Terroriste suicidaire" module à défaut</French>
+		<German>Einheiten sind nicht erlaubt! Benutze ein "Selbstmordattentäter setzen" Modul stattdessen!</German>
       </Key>
       <Key ID="STR_ENYO_NO_VEHICLE_SELECTED">
         <Original>No vehicle selected!</Original>
         <English>No vehicle selected!</English>
+        <French>Pas de véhicule a été choisi!</French>
+        <German>Kein Fahrzeug wurde ausgewählt!</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH">
         <Original>Activation Side cannot match the unit's side!</Original>
         <English>Activation Side cannot match the unit's side!</English>
+        <French>Le camp d'activation ne peut pas être le camp de l'unité!</French>
+        <German>Aktivierungsseite kann nicht die Seite der Einheit sein!</German>
       </Key>
       <Key ID="STR_ENYO_SET_UNIT_AS_SB">
         <Original>Set Unit as an Suicide Bomber</Original>
         <English>Set Unit as an Suicide Bomber</English>
+        <French>Convertez l'unité à un terroriste suicidaire!</French>
+        <German>Einheit als Selbstmordattentäter einsetzen</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_SIZE">
         <Original>Explosion Size</Original>
         <English>Explosion Size</English>
+        <French>La force de l'éxplosion</French>
+        <German>Explosionsstärke</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_SIZE_SMALL">
         <Original>Small</Original>
         <English>Small</English>
+        <French>faible</French>
+        <German>Schwach</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_SIZE_MEDIUM">
         <Original>Medium</Original>
         <English>Medium</English>
+        <French>Moyenne</French>
+        <German>Mittelstark</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_SIZE_LARGE">
         <Original>Large</Original>
         <English>Large</English>
+        <French>Forte</French>
+        <German>Stark</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_EFFECT">
         <Original>Explosion Effect</Original>
         <English>Explosion Effect</English>
+        <French>L'effet d'explosion</French>
+        <German>Explosionseffekt</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_EFFECT_DEADLY">
         <Original>Deadly</Original>
         <English>Deadly</English>
+        <French>Dévastatrice</French>
+        <German>Verheerend</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_EFFECT_DISABLING">
         <Original>Disabling</Original>
         <English>Disabling</English>
+        <French>Neutralization</French>
+        <German>Ausserbetriebssetzend</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_EFFECT_FAKE">
         <Original>Fake</Original>
         <English>Fake</English>
+        <French>Fake</French>
+        <German>Fake</German>
       </Key>
       <Key ID="STR_ENYO_EXPLOSION_EFFECT_NONE">
         <Original>None</Original>
         <English>None</English>
+        <French>Aucun</French>
+        <German>Kein</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_DISTANCE">
         <Original>Activation Distance [m]</Original>
         <English>Activation Distance [m]</English>
+        <French>La distance d'activation [m]</French>
+        <German>Aktivierungsdistanz [m]</German>
       </Key>
       <Key ID="STR_ENYO_PATROL_RADIUS">
         <Original>Patrol Radius [m]</Original>
         <English>Patrol Radius [m]</English>
+        <French>Le radius de la patrouille[m]</French>
+        <German>Radius der Patrouille [m]</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_SIDE">
         <Original>Activation Side</Original>
         <English>Activation Side</English>
+        <French>Le camp d'activation</French>
+        <German>Aktivierungsseite</German>
       </Key>
       <Key ID="STR_ENYO_ADD_ECM_TO_VEHICLE">
-        <Original>Add ECM to Vehicle</Original>
-        <English>Add ECM to Vehicle</English>
+        <Original>Equip with IED jammer</Original>
+        <English>Equip with IED jammer</English>
+        <French>Équipez d'un brouilleur d'EEI</French>
+        <German>Mit Sprengfallenstörsender ausrüsten</German>
       </Key>
       <Key ID="STR_ENYO_ADD_ECM">
-        <Original>Add ECM</Original>
-        <English>Add ECM</English>
+        <Original>Add IED jammer</Original>
+        <English>Add IED jammer</English>
+        <French>Équipez d'un brouilleur d'EEI</French>
+        <German>Mit Sprengfallenstörsender ausrüsten</German>
       </Key>
       <Key ID="STR_ENYO_SET_OBJECT_AS_IED">
         <Original>Set Object as IED</Original>
         <English>Set Object as IED</English>
+        <French>Équipez l'objet d'un EEI</French>
+        <German>Objekt als Sprengfalle einsetzen</German>
       </Key>
       <Key ID="STR_ENYO_CAN_BE_DISARMED">
         <Original>Can be Disarmed</Original>
         <English>Can be Disarmed</English>
+        <French>Désamorçable</French>
+        <German>Kann entschärft werden</German>
       </Key>
       <Key ID="STR_ENYO_DISARM_TIME">
         <Original>Disarm Time [s]</Original>
         <English>Disarm Time [s]</English>
+        <French>La durée du désamorçage [s]</French>
+        <German>Entschärfungsdauer [s]</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_TYPE">
         <Original>Activation Type</Original>
         <English>Activation Type</English>
+        <French>Le type d'activation</French>
+        <German>Aktivierungstyp</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_TYPE_MANUAL">
         <Original>Manual</Original>
         <English>Manual</English>
+        <French>Manuel</French>
+        <German>Manuel</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_TYPE_PROXIMITY">
         <Original>Proximity</Original>
         <English>Proximity</English>
+        <French>La proximité</French>
+        <German>Distanz</German>
       </Key>
       <Key ID="STR_ENYO_ACTIVATION_TYPE_RADIO">
         <Original>Radio</Original>
         <English>Radio</English>
+        <French>La proximité</French>
+        <German>Distanz</German>
       </Key>
       <Key ID="STR_ENYO_IS_JAMMABLE">
         <Original>Is Jammable</Original>
         <English>Is Jammable</English>
+        <French>Perturbable</French>
+        <German>Kann gestört werden</German>
+      </Key>
+      <Key ID="STR_CREATE_INTEL_ON_OBJECT">
+        <Original>Create an intel on the object</Original>
+        <English>Create an intel on the object</English>
+        <French>Créez un renseignement sur l'objet"</French>
+        <German>Hinweis am Objekt hinterlegen</German>
+      </Key>
+      <Key ID="STR_SPAWN_INTEL">
+        <Original>Spawn Intel</Original>
+        <English>Spawn Intel</English>
+        <French>Créez un renseignement</French>
+        <Russian>Создать развед.данные</Russian>
+        <German>Hinweis spawnen</German>
+      </Key>
+      <Key ID="STR_EDIT_INTEL_X">
+        <Original>Edit Intel "%1"</Original>
+        <English>Edit Intel "%1"</English>
+        <French>Modifiez le renseignement "%1"</French>
+        <German>Hinweis "%1" bearbeiten</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

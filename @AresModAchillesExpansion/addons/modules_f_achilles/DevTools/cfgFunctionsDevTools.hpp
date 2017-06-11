@@ -5,4 +5,5 @@ class Achilles_DevTools_Function_Base
 	class DevTools_manageAdvancedCompositions {};
 	class DevToolsShowInConfig {};
 	class DevToolsShowInAnimViewer {};
+	class DevToolsFunctionViewer {};
 };

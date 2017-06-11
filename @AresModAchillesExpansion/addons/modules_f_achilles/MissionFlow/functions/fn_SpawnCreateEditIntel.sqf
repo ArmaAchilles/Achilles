@@ -19,7 +19,7 @@ if (isNil "Achilles_var_intel_init_done") then
 
 _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_dialog_title = localize "STR_SPAWN_INTEL";
+_dialog_title = localize "STR_CREATE_INTEL_ON_OBJECT";
 _dialog_options =
 [
 	[localize "STR_ACTION_TEXT","",localize "STR_PICK_UP_INTEL"],
@@ -32,11 +32,23 @@ _dialog_options =
 
 if (isNull _object) then
 {
-	_dialog_title = localize "STR_CREATE_EDIT_INTEL";
+	// case spawn intel
+	_dialog_title = localize "STR_SPAWN_INTEL";
 	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
+} else
+{
+	_previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
+	if (count _previous_dialogResult == count _dialog_options) then
+	{
+		// case edit intel
+		_dialog_title = format [localize "STR_EDIT_INTEL_X", _previous_dialogResult select 3];
+		{
+			_x set [2, _previous_dialogResult select _forEachIndex];
+			_x set [3, true];
+		} forEach _dialog_options;
+	};
 };
-Achilles_var_currentIntel = _object;
-_dialogResult = [_dialog_title, _dialog_options,"Achilles_fnc_RscDisplayAtttributes_SpawnIntel"] call Ares_fnc_ShowChooseDialog;
+_dialogResult = [_dialog_title, _dialog_options] call Ares_fnc_ShowChooseDialog;
 
 _dialogCount = count _dialogResult;
 if (_dialogCount == 0) exitWith {};
@@ -46,10 +58,13 @@ _duration = parseNumber (_dialogResult select (_dialogCount - 5));
 _delete = if ((_dialogResult select (_dialogCount - 4)) == 0) then {true} else {false};;
 _title = _dialogResult select (_dialogCount - 3);
 _text = _dialogResult select (_dialogCount - 2);
+// correctly handle newline characters
+_text = (_text splitString endl) joinString "<br />";
 _shared = _dialogResult select (_dialogCount - 1);
 
 if (_dialogCount == 7) then
 {
+	// case spawn intel:
 	_type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
 	[_object, false] remoteExec ["enableSimulationGlobal", 2];
@@ -61,7 +76,7 @@ if (_dialogCount == 7) then
 	_object setVariable ["Achilles_var_intel",_dialogResult];
 } else
 {
-	// save parameters
+	// case edit or create intel: save parameters
 	_object setVariable ["Achilles_var_intel",_dialogResult];
 };
 
@@ -87,7 +102,7 @@ _execute =
 	_target = switch (_shared) do {case 0: {side _finder}; case 1: {group _finder}; case 2: {_finder};};
 	
 	[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
-	["TaskSucceeded",["",format [localize "STR_INTEL_FOUND",name _finder,_title]]] remoteExec ["BIS_fnc_showNotification",_curator];
+	["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
 	if (_delete) then {deleteVehicle _object} else {remoteExec ["", _object]; _object remoteExec ["RemoveAllActions", 0];};
 };
 

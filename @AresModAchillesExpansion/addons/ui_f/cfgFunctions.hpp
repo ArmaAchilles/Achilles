@@ -59,7 +59,6 @@ class CfgFunctions
 			class RscDisplayAttributes_createAdvancedComposition;
 			class RscDisplayAttributes_editAdvancedComposition;
 			class RscDisplayAttributes_SpawnExplosives;
-			class RscDisplayAtttributes_SpawnIntel;
 			class RscDisplayAtttributes_DamageComponents;
 			class RscDisplayAttributes_Chatter;
 			class RscDisplayAttributes_SpawnEmptyObject;
