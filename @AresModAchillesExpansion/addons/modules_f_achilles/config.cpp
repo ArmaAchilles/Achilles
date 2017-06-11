@@ -9,7 +9,7 @@ class CfgPatches
 		version = 0.0.3;
 		versionStr = "0.0.3";
 		versionAr[] = {0,0,3};
-		
+
 		units[] =
 		{
 			"Achilles_ACE_Injury_Module",
@@ -19,7 +19,7 @@ class CfgPatches
 			"Achilles_Sit_On_Chair_Module",
 			"Achilles_Change_Ability_Module",
 			"Achilles_Change_Altitude_Module",
-			"Enyo_SuicideBomber_Module",
+			"Achilles_SuicideBomber_Module",
 			"Achilles_Buildings_Destroy_Module",
 			"Achilles_Buildings_LockDoors_Module",
 			"Achilles_Buildings_ToggleLight_Module",
@@ -50,7 +50,8 @@ class CfgPatches
 			"Achilles_Module_Spawn_Advanced_Composition",
 			"Achilles_Module_Spawn_Explosives",
 			"Achilles_Module_Spawn_Carrier",
-			"Achilles_Module_Zeus_SwitchUnit"
+			"Achilles_Module_Zeus_SwitchUnit",
+			"Achilles_Module_Zeus_AssignZeus"
 		};
 
 		requiredAddons[] =
@@ -79,8 +80,8 @@ class CfgPatches
 		version = 0.0.1;
 		versionStr = "0.0.1";
 		versionAr[] = {0,0,1};
-		
-		units[] = 
+
+		units[] =
 		{
 			"ModuleLightSource_F",
 			"ModuleLightSourceWhite_F",

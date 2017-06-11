@@ -873,6 +873,10 @@
         <Original>Create IED</Original>
         <English>Create IED</English>
       </Key>
+      <Key ID="STR_ASSIGN_ZEUS">
+        <Original>Assign Zeus</Original>
+        <English>Assign Zeus</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -2887,6 +2891,14 @@
       <Key ID="STR_ENYO_IS_JAMMABLE">
         <Original>Is Jammable</Original>
         <English>Is Jammable</English>
+      </Key>
+      <Key ID="STR_UNIT_IS_PROMOTED">
+        <Original>Unit has been already promoted!</Original>
+        <English>Unit has been already promoted!</English>
+      </Key>
+      <Key ID="STR_NO_PLAYER_SELECTED">
+        <Original>No player has been selected!</Original>
+        <English>No player has been selected!</English>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
