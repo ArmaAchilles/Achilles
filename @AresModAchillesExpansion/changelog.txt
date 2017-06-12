@@ -1,19 +1,19 @@
-﻿Known issues                        <br>
-─────────────────────────────────── <br>
+Known issues
+───────────────────────────────────
 * Switch Unit for non-local units: Notable delay observed before control works.
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Versioning (introduced with 0.0.8)  <br>
-─────────────────────────────────── <br>
-V.X.X.Xc                            <br>
-  │ │ │└ hotfixes (optional)        <br>
-  │ │ └─ "small" update             <br>
-  │ └─── "major" update             <br>
-  └───── stage (alpha, beta, ...)   <br>
+Versioning (introduced with 0.0.8)
+───────────────────────────────────
+V.X.X.Xc
+  │ │ │└ hotfixes (optional)
+  │ │ └─ "small" update
+  │ └─── "major" update
+  └───── stage (alpha, beta, ...)
 
-Change log                          <br>
-─────────────────────────────────── <br>
+Change log
+───────────────────────────────────
 V.0.0.8
 * Change:	Only carrier base can be added to Zeus; deletion will affect all carrier parts (the carrier is not movable though).
 * Feature:	Switch Unit (an alternative to remote control, which gives full control over the unit).
