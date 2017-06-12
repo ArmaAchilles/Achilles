@@ -25,9 +25,16 @@ _curator_logic_group = group (getAssignedCuratorLogic player);
 
 _objectPos = getPos _object;
 
-Achilles_var_moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
+[[_object, _curator_logic_group, _objectPos],
+{
+  private ["_object", "_curator_logic_group", "_objectPos"];
+  _object = _this select 0;
+  _curator_logic_group = _this select 1;
+  _objectPos = _this select 2;
 
-[_object, Achilles_var_moderatorModule] remoteExecCall ["assignCurator", 2];
+  _moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
+  _object assignCurator _moderatorModule;
+}] remoteExec ["spawn", 2];
 
 ["You are now a Curator!"] remoteExec ["hint", _object];
 
