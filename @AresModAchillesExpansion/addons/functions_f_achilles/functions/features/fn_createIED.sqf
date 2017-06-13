@@ -64,8 +64,6 @@ _object = _dummyObject getVariable ["object", objNull];
 _defused = _dummyObject getVariable ["defused", false];
 _targetSpeed = false;
 
-_explosives = ["IEDLandSmall_Remote_Ammo", "IEDLandBig_Remote_Ammo", "IEDUrbanSmall_Remote_Ammo", "IEDUrbanBig_Remote_Ammo"];
-
 if (_canBeDefused == 0) then
 {
   _onCompletion =
@@ -247,6 +245,7 @@ switch (_explosionEffect) do
 if ((_armed && _triggered) || (!alive _object && _armed)) then
 {
 	[_spawnPos, _explosionSize] spawn _explosion;
+	_object setDamage 1;
 };
 
 _object setVariable ["isIED", false, true];
