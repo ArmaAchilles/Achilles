@@ -17,7 +17,7 @@ _mode = if (!isNull _unit) then {"single"} else {"multiple"};
 
 _options = [localize "STR_RANDOM",localize "STR_NONE_INJURY",localize "STR_LIGHT_INJURY", localize "STR_SEVERE"];
 
-if (isClass (configfile >> "CfgPatches" >> "ace_main")) then
+if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
 	if (_mode == "single") then
 	{
