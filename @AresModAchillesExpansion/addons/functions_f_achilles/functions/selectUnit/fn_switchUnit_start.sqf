@@ -19,18 +19,21 @@ private _unit = effectiveCommander (param [0]);
 if (not (side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 if (isplayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 if (not alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
+if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
 if (isnull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorNull";};
 if (isuavconnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
 
 if (_error != "") exitWith {[_error] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 private _playerUnit = player;
-_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit], true];
+private _damage_allowed = isDamageAllowed _playerUnit;
+_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
 selectPlayer _unit;
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
+_playerUnit allowDamage false;
 
 private _eh_id = _unit addEventHandler ["HandleDamage", 
 {
@@ -41,7 +44,6 @@ private _eh_id = _unit addEventHandler ["HandleDamage",
 		if (_selection in ["","body","head"]) then 
 		{
 			[] call Achilles_fnc_switchUnit_exit;
-			_unit setDamage 1;
 		};
 		_handler = 0.999;
 	};
@@ -49,19 +51,8 @@ private _eh_id = _unit addEventHandler ["HandleDamage",
 }];
 _unit setVariable ["Achilles_var_switchUnit_damageEHID", _eh_id];
 
-_eh_id = _playerUnit addEventHandler ["HandleDamage", 
+if(isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
-	params ["_playerUnit", "_selection", "_handler"];
-	
-	if (_handler >= 0.999) then
-	{
-		if (_selection in ["","body","head"]) then 
-		{
-			[] call Achilles_fnc_switchUnit_exit;
-			_playerUnit setDamage 1;
-		};
-		_handler = 0.999;
-	};
-	_handler;
-}];
-_playerUnit setVariable ["Achilles_var_switchUnit_damageEHID", _eh_id];
+	_eh_id = ["ace_unconscious", {if (_this select 1 and {_this select 0 == player}) then {[] call Achilles_fnc_switchUnit_exit}}] call CBA_fnc_addEventHandler;
+	_unit setVariable ["Achilles_var_switchUnit_ACEdamageEHID", _eh_id];
+};
