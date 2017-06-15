@@ -885,8 +885,10 @@
 		<German>Erstelle ein Sprengfalle</German>
       </Key>
       <Key ID="STR_ASSIGN_ZEUS">
-        <Original>Assign Zeus</Original>
-        <English>Assign Zeus</English>
+        <Original>Promote to Zeus</Original>
+        <English>Promote to Zeus</English>
+		<French>Promouvez à la fonction de Zeus</French>
+		<German>Als Zeus befördern</German>
       </Key>
     </Container>
   </Package>
@@ -2982,13 +2984,17 @@
         <French>Modifiez le renseignement "%1"</French>
         <German>Hinweis "%1" bearbeiten</German>
       </Key>
-      <Key ID="STR_UNIT_IS_PROMOTED">
-        <Original>Unit has been already promoted!</Original>
-        <English>Unit has been already promoted!</English>
+      <Key ID="STR_UNIT_IS_ALREADY_PROMOTED">
+        <Original>Unit has already been promoted!</Original>
+        <English>Unit has already been promoted!</English>
+        <French>L'unité a déjà été promue!</French>
+        <German>Einheit wurde bereits befördert!</German>
       </Key>
       <Key ID="STR_NO_PLAYER_SELECTED">
         <Original>No player has been selected!</Original>
         <English>No player has been selected!</English>
+        <French>Pas de joueur a été choisi!</French>
+        <German>Kein Spieler wurde ausgewählt!</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

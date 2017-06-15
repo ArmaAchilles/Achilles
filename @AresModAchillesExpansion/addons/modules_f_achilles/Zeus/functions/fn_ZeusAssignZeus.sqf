@@ -1,5 +1,5 @@
 /*
-	Author: CreepPork_LV, Kex
+	Author: CreepPork_LV, Kex, Talya
 
 	Description:
 	 Sets a unit to be a Curator.
@@ -13,29 +13,39 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+_player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
-
-if (!isPlayer _object) exitWith {[localize "STR_NO_PLAYER_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
-
-if (!isNull getAssignedCuratorLogic _object) exitWith {[localize "STR_UNIT_IS_PROMOTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
-
-_curator_logic_group = group (getAssignedCuratorLogic player);
-
-_objectPos = getPos _object;
-
-[[_object, _curator_logic_group, _objectPos],
+// mission designer can disallow usage of execute code module, but it will still be available for logged-in admins
+if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
 {
-  private ["_object", "_curator_logic_group", "_objectPos"];
-  _object = _this select 0;
-  _curator_logic_group = _this select 1;
-  _objectPos = _this select 2;
+	["This module has been disabled by the mission creator."] call Ares_fnc_ShowZeusMessage;
+};
 
-  _moderatorModule = _curator_logic_group createUnit ["ModuleCurator_F", _objectPos, [], 0, ""];
-  _object assignCurator _moderatorModule;
-}] remoteExec ["spawn", 2];
+if (isNull _player) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (!isPlayer _player) exitWith {[localize "STR_NO_object_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_ALREADY_PROMOTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
-["You are now a Curator!"] remoteExec ["hint", _object];
+[[_player, getPos _player],
+{
+  params ["_player", "_playerPos"];
+  
+  private _moderatorModule = (createGroup sideLogic) createUnit ["ModuleCurator_F", _playerPos, [], 0, ""];
+  _player assignCurator _moderatorModule;
+  _player setVariable ["Achilles_var_promoZeusModule", _moderatorModule, true];
+}] remoteExecCall ["call", 2];
+
+["You are now a Curator!"] remoteExecCall ["hint", _player];
+
+// Loose curator rights if killed
+_eh_id = _player addEventHandler ["killed", 
+{
+	params ["_unit"];
+	
+	private _module =  _unit getVariable ["Achilles_var_promoZeusModule", objNull];
+	if (not isNull _module) then {(group _module) deleteGroupWhenEmpty true; deleteVehicle _module};
+	_unit removeEventHandler ["killed", _unit getVariable "Achilles_var_promoZeusModuleEHID"];
+	["You lost your Curator rights!"] remoteExecCall ["hint", _unit];
+}];
+_player setVariable ["Achilles_var_promoZeusModuleEHID", _eh_id];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

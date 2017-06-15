@@ -47,26 +47,23 @@ if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
 
 {
-	[_x,_dialogResult] spawn 
+	private _unit = _x;
 	{
-		params ["_unit","_attribute_values"];
-		{
-			private _ability_type = _x;
-			private _mode = _attribute_values select _forEachIndex;
-			if (local _unit) then
-			{
-				if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
-			} else
-			{
-				if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
-			};
-		} forEach ABILITIES;
+		private _ability_type = _x;
+		private _mode = _dialogResult select _forEachIndex;
 		if (local _unit) then
 		{
-			_unit allowFleeing (_attribute_values select _abilityCount);
+			if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
 		} else
 		{
-			[_unit, _attribute_values select _abilityCount] remoteExecCall ["allowFleeing", _unit];
+			if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
 		};
+	} forEach ABILITIES;
+	if (local _unit) then
+	{
+		_unit allowFleeing (_dialogResult select _abilityCount);
+	} else
+	{
+		[_unit, _dialogResult select _abilityCount] remoteExecCall ["allowFleeing", _unit];
 	};
 } forEach _units;

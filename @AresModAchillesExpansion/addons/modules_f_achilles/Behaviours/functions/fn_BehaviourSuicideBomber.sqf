@@ -51,7 +51,7 @@ if (_object isKindOf "Man") then
       [localize "STR_ENYO_EXPLOSION_EFFECT", [localize "STR_ENYO_EXPLOSION_EFFECT_DEADLY", localize "STR_ENYO_EXPLOSION_EFFECT_DISABLING", localize "STR_ENYO_EXPLOSION_EFFECT_FAKE", localize "STR_ENYO_EXPLOSION_EFFECT_NONE"]],
       [localize "STR_ENYO_ACTIVATION_DISTANCE", "", "10"],
       [localize "STR_ENYO_PATROL_RADIUS", "", "100"],
-      [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE"]
+      [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE", 2]
     ]
   ] call Ares_fnc_showChooseDialog;
 

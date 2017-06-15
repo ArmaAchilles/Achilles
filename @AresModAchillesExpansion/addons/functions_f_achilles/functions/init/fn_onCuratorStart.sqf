@@ -66,6 +66,11 @@ _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fn
 	addMissionEventHandler ["HandleDisconnect",{
 		params ["_unit"];
 		private _handled = false;
+		
+		// if player was a promoted Zeus
+		private _module =  _unit getVariable ["Achilles_var_promoZeusModule", objNull];
+		if (not isNull _module) then {(group _module) deleteGroupWhenEmpty true; deleteVehicle _module};
+			
 		if (not isNil {_unit getVariable "Achilles_var_switchUnit_data"}) then
 		{
 			// if unit was controlled by Zeus with "select player"

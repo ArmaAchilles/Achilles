@@ -58,7 +58,7 @@ else
       [localize "STR_ENYO_ACTIVATION_TYPE", [localize "STR_ENYO_ACTIVATION_TYPE_MANUAL", localize "STR_ENYO_ACTIVATION_TYPE_PROXIMITY", localize "STR_ENYO_ACTIVATION_TYPE_RADIO"], 1],
       [localize "STR_ENYO_IS_JAMMABLE", [localize "STR_YES", localize "STR_NO"]],
       [localize "STR_ENYO_ACTIVATION_DISTANCE", "", "10"],
-      [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE"]
+      [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE", 2]
     ]
   ] call Ares_fnc_showChooseDialog;
 
