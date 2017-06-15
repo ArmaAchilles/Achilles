@@ -11,3 +11,12 @@ class Achilles_Module_Zeus_SwitchUnit : Achilles_Zeus_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
 };
+
+class Achilles_Module_Zeus_AssignZeus : Achilles_Zeus_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_ASSIGN_ZEUS";
+	function = "Achilles_fnc_ZeusAssignZeus";
+	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+};

@@ -60,7 +60,7 @@ class Achilles_Change_Altitude_Module : Achilles_Behaviours_Module_Base
 	function = "Achilles_fnc_BehaviourAltitude";
 };
 
-class Enyo_SuicideBomber_Module : Enyo_Behaviours_Module_Base
+class Achilles_SuicideBomber_Module : Enyo_Behaviours_Module_Base
 {
 	scopeCurator = 2;
 	curatorCanAttach = 1;

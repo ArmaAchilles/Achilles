@@ -884,6 +884,10 @@
 		<French>Créez un EEI</French>
 		<German>Erstelle ein Sprengfalle</German>
       </Key>
+      <Key ID="STR_ASSIGN_ZEUS">
+        <Original>Assign Zeus</Original>
+        <English>Assign Zeus</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -2977,6 +2981,14 @@
         <English>Edit Intel "%1"</English>
         <French>Modifiez le renseignement "%1"</French>
         <German>Hinweis "%1" bearbeiten</German>
+      </Key>
+      <Key ID="STR_UNIT_IS_PROMOTED">
+        <Original>Unit has been already promoted!</Original>
+        <English>Unit has been already promoted!</English>
+      </Key>
+      <Key ID="STR_NO_PLAYER_SELECTED">
+        <Original>No player has been selected!</Original>
+        <English>No player has been selected!</English>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
