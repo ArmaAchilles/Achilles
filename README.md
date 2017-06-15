@@ -25,8 +25,9 @@ Notes:
 ### Links:
 - [Check Achilles Wiki.](https://github.com/oOKexOo/AresModAchillesExpansion/wiki)
 - [Check Achilles Tutorial Series.](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg)
-- [Check licence and full list of contributers.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/license.txt)
-- [Check full change logs.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/readme.md)
+- [Full list of contributers.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.txt)
+- [Check licence.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/licence.txt)
+- [Check full change logs.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/changlog.md)
 - [Check progress of upcomming updates.](https://github.com/oOKexOo/AresModAchillesExpansion/issues/32)<br><br>
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/64px-Steam_icon_logo.svg.png" height="32">](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
 [<img src="http://4.bp.blogspot.com/-vtYrEU2RJ2M/TfEgQU_jiOI/AAAAAAAAADE/sB4svc3QP8w/s1600/six-updater-logo.png" height="32">](http://withsix.com/p/Arma-3/mods/mc1X_8GXVEG0STlO_DWjNA/Ares-Mod-Achilles-Expansion)
