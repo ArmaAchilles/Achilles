@@ -1,19 +1,19 @@
-﻿Known issues
-───────────────────────────────────
+﻿Known issues						<br>
+─────────────────────────────────── <br>
 * Switch Unit for non-local units: Notable delay observed before control works.
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Versioning (introduced with 0.0.8)
-───────────────────────────────────
-V.X.X.Xc
-  │ │ │└ hotfixes (optional)
-  │ │ └─ "small" update
-  │ └─── "major" update
-  └───── stage (alpha, beta, ...)
+Versioning (introduced with 0.0.8)	<br>
+───────────────────────────────────	<br>
+V.X.X.Xc							<br>
+  │ │ │└ hotfixes (optional)		<br>
+  │ │ └─ "small" update				<br>
+  │ └─── "major" update				<br>
+  └───── stage (alpha, beta, ...)	<br>
 
-Change log
-───────────────────────────────────
+Change log							<br>
+───────────────────────────────────	<br>
 V.0.0.8
 * Change:	Carrier base gets added automatically; Deletion will affect all carrier parts (the carrier is not movable though).
 * Change:	Intel: The map only opens for the player that picked it up. Who actually gets the intel as well still depends on the settings.
