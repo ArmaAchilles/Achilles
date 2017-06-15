@@ -27,6 +27,7 @@ class CfgFunctions
 			class getVehicleAmmoDef;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
+			class setVehicleAmmoDef;
 			class checkLineOfFire2D;
 			class matrixTranspose;
 			class vectorMap;

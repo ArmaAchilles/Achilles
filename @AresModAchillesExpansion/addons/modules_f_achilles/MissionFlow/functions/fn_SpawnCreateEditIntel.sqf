@@ -24,7 +24,7 @@ _dialog_options =
 [
 	[localize "STR_ACTION_TEXT","",localize "STR_PICK_UP_INTEL"],
 	[localize "STR_ACTION_DURATION","","1"],
-	[localize "STR_DELETE_OBJECT_ON_COMPLETION",[localize "STR_TRUE",localize "STR_FALSE"]],
+	[localize "STR_DELETE_OBJECT_ON_COMPLETION",[localize "STR_TRUE",localize "STR_FALSE"],1],
 	[localize "STR_INTEL_TITLE",""],
 	[localize "STR_INTEL_TEXT", "MESSAGE"],
 	[localize "STR_INTEL_SHARED_WITH", [localize "STR_SIDE", localize "STR_GROUP", localize "STR_NO_ONE"]]
