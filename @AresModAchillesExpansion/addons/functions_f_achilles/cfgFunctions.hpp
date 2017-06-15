@@ -5,17 +5,17 @@ class CfgFunctions
 	{
 		project = "Ares Mod - Achilles Expansion";
 		tag = "Achilles";
-		
+
 		class Init
 		{
 			file = "\achilles\functions_f_achilles\functions\init";
-			
+
 			class onCuratorStart;
 		}
 		class functions_f_common
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
-			
+
 			class sum;
 			class arrayMean;
 			class pushBack;
@@ -27,17 +27,30 @@ class CfgFunctions
 			class getVehicleAmmoDef;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
+			class setVehicleAmmoDef;
 			class checkLineOfFire2D;
 			class matrixTranspose;
 			class vectorMap;
 			class dikToLetter;
 			class getCuratorSelected;
+			class deadlyExplosion;
+			class disablingExplosion;
+			class fakeExplosion;
+			class hasACEExplosives;
 		};
-		
+
+		class selectUnit
+		{
+			file = "\achilles\functions_f_achilles\functions\selectUnit";
+			
+			class switchUnit_start;
+			class switchUnit_exit;
+		};
+
 		class functions_f_features
 		{
 			file = "\achilles\functions_f_achilles\functions\features";
-			
+
 			class ACS_toggleGrouping;
 			class ambientAnim;
 			class ambientAnimGetParams;
@@ -52,10 +65,11 @@ class CfgFunctions
 			class PasteObjectsFromClipboard;
 			class damageComponents;
 			class changePylonAmmo;
+			class changeSideAttribute;
 			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
-            class setCuratorVisionModes;
+			class setCuratorVisionModes;
 			class damageBuildings;
 			class preplaceMode;
 			class addBreachDoorAction;
@@ -63,6 +77,10 @@ class CfgFunctions
 			class setACEInjury;
 			class setVanillaInjury;
 			class SuppressiveFire;
+			class changeNVGBrightness;
+			class createIED;
+			class createSuicideBomber;
+			class IED_DamageHandler;
 		};
 	};
 
@@ -70,7 +88,7 @@ class CfgFunctions
 	{
 		class Vehicles
 		{
-			delete garage; 
+			delete garage;
 		};
 		class Achilles
 		{
@@ -85,13 +103,17 @@ class CfgFunctions
 		{
 			delete showCuratorAttributes;
 			delete curatorObjectPlaced;
+			delete curatorObjectEdited;
+			delete toggleCuratorVisionMode;
 		};
 		class Achilles
 		{
 			file = "\achilles\functions_f_achilles\functions\replacement";
-			
+
 			class showCuratorAttributes;
 			class curatorObjectPlaced;
+			class curatorObjectEdited;
+			class toggleCuratorVisionMode;
 		};
 	};
 };

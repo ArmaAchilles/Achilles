@@ -16,6 +16,7 @@ class RscDisplayCurator
 {
 	// couple achilles init with curator display
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
+	onUnload = "[_this select 0] call Achilles_fnc_onDisplayCuratorUnload;";
 	class Controls 
 	{
 		#include "Replacement\RscDisplayAttributesModuleTree.hpp"

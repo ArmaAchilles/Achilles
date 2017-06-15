@@ -20,7 +20,7 @@ private _mode = if (!isNull _unit) then {"single"} else {"multiple"};
 
 private _severity_options = [localize "STR_NONE_INJURY",localize "STR_RANDOM",localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
 
-if (isClass (configfile >> "CfgPatches" >> "ace_main")) then
+if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
 	// ACE Injury System
 	

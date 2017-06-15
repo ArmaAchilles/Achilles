@@ -7,4 +7,6 @@ class Achilles_Objects_Function_Base
 	class ModuleObjectsMakeInvincible {};
 	class ObjectsSetHeight {};
 	class ObjectsTransferOwnership {};
+	class ObjectsAddECM {};
+	class ObjectsIED {};
 };

@@ -36,7 +36,7 @@ if (not isNull _groupUnderCursor) then
 					[
 						[(localize "STR_RADIUS") + " [m]", "", "100"],
 						[localize "STR_GROUP_BEHAVIOUR", [localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]],
-						[localize "STR_DIRECTION", [localize "STR_CLOCKWISE", localize "STR_COUNTERCLOCKWISE"]],
+						[localize "STR_DIRECTION", [localize "STR_CLOCKWISE", localize "STR_COUNTERCLOCKWISE"],1],
 						[localize "STR_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
 					]
 			] call Ares_fnc_ShowChooseDialog;

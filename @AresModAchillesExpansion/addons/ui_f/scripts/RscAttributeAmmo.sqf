@@ -3,6 +3,7 @@
 //Broadcast set ammo function
 if (isNil "Achilles_var_setammo_init_done") then {
 	publicVariable "Achilles_fnc_setUnitAmmoDef";
+	publicVariable "Achilles_fnc_setVehicleAmmoDef";
 	Achilles_var_setammo_init_done = true;
 };
 
@@ -40,12 +41,12 @@ switch _mode do {
 			if (abs(_previousAmmo - _ammo) < 0.01) exitWith {};
 			_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 			if (local _unit) then {
-				{_x setVehicleAmmoDef _ammo} forEach _curatorSelected;
+				{[_x, _ammo] call Achilles_fnc_setVehicleAmmoDef} forEach _curatorSelected;
 			} else {
 				[[_curatorSelected, _ammo], {
 					_entities = _this select 0;
 					_ammo = _this select 1;
-					{_x setVehicleAmmoDef _ammo} foreach _entities;
+					{[_x, _ammo] call Achilles_fnc_setVehicleAmmoDef} foreach _entities;
 				}] remoteExec ["spawn", _unit];
 			};
 		};

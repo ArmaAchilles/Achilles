@@ -110,6 +110,16 @@ switch _mode do
 		_ctrlButtonCustomPos set [1,0.5 + _posH + _ctrlTitleOffsetY];
 		_ctrlButtonCustom ctrlsetposition _ctrlButtonCustomPos;
 		_ctrlButtonCustom ctrlcommit 0;
+		
+		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) -	(safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
+		{
+			private _idc = _x;
+			private _ctrlButtonCustomPlus = _display displayctrl _idc;
+			private _ctrlButtonCustomPlusPos = ctrlposition _ctrlButtonCustomPlus;
+			_ctrlButtonCustomPlusPos set [1,(_ctrlButtonCustomPlusPos select 1) + _y_offset];
+			_ctrlButtonCustomPlus ctrlsetposition _ctrlButtonCustomPlusPos;
+			_ctrlButtonCustomPlus ctrlcommit 0;
+		} forEach [30005,30006,30007];
 
 		//--- Close the display when entity is altered
 		[_display] spawn 

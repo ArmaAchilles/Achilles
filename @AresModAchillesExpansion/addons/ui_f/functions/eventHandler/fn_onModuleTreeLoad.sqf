@@ -116,7 +116,7 @@ _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 */
 
 //collapse unit tree or remove faction
-if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) then
+if (/*count Achilles_var_excludedFactions > 0 or*/ Achilles_var_moduleTreeCollapse) then
 {
 	{
 		_tree_ctrl = _display displayCtrl _x;
@@ -124,7 +124,7 @@ if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) 
 		{
 			_path = [_i];
 			_faction_name = _tree_ctrl tvText _path;
-			if (_faction_name in Achilles_var_excludedFactions) then
+			if (/*_faction_name in Achilles_var_excludedFactions*/ false) then
 			{
 				_tree_ctrl tvDelete _path;
 			} else
@@ -166,7 +166,7 @@ if (Achilles_var_moduleTreeCollapse) then
 	{
 		_path = [0,_i];
 		_faction_name = _tree_ctrl tvText _path;
-		if (_faction_name in Achilles_var_excludedFactions) then
+		if (/*_faction_name in Achilles_var_excludedFactions*/ false) then
 		{
 			_tree_ctrl tvDelete _path;
 		} else

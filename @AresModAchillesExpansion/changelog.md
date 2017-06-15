@@ -1,25 +1,46 @@
-Ares is a mod aimed expanding the tools available to Zeus so that it is possible to create more varied and compelling missions. The goal is to add simple useful functionality to Zeus without requiring extra mods running on other clients or the server.
-
-Ares is designed to work with dedicated servers which may be running missions that allow JIP and respawn. The new functionality it is aimed at running with trusted players in a structured mission and is not recommended for general 'public server' play.
-
-Check out the documentation for Ares at: https://github.com/astruyk/Ares/wiki
-Or check out the source code at: https://github.com/astruyk/Ares and https://github.com/oOKexOo/AresModAchillesExpansion/
-
-Requirements:
-As of V.1.8.0 Ares requires @CBA_A3 for some functionality. Please ensure it is running alongside @Ares if you are using Zeus. Clients that aren't running @Ares (e.g. non-zeus players) do not need to run @CBA_A3.
-You can download the latest version of CBA from the developer website here: http://dev.withsix.com/projects/cca/wiki/CBA
-
-Known issues:
+﻿Known issues						<br>
+─────────────────────────────────── <br>
+* Switch Unit for non-local units: Notable delay observed before control works.
 * CUP planes are not working properly for vanilla CAS module.
 * Reinforcement module may mix up groups of 3rd pary add-ons.
 
-Changelists:
+Versioning (introduced with 0.0.8)	<br>
+───────────────────────────────────	<br>
+X.X.Xc							<br>
+│ │ │└ hotfixes (optional)		<br>
+│ │ └─ "small" update				<br>
+│ └─── "major" update				<br>
+└───── stage (alpha, beta, ...)	<br>
 
-V.0.0.8 (Achilles Expansion (alpha version)
-*
-*
+Change log							<br>
+───────────────────────────────────	<br>
+V.0.0.8
+* Change:	Carrier base gets added automatically; Deletion will affect all carrier parts (the carrier is not movable though).
+* Change:	Intel: The map only opens for the player that picked it up. Who actually gets the intel as well still depends on the settings.
+* Change:	Heal and injury modules check for ace_medical instead of ace_main (by @CreepPork).
+* Feature:	Promote player to Zeus; This module is only available for admins when the execute code module is disabled; The rights are lost when the player respawns or disconnects (by @CreepPork).
+* Feature:	Function Viewer Module (Dev Tools).
+* Feature:	Switch Unit, an alternative to remote control, which gives full control over the unit (hotkey: LSHIFT + 2xLMB).
+* Feature:	Side as a group attribute (new attribute button).
+* Feature:	Change Zeus vision mode brightness (feature inspired by ACE3; ALT+PAGE UP/DOWN by default)
+* Feature:	IED and Suicide Bomber modules (by @CreepPork).
+* Feature:	Implemented Achilles_fnc_addCuratorInterfaceEventHandler.
+* Feature:	Added "allow fleeing" parameter to AI ability module.
+* Fix:		USS Freedom: Spawned twice in certain cases.
+* Fix:		Vanilla cycle waypoint issue for copied units (waypoint ended up on map origin).
+* Fix:		Ammo slider (vehicle attributes): Did not handle dynamic loadouts correctly.
+* Fix:		Align object horizontal (default key: X): Did not execute Achilles_fnc_HandleCuratorObjectEdited.
+* Fix:		Dynamic Dialog Side Control: Clicking on current selected side led to unintended behaviour.
+* Fix:		Canceling selection option: Did not work properly for a few modules.
+* Fix:		"Selection option" and "specify position" modes missed exception handling: Exiting Zeus interface.
+* Fix:		"Specify position" in recent tab was also executed for Zeus modules and multiple times for groups.
+* Fix:		"Create/Edit Intel" did not handle newline characters (Hotkey: LSHIFT+RETURN).
+* Fix:		Create/Edit Intel: Dialog title did not describe the exact action (create, spawn or edit). 
 
-V.0.0.7d (Achilles Expansion (alpha version)
+### Remarks:
+- [ ] txt files have changed => Adjust links on Steam and BIS forum accordingly!
+
+V.0.0.7d (Achilles Expansion (alpha version))
 * Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
 * Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
 * Feature:	Dynamic loadout as a vehicle attribute (ammo button).
@@ -30,9 +51,9 @@ V.0.0.7d (Achilles Expansion (alpha version)
 * Fix:		Set Date module was broken after 1.70 update.
 * Fix:		CAS modules: Most planes did not show up after 1.70 update.
 * Fix:		CAS modules did not support planes with dynamic loadouts.
-* Fix:		Earthquake module: Missing text in dialog (by CreepPork)
+* Fix:		Earthquake module: Missing text in dialog (by @CreepPork)
 
-V.0.0.7c (Achilles Expansion (alpha version)
+V.0.0.7c (Achilles Expansion (alpha version))
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
 * Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
@@ -42,7 +63,7 @@ V.0.0.7c (Achilles Expansion (alpha version)
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
-V.0.0.7 (Achilles Expansion (alpha version)
+V.0.0.7 (Achilles Expansion (alpha version))
 * Change:	ACE injury module: Adjusted damage levels.
 * Change:	Removed side restriction for vanilla CAS modules.
 * Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).

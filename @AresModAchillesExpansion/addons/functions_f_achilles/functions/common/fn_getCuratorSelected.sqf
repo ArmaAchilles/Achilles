@@ -54,6 +54,10 @@ switch (_mode) do
 			};
 		} forEach (curatorSelected select 0);		
 	};
+	case "object":
+	{
+		_selected = (curatorSelected select 0);
+	};
 	case "group":
 	{
 		_selected = (curatorSelected select 1);

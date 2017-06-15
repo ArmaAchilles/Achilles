@@ -45,5 +45,12 @@ class RscDisplayAttributesGroup: RscDisplayAttributes
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeSkills";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
+		
+		class ButtonSide : ButtonCustomLeft 
+		{
+			text = "$STR_SIDE";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeSideAttribute";
+			colorBackground[] = {0.518,0.016,0,0.8};
+		};
 	};
 };

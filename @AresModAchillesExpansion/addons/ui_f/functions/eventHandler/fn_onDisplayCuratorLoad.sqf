@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 1/3/17
-//	VERSION: 3.0
+//	DATE: 6/10/17
+//	VERSION: 4.0
 //  DESCRIPTION: Called when display curator is loaded
 //
 //	ARGUMENTS:
@@ -18,6 +18,10 @@
 
 // execute vanilla display curator function
 ["onLoad",_this,"RscDisplayCurator","CuratorDisplays"] call (uinamespace getvariable "BIS_fnc_initDisplay");
+
+// custom stacked curator display event handler
+private _code_list = (getAssignedCuratorLogic player) getVariable ["Achilles_var_onLoadCuratorInterface",[]];
+{[_this] call _x} forEach _code_list;
 
 _this spawn
 {

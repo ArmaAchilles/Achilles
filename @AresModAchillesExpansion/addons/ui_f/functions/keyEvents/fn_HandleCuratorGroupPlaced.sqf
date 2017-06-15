@@ -12,6 +12,6 @@ if (not isNil "Achilles_var_specifyPositionBeforeSpawn") then
 	_ctrlModeRecent = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODERECENT;
 	if (ctrlScale _ctrlModeGroups == 1 or {ctrlScale _ctrlModeRecent == 1}) then
 	{
-		[_placedGroup] spawn Achilles_fnc_PreplaceMode;
+		[_placedGroup] call Achilles_fnc_PreplaceMode;
 	};
 };

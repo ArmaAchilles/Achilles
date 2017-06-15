@@ -16,11 +16,9 @@
 
 #define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET","PATH"]
 
-private ["_selection","_dialogResult","_mode"];
-
-_units = [param [0,ObjNull,[ObjNull]]];
-
-_dialogResult =
+private _units = [param [0,ObjNull,[ObjNull]]];
+private _abilityCount = count ABILITIES;
+private _dialogResult =
 [
 	"Abilities:",
 	[
@@ -34,7 +32,8 @@ _dialogResult =
 		["Move:",["true","false"]],
 		["Suppression:",["true","false"]],
 		["Target:",["true","false"]],
-		["Path:",["true","false"]]
+		["Path:",["true","false"]],
+		["Allow fleeing:","SLIDER", 0.5]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -48,20 +47,23 @@ if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
 
 {
-	[_x,_dialogResult] spawn 
+	private _unit = _x;
 	{
-		_unit = _this select 0;
-		_attribute_values = _this select 1;
+		private _ability_type = _x;
+		private _mode = _dialogResult select _forEachIndex;
+		if (local _unit) then
 		{
-			_ability_type = _x;
-			_mode = _attribute_values select _forEachIndex;
-			if (local _unit) then
-			{
-				if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
-			} else
-			{
-				if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
-			};
-		} forEach ABILITIES;
+			if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
+		} else
+		{
+			if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
+		};
+	} forEach ABILITIES;
+	if (local _unit) then
+	{
+		_unit allowFleeing (_dialogResult select _abilityCount);
+	} else
+	{
+		[_unit, _dialogResult select _abilityCount] remoteExecCall ["allowFleeing", _unit];
 	};
 } forEach _units;

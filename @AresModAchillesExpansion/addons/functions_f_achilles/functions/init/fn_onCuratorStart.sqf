@@ -58,6 +58,30 @@ _curatorModule addEventHandler ["CuratorGroupPlaced", { _this call Achilles_fnc_
 _curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
 _curatorModule addEventHandler ["CuratorObjectDeleted", {_this call Achilles_fnc_HandleCuratorObjectDeleted; }];
+_curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fnc_HandleCuratorWpPlaced; }];
+
+// Handle Disconnect
+[[],
+{
+	addMissionEventHandler ["HandleDisconnect",{
+		params ["_unit"];
+		private _handled = false;
+		
+		// if player was a promoted Zeus
+		private _module =  _unit getVariable ["Achilles_var_promoZeusModule", objNull];
+		if (not isNull _module) then {(group _module) deleteGroupWhenEmpty true; deleteVehicle _module};
+			
+		if (not isNil {_unit getVariable "Achilles_var_switchUnit_data"}) then
+		{
+			// if unit was controlled by Zeus with "select player"
+			private _playerUnit = (_unit getVariable "Achilles_var_switchUnit_data") select 1;
+			deleteVehicle _playerUnit;
+			_unit setVariable ["Achilles_var_switchUnit_data", nil, true];
+			_handled = true;
+		};
+		_handled;
+	}]
+}] remoteExecCall ["call",2];
 
 // Unlock all available attributes
 _curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];

@@ -10,13 +10,15 @@ class CfgFunctions
 			class onGameStarted;
 		};
 		
-		class ui_f_displayCurator
+		class ui_f_eventHandler
 		{
-			file = "\achilles\ui_f\functions\displayCurator";
+			file = "\achilles\ui_f\functions\eventHandler";
 			
 			class AppendToModuleTree;
 			class onDisplayCuratorLoad;
+			class onDisplayCuratorUnload;
 			class onModuleTreeLoad;
+			class addCuratorInterfaceEventHandler;
 		};
 		
 		
@@ -32,6 +34,7 @@ class CfgFunctions
 			class HandleCuratorGroupPlaced;
 			class HandleCuratorObjectEdited;
 			class HandleCuratorObjectDeleted;
+			class HandleCuratorWpPlaced;
 		};
 		
 		class ui_f_common
@@ -56,7 +59,6 @@ class CfgFunctions
 			class RscDisplayAttributes_createAdvancedComposition;
 			class RscDisplayAttributes_editAdvancedComposition;
 			class RscDisplayAttributes_SpawnExplosives;
-			class RscDisplayAtttributes_SpawnIntel;
 			class RscDisplayAtttributes_DamageComponents;
 			class RscDisplayAttributes_Chatter;
 			class RscDisplayAttributes_SpawnEmptyObject;

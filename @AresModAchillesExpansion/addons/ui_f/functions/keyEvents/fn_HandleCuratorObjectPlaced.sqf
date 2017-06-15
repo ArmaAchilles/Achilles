@@ -33,6 +33,10 @@ if (not isNil "Achilles_var_specifyPositionBeforeSpawn") then
 	_ctrlModeRecent = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODERECENT;
 	if (ctrlScale _ctrlModeUnits == 1 or {ctrlScale _ctrlModeRecent == 1}) then
 	{
-		[_placedObject] spawn Achilles_fnc_PreplaceMode;
+		if (not (_placedObject isKindOf "module_f") and {count units group _placedObject - count crew _placedObject <= 0}) then
+		{
+			// if not a module or a group
+			[_placedObject] call Achilles_fnc_PreplaceMode;
+		}
 	};
 };

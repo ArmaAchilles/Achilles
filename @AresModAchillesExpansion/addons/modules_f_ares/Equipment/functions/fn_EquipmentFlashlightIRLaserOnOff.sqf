@@ -47,7 +47,8 @@ if (isNull _unitUnderCursor) then
 			allUnits select {(alive _x) and (side _x == _side)};
 		};
 	};
-
+	
+	if (isNil "_units") exitWith {};
 	if (count _units == 0) exitWith 
 	{
 		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; 

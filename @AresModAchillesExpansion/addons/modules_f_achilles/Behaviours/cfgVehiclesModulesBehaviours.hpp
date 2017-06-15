@@ -6,6 +6,13 @@ class Achilles_Behaviours_Module_Base : Achilles_Module_Base
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };
 
+class Enyo_Behaviours_Module_Base : Enyo_Module_Base
+{
+	category = "Behaviours";
+	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+};
+
 class Achilles_Animation_Module : Achilles_Behaviours_Module_Base
 {
 	scopeCurator = 2;
@@ -51,4 +58,13 @@ class Achilles_Change_Altitude_Module : Achilles_Behaviours_Module_Base
 	_generalMacro = "Achilles_Change_Altitude_Module";
 	displayName = "$STR_CHANGE_ALTITUDE";
 	function = "Achilles_fnc_BehaviourAltitude";
+};
+
+class Achilles_SuicideBomber_Module : Enyo_Behaviours_Module_Base
+{
+	scopeCurator = 2;
+	curatorCanAttach = 1;
+	_generalMacro = "Enyo_SuicideBomber_Module";
+	displayName = "$STR_ENYO_SET_SUICIDE_BOMBER";
+	function = "Achilles_fnc_BehaviourSuicideBomber";
 };
