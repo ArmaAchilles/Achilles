@@ -6,11 +6,11 @@
 
 Versioning (introduced with 0.0.8)	<br>
 ───────────────────────────────────	<br>
-V.X.X.Xc							<br>
-  │ │ │└ hotfixes (optional)		<br>
-  │ │ └─ "small" update				<br>
-  │ └─── "major" update				<br>
-  └───── stage (alpha, beta, ...)	<br>
+X.X.Xc							<br>
+│ │ │└ hotfixes (optional)		<br>
+│ │ └─ "small" update				<br>
+│ └─── "major" update				<br>
+└───── stage (alpha, beta, ...)	<br>
 
 Change log							<br>
 ───────────────────────────────────	<br>
