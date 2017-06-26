@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 1/3/17
-//	VERSION: 3.0
+//	DATE: 6/26/17
+//	VERSION: 5.0
 //  DESCRIPTION: Initalization function; this function is called when the curator display is loaded for the first time
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +19,10 @@ if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic
 	waitUntil {sleep 1; not isNull (findDisplay 312)};
 	
 	// Wait until Zeus modules are avaiable (e.g. respawns has to be placed before)
-	waitUntil {sleep 1; _tree_ctrl tvText [(_tree_ctrl tvCount []) - 1] == localize "STR_ZEUS"};
+	if (count allMissionObjects "ModuleMPTypeGameMaster_F" > 0) then
+	{
+		waitUntil {sleep 1; missionnamespace getvariable ["BIS_moduleMPTypeGameMaster_init", false]};
+	};
 	
 	[[getAssignedCuratorLogic player],
 	{
@@ -55,7 +58,6 @@ Achilles_var_reloadVisionModes = nil;
 _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
 _curatorModule addEventHandler ["CuratorGroupPlaced", { _this call Achilles_fnc_HandleCuratorGroupPlaced; }];
-_curatorModule addEventHandler ["CuratorObjectDoubleClicked", { _this call Achilles_fnc_HandleCuratorObjectDoubleClicked; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];
 _curatorModule addEventHandler ["CuratorObjectDeleted", {_this call Achilles_fnc_HandleCuratorObjectDeleted; }];
 _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fnc_HandleCuratorWpPlaced; }];

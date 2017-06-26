@@ -31,7 +31,6 @@ switch _mode do {
 						_pylon_cfgs = (_planeCfg >> "Components" >> "TransportPylonsComponent" >> "pylons") call BIS_fnc_returnChildren;
 						{
 							_pylon_mag = getText (_x >> "attachment");
-							systemChat ("mag" + str _pylon_mag);
 							_weapon_classes pushBack getText (configFile >> "cfgMagazines" >> _pylon_mag >> "pylonWeapon");
 							if (count getArray (configFile >> "cfgMagazines" >> _pylon_mag >> "turret") > 0) then {_gunner_is_driver = false};
 						} forEach _pylon_cfgs;

@@ -51,7 +51,7 @@ if !(isnull curatorcamera) then {
 		{
 			_effect = ppEffectCreate ["ColorCorrections", 312312];
 			missionNamespace setVariable ["Achilles_var_NVGBrightnessEffect", _effect];
-			["onLoad", 
+			["Achilles_onLoadCuratorInterface", 
 			{
 				private _curator = getAssignedCuratorLogic player;
 				private _modes = _curator call bis_fnc_curatorVisionModes;
@@ -60,8 +60,8 @@ if !(isnull curatorcamera) then {
 				{
 					(missionNamespace getVariable "Achilles_var_NVGBrightnessEffect") ppEffectEnable true;
 				};
-			}] call Achilles_fnc_addCuratorInterfaceEventHandler;
-			["onUnload", {(missionNamespace getVariable "Achilles_var_NVGBrightnessEffect") ppEffectEnable false}] call Achilles_fnc_addCuratorInterfaceEventHandler;
+			}] call CBA_fnc_addEventHandler;
+			["Achilles_onUnloadCuratorInterface", {(missionNamespace getVariable "Achilles_var_NVGBrightnessEffect") ppEffectEnable false}] call CBA_fnc_addEventHandler;
 		};
 		
 		//--- NVG => enable brightness adjustment

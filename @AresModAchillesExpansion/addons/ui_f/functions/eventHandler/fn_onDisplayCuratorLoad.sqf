@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/10/17
-//	VERSION: 4.0
+//	DATE: 6/26/17
+//	VERSION: 6.0
 //  DESCRIPTION: Called when display curator is loaded
 //
 //	ARGUMENTS:
@@ -20,8 +20,7 @@
 ["onLoad",_this,"RscDisplayCurator","CuratorDisplays"] call (uinamespace getvariable "BIS_fnc_initDisplay");
 
 // custom stacked curator display event handler
-private _code_list = (getAssignedCuratorLogic player) getVariable ["Achilles_var_onLoadCuratorInterface",[]];
-{[_this] call _x} forEach _code_list;
+["Achilles_onLoadCuratorInterface", _this, player] call CBA_fnc_targetEvent;
 
 _this spawn
 {
@@ -38,10 +37,6 @@ _this spawn
 		
 		// reject player if both mods are running (protect players from themselves)
 		if (isClass (configfile >> "CfgPatches" >> "Ares")) then {while {true} do {sleep 1; hint "Error: Please unload Ares Mod!"; systemChat "Ares Mod and Ares Mod - Achilles Expansion are standalone add-ons and are NOT compatible with each other!"}};
-		
-		// initialize key variables
-		Ares_Ctrl_Key_Pressed = false;
-		Ares_Shift_Key_Pressed = false;
 		
 		// execute init
 		_display_reload = [_tree_ctrl] call Achilles_fnc_onCuratorStart;
@@ -61,7 +56,7 @@ _this spawn
 	};
 	
 	_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
-	_display displayAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
+	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 	
 	// handle module tree loading
 	[true] call Achilles_fnc_OnModuleTreeLoad;
