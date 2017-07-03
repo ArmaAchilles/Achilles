@@ -35,9 +35,6 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 
 			_unit setvariable ["bis_fnc_moduleRemoteControl_owner",player,true];
 
-			//--- Play wind cue to all players
-			[format ["wind%1",ceil random 5],"bis_fnc_playsound"] call bis_fnc_mp;
-
 			_blur = ppeffectcreate ["RadialBlur",144];
 			_blur ppeffectenable true;
 			_blur ppeffectadjust [0,0,0.3,0.3];
