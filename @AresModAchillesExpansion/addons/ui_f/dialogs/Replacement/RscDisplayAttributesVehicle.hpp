@@ -45,7 +45,7 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "$STR_AMMO";
+			text = "$STR_LOADOUT";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
@@ -101,7 +101,7 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "$STR_AMMO";
+			text = "$STR_LOADOUT";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};

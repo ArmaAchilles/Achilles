@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/15/17
-//	VERSION: 2.0
+//	DATE: 6/19/17
+//	VERSION: 3.0
 //  DESCRIPTION: application of "selectPlayer" script command.
 //
 //	ARGUMENTS:
@@ -17,11 +17,12 @@
 private _error = "";
 private _unit = effectiveCommander (param [0]);
 if (not (side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
-if (isplayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
+if (isPlayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 if (not alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
-if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
-if (isnull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorNull";};
-if (isuavconnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
+if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "STR_ERROR_UNIT_IS_UNCONSCIOUS";};
+if (isNull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorNull";};
+if (isUAVConnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
+if (unitIsUAV vehicle _unit) then {_error = localize "STR_ERROR_VEHICLE_IS_A_DRONE";};
 
 if (_error != "") exitWith {[_error] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
@@ -30,7 +31,9 @@ private _damage_allowed = isDamageAllowed _playerUnit;
 _unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
+private _face = face _unit;
 selectPlayer _unit;
+[_unit, _face] remoteExecCall ["setFace", 0];
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;

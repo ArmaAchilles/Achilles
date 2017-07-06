@@ -33,13 +33,17 @@ if (!isPlayer _unit) then
 	sleep 1;
 	
 	// if the unit already has a chute
-	if (toLower backpack _unit == "b_parachute") then {removeBackpack _unit};
-
-	_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
-	_chute setPos (getPos _unit);
-	_chute setDir (getDir _unit);
-	_chute setVelocity (velocity _unit);
-	_unit moveInDriver _chute;
+	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then
+	{
+		_unit action ["openParachute"];
+	} else
+	{
+		_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
+		_chute setPos (getPos _unit);
+		_chute setDir (getDir _unit);
+		_chute setVelocity (velocity _unit);
+		_unit moveInDriver _chute;
+	};
 	// prevent AI to be killed by fall damage
 	waitUntil {isTouchingGround _unit or (!alive _unit)};
 	_unit removeEventHandler ["HandleDamage",_id];
@@ -51,7 +55,7 @@ if (!isPlayer _unit) then
 	_backpack_class = backpack _unit;
 	
 	// if the unit already have a chute
-	if (toLower _backpack_class == "b_parachute") then {_backpack_class = ""};
+	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then {_backpack_class = ""};
 	
 	if (_backpack_class != "") then
 	{

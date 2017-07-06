@@ -13,6 +13,9 @@
 
 //#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
+// handle double click as remote control / switch unit instead
+if(not isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])) exitWith {};
+
 _entity = [_this] param [0,objnull,[objnull,grpnull,[],""]];
 _curator = getAssignedCuratorLogic player;
 _isPlayer = false;

@@ -2779,6 +2779,12 @@
 		<French>Pas de l'armement dynamique</French>
 		<German>Keine dynamische Bewaffnung verfügbar</German>
       </Key>
+	  <Key ID="STR_LOADOUT">
+        <Original>LOADOUT</Original>
+        <English>LOADOUT</English>
+		<French>L'ARMEMENT</French>
+		<German>BEWAFFNUNG</German>
+      </Key>
 	  <Key ID="STR_SWITCH_UNIT">
         <Original>Switch unit</Original>
         <English>Switch unit</English>
@@ -2995,6 +3001,18 @@
         <English>No player has been selected!</English>
         <French>Pas de joueur a été choisi!</French>
         <German>Kein Spieler wurde ausgewählt!</German>
+      </Key>
+      <Key ID="STR_ERROR_UNIT_IS_UNCONSCIOUS">
+        <Original>Error: Unit is unconscious!</Original>
+        <English>Error: Unit is unconscious!</English>
+        <French>Erreur: L'unité est sans connaissance!</French>
+        <German>Fehler: Einheit ist nicht bei Bewusstsein</German>
+      </Key>
+      <Key ID="STR_ERROR_VEHICLE_IS_A_DRONE">
+        <Original>Error: Unit is a drone!</Original>
+        <English>Error: Unit is a drone!</English>
+        <French>Erreur: C'est un drone!</French>
+        <German>Fehler: Einheit ist eine Drohne</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

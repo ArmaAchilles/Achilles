@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/10/17
-//	VERSION: 1.0
+//	DATE: 6/26/17
+//	VERSION: 3
 //  DESCRIPTION: Called when display curator is unloaded
 //
 //	ARGUMENTS:
@@ -17,8 +17,7 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 // custom stacked curator display event handler
-_code_list = (getAssignedCuratorLogic player) getVariable ["Achilles_var_onUnloadCuratorInterface",[]];
-{[_this] call _x} forEach _code_list;
+["Achilles_onUnloadCuratorInterface", _this, player] call CBA_fnc_targetEvent;
 
 // execute vanilla display curator function
 ["onUnload",_this,"RscDisplayCurator","CuratorDisplays"] call (uinamespace getvariable "BIS_fnc_initDisplay");

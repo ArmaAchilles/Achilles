@@ -3,15 +3,7 @@ _key = _this select 1;
 _handled = false;
 switch (true) do
 {
-	case (_key == 29): // CTRL
-	{
-		Ares_Ctrl_Key_Pressed = true;
-	};
-	case (_key == 42): // SHIFT
-	{
-		Ares_Shift_Key_Pressed = true;
-	};
-	case (_key in actionKeys  "CuratorLevelObject"):
+	case (_key in actionKeys  "CuratorLevelObject"): // align up-vector with z-axis (default: X)
 	{
 		_curatorSelected = ["object"] call Achilles_fnc_getCuratorSelected;
 		{

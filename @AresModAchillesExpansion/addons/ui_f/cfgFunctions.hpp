@@ -18,7 +18,6 @@ class CfgFunctions
 			class onDisplayCuratorLoad;
 			class onDisplayCuratorUnload;
 			class onModuleTreeLoad;
-			class addCuratorInterfaceEventHandler;
 		};
 		
 		
@@ -27,9 +26,8 @@ class CfgFunctions
 			file = "\achilles\ui_f\functions\keyEvents";
 			
 			class HandleCuratorKeyPressed;
-			class HandleCuratorKeyReleased;
 			class HandleRemoteKeyPressed;
-			class HandleCuratorObjectDoubleClicked;
+			class HandleMouseDoubleClicked;
 			class HandleCuratorObjectPlaced;
 			class HandleCuratorGroupPlaced;
 			class HandleCuratorObjectEdited;
