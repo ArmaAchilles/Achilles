@@ -33,6 +33,7 @@ Achilles integrates code from the following mods or scripts
 • AI HALO jump script (by cobra4v320)
     → http://www.armaholic.com/page.php?id=23113
 • Kyle Kotowick's matrix transpose script
+    → http://www.armaholic.com/page.php?id=25964
 • ACE3 fast-roping waypoint (by BaerMitUmlaut)
 • ACE3 change NVG brighness (by commy2)
 • Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda)

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 6/10/17
-//	VERSION: 4.0
+//	DATE: 6/26/17
+//	VERSION: 6.0
 //  DESCRIPTION: Called when display curator is loaded
 //
 //	ARGUMENTS:
@@ -15,13 +15,17 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#define IDD_MESSAGE				999
+#define IDC_TITLE				235100
+#define IDC_TEXT_WARNING		235102
+#define IDC_CONFIRM_WARNING		235106
+#define IDC_CANCLE_WARNING		235107
 
 // execute vanilla display curator function
 ["onLoad",_this,"RscDisplayCurator","CuratorDisplays"] call (uinamespace getvariable "BIS_fnc_initDisplay");
 
 // custom stacked curator display event handler
-private _code_list = (getAssignedCuratorLogic player) getVariable ["Achilles_var_onLoadCuratorInterface",[]];
-{[_this] call _x} forEach _code_list;
+["Achilles_onLoadCuratorInterface", _this, player] call CBA_fnc_targetEvent;
 
 _this spawn
 {
@@ -36,12 +40,16 @@ _this spawn
 		_main_display = findDisplay 46;
 		_main_display displayAddEventHandler ["KeyDown", { _this call Achilles_fnc_HandleRemoteKeyPressed; }];
 		
-		// reject player if both mods are running (protect players from themselves)
-		if (isClass (configfile >> "CfgPatches" >> "Ares")) then {while {true} do {sleep 1; hint "Error: Please unload Ares Mod!"; systemChat "Ares Mod and Ares Mod - Achilles Expansion are standalone add-ons and are NOT compatible with each other!"}};
-		
-		// initialize key variables
-		Ares_Ctrl_Key_Pressed = false;
-		Ares_Shift_Key_Pressed = false;
+		// send warning to player if both mods are running
+		if (isClass (configfile >> "CfgPatches" >> "Ares")) then 
+		{
+			createDialog "RscDisplayCommonMessage";
+			_dialog = findDisplay IDD_MESSAGE;
+			(_dialog displayCtrl IDC_TITLE) ctrlSetText "Warning: Please unload Ares Mod!";
+			(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText "Ares Mod - Achilles Expansion may not work properly!";
+			(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","closeDialog 1;"];
+			(_dialog displayCtrl IDC_CANCLE_WARNING) ctrlAddEventHandler ["ButtonClick", "closeDialog 2;"];
+		};
 		
 		// execute init
 		_display_reload = [_tree_ctrl] call Achilles_fnc_onCuratorStart;
@@ -61,7 +69,7 @@ _this spawn
 	};
 	
 	_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
-	_display displayAddEventHandler ["KeyUp",{_this call Achilles_fnc_HandleCuratorKeyReleased;}];
+	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 	
 	// handle module tree loading
 	[true] call Achilles_fnc_OnModuleTreeLoad;

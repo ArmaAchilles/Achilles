@@ -24,7 +24,7 @@ _entity = param [0, ObjNull, [grpNull, ObjNull]];
 _is_single_unit = (typeName _entity == "OBJECT");
 _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 
-_skill_choices = 
+private _skill_choices = 
 [		
 	[localize "STR_AIMING_ACCURACY","SLIDER"],
 	[localize "STR_AIMING_SHAKE","SLIDER"],
@@ -36,12 +36,13 @@ _skill_choices =
 	[localize "STR_RELOAD_SPEED","SLIDER"],
 	[localize "STR_COMMANIDNG","SLIDER"]
 ];
-_curatorSelected = [];
+private _curatorSelected = [];
+private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
 if (_is_single_unit) then 
 {
 	{
 		_skill_value = _entity skill (SKILLS select _forEachIndex);
-		_skill_value = linearConversion [0.2,1,_skill_value,0,1,true];
+		_skill_value = linearConversion (_skillRange + [_skill_value,0,1,true]);
 		_x append [_skill_value, true];
 	} forEach _skill_choices;
 
@@ -75,7 +76,7 @@ if (_is_single_unit) then
 	_entity = leader _entity;
 	{
 		_skill_value = _entity skill (SKILLS select _forEachIndex);
-		_skill_value = linearConversion [0.2,1,_skill_value,0,1,true];
+		_skill_value = linearConversion (_skillRange + [_skill_value,0,1,true]);
 		_x append [_skill_value, true];
 	} forEach _skill_choices;
 
@@ -107,10 +108,11 @@ if (_is_single_unit) then
 		_code =
 		{
 			params ["_unit", "_skill_values"];
+			private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
 			{
 				_skill_type = _x;
 				_skill_value = _skill_values select _forEachIndex;
-				_skill_value = linearConversion [0,1,_skill_value,0.2,1];
+				_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
 				_unit setSkill [_skill_type, _skill_value];
 			} forEach SKILLS;				
 		};
@@ -135,6 +137,7 @@ if (_is_single_unit) then
 		_code =
 		{
 			params ["_unit", "_trait_values", "_skill_values"];
+			private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
 			{
 				_trait_type = _x;
 				_trait_value = if (_trait_values select _forEachIndex == 0) then {false} else {true};
@@ -144,7 +147,7 @@ if (_is_single_unit) then
 			{
 				_skill_type = _x;
 				_skill_value = _skill_values select _forEachIndex;
-				_skill_value = linearConversion [0,1,_skill_value,0.2,1];
+				_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
 				_unit setSkill [_skill_type, _skill_value];
 			} forEach SKILLS;				
 		};

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	AUTHOR: Kex
-//	DATE: 9/2/16
-//	VERSION: 1.0
+//	DATE: 6/19/16
+//	VERSION: 2.0
 //	FILE: functions_f_achilles\functions\common\functions\fn_arrayMean.sqf
 //  DESCRIPTION: Determines the mean of an array
 //
@@ -16,9 +16,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 private ["_sum"];
-
-_sum = 0;
+private _n_items = count _this;
+if (_n_items == 0) exitWith {0};
+private _sum = 0;
 {
 	_sum = _sum + _x;
 } forEach _this;
-_sum / (count _this);
+_sum / _n_items;
