@@ -31,7 +31,9 @@ private _damage_allowed = isDamageAllowed _playerUnit;
 _unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
+private _face = face _unit;
 selectPlayer _unit;
+[_unit, _face] remoteExecCall ["setFace", 0];
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;

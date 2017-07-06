@@ -15,6 +15,7 @@ X.X.Xc					<br>
 Change log				<br>
 ───────────────────────────────────	<br>
 V.0.0.8c
+* Change:	Removed Zeus wind sound effect for remote control (by @CreepPork).
 * Change:	If Ares is enabled at the same time, Achilles will just spawn a warning message and not block Zeus entirely.
 * Change:	Skill slider range is no longer hard-coded. It takes the range as in 3den instead (see [BIS forum](https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3204945)).
 * Change:	Renamed vehicle attribute button "AMMO" to "LOADOUT" to make clear that ammo has to be adjusted with the slider.
@@ -25,7 +26,7 @@ V.0.0.8c
 * Change:	Replaced Achilles_fnc_addCuratorInterfaceEventHandler by CBA event handler system with "Achilles_onLoadCuratorInterface" and "Achilles_onUnloadCuratorInterface" as keywords.
 * Fix:		"Switch Unit" module does not work properly for drones  => introduced exception handling.
 * Fix:		"Switch Unit" and "Remote Control" were triggered by 2xLMB without an additional key in certain cases.
-* Fix:		"Switch Unit": voice and face of the controlled unit were overwritten by the player's settings.
+* Fix:		"Switch Unit": face of the controlled unit were overwritten by the player's settings.
 * Fix:		Debug logging was still present for the bomb strike module.
 * Fix:		Achilles_fnc_arrayMean had no exception handling for empty arrays.
 * Fix:		Paradrop: Exception handling did not work for 3rd party add-on chutes (= unit had 2 chutes instead of one; see [Steam](http://steamcommunity.com/workshop/filedetails/discussion/723217262/1291817208487058671/)).
