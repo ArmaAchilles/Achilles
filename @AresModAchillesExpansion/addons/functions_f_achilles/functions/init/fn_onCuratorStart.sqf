@@ -4,6 +4,7 @@
 //	VERSION: 5.0
 //  DESCRIPTION: Initalization function; this function is called when the curator display is loaded for the first time
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 _tree_ctrl = param [0,controlNull,[controlNull]];
 
@@ -84,6 +85,12 @@ _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fn
 		_handled;
 	}]
 }] remoteExecCall ["call",2];
+
+// reset map position
+private _camPos = position curatorCamera;
+private _curatorMapCtrl = ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP);
+_curatorMapCtrl ctrlMapAnimAdd [0, 0.1, _camPos]; 
+ctrlMapAnimCommit _curatorMapCtrl;
 
 // Unlock all available attributes
 _curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];
