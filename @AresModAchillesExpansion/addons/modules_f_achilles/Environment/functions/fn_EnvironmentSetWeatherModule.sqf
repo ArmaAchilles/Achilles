@@ -44,9 +44,9 @@ _fogBaseSetting = _altitudes select (_dialogResult select 10);
 Ares_var_Weather_Settings = [_rendered,_cloudSetting, _rainSetting, _rainbowSetting, _lightningSetting, _windSetting, _wavesSetting, [_fogSetting, _fogDecaySetting, _fogBaseSetting]];
 publicVariable "Ares_var_Weather_Settings";
 
-if (isNil "Ares_Weather_Function") then
+if (isNil "Ares_fnc_Weather_Function") then
 {
-	Ares_Weather_Function =
+	Ares_fnc_Weather_Function =
 	{
 		sleep 1;
 		while {true} do
@@ -59,9 +59,9 @@ if (isNil "Ares_Weather_Function") then
 			sleep 1;
 		};
 	};
-	publicVariable "Ares_Weather_Function";
-	remoteExec ["Ares_Weather_Function",0,true];
-	Ares_Change_Weather_Function =
+	publicVariable "Ares_fnc_Weather_Function";
+	remoteExec ["Ares_fnc_Weather_Function",0,true];
+	Ares_fnc_Change_Weather_Function =
 	{
 		_settings = Ares_var_Weather_Settings;
 		_delay = if ((_settings select 0) == 0) then {0} else {30};
@@ -76,9 +76,9 @@ if (isNil "Ares_Weather_Function") then
 		
 		if ((_settings select 0) == 0) then {forceWeatherChange;};
 	};
-	publicVariable "Ares_Change_Weather_Function";
+	publicVariable "Ares_fnc_Change_Weather_Function";
 };
 
-remoteExec ["Ares_Change_Weather_Function",0];
+remoteExec ["Ares_fnc_Change_Weather_Function",0];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

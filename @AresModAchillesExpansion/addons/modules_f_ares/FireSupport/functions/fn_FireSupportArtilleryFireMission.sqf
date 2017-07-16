@@ -195,7 +195,7 @@ if (_roundEta == -1) exitWith { [localize "STR_NO_TARGET_IN_RANGE"] call Ares_fn
 
 // Fire the guns
 {
-	[_x, [_targetPos, _ammo, _rounds]] remoteExec ["commandArtilleryFire", _x];
+	[_x, [_targetPos, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
 } forEach _gunsToFire;
 [localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
 

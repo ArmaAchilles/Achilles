@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+
 # replace fnc by Thomas Watnedal (http://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python)
 # Modified for intended purpose by Kex
 
+from __future__ import print_function
 from tempfile import mkstemp
 from shutil import move
 from os import remove, close
@@ -20,8 +23,8 @@ fnc_replace(file_path, pattern, subst)::
 
 for i in xrange(100):
 	file_path = "functions\\fn_UserDefinedModule{}.sqf".format(i)
-	print "edit ", file_path
+	print("edit ", file_path)
 	to_find = 'ares_zeusExtensions\\Ares'
 	substitute = 'achilles\modules_f_ares'
 	fnc_replace(file_path,to_find,substitute)
-raw_input ('Done')
+input('Done')

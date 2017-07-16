@@ -797,11 +797,11 @@
         <German>Patrouillieren</German>
       </Key>
       <Key ID="STR_PATROL_LOITER">
-        <Original>Patrol/Loiter (Heli)</Original>
-        <English>Patrol/Loiter (Heli)</English>
-		<Russian>Патруль/ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
-        <French>Patrouiller/Circuler (Hélico)</French>
-        <German>Patrouillieren/Kreisen (Heli)</German>
+        <Original>Patrol/Loiter</Original>
+        <English>Patrol/Loiter</English>
+		<Russian>Патруль/ЗАВИСАНИЕ</Russian>
+        <French>Patrouiller/Circuler</French>
+        <German>Patrouillieren/Kreisen</German>
       </Key>
 	  <Key ID="STR_NVD_TACLIGHT_IR">
         <Original>NVD/Tactical Light/IR</Original>
