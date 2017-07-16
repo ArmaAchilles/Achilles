@@ -1,5 +1,19 @@
 #!/bin/bash
 
+#####################################################################################
+# AUTHOR: 		Kex
+# DATE: 		7/16/17
+# VERSION: 		SWP001
+# DESCRIPTION: 	Searches for all functions and commands that are remote executed
+#				Creates a cfgRemotExec.hpp in keys folder accordingly.
+#
+# ARGUMENTS:	nothing
+#
+# RETURNS:		nothing
+#
+# EXAMPLE:		./getRemoteExecWhiteList.sh
+#####################################################################################
+
 #white list file name
 whitelist_file=cfgRemoteExec.hpp
 

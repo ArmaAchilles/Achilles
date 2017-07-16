@@ -1,17 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 6/6/17
-//	VERSION: 1.0
-//  DESCRIPTION: terminates "Achilles_fnc_switchUnit_start".
+// AUTHOR: 			Kex
+// DATE: 			6/6/17
+// VERSION: 		SWP001
+// DESCRIPTION:		terminates "Achilles_fnc_switchUnit_start".
 //
-//	ARGUMENTS:
-//	nothing
+// ARGUMENTS:		nothing
 //
-//	RETURNS:
-//	nothing (procedure)
+// RETURNS:			nothing
 //
-//	Example:
-//	[] call Achilles_fnc_switchUnit_exit;
+// Example:			[] call Achilles_fnc_switchUnit_exit;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"

@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
 
+'''
+AUTHOR: 		Kex
+DATE: 			7/16/17
+VERSION: 		SWP002
+DESCRIPTION: 	Converts given *.txt with markdown syntax to steam syntax
+
+ARGUMENTS:		1) *.txt file
+
+RETURNS:		nothing
+
+EXAMPLE:		python markdown_changeLog_to_steam.py markdown_test.txt
+'''
+
 from __future__ import print_function
 from sys import argv, exit
 from os.path import basename
