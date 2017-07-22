@@ -32,11 +32,11 @@ if (_dialogResult == 1) then
 	switch (_target) do
 	{
 		case 0: {_params spawn (compile _pastedText);};
-		case 1: {[_params, compile _pastedText] remoteExec ["spawn",2];};
-		case 2: {[_params, compile _pastedText] remoteExec ["spawn",0];};
+		case 1: {[_params, compile _pastedText, 2] call Achilles_fnc_spawn; };
+		case 2: {[_params, compile _pastedText, 0] call Achilles_fnc_spawn; };
 		case 3: 
 		{
-			_JIP_id = [_params, compile _pastedText] remoteExec ["spawn",0,_logic];
+			_JIP_id = [_params, compile _pastedText, 0, _logic] call Achilles_fnc_spawn;
 			_logic setName format ["Execute Code: JIP queue %1", _JIP_id];
 			_deleteModuleOnExit = false;
 		};

@@ -1,17 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 1/27/17
-//	VERSION: 3.0
-//  DESCRIPTION: function that allows changing units skills
+// AUTHOR:			Kex
+// DATE: 			6/16/17
+// VERSION: 		AMAE004
+// DESCRIPTION: 	function that allows changing units skills
 //
-//	ARGUMENTS:
-//	_this select 0:			OBJECT	- unit for which skills are changed; if objNull then selection mode is activated
+// ARGUMENTS:		0: OBJECT - unit for which skills are changed; if objNull then selection mode is activated
 //
-//	RETURNS:
-//	nothing (procedure)
+// RETURNS:			nothing
 //
-//	Example:
-//	[_unit] call Achilles_fnc_changeSkills;
+// Example:			[_unit] call Achilles_fnc_changeSkills;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define SKILLS			["aimingAccuracy","aimingShake","aimingSpeed","endurance","spotDistance","spotTime","courage","reloadSpeed","commanding"]
@@ -101,87 +98,45 @@ _trait_values = if (_is_single_unit) then
 };
 _skill_values = _dialogResult select [_number_of_traits,count SKILLS];
 
-if (_is_single_unit) then
+private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
+
 {
-	if (_ace_loaded) then
+	private _unit = _x;
 	{
-		_code =
+		private _skill_type = _x;
+		private _skill_value = _skill_values select _forEachIndex;
+		_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
+		if (local _unit) then
 		{
-			params ["_unit", "_skill_values"];
-			private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
-			{
-				_skill_type = _x;
-				_skill_value = _skill_values select _forEachIndex;
-				_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
-				_unit setSkill [_skill_type, _skill_value];
-			} forEach SKILLS;				
+			_unit setSkill [_skill_type, _skill_value];
+		} else
+		{
+			[_unit, [_skill_type, _skill_value]] remoteExecCall ["setSkill", _unit];
 		};
+	} forEach SKILLS;
+	
+	if (_is_single_unit) then
+	{
+		if (_ace_loaded) then
 		{
-			_unit = _x;
 			_unit setVariable ["ace_medical_medicClass",_trait_values select 0,true];
-			_trait_value = if(_trait_values select 1 == 0) then {false} else {true};
+			private _trait_value = if(_trait_values select 1 == 0) then {false} else {true};
 			_unit setVariable ["ACE_isEngineer",_trait_value,true];
 			_trait_value = if(_trait_values select 2 == 0) then {false} else {true};
 			_unit setVariable ["ACE_isEOD",_trait_value,true];
-			
-			if (local _unit) then
-			{
-				[_unit, _skill_values] spawn _code;
-			} else
-			{
-				[[_unit, _skill_values], _code] remoteExec ["spawn", _x];
-			};
-		} forEach _curatorSelected;
-	} else
-	{
-		_code =
-		{
-			params ["_unit", "_trait_values", "_skill_values"];
-			private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
-			{
-				_trait_type = _x;
-				_trait_value = if (_trait_values select _forEachIndex == 0) then {false} else {true};
-				_unit setUnitTrait [_trait_type, _trait_value];
-			} forEach VANILLA_TRAITS;
-			
-			{
-				_skill_type = _x;
-				_skill_value = _skill_values select _forEachIndex;
-				_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
-				_unit setSkill [_skill_type, _skill_value];
-			} forEach SKILLS;				
-		};
-		{
-			_unit = _x;
-			if (local _unit) then
-			{
-				[_unit, _trait_values, _skill_values] spawn _code;
-			} else
-			{
-				[[_unit, _trait_values, _skill_values], _code] remoteExec ["spawn", _x];
-			};
-		} forEach _curatorSelected;
-	};
-} else
-{
-	_code =
-	{
-		params ["_unit", "_skill_values"];
-		{
-			_skill_type = _x;
-			_skill_value = _skill_values select _forEachIndex;
-			_skill_value = linearConversion [0,1,_skill_value,0.2,1];
-			_unit setSkill [_skill_type, _skill_value];
-		} forEach SKILLS;				
-	};
-	{
-		_unit = _x;
-		if (local _unit) then
-		{
-			[_unit, _skill_values] spawn _code;
 		} else
 		{
-			[[_unit, _skill_values], _code] remoteExec ["spawn", _x];
+			{
+				private _trait_type = _x;
+				private _trait_value = if (_trait_values select _forEachIndex == 0) then {false} else {true};
+				if (local _unit) then
+				{
+					_unit setUnitTrait [_trait_type, _trait_value];
+				} else
+				{
+					[_unit, [_trait_type, _trait_value]] remoteExecCall ["setUnitTrait", _unit];
+				};
+			} forEach VANILLA_TRAITS;
 		};
-	} forEach _curatorSelected;
-};
+	};
+} forEach _curatorSelected;

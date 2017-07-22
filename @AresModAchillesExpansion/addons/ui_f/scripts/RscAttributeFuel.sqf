@@ -17,15 +17,13 @@ switch _mode do {
 		_fuel = sliderposition _ctrlSlider * 0.1;
 		if (abs(fuel _unit - _fuel) < 0.01) exitwith {};
 		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
-		if (local _unit) then {
-			{_x setfuel _fuel} forEach _curatorSelected;
-		} else {
-			[[_curatorSelected, _fuel], {
-				_entities = _this select 0;
-				_fuel = _this select 1;
-				{_x setFuel _fuel} foreach _entities;
-			}] remoteExec ["spawn", _unit];
-		};
+		{
+			if (local _x) then {
+				_x setFuel _fuel;
+			} else {
+				[_x, _fuel] remoteExecCall ["setFuel", _x];
+			};
+		} forEach _curatorSelected;
 	};
 	case "onUnload": {
 	};

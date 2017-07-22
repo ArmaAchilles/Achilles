@@ -132,6 +132,7 @@ class RscMapControl;
 class RscActivePicture;
 class RscPicture;
 class RscTree;
+class RscTreeSearch: RscTree {};
 
 // Forward declare some 3den base classes.
 class ctrlDefault;

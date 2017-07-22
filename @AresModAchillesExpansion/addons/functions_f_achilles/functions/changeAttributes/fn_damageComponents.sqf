@@ -28,14 +28,14 @@ for "_i" from 0 to (count (_allHitPointsDamage select 0) - 1) do
 	_entries pushBack [_component,"SLIDER"];
 };
 
-_dialogResult = 
+_attribute_values = 
 [
 	"Damage Components",
 	_entries,
 	"Achilles_fnc_RscDisplayAtttributes_DamageComponents"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (count _attribute_values == 0) exitWith {};
 
 _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 
@@ -44,19 +44,15 @@ if (local _vehicle) then
 	{
 		_vehicle = _x;
 		{
-			_vehicle setHitIndex [_forEachIndex,_x];
-		} forEach _dialogResult;
+			_vehicle setHitIndex [_forEachIndex, _x];
+		} forEach _attribute_values;
 	} forEach _curatorSelected;
 } else
 {
 	{
-		[[_x,_dialogResult],
+		_vehicle = _x;
 		{
-			_vehicle = _this select 0;
-			_attribute_values = _this select 1;
-			{
-				_vehicle setHitIndex [_forEachIndex,_x];
-			} forEach _attribute_values;
-		}] remoteExec ["spawn",_x];
+			[_vehicle, [_forEachIndex, _x]] remoteExecCall ["setHitIndex", _vehicle];
+		} forEach _attribute_values;
 	} forEach _curatorSelected;
 };

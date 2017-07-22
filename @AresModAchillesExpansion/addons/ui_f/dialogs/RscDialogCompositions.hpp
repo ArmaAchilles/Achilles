@@ -29,7 +29,7 @@ class Ares_composition_Dialog
 			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 26 * GUI_GRID_W;
-			h = 20.5 * GUI_GRID_H;
+			h = 22 * GUI_GRID_H;
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
 		class Ares_Dialog_Bottom: IGUIBack
@@ -37,7 +37,7 @@ class Ares_composition_Dialog
 			idc = 2010;
 
 			x = 14.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 11 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
@@ -46,9 +46,9 @@ class Ares_composition_Dialog
 		{
 			idc = 3010;
 			
-			onButtonClick = "uiNamespace setVariable ['Ares_Dialog_Result', -1]; closeDialog 2;";
+			text = "$STR_CLOSE"; //--- ToDo: Localize;
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
@@ -58,10 +58,9 @@ class Ares_composition_Dialog
 		{
 			idc = 3000;
 			
-			onButtonClick = "uiNamespace setVariable ['Ares_Dialog_Result', 1]; closeDialog 1;";			
 			text = "$STR_SPAWN"; //--- ToDo: Localize;
 			x = 26 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 7 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
@@ -72,7 +71,7 @@ class Ares_composition_Dialog
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
 			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 25 * GUI_GRID_W;
-			h = 17 * GUI_GRID_H;
+			h = 19 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
 		class Ares_Paragraph_edit: RscText
@@ -85,7 +84,16 @@ class Ares_composition_Dialog
 			w = 25.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
-		class Ares_composition_tree: RscTree
+		class Ares_Search_Edit: RscEdit
+		{
+			idc = 645;
+
+			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 4 * GUI_GRID_H + GUI_GRID_Y;
+			w = 24 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+		class Ares_composition_tree: RscTreeSearch
 		{
 			idc = 1400;
 			
@@ -94,9 +102,9 @@ class Ares_composition_Dialog
 			colorMarkedSelected[] = {1, 1, 1, 0.700000};
 
 			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 4 * GUI_GRID_H + GUI_GRID_Y;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 24 * GUI_GRID_W;
-			h = 15 * GUI_GRID_H;
+			h = 14 * GUI_GRID_H;
 			colorText[] = {0.5,0.5,0.5,1};
 			colorBackground[] = {0,0,0,0.5};
 		};
@@ -131,8 +139,8 @@ class Ares_composition_Dialog
 			soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};			
 			
 			text = "a3\3den\Data\Displays\Display3DEN\PanelLeft\entityList_delete_ca.paa";
-			x = 31 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			x = 30.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
@@ -143,7 +151,7 @@ class Ares_composition_Dialog
 			onButtonClick = "([""EDIT_BUTTON""] + _this) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;";
 			text = "a3\3den\Data\Displays\Display3DEN\PanelRight\customcomposition_edit_ca.paa";
 			x = 28.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
@@ -153,8 +161,8 @@ class Ares_composition_Dialog
 			
 			onButtonClick = "([""NEW_BUTTON""] + _this) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;";			
 			text = "a3\3den\Data\Displays\Display3DEN\PanelRight\customcomposition_add_ca.paa";
-			x = 26 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};

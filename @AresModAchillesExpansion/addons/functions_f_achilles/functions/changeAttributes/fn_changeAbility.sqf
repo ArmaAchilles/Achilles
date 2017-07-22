@@ -56,7 +56,7 @@ if (count _units == 0) exitWith {};
 			if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
 		} else
 		{
-			if (_mode == 0) then {[_unit, _ability_type] remoteExec ["enableAI",_unit]} else {[_unit, _ability_type] remoteExec ["disableAI",_unit]};
+			if (_mode == 0) then {[_unit, _ability_type] remoteExecCall ["enableAI",_unit]} else {[_unit, _ability_type] remoteExecCall ["disableAI",_unit]};
 		};
 	} forEach ABILITIES;
 	if (local _unit) then

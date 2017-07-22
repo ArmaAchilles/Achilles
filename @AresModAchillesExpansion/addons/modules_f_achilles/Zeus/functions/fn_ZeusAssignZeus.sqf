@@ -32,7 +32,7 @@ if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_AL
   private _moderatorModule = (createGroup sideLogic) createUnit ["ModuleCurator_F", _playerPos, [], 0, ""];
   _player assignCurator _moderatorModule;
   _player setVariable ["Achilles_var_promoZeusModule", _moderatorModule, true];
-}] remoteExecCall ["call", 2];
+}, 2] call Achilles_fnc_spawn;
 
 ["You are now a Curator!"] remoteExecCall ["hint", _player];
 

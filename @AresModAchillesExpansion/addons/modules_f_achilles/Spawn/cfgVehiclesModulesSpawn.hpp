@@ -18,13 +18,6 @@ class Achilles_Module_Spawn_Carrier : Achilles_Spawn_Module_Base
 	function = "Achilles_fnc_SpawnCarrier";
 };
 
-class Achilles_Module_Spawn_Advanced_Composition : Achilles_Spawn_Module_Base
-{
-	scopeCurator = 2;
-	displayName = "$STR_ADVANCED_COMPOSITION";
-	function = "Achilles_fnc_SpawnAdvancedCompositions";
-};
-
 class Achilles_Module_Spawn_Explosives : Achilles_Spawn_Module_Base
 {
 	scopeCurator = 2;

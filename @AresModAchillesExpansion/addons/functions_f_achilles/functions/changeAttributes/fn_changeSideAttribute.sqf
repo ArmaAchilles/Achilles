@@ -17,6 +17,12 @@
 _group = param [0,grpNull,[grpNull]];
 private _side = side _group;
 
+if (isNil "Achilles_var_changeSide_init_done") then
+{
+	publicVariable "Achilles_fnc_changeSide_local";
+	Achilles_var_changeSide_init_done = true;
+};
+
 _dialogResult =
 [
 	localize "STR_CHANGE_SIDE",
@@ -33,17 +39,9 @@ private _curatorSelected = ["group"] call Achilles_fnc_getCuratorSelected;
 {
 	if (local leader _x) then
 	{
-		private _new_group = createGroup _side;
-		(units _x) joinSilent _new_group;
-		deleteGroup _x;
+		[_x, _side] call Achilles_fnc_changeSide_local;
 	} else
 	{
-		[[_x,_side],
-		{
-			params ["_old_group","_new_side"];
-			private _new_group = createGroup _new_side;
-			(units _old_group) joinSilent _new_group;
-			deleteGroup _old_group;
-		}] remoteExec ["call", leader _x];
+		[_x, _side] remoteExecCall ["Achilles_fnc_changeSide_local", leader _x];
 	};
 } forEach _curatorSelected;

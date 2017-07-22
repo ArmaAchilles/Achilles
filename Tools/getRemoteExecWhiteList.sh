@@ -3,7 +3,7 @@
 #####################################################################################
 # AUTHOR: 		Kex
 # DATE: 		7/16/17
-# VERSION: 		SWP001
+# VERSION: 		AMAE001
 # DESCRIPTION: 	Searches for all functions and commands that are remote executed
 #				Creates a cfgRemotExec.hpp in keys folder accordingly.
 #
@@ -27,7 +27,7 @@ script_list=$(find . -type f -name "*.sqf")
 for script in $script_list; do
 	echo Searching in $script...
 	#extract keyword from remoteExec(Call) commands
-	keywords=$(grep remoteExec $script | grep -o -P "remoteExec(\s*|Call\s*)\[\s*[\"\']?[0-9a-zA-Z_]*[\"\']?\s*," | grep -o -P "\[\s*[\"\']?[0-9a-zA-Z_]*[\"\']?\s*,")
+	keywords=$(grep remoteExec $script | grep -o -P "(?i)remoteExec(\s*|Call\s*)\[\s*[\"\']?[0-9a-zA-Z_]*[\"\']?\s*," | grep -o -P "\[\s*[\"\']?[0-9a-zA-Z_]*[\"\']?\s*,")
 	# remove quotation marks and change to lower case
 	keywords=${keywords//\"/}
 	keywords=${keywords//\'/}

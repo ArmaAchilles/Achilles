@@ -27,28 +27,24 @@ switch _mode do {
 			_previousAmmo = _unit call Achilles_fnc_getUnitAmmoDef;
 			if (abs(_previousAmmo - _ammo) < 0.01) exitWith {};
 			_curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
-			if (local _unit) then {
-				{[_x, _ammo] call Achilles_fnc_setUnitAmmoDef} forEach _curatorSelected;
-			} else {
-				[[_curatorSelected, _ammo], {
-					_entities = _this select 0;
-					_ammo = _this select 1;
-					{[_x, _ammo] call Achilles_fnc_setUnitAmmoDef} foreach _entities;
-				}] remoteExec ["spawn", _unit];
-			};
+			{
+				if (local _x) then {
+					[_x, _ammo] call Achilles_fnc_setUnitAmmoDef;
+				} else {
+					[_x, _ammo] remoteExecCall ["Achilles_fnc_setUnitAmmoDef", _x];
+				};
+			} forEach _curatorSelected;
 		} else {
 			_previousAmmo = _unit call Achilles_fnc_getVehicleAmmoDef;
 			if (abs(_previousAmmo - _ammo) < 0.01) exitWith {};
 			_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
-			if (local _unit) then {
-				{[_x, _ammo] call Achilles_fnc_setVehicleAmmoDef} forEach _curatorSelected;
-			} else {
-				[[_curatorSelected, _ammo], {
-					_entities = _this select 0;
-					_ammo = _this select 1;
-					{[_x, _ammo] call Achilles_fnc_setVehicleAmmoDef} foreach _entities;
-				}] remoteExec ["spawn", _unit];
-			};
+			{
+				if (local _x) then {
+					[_x, _ammo] call Achilles_fnc_setVehicleAmmoDef;
+				} else {
+					[_x, _ammo] remoteExecCall ["Achilles_fnc_setVehicleAmmoDef", _x];
+				};
+			} forEach _curatorSelected;
 		};
 	};
 	case "onUnload": {};

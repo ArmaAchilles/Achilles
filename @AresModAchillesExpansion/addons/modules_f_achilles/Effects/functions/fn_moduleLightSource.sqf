@@ -80,7 +80,7 @@ switch _mode do {
 			_source setLightBrightness 1.0;
 			_source setLightAmbient  _color;
 			_source setLightColor _color;
-		}] remoteExec ["spawn",0,_source];
+		},0,_source] call Achilles_fnc_spawn;
 		_sourceObject setVariable ["LightAttributes",[_color, [1,1,1,1]],true];
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;
 		deleteVehicle _logic;

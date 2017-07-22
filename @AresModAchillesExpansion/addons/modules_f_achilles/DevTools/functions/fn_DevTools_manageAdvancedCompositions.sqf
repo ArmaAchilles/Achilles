@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 1/3/17
-//	VERSION: 2.0
-//  DESCRIPTION: Function for module "manage advanced composition"
+//	AUTHOR: 		Kex
+//	DATE: 			7/16/17
+//	VERSION: 		AMAE003
+//  DESCRIPTION: 	Function for module "advanced composition"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\achilles\modules_f_ares\module_header.hpp"
@@ -14,8 +14,10 @@ if (isNil "Achilles_var_acs_init_done") then
 	Achilles_var_acs_init_done = true;
 };
 
+private '_center_object';
+_spawn_pos = position _logic;
 
 createDialog "Ares_composition_Dialog";
-["LOADED"] spawn Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
+["LOADED"] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

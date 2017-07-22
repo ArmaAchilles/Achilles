@@ -3,7 +3,7 @@
 '''
 AUTHOR: 		Kex
 DATE: 			7/16/17
-VERSION: 		SWP002
+VERSION: 		AMAE002
 DESCRIPTION: 	Converts given *.txt with markdown syntax to steam syntax
 
 ARGUMENTS:		1) *.txt file

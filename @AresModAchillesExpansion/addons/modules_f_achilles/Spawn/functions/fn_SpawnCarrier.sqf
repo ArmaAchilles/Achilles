@@ -21,6 +21,6 @@ private _dir = 180 + (_dialogResult select 0) * 45;
 	{_x addCuratorEditableObjects [[_carrier], false]} forEach allCurators;
 	// delete old carrier parts
 	{deleteVehicle _x} forEach (nearestObjects [[-300,-300,0], ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"], 300, true]); 
-}] remoteExec ["call", 2];
+}, 2] call Achilles_fnc_spawn;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
