@@ -10,7 +10,7 @@ _idcs = [
 	IDC_RSCATTRIBUTELOCK_UNLOCKED,
 	IDC_RSCATTRIBUTELOCK_LOCKED
 ];
-_states = [2,1,0,3];
+_states = [3,1,0,2];
 
 switch _mode do {
 	case "onLoad": {

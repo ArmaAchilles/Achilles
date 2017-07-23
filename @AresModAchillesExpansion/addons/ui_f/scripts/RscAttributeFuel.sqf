@@ -1,22 +1,25 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_unit = _this select 2;
+params ["_mode", "_params", "_unit"];
 
 switch _mode do {
 	case "onLoad": {
-		_display = _params select 0;
-		_ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEFUEL_VALUE;
-		_ctrlSlider slidersetposition (fuel _unit * 10);
+		private _display = _params select 0;
+		private _fuel = fuel _unit;
+		private _ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEFUEL_VALUE;
+		_ctrlSlider sliderSetRange [0, 1];
+		_ctrlSlider sliderSetSpeed [0.1, 0.3];
+		_ctrlSlider slidersetposition _fuel;
+		_ctrlSlider ctrlSetTooltip str _fuel;
+		_ctrlSlider ctrlSetEventHandler["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
 		_ctrlSlider ctrlenable alive _unit;
 	};
 	case "confirmed": {
-		_display = _params select 0;
-		_ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEFUEL_VALUE;
-		_fuel = sliderposition _ctrlSlider * 0.1;
+		private _display = _params select 0;
+		private _ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEFUEL_VALUE;
+		private _fuel = sliderposition _ctrlSlider;
 		if (abs(fuel _unit - _fuel) < 0.01) exitwith {};
-		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+		private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 		{
 			if (local _x) then {
 				_x setFuel _fuel;

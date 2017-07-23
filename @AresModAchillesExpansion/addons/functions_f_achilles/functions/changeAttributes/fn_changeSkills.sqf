@@ -21,26 +21,27 @@ _entity = param [0, ObjNull, [grpNull, ObjNull]];
 _is_single_unit = (typeName _entity == "OBJECT");
 _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 
+
 private _skill_choices = 
 [		
-	[localize "STR_AIMING_ACCURACY","SLIDER"],
-	[localize "STR_AIMING_SHAKE","SLIDER"],
-	[localize "STR_AIMING_SPEED","SLIDER"],
-	[localize "STR_ENDURANCE","SLIDER"],
-	[localize "STR_SPOT_DISTANCE","SLIDER"],
-	[localize "STR_SPOT_TIME","SLIDER"],
-	[localize "STR_COURAGE","SLIDER"],
-	[localize "STR_RELOAD_SPEED","SLIDER"],
-	[localize "STR_COMMANIDNG","SLIDER"]
+	["SLIDER", localize "STR_AIMING_ACCURACY"],
+	["SLIDER", localize "STR_AIMING_SHAKE"],
+	["SLIDER", localize "STR_AIMING_SPEED"],
+	["SLIDER", localize "STR_ENDURANCE"],
+	["SLIDER", localize "STR_SPOT_DISTANCE"],
+	["SLIDER", localize "STR_SPOT_TIME"],
+	["SLIDER", localize "STR_COURAGE"],
+	["SLIDER", localize "STR_RELOAD_SPEED"],
+	["SLIDER", localize "STR_COMMANIDNG"]
 ];
-private _curatorSelected = [];
+
 private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
+private _curatorSelected = [];
 if (_is_single_unit) then 
 {
 	{
 		_skill_value = _entity skill (SKILLS select _forEachIndex);
-		_skill_value = linearConversion (_skillRange + [_skill_value,0,1,true]);
-		_x append [_skill_value, true];
+		_x append [[_skillRange], _skill_value, true];
 	} forEach _skill_choices;
 
 	_mode = if (_entity isKindOf "Man") then {"man"} else {"vehicle"};
@@ -54,17 +55,17 @@ if (_is_single_unit) then
 			_medic_class = if (_entity getUnitTrait "medic") then {1} else {0};
 		};
 		[
-			[localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_CLS", localize "STR_DOCTOR"], _medic_class, true],
-			[localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEngineer), true],
-			[localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEOD), true]
+			["COMBOBOX", localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_CLS", localize "STR_DOCTOR"], _medic_class, true],
+			["COMBOBOX", localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEngineer), true],
+			["COMBOBOX", localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEOD), true]
 		]
 	} else
 	{
 		_number_of_traits = N_TRAITS;
 		[
-			[localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "medic"), true],
-			[localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "engineer"), true],
-			[localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "explosiveSpecialist"), true]
+			["COMBOBOX", localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "medic"), true],
+			["COMBOBOX", localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "engineer"), true],
+			["COMBOBOX", localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "explosiveSpecialist"), true]
 		]
 	};
 	_choices append _skill_choices;
@@ -73,8 +74,7 @@ if (_is_single_unit) then
 	_entity = leader _entity;
 	{
 		_skill_value = _entity skill (SKILLS select _forEachIndex);
-		_skill_value = linearConversion (_skillRange + [_skill_value,0,1,true]);
-		_x append [_skill_value, true];
+		_x append [[_skillRange], _skill_value, true];
 	} forEach _skill_choices;
 
 	_mode = "group";
@@ -88,7 +88,7 @@ _dialogResult =
 [
 	localize "STR_SKILL",
 	_choices
-] call Ares_fnc_ShowChooseDialog;
+] call Achilles_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
 
@@ -98,14 +98,11 @@ _trait_values = if (_is_single_unit) then
 };
 _skill_values = _dialogResult select [_number_of_traits,count SKILLS];
 
-private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
-
 {
 	private _unit = _x;
 	{
 		private _skill_type = _x;
 		private _skill_value = _skill_values select _forEachIndex;
-		_skill_value = linearConversion ([0,1,_skill_value] + _skillRange);
 		if (local _unit) then
 		{
 			_unit setSkill [_skill_type, _skill_value];

@@ -39,6 +39,7 @@ class CfgFunctions
 			class hasACEExplosives;
 			class spawn;
 			class spawn_remote;
+			class ShowChooseDialog;
 		};
 
 		class selectUnit

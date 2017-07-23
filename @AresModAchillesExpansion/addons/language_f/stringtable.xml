@@ -1900,12 +1900,12 @@
         <Russian>Запрещено</Russian>
         <German>Verboten</German>
       </Key>
-      <Key ID="STR_WIND_FORCE">
-        <Original>Wind Force</Original>
-        <English>Wind Force</English>
-        <French>Foce du vent</French>
+      <Key ID="STR_WIND_SPEED">
+        <Original>Wind Speed</Original>
+        <English>Wind Speed</English>
+        <French>Vitesse du vent</French>
         <Russian>Сила ветра</Russian>
-        <German>Windstärke</German>
+        <German>Windgeschwindigkeit</German>
       </Key>
       <Key ID="STR_WIND_DIRECTION">
         <Original>Wind Direction</Original>
@@ -3013,6 +3013,12 @@
         <English>Error: Unit is a drone!</English>
         <French>Erreur: C'est un drone!</French>
         <German>Fehler: Einheit ist eine Drohne</German>
+      </Key>
+      <Key ID="STR_DAMAGE_COMPONENTS">
+        <Original>Damage Components</Original>
+        <English>Damage Components</English>
+        <French>Endommagez des composants</French>
+        <German>Komponenten beschädigen</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">

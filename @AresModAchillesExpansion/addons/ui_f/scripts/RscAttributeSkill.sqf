@@ -10,9 +10,13 @@ switch _mode do
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTESKILL_VALUE;
 		private _sliderRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
+		private _skill = skill _entity;
 		_ctrlValue slidersetrange _sliderRange;
-		_ctrlValue slidersetposition (skill _entity);
+		_ctrlValue slidersetposition _skill;
+		_ctrlValue ctrlSetTooltip str _skill;
+		_ctrlValue ctrlSetEventHandler["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
 		_ctrlValue ctrlenable alive _entity;
+			
 	};
 	case "confirmed": 
 	{
