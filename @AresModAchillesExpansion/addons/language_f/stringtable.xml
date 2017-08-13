@@ -2726,6 +2726,12 @@
 		<French>Volémie</French>
 		<German>Blutvolumen</German>
       </Key>
+	  <Key ID="STR_BLOOD_PRESSURE">
+        <Original>Blood pressure</Original>
+        <English>Blood pressure</English>
+		<French>Pression artérielle</French>
+		<German>Blutdruck</German>
+      </Key>
 	  <Key ID="STR_BULLET">
         <Original>Bullet</Original>
         <English>Bullet</English>

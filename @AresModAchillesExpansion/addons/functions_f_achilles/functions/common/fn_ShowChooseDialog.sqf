@@ -80,7 +80,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 // Iterate through control info list
 {
-	_x params [["_control_type","",[""]], ["_label_data","",["",[]]], ["_data","",["",[]]], ["_default_choice",0,[0,"",[]]], ["_force_default",false,[false]], ["_event_handlers",[],[[]]]];
+	_x params [["_control_type","",[""]], ["_label_data","",["",[]]], ["_data",[],[[]]], ["_default_choice",0,[0,"",[]]], ["_force_default",false,[false]], ["_event_handlers",[],[[]]]];
 	_control_type = toUpper _control_type;
 		
 	// If this dialog is named, attempt to get the default value from a previously displayed version

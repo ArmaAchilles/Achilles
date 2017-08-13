@@ -36,8 +36,8 @@ params ["_unit","_injury_type","_injury_value_list","_hits"];
 	};
 } forEach ["head", "body", "hand_r", "hand_l","leg_r", "leg_l"];
 
-(_injury_value_list select [6,4]) params ["_pain","_hearth_rate","_blood_volume","_unconscious"];
+(_injury_value_list select [6,4]) params ["_pain","_hearth_rate","_blood_pressure","_unconscious"];
 _unit setVariable ["ace_medical_pain", _pain, true];
 _unit setVariable ["ace_medical_heartRate", _hearth_rate, true];
-_unit setVariable ["ace_medical_bloodVolume", _blood_volume, true];
+_unit setVariable ["ace_medical_bloodVolume", _blood_pressure, true];
 if (_unconscious) then {[_unit, true, 10e10, true] call ace_medical_fnc_setUnconscious;};
