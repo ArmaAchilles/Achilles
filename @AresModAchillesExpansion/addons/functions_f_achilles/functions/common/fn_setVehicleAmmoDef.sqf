@@ -19,8 +19,6 @@
 
 params ["_vehicle",["_percentage",1,[1]]];
 
-hint "Achilles VehicleAmmoDef is being called.";
-
 _pylonMags = getPylonMagazines _vehicle;
 if (count _pylonMags == 0) then { //Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
 	_vehicle setVehicleAmmoDef _percentage;
