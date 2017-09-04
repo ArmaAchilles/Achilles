@@ -91,7 +91,6 @@ _artilleryAmmoDisplayName = [];
 {
 	_artilleryAmmoDisplayName pushBack (getText (configFile >> "CfgMagazines" >> _x >> "displayName"));
 } forEach (_battery select 2);
-diag_log _artilleryAmmoDisplayName;
 
 _numberOfGuns = [];
 {
