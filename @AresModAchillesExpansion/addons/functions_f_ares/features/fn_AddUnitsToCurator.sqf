@@ -1,36 +1,33 @@
-/*
-	Adds (or removes) a set of objects to all of the curator modules that are active.
-	
-	Parameters:
-		0 - Array - The set of objects to add or remove from curator control.
-		1 - Boolean - True to add the objects to curator control, false to remove them from curator control. Default is True.
-		2 - Boolean - True to also consider simple objects. Default is True.
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUTHOR: 			Anton Struyk, Kex
+// DATE: 			7/16/17
+// VERSION: 		AMAE003
+// DESCRIPTION:		Adds (or removes) a set of objects to all of the curator modules that are active.
+//					Has to be executed on a Zeus player's machine, not on the server.
+//
+// ARGUMENTS:		0: ARRAY - The set of objects to add or remove from curator control.
+//					1: BOOLEAN - True to add the objects to curator control, false to remove them from curator control. Default is True.
+//					2: Boolean - True to also consider simple objects. Default is True.
+//
+// RETURNS:			nothing
+//
+// Example:			[_object_list, true] call Ares_fnc_AddUnitsToCurator;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 private _unitsToModify = param [0, [], [[]]];
 private _addToCurator = param [1, true, [true]];
 private _includeSimpleObjects = param [2, false, [false]];
 
-if (isNil "Ares_addUnitsToCurator_server") then
-{
-	Ares_addUnitsToCurator_server =
-	{
-		if (_this select 1) then
-		{
-			{ _x addCuratorEditableObjects [(_this select 0), true]; } foreach allCurators;
-		}
-		else
-		{
-			{ _x removeCuratorEditableObjects [(_this select 0), true]; } foreach allCurators;
-		};
-	};
-	publicVariableServer "Ares_addUnitsToCurator_server";
-};
-
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
 
-[_unitsToModify, _addToCurator] remoteExec ["Ares_addUnitsToCurator_server", 2];
+if (_addToCurator) then
+{
+	[getAssignedCuratorLogic player, [_unitsToModify, true]] remoteExecCall ["addCuratorEditableObjects", 2];
+} else
+{
+	[getAssignedCuratorLogic player, [_unitsToModify, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
+};
 
 // handle simple objects
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
@@ -79,7 +76,13 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		};
 		if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create reference logic for simple object! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
 		
-		[_logic_list, true] remoteExec ["Ares_addUnitsToCurator_server", 2];
+		if (_addToCurator) then
+		{
+			[getAssignedCuratorLogic player, [_logic_list, true]] remoteExecCall ["addCuratorEditableObjects", 2];
+		} else
+		{
+			[getAssignedCuratorLogic player, [_logic_list, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
+		};
 	} else
 	{
 		{

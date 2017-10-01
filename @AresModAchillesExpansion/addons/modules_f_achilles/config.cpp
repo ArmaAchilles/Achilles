@@ -48,9 +48,9 @@ class CfgPatches
 			"Achilles_Module_Manage_Advanced_Compositions",
 			"Achilles_Module_Spawn_Effects",
 			"Achilles_Module_Spawn_Intel",
-			"Achilles_Module_Spawn_Advanced_Composition",
 			"Achilles_Module_Spawn_Explosives",
 			"Achilles_Module_Spawn_Carrier",
+			"Achilles_Module_Spawn_Advanced_Composition",
 			"Achilles_Module_Zeus_SwitchUnit",
 			"Achilles_Module_Zeus_AssignZeus"
 		};
@@ -104,7 +104,17 @@ class CfgPatches
 
 		requiredAddons[] =
 		{
-			"A3_Modules_F"
+			"A3_UI_F",
+			"A3_UI_F_Curator",
+			"A3_Functions_F",
+			"A3_Functions_F_Curator",
+			"A3_Modules_F",
+			"A3_Modules_F_Curator",
+			"achilles_language_f",
+			"achilles_functions_f_ares",
+			"achilles_functions_f_achilles",
+			"achilles_data_f_achilles",
+			"achilles_data_f_ares"
 		};
 	};
 };

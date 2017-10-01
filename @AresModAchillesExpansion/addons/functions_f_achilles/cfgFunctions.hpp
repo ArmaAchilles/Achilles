@@ -37,6 +37,9 @@ class CfgFunctions
 			class disablingExplosion;
 			class fakeExplosion;
 			class hasACEExplosives;
+			class spawn;
+			class spawn_remote;
+			class ShowChooseDialog;
 		};
 
 		class selectUnit
@@ -45,6 +48,18 @@ class CfgFunctions
 			
 			class switchUnit_start;
 			class switchUnit_exit;
+		};
+		
+		class changeAttributes
+		{
+			file = "\achilles\functions_f_achilles\functions\changeAttributes";
+			
+			class changeAbility;
+			class changePylonAmmo;
+			class changeSideAttribute;
+			class changeSide_local;
+			class changeSkills;
+			class damageComponents;
 		};
 
 		class functions_f_features
@@ -56,17 +71,12 @@ class CfgFunctions
 			class ambientAnimGetParams;
 			class Animation;
 			class Chatter;
-			class changeAbility;
 			class chute;
 			class eject_passengers;
 			class LaunchCM;
 			class SwitchZeusSide;
 			class CopyObjectsToClipboard;
 			class PasteObjectsFromClipboard;
-			class damageComponents;
-			class changePylonAmmo;
-			class changeSideAttribute;
-			class changeSkills;
 			class groupObjects;
 			class ungroupObjects;
 			class setCuratorVisionModes;

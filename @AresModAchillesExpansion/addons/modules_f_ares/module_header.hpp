@@ -21,8 +21,7 @@ _deleteModuleOnExit = true;
 {
 	// Store some local variables. These will be available in any module
 	// script that #includes this.
-	private ["_logic"];
-	_logic = _this select 0;
+	params ["_logic"];
 	// _units = _this select 1; // This is never really used. We don't link these modules with anything.
 	// _activated = _this select 2; // This is only used here. Dump it.
 	
@@ -39,5 +38,6 @@ _deleteModuleOnExit = true;
 	// necessary.
 	if (_logic getVariable ["ares_hasRunModuleLogicAlready", false]) then { _deleteModuleOnExit = false; breakTo MAIN_SCOPE_NAME; };
 	_logic setVariable ["ares_hasRunModuleLogicAlready", true];
+	Achilles_var_latestModuleLogic = _logic;
 	
 	// The code inside the module will actually run here...

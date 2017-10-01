@@ -190,5 +190,5 @@ switch(_smokeType) do
 	};
 };
 
-[_particleSources + [_sourceObject],_codeblock] remoteExec ["BIS_fnc_spawn",0,true];
+[_particleSources + [_sourceObject],_codeblock,0,true] call Achilles_fnc_spawn;
 _particleSources;

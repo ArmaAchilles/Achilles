@@ -9,7 +9,7 @@
 //	_this select 1:		ARRAY	- Target position given in world position (see getPosWorld)
 //	_this select 2:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (0 by default)
 //	_this select 4:		BOOL	- (optional) Line up before firing (false by default)
-//	_this select 5:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single (0 by default)
+//	_this select 5:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single, 3:talking guns (0 by default)
 //	_this select 6:		SCALAR	- (optional) Duration in sec (10 by default)
 //
 //	RETURNS:

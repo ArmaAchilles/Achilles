@@ -315,7 +315,7 @@ switch _mode do
 			if(isServer) then 
 			{
 				setDate _newDate;
-				[[_newDate], {setDate (_this select 0)}] remoteExec ["call", -2, "JIP_id_setDate"];
+				[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
 				forceWeatherChange;
 			};
 			if(not hasInterface) exitWith {};
@@ -355,7 +355,7 @@ switch _mode do
 			];
 			_handle = [_output,safezoneX - 0.01,safeZoneY + (1 - 0.125) * safeZoneH,true,"<t align='right' size=1,1' >%1</t>"] call BIS_fnc_typeText2;
 			// if(_isNotZeus) then {[1] call BIS_fnc_cinemaBorder};
-		}] remoteExec ["spawn",0];
+		}, 0] call Achilles_fnc_spawn;
 	};
 	case "onUnload": {};
 };

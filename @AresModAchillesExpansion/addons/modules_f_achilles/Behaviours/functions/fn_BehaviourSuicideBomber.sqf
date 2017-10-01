@@ -22,7 +22,7 @@ if(isNil "Achilles_var_ied_init_done") then
 	publicVariableServer "Achilles_fnc_fakeExplosion";
 	publicVariableServer "Achilles_fnc_disablingExplosion";
 	publicVariableServer "Achilles_fnc_deadlyExplosion";
-	
+
 	Achilles_var_ied_init_done = true;
 };
 
@@ -49,7 +49,8 @@ if (_object isKindOf "Man") then
     [
       [localize "STR_ENYO_EXPLOSION_SIZE", [localize "STR_ENYO_EXPLOSION_SIZE_SMALL", localize "STR_ENYO_EXPLOSION_SIZE_MEDIUM", localize "STR_ENYO_EXPLOSION_SIZE_LARGE"]],
       [localize "STR_ENYO_EXPLOSION_EFFECT", [localize "STR_ENYO_EXPLOSION_EFFECT_DEADLY", localize "STR_ENYO_EXPLOSION_EFFECT_DISABLING", localize "STR_ENYO_EXPLOSION_EFFECT_FAKE", localize "STR_ENYO_EXPLOSION_EFFECT_NONE"]],
-      [localize "STR_ENYO_ACTIVATION_DISTANCE", "", "10"],
+			[localize "STR_ENYO_ADD_SB_VEST", [localize "STR_YES", localize "STR_NO"]],
+			[localize "STR_ENYO_ACTIVATION_DISTANCE", "", "10"],
       [localize "STR_ENYO_PATROL_RADIUS", "", "100"],
       [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE", 2]
     ]
@@ -60,9 +61,10 @@ if (_object isKindOf "Man") then
 
   _explosionSize = _dialogResult select 0;
   _explosionEffect = _dialogResult select 1;
-  _activationDistance = _dialogResult select 2;
-  _patrolRadius = _dialogResult select 3;
-  _activationSide = _dialogResult select 4;
+	_addVest = _dialogResult select 2;
+  _activationDistance = _dialogResult select 3;
+  _patrolRadius = _dialogResult select 4;
+  _activationSide = _dialogResult select 5;
 
   _activationSide = switch (_activationSide) do
   {
@@ -73,13 +75,19 @@ if (_object isKindOf "Man") then
   	default {west};
   };
 
+	_addVest = switch (_addVest) do
+	{
+		case 0: {true};
+		case 1: {false};
+	};
+
   if (side _object == _activationSide) exitWith {[localize "STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
   _object setVariable ["isSB", true, true];
 
   _activationSide = [_activationSide];
 
-  [_object, _explosionSize, _explosionEffect, _activationSide, _patrolRadius, _activationDistance] remoteExec ["Achilles_fnc_createSuicideBomber", _object, false];
+  [_object, _explosionSize, _explosionEffect, _activationSide, _patrolRadius, _activationDistance, _addVest] remoteExec ["Achilles_fnc_createSuicideBomber", _object, false];
 }
 else
 {

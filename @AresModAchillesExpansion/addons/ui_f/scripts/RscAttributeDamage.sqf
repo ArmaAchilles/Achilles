@@ -1,23 +1,26 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_unit = _this select 2;
+params ["_mode", "_params", "_unit"];
 
 switch _mode do 
 {
 	case "onLoad": 
 	{
-		_display = _params select 0;
-		_ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEDAMAGE_VALUE;
-		_ctrlSlider slidersetposition (1 - damage _unit) * 10;
+		private _display = _params select 0;
+		private _health = (1 - damage _unit);
+		private _ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEDAMAGE_VALUE;
+		_ctrlSlider sliderSetRange [0, 1];
+		_ctrlSlider sliderSetSpeed [0.1, 0.3];
+		_ctrlSlider slidersetposition _health;
+		_ctrlSlider ctrlSetTooltip str _health;
+		_ctrlSlider ctrlSetEventHandler["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
 		_ctrlSlider ctrlenable alive _unit;
 	};
 	case "confirmed": 
 	{
-		_display = _params select 0;
-		_ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEDAMAGE_VALUE;
-		_damage = 1 - sliderposition _ctrlSlider * 0.1;
+		private _display = _params select 0;
+		private _ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEDAMAGE_VALUE;
+		private _damage = 1 - sliderposition _ctrlSlider;
 		if (abs (_damage - damage _unit) > 0.01) then 
 		{
 			_mode = if (_unit isKindOf "Man") then {"man"} else {"vehicle"};

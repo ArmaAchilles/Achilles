@@ -7,9 +7,10 @@ _entity = _this select 2;
 _idcs = [
 	IDC_RSCATTRIBUTELOCK_LOCKED,
 	IDC_RSCATTRIBUTELOCK_UNLOCKED,
-	IDC_RSCATTRIBUTELOCK_UNLOCKED
+	IDC_RSCATTRIBUTELOCK_UNLOCKED,
+	IDC_RSCATTRIBUTELOCK_LOCKED
 ];
-_states = [2,1,0];
+_states = [3,1,0,2];
 
 switch _mode do {
 	case "onLoad": {
@@ -64,15 +65,13 @@ switch _mode do {
 		_lock = _states select _selectedIndex;
 		if (locked _entity == _lock) exitwith {};
 		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
-		if (local _entity) then {
-			{_x lock _lock} forEach _curatorSelected;
-		} else {
-			[[_curatorSelected, _lock], {
-				_entities = _this select 0;
-				_lock = _this select 1;
-				{_x lock _lock} foreach _entities;
-			}] remoteExec ["spawn", _entity];
-		};
+		{
+			if (local _x) then {
+				_x lock _lock;
+			} else {
+				[_x, _lock] remoteExecCall ["lock", _x];
+			};
+		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false
 	};

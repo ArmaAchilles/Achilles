@@ -89,56 +89,92 @@ else
 
 if (isNil "_units") exitWith {};
 {
-	[
-		[_x,_NVD,_TacLight_IR],
+	_unit = _x;
+
+	if (_NVD > 0) then
+	{
+		switch (_NVD) do
 		{
-			_unit = _this select 0;
-			_NVD = _this select 1;
-			_TacLight_IR = _this select 2;
-			if (_NVD > 0) then
+			case 1:
 			{
-				switch (_NVD) do
+				if (local _unit) then
 				{
-					case 1:
-					{
-						_unit linkItem "NVGoggles";
-					};
-					case 2:
-					{
-						_unit linkItem "NVGogglesB_blk_F";
-					};
-					case 3:
-					{
-						{
-							_unit unassignItem _x;
-							_unit removeItem _x;
-						} forEach ["NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","NVGoggles_tna_F"];
-					};
+					_unit linkItem "NVGoggles";
+				} else
+				{
+					[_unit, "NVGoggles"] remoteExecCall ["linkItem", _unit];
 				};
 			};
-			if (_TacLight_IR > 0) then
+			case 2:
 			{
-				switch (_TacLight_IR) do 
+				if (local _unit) then
 				{
-					case 1:
-					{
-						_unit removePrimaryWeaponItem "acc_flashlight";
-						_unit removePrimaryWeaponItem "acc_pointer_IR";
-					};
-					case 2:
-					{
-						_unit removePrimaryWeaponItem "acc_pointer_IR";
-						_unit addPrimaryWeaponItem "acc_flashlight";
-					};
-					case 3:
-					{
-						_unit removePrimaryWeaponItem "acc_flashlight";
-						_unit addPrimaryWeaponItem "acc_pointer_IR";
-					};
+					_unit linkItem "NVGogglesB_blk_F";
+				} else
+				{
+					[_unit, "NVGogglesB_blk_F"] remoteExecCall ["linkItem", _unit];
 				};
 			};
-		}	
-	] remoteExec ["spawn",_x];
+			case 3:
+			{
+				if (local _unit) then
+				{
+					{
+						_unit unassignItem _x;
+						_unit removeItem _x;
+					} forEach ["NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","NVGoggles_tna_F"];
+				} else
+				{
+					{
+						[_unit, _x] remoteExecCall ["unassignItem", _unit];
+						[_unit, _x] remoteExecCall ["removeItem", _unit];
+					} forEach ["NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP","O_NVGoggles_ghex_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","NVGoggles_tna_F"];
+				};
+			};
+		};
+	};
+	if (_TacLight_IR > 0) then
+	{
+		switch (_TacLight_IR) do 
+		{
+			case 1:
+			{
+				if (local _unit) then
+				{
+					_unit removePrimaryWeaponItem "acc_flashlight";
+					_unit removePrimaryWeaponItem "acc_pointer_IR";
+				} else
+				{
+					[_unit, "acc_flashlight"] remoteExecCall ["removePrimaryWeaponItem", _unit];
+					[_unit, "acc_pointer_IR"] remoteExecCall ["removePrimaryWeaponItem", _unit];
+				};
+			};
+			case 2:
+			{
+				if (local _unit) then
+				{
+					_unit removePrimaryWeaponItem "acc_pointer_IR";
+					_unit addPrimaryWeaponItem "acc_flashlight";
+				} else
+				{
+					[_unit, "acc_pointer_IR"] remoteExecCall ["removePrimaryWeaponItem", _unit];
+					[_unit, "acc_flashlight"] remoteExecCall ["addPrimaryWeaponItem", _unit];
+				};
+			};
+			case 3:
+			{
+				if (local _unit) then
+				{
+					_unit removePrimaryWeaponItem "acc_flashlight";
+					_unit addPrimaryWeaponItem "acc_pointer_IR";
+				} else
+				{
+					[_unit, "acc_flashlight"] remoteExecCall ["removePrimaryWeaponItem", _unit];
+					[_unit, "acc_pointer_IR"] remoteExecCall ["addPrimaryWeaponItem", _unit];
+				};
+			};
+		};
+	};
 } forEach _units;
 
 [localize "STR_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;

@@ -7,7 +7,6 @@ class CfgFunctions
 		{
 			file = "\achilles\functions_f_ares\common";
 			
-			class BroadcastCode;
 			class CreateLogic;
 			class GetArrayDataFromUser;
 			class GetFarthest;

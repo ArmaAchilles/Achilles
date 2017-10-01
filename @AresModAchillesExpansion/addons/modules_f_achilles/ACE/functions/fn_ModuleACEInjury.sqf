@@ -11,14 +11,12 @@
 
 #define INJURY_TYPES	["bullet", "grenade", "explosive", "shell", "stab", "vehiclecrash"]
 #define HEARTH_RATES	[160, 80, 40, 19]
-#define BLOOD_VOLUMES	[100, 70, 40]
+#define BLOOD_PRESSURES	[100, 70, 40]
 
 private ["_injury_value_list","_selected_units","_value"];
 
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 private _mode = if (!isNull _unit) then {"single"} else {"multiple"};
-
-private _severity_options = [localize "STR_NONE_INJURY",localize "STR_RANDOM",localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
 
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
@@ -31,23 +29,25 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		Achilles_var_setInjury_init_done = true;
 	};
 	
+	private _severity_options = [localize "STR_NONE_INJURY", localize "STR_RANDOM", localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
+	
 	_dialogResult =
 	[
 		localize "STR_ACE_INJURY",
 		[
-			[localize "STR_TYPE",[localize "STR_BULLET", localize "STR_GRENADE", localize "STR_EXPLOSIVE", localize "STR_SHRAPNEL", localize "STR_STAB", localize "STR_CRASH"]],
-			[localize "STR_HEAD",_severity_options],
-			[localize "STR_TORSO",_severity_options],
-			[localize "STR_RIGHT_ARM",_severity_options],
-			[localize "STR_LEFT_ARM",_severity_options],
-			[localize "STR_RIGHT_LEG",_severity_options],
-			[localize "STR_LEFT_LEG",_severity_options],
-			[localize "STR_PAIN_LEVEL","SLIDER"],
-			[localize "STR_HEARTH_RATE",[localize "STR_HIGH",localize "STR_NORMAL",localize "STR_LOW",localize "STR_TOO_LOW"],1],
-			[localize "STR_BLOOD_VOLUME",[localize "STR_NORMAL",localize "STR_LOW",localize "STR_TOO_LOW"]],
-			[localize "STR_FORCE_UNCONSIOUSNESS",[localize "STR_FALSE",localize "STR_TRUE"]]
+			["COMBOBOX", localize "STR_TYPE",[localize "STR_BULLET", localize "STR_GRENADE", localize "STR_EXPLOSIVE", localize "STR_SHRAPNEL", localize "STR_STAB", localize "STR_CRASH"]],
+			["COMBOBOX", localize "STR_HEAD",_severity_options],
+			["COMBOBOX", localize "STR_TORSO",_severity_options],
+			["COMBOBOX", localize "STR_RIGHT_ARM",_severity_options],
+			["COMBOBOX", localize "STR_LEFT_ARM",_severity_options],
+			["COMBOBOX", localize "STR_RIGHT_LEG",_severity_options],
+			["COMBOBOX", localize "STR_LEFT_LEG",_severity_options],
+			["SLIDER", localize "STR_PAIN_LEVEL"],
+			["COMBOBOX", localize "STR_HEARTH_RATE", [[localize "STR_HIGH", format ["(%1 BPM)", (HEARTH_RATES select 0)]], [localize "STR_NORMAL", format ["(%1 BPM)", (HEARTH_RATES select 1)]], [localize "STR_LOW", format ["(%1 BPM)", (HEARTH_RATES select 2)]], [localize "STR_TOO_LOW", format ["(%1 BPM)", (HEARTH_RATES select 3)]]], 1],
+			["COMBOBOX", localize "STR_BLOOD_PRESSURE",[[localize "STR_NORMAL", format ["(%1 systolic)", (BLOOD_PRESSURES select 0)]], [localize "STR_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 1)]], [localize "STR_TOO_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 2)]]]],
+			["COMBOBOX", localize "STR_FORCE_UNCONSIOUSNESS",[localize "STR_FALSE",localize "STR_TRUE"]]
 		]
-	] call Ares_fnc_ShowChooseDialog;
+	] call Achilles_fnc_ShowChooseDialog;
 
 	// handle escape dialog
 	if (count _dialogResult == 0) exitWith {};
@@ -72,8 +72,8 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	_injury_value_list pushBack _pain;
 	_hearth_rate = HEARTH_RATES select (_dialogResult select 8);
 	_injury_value_list pushBack _hearth_rate;
-	_blood_volume = BLOOD_VOLUMES select (_dialogResult select 9);
-	_injury_value_list pushBack _blood_volume;
+	_blood_pressure = BLOOD_PRESSURES select (_dialogResult select 9);
+	_injury_value_list pushBack _blood_pressure;
 	_unconscious = if (_dialogResult select 10 == 1) then {true} else {false};
 	_injury_value_list pushBack _unconscious;
 
@@ -110,16 +110,18 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		Achilles_var_setInjury_init_done = true;
 	};
 	
+	private _severity_options = [[localize "STR_NONE_INJURY", "(0)"], localize "STR_RANDOM", [localize "STR_MODERATE_INJURY", "(0.5)"], [localize "STR_SEVERE", "(0.9)"]];
+	
 	_dialogResult =
 	[
 		localize "STR_INJURY_WITHOUT_ACE",
 		[
-			[localize "STR_HEAD",_severity_options],
-			[localize "STR_TORSO",_severity_options],
-			[localize "STR_ARMS",_severity_options],
-			[localize "STR_LEGS",_severity_options]
+			["COMBOBOX", localize "STR_HEAD",_severity_options],
+			["COMBOBOX", localize "STR_TORSO",_severity_options],
+			["COMBOBOX", localize "STR_ARMS",_severity_options],
+			["COMBOBOX", localize "STR_LEGS",_severity_options]
 		]
-	] call Ares_fnc_ShowChooseDialog;
+	] call Achilles_fnc_ShowChooseDialog;
 	
 	// handle escape dialog
 	if (count _dialogResult == 0) exitWith {};

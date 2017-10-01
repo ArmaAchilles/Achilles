@@ -4,10 +4,14 @@
 //	VERSION: 5.0
 //  DESCRIPTION: Initalization function; this function is called when the curator display is loaded for the first time
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 _tree_ctrl = param [0,controlNull,[controlNull]];
 
 private _display_reload = false;
+
+// broadcast safe spawn
+publicVariable "Achilles_fnc_spawn_remote";
 
 // trick to unlock ares/achilles modules for Zeus if mission was not set up properly
 if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player))) then
@@ -28,7 +32,7 @@ if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic
 	{
 		_curatorModule = _this select 0;
 		_curatorModule addCuratorAddons ["achilles_modules_f_achilles","achilles_modules_f_ares"];
-	}] remoteExec ["spawn",2];
+	}, 2] call Achilles_fnc_spawn;
 	
 	// reload interface
 	waitUntil {sleep 1; "achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player)};
@@ -62,6 +66,8 @@ _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_
 _curatorModule addEventHandler ["CuratorObjectDeleted", {_this call Achilles_fnc_HandleCuratorObjectDeleted; }];
 _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fnc_HandleCuratorWpPlaced; }];
 
+
+
 // Handle Disconnect
 [[],
 {
@@ -83,7 +89,13 @@ _curatorModule addEventHandler ["CuratorWaypointPlaced", {_this call Achilles_fn
 		};
 		_handled;
 	}]
-}] remoteExecCall ["call",2];
+}, 2] call Achilles_fnc_spawn;
+
+// reset map position
+private _camPos = position curatorCamera;
+private _curatorMapCtrl = ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP);
+_curatorMapCtrl ctrlMapAnimAdd [0, 0.1, _camPos]; 
+ctrlMapAnimCommit _curatorMapCtrl;
 
 // Unlock all available attributes
 _curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];

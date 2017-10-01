@@ -9,7 +9,9 @@
     _this select: 1 - NUMBER - Explosion Size
     _this select: 2 - NUMBER - Explosion Effect
     _this select: 3 - [SIDE] - Activation Side
-		_this select: 4 - STRING - Patrol Radius
+	_this select: 4 - STRING - Patrol Radius
+	_this select: 5 - STRING - Activation Distance
+	_this select: 6 - BOOL - Add Vest
 
 	Returns:
 		Nothing
@@ -21,6 +23,7 @@ _explosionEffect = _this select 2;
 _activationSide = _this select 3;
 _patrolRadius = _this select 4;
 _activationDistance = _this select 5;
+_addVest = _this select 6;
 
 _patrolRadius = parseNumber _patrolRadius;
 _activationDistance = parseNumber _activationDistance;
@@ -39,6 +42,12 @@ _dummyObject attachTo [_bomber,[0,0,0]];
 _bomberGroup = group _bomber;
 _bomberGroup setBehaviour "CARELESS";
 _bomberGroup setSpeedMode "LIMITED";
+
+if (_addVest) then
+{
+	removeVest _bomber;
+	_bomber addVest "V_HarnessO_brn";
+};
 
 if (_patrolRadius > 0) then
 {

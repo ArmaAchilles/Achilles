@@ -26,7 +26,7 @@ if (count _dialogResult > 0) then
 		_object call compile format["%1 = _this;",_var];
 	} else
 	{
-		[_object, compile format["%1 = _this;",_var]] remoteExec ["spawn",0];
+		[_object, compile format["%1 = _this;",_var], 0]  call Achilles_fnc_spawn;
 	};
 };
 

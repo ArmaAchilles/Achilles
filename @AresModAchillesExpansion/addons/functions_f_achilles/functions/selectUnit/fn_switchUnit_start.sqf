@@ -1,17 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 6/19/17
-//	VERSION: 3.0
-//  DESCRIPTION: application of "selectPlayer" script command.
+// AUTHOR: 			Kex
+// DATE: 			6/19/17
+// VERSION: 		AMAE003
+// DESCRIPTION:		application of "selectPlayer" script command.
 //
-//	ARGUMENTS:
-//	_this select 0:			OBJECT	- Unit to switch to.
+// ARGUMENTS:		0: OBJECT - Unit to switch to.
 //
-//	RETURNS:
-//	nothing (procedure)
+// RETURNS:			nothing
 //
-//	Example:
-//	[_unit] call Achilles_fnc_switchUnit_start;
+// Example:			[_unit] call Achilles_fnc_switchUnit_start;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 private _error = "";

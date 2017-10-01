@@ -94,7 +94,7 @@ switch _mode do
 				[_x,_light] spawn _codeBlock;
 			} else 
 			{
-				[[_x,_light],_codeBlock] remoteExec ["spawn", _x];
+				[[_x,_light],_codeBlock, _x] call Achilles_fnc_spawn;
 			};
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];

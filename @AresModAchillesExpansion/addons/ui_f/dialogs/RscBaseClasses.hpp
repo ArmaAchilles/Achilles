@@ -132,6 +132,7 @@ class RscMapControl;
 class RscActivePicture;
 class RscPicture;
 class RscTree;
+class RscTreeSearch: RscTree {};
 
 // Forward declare some 3den base classes.
 class ctrlDefault;
@@ -147,13 +148,22 @@ class ctrlControlsGroup: ctrlDefault {};
 class ctrlControlsGroupNoScrollbars: ctrlControlsGroup {};
 
 // Achilles base classes
+class RscAchillesXSliderH: RscXSliderH
+{
+	colorBackground[] = {0,0,0,1};
+};
 class RscAchillesEdit: RscEdit
 {		
 	autocomplete = "general";
+	colorBackground[] = {0,0,0,0};
 };
 class RscAchillesMessageEdit: RscAchillesEdit
 {
 	style = 16;
 	linespacing = 1;
 	default = 1;
+};
+class RscAchillesScriptEdit: RscAchillesMessageEdit
+{		
+	autocomplete = "scripting";
 };

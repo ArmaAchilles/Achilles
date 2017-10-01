@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+
+'''
+AUTHOR: 		Kex
+DATE: 			7/16/17
+VERSION: 		AMAE002
+DESCRIPTION: 	Converts given *.txt with markdown syntax to steam syntax
+
+ARGUMENTS:		1) *.txt file
+
+RETURNS:		nothing
+
+EXAMPLE:		python markdown_changeLog_to_steam.py markdown_test.txt
+'''
+
+from __future__ import print_function
 from sys import argv, exit
 from os.path import basename
 from time import sleep
@@ -18,19 +34,19 @@ def get_and_check_file(extension):
 		if file_path[1] == "'":
 			file_path = file_path[1:-1]
 	except ValueError:
-		print '\nMissing a valid file as argument! Drag and drop a *.{} file on {}! \n\n'.format(extension,basename(__file__))
-		raw_input ('Close program with ENTER...')
+		print('\nMissing a valid file as argument! Drag and drop a *.{} file on {}! \n\n'.format(extension,basename(__file__)))
+		input('Close program with ENTER...')
 		exit()
 	file_name = basename(file_path)
 	if file_name[-extension_length:] != extension:
-		print '\nFile must be of type *.{}!\n\n'.format(extension)
-		raw_input ('Close program with ENTER...')
+		print('\nFile must be of type *.{}!\n\n'.format(extension))
+		input('Close program with ENTER...')
 		exit()
 	return (file_path,file_name)
 	
 if __name__ == "__main__":
 	file_path, file_name = get_and_check_file("txt")
-	print "\nConverting {}...".format(file_name)
+	print("\nConverting {}...".format(file_name))
 	with open(file_path,"r") as old_file:
 		with open(file_path[:-4] + "_steam.txt","w") as new_file:
 			for line in old_file.readlines():
@@ -53,6 +69,4 @@ if __name__ == "__main__":
 						new_line += link + "]" + link_text + "[/url]" + line[(end_index+1):]
 						line = new_line
 				new_file.write(line)
-	sleep(1)
-	print "\nConversion completed!"
-	sleep(2)
+	print("\nConversion completed!")

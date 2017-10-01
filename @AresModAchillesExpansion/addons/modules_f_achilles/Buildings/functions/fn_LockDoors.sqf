@@ -55,7 +55,7 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 		while {isNull player} do {uiSleep 1};
 		call Achilles_fnc_addBreachDoorAction;
 		player addEventHandler ["Respawn",{call Achilles_fnc_addBreachDoorAction}];
-	}] remoteExec ["spawn",0,true];
+	}, 0, "Achilles_id_breachInit"] call Achilles_fnc_spawn;
 };
 
 if (_mode < 2) then

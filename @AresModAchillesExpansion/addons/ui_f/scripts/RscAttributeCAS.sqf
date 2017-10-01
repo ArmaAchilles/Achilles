@@ -22,10 +22,10 @@ switch _mode do {
 			{
 				_planeCfg = _x;
 				_vehicle = configName (_planeCfg);
-				if ((_vehicle isKindOf "Plane") and (getNumber (_planeCfg >> "scope") == 2)) then
+                
+				if ((_vehicle isKindOf "Plane") and (getNumber (_planeCfg >> "scope") == 2 or getNumber (_planeCfg >> "scopeCurator") == 2)) then
 				{
 					_weapon_classes = getarray (_planeCfg >> "weapons");
-					// find and add dynamic weapons to list
 					if (isClass (_planeCfg >> "Components" >> "TransportPylonsComponent")) then
 					{
 						_pylon_cfgs = (_planeCfg >> "Components" >> "TransportPylonsComponent" >> "pylons") call BIS_fnc_returnChildren;

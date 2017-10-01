@@ -58,18 +58,14 @@ switch _mode do {
 		};
 		if (_previousStanceId == _selected) exitWith {};
 		_stance = _stances select _selected;
-		if (local _entity) then {
-			{_x setunitpos _stance} foreach _entities;
-		} else {
-			[[_entities, _stance],
+		{
+			if (local _x) then
 			{
-				_entities = _this select 0;
-				_stance = _this select 1;
-				{
-					_x setUnitPos _stance;
-				} forEach _entities;
-			}] remoteExec ["spawn", _entities select 0];
-		};
+				_x setunitpos _stance;
+			} else {
+				[_x, _stance] remoteExecCall ["setunitpos", _x];
+			};
+		} forEach _curatorSelected;
 		false
 	};
 	case "onUnload": {

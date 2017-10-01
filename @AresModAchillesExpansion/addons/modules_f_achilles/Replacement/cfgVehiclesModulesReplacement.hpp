@@ -8,6 +8,10 @@ class ModuleCASGun_F : ModuleCAS_F
 {
 	scopeCurator = 0;
 };
+class ModuleCASBomb_F : ModuleCASGun_F
+{
+	scopeCurator = 0;
+};
 
 class Achilles_Module_FireSupport_CASGun : ModuleCASGun_F 
 {

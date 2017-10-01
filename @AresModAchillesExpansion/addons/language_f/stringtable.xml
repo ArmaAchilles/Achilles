@@ -797,11 +797,11 @@
         <German>Patrouillieren</German>
       </Key>
       <Key ID="STR_PATROL_LOITER">
-        <Original>Patrol/Loiter (Heli)</Original>
-        <English>Patrol/Loiter (Heli)</English>
-		<Russian>Патруль/ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
-        <French>Patrouiller/Circuler (Hélico)</French>
-        <German>Patrouillieren/Kreisen (Heli)</German>
+        <Original>Patrol/Loiter</Original>
+        <English>Patrol/Loiter</English>
+		<Russian>Патруль/ЗАВИСАНИЕ</Russian>
+        <French>Patrouiller/Circuler</French>
+        <German>Patrouillieren/Kreisen</German>
       </Key>
 	  <Key ID="STR_NVD_TACLIGHT_IR">
         <Original>NVD/Tactical Light/IR</Original>
@@ -1900,12 +1900,12 @@
         <Russian>Запрещено</Russian>
         <German>Verboten</German>
       </Key>
-      <Key ID="STR_WIND_FORCE">
-        <Original>Wind Force</Original>
-        <English>Wind Force</English>
-        <French>Foce du vent</French>
+      <Key ID="STR_WIND_SPEED">
+        <Original>Wind Speed</Original>
+        <English>Wind Speed</English>
+        <French>Vitesse du vent</French>
         <Russian>Сила ветра</Russian>
-        <German>Windstärke</German>
+        <German>Windgeschwindigkeit</German>
       </Key>
       <Key ID="STR_WIND_DIRECTION">
         <Original>Wind Direction</Original>
@@ -2726,6 +2726,12 @@
 		<French>Volémie</French>
 		<German>Blutvolumen</German>
       </Key>
+	  <Key ID="STR_BLOOD_PRESSURE">
+        <Original>Blood pressure</Original>
+        <English>Blood pressure</English>
+		<French>Pression artérielle</French>
+		<German>Blutdruck</German>
+      </Key>
 	  <Key ID="STR_BULLET">
         <Original>Bullet</Original>
         <English>Bullet</English>
@@ -2911,6 +2917,10 @@
         <French>Le camp d'activation</French>
         <German>Aktivierungsseite</German>
       </Key>
+      <Key ID="STR_ENYO_ADD_SB_VEST">
+        <Original>Add Vest</Original>
+        <English>Add Vest</English>
+      </Key>
       <Key ID="STR_ENYO_ADD_ECM_TO_VEHICLE">
         <Original>Equip with IED jammer</Original>
         <English>Equip with IED jammer</English>
@@ -3013,6 +3023,12 @@
         <English>Error: Unit is a drone!</English>
         <French>Erreur: C'est un drone!</French>
         <German>Fehler: Einheit ist eine Drohne</German>
+      </Key>
+      <Key ID="STR_DAMAGE_COMPONENTS">
+        <Original>Damage Components</Original>
+        <English>Damage Components</English>
+        <French>Endommagez des composants</French>
+        <German>Komponenten beschädigen</German>
       </Key>
     </Container>
     <Container name="cfg Waypoints">
