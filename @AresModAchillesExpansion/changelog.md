@@ -15,11 +15,10 @@ X.X.Xc					<br>
 Change log				<br>
 ───────────────────────────────────	<br>
 V.0.0.9
-* Change:	  Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
-* Change:	  Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
-* Change:	  Use RscTreeSearch ctrl class for Advanced Compositions.
-* Change:	  Add objects to Zeus: Only adds objects to the Zeus player that used the module.
-* Change:	  Adjusted name of Patrol/Loiter module to emphasize that loiter is not restricted to choppers.
+* Change:	Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
+* Change:	Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
+* Change:	Add objects to Zeus: Only adds objects to the Zeus player that used the module.
+* Change:	Adjusted name of Patrol/Loiter module to emphasize that loiter is not restricted to choppers.
 * Change:   displayName config parameter is now used when selecting ammo types when using the Fire Mission module. This improves user-friendliness and allows easier selection of muntion types.
 * Feature:	Attribute window: Sliders show actual value as a tooltip.
 * Feature:	Achilles_fnc_showChooseDialog, a revised version of Ares_fnc_showChooseDialog (the latter is kept for compatibility reasons).
