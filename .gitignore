@@ -1,5 +1,6 @@
 @Release/*
-@AresModAchillesExpansion/keys/*
+*.bikey
+*.biprivatekey
 *.pbo
 *.bisign
 *.lnk
