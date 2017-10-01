@@ -22,10 +22,7 @@ switch _mode do {
 			{
 				_planeCfg = _x;
 				_vehicle = configName (_planeCfg);
-                if(toLower _vehicle == "b_plane_fighter_01_cluster_f") then
-                {
-                    systemChat "ll";
-                };
+                
 				if ((_vehicle isKindOf "Plane") and (getNumber (_planeCfg >> "scope") == 2 or getNumber (_planeCfg >> "scopeCurator") == 2)) then
 				{
 					_weapon_classes = getarray (_planeCfg >> "weapons");
@@ -38,11 +35,6 @@ switch _mode do {
 							if (count getArray (configFile >> "cfgMagazines" >> _pylon_mag >> "turret") > 0) then {_gunner_is_driver = false};
 						} forEach _pylon_cfgs;
 					};
-                    if(toLower _vehicle == "b_plane_fighter_01_cluster_f") then
-                    {
-                        systemChat str _weapon_classes;
-                        copyToClipboard str _weapon_classes;
-                    };
 					{
 						_weaponTypes = _x;						
 						_weapons = [];
