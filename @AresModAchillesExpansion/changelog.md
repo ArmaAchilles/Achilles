@@ -14,6 +14,20 @@ X.X.Xc					<br>
 
 Change log				<br>
 ───────────────────────────────────	<br>
+V.0.0.9
+* Change:	Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
+* Change:	Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
+* Change:	Use RscTreeSearch ctrl class for Advanced Compositions.
+* Change:	Add objects to Zeus: Only adds objects to the Zeus player that used the module.
+* Change:	Adjusted name of Patrol/Loiter module to emphasize that loiter is not restricted to choppers.
+* Feature:	Attribute window: Sliders show actual value as a tooltip.
+* Feature:	Achilles_fnc_showChooseDialog, a revised version of Ares_fnc_showChooseDialog (the latter is kept for compatibility reasons).
+* Feature:	New useful global veriable: Achilles_var_latestModuleLogic.
+* Fix:      CAS Bomb Strike: Module was listed twice and cluster bombs were not available.
+* Fix:	    Hotkey for remote control and switch unit features did not work while the map was open.
+* Fix:	    Set map position to camera position after loading interface.
+* Fix:	    Fix weapons not being removed when Pylon Loadout is changed (by @CoxLedere).
+
 V.0.0.8c
 * Change:	Removed Zeus wind sound effect for remote control (by @CreepPork).
 * Change:	If Ares is enabled at the same time, Achilles will just spawn a warning message and not block Zeus entirely.
