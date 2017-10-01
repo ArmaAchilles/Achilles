@@ -76,7 +76,7 @@ goto EOS
 echo.
 %Windir%\System32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor Red "ERROR: %1"
 echo.
-REM pause
+pause
 GOTO:EOF
 
 :EOS
