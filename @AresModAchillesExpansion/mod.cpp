@@ -1,6 +1,6 @@
 name = "Ares Mod - Achilles Expansion (0.1.0)";
 picture = "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa";
-author = "Ares by Anton Struyk, AE by Kex";
+author = "ArmA 3 Achilles Mod Inc.";
 description = "Ares Mod - Achilles Expansion (0.1.0)";
 logo = "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa";
 logoSmall = "\achilles\data_f_achilles\icons\icon_achilles_small.paa";
