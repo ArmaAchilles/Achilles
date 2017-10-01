@@ -66,7 +66,8 @@ if not exist "%tmpDir%" (
 
 cd /d %sourceDir%
 for /d %%D in (*) do (
-	start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs & echo. & pause"
+	REM start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs & echo. & pause"
+	start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
 )
 
 goto EOS
@@ -75,7 +76,7 @@ goto EOS
 echo.
 %Windir%\System32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor Red "ERROR: %1"
 echo.
-pause
+REM pause
 GOTO:EOF
 
 :EOS
