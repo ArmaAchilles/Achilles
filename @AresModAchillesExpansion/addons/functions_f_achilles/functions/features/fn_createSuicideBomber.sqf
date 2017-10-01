@@ -10,6 +10,7 @@
     _this select: 2 - NUMBER - Explosion Effect
     _this select: 3 - [SIDE] - Activation Side
 		_this select: 4 - STRING - Patrol Radius
+		_this select: 5 - BOOL - Add Vest
 
 	Returns:
 		Nothing
@@ -39,6 +40,12 @@ _dummyObject attachTo [_bomber,[0,0,0]];
 _bomberGroup = group _bomber;
 _bomberGroup setBehaviour "CARELESS";
 _bomberGroup setSpeedMode "LIMITED";
+
+if (_addVest)
+{
+	removeVest _bomber;
+	_bomber addVest "V_HarnessO_brn";
+};
 
 if (_patrolRadius > 0) then
 {

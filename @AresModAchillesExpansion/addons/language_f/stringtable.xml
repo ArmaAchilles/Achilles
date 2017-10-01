@@ -2917,6 +2917,10 @@
         <French>Le camp d'activation</French>
         <German>Aktivierungsseite</German>
       </Key>
+      <Key ID="STR_ENYO_ADD_SB_VEST">
+        <Original>Add Vest</Original>
+        <English>Add Vest</English>
+      </Key>
       <Key ID="STR_ENYO_ADD_ECM_TO_VEHICLE">
         <Original>Equip with IED jammer</Original>
         <English>Equip with IED jammer</English>
