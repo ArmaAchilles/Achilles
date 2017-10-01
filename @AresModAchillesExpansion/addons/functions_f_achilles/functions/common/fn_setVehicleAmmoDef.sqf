@@ -20,12 +20,13 @@
 params ["_vehicle",["_percentage",1,[1]]];
 
 _pylonMags = getPylonMagazines _vehicle;
-_vehicle setVehicleAmmoDef _percentage;
+if (count _pylonMags == 0) then { //Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
+	_vehicle setVehicleAmmoDef _percentage;
+} else {
+	_vehicle setVehicleAmmo _percentage;
+};
 {
 	private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
 	_vehicle setPylonLoadOut [_forEachIndex + 1, _x];
 	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];	
 } forEach _pylonMags;
-
-
-

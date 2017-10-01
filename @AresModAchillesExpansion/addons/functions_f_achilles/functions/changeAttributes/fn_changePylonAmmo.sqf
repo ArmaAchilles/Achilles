@@ -43,6 +43,7 @@ _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
 {
 	_plane = _x;
+	{ _plane removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach _allCurrentPylonMagazines;
 	{
 		private _magIndex = _x;
 		private _pylonIndex = _forEachIndex + 1;
