@@ -30,8 +30,7 @@ _activationDistance = parseNumber _activationDistance;
 
 if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide]};
 
-// set 1 for debug sound
-_sound = 0;
+_hasSpoken = 0;
 _targets = ["Car", "Tank", "Man"];
 
 removeAllWeapons _bomber;
@@ -105,10 +104,13 @@ while {alive _bomber && _check} do
 									_bomber doMove (getPos _enemyUnit);
 									_bomber addRating -10000;
 
-									if (_sound == 1) then
+									if (_hasSpoken == 0) then
 									{
-										[_bomber, "FD_Start_F"] remoteExec ["say3D", 0, _bomber];
-										_sound = 0;
+										//[_bomber, "FD_Start_F"] remoteExec ["say3D", 0, _bomber];
+										_messages = ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
+										_selectedMessage = _messages select (floor random 4);
+										[_bomber, _selectedMessage] remoteExec ["globalChat", _nearestUnit, false];
+										_hasSpoken = 1;
 									};
 								if ((_bomber distance _enemyUnit) <= _activationDistance) exitWith{_check = false;};
 								};
