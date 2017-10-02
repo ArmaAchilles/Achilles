@@ -16,6 +16,7 @@ _spawnPos = _this select 0;
 _explosionSize = _this select 1;
 _random	= 0;
 _hitRadius = 0;
+_killRadius = 0;
 
 switch (_explosionSize) do
 {
