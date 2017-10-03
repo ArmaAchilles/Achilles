@@ -63,7 +63,7 @@ _object_list = [];
 			_crew_info_list =  _x select 6;
 			_special = if (_pos select 2 > 10) then {"FLY"} else {"FORM"};
 			_vehicle = createVehicle [_type, _pos, [], 0, _special];
-			if (_pos select 2 > 10 and not (_type isKindOf "Air")) then
+			if (_pos select 2 > 10 && !(_type isKindOf "Air")) then
 			{
 				_chute = "B_Parachute_02_F" createVehicle _pos;
 				_chute setPos _pos;

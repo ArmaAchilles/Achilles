@@ -21,10 +21,10 @@ if (_entity isKindOf "Man") then
 {
 	_attributes pushBack ["Name",name _entity];
 	
-	if (skill _entity != 0.5) then {_attributes pushBack ["Skill",SKILLS apply {_entity skill _x}};
+	if (skill _entity != 0.5) then {_attributes pushBack ["Skill",SKILLS apply {_entity skill _x}]};
 	
 	_abilities = _entity getVariable ["Achilles_Ability",nil];
-	if (not isNil "_abilities") then {_attributes pushBack ["Ability",_abilities};
+	if (not isNil "_abilities") then {_attributes pushBack ["Ability",_abilities]};
 	
 	if (not isNil {_entity getVariable ["Achilles_Arsenal",nil]}) then {_attributes pushBack ["Loadout",getUnitLoadout _entity]};
 	
@@ -40,5 +40,3 @@ if (_entity isKindOf "Man") then
 	_surrender = _entity getVariable ["Achilles_Surrender",nil];
 	if (not IsNil "_surrender") then {_attributes pushBack ["Surrender",_surrender]};
 };
-
-if ()
