@@ -14,6 +14,9 @@ X.X.Xc					<br>
 
 Change log				<br>
 ───────────────────────────────────	<br>
+V.0.0.9c
+* Fix: Fixed a critical issue that causes stances not to work.
+
 V.0.0.9
 * Change:	Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
 * Change:	Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
