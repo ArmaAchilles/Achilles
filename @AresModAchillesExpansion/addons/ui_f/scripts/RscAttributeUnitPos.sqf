@@ -65,7 +65,7 @@ switch _mode do {
 			} else {
 				[_x, _stance] remoteExecCall ["setunitpos", _x];
 			};
-		} forEach _curatorSelected;
+		} forEach _entities;
 		false
 	};
 	case "onUnload": {
