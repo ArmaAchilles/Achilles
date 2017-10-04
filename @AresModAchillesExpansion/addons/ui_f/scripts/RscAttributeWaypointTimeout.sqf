@@ -23,7 +23,7 @@ switch _mode do {
 		_selectedIDC = _idcs select 0;
 		{
 			_ctrl = _display displayctrl _x;
-			_ctrl ctrladdeventhandler ["buttonclick",{with uinamespace do {["buttonClick",_this,[]] call RscAttributeWaypointTimeout;};}];
+			_ctrl ctrladdeventhandler ["buttonclick",{with uinamespace do {["buttonClick",_this,[]] call RscAttributeWaypointTimeout}}];
 			if (_foreachindex > 0) then {
 				_time = _daytime + _foreachindex * (1/12);
 				_statements set [count _statements,format ["%1; daytime > %1",_time]];

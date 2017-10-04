@@ -10,7 +10,7 @@ switch _mode do {
 		_ctrlValue = _display displayctrl IDC_RSCATTRIBUTEWAYPOINTTYPE_VALUE;
 
 		if (isnull waypointattachedvehicle _entity) then {
-			_ctrlValue ctrladdeventhandler ["toolboxSelChanged",{with uinamespace do {RscAttributeWaypointType_value = _this select 1;};}];
+			_ctrlValue ctrladdeventhandler ["toolboxSelChanged",{with uinamespace do {RscAttributeWaypointType_value = _this select 1}}];
 			_names = getarray (configfile >> "RscAttributeWaypointType" >> "controls" >> "Value" >> "names");
 			
 			//--- Select current waypoint type
