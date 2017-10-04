@@ -15,23 +15,23 @@ X.X.Xc					<br>
 Change log				<br>
 ───────────────────────────────────	<br>
 V.0.0.9c
-* Fix: Fixed a critical issue that causes stances not to work.
+* Fix:		Fixed a critical issue that causes stances not to work.
 
 V.0.0.9
 * Change:	Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
 * Change:	Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
 * Change:	Add objects to Zeus: Only adds objects to the Zeus player that used the module.
 * Change:	Adjusted name of Patrol/Loiter module to emphasize that loiter is not restricted to choppers.
-* Change:   displayName config parameter is now used when selecting ammo types when using the Fire Mission module. This improves user-friendliness and allows easier selection of muntion types.
+* Change:	displayName config parameter is now used when selecting ammo types when using the Fire Mission module. This improves user-friendliness and allows easier selection of muntion types.
 * Feature:	Attribute window: Sliders show actual value as a tooltip.
 * Feature:	Achilles_fnc_showChooseDialog, a revised version of Ares_fnc_showChooseDialog (the latter is kept for compatibility reasons).
 * Feature:	New useful global veriable: Achilles_var_latestModuleLogic.
-* Feature:  Option to give suicide bombers vests to make it look more realistic.
-* Fix:      CAS Bomb Strike: Module was listed twice and cluster bombs were not available.
-* Fix:	    Hotkey for remote control and switch unit features did not work while the map was open.
-* Fix:	    Set map position to camera position after loading interface.
-* Fix:	    Fix weapons not being removed when Pylon Loadout is changed (by @CoxLedere).
-* Fix:      Fixed an error when suicide bombers were used when the disabling type was selected.
+* Feature:	Option to give suicide bombers vests to make it look more realistic.
+** Fix:		CAS Bomb Strike: Module was listed twice and cluster bombs were not available.
+* Fix:		Hotkey for remote control and switch unit features did not work while the map was open.
+* Fix:		Set map position to camera position after loading interface.
+* Fix:		Fix weapons not being removed when Pylon Loadout is changed (by @CoxLedere).
+* Fix:		Fixed an error when suicide bombers were used when the disabling type was selected.
 
 V.0.0.8c
 * Change:	Removed Zeus wind sound effect for remote control (by @CreepPork).
