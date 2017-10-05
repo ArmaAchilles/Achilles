@@ -28,10 +28,10 @@ params ["_vehicles"];
 			{
 				if (local _unit) then
 				{
-					[_unit, _forEachIndex] call Achilles_fnc_chute;
+					[_unit, _forEachIndex] spawn Achilles_fnc_chute;
 				} else
 				{
-					[_unit, _forEachIndex] remoteExecCall ["Achilles_fnc_chute", _unit];
+					[_unit, _forEachIndex] remoteExec ["Achilles_fnc_chute", _unit];
 				};
 			} else
 			{
