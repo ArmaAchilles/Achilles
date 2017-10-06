@@ -50,10 +50,25 @@ _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 		private _magClassName = if (_x > 0) then {(_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)} else {""};
 		if (local _plane) then
 		{
-			_plane setPylonLoadOut [_pylonIndex, _magClassName];
-		} else
+			if (count fullCrew [_plane, "gunner", true] == 0) then
+			{
+				_plane setPylonLoadOut [_pylonIndex, _magClassName];
+			}
+			else
+			{
+				_plane setPylonLoadOut [_pylonIndex, _magClassName, false, [0]];
+			};
+		}
+		else
 		{
-			[_plane, [_pylonIndex, _magClassName]] remoteExecCall ["setPylonLoadOut", _plane];
+			if (count fullCrew [_plane, "gunner", true] == 0) then
+			{
+				[_plane, [_pylonIndex, _magClassName]] remoteExecCall ["setPylonLoadOut", _plane];	
+			}
+			else
+			{
+				[_plane, [_pylonIndex, _magClassName, false, [0]]] remoteExecCall ["setPylonLoadOut", _plane];
+			};
 		};
 	} forEach _dialogResult;
 } forEach _curatorSelected;

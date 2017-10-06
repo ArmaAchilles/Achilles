@@ -27,6 +27,13 @@ if (count _pylonMags == 0) then { //Changing Pylon Loadouts and calling setVehic
 };
 {
 	private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
-	_vehicle setPylonLoadOut [_forEachIndex + 1, _x];
+	if (count fullCrew [_vehicle, "gunner", true] == 0) then
+	{
+		_vehicle setPylonLoadOut [_forEachIndex + 1, _x];
+	}
+	else
+	{
+		_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, [0]];
+	};
 	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];	
 } forEach _pylonMags;
