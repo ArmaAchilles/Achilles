@@ -46,11 +46,11 @@ _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
 private _addWeaponsTo = "";
 if (_hasGunner) then {_addWeaponsTo = _dialogResult select 0};
-switch (_addWeaponsTo) do 
+_addWeaponsTo = switch (_addWeaponsTo) do 
 {
-	case 0: {_addWeaponsTo = []};
-	case 1: {_addWeaponsTo = [0]};
-	default {_addWeaponsTo = []};
+	case 0: {[]};
+	case 1: {[0]};
+	default {[]};
 };
 
 if (_hasGunner) then {_dialogResult deleteAt 0};
