@@ -220,7 +220,7 @@ switch _mode do {
 		_ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
 		_ctrlList ctrladdeventhandler ["lbselchanged",{with uinamespace do {["listSelect",[ctrlparent (_this select 0)],objnull] call RscAttributeInventory}}];
 		_ctrlList ctrladdeventhandler ["lbdblclick",{with uinamespace do {["toggleWeaponSpecific",[ctrlparent (_this select 0), _this select 0],objnull] call RscAttributeInventory}}];
-		_ctrlList ctrladdeventhandler ["keyDown",{with uinamespace do {["keyDown",_this,objnull] call RscAttributeInventory} true}];
+		_ctrlList ctrladdeventhandler ["keyDown",{with uinamespace do {["keyDown",_this,objnull] call RscAttributeInventory}; true}];
 
 		_ctrlButtonVA = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_BUTTON_VA;
 		_ctrlButtonVA ctrladdeventhandler ["buttonclick",{with uinamespace do {["virutalArsenal",[ctrlparent (_this select 0)],objnull] call RscAttributeInventory}}];
