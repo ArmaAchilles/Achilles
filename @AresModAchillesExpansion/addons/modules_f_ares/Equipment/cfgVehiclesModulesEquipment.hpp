@@ -1,7 +1,7 @@
 class Ares_Equipment_Module_Base : Ares_Module_Base
 {
 	//subCategory = "$STR_EQUIPMENT";
-	Category = "Equipment";
+	Category = "Achilles_fac_Equipment";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };

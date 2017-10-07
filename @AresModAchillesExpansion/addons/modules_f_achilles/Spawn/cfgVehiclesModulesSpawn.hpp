@@ -1,7 +1,7 @@
 class Achilles_Spawn_Module_Base : Achilles_Module_Base
 {
 	//subCategory = "$STR_SPAWN";
-	Category = "Spawn";
+	Category = "Achilles_fac_Spawn";
 };
 
 class Achilles_Module_Spawn_Effects : Achilles_Spawn_Module_Base

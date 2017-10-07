@@ -1,14 +1,14 @@
 class Achilles_Behaviours_Module_Base : Achilles_Module_Base
 {
 	//subCategory = "$STR_AI_BEHAVIOUR";
-	Category = "Behaviours";
+	Category = "Achilles_fac_Behaviours";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };
 
 class Enyo_Behaviours_Module_Base : Enyo_Module_Base
 {
-	category = "Behaviours";
+	Category = "Achilles_fac_Behaviours";
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
 };

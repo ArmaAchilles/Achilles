@@ -1,7 +1,7 @@
 class Ares_Player_Module_Base : Ares_Module_Base
 {
 	//subCategory = "$STR_PLAYER";
-	Category = "Player";
+	Category = "Achilles_fac_Player";
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	picture = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
@@ -35,7 +35,7 @@ class ModuleBootcampStage_F : Module_F {};
 class ModulePunishment_F : ModuleBootcampStage_F
 {
 	scopeCurator = 2;
-	category = "Player";
+	Category = "Achilles_fac_Player";
 };
 
 
