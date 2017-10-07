@@ -56,9 +56,7 @@ switch _mode do {
 	case "confirmed": {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeSpeedMode_selected",0];
-		diag_log _selectedIndex;
 		_selected = _states select _selectedIndex;
-		diag_log _selected;
 		if (typename _entity == typename []) then 
 		{
 			if (waypointSpeed _entity == _selected) exitWith {};
