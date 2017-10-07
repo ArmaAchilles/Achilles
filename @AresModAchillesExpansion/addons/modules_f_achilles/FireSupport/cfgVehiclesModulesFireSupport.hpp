@@ -32,6 +32,7 @@ class Achilles_CAS_Module : Achilles_FireSupport_ModuleBase
 	function = "Achilles_fnc_ModuleFireSupportCAS";
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	curatorCanAttach = 1;
 };
 
 class Achilles_Create_CAS_Target_Module : Achilles_FireSupport_ModuleBase
