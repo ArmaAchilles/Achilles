@@ -1,12 +1,12 @@
 class Achilles_Objects_Module_Base : Achilles_Module_Base
 {
 	//subCategory = "$STR_OBJECTS";
-	Category = "Objects";
+	Category = "Achilles_fac_Objects";
 };
 
 class Enyo_Objects_Module_Base : Enyo_Module_Base
 {
-	category = "Objects";
+	category = "Achilles_fac_Objects";
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
