@@ -2791,6 +2791,10 @@
 		<French>L'ARMEMENT</French>
 		<German>BEWAFFNUNG</German>
       </Key>
+      <Key ID="STR_ASSIGN_WEAPONS">
+        <Original>Assign Weapons To</Original>
+        <English>Assign Weapons To</English>
+        </Key>
 	  <Key ID="STR_SWITCH_UNIT">
         <Original>Switch unit</Original>
         <English>Switch unit</English>
