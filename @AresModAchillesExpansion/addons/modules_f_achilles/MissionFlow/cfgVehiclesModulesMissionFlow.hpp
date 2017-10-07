@@ -12,3 +12,12 @@ class Achilles_Module_Spawn_Intel : Achilles_Mission_Flow_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 };
+
+class Achilles_Module_Change_Side_Relations : Achilles_Mission_Flow_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_CHANGE_SIDE_RELATIONS";
+	function = "Achilles_fnc_changeSideRelations";
+	icon = "\achilles\data_f_ares\icons\icon_default.paa";
+	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+};

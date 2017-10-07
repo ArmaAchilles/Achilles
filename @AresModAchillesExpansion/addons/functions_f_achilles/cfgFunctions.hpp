@@ -40,6 +40,17 @@ class CfgFunctions
 			class spawn;
 			class spawn_remote;
 			class ShowChooseDialog;
+			class showZeusErrorMessage;
+		};
+
+		class changeSideRelations
+		{
+			file = "\achilles\functions_f_achilles\functions\changeSideRelations";
+
+			class BLUFORfriendlyToIndependents;
+			class BLUFORfriendlyToOPFOR;
+			class IndependentsNotFriendly;
+			class OPFORfriendlyToIndependents;
 		};
 
 		class selectUnit

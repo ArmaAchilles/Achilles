@@ -872,6 +872,18 @@
 		<French>AAR - Bombe</French>
 		<German>CAS - Bombe</German>
       </Key>
+      <Key ID="STR_CHANGE_SIDE_RELATIONS">
+        <Original>Change Side Relations</Original>
+        <English>Change Side Relations</English>
+      </Key>
+      <Key ID="STR_FRIENDLY_TO">
+        <Original>Friendly To</Original>
+        <English>Friendly To</English>
+      </Key>
+      <Key ID="STR_SIDES_CANT_MATCH">
+        <Original>Sides cannot be the same!</Original>
+        <English>Sides cannot be the same!</English>
+      </Key>
       <Key ID="STR_ENYO_SET_SUICIDE_BOMBER">
         <Original>Set Suicide Bomber</Original>
         <English>Set Suicide Bomber</English>
