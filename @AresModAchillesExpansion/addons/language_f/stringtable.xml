@@ -877,8 +877,16 @@
         <English>Change Side Relations</English>
       </Key>
       <Key ID="STR_FRIENDLY_TO">
-        <Original>Friendly To</Original>
-        <English>Friendly To</English>
+        <Original>friendly to</Original>
+        <English>friendly to</English>
+		<French>sympathique à</French>
+		<German>freundlich gegenüber</German>
+      </Key>
+      <Key ID="STR_HOSTILE_TO">
+        <Original>hostile to</Original>
+        <English>hostile to</English>
+		<French>hostile à</French>
+		<German>feindlich gegenüber</German>
       </Key>
       <Key ID="STR_SIDES_CANT_MATCH">
         <Original>Sides cannot be the same!</Original>
