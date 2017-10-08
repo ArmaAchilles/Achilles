@@ -42,6 +42,8 @@ private _firstSelectedSide = (_dialogResult select 0) call BIS_fnc_sideType;
 if (_dialogResult select 2 < 3) then
 {
 	private _secondSelectedSide = (_dialogResult select 2) call BIS_fnc_sideType;
+	if (_firstSelectedSide == _secondSelectedSide) exitWith {[localize "STR_SIDES_CANT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
+	
 	private _friend_value = _dialogResult select 1;
 	[_firstSelectedSide, [_secondSelectedSide, _friend_value]] remoteExecCall ["setFriend", 2];
 	[_secondSelectedSide, [_firstSelectedSide, _friend_value]] remoteExecCall ["setFriend", 2];
