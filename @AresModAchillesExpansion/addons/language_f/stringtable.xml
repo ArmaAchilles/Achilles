@@ -3322,6 +3322,14 @@
 			<French>Symbole de DLC</French>
 			<German>DLC Symbole</German>
         </Key>
+        <Key ID="STR_SETTINGS_ICON_SELECTION">
+            <Original>Icon Selection</Original>
+			<English>Icon Selection</English>
+        </Key>
+        <Key ID="STR_SETTINGS_ACHILLES_ICON_SELECTION">
+            <Original>Achilles - Icon Selection</Original>
+			<English>Achilles - Icon Selection</English>
+        </Key>
         <Key ID="STR_COLLAPSE_TREE_BY_DEFAULT">
             <Original>Collapse module tree by default</Original>
 			<English>Collapse module tree by default</English>
