@@ -55,20 +55,11 @@ _addWeaponsTo = switch (_addWeaponsTo) do
 
 if (_hasGunner) then {_dialogResult deleteAt 0};
 
-// This code commented below (there were a lot more attempts) is my attempts to remove empty weapons for the driver. I'm guessing it's a fault
-// of BI, because I can't get it to remove the weapons only from the driver. The gunners weapons will be removed. Maybe I'm retarded or something but for
-// the love of god I can't figure it out. So if anyone of you have a idea, please let me know. I've spent the whole fucking day trying to fix this.
-// Okay, stop rambeling. It's enough.
-/*{_this select 1 setPylonLoadOut [_forEachIndex + 1, "", true]} forEach getPylonMagazines (_this select 1);
-{(driver (_this select 1)) removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines (_this select 1);
-{(gunner (_this select 1)) removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines (_this select 1);
-
-(configProperties [configFile >> "CfgVehicles" >> typeOf (_this select 1) >> "Components" >> "TransportPylonsComponent" >> "Pylons", "isClass _x"]) apply {getArray (_x >> "turret")};
-{ (_this select 1) removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines (_this select 1);*/
-
 {
 	_plane = _x;
-	{ _plane removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach _allCurrentPylonMagazines;
+	{_plane removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_plane getCompatiblePylonMagazines _forEachIndex + 1);
+	{_plane removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_plane getCompatiblePylonMagazines _forEachIndex + 1);
+	_plane setVariable ["Achilles_var_changePylonAmmo_Assigned", _addWeaponsTo];
 	{
 		private _magIndex = _x;
 		private _pylonIndex = _forEachIndex + 1;

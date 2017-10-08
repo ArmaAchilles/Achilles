@@ -25,15 +25,10 @@ if (count _pylonMags == 0) then { //Changing Pylon Loadouts and calling setVehic
 } else {
 	_vehicle setVehicleAmmo _percentage;
 };
+{_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
+{_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
 {
 	private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
-	if (count fullCrew [_vehicle, "gunner", true] == 0) then
-	{
-		_vehicle setPylonLoadOut [_forEachIndex + 1, _x];
-	}
-	else
-	{
-		_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, [0]];
-	};
+	_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, (_vehicle getVariable ["Achilles_var_changePylonAmmo_Assigned", []])];
 	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];	
 } forEach _pylonMags;
