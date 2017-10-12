@@ -121,7 +121,7 @@ while {count _units > 0} do
 	_goupID = groupId _oldGroup;
 	_selectedUnits = (units _oldGroup) arrayIntersect _units;
 	_newGroup = createGroup _side;
-	_newGroup setGroupId [_goupID];
+	_newGroup setGroupIdGlobal [_goupID];
 	_selectedUnits joinSilent _newGroup;
 	_units = _units - _selectedUnits;
 };
