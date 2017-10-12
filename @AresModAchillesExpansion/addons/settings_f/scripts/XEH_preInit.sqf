@@ -15,3 +15,4 @@
 // #include "available_factions.sqf"
 #include "icon_selection.sqf"
 #include "keybindings.sqf"
+#include "debugMessages.sqf"

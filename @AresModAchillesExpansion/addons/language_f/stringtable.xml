@@ -3330,6 +3330,14 @@
             <Original>Achilles - Icon Selection</Original>
 			<English>Achilles - Icon Selection</English>
         </Key>
+        <Key ID="STR_DEBUG_OUTPUT">
+            <Original>Debug Output</Original>
+			<English>Debug Output</English>
+        </Key>
+        <Key ID="STR_ACHILLES_DEBUG_SETTINGS">
+            <Original>Achilles - Debug</Original>
+			<English>Achilles - Debug</English>
+        </Key>
         <Key ID="STR_COLLAPSE_TREE_BY_DEFAULT">
             <Original>Collapse module tree by default</Original>
 			<English>Collapse module tree by default</English>

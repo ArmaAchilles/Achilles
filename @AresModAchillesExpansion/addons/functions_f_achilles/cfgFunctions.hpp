@@ -41,6 +41,7 @@ class CfgFunctions
 			class spawn_remote;
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
+			class logMessage;
 		};
 
 		class changeSideRelations
