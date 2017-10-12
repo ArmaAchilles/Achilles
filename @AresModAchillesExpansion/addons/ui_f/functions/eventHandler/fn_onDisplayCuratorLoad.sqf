@@ -72,15 +72,18 @@ _this spawn
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 
-	_zeusLogo = (findDisplay 312) displayCtrl 15717;
+	// Add custom Zeus logo when pressing backspace
+	private _zeusLogo = (findDisplay 312) displayCtrl 15717;
+	private _addLogo = true;
 	switch (Achilles_var_iconSelection) do 
 	{
 		case "Achilles_var_iconSelection_Ares": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\ZeusEyeAres.paa"};
 		case "Achilles_var_iconSelection_Achilles": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa"};
 		case "Achilles_var_iconSelection_Enyo": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\icons\icon_enyo_large.paa"};
+		case "Achilles_var_iconSelection_Default": {_addLogo = false};
 		default {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\ZeusEyeAres.paa"};
 	};
-	_zeusLogo ctrlCommit 0;
+	if (_addLogo) then {_zeusLogo ctrlCommit 0};
 	
 	// handle module tree loading
 	[true] call Achilles_fnc_OnModuleTreeLoad;
