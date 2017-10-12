@@ -315,7 +315,9 @@ switch _mode do
 			if(isServer) then 
 			{
 				setDate _newDate;
-				[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
+				// Replaced Achilles_fnc_spawn back with remoteExec. If you want to change it sure, I have no idea how to fix the Achilles_fnc_spawn so I
+				// reverted back to the old one. JIP seems to be broken.
+				[[_newDate], {setDate (_this select 0)}] remoteExec ["call", -2, "JIP_id_setDate"];
 				forceWeatherChange;
 			};
 			if(not hasInterface) exitWith {};
