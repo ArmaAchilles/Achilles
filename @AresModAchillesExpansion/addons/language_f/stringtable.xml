@@ -914,6 +914,10 @@
 		<French>Changez les relations des camps</French>
 		<German>Verhältnisse der Seiten ändern</German>
       </Key>
+      <Key ID="STR_PLAY_MESSAGE">
+        <Original>Play Radio Message</Original>
+        <English>Play Radio Message</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
