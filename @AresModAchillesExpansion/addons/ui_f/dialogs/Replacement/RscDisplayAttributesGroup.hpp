@@ -12,10 +12,18 @@ class RscDisplayAttributesGroup: RscDisplayAttributes
 		{
 			class Controls: controls 
 			{
+				delete GroupID;
+				delete Skill;
+				delete Formation;
+				delete Behaviour;
 				delete SpeedMode;
 				delete UnitPos;
 				delete RespawnPosition;
 				
+				class GroupID2: RscAttributeGroupID2 {};
+				class Skill2: RscAttributeSkill {};
+				class Formation2: RscAttributeFormation {};
+				class Behaviour2: RscAttributeBehaviour {};
 				class CombatMode2: RscAttributeCombatMode {};
 				class SpeedMode2: RscAttributeSpeedMode {};
 				class UnitPos2: RscAttributeUnitPos {};

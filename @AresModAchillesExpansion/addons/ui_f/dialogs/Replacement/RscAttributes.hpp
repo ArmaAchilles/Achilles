@@ -143,6 +143,11 @@ class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars
 	onSetFocus = "[_this,""RscAttributeRespawnVehicle"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
+class RscAttributeGroupID2 : RscAttributeGroupID
+{
+	onSetFocus = "[_this,""RscAttributeGroupID2"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+};
+
 class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars 
 {
 	onSetFocus = "[_this,""RscAttributeRespawnPosition"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
