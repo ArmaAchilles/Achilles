@@ -52,7 +52,8 @@ class CfgPatches
 			"Achilles_Module_Spawn_Explosives",
 			"Achilles_Module_Spawn_Carrier",
 			"Achilles_Module_Zeus_SwitchUnit",
-			"Achilles_Module_Zeus_AssignZeus"
+			"Achilles_Module_Zeus_AssignZeus",
+			"Achilles_Module_Player_Set_Frequencies"
 		};
 
 		requiredAddons[] =

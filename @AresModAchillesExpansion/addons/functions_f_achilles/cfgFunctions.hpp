@@ -103,6 +103,8 @@ class CfgFunctions
 			class createIED;
 			class createSuicideBomber;
 			class IED_DamageHandler;
+			class setSRFrequencies;
+			class setLRFrequencies;
 		};
 	};
 

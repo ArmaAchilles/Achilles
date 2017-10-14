@@ -918,6 +918,34 @@
         <Original>Play Radio Message</Original>
         <English>Play Radio Message</English>
       </Key>
+      <Key ID="STR_SET_FREQUENCIES">
+        <Original>Set Radio Frequencies</Original>
+        <English>Set Radio Frequencies</English>
+      </Key>
+      <Key ID="STR_TFAR_HAS_TO_BE_LOADED">
+        <Original>This module requires Task Force Radio!</Original>
+        <English>This module requires Task Force Radio!</English>
+      </Key>
+      <Key ID="STR_SET_SR_FREQ">
+        <Original>Set Short Range radio frequencies</Original>
+        <English>Set Short Range radio frequencies</English>
+      </Key>
+      <Key ID="STR_SET_LR_FREQ">
+        <Original>Set Long Range radio frequencies</Original>
+        <English>Set Long Range radio frequencies</English>
+      </Key>
+      <Key ID="STR_CHANNEL_X_FREQ">
+        <Original>Channel %1 frequency</Original>
+        <English>Channel %1 frequency</English>
+      </Key>
+      <Key ID="STR_SET_SR_RADIO_FREQ">
+        <Original>Set Frequencies for SR radio</Original>
+        <English>Set Frequencies for SR radio</English>
+      </Key>
+      <Key ID="STR_SET_LR_RADIO_FREQ">
+        <Original>Set Frequencies for LR radio</Original>
+        <English>Set Frequencies for LR radio</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -3341,6 +3369,18 @@
         <Key ID="STR_ACHILLES_DEBUG_SETTINGS">
             <Original>Achilles - Debug</Original>
 			<English>Achilles - Debug</English>
+        </Key>
+        <Key ID="STR_ACHILLES_DEFAULTS">
+            <Original>Achilles - Defaults</Original>
+			<English>Achilles - Defaults</English>
+        </Key>
+        <Key ID="STR_SET_SR_RADIO_DEFAULT_FREQ">
+            <Original>(TFAR) Short Range radio default frequency</Original>
+			<English>(TFAR) Short Range radio default frequency</English>
+        </Key>
+        <Key ID="STR_SET_LR_RADIO_DEFAULT_FREQ">
+            <Original>(TFAR) Long Range radio default frequency</Original>
+			<English>(TFAR) Long Range radio default frequency</English>
         </Key>
         <Key ID="STR_COLLAPSE_TREE_BY_DEFAULT">
             <Original>Collapse module tree by default</Original>

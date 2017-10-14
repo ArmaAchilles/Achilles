@@ -16,3 +16,4 @@
 #include "icon_selection.sqf"
 #include "keybindings.sqf"
 #include "debugMessages.sqf"
+#include "moduleDefaults.sqf"
