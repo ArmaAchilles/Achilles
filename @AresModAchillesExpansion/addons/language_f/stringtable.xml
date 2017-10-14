@@ -2723,6 +2723,10 @@
         <Original>SENSORS</Original>
         <English>SENSORS</English>
       </Key>
+      <Key ID="STR_X_SENSORS">
+        <Original>%1 Sensors</Original>
+        <English>%1 Sensors</English>
+      </Key>
 	  <Key ID="STR_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
         <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
         <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
