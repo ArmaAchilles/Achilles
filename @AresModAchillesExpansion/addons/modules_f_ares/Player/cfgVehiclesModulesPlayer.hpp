@@ -31,7 +31,11 @@ class Ares_Module_Player_Change_Player_Side : Ares_Player_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_unit.paa";
 };
-class ModuleBootcampStage_F : Module_F {};
+class ModuleBootcampStage_F : Module_F 
+{
+	scopeCurator = 2;
+	Category = "Achilles_fac_Player";
+};
 class ModulePunishment_F : ModuleBootcampStage_F
 {
 	scopeCurator = 2;
