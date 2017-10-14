@@ -119,7 +119,7 @@ switch _mode do
 			_ctrlButtonCustomPlusPos set [1,(_ctrlButtonCustomPlusPos select 1) + _y_offset];
 			_ctrlButtonCustomPlus ctrlsetposition _ctrlButtonCustomPlusPos;
 			_ctrlButtonCustomPlus ctrlcommit 0;
-		} forEach [30005,30006,30007];
+		} forEach [30005,30006,30007,30008,30009];
 
 		//--- Close the display when entity is altered
 		[_display] spawn 
