@@ -55,6 +55,12 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
+		class ButtonSensors : ButtonCustomLeft2
+		{
+			text = "$STR_SENSORS";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setSensors";
+			colorBackground[] = {0.518,0.016,0,0.8};			
+		};
 	};
 };
 
@@ -109,6 +115,12 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		{
 			text = "$STR_DAMAGE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
+			colorBackground[] = {0.518,0.016,0,0.8};			
+		};
+		class ButtonSensors : ButtonCustomLeft2
+		{
+			text = "$STR_SENSORS";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setSensors";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 	};

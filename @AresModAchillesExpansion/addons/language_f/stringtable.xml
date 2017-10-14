@@ -2718,6 +2718,11 @@
 		<French>DÉGÂTS</French>
 		<German>SCHADEN</German>
       </Key>
+      </Key>
+	  <Key ID="STR_SENSORS">
+        <Original>SENSORS</Original>
+        <English>SENSORS</English>
+      </Key>
 	  <Key ID="STR_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
         <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
         <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
