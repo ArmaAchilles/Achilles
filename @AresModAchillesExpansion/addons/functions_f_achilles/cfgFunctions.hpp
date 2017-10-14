@@ -42,16 +42,7 @@ class CfgFunctions
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
 			class logMessage;
-		};
-
-		class changeSideRelations
-		{
-			file = "\achilles\functions_f_achilles\functions\changeSideRelations";
-
-			class BLUFORfriendlyToIndependents;
-			class BLUFORfriendlyToOPFOR;
-			class IndependentsNotFriendly;
-			class OPFORfriendlyToIndependents;
+			class parseBool;
 		};
 
 		class selectUnit
@@ -72,6 +63,7 @@ class CfgFunctions
 			class changeSide_local;
 			class changeSkills;
 			class damageComponents;
+			class setSensors;
 		};
 
 		class functions_f_features
