@@ -26,7 +26,7 @@ Notes:
 - [Check Achilles Wiki.](https://github.com/oOKexOo/AresModAchillesExpansion/wiki)
 - [Check Achilles Tutorial Series.](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg)
 - [Full list of contributers.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.txt)
-- [Check licence.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/LICENSE)
+- [Check licence.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/(0.1.0)/%40AresModAchillesExpansion/LICENSE)
 - [Check full change logs.](https://github.com/oOKexOo/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/changelog.md)
 - [Check progress of upcomming updates.](https://github.com/ArmaAchilles/AresModAchillesExpansion/milestones)<br><br>
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/64px-Steam_icon_logo.svg.png" height="32">](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
