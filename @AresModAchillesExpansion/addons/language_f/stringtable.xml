@@ -946,6 +946,18 @@
         <Original>Set Frequencies for LR radio</Original>
         <English>Set Frequencies for LR radio</English>
       </Key>
+      <Key ID="STR_ROTATION_MODULE">
+        <Original>Rotate Objects</Original>
+        <English>Rotate Objects</English>
+      </Key>
+      <Key ID="STR_ROTATION_MODULE_X_AXIS">
+        <Original>%1 Axis</Original>
+        <English>%1 Axis</English>
+      </Key>
+      <Key ID="STR_UNITS_NOT_ALLOWED">
+        <Original>Units are not allowed!</Original>
+        <English>Units are not allowed!</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">

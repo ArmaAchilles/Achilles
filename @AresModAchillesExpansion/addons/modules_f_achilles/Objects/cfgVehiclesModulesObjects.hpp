@@ -73,3 +73,11 @@ class Achilles_AddECM_Module : Enyo_Objects_Module_Base
 	displayName = "$STR_ENYO_ADD_ECM_TO_VEHICLE";
 	function = "Achilles_fnc_ObjectsAddECM";
 };
+class Achilles_Rotation_Module : Achilles_Objects_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_ROTATION_MODULE";
+	function = "Achilles_fnc_ObjectsRotation";
+	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+};
