@@ -30,7 +30,7 @@ if (_hasGunner) then {_entries pushBack [localize "STR_ASSIGN_WEAPONS", [localiz
 	private _magazineNames = ["Empty"];
 	private _defaultIndex = 0;
 	{
-		_mag_cfg = (configFile >> "cfgMagazines" >> _x);
+		private _mag_cfg = (configFile >> "cfgMagazines" >> _x);
 		_magazineNames pushBack format ["%1 (%2)", getText (_mag_cfg >> "displayName"), getText (_mag_cfg >> "DisplayNameShort")];
 		if (configName _mag_cfg == _allCurrentPylonMagazines select (_pylonIndex - 1)) then {_defaultIndex = _forEachIndex + 1};
 	} forEach (_plane getCompatiblePylonMagazines _pylonIndex);
@@ -38,10 +38,10 @@ if (_hasGunner) then {_entries pushBack [localize "STR_ASSIGN_WEAPONS", [localiz
 	_entries pushBack [configName _pylon_cfg, _magazineNames, _defaultIndex, true];
 } forEach _pylon_cfgs;
 
-_dialogResult = [localize "STR_LOADOUT", _entries] call Ares_fnc_ShowChooseDialog;
+private _dialogResult = [localize "STR_LOADOUT", _entries] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
 private _addWeaponsTo = "";
