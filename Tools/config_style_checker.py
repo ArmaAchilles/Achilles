@@ -7,6 +7,8 @@ import ntpath
 import sys
 import argparse
 
+excluded_files = ['../@AresModAchillesExpansion/addons/modules_f_ares\module_header.hpp', '../@AresModAchillesExpansion/addons/modules_f_ares\module_footer.hpp']
+
 def check_config_style(filepath):
     bad_count_file = 0
     def pushClosing(t):
@@ -121,6 +123,9 @@ def main():
 
     print("Validating Config Style")
 
+    for test in excluded_files:
+        print("Excluded File: ",test)
+
     sqf_list = []
     bad_count = 0
 
@@ -140,7 +145,8 @@ def main():
         sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:
-        bad_count = bad_count + check_config_style(filename)
+        if (filename not in excluded_files):
+            bad_count = bad_count + check_config_style(filename)
 
     print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))
     if (bad_count == 0):
