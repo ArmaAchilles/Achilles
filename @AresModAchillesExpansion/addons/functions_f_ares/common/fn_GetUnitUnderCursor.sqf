@@ -23,43 +23,43 @@ _unitUnderCursor = objNull;
 // the item under the cursor.
 if (isNil "Ares_CuratorObjectPlaced_UnitUnderCursor") then
 {
-	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Ares_fnc_LogMessage; 
+	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Achilles_fnc_logMessage; 
 }
 else
 {
 	_mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
 	if (count _mouseOverUnit == 0) then
 	{
-		["GetUnitUnderCursor: Not in curator mode"] call Ares_fnc_LogMessage;
+		["GetUnitUnderCursor: Not in curator mode"] call Achilles_fnc_logMessage;
 		// Not in curator mode.
 	}
 	else
 	{
-		["GetUnitUnderCursor: In curator mode!"] call Ares_fnc_LogMessage;
+		["GetUnitUnderCursor: In curator mode!"] call Achilles_fnc_logMessage;
 		if (_mouseOverUnit select 0 == "") then
 		{
-			["GetUnitUnderCursor: No unit under cursor"] call Ares_fnc_LogMessage;
+			["GetUnitUnderCursor: No unit under cursor"] call Achilles_fnc_logMessage;
 			// Mouse not over anything editable (value should be [""])
 		}
 		else
 		{
-			["GetUnitUnderCursor: Elements in select array!"] call Ares_fnc_LogMessage;
+			["GetUnitUnderCursor: Elements in select array!"] call Achilles_fnc_logMessage;
 			if (count _mouseOverUnit == 2) then
 			{
 				if (_mouseOverUnit select 0 == "OBJECT") then
 				{
 					// value should be [typeName, object]
 					_unitUnderCursor = _mouseOverUnit select 1;
-					[format ["GetUnitUnderCursor: Got unit under cursor: %1 (@%2)", _unitUnderCursor, position _unitUnderCursor]] call Ares_fnc_LogMessage;
+					[format ["GetUnitUnderCursor: Got unit under cursor: %1 (@%2)", _unitUnderCursor, position _unitUnderCursor]] call Achilles_fnc_logMessage;
 				}
 				else
 				{
-					[format ["GetUnitUnderCursor: Unit under cursor was of type '%1' (non-Object). Ignored."]] call Ares_fnc_LogMessage;
+					[format ["GetUnitUnderCursor: Unit under cursor was of type '%1' (non-Object). Ignored."]] call Achilles_fnc_logMessage;
 				}
 			}
 			else
 			{
-				["GetUnitUnderCursor: Unexpected number of array options"] call Ares_fnc_LogMessage;
+				["GetUnitUnderCursor: Unexpected number of array options"] call Achilles_fnc_logMessage;
 			};
 		};
 	};

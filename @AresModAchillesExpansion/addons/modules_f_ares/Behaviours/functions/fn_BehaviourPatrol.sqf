@@ -2,21 +2,21 @@ private ["_logic", "_units", "_activated"];
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private ["_groupUnderCursor"];
-["BehaviourPatrol: Getting group under cursor"] call Ares_fnc_LogMessage;
+["BehaviourPatrol: Getting group under cursor"] call Achilles_fnc_logMessage;
 _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
-["BehaviourPatrol: Got group under cursor"] call Ares_fnc_LogMessage;
+["BehaviourPatrol: Got group under cursor"] call Achilles_fnc_logMessage;
 
 if (isNull _logic) then
 {
-	["Null logic passed to patrol behaviour!"] call Ares_fnc_LogMessage;
+	["Null logic passed to patrol behaviour!"] call Achilles_fnc_logMessage;
 };
 if ((position _logic) select 0 == 0 && (position _logic) select 1 == 0 && (position _logic) select 2 == 0) then
 {
-	["Logic is at [0,0,0]!"] call Ares_fnc_LogMessage;
+	["Logic is at [0,0,0]!"] call Achilles_fnc_logMessage;
 };
 if (isNull _groupUnderCursor) then
 {
-	["No unit under cursor!!"] call Ares_fnc_LogMessage;
+	["No unit under cursor!!"] call Achilles_fnc_logMessage;
 };
 
 if (not isNull _groupUnderCursor) then
@@ -30,7 +30,7 @@ if (not isNull _groupUnderCursor) then
 	if (not _doesGroupContainAnyPlayer) then
 	{
 		private ["_dialogResult"];
-		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Ares_fnc_LogMessage;
+		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Achilles_fnc_logMessage;
 		_dialogResult =
 			[localize "STR_PATROL_LOITER",
 					[
@@ -41,7 +41,7 @@ if (not isNull _groupUnderCursor) then
 					]
 			] call Ares_fnc_ShowChooseDialog;
 			
-		["BehaviourPatrol: Prompt complete!"] call Ares_fnc_LogMessage;
+		["BehaviourPatrol: Prompt complete!"] call Achilles_fnc_logMessage;
 		if (count _dialogResult > 0) then
 		{
 			_radius = parseNumber (_dialogResult select 0);

@@ -42,14 +42,14 @@ _items = [];
 	_weaponType = getNumber (_weaponConfig >> "type");
 	_weaponScope = getNumber (_weaponConfig >> "scope");
 	_weaponDisplayName = getText (_weaponConfig >> "displayName");
-	[format ["Processing weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Ares_fnc_LogMessage;
+	[format ["Processing weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
 
 	// Assume we'll include the weapon by default. If this never gets set to false then we'll add it.
 	_includeItem = true;
 
 	if (_weaponScope < 2) then
 	{
-		["Excluding weapon due to privacy."] call Ares_fnc_LogMessage;
+		["Excluding weapon due to privacy."] call Achilles_fnc_logMessage;
 		_includeItem = false;
 	};
 	
@@ -97,7 +97,7 @@ _items = [];
 			};
 			if (!_includeItem) then
 			{
-				["Excluding weapon due to side restriction."] call Ares_fnc_LogMessage;
+				["Excluding weapon due to side restriction."] call Achilles_fnc_logMessage;
 			};
 		};
 	};
@@ -107,7 +107,7 @@ _items = [];
 	{
 		if (_weaponClassName in _blacklist) then
 		{
-			["Excluding weapon due to blacklist."] call Ares_fnc_LogMessage;
+			["Excluding weapon due to blacklist."] call Achilles_fnc_logMessage;
 			_includeItem = false;
 		}
 		else
@@ -121,7 +121,7 @@ _items = [];
 					if (isClass (_weaponConfig >> "LinkedItems")) then
 					{
 						_includeItem = false;
-						["Excluding weapon due to linked items."] call Ares_fnc_LogMessage;
+						["Excluding weapon due to linked items."] call Achilles_fnc_logMessage;
 					};
 				};
 				case CFG_TYPE_BINOC;
@@ -131,7 +131,7 @@ _items = [];
 				};
 				default
 				{
-					["Excluding due to unsupported type."] call Ares_fnc_LogMessage;
+					["Excluding due to unsupported type."] call Achilles_fnc_logMessage;
 					_includeItem = false;
 				};
 			};
@@ -141,12 +141,12 @@ _items = [];
 	// Actually add the item to the list of weapons.
 	if (_includeItem) then
 	{
-		[format ["Included weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Ares_fnc_LogMessage;
+		[format ["Included weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
 		_items pushBack _weaponClassName;
 	}
 	else
 	{
-		[format ["Excluded weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Ares_fnc_LogMessage;
+		[format ["Excluded weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
 	};
 } forEach _allWeaponsClasses;
 
@@ -155,7 +155,7 @@ _allMagazineClasses = (configFile >> "CfgMagazines") call BIS_fnc_getCfgSubClass
 _magazines = [];
 {
 	_className = _x;
-	[format["Processing magazine: %1", _className]] call Ares_fnc_LogMessage;
+	[format["Processing magazine: %1", _className]] call Achilles_fnc_logMessage;
 	_config = configFile >> "CfgMagazines" >> _className;
 	_displayName = getText(_config >> "displayName");
 	_picture = getText(_config >> "picture");
@@ -164,24 +164,24 @@ _magazines = [];
 
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{
-		["Magazine is not public or data is incomplete."] call Ares_fnc_LogMessage;
+		["Magazine is not public or data is incomplete."] call Achilles_fnc_logMessage;
 		_includeMagazine = false;
 	};
 	
 	if (_includeMagazine && (_className in _blacklist)) then
 	{
-		["Magazine is blacklisted."] call Ares_fnc_LogMessage;
+		["Magazine is blacklisted."] call Achilles_fnc_logMessage;
 		_includeMagazine = false;
 	};
 	
 	if (_includeMagazine) then
 	{
-		[format["Added magazine: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Added magazine: %1", _className]] call Achilles_fnc_logMessage;
 		_magazines pushBack _className;
 	}
 	else
 	{
-		[format["Rejected magazine: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Rejected magazine: %1", _className]] call Achilles_fnc_logMessage;
 	};
 } forEach _allMagazineClasses;
 
@@ -190,7 +190,7 @@ _allVehicleClasses = (configFile >> "CfgVehicles") call BIS_fnc_getCfgSubClasses
 _backpacks = [];
 {
 	_className = _x;
-	[format["Processing backpack: %1", _className]] call Ares_fnc_LogMessage;
+	[format["Processing backpack: %1", _className]] call Achilles_fnc_logMessage;
 	_config = configFile >> "CfgVehicles" >> _className;
 	_displayName = getText(_config >> "displayName");
 	_picture = getText(_config >> "picture");
@@ -201,7 +201,7 @@ _backpacks = [];
 	
 	if (_scope < 2 || _isBackpack != 1 || _displayName == "" || _picture == "") then
 	{
-		[format ["Vehicle is nor backpack, is not public, or has incomplete data. (%1, %2, %3, %4)", _scope, _isBackpack, _displayName, _picture]] call Ares_fnc_LogMessage;
+		[format ["Vehicle is nor backpack, is not public, or has incomplete data. (%1, %2, %3, %4)", _scope, _isBackpack, _displayName, _picture]] call Achilles_fnc_logMessage;
 		_includeBackpack = false;
 	};
 	
@@ -229,7 +229,7 @@ _backpacks = [];
 			};
 			if (!_includeBackpack) then
 			{
-				["Excluding backpack due to side restriction."] call Ares_fnc_LogMessage;
+				["Excluding backpack due to side restriction."] call Achilles_fnc_logMessage;
 			};
 		};
 	};
@@ -237,17 +237,17 @@ _backpacks = [];
 	if (_includeBackpack && (_className in _blacklist)) then
 	{
 		_includeBackpack = false;
-		["Backpack blacklisted."] call Ares_fnc_LogMessage;
+		["Backpack blacklisted."] call Achilles_fnc_logMessage;
 	};
 
 	if (_includeBackpack) then
 	{
-		[format["Accepted backpack: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Accepted backpack: %1", _className]] call Achilles_fnc_logMessage;
 		_backpacks pushBack _className;
 	}
 	else
 	{
-		[format["Rejected backpack: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Rejected backpack: %1", _className]] call Achilles_fnc_logMessage;
 	};
 } forEach _allVehicleClasses;
 
@@ -256,7 +256,7 @@ _allGlassesClasses = (configFile >> "CfgGlasses") call BIS_fnc_getCfgSubClasses;
 _glasses = [];
 {
 	_className = _x;
-	[format["Processing glasses: %1", _className]] call Ares_fnc_LogMessage;
+	[format["Processing glasses: %1", _className]] call Achilles_fnc_logMessage;
 	_config = configFile >> "CfgGlasses" >> _className;
 	_displayName = getText(_config >> "displayName");
 	_picture = getText(_config >> "picture");
@@ -265,24 +265,24 @@ _glasses = [];
 	
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{
-		["Glasses not public or have incomplete data."] call Ares_fnc_LogMessage;
+		["Glasses not public or have incomplete data."] call Achilles_fnc_logMessage;
 		_includeGlasses = false;
 	};
 	
 	if (_includeGlasses && (_className in _blacklist)) then
 	{
-		["Glasses blacklisted."] call Ares_fnc_LogMessage;
+		["Glasses blacklisted."] call Achilles_fnc_logMessage;
 		_includeGlasses = false;
 	};
 	
 	if (_includeGlasses) then
 	{
-		[format["Accepted glasses: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Accepted glasses: %1", _className]] call Achilles_fnc_logMessage;
 		_glasses pushBack _className;
 	}
 	else
 	{
-		[format["Rejected glasses: %1", _className]] call Ares_fnc_LogMessage;
+		[format["Rejected glasses: %1", _className]] call Achilles_fnc_logMessage;
 	};
 } forEach _allGlassesClasses;
 

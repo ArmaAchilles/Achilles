@@ -53,7 +53,7 @@ if (count _itemData > 4) then
 				{
 					_currentName = _names select _index;
 					_currentCount = _counts select _index;
-					[format["Adding '%1' x %2", _currentName, _currentCount]] call Ares_fnc_LogMessage;
+					[format["Adding '%1' x %2", _currentName, _currentCount]] call Achilles_fnc_logMessage;
 					switch (_x) do
 					{
 						case 4: { _ammoBox addBackpackCargoGlobal [_currentName, _currentCount]; };
