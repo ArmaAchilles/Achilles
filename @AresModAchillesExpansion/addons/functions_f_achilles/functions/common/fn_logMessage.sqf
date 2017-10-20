@@ -2,11 +2,11 @@
 	Author: CreepPork_LV, Anton Struyk
 
 	Description:
-	 Logs a message to .rpt file and vehicleChat.
+	 Logs a message to .rpt file and systemChat.
 
   Parameters:
     _this select: 0 - ANYTHING - Main message
-	_this select: 1 - ANYTHING - (Optional) Extra tag, e.g. file name, sorting, etc.
+		_this select: 1 - ANYTHING - (Optional) Extra tag, e.g. file name, sorting, etc.
 
   Returns:
     Nothing
@@ -21,7 +21,7 @@ if (not (isNil "Achilles_Debug_Output_Enabled")) then
 {
 	if (Achilles_Debug_Output_Enabled) then
 	{
-		player vehicleChat format["[ACHILLES] [%1] %2", _fileName, _message];
+		systemChat (format["[ACHILLES] [%1] %2", _fileName, _message]);
 		diag_log format["[ACHILLES] [%1] %2", _fileName, _message];
 	};
 };
