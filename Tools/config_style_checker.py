@@ -7,7 +7,7 @@ import ntpath
 import sys
 import argparse
 
-excluded_files = ['@AresModAchillesExpansion/addons/modules_f_ares\module_header.hpp', '@AresModAchillesExpansion/addons/modules_f_ares\module_footer.hpp']
+excluded_files = ['@AresModAchillesExpansion/addons/modules_f_ares/module_header.hpp', '@AresModAchillesExpansion/addons/modules_f_ares/module_footer.hpp']
 
 def check_config_style(filepath):
     bad_count_file = 0
