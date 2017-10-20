@@ -9,10 +9,9 @@ scopeName MAIN_SCOPE_NAME;
 // TODO we should be able to just delete the module here in the header, except that there is a bunch of
 // code that either (1) gets the position of _logic while executing or (2) requires the
 // module to be left around (e.g. LZ's)
-private ["_deleteModuleOnExit"];
-_deleteModuleOnExit = true;
+private _deleteModuleOnExit = true;
 
-[format["Starting module code '%1','%2','%3' (%4)", (_this select 0), (_this select 1), (_this select 2), typename _this]] call Ares_fnc_LogMessage;
+[format["Starting module code '%1','%2','%3' (%4)", (_this select 0), (_this select 1), (_this select 2), typename _this]] call Achilles_fnc_logMessage;
 
 // Start a new scope, passing in the variables passed to us on creation. This scope will
 // be closed in the footer, and is intentionally left open so we can break out of it
@@ -25,7 +24,7 @@ _deleteModuleOnExit = true;
 	// _units = _this select 1; // This is never really used. We don't link these modules with anything.
 	// _activated = _this select 2; // This is only used here. Dump it.
 	
-	[format["Inner logic running - %1,%2", _logic, (_this select 2)]], call Ares_fnc_LogMessage;
+	[format["Inner logic running - %1,%2", _logic, (_this select 2)]], call Achilles_fnc_logMessage;
 
 	// Stop running the module script if the module wasn't created by this instance.
 	// Fixes issues where the server would delete modules before the position of the 

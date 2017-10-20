@@ -74,7 +74,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	}];
 
 	// executed when the choice is submitted or cancled
-	WaitUntil {!isNil "Achilles_var_submit_selection" or {isNull findDisplay 312} or {{not isNull _x} count _objects_list == 0}};
+	WaitUntil {!isNil "Achilles_var_submit_selection" || {isNull findDisplay 312} || {{!isNull _x} count _objects_list == 0}};
 
 	// remove the key handler and the message
 	_display displayRemoveEventHandler ["KeyDown", _handler_id];
@@ -82,7 +82,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	_ctrlMessage ctrlcommit 0.5;
 	
 	// if objects were deleted
-	if ({not isNull _x} count _objects_list == 0) exitWith 
+	if ({!isNull _x} count _objects_list == 0) exitWith 
 	{
 		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";
@@ -90,7 +90,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	};
 
 	// if escape was pressed
-	if (not isNil "Achilles_var_submit_selection" and {not Achilles_var_submit_selection}) exitWith 
+	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith 
 	{
 		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";
