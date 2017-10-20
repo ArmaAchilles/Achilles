@@ -9,6 +9,7 @@ script:
   - sqflint -d @AresModAchillesExpansion/addons
 
 notifications:
+  email: false
   webhooks:
     urls:
       - https://mechilles.herokuapp.com/webhook
