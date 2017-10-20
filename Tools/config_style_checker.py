@@ -95,9 +95,6 @@ def check_config_style(filepath):
                                 print("ERROR: Possible missing curly brace '}}' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                 bad_count_file += 1
                             brackets_list.append('}')
-                        elif (c== '\t'):
-                            print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
-                            bad_count_file += 1
 
             else: # Look for the end of our comment block
                 if (c == '*'):
