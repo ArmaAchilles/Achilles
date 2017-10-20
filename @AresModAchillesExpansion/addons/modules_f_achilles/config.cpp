@@ -54,7 +54,8 @@ class CfgPatches
 			"Achilles_Module_Zeus_SwitchUnit",
 			"Achilles_Module_Zeus_AssignZeus",
 			"Achilles_Module_Player_Set_Frequencies",
-			"Achilles_Rotation_Module"
+			"Achilles_Module_Rotation",
+			"Achilles_Module_Supply_Drop"
 		};
 
 		requiredAddons[] =
