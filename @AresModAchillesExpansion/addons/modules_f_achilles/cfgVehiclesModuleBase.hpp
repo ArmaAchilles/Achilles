@@ -69,6 +69,7 @@ class CfgVehicles
 	#include "MissionFlow\cfgVehiclesModulesMissionFlow.hpp"
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
 	#include "Player\cfgVehiclesModulesPlayer.hpp"
+	#include "Reinforcements\cfgVehiclesModulesReinforcements.hpp"
 	#include "Replacement\cfgVehiclesModulesReplacement.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
 	#include "Zeus\cfgVehiclesModulesZeus.hpp"

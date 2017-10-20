@@ -13,6 +13,7 @@ class CfgFunctions
 		#include "MissionFlow\cfgFunctionsMissionFlow.hpp"
 		#include "Objects\cfgFunctionsObjects.hpp"
 		#include "Player\cfgFunctionsPlayer.hpp"
+		#include "Reinforcements\cfgFunctionsReinforcements.hpp"
 		#include "Replacement\cfgFunctionsReplacement.hpp"
 		#include "Spawn\cfgFunctionsSpawn.hpp"
 		#include "Zeus\cfgFunctionsZeus.hpp"

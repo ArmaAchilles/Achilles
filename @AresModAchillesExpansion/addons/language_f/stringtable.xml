@@ -958,6 +958,10 @@
         <Original>Units are not allowed!</Original>
         <English>Units are not allowed!</English>
       </Key>
+      <Key ID="STR_SUPPLY_DROP">
+        <Original>Supply Drop</Original>
+        <English>Supply Drop</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
