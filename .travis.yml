@@ -1,0 +1,17 @@
+language: python
+python:
+- '3.5'
+before_script:
+  - pip3 install sqflint
+script:
+  - python3 Tools/sqf_validator.py
+  - python3 Tools/config_style_checker.py
+  - sqflint -d @AresModAchillesExpansion/addons
+
+notifications:
+  webhooks:
+    urls:
+      - https://mechilles.herokuapp.com/webhook
+    on_success: always
+    on_failure: always
+    on_start: true

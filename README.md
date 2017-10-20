@@ -1,5 +1,6 @@
 # Ares Mod - Achilles Expansion
 ![Logo](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/Pictures/Achilles_Logo_Github.png)
+[![Build Status](https://www.travis-ci.org/ArmaAchilles/AresModAchillesExpansion.svg?branch=(0.1.0))](https://www.travis-ci.org/ArmaAchilles/AresModAchillesExpansion)
 
 ### Add-on description:
 
