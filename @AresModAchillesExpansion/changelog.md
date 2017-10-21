@@ -14,6 +14,26 @@ X.X.Xc					<br>
 
 Change log				<br>
 ───────────────────────────────────	<br>
+V.0.1.0 (Not Released - In Progress)
+* Change: Loadouts attribute button now has the option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
+* Change: Bootcamp module was added back.
+* Change: Advanced CAS module now attaches to an object.
+* Feature: Object rotation module. #151
+* Feature: Data Link and Radar Emission controls for AI vehicles. #77
+* Feature: TFAR Set frequency module. #156
+* Feature: Side relation change module. #130 and #149
+* Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
+* Feature: Debug logging is now available as an option in CBA addon settings
+* Feature: Debug logging function Achilles_fnc_logMessage (only logs when activated in CBA).
+* Feature: Helper function Achilles_fnc_parseBool, which parses 0es and 1es to a boolean.
+* Feature: Feedback function for the Curator Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
+* Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
+* Fix: Wrong localization string for Create LZ module.
+* Fix: Group names are now broadcasted to all players. #153
+* Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
+* Fix: When parachuting units, the function now works as intented. #127
+* Fix: Server side .rpt spam was fixed. #107
+
 V.0.0.9c
 * Fix: Fixed a critical issue that causes stances not to work.
 
