@@ -36,7 +36,6 @@ class CfgFunctions
 			class deadlyExplosion;
 			class disablingExplosion;
 			class fakeExplosion;
-			class hasACEExplosives;
 			class spawn;
 			class spawn_remote;
 			class ShowChooseDialog;

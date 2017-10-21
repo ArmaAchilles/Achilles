@@ -18,7 +18,6 @@ if(isNil "Achilles_var_ied_init_done") then
 	publicVariableServer "Achilles_fnc_createIED";
 	publicVariableServer "Achilles_fnc_createSuicideBomber";
 	publicVariableServer "Achilles_fnc_IED_DamageHandler";
-	publicVariableServer "Achilles_fnc_hasACEExplosives";
 	publicVariableServer "Achilles_fnc_fakeExplosion";
 	publicVariableServer "Achilles_fnc_disablingExplosion";
 	publicVariableServer "Achilles_fnc_deadlyExplosion";
