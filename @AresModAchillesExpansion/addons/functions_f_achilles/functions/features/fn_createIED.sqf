@@ -19,15 +19,15 @@
     Nothing
 */
 
-_object = _this select 0;
-_explosionSize = _this select 1;
-_explosionEffect = _this select 2;
-_activationDistance = _this select 3;
-_activationSide = _this select 4;
-_activationType = _this select 5;
-_isJammable = _this select 6;
-_disarmTime = _this select 7;
-_canBeDefused = _this select 8;
+private _object = _this select 0;
+private _explosionSize = _this select 1;
+private _explosionEffect = _this select 2;
+private _activationDistance = _this select 3;
+private _activationSide = _this select 4;
+private _activationType = _this select 5;
+private _isJammable = _this select 6;
+private _disarmTime = _this select 7;
+private _canBeDefused = _this select 8;
 
 _activationDistance = parseNumber _activationDistance;
 _disarmTime = parseNumber _disarmTime;
@@ -42,7 +42,7 @@ _activationSide = switch (_activationSide) do
 
 if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide]};
 
-_dummyObject = "Land_HelipadEmpty_F" createVehicle (getPosATL _object);
+private _dummyObject = "Land_HelipadEmpty_F" createVehicle (getPosATL _object);
 _dummyObject attachTo [_object,[0,0,0]];
 
 _dummyObject setVariable["activationType", _activationType, true];
@@ -54,15 +54,16 @@ _dummyObject setVariable ["armed", true, true];
 
 _object setVariable ["dummyObject", _dummyObject, true];
 
-_hasACEExplosives = call Achilles_fnc_hasACEExplosives;
+private _hasACEExplosives = isClass (configFile >> "CfgPatches" >> "ace_explosives");
 
-_targets = ["Car", "Tank", "Man"];
-_loop = true;
-_armed = _dummyObject getVariable ["armed", true];
-_triggered = _dummyObject getVariable ["iedTriggered", false];
+private _targets = ["Car", "Tank", "Man"];
+private _loop = true;
+private _armed = _dummyObject getVariable ["armed", true];
+private _triggered = _dummyObject getVariable ["iedTriggered", false];
 _object = _dummyObject getVariable ["object", objNull];
-_defused = _dummyObject getVariable ["defused", false];
-_targetSpeed = false;
+private _defused = _dummyObject getVariable ["defused", false];
+private _targetSpeed = false;
+private _onCompletion = {};
 
 if (_canBeDefused == 0) then
 {
@@ -168,15 +169,15 @@ else
 		_triggered = _dummyObject getVariable ["iedTriggered", false];
 		_armed = _dummyObject getVariable ["armed", true];
 
-		_nearestObjects = (getPos _dummyObject) nearObjects 150;
+		private _nearestObjects = (getPos _dummyObject) nearObjects 150;
 
 		if ({side _x in _activationSide} count _nearestObjects > 0) then
 		{
 			while {alive _object && _loop && _armed && !_triggered} do
 			{
 				sleep 1;
-				_nearestTarget  = (getPos _dummyObject) nearObjects (_activationDistance);
-				_nearestSide = [];
+				private _nearestTarget  = (getPos _dummyObject) nearObjects (_activationDistance);
+				private _nearestSide = [];
 
 				{
 					if (side _x in _activationSide) then
@@ -189,8 +190,8 @@ else
 
 				for [{_x = 0}, {_x < _howMany}, {_x = _x + 1}] do
 				{
-					_target = _nearestSide select _x;
-					_isJammableVehicle = _target getVariable ["isECM", false];
+					private _target = _nearestSide select _x;
+					private _isJammableVehicle = _target getVariable ["isECM", false];
 
 					if ((_isJammable == 0) && _isJammableVehicle && ((_target distance _dummyObject) <= 80)) then
 					{
@@ -222,9 +223,9 @@ _triggered = _dummyObject getVariable ["iedTriggered", false];
 _object setVariable ["armed", _armed, true];
 _object setVariable ["iedTriggered", _triggered, true];
 
-_spawnPos = [((getposATL _object) select 0),((getposATL _object) select 1),(((getPosATL _object) select 2) + 3)];
+private _spawnPos = [((getposATL _object) select 0),((getposATL _object) select 1),(((getPosATL _object) select 2) + 3)];
 
-_explosion = {};
+private _explosion = {};
 
 switch (_explosionEffect) do
 {
