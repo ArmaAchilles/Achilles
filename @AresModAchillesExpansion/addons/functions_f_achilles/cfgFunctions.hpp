@@ -42,6 +42,8 @@ class CfgFunctions
 			class showZeusErrorMessage;
 			class logMessage;
 			class parseBool;
+			class getAllLZs;
+			class getAllRPs;
 		};
 
 		class selectUnit
