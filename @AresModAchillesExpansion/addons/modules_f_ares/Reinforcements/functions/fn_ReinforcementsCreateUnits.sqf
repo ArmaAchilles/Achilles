@@ -144,10 +144,6 @@ if (_dialogVehicleBehaviour == 0) then
 	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
 	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
 };
-if (_dialogVehicleBehaviour == 1) then
-{
-	// Nothing to do. Vehicle will sit tight.
-};
 
 // Add vehicle to curator
 [(units _vehicleGroup) + [(vehicle (leader _vehicleGroup))]] call Ares_fnc_AddUnitsToCurator;
@@ -238,6 +234,20 @@ else
 
 // Add infantry to curator
 [(units _infantryGroup)] call Ares_fnc_AddUnitsToCurator;
+
+if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith 
+{
+	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
+	if (!isNull _vehicle) then
+	{
+		{deleteVehicle _x} forEach (fullCrew[_vehicle]);
+		deleteVehicle _vehicle;
+	}
+	else
+	{
+		{deleteVehicle _x} forEach _infantry_list;
+	}
+};
 
 if (count _allRps > 0) then
 {
