@@ -15,10 +15,10 @@
 //	_class_name_list = _parent_cfg_class call Achilles_fnc_ClassNamesWhichInheritsFromCfgClass;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_parent_cfg_class = _this;
-_output = [];
-_condition = format["configName _x isKindOf ""%1""",configName _parent_cfg_class];
-_higherHierarchyLevel = _parent_cfg_class call Achilles_fnc_higherConfigHierarchyLevel;
+private _parent_cfg_class = _this;
+private _output = [];
+private _condition = format["configName _x isKindOf ""%1""",configName _parent_cfg_class];
+private _higherHierarchyLevel = _parent_cfg_class call Achilles_fnc_higherConfigHierarchyLevel;
 {
 	_output pushBack (configName _x);
 } forEach (_condition configClasses _higherHierarchyLevel);

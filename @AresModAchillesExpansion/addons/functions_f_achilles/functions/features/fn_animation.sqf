@@ -15,11 +15,11 @@
 //	[_unit] call Achilles_fnc_Animation;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_anim","_dialogResult"];
+private ["_anim"];
 
-_units = [param [0,ObjNull,[ObjNull]]];
+private _units = [param [0,ObjNull,[ObjNull]]];
 
-_dialogResult =
+private _dialogResult =
 [
 	localize "STR_AMBIENT_ANIMATION",
 	[
@@ -61,7 +61,7 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_persistent = _dialogResult select 1;
+private _persistent = _dialogResult select 1;
 
 _anim = switch (_dialogResult select 0) do
 {
@@ -70,7 +70,7 @@ _anim = switch (_dialogResult select 0) do
 	case 2: {"LEAN"};
 	case 3: 
 	{
-		_case = round (random 1);
+		private _case = round (random 1);
 		switch (_case) do
 		{
 			case 0: {"WATCH_1"};
@@ -79,7 +79,7 @@ _anim = switch (_dialogResult select 0) do
 	};
 	case 4: 
 	{
-		_case = round (random 1);
+		private _case = round (random 1);
 		switch (_case) do
 		{
 			case 0: {"STAND_1"};
@@ -88,7 +88,7 @@ _anim = switch (_dialogResult select 0) do
 	};
 	case 5: 
 	{
-		_case = round (random 2);
+		private _case = round (random 2);
 		switch (_case) do
 		{
 			case 0: {"STAND_NO_WEAP_1"};
@@ -101,7 +101,7 @@ _anim = switch (_dialogResult select 0) do
 	case 8: {"BRIEFING"};
 	case 9: 
 	{
-		_case = round (random 1);
+		private _case = round (random 1);
 		switch (_case) do
 		{
 			case 0: {"BRIEFING_INTERACTIVE_1"};
@@ -116,7 +116,7 @@ _anim = switch (_dialogResult select 0) do
 	case 15: {"SHOWING_THE_WAY"};	
 	case 16:
 	{
-		_case = round (random 1);
+		private _case = round (random 1);
 		switch (_case) do
 		{
 			case 0: {"KNEEL_TREAT_1"};
@@ -126,7 +126,7 @@ _anim = switch (_dialogResult select 0) do
 	case 17: {"PRONE_INJURED"};
 	case 18:
 	{
-		_case = round (random 1);
+		private _case = round (random 1);
 		switch (_case) do
 		{
 			case 0: {"PRONE_INJURED_NO_WEAP_1"};

@@ -14,7 +14,7 @@
 //	["man"] call Achilles_fnc_getCuratorSelected;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_unaddedCrew","_intersection"];
+private ["_unaddedCrew"];
 private _mode = toLower param [0, "man",[""]];
 private _selected = [];
 

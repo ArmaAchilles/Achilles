@@ -15,10 +15,10 @@
 //	_unit call Achilles_fnc_getUnitAmmoDef;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_unit = _this;
+private _unit = _this;
 
-_currentMagazinesClassName = [];
-_currentMagazinesAmmoCount = [];
+private _currentMagazinesClassName = [];
+private _currentMagazinesAmmoCount = [];
 
 // get current magazines ammo count
 {
@@ -27,17 +27,17 @@ _currentMagazinesAmmoCount = [];
 } forEach (magazinesAmmoFull _unit);
 
 // get config unit magazines (does not include backpacks)
-_MagazinesClassName = getArray (configFile >> "CfgVehicles" >> typeOf _unit >> "magazines");
+private _MagazinesClassName = getArray (configFile >> "CfgVehicles" >> typeOf _unit >> "magazines");
 
 // get config backpack magazines
-_backpackClassName =  backpack _unit;
+private _backpackClassName =  backpack _unit;
 if (_backpackClassName != "") then
 {
-	_CfgBackpackContent =  (configFile >> "CfgVehicles" >> _backpackClassName >> "TransportMagazines");
-	_cfgBackpackMagazines = [_CfgBackpackContent, 0, true] call BIS_fnc_returnChildren;
+	private _CfgBackpackContent =  (configFile >> "CfgVehicles" >> _backpackClassName >> "TransportMagazines");
+	private _cfgBackpackMagazines = [_CfgBackpackContent, 0, true] call BIS_fnc_returnChildren;
 	{
-		_backpackMagazineClassName = getText (_x >> "magazine");
-		_backpackMagazineAmmoCount = getNumber (_x >> "count");
+		private _backpackMagazineClassName = getText (_x >> "magazine");
+		private _backpackMagazineAmmoCount = getNumber (_x >> "count");
 		for "_i" from 1 to _backpackMagazineAmmoCount do
 		{
 			_MagazinesClassName pushBack _backpackMagazineClassName;
@@ -46,10 +46,10 @@ if (_backpackClassName != "") then
 };
 
 // get ammo percentages for all magazines
-_percentages = [];
+private _percentages = [];
 {
-	_CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-	_index = _currentMagazinesClassName find _x;
+	private _CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
+	private _index = _currentMagazinesClassName find _x;
 	if (_index != -1) then
 	{
 		_percentages pushBack ((_currentMagazinesAmmoCount select _index) / _CfgAmmoCount);

@@ -17,28 +17,28 @@
 		Nothing
 */
 
-_bomber = _this select 0;
-_explosionSize = _this select 1;
-_explosionEffect = _this select 2;
-_activationSide = _this select 3;
-_patrolRadius = _this select 4;
-_activationDistance = _this select 5;
-_addVest = _this select 6;
+private _bomber = _this select 0;
+private _explosionSize = _this select 1;
+private _explosionEffect = _this select 2;
+private _activationSide = _this select 3;
+private _patrolRadius = _this select 4;
+private _activationDistance = _this select 5;
+private _addVest = _this select 6;
 
 _patrolRadius = parseNumber _patrolRadius;
 _activationDistance = parseNumber _activationDistance;
 
-if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide]};
+if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide];};
 
-_hasSpoken = 0;
-_targets = ["Car", "Tank", "Man"];
+private _hasSpoken = 0;
+private _targets = ["Car", "Tank", "Man"];
 
 removeAllWeapons _bomber;
 
-_dummyObject = "Land_HelipadEmpty_F" createVehicle (getPos _bomber);
+private _dummyObject = "Land_HelipadEmpty_F" createVehicle (getPos _bomber);
 _dummyObject attachTo [_bomber,[0,0,0]];
 
-_bomberGroup = group _bomber;
+private _bomberGroup = group _bomber;
 _bomberGroup setBehaviour "CARELESS";
 _bomberGroup setSpeedMode "LIMITED";
 
@@ -50,38 +50,37 @@ if (_addVest) then
 
 if (_patrolRadius > 0) then
 {
-	_numberOfWaypoints = 6;
-	_degreesPerWaypoint = 360 / _numberOfWaypoints;
-	_centerPoint = position _bomber;
+	private _numberOfWaypoints = 6;
+	private _degreesPerWaypoint = 360 / _numberOfWaypoints;
+	private _centerPoint = position _bomber;
 	for "_waypointNumber" from 0 to (_numberOfWaypoints - 1) do
 	{
-		private ["_currentDegrees"];
-		_currentDegrees = _degreesPerWaypoint * _waypointNumber;
-		_waypoint = _bomberGroup addWaypoint [[_centerPoint, _patrolRadius, _currentDegrees] call Bis_fnc_relPos, 5];
+		private _currentDegrees = _degreesPerWaypoint * _waypointNumber;
+		private _waypoint = _bomberGroup addWaypoint [[_centerPoint, _patrolRadius, _currentDegrees] call Bis_fnc_relPos, 5];
 	};
-	_waypoint = _bomberGroup addWaypoint [[_centerPoint, _patrolRadius, 0] call BIS_fnc_relPos, 5];
+	private _waypoint = _bomberGroup addWaypoint [[_centerPoint, _patrolRadius, 0] call BIS_fnc_relPos, 5];
 	_waypoint setWaypointType "CYCLE";
 };
 
-_check = true;
+private _check = true;
 
 while {alive _bomber && _check} do
 {
     sleep 1;
-		_nearestObjects = (getPos _bomber) nearObjects 100;
+		private _nearestObjects = (getPos _bomber) nearObjects 100;
 
 		if ({side _x in _activationSide} count _nearestObjects > 0) then
 		{
 			while {(alive _bomber) && (_check)} do
 			{
 				sleep 1;
-				_nearestUnit = [];
-				{if (side _x in _activationSide) then {_nearestUnit = _nearestUnit + [_x]}} forEach _nearestObjects;
-				_count = count _nearestUnit;
+				private _nearestUnit = [];
+				{if (side _x in _activationSide) then {_nearestUnit = _nearestUnit + [_x];}} forEach _nearestObjects;
+				private _count = count _nearestUnit;
 
-				for [{_x = 0}, {_x < _count}, {_x = _x + 1}] do
+				for [{_x = 0;}, {_x < _count;}, {_x = _x + 1;}] do
 				{
-					_enemyUnit = _nearestUnit select _x;
+					private _enemyUnit = _nearestUnit select _x;
 					{
 						if (_enemyUnit isKindOf _x && alive _enemyUnit) then
 						{
@@ -107,8 +106,8 @@ while {alive _bomber && _check} do
 									if (_hasSpoken == 0) then
 									{
 										//[_bomber, "FD_Start_F"] remoteExec ["say3D", 0, _bomber];
-										_messages = ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
-										_selectedMessage = _messages select (floor random 4);
+										private _messages = ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
+										private _selectedMessage = _messages select (floor random 4);
 										[_bomber, _selectedMessage] remoteExec ["globalChat", _nearestUnit, false];
 										_hasSpoken = 1;
 									};

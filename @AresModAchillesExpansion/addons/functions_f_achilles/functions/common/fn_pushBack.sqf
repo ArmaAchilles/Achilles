@@ -17,11 +17,11 @@
 //	[ [[1,2],[4,5]], [1], 6] call Achilles_fnc_pusBack; //returns [[1,2],[4,5,6]]
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_input_array","_indice_array","_element","_output_array"];
+private ["_output_array"];
 
-_input_array 	= param [0,[],[[]]];
-_indice_array 	= param [1,[],[[]]];
-_element 		= _this select 2;
+private _input_array 	= param [0,[],[[]]];
+private _indice_array 	= param [1,[],[[]]];
+private _element 		= _this select 2;
 
 if (count _indice_array == 0) then 
 {
@@ -29,9 +29,9 @@ if (count _indice_array == 0) then
 } else
 {
 	// unpack array
-	_temp_array = [_input_array];	
+	private _temp_array = [_input_array];
 	{
-		_temp_element = _temp_array select ((count _temp_array) - 1);
+		private _temp_element = _temp_array select ((count _temp_array) - 1);
 		_temp_array pushBack (_temp_element select _x);
 	} forEach _indice_array;
 	
@@ -42,10 +42,10 @@ if (count _indice_array == 0) then
 	reverse _temp_array;
 	
 	// pack array
-	_temp_element = _temp_array select 0;
+	private _temp_element = _temp_array select 0;
 	for "_i" from 0 to ((count _temp_array) - 2) do
 	{
-		_old_element = _temp_element;
+		private _old_element = _temp_element;
 		_temp_element = _temp_array select (_i + 1);
 		_temp_element set [_indice_array select _i, _old_element];
 	};

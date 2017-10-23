@@ -16,11 +16,10 @@
 //	_animation_set_details = "GUARD" call Achilles_fnc_ambientAnimGetParams;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_anims","_noWeapon"];
-_anim_set = _this;
+private _anim_set = _this;
 
-_anims = [];
-_noWeapon = false;
+private _anims = [];
+private _noWeapon = false;
 
 switch (_anim_set) do
 {
@@ -92,7 +91,7 @@ switch (_anim_set) do
 	case "LEAN":
 	{
 		_anims = ["inbasemoves_lean1"];
-		_noBackpack = true;
+		_noBackpack = true; // _noWeapon?
 	};
 	case "KNEEL":
 	{

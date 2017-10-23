@@ -22,8 +22,8 @@ if (isNil "Achilles_var_old_special_char_unicode") then
 	Achilles_var_old_special_char_unicode = [];
 	Achilles_var_new_special_char_unicode = [];
 	
-	_old_letters = [" ",":","(",")","[","]"];
-	_new_letters = ["_","_","_","_","_","_"];
+	private _old_letters = [" ",":","(",")","[","]"];
+	private _new_letters = ["_","_","_","_","_","_"];
 	
 	switch (language) do
 	{
@@ -51,18 +51,18 @@ if (isNil "Achilles_var_old_special_char_unicode") then
 	};
 };
 
-private["_str","_old","_new","_out","_tmp","_jm","_la","_lo","_ln","_i"];
+private["_i"];
 
-_input_unicode = toArray _this;
+private _input_unicode = toArray _this;
 
 for "_i" from 0 to ((count _input_unicode) - 1) do
 {
-	_letter_index = Achilles_var_old_special_char_unicode find (_input_unicode select _i);
+	private _letter_index = Achilles_var_old_special_char_unicode find (_input_unicode select _i);
 	if (_letter_index != -1) then
 	{
 		_input_unicode set [_i,Achilles_var_new_special_char_unicode select _letter_index];
 	};
 };
 
-_output = toString _input_unicode;
+private _output = toString _input_unicode;
 _output;

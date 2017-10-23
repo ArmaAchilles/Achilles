@@ -23,19 +23,19 @@ if (count _this > 1) then
 	_cfgTurrets = _this select 0;
 } else
 {
-	_vehicleType = _this select 0;
+	private _vehicleType = _this select 0;
 	_parent_turret_path = [];
 	_cfgTurrets = configFile >> "CfgVehicles" >> _vehicleType >> "Turrets";
 };
 
-_cfgTurrets_list = [_cfgTurrets, 0, true] call BIS_fnc_returnChildren;
+private _cfgTurrets_list = [_cfgTurrets, 0, true] call BIS_fnc_returnChildren;
 
 _output = [];
 {
-	_current_cfgTurret = _x;
-	_turret_path = _parent_turret_path + [_forEachIndex];
+	private _current_cfgTurret = _x;
+	private _turret_path = _parent_turret_path + [_forEachIndex];
 	_output pushBack _current_cfgTurret;
-	_cfgTurrets_children = _current_cfgTurret >> "Turrets";
+	private _cfgTurrets_children = _current_cfgTurret >> "Turrets";
 	if (isClass _cfgTurrets_children) then
 	{
 		_output append ([_cfgTurrets_children, _turret_path] call Achilles_fnc_getAllTurretConfig);

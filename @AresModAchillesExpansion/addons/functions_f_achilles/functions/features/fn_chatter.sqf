@@ -17,11 +17,11 @@
 
 private ["_chat_type","_side"];
 
-_unit = param [0,ObjNull,[ObjNull]];
+private _unit = param [0,ObjNull,[ObjNull]];
 
 if (isNull _unit) then
 {
-	_dialogResult =
+	private _dialogResult =
 	[
 		(localize "STR_CHATTER") + " (CROSSROAD):",
 		[
@@ -52,7 +52,7 @@ if (isNull _unit) then
 } else
 {
 	private _name = if (isNil {_unit getVariable "Achilles_var_switchUnit_data"}) then {name _unit} else {(_unit getVariable "Achilles_var_switchUnit_data") select 0};
-	_dialogResult =
+	private _dialogResult =
 	[
 		(localize "STR_CHATTER") + format [" (%1):", _name],
 		[
@@ -72,7 +72,7 @@ if (isNull _unit) then
 
 	if (count _dialogResult == 0) exitWith {};
 
-	_chat_type = switch (_dialogResult select 0) do
+	private _chat_type = switch (_dialogResult select 0) do
 	{
 		case 0: {'globalChat'};
 		case 1: {'sideChat'};
@@ -80,7 +80,7 @@ if (isNull _unit) then
 		case 3: {'commandChat'};
 		case 4:	{''};
 	};
-	_message = _dialogResult select 1;
+	private _message = _dialogResult select 1;
 	
 	// if zeus channel
 	if (_chat_type == "") exitWith {[player,_message] remoteExec ['sideChat',0];};

@@ -18,15 +18,15 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-_unit = _this select 0;
-_delay = _this select 1;
+private _unit = _this select 0;
+private _delay = _this select 1;
 
 sleep _delay;
 
 if (!isPlayer _unit) then
 {
 	// for AI units
-	_id = _unit addEventHandler ["HandleDamage",{if (_this select 4 == "") then {0} else {_this select 2}}];
+	private _id = _unit addEventHandler ["HandleDamage",{if (_this select 4 == "") then {0} else {_this select 2}}];
 	moveOut _unit;
 	unassignVehicle _unit;
 	[_unit] orderGetIn false;
@@ -38,7 +38,7 @@ if (!isPlayer _unit) then
 		_unit action ["openParachute"];
 	} else
 	{
-		_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
+		private _chute = "Steerable_Parachute_F" createVehicle [0,0,0];
 		_chute setPos (getPos _unit);
 		_chute setDir (getDir _unit);
 		_chute setVelocity (velocity _unit);
@@ -52,20 +52,20 @@ if (!isPlayer _unit) then
 {
 	// for player units
 	_unit action ["Eject", vehicle _unit];
-	_backpack_class = backpack _unit;
+	private _backpack_class = backpack _unit;
 	
 	// if the unit already have a chute
-	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then {_backpack_class = ""};
+	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then {_backpack_class = "";};
 	
 	if (_backpack_class != "") then
 	{
-		_container = backpackContainer _unit;
-		_weapon_cargo = getWeaponCargo _container;
-		_magazine_cargo = getMagazineCargo _container;
-		_item_cargo = getItemCargo _container;
+		private _container = backpackContainer _unit;
+		private _weapon_cargo = getWeaponCargo _container;
+		private _magazine_cargo = getMagazineCargo _container;
+		private _item_cargo = getItemCargo _container;
 		removeBackpack _unit;
 		_unit addBackpack "b_parachute";
-		_packHolder = createVehicle ["groundWeaponHolder", [0,0,0], [], 0, "can_collide"];
+		private _packHolder = createVehicle ["groundWeaponHolder", [0,0,0], [], 0, "can_collide"];
 		_packHolder addBackpackCargoGlobal [_backpack_class, 1];
 		waitUntil {animationState _unit == "HaloFreeFall_non" or (!alive _unit)};
 		_packHolder attachTo [_unit,[-0.12,-0.02,-.74],"pelvis"]; 

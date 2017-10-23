@@ -17,13 +17,13 @@
 params ["_vehicles"];
 
 {
-	_vehicle = _x;
+	private _vehicle = _x;
 	if (_vehicle isKindOf "LandVehicle" or _vehicle isKindOf "Air") then
 	{
-		_crew = crew _vehicle;
-		_passenger = _crew select {(assignedVehicleRole _x) select 0 == "CARGO"};
+		private _crew = crew _vehicle;
+		private _passenger = _crew select {(assignedVehicleRole _x) select 0 == "CARGO"};
 		{
-			_unit = _x;
+			private _unit = _x;
 			if ((getPos _vehicle select 2) > 40) then
 			{
 				if (local _unit) then

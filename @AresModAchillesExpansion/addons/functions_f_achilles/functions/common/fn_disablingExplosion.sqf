@@ -12,11 +12,11 @@
     Nothing
 */
 
-_spawnPos = _this select 0;
-_explosionSize = _this select 1;
-_random	= 0;
-_hitRadius = 0;
-_killRadius = 0;
+private _spawnPos = _this select 0;
+private _explosionSize = _this select 1;
+private _random	= 0;
+private _hitRadius = 0;
+private _killRadius = 0;
 
 switch (_explosionSize) do
 {
@@ -42,7 +42,7 @@ switch (_explosionSize) do
 	};
 };
 
-_targetUnits = _spawnPos nearObjects _hitRadius;
+private _targetUnits = _spawnPos nearObjects _hitRadius;
 
 {
 	_random = random 10;

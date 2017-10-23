@@ -21,8 +21,8 @@
 
 params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
 
-_old_group = group _unit;
-_units = units _old_group;
+private _old_group = group _unit;
+private _units = units _old_group;
 
 //create target logic
 private _selectedTarget = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
@@ -30,9 +30,9 @@ _selectedTarget setPosWorld _targetPos;
 
 
 //save and remove waypoints
-_current_wp_id = currentWaypoint _old_group;
-_waypoint_count = count waypoints _old_group;
-_waypoints = [];
+private _current_wp_id = currentWaypoint _old_group;
+private _waypoint_count = count waypoints _old_group;
+private _waypoints = [];
 private "_start_wp_pos";
 if (_current_wp_id < _waypoint_count) then
 {
@@ -80,34 +80,34 @@ if (_doLineUp) then
 _units = _units select {gunner vehicle _x == _x};
 
 // store original group in place holder
-_placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
+private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
 {
 	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder] spawn 
 	{
-		_unit = gunner (_this select 0);
-		_units = _this select 1;
-		_target = _this select 2;
-		_stanceIndex = _this select 3;
-		_fireModeIndex = _this select 4;
-		_duration = _this select 5;
-		_placeholder = _this select 6;
+		private _unit = gunner (_this select 0);
+		private _units = _this select 1;
+		private _target = _this select 2;
+		private _stanceIndex = _this select 3;
+		private _fireModeIndex = _this select 4;
+		private _duration = _this select 5;
+		private _placeholder = _this select 6;
 		
 		// cease fire if group mate is too close to line of fire
 		if (not ([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
 		
-		_old_group = group _placeholder;
-		_aiming = _unit skill "aimingAccuracy";
+		private _old_group = group _placeholder;
+		private _aiming = _unit skill "aimingAccuracy";
 		_unit setSkill ["aimingAccuracy", 0.2];
 		_unit setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
 		
 		// get fire mode parameters
-		_params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
-		_fireRepeater = _params select 0;
-		_ceaseFireTime = _params select 1;
+		private _params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
+		private _fireRepeater = _params select 0;
+		private _ceaseFireTime = _params select 1;
 		
-		_new_group = createGroup (side _unit);
+		private _new_group = createGroup (side _unit);
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
 		
@@ -121,8 +121,8 @@ _placeholder setPos [0,0,0];
 		
 		if ((vehicle _unit) isEqualTo _unit) then
 		{
-			_muzzle = (weaponState _unit) select 1;
-			_mode = weaponState _unit select 2;
+			private _muzzle = (weaponState _unit) select 1;
+			private _mode = weaponState _unit select 2;
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
@@ -136,11 +136,11 @@ _placeholder setPos [0,0,0];
 			};
 		} else
 		{
-			_vehicle = vehicle _unit;
+			private _vehicle = vehicle _unit;
 			if (_unit == gunner _vehicle) then 
 			{
-				_turrets_path = (assignedVehicleRole _unit) select 1;		
-				_muzzle = weaponState [_vehicle, _turrets_path] select 1;
+				private _turrets_path = (assignedVehicleRole _unit) select 1;
+				private _muzzle = weaponState [_vehicle, _turrets_path] select 1;
 				for "_" from 0 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
@@ -170,7 +170,7 @@ if (count _waypoints > 0 and (not isNull _old_group)) then
 {
 	reverse _waypoints;
 	{
-		_wp = _old_group addWaypoint [_x select 0, 0];
+		private _wp = _old_group addWaypoint [_x select 0, 0];
 		_wp setWaypointType (_x select 1);
 		_wp setWaypointBehaviour (_x select 2);
 		_wp setWaypointCombatMode (_x select 3);
