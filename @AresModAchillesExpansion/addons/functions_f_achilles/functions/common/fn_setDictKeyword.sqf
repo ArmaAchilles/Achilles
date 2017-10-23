@@ -17,6 +17,8 @@
 //	[_myDict, ["category1","subcategory1"]], 2] call Achilles_fnc_findInDict;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//WARNING: Needs checking of variable _nested_categories!
+
 private ["_input_array","_indice_array","_element","_output_array"];
 
 _input_dict 		= param [0,[],[[]]];
@@ -24,6 +26,8 @@ _path_by_categories	= param [1,[],[[]]];
 _element 			= param [2,nil,[]];
 
 _output_dict = [];
+
+private _nested_categories = _path_by_categories;
 
 if (count _input_dict == 0) then
 {	// create a new dict

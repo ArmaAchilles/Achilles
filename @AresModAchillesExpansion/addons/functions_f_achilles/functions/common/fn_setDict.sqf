@@ -25,7 +25,7 @@ _element 			= _this select 2;
 
 _dict = [];
 
-_dict_storage = [] call compile format ["Achilles_var_dictStorage_%1;",_dictName];
+_dict_storage = [] call compile format ["Achilles_var_dictStorage_%1;",_dict_name];
 if (isNil "_dict_storage") then
 {
 	reverse _nested_categories;
@@ -74,7 +74,7 @@ if (isNil "_dict_storage") then
 	};
 	_dict = _temp_dict;
 };
-_dict call compile format ["Achilles_var_dictStorage_%1 = _this;",_dictName];
+_dict call compile format ["Achilles_var_dictStorage_%1 = _this;",_dict_name];
 _dict;
 
 
