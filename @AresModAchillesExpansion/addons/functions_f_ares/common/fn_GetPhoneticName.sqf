@@ -9,9 +9,9 @@
 		String - The name corresponding to the number provided.
 */
 
-_index = [_this, 0, 0] call BIS_fnc_param;
+private _index = [_this, 0, 0] call BIS_fnc_param;
 
-_names = [];
+private _names = [];
 for '_i' from 97 to 122 do 
 {
 	_names pushBack (localize format ["str_a3_radio_%1",toString [_i]]);
@@ -20,7 +20,7 @@ for '_i' from 97 to 122 do
 private ["_name"];
 if (_index >= count _names) then
 {
-	_suffix = floor (_index / (count _names));
+	private _suffix = floor (_index / (count _names));
 	_name = format ["%1-%2", (_names select (_index mod (count _names))), _suffix];
 }
 else

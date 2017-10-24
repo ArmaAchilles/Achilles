@@ -68,7 +68,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	// Add key event handler
 	private _handler_id = _display displayAddEventHandler ["KeyDown", 
 	{
-		_key = _this select 1;
+		private _key = _this select 1;
 		if (_key == 28) then {Achilles_var_submit_selection = true; true} else {false};
 		if (_key == 1) then {Achilles_var_submit_selection = false; true} else {false};
 	}];

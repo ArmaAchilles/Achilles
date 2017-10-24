@@ -18,12 +18,12 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_type = param [0, localize "STR_OBJECTS", [""]];
-_single = param [1, false, [false]];
+private _type = param [0, localize "STR_OBJECTS", [""]];
+private _single = param [1, false, [false]];
 
 disableSerialization;
-_display = finddisplay IDD_RSCDISPLAYCURATOR;
-_ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
+private _display = finddisplay IDD_RSCDISPLAYCURATOR;
+private _ctrlMessage = _display displayctrl IDC_RSCDISPLAYCURATOR_FEEDBACKMESSAGE;
 
 Achilles_var_submit_selection = nil;
 
@@ -38,9 +38,9 @@ _ctrlMessage ctrlsetfade 0;
 _ctrlMessage ctrlcommit 0.1;
 
 // Add key event handler
-_handler_id = _display displayAddEventHandler ["KeyDown", 
+private _handler_id = _display displayAddEventHandler ["KeyDown", 
 {
-	_key = _this select 1;
+	private _key = _this select 1;
 	if (_key == 28) then {Achilles_var_submit_selection = true; true} else {false};
 	if (_key == 1) then {Achilles_var_submit_selection = false; true} else {false};
 }];
@@ -63,15 +63,15 @@ if (_single) then
 {
 	if (count (curatorSelected select 0) > 0) then
 	{
-		_output = curatorSelected select 0 select 0;
+		private _output = curatorSelected select 0 select 0;
 		_output;
 	} else
 	{
-		_output = ObjNull;
+		private _output = ObjNull;
 		_output;
 	};
 } else
 {
-	_output_array = curatorSelected select 0;
+	private _output_array = curatorSelected select 0;
 	_output_array;
 };

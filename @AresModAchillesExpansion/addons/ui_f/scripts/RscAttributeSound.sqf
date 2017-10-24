@@ -1,17 +1,17 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_unit = _this select 2;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _unit = _this select 2;
 
 switch _mode do {
 	case "onLoad": {
-		_display = _params select 0;
-		_ctrlValue = _display displayctrl IDC_RSCATTRIBUTESOUND_VALUE;
+		private _display = _params select 0;
+		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTESOUND_VALUE;
 		_ctrlValue ctrladdeventhandler ["lbselchanged","with uinamespace do {['lbSelChanged',_this,objnull] call RscAttributeSound};"];
 
 		//--- Get sound objects
-		_sounds = uinamespace getvariable "RscAttributeSound_objects";
+		private _sounds = uinamespace getvariable "RscAttributeSound_objects";
 		if (isnil "_sounds") then {
 			_sounds = [];
 			{
@@ -24,9 +24,9 @@ switch _mode do {
 
 		//--- Add objects to the list
 		{
-			_name = gettext (_x >> "displayname");
+			private _name = gettext (_x >> "displayname");
 			if (_name != "") then {
-				_lbadd = _ctrlValue lbadd _name;
+				private _lbadd = _ctrlValue lbadd _name;
 				_ctrlValue lbsetdata [_lbadd,configname _x];
 			};
 		} foreach _sounds;
@@ -34,8 +34,8 @@ switch _mode do {
 		_ctrlValue lbsetcursel (uinamespace getvariable ["RscAttributeSound_selected",0]);
 	};
 	case "confirmed": {
-		_display = _params select 0;
-		_ctrlValue = _display displayctrl IDC_RSCATTRIBUTESOUND_VALUE;
+		private _display = _params select 0;
+		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTESOUND_VALUE;
 		_unit setvariable ["RscAttributeSound",_ctrlValue lbdata (lbcursel _ctrlValue),true];
 	};
 	case "onUnload": {
@@ -43,9 +43,9 @@ switch _mode do {
 		RscAttributeSound_trigger = nil;
 	};
 	case "lbSelChanged": {
-		_ctrlValue = _params select 0;
-		_cursel = _params select 1;
-		_sound = _ctrlValue lbdata _cursel;
+		private _ctrlValue = _params select 0;
+		private _cursel = _params select 1;
+		private _sound = _ctrlValue lbdata _cursel;
 		RscAttributeSound_selected = _cursel;
 
 		if !(isnil "RscAttributeSound_trigger") then {deletevehicle RscAttributeSound_trigger;};

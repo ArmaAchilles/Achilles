@@ -15,33 +15,33 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-_vehicle = _this;
-_vehicleType = typeOf _vehicle;
+private _vehicle = _this;
+private _vehicleType = typeOf _vehicle;
 
 // get current state of all turret magazines
-_AllTurretCurrentMagazinesClassName = [];
-_AllTurretCurrentMagazinesAmmoCount = [];
+private _AllTurretCurrentMagazinesClassName = [];
+private _AllTurretCurrentMagazinesAmmoCount = [];
 {
 	_AllTurretCurrentMagazinesClassName pushBack (_x select 0);
 	_AllTurretCurrentMagazinesAmmoCount pushBack (_x select 2);
 } forEach (magazinesAllTurrets _vehicle);
 
-_turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
+private _turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
 
 // append config path for driver magazines
 _turretsCfg pushBack (configFile >> "CfgVehicles" >> _vehicleType);
 
-_AllTurretAmmoPercentages = [];
+private _AllTurretAmmoPercentages = [];
 
 // get ammo percentages for all turrets
 {
-	_TurretAmmoPercentages = [];
-	_cfgTurret = _x;
-	_MagazinesClassName = getArray (_cfgTurret >> "magazines");
+	private _TurretAmmoPercentages = [];
+	private _cfgTurret = _x;
+	private _MagazinesClassName = getArray (_cfgTurret >> "magazines");
 	{
 		// compare magazine count from config with current count
-		_CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-		_index = _AllTurretCurrentMagazinesClassName find _x;
+		private _CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
+		private _index = _AllTurretCurrentMagazinesClassName find _x;
 		if (_index != -1) then
 		{
 			_TurretAmmoPercentages pushBack ((_AllTurretCurrentMagazinesAmmoCount select _index) / _CfgAmmoCount);
@@ -65,7 +65,7 @@ _AllTurretAmmoPercentages = [];
 // handle dynamic loadout
 if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "TransportPylonsComponent")) then
 {
-	_TurretAmmoPercentages = [];
+	private _TurretAmmoPercentages = [];
 	{
 		if (_x != "") then
 		{

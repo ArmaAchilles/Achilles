@@ -24,15 +24,15 @@
 #define UNTIE_ICON				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa"
 
 
-_unit =					_this select 0;
-_caller =				_this select 1;
-_param = 				_this select 2;
-_animIndex = 			_param select 0;
-_interactionIndex = 	_param select 1;
+private _unit =					_this select 0;
+private _caller =				_this select 1;
+private _param = 				_this select 2;
+private _animIndex = 			_param select 0;
+private _interactionIndex = 	_param select 1;
 
 if (_animIndex == -1) then
 {
-	_termination = if(isNull _caller) then {-1} else {_unit getVariable ["AresCaptureState",1]};
+	private _termination = if(isNull _caller) then {-1} else {_unit getVariable ["AresCaptureState",1]};
 	
 	// unit gets freed
 	
@@ -41,7 +41,7 @@ if (_animIndex == -1) then
 
 	// terminate animation
 	//[_unit,""] remoteExec ["switchMove",0];
-	_anim_state = animationState _unit;
+	private _anim_state = animationState _unit;
 	[_unit,"TERMINATE",false] call Achilles_fnc_ambientAnim;
 	
 	// remove the action
@@ -62,8 +62,8 @@ if (_animIndex == -1) then
 	};
 } else
 {
-	_anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
-	_actionName = [localize "STR_RELEASE_UNIT",localize "STR_RELEASE_UNIT",localize "STR_TIE_UNIT"] select _interactionIndex;
+	private _anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
+	private _actionName = [localize "STR_RELEASE_UNIT",localize "STR_RELEASE_UNIT",localize "STR_TIE_UNIT"] select _interactionIndex;
 	
 	// Set unit captive
 	_unit setCaptive true;
@@ -82,7 +82,7 @@ if (_animIndex == -1) then
 		{
 			_unit = _this select 0;
 			_caller = _this select 1;
-			_id = _this select 2;
+			private _id = _this select 2;
 			
 			// remove the action
 			remoteExec ["",_unit];	// remove from JIP queue
@@ -101,4 +101,3 @@ if (_animIndex == -1) then
 	
 	_unit setVariable ["AresCaptureState",_interactionIndex,true];	
 };
-

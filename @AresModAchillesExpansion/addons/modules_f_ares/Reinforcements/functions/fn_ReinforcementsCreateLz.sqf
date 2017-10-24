@@ -5,11 +5,11 @@ if (isNil "Ares_ReinforcementLzCount") then
 	Ares_ReinforcementLzCount = 0;
 };
 
-_deleteModuleOnExit = false;
+private _deleteModuleOnExit = false;
 
-_targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhoneticName;
-_target_name = format ["LZ %1", _targetPhoneticName];
-_dialogResult = 
+private _targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhoneticName;
+private _target_name = format ["LZ %1", _targetPhoneticName];
+private _dialogResult = 
 [
 	localize "STR_CREATE_NEW_LZ",
 	[
@@ -25,7 +25,7 @@ Ares_ReinforcementLzCount = Ares_ReinforcementLzCount + 1;
 publicVariable "Ares_ReinforcementLzCount";
 
 // create a LZ object for AI
-_h_pad = "Land_HelipadEmpty_F" createVehicle position _logic;
+private _h_pad = "Land_HelipadEmpty_F" createVehicle position _logic;
 _h_pad attachTo [_logic,[0,0,0]];
 [_logic, _h_pad] spawn {waitUntil {sleep 10; isNull (_this select 0)}; deleteVehicle (_this select 1);};
 

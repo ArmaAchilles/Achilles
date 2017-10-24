@@ -28,24 +28,24 @@
 #define SIDE_AAF 2
 #define SIDE_CIV 3
 
-_blacklist = [_this, 0, []] call BIS_fnc_Param;
-_limitItemsToSide = [_this, 1, 'All'] call Bis_fnc_Param;
+private _blacklist = [_this, 0, []] call BIS_fnc_Param;
+private _limitItemsToSide = [_this, 1, 'All'] call Bis_fnc_Param;
 
 // Go through and gather all the items declared in 'CfgWeapons'. This includes most items, vests
 // and uniforms.
-_allWeaponsClasses = (configFile >> "CfgWeapons") call BIS_fnc_getCfgSubClasses;
-_weapons = [];
-_items = [];
+private _allWeaponsClasses = (configFile >> "CfgWeapons") call BIS_fnc_getCfgSubClasses;
+private _weapons = [];
+private _items = [];
 {
-	_weaponClassName = _x;
-	_weaponConfig = configFile >> "CfgWeapons" >> _weaponClassName;
-	_weaponType = getNumber (_weaponConfig >> "type");
-	_weaponScope = getNumber (_weaponConfig >> "scope");
-	_weaponDisplayName = getText (_weaponConfig >> "displayName");
+	private _weaponClassName = _x;
+	private _weaponConfig = configFile >> "CfgWeapons" >> _weaponClassName;
+	private _weaponType = getNumber (_weaponConfig >> "type");
+	private _weaponScope = getNumber (_weaponConfig >> "scope");
+	private _weaponDisplayName = getText (_weaponConfig >> "displayName");
 	[format ["Processing weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
 
 	// Assume we'll include the weapon by default. If this never gets set to false then we'll add it.
-	_includeItem = true;
+	private _includeItem = true;
 
 	if (_weaponScope < 2) then
 	{
@@ -57,7 +57,7 @@ _items = [];
 	if (_includeItem && _limitItemsToSide != 'All') then
 	{
 		// Not all things define a side - if they do we can filter it by side.
-		_side = -1;
+		private _side = -1;
 		if (isNumber (_weaponConfig >> "side")) then
 		{
 			_side = getNumber (_weaponConfig >> "side");
@@ -75,11 +75,11 @@ _items = [];
 		// object here in the weaponconfig.
 		if ((_side == -1) && (_weaponType == CFG_TYPE_ITEM) && (isClass (_weaponConfig >> "ItemInfo"))) then
 		{
-			_uniformVehicle = getText (_weaponConfig >> "ItemInfo" >> "uniformClass");
+			private _uniformVehicle = getText (_weaponConfig >> "ItemInfo" >> "uniformClass");
 			if (_uniformVehicle != "") then
 			{
 				// Check the side of the uniform.
-				_uniformVehicleConfig = configFile >> "CfgVehicles" >> _uniformVehicle;
+				private _uniformVehicleConfig = configFile >> "CfgVehicles" >> _uniformVehicle;
 				_side = getNumber (_uniformVehicleConfig >> "side");
 			};
 		};
@@ -151,16 +151,16 @@ _items = [];
 } forEach _allWeaponsClasses;
 
 // Gather up all the magazines that are declared. This includes explosives and grenades.
-_allMagazineClasses = (configFile >> "CfgMagazines") call BIS_fnc_getCfgSubClasses;
-_magazines = [];
+private _allMagazineClasses = (configFile >> "CfgMagazines") call BIS_fnc_getCfgSubClasses;
+private _magazines = [];
 {
-	_className = _x;
+	private _className = _x;
 	[format["Processing magazine: %1", _className]] call Achilles_fnc_logMessage;
-	_config = configFile >> "CfgMagazines" >> _className;
-	_displayName = getText(_config >> "displayName");
-	_picture = getText(_config >> "picture");
-	_scope = getNumber(_config >> "scope");
-	_includeMagazine = true;
+	private _config = configFile >> "CfgMagazines" >> _className;
+	private _displayName = getText(_config >> "displayName");
+	private _picture = getText(_config >> "picture");
+	private _scope = getNumber(_config >> "scope");
+	private _includeMagazine = true;
 
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{
@@ -186,18 +186,18 @@ _magazines = [];
 } forEach _allMagazineClasses;
 
 // Gather up all the backpacks that are declared. They're vehicles. Awesome.
-_allVehicleClasses = (configFile >> "CfgVehicles") call BIS_fnc_getCfgSubClasses;
-_backpacks = [];
+private _allVehicleClasses = (configFile >> "CfgVehicles") call BIS_fnc_getCfgSubClasses;
+private _backpacks = [];
 {
-	_className = _x;
+	private _className = _x;
 	[format["Processing backpack: %1", _className]] call Achilles_fnc_logMessage;
-	_config = configFile >> "CfgVehicles" >> _className;
-	_displayName = getText(_config >> "displayName");
-	_picture = getText(_config >> "picture");
-	_scope = getNumber(_config >> "scope");
-	_isBackpack = getNumber(_config >> "isbackpack");
+	private _config = configFile >> "CfgVehicles" >> _className;
+	private _displayName = getText(_config >> "displayName");
+	private _picture = getText(_config >> "picture");
+	private _scope = getNumber(_config >> "scope");
+	private _isBackpack = getNumber(_config >> "isbackpack");
 	
-	_includeBackpack = true;
+	private _includeBackpack = true;
 	
 	if (_scope < 2 || _isBackpack != 1 || _displayName == "" || _picture == "") then
 	{
@@ -208,7 +208,7 @@ _backpacks = [];
 	if (_includeBackpack && _limitItemsToSide != 'All') then
 	{
 		// Not all things define a side - if they do we can filter it by side.
-		_side = -1;
+		private _side = -1;
 		if (isNumber (_config >> "side")) then
 		{
 			_side = getNumber (_config >> "side");
@@ -252,16 +252,16 @@ _backpacks = [];
 } forEach _allVehicleClasses;
 
 // Add all the glasses
-_allGlassesClasses = (configFile >> "CfgGlasses") call BIS_fnc_getCfgSubClasses;
-_glasses = [];
+private _allGlassesClasses = (configFile >> "CfgGlasses") call BIS_fnc_getCfgSubClasses;
+private _glasses = [];
 {
-	_className = _x;
+	private _className = _x;
 	[format["Processing glasses: %1", _className]] call Achilles_fnc_logMessage;
-	_config = configFile >> "CfgGlasses" >> _className;
-	_displayName = getText(_config >> "displayName");
-	_picture = getText(_config >> "picture");
-	_scope = getNumber(_config >> "scope");
-	_includeGlasses = true;
+	private _config = configFile >> "CfgGlasses" >> _className;
+	private _displayName = getText(_config >> "displayName");
+	private _picture = getText(_config >> "picture");
+	private _scope = getNumber(_config >> "scope");
+	private _includeGlasses = true;
 	
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{

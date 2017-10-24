@@ -9,11 +9,11 @@
 		The object from the array that was farthest to the point of reference.
 */
 
-_pointOfReference = [_this, 0, [0,0,0], [[]], 3] call BIS_fnc_param;
-_candidateObjects = [_this, 1, [], [[]]] call BIS_fnc_param;
+private _pointOfReference = [_this, 0, [0,0,0], [[]], 3] call BIS_fnc_param;
+private _candidateObjects = [_this, 1, [], [[]]] call BIS_fnc_param;
 
-_farthest = objNull;
-_farthestDistance = 0;
+private _farthest = objNull;
+private _farthestDistance = 0;
 {
 	if (isNull _farthest || _pointOfReference distance _x > _farthestDistance) then
 	{

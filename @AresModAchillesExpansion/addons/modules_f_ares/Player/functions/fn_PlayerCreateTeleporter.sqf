@@ -4,7 +4,7 @@
 // teleport action.
 Ares_addNewTeleportMarkerActions =
 {
-	_newMarker = _this select 0;
+	private _newMarker = _this select 0;
 
 	if (isNil "Ares_TeleportMarkers") then { Ares_TeleportMarkers = []; };
 
@@ -13,9 +13,9 @@ Ares_addNewTeleportMarkerActions =
 		if (_x != _newMarker && alive _x) then
 		{
 			// Add an action to THIS marker to teleport to OTHER marker.
-			_actionName = format ["Teleport to %1", _x getVariable ["teleportMarkerName", "??"]];
+			private _actionName = format ["Teleport to %1", _x getVariable ["teleportMarkerName", "??"]];
 			_newMarker addAction [_actionName, {
-					_teleportTarget = _this select 3;
+					private _teleportTarget = _this select 3;
 					if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
 					{
 						hint "Destination no longer exists...";
@@ -32,7 +32,7 @@ Ares_addNewTeleportMarkerActions =
 			// Add action to OTHER marker to teleport to THIS marker.
 			_actionName = format ["Teleport to %1", _newMarker getVariable ["teleportMarkerName", "??"]];
 			_x addAction [_actionName, {
-					_teleportTarget = _this select 3;
+					private _teleportTarget = _this select 3;
 					if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
 					{
 						hint "Destination no longer exists...";
@@ -50,9 +50,9 @@ Ares_addNewTeleportMarkerActions =
 };
 
 // Check to see if there's an object under the cursor or not
-_unitUnderMouseCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unitUnderMouseCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_teleportMarker = objNull;
+private _teleportMarker = objNull;
 if (isNull _unitUnderMouseCursor) then
 {
 	// Create a new object to make a telporter
@@ -72,7 +72,7 @@ else
 	}
 };
 
-_isFirstCallToCreateTeleporter = false;
+private _isFirstCallToCreateTeleporter = false;
 if (isNil "Ares_TeleportMarkers") then
 {
 	Ares_TeleportMarkers = [];
@@ -83,8 +83,8 @@ Ares_TeleportMarkers pushBack _teleportMarker;
 publicVariable "Ares_TeleportMarkers";
 
 // Set the name of the marker (used in the action)
-_teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
-_dialogResult = 
+private _teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
+private _dialogResult = 
 [
 	localize "STR_CREATE_NEW_LZ",
 	[

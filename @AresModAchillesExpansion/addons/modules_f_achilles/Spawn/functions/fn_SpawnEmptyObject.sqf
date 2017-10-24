@@ -1,8 +1,8 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_centerPos = position _logic;
+private _centerPos = position _logic;
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_SPAWN_EMPTY_OBJECT",
 	[
@@ -14,8 +14,8 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_objectClass = Achilles_var_emptyObject;
-_object = _objectClass createVehicle _centerPos;
+private _objectClass = Achilles_var_emptyObject;
+private _object = _objectClass createVehicle _centerPos;
 [[_object], true] call Ares_fnc_AddUnitsToCurator;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

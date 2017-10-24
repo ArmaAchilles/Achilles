@@ -27,9 +27,9 @@ scopeName "main";
 
 private ["_pos", "_minDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_newPos", "_posX", "_posY","_attempts"];
 
-_countThis	= count _this;
+private _countThis	= count _this;
 _pos		= (_this select 0);
-_range		= if(_countThis > 2) then { _this select 1 }else{ "" };
+private _range		= if(_countThis > 2) then { _this select 1 }else{ "" };
 _objDist	= if(_countThis > 2) then { _this select 2 }else{ getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius") };
 _waterMode	= if(_countThis > 3) then { _this select 3 }else{ 1 };
 _maxGradient	= if(_countThis > 4) then { _this select 4 }else{ 1 };

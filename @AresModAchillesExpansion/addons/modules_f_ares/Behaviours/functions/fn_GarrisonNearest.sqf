@@ -7,9 +7,9 @@ if (isNil "Achilles_var_zen_occupy_house_init_done") then
 	Achilles_var_zen_occupy_house_init_done = true;
 };
 
-_groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
+private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
-_doesGroupContainAnyPlayer = false;
+private _doesGroupContainAnyPlayer = false;
 {
 	if (isPlayer _x) exitWith { _doesGroupContainAnyPlayer = true; };
 } forEach (units _groupUnderCursor);
@@ -22,8 +22,8 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
-	_unitCount = count (units _groupUnderCursor);
-	_fillEvenly = if (_unitCount >= 8) then {true} else {false};
+	private _unitCount = count (units _groupUnderCursor);
+	private _fillEvenly = if (_unitCount >= 8) then {true} else {false};
 	
 	if (local _groupUnderCursor) then
 	{

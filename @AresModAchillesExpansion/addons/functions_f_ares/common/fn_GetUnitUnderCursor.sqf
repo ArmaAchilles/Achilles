@@ -9,7 +9,7 @@
 */
 private ["_logic", "_unitUnderCursor"];
 _logic = _this select 0;
-_shouldRemoveLogicIfNoUnitFound = [_this, 1, true] call BIS_fnc_Param;
+private _shouldRemoveLogicIfNoUnitFound = [_this, 1, true] call BIS_fnc_Param;
 
 _unitUnderCursor = objNull;
 
@@ -27,7 +27,7 @@ if (isNil "Ares_CuratorObjectPlaced_UnitUnderCursor") then
 }
 else
 {
-	_mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
+	private _mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
 	if (count _mouseOverUnit == 0) then
 	{
 		["GetUnitUnderCursor: Not in curator mode"] call Achilles_fnc_logMessage;

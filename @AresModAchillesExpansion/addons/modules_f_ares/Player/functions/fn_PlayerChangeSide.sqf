@@ -10,17 +10,17 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 
 // default values
-_units = [];
-_side = east;
+private _units = [];
+private _side = east;
 
 if (isNull _unitUnderCursor) then
 {
 	// select players
-	_dialogResult = [
+	private _dialogResult = [
 		format ["%1 (%2)",localize "STR_CHANGE_SIDE_OF_PLAYER",localize "STR_SELECT_PLAYERS"], 
 		[ 
 			[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
@@ -44,13 +44,13 @@ if (isNull _unitUnderCursor) then
 		};
 		case 2: 
 		{
-			_selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {isPlayer _x};
 		};
 		case 3: 
 		{
-			_side_index = _dialogResult select 2;
+			private _side_index = _dialogResult select 2;
 			_side = [east,west,independent,civilian] select (_side_index - 1);
 			allPlayers select {(alive _x) and (side _x == _side)};
 		};
@@ -84,7 +84,7 @@ if (isNull _unitUnderCursor) then
 }
 else
 {
-	_dialogResult = 
+	private _dialogResult = 
 	[
 		localize "STR_CHANGE_SIDE_OF_PLAYER",
 		[
@@ -95,7 +95,7 @@ else
 	
 	if (count _dialogResult > 0) then
 	{
-		_side_index = _dialogResult select 1;
+		private _side_index = _dialogResult select 1;
 		_side = [east,west,independent,civilian] select (_side_index - 1);
 		
 		switch (_dialogResult select 0) do
@@ -116,11 +116,11 @@ if (count _units == 0) exitWith {};
 
 while {count _units > 0} do
 {
-	_unit = _units select 0;
-	_oldGroup = group _unit;
-	_goupID = groupId _oldGroup;
-	_selectedUnits = (units _oldGroup) arrayIntersect _units;
-	_newGroup = createGroup _side;
+	private _unit = _units select 0;
+	private _oldGroup = group _unit;
+	private _goupID = groupId _oldGroup;
+	private _selectedUnits = (units _oldGroup) arrayIntersect _units;
+	private _newGroup = createGroup _side;
 	_newGroup setGroupIdGlobal [_goupID];
 	_selectedUnits joinSilent _newGroup;
 	_units = _units - _selectedUnits;
@@ -128,4 +128,3 @@ while {count _units > 0} do
 [localize "STR_CHANGED_SIDE_FOR_PLAYERS", count _units] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
-

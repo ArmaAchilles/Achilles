@@ -10,12 +10,12 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private ["_units","_taclight","_IR"];
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _unitUnderCursor) then
 {
 	// select players
-	_dialogResult = [
+	private _dialogResult = [
 		localize "STR_TACLIGHT_IR_ON_OFF",
 		[ 
 			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
@@ -36,14 +36,14 @@ if (isNull _unitUnderCursor) then
 		};
 		case 1: 
 		{
-			_selection = [toLower localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
 		case 2: 
 		{
-			_side_index = _dialogResult select 1;
-			_side = [east,west,independent,civilian] select (_side_index - 1);
+			private _side_index = _dialogResult select 1;
+			private _side = [east,west,independent,civilian] select (_side_index - 1);
 			allUnits select {(alive _x) and (side _x == _side)};
 		};
 	};
@@ -59,7 +59,7 @@ if (isNull _unitUnderCursor) then
 }
 else
 {
-	_dialogResult = 
+	private _dialogResult = 
 	[
 		localize "STR_TACLIGHT_IR_ON_OFF",
 		[
@@ -90,7 +90,7 @@ else
 if (isNil "_units") exitWith {};
 
 {
-	_unit = _x;
+	private _unit = _x;
 	if (local _unit) then
 	{
 		_unit enableGunLights _taclight;
@@ -105,4 +105,3 @@ if (isNil "_units") exitWith {};
 [localize "STR_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
-

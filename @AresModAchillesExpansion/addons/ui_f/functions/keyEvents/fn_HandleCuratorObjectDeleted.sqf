@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is deleted
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_handled_object = param [1,objNull,[objNull]];
+private _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
@@ -17,7 +17,7 @@ switch (true) do
 		{
 			case (not isNull (_handled_object getVariable ["slave", objNull])):
 			{
-				_slave = _handled_object getVariable "slave";
+				private _slave = _handled_object getVariable "slave";
 				deleteVehicle _slave;
 			};	
 			case (not isNil {_handled_object getVariable "lock_params"}):
@@ -32,7 +32,7 @@ switch (true) do
 			};
 			default {};
 		};
-		_logic_group = group _handled_object;
+		private _logic_group = group _handled_object;
 		_logic_group deleteGroupWhenEmpty true;
 	};
 	case (_handled_object isKindOf "Land_Carrier_01_base_F"):

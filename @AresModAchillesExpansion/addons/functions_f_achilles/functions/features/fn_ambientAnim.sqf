@@ -19,30 +19,30 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // get genaral params
-_unit = param [0,ObjNull,[ObjNull]];
-_anim_set = param [1,"",[""]];
-_combatReady = param [2,false,[false]];
+private _unit = param [0,ObjNull,[ObjNull]];
+private _anim_set = param [1,"",[""]];
+private _combatReady = param [2,false,[false]];
 
 //define relevant animation functions
 Achilles_fnc_ambientAnim_terminate =
 {
 	_unit = _this;
-	_noWeapon = _unit getVariable ["Achilles_var_noWeapon",false];
+	private _noWeapon = _unit getVariable ["Achilles_var_noWeapon",false];
 	if (_noWeapon) then
 	{
-		_primary_weapon = _unit getVariable ["Achilles_var_primWeapon",""];
+		private _primary_weapon = _unit getVariable ["Achilles_var_primWeapon",""];
 		_unit addWeapon _primary_weapon;
 		_unit selectWeapon _primary_weapon;
 	};
 	{_unit enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 	_unit playMoveNow "AmovPercMstpSrasWrflDnon";
 	_unit setUnitPos "UP";
-	_exception = if (((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon") then {true} else {false};
+	private _exception = if (((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon") then {true} else {false};
 	_unit setVariable ["Achilles_var_animations", nil,true];
 	_unit setVariable ["Achilles_var_noWeapon", nil,true];
-	_ehAnimDone = _unit getVariable ["Achilles_EhAnimDone", 0];
+	private _ehAnimDone = _unit getVariable ["Achilles_EhAnimDone", 0];
 	_unit removeEventHandler ["AnimDone", _ehAnimDone];
-	_ehKilled = _unit getVariable ["Achilles_EhKilled",0];
+	private _ehKilled = _unit getVariable ["Achilles_EhKilled",0];
 	_unit removeEventHandler ["Killed", _ehKilled];
 	if (_exception) then
 	{
@@ -61,9 +61,9 @@ if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then
 };
 
 // get anim params
-_params = _anim_set call Achilles_fnc_ambientAnimGetParams;
-_avaiable_anims = _params param [0,[],[[]]];
-_noWeapon = _params param [1, false, [false]];
+private _params = _anim_set call Achilles_fnc_ambientAnimGetParams;
+private _avaiable_anims = _params param [0,[],[[]]];
+private _noWeapon = _params param [1, false, [false]];
 
 if (count _avaiable_anims == 0) exitWith {};
 
@@ -77,7 +77,7 @@ _unit setVariable ["Achilles_var_noWeapon", _noWeapon,true];
 //remove primary weapon if requested
 if (_noWeapon) then
 {
-	_primWeapon = primaryWeapon _unit;
+	private _primWeapon = primaryWeapon _unit;
 	if (not _switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
 	_unit removeWeapon _primWeapon;
 };
@@ -89,7 +89,7 @@ Achilles_fnc_ambientAnim_playAnim =
 	_avaiable_anims = _unit getVariable ["Achilles_var_animations",""];
 	
 	//select a random anim from the pool of available animations and play it
-	_anim = _avaiable_anims call BIS_fnc_selectRandom;
+	private _anim = _avaiable_anims call BIS_fnc_selectRandom;
 	[_unit,_anim] remoteExec ["switchMove",0];	
 };
 
@@ -145,7 +145,7 @@ Achilles_fnc_ambientAnim_playAnim =
 	if (_combatReady) then
 	{
 		// make unit combat ready
-		_previous_unit_damage = damage _unit;
+		private _previous_unit_damage = damage _unit;
 		waitUntil
 		{
 			sleep 0.1;

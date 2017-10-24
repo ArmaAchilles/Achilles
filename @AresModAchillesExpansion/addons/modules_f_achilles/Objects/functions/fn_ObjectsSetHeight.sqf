@@ -8,9 +8,9 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_CHANGE_HEIGHT",
 	[
@@ -19,7 +19,7 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_height = parseNumber (_dialogResult select 0);
+private _height = parseNumber (_dialogResult select 0);
 
 if (isNull (_objects select 0)) then
 {
@@ -30,9 +30,9 @@ if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares
 {
 	[_x,_height] spawn 
 	{
-		_object = _this select 0;
+		private _object = _this select 0;
 		_height = _this select 1;
-		_pos = getPosWorld _object;
+		private _pos = getPosWorld _object;
 		_pos set [2,(_pos select 2) + _height];
 		_object setPosWorld _pos;
 	};

@@ -17,10 +17,10 @@ if (isNil "Achilles_var_intel_init_done") then
 	Achilles_var_intel_init_done = true;
 };
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_dialog_title = localize "STR_CREATE_INTEL_ON_OBJECT";
-_dialog_options =
+private _dialog_title = localize "STR_CREATE_INTEL_ON_OBJECT";
+private _dialog_options =
 [
 	[localize "STR_ACTION_TEXT","",localize "STR_PICK_UP_INTEL"],
 	[localize "STR_ACTION_DURATION","","1"],
@@ -37,7 +37,7 @@ if (isNull _object) then
 	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
 } else
 {
-	_previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
+	private _previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
 	if (count _previous_dialogResult == count _dialog_options) then
 	{
 		// case edit intel
@@ -48,24 +48,24 @@ if (isNull _object) then
 		} forEach _dialog_options;
 	};
 };
-_dialogResult = [_dialog_title, _dialog_options] call Ares_fnc_ShowChooseDialog;
+private _dialogResult = [_dialog_title, _dialog_options] call Ares_fnc_ShowChooseDialog;
 
-_dialogCount = count _dialogResult;
+private _dialogCount = count _dialogResult;
 if (_dialogCount == 0) exitWith {};
 
-_actionName = _dialogResult select (_dialogCount - 6);
-_duration = parseNumber (_dialogResult select (_dialogCount - 5));
-_delete = if ((_dialogResult select (_dialogCount - 4)) == 0) then {true} else {false};;
-_title = _dialogResult select (_dialogCount - 3);
-_text = _dialogResult select (_dialogCount - 2);
+private _actionName = _dialogResult select (_dialogCount - 6);
+private _duration = parseNumber (_dialogResult select (_dialogCount - 5));
+private _delete = if ((_dialogResult select (_dialogCount - 4)) == 0) then {true} else {false};;
+private _title = _dialogResult select (_dialogCount - 3);
+private _text = _dialogResult select (_dialogCount - 2);
 // correctly handle newline characters
 _text = (_text splitString endl) joinString "<br />";
-_shared = _dialogResult select (_dialogCount - 1);
+private _shared = _dialogResult select (_dialogCount - 1);
 
 if (_dialogCount == 7) then
 {
 	// case spawn intel:
-	_type = INTEL_OBJECTS select (_dialogResult select 0);
+	private _type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
 	[_object, false] remoteExec ["enableSimulationGlobal", 2];
 	_object setPos (position _logic);
@@ -80,13 +80,13 @@ if (_dialogCount == 7) then
 	_object setVariable ["Achilles_var_intel",_dialogResult];
 };
 
-_marker = createMarker [str _object, _object];
+private _marker = createMarker [str _object, _object];
 
 // remove previous action
 remoteExec ["", _object];
 _object remoteExec ["RemoveAllActions", 0];
 
-_execute = 
+private _execute = 
 {
 	private ["_object","_finder","_arguments","_curator","_title","_text","_marker","_shared","_delete","_target"];
 	_object = _this select 0;

@@ -1,6 +1,6 @@
-_mode = _this select 0;
-_params = _this select 1;
-_logic = _params select 0;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _logic = _params select 0;
 
 switch _mode do 
 {
@@ -10,11 +10,11 @@ switch _mode do
 	//--- Added to the world (e.g., after undoing and redoing creation)
 	case "registeredToWorld3DEN": 
 	{
-		_smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
+		private _smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
 		if (typeName _smokeType == "SCALAR") then 
 		{
 			//--- Delete previous light source
-			_sources = _logic getvariable ["bis_fnc_moduleSmokeSource_source",[objnull]];
+			private _sources = _logic getvariable ["bis_fnc_moduleSmokeSource_source",[objnull]];
 			{deletevehicle _x} forEach _sources;
 
 			//--- Create new smoke source
@@ -40,24 +40,24 @@ switch _mode do
 	//--- Removed from the world (i.e., by deletion or undoing creation)
 	case "unregisteredFromWorld3DEN": 
 	{
-		_sources = _logic getvariable ["bis_fnc_moduleSmokeSource_source",[objNull]];
+		private _sources = _logic getvariable ["bis_fnc_moduleSmokeSource_source",[objNull]];
 		{deletevehicle _x} forEach _sources;
 	};
 
 	//--- Default object init
 	case "init": 
 	{
-		_activated = _params select 1;
-		_isCuratorPlaced = _params select 2;
-		_pos = position _logic;
+		private _activated = _params select 1;
+		private _isCuratorPlaced = _params select 2;
+		private _pos = position _logic;
 
 		//--- Terminate on all machines where the module is not local
 		if !(local _logic) exitwith {};
 		
-		_sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
+		private _sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
 		_sourceObject setPos _pos;
-		_smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
-		_sources = [_smokeType, _sourceObject] call Achilles_fnc_spawnSmoke;
+		private _smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
+		private _sources = [_smokeType, _sourceObject] call Achilles_fnc_spawnSmoke;
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;
 		deleteVehicle _logic;	
 	};

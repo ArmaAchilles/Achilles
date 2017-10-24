@@ -1,10 +1,9 @@
-
 #define COLOR_NAMES ["white","blue","red","green","yellow"]
 #define COLOR_RGB	[[1,1,1],[0,0,1],[1,0,0],[0,1,0],[1,1,0]]
 
-_mode = _this select 0;
-_params = _this select 1;
-_logic = _params select 0;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _logic = _params select 0;
 
 switch _mode do {
 	//--- Some attributes were changed (including position and rotation)
@@ -12,20 +11,20 @@ switch _mode do {
 
 	//--- Added to the world (e.g., after undoing and redoing creation)
 	case "registeredToWorld3DEN": {
-		_colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
-		_colorIndex = COLOR_NAMES find _colorName;
+		private _colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
+		private _colorIndex = COLOR_NAMES find _colorName;
 		if (_colorIndex != -1) then 
 		{
 
 			//--- Delete previous light source
-			_source = _logic getvariable ["bis_fnc_moduleLightSource_source",objnull];
+			private _source = _logic getvariable ["bis_fnc_moduleLightSource_source",objnull];
 			deletevehicle _source;
 
 			//--- Create new light source
-			_pos = getposatl _logic;
+			private _pos = getposatl _logic;
 			_source = "#lightpoint" createVehicle _pos;
 			_source setLightBrightness 1.0;
-			_color = COLOR_RGB select _colorIndex;
+			private _color = COLOR_RGB select _colorIndex;
 			_source setLightAmbient  _color;
 			_source setLightColor _color;
 			_source setposatl _pos;
@@ -53,26 +52,26 @@ switch _mode do {
 
 	//--- Removed from the world (i.e., by deletion or undoing creation)
 	case "unregisteredFromWorld3DEN": {
-		_source = _logic getvariable ["bis_fnc_moduleLightSource_source",objnull];
+		private _source = _logic getvariable ["bis_fnc_moduleLightSource_source",objnull];
 		deletevehicle _source;
 	};
 
 	//--- Default object init
 	case "init": {
-		_activated = _params select 1;
-		_isCuratorPlaced = _params select 2;
-		_pos = position _logic;
+		private _activated = _params select 1;
+		private _isCuratorPlaced = _params select 2;
+		private _pos = position _logic;
 
 		//--- Terminate on all machines where the module is not local
 		if !(local _logic) exitwith {};
 		
-		_sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
+		private _sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
 		_sourceObject setPos _pos;
-		_colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
-		_colorIndex = COLOR_NAMES find _colorName;
-		_color = COLOR_RGB select _colorIndex;
+		private _colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
+		private _colorIndex = COLOR_NAMES find _colorName;
+		private _color = COLOR_RGB select _colorIndex;
 		
-		_source = "#lightpoint" createVehicle [0,0,0];
+		private _source = "#lightpoint" createVehicle [0,0,0];
 		_source lightAttachObject [_sourceObject,[0,0,0]];
 		[[_source,_color],
 		{

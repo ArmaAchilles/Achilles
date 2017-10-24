@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_tree_ctrl = param [0,controlNull,[controlNull]];
+private _tree_ctrl = param [0,controlNull,[controlNull]];
 
 private _display_reload = false;
 
@@ -16,7 +16,7 @@ publicVariable "Achilles_fnc_spawn_remote";
 // trick to unlock ares/achilles modules for Zeus if mission was not set up properly
 if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player))) then
 {
-	_logic = (createGroup sideLogic) createUnit ["Achilles_Module_Base", getPos player, [], 0, "NONE"];
+	private _logic = (createGroup sideLogic) createUnit ["Achilles_Module_Base", getPos player, [], 0, "NONE"];
 	_logic = (createGroup sideLogic) createUnit ["Ares_Module_Base", getPos player, [], 0, "NONE"];
 	
 	// wait until zeus has truly entered the interface
@@ -30,7 +30,7 @@ if (not ("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic
 	
 	[[getAssignedCuratorLogic player],
 	{
-		_curatorModule = _this select 0;
+		private _curatorModule = _this select 0;
 		_curatorModule addCuratorAddons ["achilles_modules_f_achilles","achilles_modules_f_ares"];
 	}, 2] call Achilles_fnc_spawn;
 	
@@ -59,7 +59,7 @@ Achilles_var_reloadVisionModes = nil;
 [] call Achilles_fnc_setCuratorVisionModes;
 
 // Add curator event handlers
-_curatorModule = getassignedcuratorLogic player;
+private _curatorModule = getassignedcuratorLogic player;
 _curatorModule addEventHandler ["CuratorObjectPlaced", { _this call Achilles_fnc_HandleCuratorObjectPlaced; }];
 _curatorModule addEventHandler ["CuratorGroupPlaced", { _this call Achilles_fnc_HandleCuratorGroupPlaced; }];
 _curatorModule addEventHandler ["CuratorObjectEdited", {_this call Achilles_fnc_HandleCuratorObjectEdited; }];

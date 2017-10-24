@@ -1,4 +1,3 @@
-
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 Ares_EditableObjectBlacklist =
@@ -20,10 +19,10 @@ Ares_EditableObjectBlacklist =
 	"Sheep_random_F"
 ];
 
-_radius = 100;
-_position = _this select 0;
+private _radius = 100;
+private _position = _this select 0;
 
-_dialogResult =
+private _dialogResult =
 	[
 		localize "STR_COPY_MISSION_SQF",
 		[
@@ -49,17 +48,17 @@ switch (_dialogResult select 0) do
 	case 6: { _radius = -1; };
 	default { _radius = 100; };
 };
-_includeUnits = if (_dialogResult select 1 == 0) then { true; } else { false; };
-_includeEmptyVehicles = if (_dialogResult select 2 == 0) then { true; } else { false; };
-_includeEmptyObjects = if (_dialogResult select 3 == 0) then { true; } else { false; };
-_includeMarkers = if (_dialogResult select 4 == 0) then { true; } else { false; };
+private _includeUnits = if (_dialogResult select 1 == 0) then { true; } else { false; };
+private _includeEmptyVehicles = if (_dialogResult select 2 == 0) then { true; } else { false; };
+private _includeEmptyObjects = if (_dialogResult select 3 == 0) then { true; } else { false; };
+private _includeMarkers = if (_dialogResult select 4 == 0) then { true; } else { false; };
 
-_objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
-_emptyObjects = [];
-_emptyVehicles = [];
-_groups = [];
+private _objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
+private _emptyObjects = [];
+private _emptyVehicles = [];
+private _groups = [];
 {
-	_ignoreFlag = false;
+	private _ignoreFlag = false;
 	if ((typeOf _x) in Ares_EditableObjectBlacklist || isPlayer _x) then
 	{
 		_ignoreFlag = true;
@@ -69,7 +68,7 @@ _groups = [];
 	{
 		["Processing object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_logMessage;
 		_ignoreFlag = true;
-		_isUnit = (_x isKindOf "CAManBase")
+		private _isUnit = (_x isKindOf "CAManBase")
 			|| (_x isKindOf "car")
 			|| (_x isKindOf "tank")
 			|| (_x isKindOf "air")
@@ -132,12 +131,12 @@ _groups = [];
 	};
 } forEach _objectsToFilter;
 
-_output = [];
+private _output = [];
 if (!_includeUnits) then { _groups = []; };
 if (!_includeEmptyVehicles) then { _emptyVehicles = []; };
 if (!_includeEmptyObjects) then { _emptyObjects = []; };
 
-_totalUnitsProcessed = 0;
+private _totalUnitsProcessed = 0;
 {
 	_output pushBack format [
 		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject];",
@@ -149,7 +148,7 @@ _totalUnitsProcessed = 0;
 } forEach _emptyObjects + _emptyVehicles;
 
 {
-	_sideString = "";
+	private _sideString = "";
 	switch (side _x) do
 	{
 		case east: { _sideString = "east"; };
@@ -161,7 +160,7 @@ _totalUnitsProcessed = 0;
 	_output pushBack format [
 		"_newGroup = createGroup %1; ",
 		_sideString];
-	_groupVehicles = [];
+	private _groupVehicles = [];
 	// Process all the infantry in the group
 	{
 		if (vehicle _x == _x) then
@@ -222,7 +221,7 @@ _totalUnitsProcessed = 0;
 if (_includeMarkers) then
 {
 	{
-		_markerName = "Ares_Imported_Marker_" + str(_forEachIndex);
+		private _markerName = "Ares_Imported_Marker_" + str(_forEachIndex);
 		_output pushBack format [
 			"_newMarker = createMarker ['%1', %2]; _newMarker setMarkerShape '%3'; _newMarker setMarkerType '%4'; _newMarker setMarkerDir %5; _newMarker setMarkerColor '%6'; _newMarker setMarkerAlpha %7; %8 %9",
 			_markerName,
@@ -238,13 +237,13 @@ if (_includeMarkers) then
 	} forEach allMapMarkers;
 };
 
-_text = "";
+private _text = "";
 {
 	_text = _text + _x;
 	[_x] call Achilles_fnc_logMessage;
 } forEach _output;
 uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _text];
-_dialog = createDialog "Ares_CopyPaste_Dialog";
+private _dialog = createDialog "Ares_CopyPaste_Dialog";
 [localize "STR_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

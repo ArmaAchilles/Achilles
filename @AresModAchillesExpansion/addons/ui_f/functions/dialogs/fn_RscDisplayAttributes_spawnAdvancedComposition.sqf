@@ -1,4 +1,3 @@
-
 #define IDD_COMPOSITION_GUI		133799
 #define IDC_TREE_CTRL			1400
 #define IDC_EDIT_BUTTON			3030
@@ -20,9 +19,9 @@ private ["_mode", "_ctrl", "_comboIndex"];
 
 _mode = _this select 0;
 _ctrl = param [1,controlNull,[controlNull]];
-_treePathSelection = param [2,[],[[]]];
+private _treePathSelection = param [2,[],[[]]];
 
-_dialog = findDisplay IDD_COMPOSITION_GUI;
+private _dialog = findDisplay IDD_COMPOSITION_GUI;
 
 switch (_mode) do
 {

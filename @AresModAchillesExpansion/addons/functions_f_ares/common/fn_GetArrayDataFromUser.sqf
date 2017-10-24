@@ -11,25 +11,25 @@
 		Cancelled - The string "CANCELLED"
 */
 
-_numberOfElements = [_this, 0, -1, [0]] call BIS_fnc_param;
+private _numberOfElements = [_this, 0, -1, [0]] call BIS_fnc_param;
 
 // Show the paste dialog to the user
-_returnValue = "CANCELLED";
+private _returnValue = "CANCELLED";
 uiNamespace setVariable ["Ares_CopyPaste_Dialog_Result", ""];
-_dialog = createDialog "Ares_CopyPaste_Dialog";
+private _dialog = createDialog "Ares_CopyPaste_Dialog";
 waitUntil { dialog };
 waitUntil { !dialog };
-_dialogResult = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Result", -1];
+private _dialogResult = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Result", -1];
 if (_dialogResult == 1) then
 {
-	_pastedText = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "[]"];
+	private _pastedText = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Text", "[]"];
 	try
 	{
 		if (isNil { call (compile _pastedText) }) then
 		{
 			throw "Failed to parse";
 		};
-		_objectArray = call (compile _pastedText);
+		private _objectArray = call (compile _pastedText);
 		if (typeName _objectArray != typeName []) then
 		{
 			throw "Bad clipboard data";

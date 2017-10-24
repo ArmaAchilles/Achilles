@@ -5,7 +5,7 @@
 
 params ["_dikKey"];
 
-_index = DIK_LETTERS find _dikKey;
+private _index = DIK_LETTERS find _dikKey;
 
 if (_index == -1) then
 {

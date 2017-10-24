@@ -19,17 +19,17 @@
 
 private ["_input_array","_indice_array","_element","_output_array"];
 
-_dict_name	 		= param [0,"",[""]];
-_nested_categories 	= param [1,[],[[]]];
+private _dict_name	 		= param [0,"",[""]];
+private _nested_categories 	= param [1,[],[[]]];
 _element 			= _this select 2;
 
-_dict = [];
+private _dict = [];
 
-_dict_storage = [] call compile format ["Achilles_var_dictStorage_%1;",_dict_name];
+private _dict_storage = [] call compile format ["Achilles_var_dictStorage_%1;",_dict_name];
 if (isNil "_dict_storage") then
 {
 	reverse _nested_categories;
-	_temp_dict = [_nested_categories select 0, [_element]];
+	private _temp_dict = [_nested_categories select 0, [_element]];
 	for "_i" from 1 to ((count _nested_categories) - 1) do
 	{
 		_temp_dict = [_nested_categories select _i, _temp_dict];
@@ -39,14 +39,14 @@ if (isNil "_dict_storage") then
 } else
 {
 	// unpack dict
-	_temp_dict = _dict_storage;
-	_nested_dicts = [_temp_dict];
-	_nested_indices = [];
+	private _temp_dict = _dict_storage;
+	private _nested_dicts = [_temp_dict];
+	private _nested_indices = [];
 	for "_i" from 0 to ((count _nested_categories) - 1) do
 	{
-		_temp_level_categories = _temp_dict apply {_x select 0};
-		_temp_category = _nested_categories select _i;
-		_temp_category_index = _temp_level_categories find _temp_category;
+		private _temp_level_categories = _temp_dict apply {_x select 0};
+		private _temp_category = _nested_categories select _i;
+		private _temp_category_index = _temp_level_categories find _temp_category;
 		if (_temp_category_index == -1) then
 		{
 			_temp_dict pushBack [_temp_category,[]];
@@ -68,7 +68,7 @@ if (isNil "_dict_storage") then
 	reverse _nested_indices;
 	for "_i" from 0 to ((count _nested_dicts) - 1) do
 	{
-		_old_dict = _temp_dict;
+		private _old_dict = _temp_dict;
 		_temp_dict = _nested_dicts select _i;
 		_temp_dict set [_nested_indices select _i, _old_dict];
 	};
@@ -76,5 +76,3 @@ if (isNil "_dict_storage") then
 };
 _dict call compile format ["Achilles_var_dictStorage_%1 = _this;",_dict_name];
 _dict;
-
-

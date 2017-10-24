@@ -22,7 +22,7 @@ if(isNil "Achilles_var_set_frequency_init_done") then
 	Achilles_var_set_frequency_init_done = true;
 };
 
-_firstDialogResult = 
+private _firstDialogResult = 
 [
 	localize "STR_SELECT_RADIOS",
 	[

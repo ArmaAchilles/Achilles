@@ -11,9 +11,9 @@
 
 private ["_buildings","_damage_fnc","_mean_damage"];
 
-_center_pos = position _logic;
+private _center_pos = position _logic;
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_DAMAGE_BUILDINGS",
 	[
@@ -40,8 +40,8 @@ switch (_dialogResult select 0) do
 	};
 };
 
-_mean_damage_type = _dialogResult select 1;
-_distribution_type = _dialogResult select 2;
+private _mean_damage_type = _dialogResult select 1;
+private _distribution_type = _dialogResult select 2;
 
 //Broadcast damage function to server
 if (isNil "Achilles_var_damageBuildings_init_done") then

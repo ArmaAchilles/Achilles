@@ -43,13 +43,13 @@ with uinamespace do {
 	_control ctrlremovealleventhandlers "setFocus";
 
 	//--- Add handler executed when the display closes
-	_display = ctrlparent _control;
+	private _display = ctrlparent _control;
 	_display displayaddeventhandler ["unload",format ["with uinamespace do {['onUnload',_this,missionnamespace getvariable ['BIS_fnc_initCuratorAttributes_target',objnull]] call %1};",_fncName]];
 
 	//--- Add handler executed when dialog was closed with OK
 	_display displayaddeventhandler ["unload",format ["if (_this select 1 == 1) then {with uinamespace do {['confirmed',_this,missionnamespace getvariable ['BIS_fnc_initCuratorAttributes_target',objnull]] call %1}};",_fncName]];
 
 	//--- Call init script
-	_target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull]; //--- ToDo: Dynamic
+	private _target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull]; //--- ToDo: Dynamic
 	["onLoad",[ctrlparent (_params select 0)],_target] call (uinamespace getvariable _fncName);
 };

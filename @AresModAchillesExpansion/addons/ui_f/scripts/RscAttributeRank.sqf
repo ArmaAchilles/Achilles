@@ -1,10 +1,10 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_unit = _this select 2;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _unit = _this select 2;
 
-_idcs = [
+private _idcs = [
 	IDC_RSCATTRIBUTERANK_PRIVATE,
 	IDC_RSCATTRIBUTERANK_CORPORAL,
 	IDC_RSCATTRIBUTERANK_SERGEANT,
@@ -19,26 +19,26 @@ switch _mode do
 	case "onLoad": 
 	{
 
-		_display = _params select 0;
+		private _display = _params select 0;
 
 		//--- Add handlers to all buttons
 		{
-			_ctrl = _display displayctrl _x;
+			private _ctrl = _display displayctrl _x;
 			_ctrl ctrladdeventhandler ["buttonclick","with uinamespace do {['onButtonClick',[_this select 0,0.1]] call RscAttributeRank};"];
 			_ctrl ctrlcommit 0;
 		} foreach _idcs;
 
 		//--- Select the current rank
-		_rankIdc = _idcs select (rankID _unit max 0 min 6);
+		private _rankIdc = _idcs select (rankID _unit max 0 min 6);
 		['onButtonClick',[_display displayctrl _rankIdc,0]] call RscAttributeRank;
 	};
 	case "onButtonClick": 
 	{
-		_rankCtrl = _params select 0;
-		_delay = _params select 1;
-		_display = ctrlparent _rankCtrl;
+		private _rankCtrl = _params select 0;
+		private _delay = _params select 1;
+		private _display = ctrlparent _rankCtrl;
 		{
-			_ctrl = _display displayctrl _x;
+			private _ctrl = _display displayctrl _x;
 			_ctrl ctrlsettextcolor [1,1,1,0.5];
 			[_ctrl,1,_delay] call bis_fnc_ctrlsetscale;
 		} foreach _idcs;
@@ -48,13 +48,13 @@ switch _mode do
 	};
 	case "confirmed": 
 	{
-		_display = _params select 0;
-		_rankID = uinamespace getvariable ["RscAttributeRank_rank",0];
+		private _display = _params select 0;
+		private _rankID = uinamespace getvariable ["RscAttributeRank_rank",0];
 		_mode = if (_unit isKindOf "Man") then {"man"} else {"vehicle"};
 		if (_rankID != rankID _unit) then
 		{
-			_rank = _rankID call bis_fnc_rankparams;
-			_curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
+			private _rank = _rankID call bis_fnc_rankparams;
+			private _curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
 			{
 				_x setUnitRank _rank;
 			} forEach _curatorSelected;

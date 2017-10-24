@@ -5,3 +5,6 @@
 *.bisign
 *.lnk
 .vscode/
+
+.idea
+/*.iml

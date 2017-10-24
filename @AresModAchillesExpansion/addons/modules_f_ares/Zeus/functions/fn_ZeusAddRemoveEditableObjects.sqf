@@ -1,8 +1,8 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_center_pos = position _logic;
+private _center_pos = position _logic;
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
@@ -29,24 +29,24 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
-_range_mode = _dialogResult select 1;
-_obj_type = _dialogResult select 3;
+private _addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
+private _range_mode = _dialogResult select 1;
+private _obj_type = _dialogResult select 3;
 
 private _objectsToProcess = [];
 
 if (_range_mode == 0) then
 {
-	_radius = parseNumber (_dialogResult select 2);
+	private _radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
 		case 0: {nearestObjects [_center_pos, [],_radius, true]};
 		case 1: 
 		{
-			_units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
+			private _units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
 			if (_dialogResult select 4 == 1) then
 			{
-				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side and count crew _x > 0};
 			} else
 			{
@@ -64,10 +64,10 @@ if (_range_mode == 0) then
 		case 0: {allMissionObjects ""};
 		case 1: 
 		{
-			_units = (allUnits + vehicles);
+			private _units = (allUnits + vehicles);
 			if (_dialogResult select 4 == 1) then
 			{
-				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side};
 			} else
 			{
@@ -88,7 +88,7 @@ _objectsToProcess = _objectsToProcess select
 	({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/};
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
-_displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
+private _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
 [objNull, format [_displayText, count _objectsToProcess]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

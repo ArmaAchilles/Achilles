@@ -1,6 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_HINT",
 	[

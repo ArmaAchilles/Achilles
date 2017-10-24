@@ -13,11 +13,11 @@
 
 #define CURATOR_IDCs 	[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
 
-_VALID_CATEGORIES = [localize "STR_CHOPPERS", localize "STR_CARS", localize "STR_APCS", localize "STR_TANKS", localize "STR_SHIPS", localize "STR_PLANES", localize "STR_RHS_VEHCLASS_APC", localize "STR_RHS_VEHCLASS_IFV", localize "STR_RHS_VEHCLASS_TRUCK", localize "STR_RHS_VEHCLASS_CAR", localize "STR_RHS_VEHCLASS_TANK", localize "STR_RHS_VEHCLASS_AIRPLANE", localize "STR_RHS_VEHCLASS_HELICOPTER", localize "STR_RHSUSF_VEHCLASS_MRAP"];
+private _VALID_CATEGORIES = [localize "STR_CHOPPERS", localize "STR_CARS", localize "STR_APCS", localize "STR_TANKS", localize "STR_SHIPS", localize "STR_PLANES", localize "STR_RHS_VEHCLASS_APC", localize "STR_RHS_VEHCLASS_IFV", localize "STR_RHS_VEHCLASS_TRUCK", localize "STR_RHS_VEHCLASS_CAR", localize "STR_RHS_VEHCLASS_TANK", localize "STR_RHS_VEHCLASS_AIRPLANE", localize "STR_RHS_VEHCLASS_HELICOPTER", localize "STR_RHSUSF_VEHCLASS_MRAP"];
 
 disableSerialization;
-_display = findDisplay IDD_RSCDISPLAYCURATOR;
-_dialog = findDisplay IDD_SPAWN_REINFORCEMENT;
+private _display = findDisplay IDD_RSCDISPLAYCURATOR;
+private _dialog = findDisplay IDD_SPAWN_REINFORCEMENT;
 
 private ["_mode", "_ctrl", "_comboIndex"];
 

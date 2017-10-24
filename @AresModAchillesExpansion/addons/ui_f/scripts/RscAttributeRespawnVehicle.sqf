@@ -1,10 +1,10 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_unit = _this select 2;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _unit = _this select 2;
 
-_idcs = [
+private _idcs = [
 	IDC_RSCATTRIBUTERESPAWNVEHICLE_EAST,
 	IDC_RSCATTRIBUTERESPAWNVEHICLE_WEST,
 	IDC_RSCATTRIBUTERESPAWNVEHICLE_GUER,
@@ -12,7 +12,7 @@ _idcs = [
 	IDC_RSCATTRIBUTERESPAWNVEHICLE_START,
 	IDC_RSCATTRIBUTERESPAWNVEHICLE_DISABLED
 ];
-_colorsActive = [
+private _colorsActive = [
 	east call bis_fnc_sidecolor,
 	west call bis_fnc_sidecolor,
 	resistance call bis_fnc_sidecolor,
@@ -20,19 +20,19 @@ _colorsActive = [
 	[1,1,1,1],
 	[1,1,1,1]
 ];
-_colorsText = +_colorsActive;
+private _colorsText = +_colorsActive;
 {_x set [3,0.5];} foreach _colorsText;
 
 switch _mode do {
 	case "onLoad": {
 
-		_display = _params select 0;
+		private _display = _params select 0;
 
 		//--- Add handlers to all buttons
-		_playerside = player call bis_fnc_objectside;
+		private _playerside = player call bis_fnc_objectside;
 		{
-			_ctrl = _display displayctrl _x;
-			_side = _foreachindex call bis_fnc_sideType;
+			private _ctrl = _display displayctrl _x;
+			private _side = _foreachindex call bis_fnc_sideType;
 			if (([_side,_playerside] call bis_fnc_arefriendly && playableslotsnumber _side > 0) || _foreachindex > 3) then {
 				_ctrl ctrladdeventhandler ["buttonclick","with uinamespace do {['onButtonClick',[_this select 0,0.1]] call RscAttributeRespawnVehicle};"];
 				_ctrl ctrlsetactivecolor (_colorsActive select _foreachindex);
@@ -43,8 +43,8 @@ switch _mode do {
 			};
 		} foreach _idcs;
 
-		_respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
-		_selected = switch _respawnID do {
+		private _respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
+		private _selected = switch _respawnID do {
 			case 0;
 			case 1;
 			case 7: {4};
@@ -60,15 +60,15 @@ switch _mode do {
 		};
 
 		RscAttributeRespawnVehicle_selected = _selected;
-		_selectedIdc = _idcs select _selected;
+		private _selectedIdc = _idcs select _selected;
 		['onButtonClick',[_display displayctrl _selectedIdc,0]] call RscAttributeRespawnVehicle;
 	};
 	case "onButtonClick": {
-		_ctrlSelected = _params select 0;
-		_delay = _params select 1;
-		_display = ctrlparent _ctrlSelected;
+		private _ctrlSelected = _params select 0;
+		private _delay = _params select 1;
+		private _display = ctrlparent _ctrlSelected;
 		{
-			_ctrl = _display displayctrl _x;
+			private _ctrl = _display displayctrl _x;
 			_ctrl ctrlsettextcolor (_colorsText select _foreachindex);
 			[_ctrl,1,_delay] call bis_fnc_ctrlsetscale;
 		} foreach _idcs;
@@ -78,9 +78,9 @@ switch _mode do {
 		[_ctrlSelected,1.25,_delay] call bis_fnc_ctrlsetscale;
 	};
 	case "confirmed": {
-		_display = _params select 0;
-		_selected = uinamespace getvariable ["RscAttributeRespawnVehicle_selected",5];
-		_respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
+		private _display = _params select 0;
+		private _selected = uinamespace getvariable ["RscAttributeRespawnVehicle_selected",5];
+		private _respawnID = _unit getVariable ["Achilles_var_vehicleRespawnData",-1];
 
 		_selected = switch (_selected) do {
 			case 0: {3};

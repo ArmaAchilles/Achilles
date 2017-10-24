@@ -8,10 +8,10 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
-_options = [localize "STR_SERVER", localize "STR_ZEUS"];
+private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _options = [localize "STR_SERVER", localize "STR_ZEUS"];
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_TRANSFER_OWNERSHIP",
 	[
@@ -22,7 +22,7 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_owner = _dialogResult select 0;
+private _owner = _dialogResult select 0;
 
 if (isNull (_objects select 0)) then
 {
@@ -31,12 +31,12 @@ if (isNull (_objects select 0)) then
 if (isNil "_objects") exitWith {};
 if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-_object_list = [];
-_group_list = [];
+private _object_list = [];
+private _group_list = [];
 {
 	if (_x isKindOf "Man") then
 	{
-		_group = group _x;
+		private _group = group _x;
 		if (not (_group in _group_list)) then
 		{
 			_group_list pushBack _group;

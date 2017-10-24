@@ -6,11 +6,11 @@ if (isNil "Ares_CASTargetCount") then
 };
 
 // Don't delete this module when we're done the script.
-_deleteModuleOnExit = false;
+private _deleteModuleOnExit = false;
 
-_targetPhoneticName = [Ares_CASTargetCount] call Ares_fnc_GetPhoneticName;
-_target_name = format [localize "STR_CAS_X", _targetPhoneticName];
-_dialogResult = 
+private _targetPhoneticName = [Ares_CASTargetCount] call Ares_fnc_GetPhoneticName;
+private _target_name = format [localize "STR_CAS_X", _targetPhoneticName];
+private _dialogResult = 
 [
 	localize "STR_CREATE_CAS_TARGET",
 	[

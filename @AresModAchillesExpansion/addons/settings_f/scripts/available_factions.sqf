@@ -2,15 +2,15 @@
 */
 Achilles_var_excludedFactions = [];
 
-_factions = ([configfile >> "CfgFactionClasses"] call BIS_fnc_getCfgSubClasses);
-_faction_names = [];
+private _factions = ([configfile >> "CfgFactionClasses"] call BIS_fnc_getCfgSubClasses);
+private _faction_names = [];
 
 {
-	_faction = _x;
-	_faction_cfg_path = (configfile >> "CfgFactionClasses" >> _faction);
+	private _faction = _x;
+	private _faction_cfg_path = (configfile >> "CfgFactionClasses" >> _faction);
 	if (([_faction_cfg_path, "side", -1] call BIS_fnc_returnConfigEntry) in [0,1,2]) then
 	{
-		_faction_name = [_faction_cfg_path, "displayName", ""] call BIS_fnc_returnConfigEntry;
+		private _faction_name = [_faction_cfg_path, "displayName", ""] call BIS_fnc_returnConfigEntry;
 		if (not (_faction_name in _faction_names)) then
 		{
 			_faction_names pushBack _faction_name;

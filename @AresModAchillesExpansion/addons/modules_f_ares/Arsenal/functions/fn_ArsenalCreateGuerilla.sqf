@@ -1,11 +1,11 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // Create the ammo box
-_ammoBox = "Box_Wps_F" createVehicle (getPos _logic);
+private _ammoBox = "Box_Wps_F" createVehicle (getPos _logic);
 [[_ammoBox]] call Ares_fnc_AddUnitsToCurator;
 
 // Add arsenal to the box
-_data = 
+private _data = 
 	[
 		["B_AssaultPack_khk","B_FieldPack_oli","B_AssaultPack_rgr","B_AssaultPack_sgg","B_AssaultPack_blk","B_AssaultPack_cbr","B_Kitbag_mcamo","B_Kitbag_sgg","B_Kitbag_cbr","B_Carryall_oli","B_FieldPack_khk","B_FieldPack_blk","B_FieldPack_cbr","B_Carryall_khk","B_Carryall_cbr","B_Kitbag_rgr","B_TacticalPack_oli","B_TacticalPack_blk","B_TacticalPack_mcamo","B_TacticalPack_rgr","B_AssaultPack_dgtl"],
 		["optic_Aco_smg","optic_ACO_grn_smg","optic_Holosight_smg","optic_Yorris","optic_MRD","acc_flashlight","acc_pointer_IR","V_TacVest_blk","V_TacVest_camo","V_TacVestIR_blk","H_Booniehat_khk","H_Booniehat_tan","H_MilCap_gry","H_Bandanna_khk","H_Bandanna_cbr","H_Bandanna_sgg","H_Bandanna_gry","H_Bandanna_camo","H_Bandanna_mcamo","H_Beret_blk","H_Watchcap_blk","H_Watchcap_khk","H_Watchcap_camo","H_Cap_oli","ItemWatch","ItemCompass","ItemRadio","ItemMap","Binocular","NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP","FirstAidKit","Medikit","ToolKit","V_Chestrig_khk","V_TacVest_khk","V_TacVest_brn","V_TacVest_oli","V_Chestrig_rgr","H_Booniehat_dgtl","H_MilCap_dgtl","U_C_HunterBody_grn","U_BG_leader","U_BG_Guerilla3_1","U_BG_Guerilla2_3","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","V_BandollierB_khk","V_BandollierB_rgr","V_BandollierB_cbr","V_BandollierB_blk","V_Chestrig_blk","V_BandollierB_oli","V_Chestrig_oli","H_Cap_tan","H_Cap_blk","H_Cap_brn_SPECOPS","H_MilCap_blue","H_ShemagOpen_khk","H_ShemagOpen_tan","H_Shemag_olive","H_Shemag_olive_hs","H_Bandanna_sand","H_Watchcap_cbr"],

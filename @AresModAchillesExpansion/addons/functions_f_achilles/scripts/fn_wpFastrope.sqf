@@ -21,8 +21,8 @@ private ["_vehicle", "_commander", "_speedMode"];
 _vehicle = vehicle leader _group;
 
 // Kex: check if ACE or advanced rappeling is available
-_ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
-_ar_loaded = isClass (configfile >> "CfgPatches" >> "AR_AdvancedRappelling");
+private _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
+private _ar_loaded = isClass (configfile >> "CfgPatches" >> "AR_AdvancedRappelling");
 if (not _ace_loaded and not _ar_loaded) exitWith 
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
@@ -39,7 +39,7 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 	// - Deployment ---------------------------------------------------------------
 	if (not _ar_loaded) then
 	{
-		_helo_pos = +_position;
+		private _helo_pos = +_position;
 		_helo_pos set [2,20];
 		_vehicle setVariable ["ACE_Rappelling",true];
 		
@@ -50,13 +50,13 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 			while { not isNil {_vehicle getVariable ["ACE_Rappelling",nil]} and alive _vehicle and alive (driver _vehicle)} do 
 			{
 
-				_velocityMagatude = 5;
-				_distanceToPosition = ((position _vehicle) distance _position);
+				private _velocityMagatude = 5;
+				private _distanceToPosition = ((position _vehicle) distance _position);
 				if( _distanceToPosition <= 15 ) then {
 					_velocityMagatude = (_distanceToPosition / 10) * _velocityMagatude;
 				};
 				
-				_currentVelocity = velocity _vehicle;
+				private _currentVelocity = velocity _vehicle;
 				_currentVelocity = _currentVelocity vectorAdd (( (position _vehicle) vectorFromTo _position ) vectorMultiply _velocityMagatude);
 				_currentVelocity = (vectorNormalized _currentVelocity) vectorMultiply ( (vectorMagnitude _currentVelocity) min _velocityMagatude );
 				_vehicle setVelocity _currentVelocity;
@@ -71,7 +71,7 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 		_vehicle setVariable ["ACE_Rappelling",nil];
 	} else
 	{
-		_positionASL = +_position;
+		private _positionASL = +_position;
 		if (not (surfaceIsWater _position)) then
 		{
 			_positionASL = ATLToASL _position;
@@ -84,7 +84,7 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 //////////////////////////////////////
 
 // Kex: check if vehicle is capable of FRIES and if true equip it with FIRES
-_rope_available = true;
+private _rope_available = true;
 if (not _ar_loaded) then
 {
 	[_vehicle]  call ace_fastroping_fnc_equipFRIES; 
@@ -97,12 +97,12 @@ if (not _rope_available) exitWith {true};
 
 // Kex: prevent pilot from being stupid
 _group allowFleeing 0;
-_pilot = driver _vehicle;
+private _pilot = driver _vehicle;
 _pilot setSkill 1;
 
 _group setVariable ["Achilles_var_fastrope",true];
 
-_wp_index = currentwaypoint _group;
+private _wp_index = currentwaypoint _group;
 
 [_group,_wp_index,_position] spawn
 {

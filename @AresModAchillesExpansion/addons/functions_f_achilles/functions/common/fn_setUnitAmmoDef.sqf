@@ -16,20 +16,19 @@
 //	[_unit, 0.9] call Achilles_fnc_settUnitAmmoDef;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_unit = _this select 0;
-_percentage = _this select 1;
+private _unit = _this select 0;
+private _percentage = _this select 1;
 
 // clear cargo
 {_unit removeMagazine _x;} foreach (magazines _unit);
 
 // get config unit magazines (does not include backpacks)
-_cfgMagazines = getArray (configFile >> "CfgVehicles" >> typeOf _unit >> "magazines");
+private _cfgMagazines = getArray (configFile >> "CfgVehicles" >> typeOf _unit >> "magazines");
 
-_MagazinesClassName = [];
-_MagazinesCount = [];
-private _i = 0;
+private _MagazinesClassName = [];
+private _MagazinesCount = [];
 {
-	_index = _MagazinesClassName find _x;
+	private _index = _MagazinesClassName find _x;
 	if (_index == -1) then
 	{
 		_MagazinesClassName pushBack _x;
@@ -41,16 +40,16 @@ private _i = 0;
 } forEach _cfgMagazines;
 
 // get config backpack magazines
-_backpackClassName =  backpack _unit;
+private _backpackClassName =  backpack _unit;
 if (_backpackClassName != "") then
 {
-	_CfgBackpackContent =  (configFile >> "CfgVehicles" >> _backpackClassName >> "TransportMagazines");
-	_cfgBackpackMagazines = [_CfgBackpackContent, 0, true] call BIS_fnc_returnChildren;
+	private _CfgBackpackContent =  (configFile >> "CfgVehicles" >> _backpackClassName >> "TransportMagazines");
+	private _cfgBackpackMagazines = [_CfgBackpackContent, 0, true] call BIS_fnc_returnChildren;
 	{
-		_backpackMagazineClassName = getText (_x >> "magazine");
-		_backpackMagazineAmmoCount = getNumber (_x >> "count");
+		private _backpackMagazineClassName = getText (_x >> "magazine");
+		private _backpackMagazineAmmoCount = getNumber (_x >> "count");
 		
-		_index = _MagazinesClassName find _backpackMagazineClassName;
+		private _index = _MagazinesClassName find _backpackMagazineClassName;
 		if (_index == -1) then
 		{
 			_MagazinesClassName pushBack _backpackMagazineClassName;
@@ -65,8 +64,8 @@ if (_backpackClassName != "") then
 // set ammo according to percentage
 
 {
-	_count = round (_x * _percentage);
-	_magazine = _MagazinesClassName select _forEachIndex;
+	private _count = round (_x * _percentage);
+	private _magazine = _MagazinesClassName select _forEachIndex;
 	_unit addMagazines [_magazine,_count];
 } forEach _MagazinesCount;
 

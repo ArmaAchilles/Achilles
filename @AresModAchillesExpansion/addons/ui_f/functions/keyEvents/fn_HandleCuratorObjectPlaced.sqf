@@ -17,9 +17,9 @@ else
 
 if (not isNil "Achilles_var_deleteCrewOnSpawn") then
 {
-	_curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
-	_ctrlModeGroups = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEGROUPS;
-	_crew = crew _placedObject;
+	private _curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
+	private _ctrlModeGroups = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEGROUPS;
+	private _crew = crew _placedObject;
 	if (ctrlScale _ctrlModeGroups != 1 and count _crew > 0) then
 	{
 		{_placedObject deleteVehicleCrew _x} forEach _crew;
@@ -28,9 +28,9 @@ if (not isNil "Achilles_var_deleteCrewOnSpawn") then
 
 if (not isNil "Achilles_var_specifyPositionBeforeSpawn") then
 {
-	_curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
-	_ctrlModeUnits = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEUNITS;
-	_ctrlModeRecent = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODERECENT;
+	private _curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
+	private _ctrlModeUnits = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEUNITS;
+	private _ctrlModeRecent = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODERECENT;
 	if (ctrlScale _ctrlModeUnits == 1 or {ctrlScale _ctrlModeRecent == 1}) then
 	{
 		if (not (_placedObject isKindOf "module_f") and {count units group _placedObject - count crew _placedObject <= 0}) then

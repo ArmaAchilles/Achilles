@@ -15,18 +15,18 @@
 //	[_center_object_1,_center_object_2,_center_object_3] call Achilles_fnc_ungroupObjects;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_object_list = param [0,[],[[]]];
+private _object_list = param [0,[],[[]]];
 
 if (count _object_list == 0) exitWith {};
 
 {
-	_center_object = _x;
-	_group_attributes = _center_object getVariable ["Achilles_var_groupAttributes",nil];
+	private _center_object = _x;
+	private _group_attributes = _center_object getVariable ["Achilles_var_groupAttributes",nil];
 	if (not isNil "_group_attributes") then
 	{
-		_objects = _group_attributes apply 
+		private _objects = _group_attributes apply
 		{
-			_object = _x select 0;
+			private _object = _x select 0;
 			if (_object getVariable ["enabledSimulation",true]) then
 			{
 				[_object,true] remoteExec ["enableSimulationGlobal",2];

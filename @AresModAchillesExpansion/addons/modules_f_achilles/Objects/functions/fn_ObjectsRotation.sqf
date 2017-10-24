@@ -13,7 +13,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
 if (_object isKindOf "Man") exitWith {[localize "STR_UNITS_NOT_ALLOWED"] call Achilles_fnc_showZeusErrorMessage};

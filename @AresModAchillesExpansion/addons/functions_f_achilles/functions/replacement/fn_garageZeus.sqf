@@ -1,3 +1,3 @@
 #define FNC_IS3DEN	1
-_isAchilles = true;
+private _isAchilles = true;
 #include "fn_garage.sqf"

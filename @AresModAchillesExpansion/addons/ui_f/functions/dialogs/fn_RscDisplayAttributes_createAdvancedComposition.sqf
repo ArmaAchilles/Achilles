@@ -1,4 +1,3 @@
-
 #define IDD_DYNAMIC_GUI			133798
 #define IDC_CATEGORIES			20000
 #define IDC_NEW_CATEGORY		20001
@@ -22,7 +21,7 @@ _mode = _this select 0;
 _ctrl = param [1,controlNull,[controlNull]];
 _comboIndex = param [2,0,[0]];
 
-_dialog = findDisplay IDD_DYNAMIC_GUI;
+private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
 switch (_mode) do
 {

@@ -1,15 +1,13 @@
-
-
 params [["_sourceObject",objNull,[objNull]]];
 
 private _light_attributes = _sourceObject getVariable ["LightAttributes", [[1,1,1],[1,1,1,1]]];
 private _rgb_color = _light_attributes select 0;
 private _attenuation = _light_attributes select 1;
 
-_source = _sourceObject getVariable "source";
+private _source = _sourceObject getVariable "source";
 Achilles_var_AttributeWindowTargetObject = _source;
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_LIGHT_SOURCE",
 	[

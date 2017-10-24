@@ -14,7 +14,7 @@
 //	[group player] call Achilles_fnc_changeSideAttribute;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_group = param [0,grpNull,[grpNull]];
+private _group = param [0,grpNull,[grpNull]];
 private _side = side _group;
 
 if (isNil "Achilles_var_changeSide_init_done") then
@@ -23,7 +23,7 @@ if (isNil "Achilles_var_changeSide_init_done") then
 	Achilles_var_changeSide_init_done = true;
 };
 
-_dialogResult =
+private _dialogResult =
 [
 	localize "STR_CHANGE_SIDE",
 	[

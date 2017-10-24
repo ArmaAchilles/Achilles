@@ -26,7 +26,7 @@ if(isNil "Achilles_var_ied_init_done") then
 };
 
 // Gets Module placed object.
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
 if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
@@ -46,7 +46,7 @@ if (_object isKindOf "Man") then
 }
 else
 {
-  _dialogResult =
+  private _dialogResult =
   [
     localize "STR_ENYO_SET_OBJECT_AS_IED",
     [
@@ -66,14 +66,14 @@ else
 
   _object setVariable ["isIED", true, true];
 
-  _explosionSize = _dialogResult select 0;
-  _explosionEffect = _dialogResult select 1;
-  _canBeDefused = _dialogResult select 2;
-  _disarmTime = _dialogResult select 3;
-  _activationType = _dialogResult select 4;
-  _isJammable = _dialogResult select 5;
-  _activationDistance = _dialogResult select 6;
-  _activationSide = _dialogResult select 7;
+  private _explosionSize = _dialogResult select 0;
+  private _explosionEffect = _dialogResult select 1;
+  private _canBeDefused = _dialogResult select 2;
+  private _disarmTime = _dialogResult select 3;
+  private _activationType = _dialogResult select 4;
+  private _isJammable = _dialogResult select 5;
+  private _activationDistance = _dialogResult select 6;
+  private _activationSide = _dialogResult select 7;
 
   [_object, _explosionSize, _explosionEffect, _activationDistance, _activationSide, _activationType, _isJammable, _disarmTime, _canBeDefused] remoteExec ["Achilles_fnc_createIED", 2, false];
 };

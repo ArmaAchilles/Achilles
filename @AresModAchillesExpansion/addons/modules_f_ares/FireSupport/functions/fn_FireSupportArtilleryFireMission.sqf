@@ -12,7 +12,7 @@ private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDispl
 _objects = nearestObjects [(_this select 0), ["All"], 150, true];
 
 // Filter for artillery
-_filteredObjects = [];
+private _filteredObjects = [];
 {
 	_ammo = getArtilleryAmmo [_x];
 	if (count _ammo > 0) then
@@ -30,10 +30,10 @@ _filteredObjects = [];
  *   ["Type name", [Unit1, unit2, ...], [ammotype1, ammotype2, ...]]
  * ]
  */
-_batteries = [];
+private _batteries = [];
 {
-	_type = getText(configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
-	_alreadyContained = false;
+	private _type = getText(configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
+	private _alreadyContained = false;
 	{
 		if (_x find _type > -1) then
 		{
@@ -48,11 +48,11 @@ _batteries = [];
 	}
 	else
 	{
-		_unit = _x;
+		private _unit = _x;
 		{
-			_battery = _x;
-			_units = _battery select 1;
-			_unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
+			private _battery = _x;
+			private _units = _battery select 1;
+			private _unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
 
 			if (_unitType == (_battery select 0)) then
 			{
@@ -65,50 +65,50 @@ _batteries = [];
 } forEach _filteredObjects;
 
 // pick battery
-_batteryTypes = [];
+private _batteryTypes = [];
 {
 	_batterytypes pushBack (_x select 0);
 } forEach _batteries;
 if (count _batteries == 0) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
 
 // Pick a battery
-_pickBatteryResult = [
+private _pickBatteryResult = [
 		localize "STR_SELECT_BATTERY_TO_FIRE",
 		[
 			[localize "STR_BATTERY", _batteryTypes],
 			[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
 		]] call Ares_fnc_ShowChooseDialog;
 if (count _pickBatteryResult == 0) exitWith {};
-_battery = _batteries select (_pickBatteryResult select 0);
-_mode = _pickBatteryResult select 1;
+private _battery = _batteries select (_pickBatteryResult select 0);
+private _mode = _pickBatteryResult select 1;
 
 // Pick fire mission details
-_fireMission = nil;
-_units = _battery select 1;
-_artilleryAmmo = _battery select 2;
+private _fireMission = nil;
+private _units = _battery select 1;
+private _artilleryAmmo = _battery select 2;
 
 _artilleryAmmoDisplayName = [];
 {
 	_artilleryAmmoDisplayName pushBack (getText (configFile >> "CfgMagazines" >> _x >> "displayName"));
 } forEach (_battery select 2);
 
-_numberOfGuns = [];
+private _numberOfGuns = [];
 {
 	_numberOfGuns pushBack (str (_forEachIndex + 1));
 } forEach _units;
 
 if (_mode == 0) then
 {
-	_allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
+	private _allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
 	if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-	_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-	_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+	private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+	private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
 	{
 		_targetChoices pushBack (name _x);
 	} forEach _allTargets;
 
 	// pick guns, rounds, ammo and coordinates
-	_pickFireMissionResult = [
+	private _pickFireMissionResult = [
 		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_MARKER"],
 		[
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
@@ -124,10 +124,10 @@ if (_mode == 0) then
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 
-	_targetChooseAlgorithm = _pickFireMissionResult select 3;
+	private _targetChooseAlgorithm = _pickFireMissionResult select 3;
 
 	// Make sure we only consider targets that are in range.
-	_targetsInRange = [];
+	private _targetsInRange = [];
 	{
 		if ((position _x) inRangeOfArtillery [[_units select 0], _ammo]) then
 		{
@@ -138,7 +138,7 @@ if (_mode == 0) then
 	if (count _targetsInRange > 0) then
 	{
 		// Choose a target to fire at
-		_selectedTarget = objNull;
+		private _selectedTarget = objNull;
 		switch (_targetChooseAlgorithm) do
 		{
 			case 0: // Random
@@ -163,7 +163,7 @@ if (_mode == 0) then
 } else
 {
 	// pick guns, rounds, ammo and coordinates
-	_pickFireMissionResult = [
+	private _pickFireMissionResult = [
 		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_GRID"],
 		[
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
@@ -179,22 +179,22 @@ if (_mode == 0) then
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
-	_targetX = _pickFireMissionResult select 3;
-	_targetY = _pickFireMissionResult select 4;
+	private _targetX = _pickFireMissionResult select 3;
+	private _targetY = _pickFireMissionResult select 4;
 	_targetPos = [_targetX,_targetY] call CBA_fnc_mapGridToPos;
 };
 
 if (isNil "_targetPos") exitWith {[localize "STR_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // Generate a list of the actual units to fire.
-_gunsToFire = [];
+private _gunsToFire = [];
 for "_i" from 1 to _guns do
 {
 	_gunsToFire pushBack (_units select (_i - 1));
 };
 
 // Get the ETA and exit if any one of the guns can't reach the target.
-_roundEta = 99999;
+private _roundEta = 99999;
 {
 	_roundEta = _roundEta min (_x getArtilleryETA [_targetPos, _ammo]);
 } forEach _gunsToFire;

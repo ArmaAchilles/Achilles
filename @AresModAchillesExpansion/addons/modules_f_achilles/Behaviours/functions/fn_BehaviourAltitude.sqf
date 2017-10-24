@@ -7,9 +7,9 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_CHANGE_ALTITUDE",
 	[
@@ -18,7 +18,7 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_height = parseNumber (_dialogResult select 0);
+private _height = parseNumber (_dialogResult select 0);
 
 if (isNull (_objects select 0)) then
 {
