@@ -25,7 +25,7 @@ _vehsMove = [];
 _vehsLand = [];
 
 // Kex: create LZ
-_lz = "Land_HelipadEmpty_F" createVehicleLocal _pos;
+private _lz = "Land_HelipadEmpty_F" createVehicleLocal _pos;
 _group setVariable ["Achilles_WP_LZobject", _lz];
 
 // Kex: prevent pilot from being stupid
@@ -48,7 +48,7 @@ waituntil
 				_veh domove _pos;
 				
 				// Kex: prevent pilot from being stupid
-				_pilot = driver _veh;
+				private _pilot = driver _veh;
 				_pilot setSkill 1;
 				
 				_vehsMove set [count _vehsMove,_veh];

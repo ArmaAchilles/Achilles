@@ -8,7 +8,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // find unit to perform suppressiove fire
-_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _unit) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 //Broadcast suppression functions
@@ -20,17 +20,17 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 };
 
 // get list of possible targest
-_allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
+private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
 if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
 {
 	_targetChoices pushBack (name _x);
 } forEach _allTargets;
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select parameters
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_SUPPRESIVE_FIRE",
 	[
@@ -43,14 +43,14 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 if (count _dialogResult == 0) exitWith {};
 
-_targetChooseAlgorithm = _dialogResult select 0;
-_stanceIndex = _dialogResult select 1;
-_doLineUp = if (_dialogResult select 2 == 1) then {true} else {false};
-_fireModeIndex = _dialogResult select 3;
-_duration = parseNumber (_dialogResult select 4);
+private _targetChooseAlgorithm = _dialogResult select 0;
+private _stanceIndex = _dialogResult select 1;
+private _doLineUp = if (_dialogResult select 2 == 1) then {true} else {false};
+private _fireModeIndex = _dialogResult select 3;
+private _duration = parseNumber (_dialogResult select 4);
 
 // Choose a target to fire at
-_selectedTarget = objNull;
+private _selectedTarget = objNull;
 switch (_targetChooseAlgorithm) do
 {
 	case 0: // Random

@@ -1,16 +1,16 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+private _mode = _this select 0;
+private _params = _this select 1;
+private _entity = _this select 2;
 
-_idcs = [
+private _idcs = [
 	IDC_RSCATTRIBUTESPEEDMODE_LIMITED,
 	IDC_RSCATTRIBUTESPEEDMODE_NORMAL,
 	IDC_RSCATTRIBUTESPEEDMODE_FULL,
 	IDC_RSCATTRIBUTESPEEDMODE_DEFAULT
 ];
-_states = [
+private _states = [
 	"LIMITED",
 	"NORMAL",
 	"FULL",
@@ -20,32 +20,32 @@ _states = [
 switch _mode do {
 	case "onLoad": {
 
-		_display = _params select 0;
+		private _display = _params select 0;
 
 		//--- Add handlers to all buttons
 		{
-			_ctrl = _display displayctrl _x;
+			private _ctrl = _display displayctrl _x;
 			_ctrl ctrladdeventhandler ["buttonclick","with uinamespace do {['onButtonClick',[_this select 0,0.1]] call RscAttributeSpeedMode};"];
 			_ctrl ctrlsetactivecolor (_colors select _foreachindex);
 		} foreach _idcs;
 
 		//--- Select the current state
-		_selected = if (typename _entity == typename []) then {
+		private _selected = if (typename _entity == typename []) then {
 			waypointspeed _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTESPEEDMODE_DEFAULT) ctrlshow false;
 			speedmode leader _entity
 		};
-		_selectedIndex = _states find _selected;
-		_selectedIDC = _idcs select _selectedIndex;
+		private _selectedIndex = _states find _selected;
+		private _selectedIDC = _idcs select _selectedIndex;
 		['onButtonClick',[_display displayctrl _selectedIDC,0]] call RscAttributeSpeedMode;
 	};
 	case "onButtonClick": {
-		_ctrlSelected = _params select 0;
-		_delay = _params select 1;
-		_display = ctrlparent _ctrlSelected;
+		private _ctrlSelected = _params select 0;
+		private _delay = _params select 1;
+		private _display = ctrlparent _ctrlSelected;
 		{
-			_ctrl = _display displayctrl _x;
+			private _ctrl = _display displayctrl _x;
 			_ctrl ctrlsettextcolor [1,1,1,0.4];
 			[_ctrl,if (_ctrl != _ctrlSelected) then {1} else {1.25},_delay] call bis_fnc_ctrlsetscale;
 		} foreach _idcs;
@@ -54,16 +54,16 @@ switch _mode do {
 		RscAttributeSpeedMode_selected = _idcs find (ctrlidc _ctrlSelected);
 	};
 	case "confirmed": {
-		_display = _params select 0;
-		_selectedIndex = uinamespace getvariable ["RscAttributeSpeedMode_selected",0];
-		_selected = _states select _selectedIndex;
+		private _display = _params select 0;
+		private _selectedIndex = uinamespace getvariable ["RscAttributeSpeedMode_selected",0];
+		private _selected = _states select _selectedIndex;
 		if (typename _entity == typename []) then 
 		{
 			if (waypointSpeed _entity == _selected) exitWith {};
-			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
+			private _curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
-				_group = _x select 0;
-				_wp_id = _x select 1;
+				private _group = _x select 0;
+				private _wp_id = _x select 1;
 				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
 				{
 					if (local _group) then
@@ -78,9 +78,9 @@ switch _mode do {
 			} forEach _curatorSelectedWPs;
 		} else {
 			if (speedMode leader _entity == _selected) exitWith {};
-			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
+			private _curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
-				_leader = leader _x;
+				private _leader = leader _x;
 				if (local _leader) then
 				{
 					_x setspeedmode _selected;

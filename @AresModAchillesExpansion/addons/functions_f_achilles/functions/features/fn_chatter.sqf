@@ -47,7 +47,7 @@ if (isNull _unit) then
 		case 2: {_side = resistance;};
 		case 3: {_side = civilian;};
 	};
-	_message = _dialogResult select 1;
+	private _message = _dialogResult select 1;
 	[[_side,"HQ"],_message] remoteExec ["sideChat",0];
 } else
 {

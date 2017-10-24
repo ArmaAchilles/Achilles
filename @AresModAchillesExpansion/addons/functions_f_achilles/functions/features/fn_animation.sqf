@@ -152,7 +152,7 @@ if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
 
 {
-	_unit = _x;
+	private _unit = _x;
 	if (_persistent == 0) then
 	{
 		// combat ready = can break out the animation

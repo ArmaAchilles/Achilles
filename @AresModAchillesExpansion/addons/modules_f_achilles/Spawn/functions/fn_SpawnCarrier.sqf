@@ -14,7 +14,7 @@ private _dir = 180 + (_dialogResult select 0) * 45;
 [[getPosATL _logic, _dir], 
 {
 	params ["_posATL", "_dir"];
-	 _carrier = createVehicle ["Land_Carrier_01_base_F",[-300,-300,0],[],0,"CAN_COLLIDE"];
+	 private _carrier = createVehicle ["Land_Carrier_01_base_F",[-300,-300,0],[],0,"CAN_COLLIDE"];
 	 _carrier setPosATL _posATL;
 	 _carrier setVectorDirAndUp [[sin _dir, cos _dir, 0], [0,0,1]];
 	[_carrier] remoteExecCall ["BIS_fnc_Carrier01Init", 0, _carrier];

@@ -31,8 +31,8 @@ private _free_line_of_fire = true;
 {
 	private _obstacle_pos = position _x;
 	private _shooter_obstacle_vec = _obstacle_pos vectorDiff _shooter_pos;
-	_obstacle_fire_line_dist = vectorMagnitude (_fire_line_vec vectorCrossProduct _shooter_obstacle_vec) / (vectorMagnitude _fire_line_vec);
-	_projection_product = _fire_line_vec vectorDotProduct _shooter_obstacle_vec;
+	private _obstacle_fire_line_dist = vectorMagnitude (_fire_line_vec vectorCrossProduct _shooter_obstacle_vec) / (vectorMagnitude _fire_line_vec);
+	private _projection_product = _fire_line_vec vectorDotProduct _shooter_obstacle_vec;
 	if ((_projection_product > 0) and (_obstacle_fire_line_dist < _minimal_radius)) exitWith {_free_line_of_fire = false;};
 	
 } forEach _obstacles;

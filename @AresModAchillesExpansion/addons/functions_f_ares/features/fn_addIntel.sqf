@@ -18,14 +18,14 @@
 //	["Secret NATO Documents","NATO supply convoy is expected to pass the checkpoint at 9 am.","marker001","Kex",0] call Ares_fnc_addIntel;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_title = _this select 0;
-_text = _this select 1;
-_marker = _this select 2;
-_finder = param [3,"",[""]];
-_shared = param [4,0,[0]];
+private _title = _this select 0;
+private _text = _this select 1;
+private _marker = _this select 2;
+private _finder = param [3,"",[""]];
+private _shared = param [4,0,[0]];
 
-_fnc_scriptName = "Achilles_Intel";
-_shared_hint = if (isLocalized "STR_INTEL_WAS_SHARED_WITH_SIDE") then
+private _fnc_scriptName = "Achilles_Intel";
+private _shared_hint = if (isLocalized "STR_INTEL_WAS_SHARED_WITH_SIDE") then
 {
 	[localize "STR_INTEL_WAS_SHARED_WITH_SIDE",localize "STR_INTEL_WAS_SHARED_WITH_GROUP", localize "STR_INTEL_WAS_SHARED_WITH_NONE"] select _shared;
 } else
@@ -54,4 +54,3 @@ player creatediaryrecord [_fnc_scriptName,[_title,_text]];
 
 if (name player == _finder) then {openmap [true,false]};
 deleteMarker _marker;
-

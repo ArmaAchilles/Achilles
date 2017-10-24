@@ -8,7 +8,7 @@ while {(count allCurators) < 1} do {
 };
 
 // Wait until at least one of the curators is associated with a unit
-_curatorHasUnit = false;
+private _curatorHasUnit = false;
 while {!_curatorHasUnit} do {
 	{
 		if(!isNull getassignedcuratorunit _x) then

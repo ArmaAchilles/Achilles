@@ -16,13 +16,13 @@
 // handle double click as remote control / switch unit instead
 if(not isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])) exitWith {};
 
-_entity = [_this] param [0,objnull,[objnull,grpnull,[],""]];
-_curator = getAssignedCuratorLogic player;
-_isPlayer = false;
-_curatorInfoType = switch (typename _entity) do {
+private _entity = [_this] param [0,objnull,[objnull,grpnull,[],""]];
+private _curator = getAssignedCuratorLogic player;
+private _isPlayer = false;
+private _curatorInfoType = switch (typename _entity) do {
 	case (typename objnull): {
 		_isPlayer = isplayer _entity && isnil {_curator getvariable "BIS_fnc_curatorAttributesPlayer"};
-		_infoTypeClass = if (isnull group _entity && side _entity != sidelogic) then {"curatorInfoTypeEmpty"} else {"curatorInfoType"};
+		private _infoTypeClass = if (isnull group _entity && side _entity != sidelogic) then {"curatorInfoTypeEmpty"} else {"curatorInfoType"};
 		gettext (configfile >> "cfgvehicles" >> typeof _entity >> _infoTypeClass)
 	};
 	case (typename grpnull): {
@@ -42,7 +42,7 @@ _curatorInfoType = switch (typename _entity) do {
 if (isclass (configfile >> _curatorInfoType)) then {
 
 	//--- Load default attributes
-	_attributes = [_curator,_entity] call bis_fnc_curatorAttributes;
+	private _attributes = [_curator,_entity] call bis_fnc_curatorAttributes;
 	if (count _attributes > 0) then {
 		BIS_fnc_initCuratorAttributes_target = _entity;
 		BIS_fnc_initCuratorAttributes_attributes = _attributes;

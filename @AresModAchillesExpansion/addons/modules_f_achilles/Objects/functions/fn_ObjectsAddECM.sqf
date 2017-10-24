@@ -13,7 +13,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _object) exitWith {[localize "STR_ENYO_NO_VEHICLE_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
@@ -21,7 +21,7 @@ if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_ENYO_N
 
 if (_object isKindOf "Car" || _object isKindOf "Tank") then
 {
-  _dialogResult =
+  private _dialogResult =
   [
     localize "STR_ENYO_ADD_ECM_TO_VEHICLE",
     [
@@ -32,7 +32,7 @@ if (_object isKindOf "Car" || _object isKindOf "Tank") then
   if (isNil "_dialogResult") exitWith {};
   if (count _dialogResult == 0) exitWith {};
 
-  _isECM = _dialogResult select 0;
+  private _isECM = _dialogResult select 0;
 
   if (_isECM == 0) then
   {

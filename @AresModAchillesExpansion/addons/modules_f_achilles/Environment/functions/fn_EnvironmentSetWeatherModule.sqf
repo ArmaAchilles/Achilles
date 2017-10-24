@@ -2,7 +2,7 @@
 #define SHARP_DECAY_VALUE 1
 #define SMOOTH_DECAY_VALUE 0.01
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_ADVANCED_WEATHER_CHANGE",
 	[
@@ -38,8 +38,8 @@ if (isNil "Ares_fnc_Weather_Function") then
 		sleep 1;
 		while {true} do
 		{
-			_settings = Ares_var_Weather_Settings;
-			_delay = if ((_settings select 0) == 0) then {0} else {30};
+			private _settings = Ares_var_Weather_Settings;
+			private _delay = if ((_settings select 0) == 0) then {0} else {30};
 			0 setOvercast (_settings select 1);
 			_delay setRain (_settings select 2);
 			0 setLightnings (_settings select 4);
@@ -50,8 +50,8 @@ if (isNil "Ares_fnc_Weather_Function") then
 	remoteExec ["Ares_fnc_Weather_Function",0,true];
 	Ares_fnc_Change_Weather_Function =
 	{
-		_settings = Ares_var_Weather_Settings;
-		_delay = if ((_settings select 0) == 0) then {0} else {30};
+		private _settings = Ares_var_Weather_Settings;
+		private _delay = if ((_settings select 0) == 0) then {0} else {30};
 		0 setOvercast (_settings select 1);
 		_delay setRain (_settings select 2);
 		0 setLightnings (_settings select 4);

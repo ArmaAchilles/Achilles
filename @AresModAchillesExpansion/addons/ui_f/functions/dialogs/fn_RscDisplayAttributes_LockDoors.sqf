@@ -1,4 +1,3 @@
-
 #define BASE_CTRL_IDC		20000
 #define IDD_DYNAMIC_GUI		133798
 #define LABEL_IDCs			[10001]
@@ -15,10 +14,10 @@ switch (_mode) do
 {
 	case "LOADED":
 	{
-		_dialog = findDisplay IDD_DYNAMIC_GUI;
+		private _dialog = findDisplay IDD_DYNAMIC_GUI;
 		{
 			_ctrl = _dialog displayCtrl (BASE_CTRL_IDC + _x);
-			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
+			private _last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
 			_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
 			_ctrl lbSetCurSel _last_choice;
 			if (_x == 0) then
@@ -30,7 +29,7 @@ switch (_mode) do
 	case "0":
 	{
 		// selection combo changed
-		_dialog = findDisplay IDD_DYNAMIC_GUI;
+		private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
 		if (_comboIndex == 0) then
 		{

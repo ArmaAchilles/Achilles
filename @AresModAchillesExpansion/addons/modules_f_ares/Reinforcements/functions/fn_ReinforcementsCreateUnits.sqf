@@ -5,31 +5,31 @@
 //FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX = 4;
 disableSerialization;
 
-_spawnPosition = position _logic;
+private _spawnPosition = position _logic;
 
 // Get the UI control
 
-_side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
-_sides = [east,west,independent];
+private _side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
+private _sides = [east,west,independent];
 
-_allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
+private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
 if (count _allLzsUnsorted == 0) exitWith {[localize "STR_NO_LZ"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-_lzOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
+private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+private _lzOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
 {
 	_lzOptions pushBack (name _x);
 } forEach _allLzs;
 
-_allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
+private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
 if (count _allRpsUnsorted == 0) exitWith {[localize "STR_NO_RP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-_rpOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
+private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+private _rpOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
 {
 	_rpOptions pushBack (name _x);
 } forEach _allRps;
 
 // Show the user the dialog
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_SPAWN_UNITS",
 	[
@@ -50,18 +50,18 @@ _dialogResult =
 if (count _dialogResult == 0) exitWith {};
 
 //Get dialog results
-_side = _sides select (_dialogResult select 0);
-_infantryGroup = Ares_var_reinforcement_infantry_group;
-_vehicleType = Ares_var_reinforcement_vehicle_class;
-_dialogVehicleBehaviour = _dialogResult select 4;
-_dialogLzAlgorithm = _dialogResult select 5;
-_dialogRpAlgorithm = _dialogResult select 8;
-_dialogUnitBehaviour = _dialogResult select 9;
-_lzSize = 20;	// TODO make this a dialog parameter?
-_rpSize = 20;	// TODO make this a dialog parameters?
+private _side = _sides select (_dialogResult select 0);
+private _infantryGroup = Ares_var_reinforcement_infantry_group;
+private _vehicleType = Ares_var_reinforcement_vehicle_class;
+private _dialogVehicleBehaviour = _dialogResult select 4;
+private _dialogLzAlgorithm = _dialogResult select 5;
+private _dialogRpAlgorithm = _dialogResult select 8;
+private _dialogUnitBehaviour = _dialogResult select 9;
+private _lzSize = 20;	// TODO make this a dialog parameter?
+private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-_lz = objNull;
+private _lz = objNull;
 switch (_dialogLzAlgorithm) do
 {
 	case 0: // Random
@@ -97,15 +97,15 @@ _lz setVariable ["Ares_Lz_Count", (_lz getVariable ["Ares_Lz_Count", 0]) + 1];
 
 
 // create the transport vehicle
-_vehicleInfo = [_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle;
-_vehicle = _vehicleInfo select 0;
-_vehicleGroup = _vehicleInfo select 2;
+private _vehicleInfo = [_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle;
+private _vehicle = _vehicleInfo select 0;
+private _vehicleGroup = _vehicleInfo select 2;
 //_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
-_vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
+private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	_script = if (_dialogResult select 6 == 1) then 
+	private _script = if (_dialogResult select 6 == 1) then 
 	{
 		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
 	} else
@@ -140,7 +140,7 @@ else
 if (_dialogVehicleBehaviour == 0) then
 {
 	// RTB and despawn.
-	_vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
+	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
 	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
 	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
 };
@@ -148,18 +148,18 @@ if (_dialogVehicleBehaviour == 0) then
 // Add vehicle to curator
 [(units _vehicleGroup) + [(vehicle (leader _vehicleGroup))]] call Ares_fnc_AddUnitsToCurator;
 
-_CrewTara = [_vehicleType,false] call BIS_fnc_crewCount;
-_CrewBrutto =  [_vehicleType,true] call BIS_fnc_crewCount;
-_CrewNetto = _CrewBrutto - _CrewTara;
+private _CrewTara = [_vehicleType,false] call BIS_fnc_crewCount;
+private _CrewBrutto =  [_vehicleType,true] call BIS_fnc_crewCount;
+private _CrewNetto = _CrewBrutto - _CrewTara;
 
 // create infantry group and resize it to the given cargo space if needed
 _infantryGroup = [_spawnPosition, _side, _infantryGroup] call BIS_fnc_spawnGroup;
 // delete remaining units if vehicle is overcrouded
-_infantry_list = units _infantryGroup;
+private _infantry_list = units _infantryGroup;
 if (count _infantry_list > _CrewNetto) then
 {
 	_infantry_list resize _CrewNetto;
-	_infantry_to_delete = (units _infantryGroup) - _infantry_list;
+	private _infantry_to_delete = (units _infantryGroup) - _infantry_list;
 	{deleteVehicle _x} forEach _infantry_to_delete;
 };
 
@@ -186,7 +186,7 @@ switch (_dialogUnitBehaviour) do
 if (count _allRps > 0) then
 {
 	// Choose the RP based on the algorithm the user selected
-	_rp = objNull;
+	private _rp = objNull;
 	switch (_dialogRpAlgorithm) do
 	{
 		case 0: // Random
@@ -220,11 +220,11 @@ if (count _allRps > 0) then
 	// Now that we've chosen an RP, increment the count for it.
 	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
 	
-	_infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
+	private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
 }
 else
 {
-	_infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
+	private _infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
 };
 
 // Load the units into the vehicle.

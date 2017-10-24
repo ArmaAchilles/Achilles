@@ -8,9 +8,9 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_TOGGLE_SIMULATION",
 	[
@@ -21,7 +21,7 @@ _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-_allowed = if ((_dialogResult select 0) == 0) then {true} else {false};
+private _allowed = if ((_dialogResult select 0) == 0) then {true} else {false};
 
 if (isNull (_objects select 0)) then
 {
@@ -32,7 +32,7 @@ if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares
 {
 	[_x,_allowed] spawn 
 	{
-		_object = _this select 0;
+		private _object = _this select 0;
 		_allowed = _this select 1;
 		_object enableSimulationGlobal _allowed;
 		[_object,_allowed] remoteExec ["enableSimulationGlobal",2];

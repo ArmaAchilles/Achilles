@@ -8,9 +8,9 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_chair = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _chair = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_type_id = ["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"] find (typeOf _chair);
+private _type_id = ["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"] find (typeOf _chair);
 if (_type_id == -1) exitWith {["No chair selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // chairs can only be properly occupied if their simulation is enabled!
@@ -18,10 +18,10 @@ if (_type_id == -1) exitWith {["No chair selected!"] call Ares_fnc_ShowZeusMessa
 		
 if (isNull (_chair getVariable ['occupier', ObjNull])) then
 {
-	_unit = (["unit"] call Achilles_fnc_SelectUnits) select 0;
+	private _unit = (["unit"] call Achilles_fnc_SelectUnits) select 0;
 	if (isNil "_unit") exitWith {};
 	if (not (_unit isKindOf "Man")) exitWith {["No unit selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-	_ehAnimDone = _unit addEventHandler
+	private _ehAnimDone = _unit addEventHandler
 	[
 		"AnimDone",
 		{
@@ -39,13 +39,13 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 	];
 	_unit setVariable ["Achilles_AnimEH",_ehAnimDone];
 	[_unit, "HubSittingChairA_idle1"] remoteExec ["switchMove", 0];
-	_offset = [[0,-0.1,-0.5], [0,-0.1,-0.5], [0,0,-0.5], [0,0,-0.5], [0,0,-0.2], [0,0,0], [0,0,-0.6]] select _type_id;
-	_dir = [180, 180, 90, 180, 90, 180, 180] select _type_id;
+	private _offset = [[0,-0.1,-0.5], [0,-0.1,-0.5], [0,0,-0.5], [0,0,-0.5], [0,0,-0.2], [0,0,0], [0,0,-0.6]] select _type_id;
+	private _dir = [180, 180, 90, 180, 90, 180, 180] select _type_id;
 	_unit attachTo [_chair, _offset];
 	[_unit, _dir] remoteExec ['setDir',0,true];
 	_chair setVariable ['occupier', _unit];
 } else {
-	_unit = _chair getVariable 'occupier';
+	private _unit = _chair getVariable 'occupier';
 	_unit removeEventHandler ["AnimDone",_unit getVariable ["Achilles_AnimEH",0]];
 	[_unit, ""] remoteExec ["switchMove", 0];
 	detach _unit;

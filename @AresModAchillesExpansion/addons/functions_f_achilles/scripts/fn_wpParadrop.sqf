@@ -34,7 +34,7 @@ if (isNil "Achilles_var_eject_init_done") then
 };
 _end_pos = _this param [1,[],[[]],3];
 _target = _this param [2,objnull,[objnull]];
-_wp_index = currentwaypoint _group;
+private _wp_index = currentwaypoint _group;
 _wp = [_group,_wp_index];
 _wp setwaypointdescription localize "STR_PARADROP";
 _wp setWaypointName localize "STR_PARADROP";
@@ -51,7 +51,7 @@ _vehsType = "";
 		_vehsGroup pushBack _veh;
 		
 		// Kex: prevent pilot from being stupid
-		_pilot = driver _veh;
+		private _pilot = driver _veh;
 		_pilot setSkill 1;
 	};
 } foreach units _group;
@@ -75,7 +75,7 @@ if (_vehsType isKindOf "Helicopter") then
 	_vector = [0,0,0];
 	_radius = 100;
 };
-_wp_pos = _end_pos vectorAdd _vector;
+private _wp_pos = _end_pos vectorAdd _vector;
 
 [_vehsGroup,_wp_pos,_radius] spawn
 {

@@ -8,9 +8,9 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_tp_pos = position _logic;
+private _tp_pos = position _logic;
 
-_dialogResult = [
+private _dialogResult = [
 	localize "STR_TELEPORT", 
 	[ 
 		[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
@@ -23,7 +23,7 @@ _dialogResult = [
 
 if (count _dialogResult == 0) exitWith {};
 
-_playersToTeleport = switch (_dialogResult select 0) do
+private _playersToTeleport = switch (_dialogResult select 0) do
 {
 	case 0:
 	{
@@ -35,15 +35,15 @@ _playersToTeleport = switch (_dialogResult select 0) do
 	};
 	case 2: 
 	{
-		_selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
+		private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
 		if (isNil "_selection") exitWith {nil};
 		_selection select {isPlayer _x};
 	};
 	case 3: 
 	{
-		_side_index = _dialogResult select 2;
+		private _side_index = _dialogResult select 2;
 		if (_side_index == 0) exitWith {[player]};
-		_side = [east,west,independent,civilian] select (_side_index - 1);
+		private _side = [east,west,independent,civilian] select (_side_index - 1);
 		allPlayers select {(alive _x) and (side _x == _side)};
 	};
 	case 4:
@@ -63,7 +63,7 @@ if (count _playersToTeleport == 0) exitWith
 	["No players in selection!"] call Ares_fnc_ShowZeusMessage; 
 	playSound "FD_Start_F";
 };
-_includeVehicles = if ((_dialogResult select 3) == 0) then {false} else {true};
+private _includeVehicles = if ((_dialogResult select 3) == 0) then {false} else {true};
 
 // Call the teleport function.
 [_playersToTeleport, _tp_pos, true, _includeVehicles] call Ares_fnc_TeleportPlayers;
@@ -71,4 +71,3 @@ _includeVehicles = if ((_dialogResult select 3) == 0) then {false} else {true};
 [objNull, format["Teleported %1 players to %2", (count _playersToTeleport), _tp_pos]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
-

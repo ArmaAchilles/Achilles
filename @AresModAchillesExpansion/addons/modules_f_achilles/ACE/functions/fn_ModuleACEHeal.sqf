@@ -11,11 +11,11 @@
 
 private ["_injury","_selected_units"];
 
-_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_mode = if (!isNull _unit) then {"single"} else {"multiple"};
+private _mode = if (!isNull _unit) then {"single"} else {"multiple"};
 
-_options = [localize "STR_RANDOM",localize "STR_NONE_INJURY",localize "STR_LIGHT_INJURY", localize "STR_SEVERE"];
+private _options = [localize "STR_RANDOM",localize "STR_NONE_INJURY",localize "STR_LIGHT_INJURY", localize "STR_SEVERE"];
 
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {

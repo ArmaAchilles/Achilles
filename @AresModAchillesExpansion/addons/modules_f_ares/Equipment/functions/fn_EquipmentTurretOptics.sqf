@@ -10,12 +10,12 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private ["_vehicles","_NVG","_thermals"];
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _unitUnderCursor) then
 {
 	// select players
-	_dialogResult = [
+	private _dialogResult = [
 		localize "STR_ADD_REMOVE_TURRET_OPTICS",
 		[ 
 			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
@@ -36,14 +36,14 @@ if (isNull _unitUnderCursor) then
 		};
 		case 1: 
 		{
-			_selection = [toLower localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
 		case 2: 
 		{
-			_side_index = _dialogResult select 1;
-			_side = [east,west,independent,civilian] select (_side_index - 1);
+			private _side_index = _dialogResult select 1;
+			private _side = [east,west,independent,civilian] select (_side_index - 1);
 			vehicles select {(alive _x) and (side _x == _side)};
 		};
 	};
@@ -59,7 +59,7 @@ if (isNull _unitUnderCursor) then
 }
 else
 {
-	_dialogResult = 
+	private _dialogResult = 
 	[
 		localize "STR_ADD_REMOVE_TURRET_OPTICS",
 		[
@@ -83,4 +83,3 @@ if (isNil "_vehicles") exitWith {};
 [localize "STR_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
-

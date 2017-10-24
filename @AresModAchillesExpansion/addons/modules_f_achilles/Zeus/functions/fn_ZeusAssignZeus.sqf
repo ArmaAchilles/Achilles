@@ -13,7 +13,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // mission designer can disallow usage of execute code module, but it will still be available for logged-in admins
 if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
@@ -37,7 +37,7 @@ if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_AL
 ["You are now a Curator!"] remoteExecCall ["hint", _player];
 
 // Loose curator rights if killed
-_eh_id = _player addEventHandler ["killed", 
+private _eh_id = _player addEventHandler ["killed", 
 {
 	params ["_unit"];
 	

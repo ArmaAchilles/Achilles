@@ -31,20 +31,20 @@ _this spawn
 {
 	disableSerialization;
 	private _display_reload = false;
-	_display = _this select 0;
-	_tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
+	private _display = _this select 0;
+	private _tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 		
 	if (isNil "Achilles_curator_init_done") then
 	{
 		// key event handler for remote controlled unit
-		_main_display = findDisplay 46;
+		private _main_display = findDisplay 46;
 		_main_display displayAddEventHandler ["KeyDown", { _this call Achilles_fnc_HandleRemoteKeyPressed; }];
 		
 		// send warning to player if both mods are running
 		if (isClass (configfile >> "CfgPatches" >> "Ares")) then 
 		{
 			createDialog "RscDisplayCommonMessage";
-			_dialog = findDisplay IDD_MESSAGE;
+			private _dialog = findDisplay IDD_MESSAGE;
 			(_dialog displayCtrl IDC_TITLE) ctrlSetText "Warning: Please unload Ares Mod!";
 			(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText "Ares Mod - Achilles Expansion may not work properly!";
 			(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","closeDialog 1;"];

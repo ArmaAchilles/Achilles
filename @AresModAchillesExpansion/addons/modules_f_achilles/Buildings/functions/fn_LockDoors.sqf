@@ -9,11 +9,11 @@
 
 private ["_buildings","_mode","_group_logic"];
 
-_center_pos = position _logic;
+private _center_pos = position _logic;
 
 // if (not isMultiplayer) exitWith {[localize "STR_MODULE_DOES_NOT_SUPPORT_SP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_LOCK_DOORS",
 	[
@@ -40,8 +40,8 @@ switch (_dialogResult select 0) do
 };
 
 _mode = _dialogResult select 2;
-_logic_list = [];
-_sourceObject_list = [];
+private _logic_list = [];
+private _sourceObject_list = [];
 
 if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 {
@@ -65,28 +65,28 @@ if (_mode < 2) then
 };
 
 {
-	_building = _x;
-	_source_cfg = [(configFile >> "cfgVehicles" >> typeOf _building  >> "AnimationSources"), 0] call BIS_fnc_subClasses;
+	private _building = _x;
+	private _source_cfg = [(configFile >> "cfgVehicles" >> typeOf _building  >> "AnimationSources"), 0] call BIS_fnc_subClasses;
 	{
-		_source = configName _x;
-		_content = _source splitString "_";
+		private _source = configName _x;
+		private _content = _source splitString "_";
 		if (toLower (_content select 2) == "sound") then
 		{
-			_door_name = (_content select [0,2]) joinString "_";
-			_trigger_pos = _building modelToWorld (_building selectionPosition (_door_name + "_trigger"));
+			private _door_name = (_content select [0,2]) joinString "_";
+			private _trigger_pos = _building modelToWorld (_building selectionPosition (_door_name + "_trigger"));
 			if (_trigger_pos isEqualTo [0,0,0]) exitWith {};
 			// _trigger_pos = if (surfaceIsWater _trigger_pos) then {_trigger_pos} else {ATLToASL _trigger_pos};
 
 			// remove old logic
-			_close_logics = _trigger_pos nearObjects ["module_f", 1];
+			private _close_logics = _trigger_pos nearObjects ["module_f", 1];
 			if(count _close_logics > 0) then 
 			{
-				_logic = _close_logics select 0;
+				private _logic = _close_logics select 0;
 				{deleteVehicle _x} forEach (attachedObjects _logic);
 				deleteVehicle _logic;
 			};
 			
-			_lock_var = "bis_disabled_" + _door_name;
+			private _lock_var = "bis_disabled_" + _door_name;
 		
 			if (_mode == 2) then
 			{
@@ -100,13 +100,13 @@ if (_mode < 2) then
 				_building setVariable [_lock_var, 1, true];
 				
 				// add door control logic
-				_logic = _group_logic createUnit ["module_f", _trigger_pos, [], 0, "CAN_COLLIDE"];
+				private _logic = _group_logic createUnit ["module_f", _trigger_pos, [], 0, "CAN_COLLIDE"];
 				_logic setVariable ["lock_params", [_building, _lock_var, _trigger_pos, _source], true];
 				_logic_list pushBack _logic;
 				
 				if (_mode == 1) then
 				{
-					_sourceObject = "Land_ClutterCutter_small_F" createVehicle [0,0,0];
+					private _sourceObject = "Land_ClutterCutter_small_F" createVehicle [0,0,0];
 					_sourceObject attachTo [_logic, [0,0,0]];
 					_sourceObject_list pushBack _sourceObject;
 					Achilles_var_breachableDoors pushBack _sourceObject;

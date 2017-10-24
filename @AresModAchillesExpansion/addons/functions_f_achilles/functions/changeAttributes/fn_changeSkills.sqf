@@ -17,9 +17,9 @@
 
 private ["_dialogResult","_mode","_number_of_traits","_trait_values","_choices","_skill_value","_medic_class"];
 
-_entity = param [0, ObjNull, [grpNull, ObjNull]];
-_is_single_unit = (typeName _entity == "OBJECT");
-_ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
+private _entity = param [0, ObjNull, [grpNull, ObjNull]];
+private _is_single_unit = (typeName _entity == "OBJECT");
+private _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 
 
 private _skill_choices = 
@@ -78,7 +78,7 @@ if (_is_single_unit) then
 	} forEach _skill_choices;
 
 	_mode = "group";
-	_curatorSelectedGrps = [_mode] call Achilles_fnc_getCuratorSelected;
+	private _curatorSelectedGrps = [_mode] call Achilles_fnc_getCuratorSelected;
 	{_curatorSelected append units _x} forEach _curatorSelectedGrps;
 	_number_of_traits = 0;
 	_choices = _skill_choices;
@@ -96,7 +96,7 @@ _trait_values = if (_is_single_unit) then
 {
 	_dialogResult select [0,_number_of_traits];
 };
-_skill_values = _dialogResult select [_number_of_traits,count SKILLS];
+private _skill_values = _dialogResult select [_number_of_traits,count SKILLS];
 
 {
 	private _unit = _x;

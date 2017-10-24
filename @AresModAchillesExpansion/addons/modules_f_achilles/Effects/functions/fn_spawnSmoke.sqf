@@ -2,16 +2,16 @@
 
 private ["_codeblock","_particleSources"];
 
-_smokeType = [_this, 0] call BIS_fnc_Param;
-_sourceObject = [_this, 1] call BIS_fnc_Param;
+private _smokeType = [_this, 0] call BIS_fnc_Param;
+private _sourceObject = [_this, 1] call BIS_fnc_Param;
 
 switch(_smokeType) do
 {
 	case 0: // Vehicle Fire Look-Alike
 	{
-		_ps1 = "#particlesource" createVehicle (getPos _sourceObject);
-		_ps2 = "#particlesource" createVehicle (getPos _sourceObject);
-		_ps3 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps1 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps2 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps3 = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{
@@ -43,7 +43,7 @@ switch(_smokeType) do
 	
 	case 1: // Small Oily Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{
@@ -59,7 +59,7 @@ switch(_smokeType) do
 	};
 	case 2: // Medium Oily Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{
@@ -75,7 +75,7 @@ switch(_smokeType) do
 	};
 	case 3: // Large Oily Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{
@@ -91,7 +91,7 @@ switch(_smokeType) do
 	};
 	case 4: // Large Wood Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{
@@ -108,7 +108,7 @@ switch(_smokeType) do
 	};
 	case 5: // Large Wood Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{		
@@ -125,7 +125,7 @@ switch(_smokeType) do
 	};
 	case 6: // Large Wood Smoke
 	{
-		_ps = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{	
@@ -142,8 +142,8 @@ switch(_smokeType) do
 	};
 	case 7: // Small Mixed Smoke
 	{
-		_ps1 = "#particlesource" createVehicle (getPos _sourceObject);
-		_ps2 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps1 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps2 = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{	
@@ -166,8 +166,8 @@ switch(_smokeType) do
 	};
 	case 8: // Large Mixed Smoke
 	{
-		_ps1 = "#particlesource" createVehicle (getPos _sourceObject);
-		_ps2 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps1 = "#particlesource" createVehicle (getPos _sourceObject);
+		private _ps2 = "#particlesource" createVehicle (getPos _sourceObject);
 		
 		_codeblock =
 		{	

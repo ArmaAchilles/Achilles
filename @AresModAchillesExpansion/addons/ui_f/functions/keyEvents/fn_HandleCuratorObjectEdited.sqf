@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_handled_object = param [1,objNull,[objNull]];
+private _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
@@ -28,7 +28,7 @@ switch (true) do
 		};
 		if(not isNull (_handled_object getVariable ["slave", objNull])) then
 		{
-			_slave = _handled_object getVariable "slave";
+			private _slave = _handled_object getVariable "slave";
 			_slave setPosATL getPosATL _handled_object;
 			[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 		};
@@ -37,29 +37,29 @@ switch (true) do
 	case (not isNil {_handled_object getVariable "Achilles_var_groupAttributes"}):
 	{
 		// if object is a center object of a group => correct position and orientation for other objects of the group
-		_group_attributes = _handled_object getVariable "Achilles_var_groupAttributes";
-		_center_pos = getPosWorld _handled_object;
+		private _group_attributes = _handled_object getVariable "Achilles_var_groupAttributes";
+		private _center_pos = getPosWorld _handled_object;
 		
 		// define internal basis
-		_vector_dir = vectorDir _handled_object;
-		_vector_up =  vectorUp _handled_object;
-		_vector_perpendicular = _vector_dir vectorCrossProduct _vector_up;
+		private _vector_dir = vectorDir _handled_object;
+		private _vector_up =  vectorUp _handled_object;
+		private _vector_perpendicular = _vector_dir vectorCrossProduct _vector_up;
 
 		// define transformation matrix
-		_standard_to_internal = [_vector_dir, _vector_up, _vector_perpendicular];
-		_internal_to_standard = [_standard_to_internal] call Achilles_fnc_matrixTranspose;
+		private _standard_to_internal = [_vector_dir, _vector_up, _vector_perpendicular];
+		private _internal_to_standard = [_standard_to_internal] call Achilles_fnc_matrixTranspose;
 		
 		{
-			_object = _x select 0;
+			private _object = _x select 0;
 			
 			// reposition
-			_vector_center_object = [_internal_to_standard, _x select 1] call Achilles_fnc_vectorMap;
+			private _vector_center_object = [_internal_to_standard, _x select 1] call Achilles_fnc_vectorMap;
 			_object setPosWorld (_vector_center_object vectorAdd _center_pos);
 			
 			// reorientation
-			_vectors_dir_up = (_x select [2,2]) apply 
+			private _vectors_dir_up = (_x select [2,2]) apply 
 			{
-				_return = [_internal_to_standard, _x] call Achilles_fnc_vectorMap;
+				private _return = [_internal_to_standard, _x] call Achilles_fnc_vectorMap;
 				_return;
 			};
 			

@@ -3,7 +3,7 @@ private ["_unit_to_tp","_playersToTeleport","_teleportLocation","_showTeleportMe
 _playersToTeleport = _this select 0;
 _teleportLocation = _this select 1;
 _showTeleportMessage = param [2, true, [true]];
-_includeVehicles = param [3,true,[true]];
+private _includeVehicles = param [3,true,[true]];
 
 // Show some text to the players that are going to be teleported.
 if (_showTeleportMessage) then
@@ -26,7 +26,7 @@ while {count _playersToTeleport != 0} do
 	
 	[_unit_to_tp, _teleportLocation, _showTeleportMessage] spawn 
 	{
-		_unit = _this select 0;
+		private _unit = _this select 0;
 		_teleportLocation = _this select 1;
 		_showTeleportMessage = _this select 2;
 		if (_showTeleportMessage) then

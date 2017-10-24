@@ -27,13 +27,13 @@
 #define SIDE_FILTER_GREENFOR 'Greenfor'
 #define SIDE_FILTER_NONE 'None'
 
-_allowGPS =                      [_this, 0, False] call BIS_fnc_Param;
-_allowThermals =                 [_this, 1, False] call BIS_fnc_Param;
-_allowNvg =                      [_this, 2, False] call BIS_fnc_Param;
-_allowedStaticWeapons =          [_this, 3, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedUav =                    [_this, 4, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedAutomatedStaticWeapons = [_this, 5, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
+private _allowGPS =                      [_this, 0, False] call BIS_fnc_Param;
+private _allowThermals =                 [_this, 1, False] call BIS_fnc_Param;
+private _allowNvg =                      [_this, 2, False] call BIS_fnc_Param;
+private _allowedStaticWeapons =          [_this, 3, SIDE_FILTER_NONE] call BIS_fnc_Param;
+private _allowedUav =                    [_this, 4, SIDE_FILTER_NONE] call BIS_fnc_Param;
+private _allowedAutomatedStaticWeapons = [_this, 5, SIDE_FILTER_NONE] call BIS_fnc_Param;
+private _allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
 
 // diag_log format["Generating blacklist: %1, %2, %3, %4, %5, %6", _allowGPS, _allowThermals, _allowNvg, _allowedStaticWeapons, _allowedUav, _allowedAutomatedStaticWeapons];
 
@@ -41,12 +41,12 @@ _allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
 private ["_applyFilter"];
 _applyFilter =
 	{
-		_side = _this select 0;
-		_blueItems = _this select 1;
-		_redItems = _this select 2;
-		_greenItems = _this select 3;
+		private _side = _this select 0;
+		private _blueItems = _this select 1;
+		private _redItems = _this select 2;
+		private _greenItems = _this select 3;
 		
-		_itemsToBlacklist = [];
+		private _itemsToBlacklist = [];
 		switch (_side) do
 		{
 			case SIDE_FILTER_BLUFOR:
@@ -69,7 +69,7 @@ _applyFilter =
 		_itemsToBlacklist;
 	};
 
-_blacklist = [];
+private _blacklist = [];
 if (not _allowGPS) then
 {
 	_blacklist pushback "ItemGPS";

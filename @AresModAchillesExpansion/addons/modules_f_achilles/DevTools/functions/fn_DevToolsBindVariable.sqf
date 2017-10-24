@@ -8,10 +8,10 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-_dialogResult = [
+private _dialogResult = [
 	localize "STR_BIND_VAR",
 	[
 		[localize "STR_VAR",""],
@@ -20,7 +20,7 @@ _dialogResult = [
 ] call Ares_fnc_ShowChooseDialog;
 if (count _dialogResult > 0) then 
 {
-	_var = _dialogResult select 0;
+	private _var = _dialogResult select 0;
 	if (_dialogResult select 1 == 0) then
 	{
 		_object call compile format["%1 = _this;",_var];

@@ -57,10 +57,10 @@ private _fnc_getDamageType = switch (_distribution_type) do
 				private _counter = count _hitzones;
 				if (_counter > 0) then
 				{
-					_extend_count = ceil ((random 1) * _counter);
+					private _extend_count = ceil ((random 1) * _counter);
 					for "_i" from 1 to _extend_count do
 					{
-						_hitzone = selectRandom _hitzones;
+						private _hitzone = selectRandom _hitzones;
 						_building setHitIndex [_hitzone,1];
 						_hitzones = _hitzones - [_hitzone];
 					};

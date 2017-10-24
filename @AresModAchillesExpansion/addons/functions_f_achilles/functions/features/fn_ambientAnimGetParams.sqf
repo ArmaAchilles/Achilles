@@ -91,7 +91,7 @@ switch (_anim_set) do
 	case "LEAN":
 	{
 		_anims = ["inbasemoves_lean1"];
-		_noBackpack = true; // _noWeapon?
+		private _noBackpack = true; // _noWeapon?
 	};
 	case "KNEEL":
 	{

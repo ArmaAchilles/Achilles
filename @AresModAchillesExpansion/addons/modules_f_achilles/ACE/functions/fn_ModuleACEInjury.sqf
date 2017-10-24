@@ -31,7 +31,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	
 	private _severity_options = [localize "STR_NONE_INJURY", localize "STR_RANDOM", localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
 	
-	_dialogResult =
+	private _dialogResult =
 	[
 		localize "STR_ACE_INJURY",
 		[
@@ -54,11 +54,11 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 
 	_injury_value_list = [];
 	
-	_injury_type = INJURY_TYPES select (_dialogResult select 0);
+	private _injury_type = INJURY_TYPES select (_dialogResult select 0);
 	// get injuries
 	for "_i" from 1 to 6 do
 	{
-		_index = _dialogResult select _i;
+		private _index = _dialogResult select _i;
 		_value = switch (_index) do
 		{
 			case 0: {0};
@@ -68,13 +68,13 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		};
 		_injury_value_list pushBack _value;
 	};
-	_pain = 100 * (_dialogResult select 7);
+	private _pain = 100 * (_dialogResult select 7);
 	_injury_value_list pushBack _pain;
-	_hearth_rate = HEARTH_RATES select (_dialogResult select 8);
+	private _hearth_rate = HEARTH_RATES select (_dialogResult select 8);
 	_injury_value_list pushBack _hearth_rate;
-	_blood_pressure = BLOOD_PRESSURES select (_dialogResult select 9);
+	private _blood_pressure = BLOOD_PRESSURES select (_dialogResult select 9);
 	_injury_value_list pushBack _blood_pressure;
-	_unconscious = if (_dialogResult select 10 == 1) then {true} else {false};
+	private _unconscious = if (_dialogResult select 10 == 1) then {true} else {false};
 	_injury_value_list pushBack _unconscious;
 
 	if (_mode == "single") then
@@ -112,7 +112,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	
 	private _severity_options = [[localize "STR_NONE_INJURY", "(0)"], localize "STR_RANDOM", [localize "STR_MODERATE_INJURY", "(0.5)"], [localize "STR_SEVERE", "(0.9)"]];
 	
-	_dialogResult =
+	private _dialogResult =
 	[
 		localize "STR_INJURY_WITHOUT_ACE",
 		[

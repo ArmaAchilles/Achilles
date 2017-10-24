@@ -5,11 +5,11 @@ if (isNil "Ares_ReinforcementRpCount") then
 	Ares_ReinforcementRpCount = 0;
 };
 
-_deleteModuleOnExit = false;
+private _deleteModuleOnExit = false;
 
-_targetPhoneticName = [Ares_ReinforcementRpCount] call Ares_fnc_GetPhoneticName;
-_target_name = format ["RP %1", _targetPhoneticName];
-_dialogResult = 
+private _targetPhoneticName = [Ares_ReinforcementRpCount] call Ares_fnc_GetPhoneticName;
+private _target_name = format ["RP %1", _targetPhoneticName];
+private _dialogResult = 
 [
 	localize "STR_CREATE_NEW_RP",
 	[

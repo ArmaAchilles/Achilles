@@ -5,7 +5,7 @@ switch (true) do
 {
 	case (_key in actionKeys  "CuratorLevelObject"): // align up-vector with z-axis (default: X)
 	{
-		_curatorSelected = ["object"] call Achilles_fnc_getCuratorSelected;
+		private _curatorSelected = ["object"] call Achilles_fnc_getCuratorSelected;
 		{
 			[getAssignedCuratorLogic player, _x] call Achilles_fnc_HandleCuratorObjectEdited;
 		} forEach _curatorSelected;

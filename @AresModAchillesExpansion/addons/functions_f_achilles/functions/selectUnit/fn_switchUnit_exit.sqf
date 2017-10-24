@@ -26,7 +26,7 @@ _unit removeEventHandler ["HandleDamage", _unit getVariable "Achilles_var_switch
 
 if(isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
-	_eh_id = _unit getVariable ["Achilles_var_switchUnit_ACEdamageEHID", -1];
+	private _eh_id = _unit getVariable ["Achilles_var_switchUnit_ACEdamageEHID", -1];
 	if (_eh_id != -1) then 
 	{
 		["ace_unconscious", _eh_id] call CBA_fnc_removeEventHandler;

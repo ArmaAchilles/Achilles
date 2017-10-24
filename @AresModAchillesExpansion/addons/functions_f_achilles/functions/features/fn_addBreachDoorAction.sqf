@@ -26,8 +26,8 @@
 	{},			
 	{
 		// get grass cutter (= source object)
-		_sourceObject = objNull;
-		_nearSourceObjects = nearestObjects [getPosATL player, ["Land_ClutterCutter_small_F"], 3];
+		private _sourceObject = objNull;
+		private _nearSourceObjects = nearestObjects [getPosATL player, ["Land_ClutterCutter_small_F"], 3];
 		if (count _nearSourceObjects == 0) exitWith {};
 		_sourceObject = _nearSourceObjects select 0;
 		// remove charge from inventory and attach it to the door (grass cutter)
@@ -39,22 +39,22 @@
 				player removeMagazineGlobal "DemoCharge_Remote_Mag";
 			};
 		} forEach (magazines player);
-		_charge = "DemoCharge_Remote_Ammo_Scripted" createVehicle [0,0,0];
+		private _charge = "DemoCharge_Remote_Ammo_Scripted" createVehicle [0,0,0];
 		_charge attachTo [_sourceObject, [0,0,0]];
-		_source_pos = position _sourceObject;
-		_dirVec = _source_pos vectorFromTo (position player);
+		private _source_pos = position _sourceObject;
+		private _dirVec = _source_pos vectorFromTo (position player);
 		_dirVec set [2, 0];
 		[_charge, [[0,0,1],_dirVec]] remoteExecCall ["setVectorDirAndUp",0,_charge];
 		// set variables and event handlers
 		player setVariable ["breach", _charge];
 		_sourceObject setVariable ["occupied",true];
-		_action_id = player addAction ["Touch off (breach)", 
+		private _action_id = player addAction ["Touch off (breach)", 
 		{
 			player removeAction (_this select 2);
 			(_this select 3) params ["_charge"];
-			_explosion_pos = position _charge;
+			private _explosion_pos = position _charge;
 			_sourceObject = attachedTo _charge;
-			_logic = attachedTo _sourceObject;
+			private _logic = attachedTo _sourceObject;
 			(_logic getVariable "lock_params") params ["_building", "_lock_var", "_trigger_pos", "_source"];
 			"SmallSecondary" createVehicle _explosion_pos;
 			deleteVehicle _logic;
@@ -63,7 +63,7 @@
 			[_building,_source] spawn {sleep 1; params ["_building","_source"]; _building animateSource [_source, 1, true];};
 			[_explosion_pos] remoteExec ["Achilles_fnc_breachStun",0];
 		}, [_charge], 20];
-		_killed_id = player addEventHandler ["killed", {_charge = player getVariable "breach"; (attachedTo _charge) setVariable ["occupied",nil]; deleteVehicle _charge}];
+		private _killed_id = player addEventHandler ["killed", {_charge = player getVariable "breach"; (attachedTo _charge) setVariable ["occupied",nil]; deleteVehicle _charge}];
 		_charge addEventHandler ["Deleted", format ["player removeEventHandler [""killed"", %1]; player removeAction %2", _killed_id, _action_id]];
 		// event handler for defused charge
 		[_charge,_sourceObject,_killed_id,_action_id] spawn

@@ -8,7 +8,7 @@
 	"Achilles_id_keyEject", 
 	localize "STR_KEY_EJECT_PASSENGERS", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
 			if (isNil "Achilles_var_eject_init_done") then
@@ -31,7 +31,7 @@
 	"Achilles_id_keyGroup", 
 	localize "STR_KEY_GROUP", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
 			[curatorSelected select 0,true] call Achilles_fnc_ACS_toggleGrouping;
@@ -49,7 +49,7 @@
 	"Achilles_id_keyUnGroup", 
 	localize "STR_KEY_UNGROUP", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
 			[curatorSelected select 0,false] call Achilles_fnc_ACS_toggleGrouping;
@@ -67,7 +67,7 @@
 	"Achilles_id_deepCopy", 
 	localize "STR_KEY_DEEP_COPY", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
 			curatorSelected call Achilles_fnc_CopyObjectsToClipboard;
@@ -84,7 +84,7 @@
 	"Achilles_id_deepPaste", 
 	localize "STR_KEY_DEEP_PASTE", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
 			[] call Achilles_fnc_PasteObjectsFromClipboard;
@@ -101,10 +101,10 @@
 	"Achilles_id_countermeasure", 
 	localize "STR_KEY_COUNTERMEASURE", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) then
 		{
-			_vehicle = vehicle (curatorSelected select 0 select 0);
+			private _vehicle = vehicle (curatorSelected select 0 select 0);
 			if (isNil "_vehicle") exitWith {};
 			[_vehicle] call Achilles_fnc_LaunchCM;
 			_handled = true;
@@ -120,7 +120,7 @@
 	"Achilles_id_increaseNVGBrightness", 
 	localize "STR_KEY_INCREASENVGBRIGHTNESS", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) then
 		{
 			[+1] call Achilles_fnc_changeNVGBrightness;
@@ -137,7 +137,7 @@
 	"Achilles_id_decreaseNVGBrightness", 
 	localize "STR_KEY_DECREASEVGBRIGHTNESS", 
 	{
-		_handled = false;
+		private _handled = false;
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) then
 		{
 			[-1] call Achilles_fnc_changeNVGBrightness;

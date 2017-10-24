@@ -24,7 +24,7 @@ switch _mode do
 		if (abs (_damage - damage _unit) > 0.01) then 
 		{
 			_mode = if (_unit isKindOf "Man") then {"man"} else {"vehicle"};
-			_curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
+			private _curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
 			{_x setdamage _damage} forEach _curatorSelected;
 		};
 	};

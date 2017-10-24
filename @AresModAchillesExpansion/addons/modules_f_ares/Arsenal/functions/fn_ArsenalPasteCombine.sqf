@@ -1,6 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_ammoBox = [_logic] call Ares_fnc_GetUnitUnderCursor;
+private _ammoBox = [_logic] call Ares_fnc_GetUnitUnderCursor;
 if (not isnull _ammoBox) then
 {
 	
@@ -8,7 +8,7 @@ if (not isnull _ammoBox) then
 	// in dedicated and local servers.
 	Ares_CopyPaste_Dialog_Text = '';
 
-	_parsedValue = [] call Ares_fnc_GetArrayDataFromUser;
+	private _parsedValue = [] call Ares_fnc_GetArrayDataFromUser;
 	if (typeName _parsedValue == typeName []) then
 	{
 		[_ammoBox, _parsedValue, false] call Ares_fnc_ArsenalSetup;

@@ -14,7 +14,7 @@ if (isNil "Achilles_var_animation_init_done") then
 	Achilles_var_animation_init_done = true;
 };
 
-_unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
+private _unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
 
 // selection option
 if (isNull (_unitsToSurrender select 0)) then
@@ -26,11 +26,11 @@ if (count _unitsToSurrender == 0) exitWith {};
 
 private _nextCaptureStateDialogResult = nil;
 {
-	_unitToSurrender = _x;
+	private _unitToSurrender = _x;
 	// Determine if we've already captured the unit in the past
 	if (alive _unitToSurrender) then
 	{
-		_surrenderState = _unitToSurrender getVariable ["AresCaptureState", -1];
+		private _surrenderState = _unitToSurrender getVariable ["AresCaptureState", -1];
 		if (_surrenderState == -1) then
 		{
 			//Not yet surrendered

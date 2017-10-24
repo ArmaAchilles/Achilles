@@ -3,9 +3,9 @@
 #define EFFECT_MODULES 		["ModuleFlare_F","ModuleSmoke_F","ModuleIRGrenade_F","ModuleChemlight_F","ModuleLightSource_F","ModulePersistentSmokePillar_F","ModuleTracers_F"]
 #define NO_CHOICE_MODULES	["ModuleIRGrenade_F","ModuleTracers_F"]
 
-_spawnPos = position _logic;
+private _spawnPos = position _logic;
 
-_category_names = EFFECT_MODULES apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
+private _category_names = EFFECT_MODULES apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
 
 _dialogResult = 
 [

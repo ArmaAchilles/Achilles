@@ -26,7 +26,7 @@ if(isNil "Achilles_var_ied_init_done") then
 };
 
 // Gets the object that the module was placed upon
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
 if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
@@ -42,7 +42,7 @@ if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_S
 // Sets Suicide Bomber functionality
 if (_object isKindOf "Man") then
 {
-  _dialogResult =
+  private _dialogResult =
   [
     localize "STR_ENYO_SET_UNIT_AS_SB",
     [
@@ -58,12 +58,12 @@ if (_object isKindOf "Man") then
   if (isNil "_dialogResult") exitWith {};
   if (count _dialogResult == 0) exitWith {};
 
-  _explosionSize = _dialogResult select 0;
-  _explosionEffect = _dialogResult select 1;
-	_addVest = _dialogResult select 2;
-  _activationDistance = _dialogResult select 3;
-  _patrolRadius = _dialogResult select 4;
-  _activationSide = _dialogResult select 5;
+  private _explosionSize = _dialogResult select 0;
+  private _explosionEffect = _dialogResult select 1;
+	private _addVest = _dialogResult select 2;
+  private _activationDistance = _dialogResult select 3;
+  private _patrolRadius = _dialogResult select 4;
+  private _activationSide = _dialogResult select 5;
 
   _activationSide = switch (_activationSide) do
   {

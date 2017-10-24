@@ -2,8 +2,8 @@
 	This code runs the code block associated with a registered module.
 */
 
-_moduleId = _this select 0;
-_logic = _this select 1;
+private _moduleId = _this select 0;
+private _logic = _this select 1;
 if (isNil "Ares_Custom_Modules") exitWith
 {
 	// No registered modules.
@@ -16,20 +16,20 @@ if (count Ares_Custom_Modules <= _moduleId) exitWith
 	["ExecuteCustomModuleCode: Module ID larger than number of custom modules."] call Achilles_fnc_logMessage;
 };
 
-_data = Ares_Custom_Modules select _moduleId;
+private _data = Ares_Custom_Modules select _moduleId;
 
 if (isNil "_data") exitWith
 {
 	["ExecuteCustomModuleCode: Unable to get data for moduleId."] call Achilles_fnc_logMessage;
 };
 
-_categoryName = _data select 0;
-_displayName = _data select 1;
-_codeBlock = _data select 2;
+private _categoryName = _data select 0;
+private _displayName = _data select 1;
+private _codeBlock = _data select 2;
 
 [format ["ExecuteCustomModuleCode: Running code for '%1'->'%2'", _categoryName, _displayName]] call Achilles_fnc_logMessage;
-_position = position _logic;
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _position = position _logic;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 deleteVehicle _logic; // Delete the logic module before we actually execute the code in case the call fails.
 [_position, _unitUnderCursor] call _codeBlock;
 [format ["ExecuteCustomModuleCode: Done running code for '%1'->'%2'", _categoryName, _displayName]] call Achilles_fnc_logMessage;

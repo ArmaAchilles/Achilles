@@ -10,9 +10,9 @@
 
 private ["_buildings","_extend_count","_damage_fnc","_mean_damage"];
 
-_center_pos = position _logic;
+private _center_pos = position _logic;
 
-_dialogResult = 
+private _dialogResult = 
 [
 	localize "STR_TOGGLE_LAMPS",
 	[
@@ -23,10 +23,10 @@ _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 
-_lightOn = [true,false] select (_dialogResult select 0);
-_radius = parseNumber (_dialogResult select 1);
+private _lightOn = [true,false] select (_dialogResult select 0);
+private _radius = parseNumber (_dialogResult select 1);
 
-_JIP_id = [[_center_pos,_radius,_lightOn],
+private _JIP_id = [[_center_pos,_radius,_lightOn],
 {
 	params ["_center_pos","_radius","_lightOn"];
 	{  
@@ -35,6 +35,6 @@ _JIP_id = [[_center_pos,_radius,_lightOn],
 }, 0, _logic]  call Achilles_fnc_spawn;
 
 _logic setName format ["Toggle Lamp: JIP queue %1", _JIP_id];
-_deleteModuleOnExit = false;
+private _deleteModuleOnExit = false;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

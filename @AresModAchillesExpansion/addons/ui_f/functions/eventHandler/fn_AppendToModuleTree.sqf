@@ -33,14 +33,14 @@ _value				= param [5,0,[0]];
 _moduleIcon			= param [6,"\achilles\data_f_ares\icons\icon_default.paa",[""]];
 _addonIcon          = param [7,"\achilles\data_f_achilles\icons\icon_achilles_small.paa",[""]];
 
-_categoryIndex = _category_list find _categoryName;
+private _categoryIndex = _category_list find _categoryName;
 
 if (_categoryIndex == -1) then
 {
 	// Add categories if it does not already exist
 	
-	_tvData = "Ares_Module_Empty"; // All of the categories use the 'Empty' module. There's no logic associated with them.
-	_tvBranch = _ctrl tvAdd [[], _categoryName];
+	private _tvData = "Ares_Module_Empty"; // All of the categories use the 'Empty' module. There's no logic associated with them.
+	private _tvBranch = _ctrl tvAdd [[], _categoryName];
 	_ctrl tvSetData [[_tvBranch], _tvData];
 	if (Achilles_var_moduleTreeHelmet) then
 	{
@@ -50,8 +50,8 @@ if (_categoryIndex == -1) then
 	_category_list pushBack _categoryName;
 };
 
-_moduleIndex = _ctrl tvAdd [[_categoryIndex], _moduleDisplayName];
-_newPath = [_categoryIndex, _moduleIndex];
+private _moduleIndex = _ctrl tvAdd [[_categoryIndex], _moduleDisplayName];
+private _newPath = [_categoryIndex, _moduleIndex];
 _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
