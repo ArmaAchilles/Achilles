@@ -6,22 +6,15 @@
 
   Parameters:
     _this select: 0 - NUMBER - Number to parse
-	_this select: 1 - BOOL - Is order inverted (optional)
 
   Returns:
-    BOOL - if sucessful ("error" string if is not successful)
+    BOOL - if successful ("error" string if is not successful)
 */
 
-params [["_numberToParse", 0, [0]], ["_isInverted", false, [false]]]
+params [["_numberToParse", 0, [0]]];
 private _return = "error";
 
-if (_isInverted) then
-{
-	_return = _numberToParse == 0;
-}
-else
-{
-	_return = _numberToParse == 1;
-};
+_return = if (_numberToParse == 0) then {false};
+_return = if (_numberToParse == 1) then {true};
 
 _return;

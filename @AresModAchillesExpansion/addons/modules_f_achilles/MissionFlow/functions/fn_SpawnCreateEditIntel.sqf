@@ -55,10 +55,9 @@ if (_dialogCount == 0) exitWith {};
 
 private _actionName = _dialogResult select (_dialogCount - 6);
 private _duration = parseNumber (_dialogResult select (_dialogCount - 5));
-private _delete = _dialogResult select (_dialogCount - 4);
+private _delete = (_dialogResult select (_dialogCount - 4)) == 0;
 private _title = _dialogResult select (_dialogCount - 3);
 private _text = _dialogResult select (_dialogCount - 2);
-_delete = _delete == 0;
 // correctly handle newline characters
 _text = (_text splitString endl) joinString "<br />";
 private _shared = _dialogResult select (_dialogCount - 1);
