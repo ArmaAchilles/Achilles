@@ -2,8 +2,8 @@
 	This code runs the code block associated with a registered module.
 */
 
-private _moduleId = _this select 0;
-private _logic = _this select 1;
+params["_moduleId", "_logic"];
+
 if (isNil "Ares_Custom_Modules") exitWith
 {
 	// No registered modules.
@@ -23,9 +23,7 @@ if (isNil "_data") exitWith
 	["ExecuteCustomModuleCode: Unable to get data for moduleId."] call Achilles_fnc_logMessage;
 };
 
-private _categoryName = _data select 0;
-private _displayName = _data select 1;
-private _codeBlock = _data select 2;
+_data params["_categoryName", "_displayName", "_codeBlock"];
 
 [format ["ExecuteCustomModuleCode: Running code for '%1'->'%2'", _categoryName, _displayName]] call Achilles_fnc_logMessage;
 private _position = position _logic;

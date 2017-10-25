@@ -7,9 +7,7 @@ if (isNil "Achilles_var_setammo_init_done") then {
 	Achilles_var_setammo_init_done = true;
 };
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _unit = _this select 2;
+params["_mode", "_params", "_unit"];
 
 switch _mode do {
 	case "onLoad": {

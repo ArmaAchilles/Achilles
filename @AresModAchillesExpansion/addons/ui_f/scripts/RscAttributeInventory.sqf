@@ -6,9 +6,7 @@
 #define IDC_RSCATTRIBUTEINVENTORY_FILTER13		24081
 #define IDC_RSCATTRIBUTEINVENTORY_BUTTON_VA		24470
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _entity = _this select 2;
+params["_mode", "_params", "_entity"];
 
 private _filterIDCs = [
 	IDC_RSCATTRIBUTEINVENTORY_FILTER0,
@@ -504,12 +502,7 @@ switch _mode do {
 		{
 			private _types = _x;
 			{
-				private _class = _x select 0;
-				private _displayName = _x select 1;
-				private _displayNameShort = _x select 2;
-				private _picture = _x select 3;
-				private _type = _x select 4;
-				private _isDuplicate = _x select 5;
+				_x params ["_class", "_displayName", "_displayNameShort", "_picture", "_type", "_isDuplicate"];
 
 				if (_type in _types && (!_isDuplicate or (RscAttributeInventory_selected > 0))) then {
 

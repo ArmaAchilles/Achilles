@@ -18,11 +18,7 @@
 //	["Secret NATO Documents","NATO supply convoy is expected to pass the checkpoint at 9 am.","marker001","Kex",0] call Ares_fnc_addIntel;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _title = _this select 0;
-private _text = _this select 1;
-private _marker = _this select 2;
-private _finder = param [3,"",[""]];
-private _shared = param [4,0,[0]];
+params["_title", "_text", "_marker", ["_finder", ""], ["_shared", 0]];
 
 private _fnc_scriptName = "Achilles_Intel";
 private _shared_hint = if (isLocalized "STR_INTEL_WAS_SHARED_WITH_SIDE") then

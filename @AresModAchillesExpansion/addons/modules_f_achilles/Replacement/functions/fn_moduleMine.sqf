@@ -1,6 +1,4 @@
-private _logic = _this select 0;
-private _units = _this select 1;
-private _activated = _this select 2;
+params["_logic", "_units", "_activated"];
 
 if (_activated) then {
 	private _explosive = gettext (configfile >> "cfgvehicles" >> typeof _logic >> "explosive");

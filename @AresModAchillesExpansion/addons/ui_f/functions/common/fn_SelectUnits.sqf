@@ -18,8 +18,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private _type = param [0, localize "STR_OBJECTS", [""]];
-private _single = param [1, false, [false]];
+params[["_type", localize "STR_OBJECTS"], ["_single", false]];
 
 disableSerialization;
 private _display = finddisplay IDD_RSCDISPLAYCURATOR;
@@ -54,24 +53,27 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (not isNil "Achilles_var_submit_selection" and {not Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
+
+private _output = [];
 
 if (_single) then 
 {
 	if (count (curatorSelected select 0) > 0) then
 	{
-		private _output = curatorSelected select 0 select 0;
-		_output;
-	} else
+		_output = (curatorSelected select 0) select 0;
+	}
+	else
 	{
-		private _output = ObjNull;
-		_output;
+		_output = ObjNull;
 	};
-} else
+}
+else
 {
-	private _output_array = curatorSelected select 0;
-	_output_array;
+	_output = curatorSelected select 0;
 };
+
+_output;

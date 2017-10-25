@@ -71,7 +71,6 @@ if (_canBeDefused == 0) then
   {
     private _returnArray = _this select 3;
 
-    //private _object = _returnArray select 0;
     private _dummyObject = _returnArray select 1;
 
     private _random = random 100;

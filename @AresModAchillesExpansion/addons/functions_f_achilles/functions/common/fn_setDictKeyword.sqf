@@ -18,12 +18,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //WARNING: Needs checking of variable _nested_categories!
-
-private ["_input_array","_indice_array","_element","_output_array"];
-
-private _input_dict 		= param [0,[],[[]]];
-private _path_by_categories	= param [1,[],[[]]];
-_element 			= param [2,nil,[]];
+params["_input_dict", "_path_by_categories", "_element"];
 
 private _output_dict = [];
 

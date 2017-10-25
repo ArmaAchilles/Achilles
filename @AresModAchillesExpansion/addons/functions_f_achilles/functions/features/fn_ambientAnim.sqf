@@ -19,9 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // get genaral params
-private _unit = param [0,ObjNull,[ObjNull]];
-private _anim_set = param [1,"",[""]];
-private _combatReady = param [2,false,[false]];
+params["_unit", "_anim_set", "_combatReady"];
 
 //define relevant animation functions
 Achilles_fnc_ambientAnim_terminate =
@@ -62,8 +60,7 @@ if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then
 
 // get anim params
 private _params = _anim_set call Achilles_fnc_ambientAnimGetParams;
-private _avaiable_anims = _params param [0,[],[[]]];
-private _noWeapon = _params param [1, false, [false]];
+_params params ["_avaiable_anims", "_noWeapon"];
 
 if (count _avaiable_anims == 0) exitWith {};
 
@@ -89,7 +86,7 @@ Achilles_fnc_ambientAnim_playAnim =
 	_avaiable_anims = _unit getVariable ["Achilles_var_animations",""];
 	
 	//select a random anim from the pool of available animations and play it
-	private _anim = _avaiable_anims call BIS_fnc_selectRandom;
+	private _anim = selectRandom _avaiable_anims;
 	[_unit,_anim] remoteExec ["switchMove",0];	
 };
 

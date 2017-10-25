@@ -71,11 +71,8 @@ private _direction = 180 - ([_vehicle, _target_pos] call BIS_fnc_dirTo);
 	_unit_capture_trajectory set [_forEachIndex,_x];
 } forEach _unit_capture_trajectory;
 
-private _end_data = _unit_capture_trajectory select 0;
-private _end_pos = _end_data select 1;
-private _end_velocity = _end_data select 1;
-private _end_vecDir = _end_data select 2;
-private _end_vecUp = _end_data select 3;
+_unit_capture_trajectory params ["_end_data"];
+_end_data params ["_end_pos", "_end_vecDir", "_end_vecUp"];
 
 _vehicle flyInHeight 80;
 
@@ -102,7 +99,7 @@ waitUntil
 		_start_pos,
 		_end_pos,
 		_start_velocity,
-		_end_velocity,
+		_end_pos,
 		_start_vecDir,
 		_end_vecDir,
 		_start_vecUp,

@@ -1,8 +1,6 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _class = _this select 2;
+params["_mode", "_params", "_class"];
 
 switch _mode do 
 {

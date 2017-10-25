@@ -5,22 +5,37 @@
 	 Converts a number to a boolean, if only the number is 0 or 1, else returns "error".
 
   Parameters:
-    _this select: 0 - NUMBER - Vehicle it was activated on
+    _this select: 0 - NUMBER - Number to parse
+	_this select: 1 - BOOL - Is order inverted (optional)
 
   Returns:
     BOOL - if sucessful ("error" string if is not successful)
 */
 
-private _numberToParse = _this select 0;
+params [["_numberToParse", 0], ["_isInverted", false]]
 private _return = "error";
 
-if (_numberToParse == 0) then
+if (_isInverted) then
 {
-	_return = false;
-};
-if (_numberToParse == 1) then
+	if (_numberToParse == 0) then
+	{
+		_return = true;
+	}
+	else
+	{
+		_return = false;
+	};
+}
+else
 {
-	_return = true;
+	if (_numberToParse == 0) then
+	{
+		_return = false;
+	}
+	else
+	{
+		_return = true;
+	};
 };
 
 _return;

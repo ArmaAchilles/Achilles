@@ -1,9 +1,7 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 #include "\A3\ui_f\hpp\defineCommonGrids.inc"
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _logic = _this select 2;
+params["_mode", "_params", "_logic"];
 
 switch _mode do {
 	case "onLoad": {

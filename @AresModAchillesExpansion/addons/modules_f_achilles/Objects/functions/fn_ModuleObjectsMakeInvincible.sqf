@@ -7,7 +7,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _objects = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 private _dialogResult = 
 [

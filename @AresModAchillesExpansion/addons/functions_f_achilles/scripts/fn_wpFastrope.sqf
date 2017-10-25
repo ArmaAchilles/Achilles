@@ -71,7 +71,7 @@ if (not isNil {_group getVariable ["Achilles_var_fastrope",nil]}) exitWith
 		_vehicle setVariable ["ACE_Rappelling",nil];
 	} else
 	{
-		private _positionASL = +_position;
+		private _positionASL = [];
 		if (not (surfaceIsWater _position)) then
 		{
 			_positionASL = ATLToASL _position;

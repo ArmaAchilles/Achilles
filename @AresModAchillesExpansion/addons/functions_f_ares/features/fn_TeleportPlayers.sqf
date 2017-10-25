@@ -1,9 +1,5 @@
-private ["_unit_to_tp","_playersToTeleport","_teleportLocation","_showTeleportMessage"];
-
-_playersToTeleport = _this select 0;
-_teleportLocation = _this select 1;
-_showTeleportMessage = param [2, true, [true]];
-private _includeVehicles = param [3,true,[true]];
+private ["_unit_to_tp"];
+params[["_playersToTeleport", [objNull]], ["_teleportLocation", [0,0,0]], ["_showTeleportMessage", true], ["_includeVehicles", true]];
 
 // Show some text to the players that are going to be teleported.
 if (_showTeleportMessage) then

@@ -11,7 +11,7 @@
     Nothing
 */
 
-private _vehicle = _this select 0;
+params["_vehicle"];
 
 private _dialogResult =
 [

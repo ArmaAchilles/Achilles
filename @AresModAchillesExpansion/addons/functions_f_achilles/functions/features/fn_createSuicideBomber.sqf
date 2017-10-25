@@ -17,13 +17,7 @@
 		Nothing
 */
 
-private _bomber = _this select 0;
-private _explosionSize = _this select 1;
-private _explosionEffect = _this select 2;
-private _activationSide = _this select 3;
-private _patrolRadius = _this select 4;
-private _activationDistance = _this select 5;
-private _addVest = _this select 6;
+params["_bomber", "_explosionSize", "_explosionEffect", "_activationSide", "_patrolRadius", "_activationDistance", "_addVest"];
 
 _patrolRadius = parseNumber _patrolRadius;
 _activationDistance = parseNumber _activationDistance;

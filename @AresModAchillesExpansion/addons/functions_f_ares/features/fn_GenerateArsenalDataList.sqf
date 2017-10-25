@@ -28,8 +28,7 @@
 #define SIDE_AAF 2
 #define SIDE_CIV 3
 
-private _blacklist = [_this, 0, []] call BIS_fnc_Param;
-private _limitItemsToSide = [_this, 1, 'All'] call Bis_fnc_Param;
+params[["_blacklist", []], ["_limitItemsToSide", "All"]];
 
 // Go through and gather all the items declared in 'CfgWeapons'. This includes most items, vests
 // and uniforms.

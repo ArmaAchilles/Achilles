@@ -21,23 +21,27 @@ if (not isnull _ammoBox) then
 	
 	if (count _dialogResult > 0) then
 	{
-		private _dialogCombineOrReplace = _dialogResult select 0;
-		private _dialogLimitEquipmentToSide = _dialogResult select 1;
-		private _dialogAddGps = _dialogResult select 2;
-		private _dialogAddThermals = _dialogResult select 3;
-		private _dialogAddNvg = _dialogResult select 4;
-		private _dialogAddStaticWeapons = _dialogResult select 5;
-		private _dialogAddUav = _dialogResult select 6;
-		private _dialogAddAutomated = _dialogResult select 7;
+		_dialogResult params
+		[
+			"_dialogCombineOrReplace",
+			"_dialogLimitEquipmentToSide",
+			"_dialogAddGps",
+			"_dialogAddThermals",
+			"_dialogAddNvg",
+			"_dialogAddStaticWeapons",
+			"_dialogAddUav",
+			"_dialogAddAutomated"
+		];
 		
 		// Get the setting for the side-specific items
 		private _filterChoices = ["All", "Blufor", "Opfor", "Greenfor", "None"];
 		private _sideSpecificEquipmentFilter = _filterChoices select _dialogLimitEquipmentToSide;
 		
 		// Apply the side-specific item filters to equipment to include
-		private _staticWeaponFilter = _filterChoices select 4;
-		private _uavFilter = _filterChoices select 4;
-		private _automatedFilter = _filterChoices select 4;
+		private _filterChoicesNone = _filterChoices select 4;
+		private _staticWeaponFilter = _filterChoicesNone;
+		private _uavFilter = _filterChoicesNone;
+		private _automatedFilter = _filterChoicesNone;
 		if (_dialogAddStaticWeapons == 0) then { _staticWeaponFilter = _sideSpecificEquipmentFilter; };
 		if (_dialogAddUav == 0) then { _uavFilter = _sideSpecificEquipmentFilter; };
 		if (_dialogAddAutomated == 0) then { _automatedFilter = _sideSpecificEquipmentFilter; };

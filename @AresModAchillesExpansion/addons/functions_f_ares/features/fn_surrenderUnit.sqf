@@ -23,12 +23,8 @@
 
 #define UNTIE_ICON				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa"
 
-
-private _unit =					_this select 0;
-private _caller =				_this select 1;
-private _param = 				_this select 2;
-private _animIndex = 			_param select 0;
-private _interactionIndex = 	_param select 1;
+params["_unit", "_caller", "_param"];
+_param params["_animIndex", "_interactionIndex"];
 
 if (_animIndex == -1) then
 {
@@ -80,9 +76,7 @@ if (_animIndex == -1) then
 		{},		// Code executed when action starts
 		{},		// Code executed on every progress tick
 		{
-			_unit = _this select 0;
-			_caller = _this select 1;
-			private _id = _this select 2;
+			params["_unit", "_caller", "_id"];
 			
 			// remove the action
 			remoteExec ["",_unit];	// remove from JIP queue

@@ -22,9 +22,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private _categoryName = _this select 0;
-private _moduleDisplayName = _this select 1;
-private _codeBlock = _this select 2;
+params ["_categoryName", "_moduleDisplayName", "_codeBlock"];
 
 if (isNil "Ares_Custom_Modules") then
 {

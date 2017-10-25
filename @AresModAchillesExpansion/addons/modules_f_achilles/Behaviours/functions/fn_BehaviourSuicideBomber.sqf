@@ -58,12 +58,7 @@ if (_object isKindOf "Man") then
   if (isNil "_dialogResult") exitWith {};
   if (count _dialogResult == 0) exitWith {};
 
-  private _explosionSize = _dialogResult select 0;
-  private _explosionEffect = _dialogResult select 1;
-	private _addVest = _dialogResult select 2;
-  private _activationDistance = _dialogResult select 3;
-  private _patrolRadius = _dialogResult select 4;
-  private _activationSide = _dialogResult select 5;
+  _dialogResult params ["_explosionSize", "_explosionEffect", "_addVest", "_activationDistance", "_patrolRadius", "_activationDistance"];
 
   _activationSide = switch (_activationSide) do
   {

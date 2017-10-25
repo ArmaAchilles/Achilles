@@ -27,25 +27,24 @@
 #define SIDE_FILTER_GREENFOR 'Greenfor'
 #define SIDE_FILTER_NONE 'None'
 
-private _allowGPS =                      [_this, 0, False] call BIS_fnc_Param;
-private _allowThermals =                 [_this, 1, False] call BIS_fnc_Param;
-private _allowNvg =                      [_this, 2, False] call BIS_fnc_Param;
-private _allowedStaticWeapons =          [_this, 3, SIDE_FILTER_NONE] call BIS_fnc_Param;
-private _allowedUav =                    [_this, 4, SIDE_FILTER_NONE] call BIS_fnc_Param;
-private _allowedAutomatedStaticWeapons = [_this, 5, SIDE_FILTER_NONE] call BIS_fnc_Param;
-private _allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
+params
+[
+	["_allowGPS", false],
+	["_allowThermals", false],
+	["_allowNvg", false],
+	["_allowedStaticWeapons", SIDE_FILTER_NONE],
+	["_allowedUav", SIDE_FILTER_NONE],
+	["_allowedAutomatedStaticWeapons", SIDE_FILTER_NONE],
+	["_allowRespawnTents", false]
+];
 
 // diag_log format["Generating blacklist: %1, %2, %3, %4, %5, %6", _allowGPS, _allowThermals, _allowNvg, _allowedStaticWeapons, _allowedUav, _allowedAutomatedStaticWeapons];
 
 // Generates a list of the blacklisted items based on a filter.
-private ["_applyFilter"];
-_applyFilter =
+private _applyFilter =
 	{
-		private _side = _this select 0;
-		private _blueItems = _this select 1;
-		private _redItems = _this select 2;
-		private _greenItems = _this select 3;
-		
+		params["_side", "_blueItems", "_redItems", "_greenItems"];
+
 		private _itemsToBlacklist = [];
 		switch (_side) do
 		{

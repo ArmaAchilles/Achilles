@@ -43,11 +43,16 @@ private _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 if (count _dialogResult == 0) exitWith {};
 
-private _targetChooseAlgorithm = _dialogResult select 0;
-private _stanceIndex = _dialogResult select 1;
-private _doLineUp = if (_dialogResult select 2 == 1) then {true} else {false};
-private _fireModeIndex = _dialogResult select 3;
-private _duration = parseNumber (_dialogResult select 4);
+_dialogResult params
+[
+	"_targetChooseAlgorithm",
+	"_stanceIndex",
+	"_doLineUp",
+	"_fireModeIndex",
+	"_duration"
+];
+_doLineUp = _doLineUp == true;
+_duration = parseNumber _duration;
 
 // Choose a target to fire at
 private _selectedTarget = objNull;

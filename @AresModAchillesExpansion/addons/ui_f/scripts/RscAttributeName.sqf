@@ -1,8 +1,6 @@
 #define IDC_RSCATTRIBUTENAME_VALUE	118379
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _entity = _this select 2;
+params["_mode", "_params", "_entity"];
 
 switch _mode do 
 {

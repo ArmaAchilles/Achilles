@@ -20,20 +20,14 @@
 
 
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _unit = _this select 2;
+params["_mode", "_params", "_unit"];
 
 switch _mode do 
 {
 	case "onLoad": 
 	{
 		private _date = date;
-		private _currentYear = _date select 0;
-		private _currentMonth = _date select 1;
-		private _currentDay = _date select 2;
-		private _currentHour = _date select 3;
-		private _currentMinute = _date select 4;
+		_date params ["_currentYear", "_currentMonth", "_currentDay", "_currentHour", "_currentMinute"];
 
 		private _display = _params select 0;
 		private _ctrlTitle = _display displayCtrl IDC_RSCATTRIBUTEDIALOGTITLE_VALUE;

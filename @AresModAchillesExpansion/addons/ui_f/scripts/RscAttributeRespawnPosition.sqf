@@ -1,9 +1,6 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-private ["_mode","_params","_entity"];
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+params["_mode", "_params", "_entity"];
 
 private _idcs = [
 	IDC_RSCATTRIBUTERESPAWNPOSITION_EAST,

@@ -66,14 +66,17 @@ else
 
   _object setVariable ["isIED", true, true];
 
-  private _explosionSize = _dialogResult select 0;
-  private _explosionEffect = _dialogResult select 1;
-  private _canBeDefused = _dialogResult select 2;
-  private _disarmTime = _dialogResult select 3;
-  private _activationType = _dialogResult select 4;
-  private _isJammable = _dialogResult select 5;
-  private _activationDistance = _dialogResult select 6;
-  private _activationSide = _dialogResult select 7;
+  _dialogResult params 
+  [
+    "_explosionSize",
+    "_explosionEffect",
+    "_canBeDefused",
+    "_disarmTime",
+    "_activationType",
+    "_isJammable",
+    "_activationDistance",
+    "_activationSide"
+  ];
 
   [_object, _explosionSize, _explosionEffect, _activationDistance, _activationSide, _activationType, _isJammable, _disarmTime, _canBeDefused] remoteExec ["Achilles_fnc_createIED", 2, false];
 };

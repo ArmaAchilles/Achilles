@@ -1,10 +1,7 @@
 // zeus, opfor, bluefor, greenfor, civilian
 #define IDC_SIDE_ICONS [12000,12010,12020,12030,12040]
 
-private _mode = _this select 0;
-private _caller = _this select 1;
-private _index = _this param [2,0,[0]];
-private _default_side_index = _this param [3,1,[0]];
+params ["_mode", "_caller", ["_index", 0], ["_default_side_index", 1]];
 
 
 switch _mode do 
