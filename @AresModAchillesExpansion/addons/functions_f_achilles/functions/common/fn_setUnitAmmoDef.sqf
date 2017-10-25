@@ -16,8 +16,7 @@
 //	[_unit, 0.9] call Achilles_fnc_settUnitAmmoDef;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _unit = _this select 0;
-private _percentage = _this select 1;
+params["_unit", "_percentage"];
 
 // clear cargo
 {_unit removeMagazine _x;} foreach (magazines _unit);

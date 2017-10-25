@@ -12,8 +12,7 @@
     Nothing
 */
 
-private _spawnPos = _this select 0;
-private _explosionSize = _this select 1;
+params["_spawnPos", "_explosionSize"];
 private _random	= 0;
 private _hitRadius = 0;
 private _killRadius = 0;

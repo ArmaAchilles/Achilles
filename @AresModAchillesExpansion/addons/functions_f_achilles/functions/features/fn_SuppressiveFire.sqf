@@ -86,13 +86,17 @@ _placeholder setPos [0,0,0];
 {
 	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder] spawn 
 	{
-		private _unit = gunner (_this select 0);
-		private _units = _this select 1;
-		private _target = _this select 2;
-		private _stanceIndex = _this select 3;
-		private _fireModeIndex = _this select 4;
-		private _duration = _this select 5;
-		private _placeholder = _this select 6;
+		params
+		[
+			"_unit",
+			"_units",
+			"_target",
+			"_stanceIndex",
+			"_fireModeIndex",
+			"_duration",
+			"_placeholder"
+		];
+		_unit = gunner _unit;
 		
 		// cease fire if group mate is too close to line of fire
 		if (not ([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
@@ -104,8 +108,7 @@ _placeholder setPos [0,0,0];
 		
 		// get fire mode parameters
 		private _params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
-		private _fireRepeater = _params select 0;
-		private _ceaseFireTime = _params select 1;
+		_params params ["_fireRepeater", "_ceaseFireTime"];
 		
 		private _new_group = createGroup (side _unit);
 		[_unit] join _new_group;
@@ -121,8 +124,7 @@ _placeholder setPos [0,0,0];
 		
 		if ((vehicle _unit) isEqualTo _unit) then
 		{
-			private _muzzle = (weaponState _unit) select 1;
-			private _mode = weaponState _unit select 2;
+			(weaponState _unit) params ["_muzzle", "_mode"];
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do

@@ -19,10 +19,7 @@
 //	[_shooter,_target,[_obstacle_1,_obstacle_2],2] call Achilles_fnc_checkLineOfFire2D; //returns true or false
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _shooter = _this select 0;
-private _target = _this select 1;
-private _obstacles = _this select 2;
-private _minimal_radius = _this select 3;
+params ["_shooter", "_target", "_obstacles", "_minimal_radius"];
 
 private _shooter_pos = position _shooter;
 private _fire_line_vec = (position _target) vectorDiff _shooter_pos;

@@ -18,11 +18,12 @@
 #define ALL_SL_WEAP_CLASSES ["SmokeLauncher","rhs_weap_smokegen","rhs_weap_902a","rhs_weap_902b","rhsusf_weap_M259"]
 #define ALL_CM_WEAP_CLASSES ["CMFlareLauncher","rhs_weap_CMFlareLauncher","rhsusf_weap_CMFlareLauncher"]
 
+params[["_vehicle", objNull, [objNull]]];
 
-private _vehicle = param [0,ObjNull,[ObjNull]];
+private _isVehicleAir = _vehicle isKindOf "Air";
 
-private _nameSound = if (_vehicle isKindOf "Air") then {"magazine"} else {"smokeshell"};
-private _weapon_classes = if (_vehicle isKindOf "Air") then {ALL_CM_WEAP_CLASSES} else {ALL_SL_WEAP_CLASSES};
+private _nameSound = ["smokeshell", "magazine"] select _isVehicleAir;
+private _weapon_classes = [ALL_SL_WEAP_CLASSES, ALL_CM_WEAP_CLASSES] select _isVehicleAir;
 
 if (_vehicle isKindOf "Man") exitWith
 {
@@ -60,8 +61,7 @@ if (_vehicle isKindOf "Plane") then
 {
 	[_vehicle,_CM_weapon] spawn
 	{
-		private _vehicle = _this select 0;
-		private _CM_weapon = _this select 1;
+		params["_vehicle", "_CM_weapon"];
 		
 		for "_i" from 1 to 12 do 
 		{

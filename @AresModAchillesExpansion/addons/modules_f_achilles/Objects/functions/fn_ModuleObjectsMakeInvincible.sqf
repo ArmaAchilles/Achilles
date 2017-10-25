@@ -19,8 +19,10 @@ private _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-private _allowDamage = if(_dialogResult select 0 == 1) then {true} else {false};
-private _includeCrew = if(_dialogResult select 1 == 0) then {true} else {false};
+
+_dialogResult params ["_allowDamage", "_includeCrew"];
+_allowDamage = _allowDamage == 1;
+_includeCrew = _includeCrew == 0;
 
 if (isNull (_objects select 0)) then
 {

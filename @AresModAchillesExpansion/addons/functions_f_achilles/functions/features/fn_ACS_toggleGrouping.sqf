@@ -1,10 +1,9 @@
+params[["_objects", [], [[]]], ["_groupThem", true, [false]]];
 
-private _objects = param [0,[],[[]]];
-private _groupThem = param [1,true,[false]];
 {
 	private _center_object = _x;
-	private _attached_objects = _center_object getVariable ["ACS_attached_objects",nil];
-	if (not isNil "_attached_objects") then
+	private _attached_objects = _center_object getVariable ["ACS_attached_objects", objNull];
+	if (_attached_objects != objNull) then
 	{
 		if (_groupThem) then
 		{

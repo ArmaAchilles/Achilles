@@ -2,7 +2,7 @@
 	Author: CreepPork_LV
 
 	Description:
-		Uses an created helicopter that sling loads a Supply Crate which then is taken to the destination.
+		Uses a created helicopter that sling loads a Supply Crate which then is taken to the destination.
 
 	Parameters:
     	None
@@ -47,9 +47,7 @@ private _objectGroup = group _objectDriver;
 _objectDriver setSkill 1;
 _objectGroup allowFleeing 0;
 
-private _ammoCrateDisplayName = _dialogResult select 0;
-private _fillType = _dialogResult select 1;
-private _LZ = _dialogResult select 2;
+_dialogResult params ["_ammoCrateDisplayName", "_fillType", "_LZ"];
 
 private _ammoCrateClassname = _ammoCrates select (_ammoCratesDisplayName find _ammoCrateDisplayName);
 

@@ -15,9 +15,8 @@
 //	[_unit] call Achilles_fnc_Animation;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_anim"];
-
-private _units = [param [0,ObjNull,[ObjNull]]];
+params[["_units", objNull, [objNull]]];
+private _anim = "TERMINATE";
 
 private _dialogResult =
 [
@@ -70,43 +69,22 @@ _anim = switch (_dialogResult select 0) do
 	case 2: {"LEAN"};
 	case 3: 
 	{
-		private _case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"WATCH_1"};
-			case 1: {"WATCH_2"};
-		};
+		private _case = selectRandom ["WATCH_1", "WATCH_2"];
 	};
 	case 4: 
 	{
-		private _case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"STAND_1"};
-			case 1: {"STAND_2"};
-		};
+		private _case = selectRandom ["STAND_1", "STAND_2"];
 	};
 	case 5: 
 	{
-		private _case = round (random 2);
-		switch (_case) do
-		{
-			case 0: {"STAND_NO_WEAP_1"};
-			case 1: {"STAND_NO_WEAP_2"};
-			case 2: {"STAND_NO_WEAP_3"};
-		};
+		private _case = selectRandom ["STAND_NO_WEAP_1", "STAND_NO_WEAP_2", "STAND_NO_WEAP_3"];
 	};
 	case 6: {"GUARD"};
 	case 7: {"LISTEN_BRIEFING"};
 	case 8: {"BRIEFING"};
 	case 9: 
 	{
-		private _case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"BRIEFING_INTERACTIVE_1"};
-			case 1: {"BRIEFING_INTERACTIVE_2"};
-		};
+		private _case = selectRandom ["BRIEFING_INTERACTIVE_1", "BRIEFING_INTERACTIVE_2"];
 	};
 	case 10: {"LISTEN_CIV"};
 	case 11: {"TALK_CIV"};
@@ -116,22 +94,12 @@ _anim = switch (_dialogResult select 0) do
 	case 15: {"SHOWING_THE_WAY"};	
 	case 16:
 	{
-		private _case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"KNEEL_TREAT_1"};
-			case 1: {"KNEEL_TREAT_2"};
-		};
+		private _case = selectRandom ["KNEEL_TREAT_1", "KNEEL_TREAT_2"];
 	};
 	case 17: {"PRONE_INJURED"};
 	case 18:
 	{
-		private _case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"PRONE_INJURED_NO_WEAP_1"};
-			case 1: {"PRONE_INJURED_NO_WEAP_2"};
-		};
+		private _case = selectRandom ["PRONE_INJURED_NO_WEAP_1", "PRONE_INJURED_NO_WEAP_2"];
 	};
 	case 19: {"INJURY_HEAD"};
 	case 20: {"INJURY_CHEST"};

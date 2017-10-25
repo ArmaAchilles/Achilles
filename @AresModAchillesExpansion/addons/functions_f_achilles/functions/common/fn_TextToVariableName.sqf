@@ -51,8 +51,6 @@ if (isNil "Achilles_var_old_special_char_unicode") then
 	};
 };
 
-private["_i"];
-
 private _input_unicode = toArray _this;
 
 for "_i" from 0 to ((count _input_unicode) - 1) do

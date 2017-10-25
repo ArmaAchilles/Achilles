@@ -19,18 +19,24 @@ private _createdGroupsId = [];
 private _object_list = [];
 
 {
-	private _type = _x select 0;
-	private _side = _x select 2;
-	private _pos = (_x select 4) vectorAdd _center_pos;
-	private _dir = _x select 5;
+	_x params 
+	[
+		["_type", objNull, [objNull]],
+		["_groupID", "", [""]],
+		["_side", blufor, [blufor]],
+		["_loadout", [], [[]]],
+		["_pos", [0,0,0], [[]]],
+		["_dir", 0, [0]],
+		["_crew_info_list", [], [[]]]
+	];
+	_pos = _pos vectorAdd _center_pos;
 	
 	switch (true) do
 	{
 		case (_type isKindOf "Man"):
 		{
-			private _groupID = _x select 1;
-			private _loadout = _x select 3 select 0;
-			private _goggles = _x select 3 select 1;
+			private _loadout = _loadout select 0;
+			private _goggles = _loadout select 1;
 			private _groupIndex = _createdGroupsId find _groupID;
 			private _group = if (_groupIndex == -1) then
 			{
@@ -56,9 +62,6 @@ private _object_list = [];
 		};
 		case (_type isKindOf "LandVehicle" or (_type isKindOf "Air") or (_type isKindOf "Ship")):
 		{
-			private _groupID = _x select 1;
-			private _loadout = _x select 3;
-			private _crew_info_list =  _x select 6;
 			private _special = if (_pos select 2 > 10) then {"FLY"} else {"FORM"};
 			private _vehicle = createVehicle [_type, _pos, [], 0, _special];
 			if (_pos select 2 > 10 && !(_type isKindOf "Air")) then
@@ -80,12 +83,9 @@ private _object_list = [];
 			} else
 			{
 				{
-					_type = _x select 0;
-					_groupID = _x select 1;
-					_side = _x select 2;
-					_loadout = _x select 3 select 0;
-					private _goggles = _x select 3 select 1;
-					private _role = _x select 4;
+					params["_type", "_groupID", "_side", "_loadout", "_role"];
+					private _loadout = _loadout select 0;
+					private _goggles = _loadout select 1;
 					private _groupIndex = _createdGroupsId find _groupID;
 					private _group = if (_groupIndex == -1) then
 					{

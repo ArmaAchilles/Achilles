@@ -19,10 +19,8 @@
 
 #define SIDES [sideLogic,east,west,independent,civilian]
 
-private ["_group"];
-
-private _unit = param [0,ObjNull,[ObjNull]];
-private _side_index = param [1,0,[0]];
+params[["_unit", objNull, [objNull]], ["_side_index", 0, [0]]];
+private _group = grpNull;
 
 // create curator group for each side if they do not exist
 if (isNil "Achilles_var_curator_groups") then

@@ -17,9 +17,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // get params
-private _buildings = param [0,[],[[]]];
-private _mean_damage_type = param [1,0,[0]];
-private _distribution_type = param [2,0,[0]];
+params [["_buildings", [], [[]]], ["_mean_damage_type", 0, [0]], ["_distribution_type", 0, [0]]];
 
 private _fnc_getDamageType = switch (_distribution_type) do
 {

@@ -258,13 +258,9 @@ switch _mode do {
 		{
 			private _types = _x;
 			{
-				private _class = _x select 0;			// all classes are already in lower case except faceware which must not be lowered for virtual arsenal
+				_x params ["_class", "_displayName", "_displayNameShort", "_picture", "_type", "_isDuplicate"];
+				// all classes are already in lower case except faceware which must not be lowered for virtual arsenal
 				private _classLowered = tolower _class;
-				private _displayName = _x select 1;
-				private _displayNameShort = _x select 2;
-				private _picture = _x select 3;
-				private _type = _x select 4;
-				private _isDuplicate = _x select 5;
 
 				if (_type in _types && (!_isDuplicate || _cursel > 0)) then {
 
@@ -336,8 +332,7 @@ switch _mode do {
 		} foreach _filterIDCs;
 	};
 	case "listModify": {
-		private _display = _params select 0;
-		private _add = _params select 1;
+		_params params ["_display", "_add"];
 		private _ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
 		private _ctrlLoad = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LOAD;
 		private _cursel = lnbcurselrow _ctrlList;
@@ -413,8 +408,7 @@ switch _mode do {
 	};
 	
 	case "keyDown":	{
-		private _ctrlList = _params select 0;
-		private _key = _params select 1;
+		_params params ["_ctrlList", "_key"];
 		switch true do
 		{
 			case (_key == DIK_MULTIPLY):
@@ -451,8 +445,7 @@ switch _mode do {
 		};
 	};
 	case "toggleWeaponSpecific": {
-		private _display = _params select 0;
-		private _ctrlList = _params select 1;
+		_params params ["_display", "_ctrlList"];
 		
 		private _classes = RscAttributeInventory_cargo select 0;
 		private _values = RscAttributeInventory_cargo select 1;

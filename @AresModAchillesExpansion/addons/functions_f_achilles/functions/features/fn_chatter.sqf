@@ -15,9 +15,9 @@
 //	[_unit] call Achilles_fnc_chatter;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_chat_type","_side"];
-
-private _unit = param [0,ObjNull,[ObjNull]];
+params [["_unit", objNull, [objNull]]];
+private _chat_type = "globalChat";
+private _side = blufor;
 
 if (isNull _unit) then
 {

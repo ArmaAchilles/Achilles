@@ -16,40 +16,30 @@
 //	Example:
 //	[ [[1,2],[4,5]], [1], 6] call Achilles_fnc_pusBack; //returns [[1,2],[4,5,6]]
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+params[["_input_array", [], [[]]], ["_indice_array", [], [[]]], "_element"];
 
-private ["_output_array"];
+if (count _indice_array == 0) exitWith {_input_array + [_element]};
 
-private _input_array 	= param [0,[],[[]]];
-private _indice_array 	= param [1,[],[[]]];
-private _element 		= _this select 2;
-
-if (count _indice_array == 0) then 
+// unpack array
+private _temp_array = [_input_array];
 {
-	_output_array = _input_array + [_element];
-} else
+	private _temp_element = _temp_array select ((count _temp_array) - 1);
+	_temp_array pushBack (_temp_element select _x);
+} forEach _indice_array;
+
+// push back element
+_temp_array set [0, (_temp_array select 0) + [_element]];
+
+reverse _indice_array;
+reverse _temp_array;
+
+// pack array
+private _temp_element = _temp_array select 0;
+for "_i" from 0 to ((count _temp_array) - 2) do
 {
-	// unpack array
-	private _temp_array = [_input_array];
-	{
-		private _temp_element = _temp_array select ((count _temp_array) - 1);
-		_temp_array pushBack (_temp_element select _x);
-	} forEach _indice_array;
-	
-	// push back element
-	_temp_array set [0, (_temp_array select 0) + [_element]];
-	
-	reverse _indice_array;
-	reverse _temp_array;
-	
-	// pack array
-	private _temp_element = _temp_array select 0;
-	for "_i" from 0 to ((count _temp_array) - 2) do
-	{
-		private _old_element = _temp_element;
-		_temp_element = _temp_array select (_i + 1);
-		_temp_element set [_indice_array select _i, _old_element];
-	};
-	_output_array = _temp_element;
+	private _old_element = _temp_element;
+	_temp_element = _temp_array select (_i + 1);
+	_temp_element set [_indice_array select _i, _old_element];
 };
 
-_output_array;
+_temp_element;

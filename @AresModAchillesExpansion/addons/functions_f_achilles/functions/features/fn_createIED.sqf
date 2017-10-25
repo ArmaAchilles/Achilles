@@ -186,7 +186,7 @@ else
 
 				private _howMany = count _nearestSide;
 
-				for [{_x = 0;}, {_x < _howMany;}, {_x = _x + 1;}] do
+				for [{_x = 0}, {_x < _howMany}, {_x = _x + 1}] do
 				{
 					private _target = _nearestSide select _x;
 					private _isJammableVehicle = _target getVariable ["isECM", false];
