@@ -24,10 +24,12 @@ Main Collaborators:
 • Kex
 Other Contributers:
 • CoxLedere (Available factions and dynamic loadout bug fix)
+• Dedmen (For complaining at how terribly we write code and help us out to fix it)
 • Grezvany13 (Several contributions & support)
 • S.Crowe (ACE healing and Eden compatibilty of compositions)
 • Shukari (Available factions bug fix)
 • Talya (Assistance in general, even if he wasn't always aware of that ;) )
+• Victor9401 (Code refactoring and to help out my poor brain at some points)
 • Zakant (bug fixes and improval of code efficency)
 
 
