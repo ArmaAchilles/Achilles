@@ -72,7 +72,7 @@ while {alive _bomber && _check} do
 				{if (side _x in _activationSide) then {_nearestUnit = _nearestUnit + [_x];}} forEach _nearestObjects;
 				private _count = count _nearestUnit;
 
-				for [{_x = 0}, {_x < _count}, {_x = _x + 1}] do
+				for "_i" from 0 to _count step 1 do
 				{
 					private _enemyUnit = _nearestUnit select _x;
 					{
