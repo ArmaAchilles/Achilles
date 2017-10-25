@@ -18,7 +18,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //WARNING: Needs checking of variable _nested_categories!
-params["_input_dict", "_path_by_categories", "_element"];
+params[["_input_dict", "", [""]], ["_path_by_categories", [], [[]]], ["_element", nil, []]];
 
 private _output_dict = [];
 

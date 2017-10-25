@@ -12,30 +12,16 @@
     BOOL - if sucessful ("error" string if is not successful)
 */
 
-params [["_numberToParse", 0], ["_isInverted", false]]
+params [["_numberToParse", 0, [0]], ["_isInverted", false, [false]]]
 private _return = "error";
 
 if (_isInverted) then
 {
-	if (_numberToParse == 0) then
-	{
-		_return = true;
-	}
-	else
-	{
-		_return = false;
-	};
+	_return = _numberToParse == 0;
 }
 else
 {
-	if (_numberToParse == 0) then
-	{
-		_return = false;
-	}
-	else
-	{
-		_return = true;
-	};
+	_return = _numberToParse == 1;
 };
 
 _return;

@@ -17,7 +17,7 @@
 //	["myDict", ["category1","subcategory1"]], 2] call Achilles_fnc_findInDict; //returns [["category1",["subcategory1",[2]]]]
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params["_dict_name", "_nested_categories", "_element"];
+params[["_dict_name", "", [""]], ["_nested_categories", [], [[]]], "_element"];
 
 private _dict = [];
 

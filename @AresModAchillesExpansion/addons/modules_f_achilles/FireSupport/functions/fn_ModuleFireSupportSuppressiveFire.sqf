@@ -51,7 +51,7 @@ _dialogResult params
 	"_fireModeIndex",
 	"_duration"
 ];
-_doLineUp = _doLineUp == true;
+_doLineUp = _doLineUp == 1;
 _duration = parseNumber _duration;
 
 // Choose a target to fire at

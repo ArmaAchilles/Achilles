@@ -1,5 +1,5 @@
-private ["_unit_to_tp"];
 params[["_playersToTeleport", [objNull]], ["_teleportLocation", [0,0,0]], ["_showTeleportMessage", true], ["_includeVehicles", true]];
+private _unit_to_tp = objNull;
 
 // Show some text to the players that are going to be teleported.
 if (_showTeleportMessage) then

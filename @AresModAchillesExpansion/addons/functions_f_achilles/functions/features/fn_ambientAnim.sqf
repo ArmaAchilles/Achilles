@@ -19,7 +19,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // get genaral params
-params["_unit", "_anim_set", "_combatReady"];
+params[["_unit", objNull, [objNull]], ["_anim_set", "TERMINATE", [""]], ["_combatReady", false, [false]]];
 
 //define relevant animation functions
 Achilles_fnc_ambientAnim_terminate =
@@ -60,7 +60,7 @@ if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then
 
 // get anim params
 private _params = _anim_set call Achilles_fnc_ambientAnimGetParams;
-_params params ["_avaiable_anims", "_noWeapon"];
+_params params [["_avaiable_anims", [], [[]]], ["_noWeapon", false, [false]]];
 
 if (count _avaiable_anims == 0) exitWith {};
 

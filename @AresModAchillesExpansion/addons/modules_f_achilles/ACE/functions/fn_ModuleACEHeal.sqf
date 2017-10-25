@@ -45,7 +45,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
 	if (_mode == "single") then
 	{
-		["Headled"] call Ares_fnc_ShowZeusMessage;
+		["Healed"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
 	} else
 	{

@@ -18,7 +18,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-params[["_type", localize "STR_OBJECTS"], ["_single", false]];
+params[["_type", "Objects", [""]], ["_single", false, [false]]];
 
 disableSerialization;
 private _display = finddisplay IDD_RSCDISPLAYCURATOR;

@@ -19,7 +19,7 @@ disableSerialization;
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
 private _dialog = findDisplay IDD_SPAWN_REINFORCEMENT;
 
-params["_mode", ["_ctrl", controlNull], ["_comboIndex", 0]];
+params["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 switch (_mode) do
 {

@@ -18,7 +18,7 @@
 //	["Secret NATO Documents","NATO supply convoy is expected to pass the checkpoint at 9 am.","marker001","Kex",0] call Ares_fnc_addIntel;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params["_title", "_text", "_marker", ["_finder", ""], ["_shared", 0]];
+params["_title", "_text", "_marker", ["_finder", "", [""]], ["_shared", 0, [0]]];
 
 private _fnc_scriptName = "Achilles_Intel";
 private _shared_hint = if (isLocalized "STR_INTEL_WAS_SHARED_WITH_SIDE") then
