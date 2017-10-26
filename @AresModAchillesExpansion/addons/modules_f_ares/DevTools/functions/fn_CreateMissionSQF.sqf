@@ -139,12 +139,13 @@ if (!_includeEmptyObjects) then { _emptyObjects = []; };
 private _totalUnitsProcessed = 0;
 {
 	_output pushBack format [
-		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject];",
+		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject]; _newObject enableSimulationGlobal %6;",
 		(typeOf _x),
 		(position _x),
 		(getPosWorld _x),
 		(vectorDir _x),
-		(vectorUp _x)];
+		(vectorUp _x),
+		(simulationEnabled _x)];
 } forEach _emptyObjects + _emptyVehicles;
 
 {
