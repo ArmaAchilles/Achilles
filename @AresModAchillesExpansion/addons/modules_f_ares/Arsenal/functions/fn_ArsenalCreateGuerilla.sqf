@@ -13,7 +13,7 @@ private _data =
 		["srifle_EBR_F","launch_NLAW_F","hgun_P07_F","hgun_Rook40_F","hgun_ACPC2_F","hgun_Pistol_heavy_01_F","hgun_Pistol_heavy_02_F","MineDetector","LMG_Mk200_F","launch_I_Titan_F","launch_I_Titan_short_F","arifle_Mk20_F","arifle_Mk20C_F","arifle_Mk20_GL_F","arifle_Mk20_plain_F","arifle_Mk20C_plain_F","arifle_Mk20_GL_plain_F","SMG_01_F","SMG_02_F","hgun_PDW2000_F","LMG_Zafir_F","launch_RPG32_F"]
 	];
 
-[_ammoBox, _data, true, true] call Ares_fnc_ArsenalSetup;
+[_ammoBox, _data, true, true] remoteExecCall ["Ares_fnc_ArsenalSetup", _ammoBox];
 
 [objNull, "Created basic arsenal ammo box."] call bis_fnc_showCuratorFeedbackMessage;
 
