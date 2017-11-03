@@ -25,7 +25,7 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};;
+if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 {
 	[_x,_height] spawn 
 	{

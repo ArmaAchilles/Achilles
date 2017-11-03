@@ -68,12 +68,11 @@ if (_single) then
 	}
 	else
 	{
-		_output = ObjNull;
+		_output = objNull;
 	};
 }
 else
 {
 	_output = curatorSelected select 0;
 };
-
 _output;

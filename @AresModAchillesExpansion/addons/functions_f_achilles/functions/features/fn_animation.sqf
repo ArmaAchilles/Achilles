@@ -15,7 +15,7 @@
 //	[_unit] call Achilles_fnc_Animation;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params[["_units", objNull, [objNull]]];
+params[["_units", objNull, [[objNull]]]];
 private _anim = "TERMINATE";
 
 private _dialogResult =
@@ -112,12 +112,13 @@ _anim = switch (_dialogResult select 0) do
 	case 27: {"REPAIR_VEH_KNEEL"};
 	case 28: {"REPAIR_VEH_STAND"};
 };
+
 if (isNull (_units select 0)) then
 {
 	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 };
-if (isNil "_units") exitWith {};
 if (count _units == 0) exitWith {};
+if (isNil "_units") exitWith {};
 
 {
 	private _unit = _x;
