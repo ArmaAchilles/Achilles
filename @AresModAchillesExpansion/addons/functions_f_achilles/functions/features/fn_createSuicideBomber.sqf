@@ -24,7 +24,7 @@ _activationDistance = parseNumber _activationDistance;
 
 if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide];};
 
-private _hasSpoken = 0;
+private _hasSpoken = false;
 private _targets = ["Car", "Tank", "Man"];
 
 removeAllWeapons _bomber;
@@ -69,10 +69,10 @@ while {alive _bomber && _check} do
 			{
 				sleep 1;
 				private _nearestUnit = [];
-				{if (side _x in _activationSide) then {_nearestUnit = _nearestUnit + [_x];}} forEach _nearestObjects;
+				{if (side _x in _activationSide) then {_nearestUnit pushBack _x}} forEach _nearestObjects;
 				private _count = count _nearestUnit;
 
-				for "_i" from 0 to _count step 1 do
+				for "_x" from 0 to _count-1 step 1 do
 				{
 					private _enemyUnit = _nearestUnit select _x;
 					{
@@ -97,16 +97,38 @@ while {alive _bomber && _check} do
 									_bomber doMove (getPos _enemyUnit);
 									_bomber addRating -10000;
 
-									if (_hasSpoken == 0) then
+									if (!_hasSpoken) then
 									{
-										//[_bomber, "FD_Start_F"] remoteExec ["say3D", 0, _bomber];
-										private _messages = ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
-										private _selectedMessage = _messages select (floor random 4);
-										[_bomber, _selectedMessage] remoteExec ["globalChat", _nearestUnit, false];
-										_hasSpoken = 1;
+										private _selectedMessage = selectRandom ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
+										[_bomber, _selectedMessage] remoteExec ["globalChat", 0, false];
+										_hasSpoken = true;
 									};
-								if ((_bomber distance _enemyUnit) <= _activationDistance) exitWith{_check = false;};
+								if ((_bomber distance _enemyUnit) <= _activationDistance) exitWith
+								{
+									_check = false;
+									if (alive _bomber) then
+									{
+										switch (_explosionEffect) do
+										{
+											case 0:
+											{
+												[getPos _bomber, _explosionSize] call Achilles_fnc_deadlyExplosion;
+												_bomber setDamage 1;
+											};
+											case 1:
+											{
+											[getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
+												_bomber setDamage 1;
+											};
+											case 2:
+											{
+												[getPos _bomber] call Achilles_fnc_fakeExplosion;
+												_bomber setDamage 1;
+											};
+										};
+									};
 								};
+							};
 						};
 					};
 				} forEach _targets;
@@ -115,31 +137,8 @@ while {alive _bomber && _check} do
 	};
 };
 
-if (alive _bomber) then
 {
-	switch (_explosionEffect) do
-	{
-		case 0:
-		{
-			[getPos _bomber, _explosionSize] call Achilles_fnc_deadlyExplosion;
-			_bomber setDamage 1;
-		};
-		case 1:
-		{
-		   [getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
-			 _bomber setDamage 1;
-		};
-		case 2:
-		{
-			[getPos _bomber] call Achilles_fnc_fakeExplosion;
-			_bomber setDamage 1;
-		};
-	};
-};
-
-while {(count (waypoints _bomberGroup)) > 0} do
-{
-	deleteWaypoint ((waypoints _bomberGroup) select 0);
-};
+	deleteWaypoint [_bomberGroup, _forEachIndex];
+} forEach (waypoints _bomberGroup);
 
 deleteVehicle _dummyObject;
