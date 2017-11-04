@@ -238,15 +238,7 @@ else
 if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith 
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
-	if (!isNull _vehicle) then
-	{
-		{deleteVehicle _x} forEach (fullCrew[_vehicle]);
-		deleteVehicle _vehicle;
-	}
-	else
-	{
-		{deleteVehicle _x} forEach _infantry_list;
-	}
+	{deleteVehicle _x} forEach _infantry_list;
 };
 
 if (count _allRps > 0) then
