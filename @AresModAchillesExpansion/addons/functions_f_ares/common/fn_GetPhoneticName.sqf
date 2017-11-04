@@ -17,7 +17,8 @@ for '_i' from 97 to 122 do
 	_names pushBack (localize format ["str_a3_radio_%1",toString [_i]]);
 };
 
-private _name = if (_index >= count _names) then
+private _name = "";
+if (_index >= count _names) then
 {
 	private _suffix = floor (_index / (count _names));
 	_name = format ["%1-%2", (_names select (_index mod (count _names))), _suffix];
