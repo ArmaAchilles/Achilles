@@ -8,6 +8,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private _objects = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+_objects = [_objects];
 
 private _dialogResult = 
 [
