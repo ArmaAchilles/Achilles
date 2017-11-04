@@ -33,7 +33,7 @@ private _dialogResult =
 	localize "STR_SUPPLY_DROP",
 	[
 		["Ammunition Crate", _ammoCratesDisplayName],
-		[localize "STR_CARGO_LW" [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_EMPTY"]],
+		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_EMPTY"]],
 		[localize "STR_LZ_DZ", (_LZs select 1)]
 	]
 ] call Ares_fnc_showChooseDialog;
