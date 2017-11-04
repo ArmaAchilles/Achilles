@@ -6,7 +6,7 @@ if (isNil "Ares_SuppressionTargetCount") then
 };
 
 // Don't delete this module when we're done the script.
-private _deleteModuleOnExit = false;
+_deleteModuleOnExit = false;
 
 private _targetPhoneticName = [Ares_SuppressionTargetCount] call Ares_fnc_GetPhoneticName;
 private _target_name = format [localize "STR_SUPPRESS_X", _targetPhoneticName];

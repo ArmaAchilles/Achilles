@@ -5,7 +5,7 @@ if (isNil "Ares_ReinforcementLzCount") then
 	Ares_ReinforcementLzCount = 0;
 };
 
-private _deleteModuleOnExit = false;
+_deleteModuleOnExit = false;
 
 private _targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhoneticName;
 private _target_name = format ["LZ %1", _targetPhoneticName];

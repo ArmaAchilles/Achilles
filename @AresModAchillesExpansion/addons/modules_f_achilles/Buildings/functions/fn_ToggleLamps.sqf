@@ -35,6 +35,6 @@ private _JIP_id = [[_center_pos,_radius,_lightOn],
 }, 0, _logic]  call Achilles_fnc_spawn;
 
 _logic setName format ["Toggle Lamp: JIP queue %1", _JIP_id];
-private _deleteModuleOnExit = false;
+_deleteModuleOnExit = false;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

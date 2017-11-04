@@ -5,7 +5,7 @@ if (isNil "Ares_ReinforcementRpCount") then
 	Ares_ReinforcementRpCount = 0;
 };
 
-private _deleteModuleOnExit = false;
+_deleteModuleOnExit = false;
 
 private _targetPhoneticName = [Ares_ReinforcementRpCount] call Ares_fnc_GetPhoneticName;
 private _target_name = format ["RP %1", _targetPhoneticName];

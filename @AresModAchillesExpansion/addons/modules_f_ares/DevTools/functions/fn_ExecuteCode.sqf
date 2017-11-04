@@ -38,7 +38,7 @@ if (_dialogResult == 1) then
 		{
 			private _JIP_id = [_params, compile _pastedText, 0, _logic] call Achilles_fnc_spawn;
 			_logic setName format ["Execute Code: JIP queue %1", _JIP_id];
-			private _deleteModuleOnExit = false;
+			_deleteModuleOnExit = false;
 		};
 	};
 };
