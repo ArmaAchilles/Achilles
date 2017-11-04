@@ -962,6 +962,30 @@
         <Original>Supply Drop</Original>
         <English>Supply Drop</English>
       </Key>
+      <Key ID="STR_NO_HELICOPTER_SELECTED">
+        <Original>No helicopter selected!</Original>
+        <English>No helicopter selected!</English>
+      </Key>
+      <Key ID="STR_HELICOPTER_NEEDS_DRIVER">
+        <Original>The helicopter needs a driver!</Original>
+        <English>The helicopter needs a driver!</English>
+      </Key>
+      <Key ID="STR_AMMUNITION_CRATE">
+        <Original>Ammunition Crate</Original>
+        <English>Ammunition Crate</English>
+      </Key>
+      <Key ID="STR_CARGO_LW">
+        <Original>Cargo</Original>
+        <English>Cargo</English>
+      </Key>
+      <Key ID="STR_EDIT_CARGO">
+        <Original>Edit Cargo</Original>
+        <English>Edit Cargo</English>
+      </Key>
+      <Key ID="STR_FAILED_TO_ATTACH_CARGO">
+        <Original>Failed to attach the cargo!</Original>
+        <English>Failed to attach the cargo!</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">

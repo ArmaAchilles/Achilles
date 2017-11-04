@@ -15,18 +15,16 @@
 
 private _object = [_logic, false] call Ares_fnc_getUnitUnderCursor;
 
-//TODO: Check if isKindOf "Helicopter" works
-if (getText (configFile >> "CfgVehicles" >> typeOf _object >> "simulation") != "helicopterrtd") exitWith {["No helicopter selected!"] call Achilles_fnc_showZeusErrorMessage};
-if (!isNull (driver _object)) exitWith {["The helicopter needs a driver!"] call Achilles_fnc_showZeusErrorMessage};
+if (!(_object isKindOf "Helicopter")) exitWith {[localize "STR_NO_HELICOPTER_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
+if (isNull (driver _object)) exitWith {[localize "STR_HELICOPTER_NEEDS_DRIVER"] call Achilles_fnc_showZeusErrorMessage};
 
-private _LZs = [true] call Achilles_fnc_getAllLZs;
-if (count _LZs == 0) exitWith {};
+private _LZs = ["LZ"] call Achilles_fnc_getAllLZsOrRPs;
+if (count (_LZs select 0) == 0) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
 
 private _ammoCratesDisplayName = [];
 private _ammoCrates = ["B_supplyCrate_F", "O_supplyCrate_F", "I_supplyCrate_F", "IG_supplyCrate_F", "C_supplyCrate_F", "C_T_supplyCrate_F"];
-private _ammoCratesFromConfigDisplayName = {_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> typeOf _x >> "displayName"))} forEach _ammoCrates;
+{_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach _ammoCrates;
 
-//TODO: Localize
 //TODO: Possibly add option to spawn a helicopter
 //TODO: Maybe add vehicles as well
 //TODO: Add option to stay at or leave the LZ
@@ -35,8 +33,8 @@ private _dialogResult =
 	localize "STR_SUPPLY_DROP",
 	[
 		["Ammunition Crate", _ammoCratesDisplayName],
-		["Cargo", ["Default", "Edit Cargo", "Empty"]],
-		[localize "STR_LZ_DZ", _LZs]
+		[localize "STR_CARGO_LW" [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_EMPTY"]],
+		[localize "STR_LZ_DZ", (_LZs select 1)]
 	]
 ] call Ares_fnc_showChooseDialog;
 if (count _dialogResult == 0) exitWith {};
@@ -49,17 +47,17 @@ _objectGroup allowFleeing 0;
 
 _dialogResult params ["_ammoCrateDisplayName", "_fillType", "_LZ"];
 
-private _ammoCrateClassname = _ammoCrates select (_ammoCratesDisplayName find _ammoCrateDisplayName);
+private _ammoCrateClassname = _ammoCrates select _ammoCrateDisplayName;
 
 private _box = _ammoCrateClassname createVehicle (getPos _object);
 [[_box]] call Ares_fnc_AddUnitsToCurator;
 
-switch (_fillType) do 
+switch (_fillType) do
 {
 	case 1:
 	{
-		//TODO: Check if this works
-		[_this,"RscAttributeInventory",'AresDisplays'] call (uinamespace getvariable "Achilles_fnc_initCuratorAttribute");
+		//TODO: This works, but can't tell it to edit the boxes inventory
+		createDialog "RscDisplayAttributeInventory";
 	};
 	case 2:
 	{
@@ -71,10 +69,10 @@ switch (_fillType) do
 };
 
 private _hasAttached = _object setSlingLoad _box;
-if (!_hasAttached) exitWith {["Failed to attach the cargo!"] call Achilles_fnc_showZeusErrorMessage};
+if (!_hasAttached) exitWith {[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage};
 
-//TODO: Check if the getPos _LZ works.
-private _LZWaypoint = _objectGroup addWaypoint [(getPos _LZ), 20];
+private _LZWaypoint = _objectGroup addWaypoint [(getPos ((_LZs select 0) select _LZ)), 20];
+_objectGroup setSpeedMode "FULL";
 _LZWaypoint setWaypointType "UNHOOK";
 _objectGroup addWaypoint [(getPos _object), 0];
 
