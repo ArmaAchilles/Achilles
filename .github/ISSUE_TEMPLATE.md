@@ -1,6 +1,6 @@
-**Arma 3 Version:** `x.xx` (stable / rc / dev)
-**CBA Version:** `3.x.x` (stable / dev + commit hash)
-**AresModAchillesExpansion Version:** `x.x.x` (stable / dev + commit hash)
+**Arma 3 Version:** `x.xx` (stable / rc / dev)  
+**CBA Version:** `3.x.x` (stable / dev + commit hash)  
+**AresModAchillesExpansion Version:** `x.x.x` (stable / dev + commit hash)  
 
 **Mods:**
 ```
