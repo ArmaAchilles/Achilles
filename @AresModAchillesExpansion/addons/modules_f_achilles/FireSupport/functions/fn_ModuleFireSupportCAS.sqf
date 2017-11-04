@@ -72,7 +72,7 @@ private _direction = 180 - ([_vehicle, _target_pos] call BIS_fnc_dirTo);
 } forEach _unit_capture_trajectory;
 
 _unit_capture_trajectory params ["_end_data"];
-_end_data params ["_end_pos", "_end_vecDir", "_end_vecUp"];
+_end_data params ["_someVariable", "_end_pos", "_end_vecDir", "_end_vecUp"];
 
 _vehicle flyInHeight 80;
 
