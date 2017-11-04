@@ -18,6 +18,7 @@ V.0.1.0 (Not Released - In Progress)
 * Change: Loadouts attribute button now has the option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
 * Change: Bootcamp module was added back.
 * Change: Advanced CAS module now attaches to an object.
+* Change: Custom Modules have been reduced to 50 (0 to 49).
 * Feature: Object rotation module. #151
 * Feature: Data Link and Radar Emission controls for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156
@@ -26,13 +27,18 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Debug logging is now available as an option in CBA addon settings
 * Feature: Debug logging function Achilles_fnc_logMessage (only logs when activated in CBA).
 * Feature: Helper function Achilles_fnc_parseBool, which parses 0es and 1es to a boolean.
-* Feature: Feedback function for the Curator Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
+* Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
+* Feature: Supply Drop module. #158
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
 * Fix: When parachuting units, the function now works as intented. #127
 * Fix: Server side .rpt spam was fixed. #107
+* Fix: Side Arsenal modules didn't work previously. #167
+* Fix: Create Mission SQF didn't retain simulation settings. #169
+* Fix: Missing localization string for Turret Optics module.
+* Code optimization and cleanup - #163 - Thanks to Victor9401 and Dedmen!
 
 V.0.0.9c
 * Fix: Fixed a critical issue that causes stances not to work.
