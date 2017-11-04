@@ -63,7 +63,7 @@ else
 	[
 		localize "STR_ADD_REMOVE_TURRET_OPTICS",
 		[
-			[localize "STR_NVG",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
+			[localize "STR_NVD",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
 			[localize "STR_THERMALS",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]]
 		]
 	] call Ares_fnc_ShowChooseDialog;
