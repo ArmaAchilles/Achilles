@@ -1,6 +1,8 @@
 <p align="center">
     <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/Pictures/Achilles_Logo_Github.png" width="196" alt="AMAE Logo">
-    <h1>Ares Mod - Achilles Expansion</h1>
+    <div style="text-align: center">
+        <h1>Ares Mod - Achilles Expansion</h1>
+    </div>
 </p>
 
 <p align="center">
