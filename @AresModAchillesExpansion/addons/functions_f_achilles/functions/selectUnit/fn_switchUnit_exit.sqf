@@ -15,7 +15,7 @@
 
 private _unit = bis_fnc_moduleRemoteControl_unit;
 if (isNull _unit) exitWith {bis_fnc_moduleRemoteControl_unit = nil};
-(_unit getVariable "Achilles_var_switchUnit_data") params ["_","_playerUnit","_damageAllowed"];
+(_unit getVariable "Achilles_var_switchUnit_data") params ["_","_playerUnit","_damageAllowed", "_face", "_speaker"];
 if (isNull _playerUnit) exitWith {_unit setVariable ["Achilles_var_switchUnit_data", nil, true]};
 // reset camera positions
 private _unitPos = getposatl _unit;
@@ -41,5 +41,7 @@ openCuratorInterface;
 private _curatorMapCtrl = ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP);
 _curatorMapCtrl ctrlMapAnimAdd [0, 0.1, _camPos]; 
 ctrlMapAnimCommit _curatorMapCtrl;
+[_unit, _face] remoteExecCall ["setFace", 0];
+[_unit, _speaker] remoteExecCall ["setSpeaker", 0];
 _unit setVariable ["Achilles_var_switchUnit_data", nil, true];
 bis_fnc_moduleRemoteControl_unit = nil;

@@ -25,12 +25,14 @@ if (_error != "") exitWith {[_error] call Ares_fnc_ShowZeusMessage; playSound "F
 
 private _playerUnit = player;
 private _damage_allowed = isDamageAllowed _playerUnit;
-_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed], true];
+private _face = face _unit;
+private _speaker = speaker _unit;
+_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed, _face, _speaker], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
-private _face = face _unit;
 selectPlayer _unit;
 [_unit, _face] remoteExecCall ["setFace", 0];
+[_unit, _speaker] remoteExecCall ["setSpeaker", 0];
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;
