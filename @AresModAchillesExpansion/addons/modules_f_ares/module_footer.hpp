@@ -6,7 +6,7 @@
 // Cleanup the module if the script logic didn't tell us not to.
 if (_deleteModuleOnExit) then
 {
-	["Deleting %1", (_this select 0)] call Achilles_fnc_logMessage;
+	[format ["Deleting %1", (_this select 0)]] call Achilles_fnc_logMessage;
 	deleteVehicle (_this select 0);
 }
 else
