@@ -26,13 +26,15 @@ if (count _dialogResult == 0) exitWith {};
 private _lightOn = [true,false] select (_dialogResult select 0);
 private _radius = parseNumber (_dialogResult select 1);
 
+_dummyObject = [_logic] call Achilles_fnc_createDummyLogic;
+
 private _JIP_id = [[_center_pos,_radius,_lightOn],
 {
 	params ["_center_pos","_radius","_lightOn"];
 	{  
 	  [_x,_lightOn] call BIS_fnc_switchLamp;  
 	} forEach (nearestObjects [_center_pos,["Building"], _radius, true]);
-}, 0, _logic]  call Achilles_fnc_spawn;
+}, 0, _dummyObject]  call Achilles_fnc_spawn;
 
 _logic setName format ["Toggle Lamp: JIP queue %1", _JIP_id];
 _deleteModuleOnExit = false;

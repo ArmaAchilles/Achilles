@@ -10,7 +10,15 @@ private _code = param [1, {}, [{}]];
 private _target = param [2, 0, [0,[],objNull,grpNull,sideUnknown]];
 private _jip = param [3, false, [false,"",objNull]];
 
+private _jip_id = "";
+
 private _rc_owner = remoteExecutedOwner;
+diag_log _jip_id;
+diag_log _args;
+diag_log _code;
+diag_log _target;
+diag_log _jip;
+diag_log _rc_owner;
 // execute code if rc owner is server 
 if (_rc_owner == 2) exitWith
 {
@@ -29,7 +37,9 @@ if (isServer) then
 		} else
 		{
 			// send code to targets => rc owner switches to server
-			[_args, _code] remoteExec ["Achilles_fnc_spawn", _target, _jip];
+			_jip_id = [_args, _code] remoteExec ["Achilles_fnc_spawn", _target, _jip];
+			diag_log "----";
+			diag_log _jip_id;
 		};
 	} else
 	{
@@ -42,3 +52,4 @@ if (isServer) then
 	};
 };
 
+_jip_id;

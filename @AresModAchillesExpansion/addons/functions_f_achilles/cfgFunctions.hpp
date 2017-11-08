@@ -43,6 +43,7 @@ class CfgFunctions
 			class logMessage;
 			class parseBool;
 			class getAllLZsOrRPs;
+			class createDummyLogic;
 		};
 
 		class selectUnit
