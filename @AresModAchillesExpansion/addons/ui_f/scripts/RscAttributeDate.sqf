@@ -305,19 +305,22 @@ switch _mode do
 			1 fademusic 0;
 			if(_isNotZeus and hasInterface) then {cuttext ["","black out",1.5]};
 			uiSleep 2;
-			// if(_isNotZeus and hasInterface) then {[0,0] call BIS_fnc_cinemaBorder};
-			if(isServer) then 
-			{
-				setDate _newDate;
-				[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
-				forceWeatherChange;
-			};
+			
+			// isServer statement below doesn't get exectued on a dedi for some magical reason
+			// so the remoteExecCall is added here so it actually changes the time and allows it to work
+			[_newDate] remoteExecCall ["setDate", 2];
+			// if(isServer) then 
+			// {
+			// 	setDate _newDate;
+			// 	[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
+			// 	forceWeatherChange;
+			// };
 			if(not hasInterface) exitWith {};
 			
 			private _newDateNumber = [dateToNumber _newDate + (_newDate select 0), 6] call BIS_fnc_cutDecimals;
 			private _curDateNumber = [dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals;
 			
-			private _isDateSynced = compile ("[dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals" + (if (_newDateNumber - _curDateNumber >= 0) then {">= _newDateNumber"} else {"< _curDateNumber"}));
+			private _isDateSynced = compile ("[dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals" + (if (_newDateNumber - _curDateNumber >= 0) then {" >= _newDateNumber"} else {" < _curDateNumber"}));
 			if(_isNotZeus) then {["\A3\missions_f_epa\video\C_out2_sometime_later.ogv"] call BIS_fnc_playVideo};
 			waitUntil {sleep 0.1; call _isDateSynced};
 			1 fadesound 1;
