@@ -6,10 +6,7 @@
 //  DESCRIPTION: Function for destroing buildings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #include "\achilles\modules_f_ares\module_header.hpp"
-
-private ["_buildings","_damage_fnc","_mean_damage"];
 
 private _center_pos = position _logic;
 
@@ -27,6 +24,14 @@ private _dialogResult =
 
 if (count _dialogResult == 0) exitWith {};
 
+//Broadcast damage function to server
+if (isNil "Achilles_var_damageBuildings_init_done") then
+{
+	publicVariableServer "Achilles_fnc_damageBuildings";
+	Achilles_var_damageBuildings_init_done = true;
+};
+
+private _buildings = [];
 switch (_dialogResult select 0) do
 {
 	case 0:	
@@ -43,14 +48,6 @@ switch (_dialogResult select 0) do
 private _mean_damage_type = _dialogResult select 1;
 private _distribution_type = _dialogResult select 2;
 
-//Broadcast damage function to server
-if (isNil "Achilles_var_damageBuildings_init_done") then
-{
-	publicVariableServer "Achilles_fnc_damageBuildings";
-	Achilles_var_damageBuildings_init_done = true;
-};
-
-[_buildings,_mean_damage_type,_distribution_type] remoteExec ["Achilles_fnc_damageBuildings",2];
-
+[_buildings,_mean_damage_type,_distribution_type] remoteExecCall ["Achilles_fnc_damageBuildings",2];
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
