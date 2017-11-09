@@ -13,7 +13,7 @@
 //
 //	RETURNS:		STRING - Nil in case of error. String otherwise. If JIP is not requested this is an empty string, if JIP is requested, it is the JIP ID.
 //
-//	Example:		_message, {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
+//	Example:		[[_message], {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 private _jip_id = "";
