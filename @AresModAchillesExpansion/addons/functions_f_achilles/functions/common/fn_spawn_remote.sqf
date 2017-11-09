@@ -13,12 +13,6 @@ private _jip = param [3, false, [false,"",objNull]];
 private _jip_id = "";
 
 private _rc_owner = remoteExecutedOwner;
-diag_log _jip_id;
-diag_log _args;
-diag_log _code;
-diag_log _target;
-diag_log _jip;
-diag_log _rc_owner;
 // execute code if rc owner is server 
 if (_rc_owner == 2) exitWith
 {
@@ -38,8 +32,6 @@ if (isServer) then
 		{
 			// send code to targets => rc owner switches to server
 			_jip_id = [_args, _code] remoteExec ["Achilles_fnc_spawn", _target, _jip];
-			diag_log "----";
-			diag_log _jip_id;
 		};
 	} else
 	{
