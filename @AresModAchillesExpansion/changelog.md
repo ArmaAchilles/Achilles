@@ -26,7 +26,6 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
 * Feature: Debug logging is now available as an option in CBA addon settings
 * Feature: Debug logging function Achilles_fnc_logMessage (only logs when activated in CBA).
-* Feature: Helper function Achilles_fnc_parseBool, which parses 0es and 1es to a boolean.
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
 * Feature: Supply Drop module. #158
