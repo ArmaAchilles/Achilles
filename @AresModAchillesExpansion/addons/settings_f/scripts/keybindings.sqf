@@ -98,9 +98,12 @@
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
-			private _vehicle = vehicle (curatorSelected select 0 select 0);
-			if (isNil "_vehicle") exitWith {};
-			[_vehicle] call Achilles_fnc_LaunchCM;
+			private _vehicles = curatorSelected select 0;
+			if (isNil "_vehicles") exitWith {};
+			private _mutlipleUnits = count _vehicles > 1;
+			{
+				[vehicle _x, _mutlipleUnits] call Achilles_fnc_LaunchCM;
+			} forEach _vehicles;
 			true;
 		};
 		false;
