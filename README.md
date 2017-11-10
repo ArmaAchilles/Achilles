@@ -4,11 +4,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/(0.0.9c)">
-        <img src="https://img.shields.io/badge/Stable-0.0.9c-green.svg?style=flat-square" alt="AMAE version">
-    </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/(0.1.0)">
-        <img src="https://img.shields.io/badge/Development-0.1.0-red.svg?style=flat-square" alt="AMAE version">
+        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg?style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/issues">
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/AresModAchillesExpansion.svg?style=flat-square&label=Issues" alt="AMAE issues">
