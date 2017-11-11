@@ -3412,8 +3412,8 @@
 			<English>Achilles - Icon Selection</English>
         </Key>
         <Key ID="STR_DEBUG_OUTPUT">
-            <Original>Debug Output</Original>
-			<English>Debug Output</English>
+            <Original>Debug Mode</Original>
+			<English>Debug Mode</English>
         </Key>
         <Key ID="STR_ACHILLES_DEBUG_SETTINGS">
             <Original>Achilles - Debug</Original>
