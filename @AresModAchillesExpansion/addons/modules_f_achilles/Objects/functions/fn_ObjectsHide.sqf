@@ -16,9 +16,9 @@
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
 private _isObjectVisible = 1;
-if (!isNull (_objects select 0)) then 
+if (!isNull (_objects select 0)) then
 {
-	_isObjectVisible = if (isObjectHidden (_objects select 0)) then {0} else {1};
+	_isObjectVisible = [1, 0] select (isObjectHidden (_objects select 0));
 };
 
 private _dialogResult =
@@ -29,7 +29,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _isHidden = (_dialogResult select 0) == 0;
 
 if (isNull (_objects select 0)) then
@@ -37,7 +37,7 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
+if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
 
 {
 	[_x, _isHidden] remoteExecCall ["hideObjectGlobal", 2];
