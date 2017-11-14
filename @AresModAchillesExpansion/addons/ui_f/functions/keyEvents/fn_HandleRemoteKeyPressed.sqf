@@ -1,6 +1,5 @@
-private ["_key","_handled"];
-_key = _this select 1;
-_handled = false;
+params ["_ctrl", "_key", "_shiftKey", "_ctrlKey", "_altKey"];
+private _handled = false;
 
 switch (true) do
 {

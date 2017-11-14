@@ -93,7 +93,7 @@ _objectsToProcess = _objectsToProcess select
 	else
 	{
 		({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
-	}
+	};
 };
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 

@@ -15,13 +15,13 @@ private _dialogResult =
 	localize "STR_TOGGLE_SIMULATION",
 	[
 		[
-			localize "STR_ENABLE_SIMULATION", [localize "STR_TRUE", localize "STR_FALSE"]
+			localize "STR_ENABLE_SIMULATION", [localize "STR_YES", localize "STR_NO"]
 		]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-private _allowed = if ((_dialogResult select 0) == 0) then {true} else {false};
+private _allowed = (_dialogResult select 0) == 0;
 
 if (isNull (_objects select 0)) then
 {
@@ -39,6 +39,5 @@ if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares
 		_object setVariable ["enabledSimulation",_allowed,true];
 	};
 } forEach _objects;
-
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
