@@ -7,10 +7,5 @@ params ["_dikKey"];
 
 private _index = DIK_LETTERS find _dikKey;
 
-if (_index == -1) then
-{
-	""
-} else
-{
-	STR_LETTERS select _index
-};
+if (_index == -1) exitWith {""};
+STR_LETTERS select _index

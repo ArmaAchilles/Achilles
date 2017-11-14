@@ -45,7 +45,7 @@ private _AllTurretAmmoPercentages = [];
 		if (_index != -1) then
 		{
 			_TurretAmmoPercentages pushBack ((_AllTurretCurrentMagazinesAmmoCount select _index) / _CfgAmmoCount);
-			
+
 			// remove the counted magazine from the list
 			_AllTurretCurrentMagazinesClassName deleteAt _index;
 			_AllTurretCurrentMagazinesAmmoCount deleteAt _index;
@@ -59,7 +59,7 @@ private _AllTurretAmmoPercentages = [];
 	{
 		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call Achilles_fnc_arrayMean);
 	};
-	
+
 } forEach _turretsCfg;
 
 // handle dynamic loadout
@@ -85,10 +85,8 @@ if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "Tra
 
 
 // return the overall mean of all percentages
-if (count _AllTurretAmmoPercentages != 0) then
+if (count _AllTurretAmmoPercentages != 0) exitWith
 {
-	(_AllTurretAmmoPercentages call Achilles_fnc_arrayMean);
-} else
-{
-	0;
+	_AllTurretAmmoPercentages call Achilles_fnc_arrayMean
 };
+0

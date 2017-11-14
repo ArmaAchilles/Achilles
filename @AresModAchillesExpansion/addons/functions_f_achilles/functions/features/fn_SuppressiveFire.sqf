@@ -38,7 +38,7 @@ if (_current_wp_id < _waypoint_count) then
 {
 	for "_i" from (_waypoint_count - 1) to 1 step -1 do
 	{
-		_waypoints pushBack 
+		_waypoints pushBack
 		[
 			waypointPosition [_old_group, _i],
 			waypointType [_old_group, _i],
@@ -85,7 +85,7 @@ private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], 
 _placeholder setPos [0,0,0];
 
 {
-	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder] spawn 
+	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder] spawn
 	{
 		params
 		[
@@ -98,32 +98,32 @@ _placeholder setPos [0,0,0];
 			"_placeholder"
 		];
 		_unit = gunner _unit;
-		
+
 		// cease fire if group mate is too close to line of fire
-		if (not ([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
-		
+		if (!([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
+
 		private _old_group = group _placeholder;
 		private _aiming = _unit skill "aimingAccuracy";
 		_unit setSkill ["aimingAccuracy", 0.2];
 		_unit setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
-		
+
 		// get fire mode parameters
 		private _params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
 		_params params ["_fireRepeater", "_ceaseFireTime"];
-		
+
 		private _new_group = createGroup (side _unit);
 		[_unit] join _new_group;
 		_new_group setBehaviour "COMBAT";
-		
+
 		_unit doWatch objNull;
 		_unit doWatch _target;
 		_unit doTarget _target;
 		_unit doTarget _target;
-		
+
 		//ensure asynchronous fire within a group
 		sleep (random [2,3,4]);
-		
-		if ((vehicle _unit) isEqualTo _unit) then
+
+		if (isNull objectParent _unit) then
 		{
 			(weaponState _unit) params ["_muzzle", "_mode"];
 			for "_" from 1 to _duration do
@@ -140,7 +140,7 @@ _placeholder setPos [0,0,0];
 		} else
 		{
 			private _vehicle = vehicle _unit;
-			if (_unit == gunner _vehicle) then 
+			if (_unit == gunner _vehicle) then
 			{
 				private _turrets_path = (assignedVehicleRole _unit) select 1;
 				private _muzzle = weaponState [_vehicle, _turrets_path] select 1;
@@ -166,11 +166,11 @@ _placeholder setPos [0,0,0];
 } forEach _units;
 
 //clean up
-sleep _duration + 5;
+sleep (_duration + 5);
 deleteVehicle _selectedTarget;
 if (!isNull _old_group) then {_old_group setFormation _oldFormation};
-[] spawn {{if (count units _x == 0) then {deleteGroup _x}} forEach allGroups};
-if (count _waypoints > 0 and (not isNull _old_group)) then
+[] spawn {{deleteGroup _x} forEach (allGroups select {units _x isEqualTo []})};
+if (count _waypoints > 0 and !(isNull _old_group)) then
 {
 	reverse _waypoints;
 	{

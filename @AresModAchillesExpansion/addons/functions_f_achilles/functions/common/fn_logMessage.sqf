@@ -14,7 +14,7 @@
 
 params [["_message", "No Message", []], ["_fileName", "N/A", []]];
 
-if (not (isNil "Achilles_Debug_Output_Enabled")) then
+if (!(isNil "Achilles_Debug_Output_Enabled")) then
 {
 	if (Achilles_Debug_Output_Enabled) then
 	{

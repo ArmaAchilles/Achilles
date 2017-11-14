@@ -41,8 +41,6 @@ switch (_explosionSize) do
 	};
 };
 
-private _targetUnits = _spawnPos nearObjects _hitRadius;
-
 {
 	_random = random 10;
 	if(_x isKindOf "Man") then
@@ -77,4 +75,4 @@ private _targetUnits = _spawnPos nearObjects _hitRadius;
 			_x setdamage 1;
 		};
 	};
-} forEach _targetUnits;
+} forEach _spawnPos nearObjects _hitRadius;

@@ -7,13 +7,13 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private ["_buildings","_mode","_group_logic"];
+private ["_buildings","_group_logic"];
 
 private _center_pos = position _logic;
 
 // if (not isMultiplayer) exitWith {[localize "STR_MODULE_DOES_NOT_SUPPORT_SP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_LOCK_DOORS",
 	[
@@ -24,22 +24,22 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 switch (_dialogResult select 0) do
 {
-	case 0:	
+	case 0:
 	{
 		_buildings = nearestObjects [_center_pos, ["Building"], 50, true];
 		_buildings resize 1;
 	};
-	case 1: 
+	case 1:
 	{
 		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 1), true];
 	};
 };
 
-_mode = _dialogResult select 2;
+private _mode = _dialogResult select 2;
 private _logic_list = [];
 private _sourceObject_list = [];
 
@@ -49,7 +49,7 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 	publicVariable "Achilles_var_breachableDoors";
 	publicVariable "Achilles_fnc_breachStun";
 	publicVariable "Achilles_fnc_addBreachDoorAction";
-	
+
 	[[],
 	{
 		while {isNull player} do {uiSleep 1};
@@ -79,15 +79,15 @@ if (_mode < 2) then
 
 			// remove old logic
 			private _close_logics = _trigger_pos nearObjects ["module_f", 1];
-			if(count _close_logics > 0) then 
+			if(count _close_logics > 0) then
 			{
 				private _logic = _close_logics select 0;
 				{deleteVehicle _x} forEach (attachedObjects _logic);
 				deleteVehicle _logic;
 			};
-			
+
 			private _lock_var = "bis_disabled_" + _door_name;
-		
+
 			if (_mode == 2) then
 			{
 				// open door
@@ -98,19 +98,19 @@ if (_mode < 2) then
 				// close and lock door
 				_building animateSource [_source, 0, true];
 				_building setVariable [_lock_var, 1, true];
-				
+
 				// add door control logic
 				private _logic = _group_logic createUnit ["module_f", _trigger_pos, [], 0, "CAN_COLLIDE"];
 				_logic setVariable ["lock_params", [_building, _lock_var, _trigger_pos, _source], true];
 				_logic_list pushBack _logic;
-				
+
 				if (_mode == 1) then
 				{
 					private _sourceObject = "Land_ClutterCutter_small_F" createVehicle [0,0,0];
 					_sourceObject attachTo [_logic, [0,0,0]];
 					_sourceObject_list pushBack _sourceObject;
 					Achilles_var_breachableDoors pushBack _sourceObject;
-					[_sourceObject, ["Deleted", 
+					[_sourceObject, ["Deleted",
 					{
 						_sourceObject = _this select 0;
 						{deleteVehicle _x} forEach (attachedObjects _sourceObject);
@@ -123,14 +123,14 @@ if (_mode < 2) then
 	} forEach _source_cfg;
 } forEach _buildings;
 
-if (_mode < 2) then 
+if (_mode < 2) then
 {
 	private _allocation_error_cases = 0;
 	// critical delay for proper name setting of game logics
 	waitUntil {sleep 0.5; {name _x != "" and {not isNull _x}} count _logic_list == 0};
-	
+
 	{
-		if (not isNull _x) then
+		if (!isNull _x) then
 		{
 			[_x, "Hodor"] remoteExecCall ["setName", 0, _x];
 		} else
@@ -143,9 +143,9 @@ if (_mode < 2) then
 			};
 		};
 	} forEach _logic_list;
-	
+
 	if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
-	
+
 	[_logic_list + _sourceObject_list, true] call Ares_fnc_AddUnitsToCurator;
 	if (_mode == 1) then {publicVariable "Achilles_var_breachableDoors"};
 };

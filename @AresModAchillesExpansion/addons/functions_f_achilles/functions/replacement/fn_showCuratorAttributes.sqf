@@ -14,26 +14,26 @@
 //#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 // handle double click as remote control / switch unit instead
-if(not isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])) exitWith {};
+if(!isNull (missionNamespace getVariable ["bis_fnc_moduleRemoteControl_unit", objNull])) exitWith {};
 
 private _entity = [_this] param [0,objnull,[objnull,grpnull,[],""]];
 private _curator = getAssignedCuratorLogic player;
 private _isPlayer = false;
 private _curatorInfoType = switch (typename _entity) do {
-	case (typename objnull): {
+	case "OBJECT": {
 		_isPlayer = isplayer _entity && isnil {_curator getvariable "BIS_fnc_curatorAttributesPlayer"};
 		private _infoTypeClass = if (isnull group _entity && side _entity != sidelogic) then {"curatorInfoTypeEmpty"} else {"curatorInfoType"};
 		gettext (configfile >> "cfgvehicles" >> typeof _entity >> _infoTypeClass)
 	};
-	case (typename grpnull): {
+	case "GROUP": {
 		//_isPlayer = {isplayer _x} count units _entity > 0;
 		_isPlayer = isplayer (leader _entity);
 		gettext (configfile >> "cfgcurator" >> "groupInfoType")
 	};
-	case (typename []): {
+	case "ARRAY": {
 		gettext (configfile >> "cfgcurator" >> "waypointInfoType")
 	};
-	case (typename ""): {
+	case "STRING": {
 		gettext (configfile >> "cfgcurator" >> "markerInfoType")
 	};
 	default {""};

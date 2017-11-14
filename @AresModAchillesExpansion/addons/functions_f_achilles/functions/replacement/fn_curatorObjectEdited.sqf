@@ -11,13 +11,13 @@
 
 	Returns:
 	BOOL
-*/[42,_this] call bis_fnc_log;
+*/
+[42,_this] call bis_fnc_log;
 
 #define EHVAR	"BIS_fnc_curatorObjectEdited_eh"
 #define PARAVAR	"BIS_fnc_curatorObjectEdited_para"
 
-_curator = _this param [0,objnull,[objnull]];
-_object = _this param [1,objnull,[objnull]];
+params [["_curator", objNull, [objNull]], ["_object", objNull, [objNull]]];
 _para = objnull;
 
 _object call bis_fnc_curatorAttachObject;

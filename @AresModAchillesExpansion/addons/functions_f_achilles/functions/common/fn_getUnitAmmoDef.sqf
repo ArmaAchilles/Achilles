@@ -53,7 +53,7 @@ private _percentages = [];
 	if (_index != -1) then
 	{
 		_percentages pushBack ((_currentMagazinesAmmoCount select _index) / _CfgAmmoCount);
-		
+
 		// remove the counted magazine from the list
 		_currentMagazinesClassName deleteAt _index;
 		_currentMagazinesAmmoCount deleteAt _index;
@@ -64,10 +64,8 @@ private _percentages = [];
 } forEach _MagazinesClassName;
 
 // return the mean of all percentages
-if (count _percentages != 0) then
+if (count _percentages != 0) exitWith
 {
-	(_percentages call Achilles_fnc_arrayMean);
-} else
-{
-	0;
+    _percentages call Achilles_fnc_arrayMean
 };
+0

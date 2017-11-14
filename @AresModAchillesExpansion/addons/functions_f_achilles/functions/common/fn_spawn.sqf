@@ -2,7 +2,7 @@
 //	AUTHOR:			Kex
 //	DATE: 			7/22/17
 //	VERSION: 		AMAE001
-//	DESCRIPTION:	Spawns given code 
+//	DESCRIPTION:	Spawns given code
 //					If target is a remote machine, the code is remote executed, but only Zeus players are allowed to make use of it
 //					If target is the local machine (default), then the code is directly executed (unlike remoteExec)
 //
@@ -16,11 +16,9 @@
 //	Example:		[[_message], {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, grpNull]], ["_jip", false, [false, "", objNull]]];
+
 private _jip_id = "";
-private _args = param [0];
-private _code = param [1, {}, [{}]];
-private _target = param [2, clientOwner, [0,[],objNull,grpNull]];
-private _jip = param [3, false, [false,"",objNull]];
 
 if((typeName _target == typeName 0 and {_target == clientOwner}) or {typeName _target in [typeName grpNull, typeName objNull] and {local _target}}) then
 {

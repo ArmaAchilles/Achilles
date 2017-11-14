@@ -21,16 +21,16 @@ private _mode = if (!isNull _unit) then {"single"} else {"multiple"};
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
 	// ACE Injury System
-	
+
 	//Broadcast set injury function
 	if (isNil "Achilles_var_setInjury_init_done") then
 	{
 		publicVariable "Achilles_fnc_setACEInjury";
 		Achilles_var_setInjury_init_done = true;
 	};
-	
+
 	private _severity_options = [localize "STR_NONE_INJURY", localize "STR_RANDOM", localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
-	
+
 	private _dialogResult =
 	[
 		localize "STR_ACE_INJURY",
@@ -50,10 +50,10 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	] call Achilles_fnc_ShowChooseDialog;
 
 	// handle escape dialog
-	if (count _dialogResult == 0) exitWith {};
+	if (_dialogResult isEqualTo []) exitWith {};
 
 	_injury_value_list = [];
-	
+
 	private _injury_type = INJURY_TYPES select (_dialogResult select 0);
 	// get injuries
 	for "_i" from 1 to 6 do
@@ -102,16 +102,16 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 } else
 {
 	// Vanilla Injury System
-	
+
 	//Broadcast set injury function
 	if (isNil "Achilles_var_setInjury_init_done") then
 	{
 		publicVariable "Achilles_fnc_setVanillaInjury";
 		Achilles_var_setInjury_init_done = true;
 	};
-	
+
 	private _severity_options = [[localize "STR_NONE_INJURY", "(0)"], localize "STR_RANDOM", [localize "STR_MODERATE_INJURY", "(0.5)"], [localize "STR_SEVERE", "(0.9)"]];
-	
+
 	private _dialogResult =
 	[
 		localize "STR_INJURY_WITHOUT_ACE",
@@ -122,10 +122,10 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 			["COMBOBOX", localize "STR_LEGS",_severity_options]
 		]
 	] call Achilles_fnc_ShowChooseDialog;
-	
+
 	// handle escape dialog
-	if (count _dialogResult == 0) exitWith {};
-	
+	if (_dialogResult isEqualTo []) exitWith {};
+
 	if (_mode == "single") then
 	{
 		[localize "STR_HEALTH_CHANGED"] call Ares_fnc_ShowZeusMessage;
@@ -134,11 +134,11 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	{
 		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
 	};
-	
+
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (count _selected_units == 0) exitWith {};
-	
+	if (_selected_units isEqualTo []) exitWith {};
+
 	// get dialog results
 	_injury_value_list = [];
 	{
@@ -151,7 +151,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		};
 		_injury_value_list pushBack _value;
 	} forEach _dialogResult;
-	
+
 	// get and set hits
 	{
 		_unit = _x;

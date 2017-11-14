@@ -18,16 +18,7 @@
   Returns:
     Nothing
 */
-
-private _object = _this select 0;
-private _explosionSize = _this select 1;
-private _explosionEffect = _this select 2;
-private _activationDistance = _this select 3;
-private _activationSide = _this select 4;
-private _activationType = _this select 5;
-private _isJammable = _this select 6;
-private _disarmTime = _this select 7;
-private _canBeDefused = _this select 8;
+params ["_object", "_explosionSize", "_explosionEffect", "_activationDistance", "_activationSide", "_activationType", "_isJammable", "_disarmTime", "_canBeDefused"];
 
 _activationDistance = parseNumber _activationDistance;
 _disarmTime = parseNumber _disarmTime;
@@ -40,7 +31,7 @@ _activationSide = switch (_activationSide) do
   default {[west]};
 };
 
-if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide];};
+if (_activationSide isEqualType sideLogic) then {_activationSide = [_activationSide];};
 
 private _dummyObject = "Land_HelipadEmpty_F" createVehicle (getPosATL _object);
 _dummyObject attachTo [_object,[0,0,0]];

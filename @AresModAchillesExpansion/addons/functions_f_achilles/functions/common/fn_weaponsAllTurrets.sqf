@@ -15,17 +15,12 @@
 //	_weapons = [_vehicle] call Achilles_fnc_weaponsAllTurrets;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+params [["_vehicle", objNull, [objNull]], ["_non_empty_only", false, [false]]];
 private ["_path","_weapon","_cfgMagazines"];
 private _vehicle = param [0, objNull, [objNull]];
 private _non_empty_only = param [1, false, [false]];
 private _weapons = [];
-private _magazinesAllTurrets = [];
-{
-	if (_x select 2 > 0) then
-	{
-		_magazinesAllTurrets pushBack (_x select 0);
-	};
-} forEach (magazinesAllTurrets _vehicle);
+private _magazinesAllTurrets = ((magazinesAllTurrets _vehicle) select {x select 2 > 0}) apply {_x select 0};
 
 {
 	_path = _x;
@@ -35,7 +30,7 @@ private _magazinesAllTurrets = [];
 		{
 			_cfgMagazines = getArray (configfile >> "CfgWeapons" >> _weapon >> "magazines");
 			{
-				if (_x in _cfgMagazines) exitWith 
+				if (_x in _cfgMagazines) exitWith
 				{
 					_weapons pushBack _weapon;
 				};

@@ -17,12 +17,12 @@
 
 private _object_list = param [0,[],[[]]];
 
-if (count _object_list == 0) exitWith {};
+if (_object_list isEqualTo 0) exitWith {};
 
 {
 	private _center_object = _x;
 	private _group_attributes = _center_object getVariable ["Achilles_var_groupAttributes",nil];
-	if (not isNil "_group_attributes") then
+	if (!(isNil "_group_attributes")) then
 	{
 		private _objects = _group_attributes apply
 		{

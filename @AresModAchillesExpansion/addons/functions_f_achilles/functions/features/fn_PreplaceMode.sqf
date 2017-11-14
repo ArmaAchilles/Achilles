@@ -23,10 +23,10 @@ if (isNull _entity) exitWith {};
 // exit with previous called preplace mode was not yet completed
 if (count (missionNamespace getVariable ["Achilles_var_preplaceModeObjects",[]]) > 0) exitWith {};
 
-if (typeName _entity == typeName grpNull) then 
+if (_entity isEqualType grpNull) then
 {
 	_objects_list = units _entity;
-} else 
+} else
 {
 	_objects_list = [_entity];
 };
@@ -37,7 +37,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	params ["_objects_list"];
 	{
 		_x enableSimulation false;
-		if (vehicle _x == _x) then 
+		if (isNull objectParent _x) then
 		{
 			private _pos = position _x;
 			_pos set [2,0];
@@ -66,7 +66,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	_ctrlMessage ctrlcommit 0.1;
 
 	// Add key event handler
-	private _handler_id = _display displayAddEventHandler ["KeyDown", 
+	private _handler_id = _display displayAddEventHandler ["KeyDown",
 	{
 		private _key = _this select 1;
 		if (_key == 28) then {Achilles_var_submit_selection = true; true} else {false};
@@ -80,9 +80,9 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	_display displayRemoveEventHandler ["KeyDown", _handler_id];
 	_ctrlMessage ctrlsetfade 1;
 	_ctrlMessage ctrlcommit 0.5;
-	
+
 	// if objects were deleted
-	if ({!isNull _x} count _objects_list == 0) exitWith 
+	if ({!isNull _x} count _objects_list == 0) exitWith
 	{
 		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";
@@ -90,7 +90,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	};
 
 	// if escape was pressed
-	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith 
+	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith
 	{
 		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";

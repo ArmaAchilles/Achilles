@@ -29,7 +29,7 @@ _fullVersion = missionnamespace getvariable ["BIS_fnc_arsenal_fullGarage",false]
 		IDC_RSCDISPLAYGARAGE_TAB_SUBANIMATION,\
 		IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE
 
-	#define IDCS_RIGHT	
+	#define IDCS_RIGHT
 	#define INITTYPES
 
 	#define IDCS	[IDCS_LEFT]
@@ -165,11 +165,11 @@ switch _mode do {
 		with missionnamespace do {
 			[missionnamespace,"garageClosed",[displaynull,uinamespace getvariable ["BIS_fnc_arsenal_toggleSpace",false]]] call bis_fnc_callscriptedeventhandler;
 		};
-		
+
 		if (!isNil "_isAchilles") then
 		{
 			_template_unit = (missionnamespace getvariable ["BIS_fnc_arsenal_center",player]);
-			_template_type = typeOf _template_unit;		
+			_template_type = typeOf _template_unit;
 			_anim_cfgs = [configFile >> "cfgVehicles" >> _template_type >> "AnimationSources"] call bis_fnc_returnChildren;
 			_anims = [];
 			{
@@ -181,14 +181,14 @@ switch _mode do {
 			_curatorSelected = (["vehicle"] call Achilles_fnc_getCuratorSelected);
 			{
 				_vehicle = _x;
-				if (_template_type == typeof _vehicle) then //--- Change only objects of the same type 
+				if (_template_type == typeof _vehicle) then //--- Change only objects of the same type
 				{
 					{_vehicle animate _x} forEach _anims;
 					{_vehicle setObjectTextureGlobal [_foreachindex, _x]} forEach _textures;
 				};
 			} foreach _curatorSelected;
 		};
-		
+
 		"Exit" call bis_fnc_arsenal;
 	};
 
@@ -208,7 +208,7 @@ switch _mode do {
 					_configName = configname _x;
 					_displayName = gettext (_x >> "displayName");
 					_factions = getarray (_x >> "factions");
-					if (count _factions == 0) then {_factions = [_centerFaction];};
+					if (_factions isEqualTo []) then {_factions = [_centerFaction];};
 					if (
 						_displayName != ""
 						&&
@@ -935,7 +935,7 @@ switch _mode do {
 			_value = abs (_ctrlListCrew lbvalue _i);
 			_locked = false;
 			_unit = objnull;
-			
+
 			//--- ToDo: lockCargoAnimationPhase
 			switch (tolower _role) do {
 				case "cargo": {
@@ -947,7 +947,7 @@ switch _mode do {
 				case "gunner";
 				case "commander";
 				case "turret": {
-					_turretPath = BIS_fnc_garage_turretPaths select _roleIndex; 
+					_turretPath = BIS_fnc_garage_turretPaths select _roleIndex;
 					_unit = _center turretunit _turretPath;
 					_locked = _center lockedturret _turretPath;
 					if (_locked) then {_lockedIndexes pushback _turretPath;};
@@ -1187,7 +1187,7 @@ switch _mode do {
 			{
 				[_center,_textures,_animations] remoteExecCall ["bis_fnc_initVehicle",_center];
 			};
-			
+
 			if !(is3DEN or {!isNil "_isAchilles"}) then {
 				{_center deletevehiclecrew _x;} foreach (crew _center);
 				[_center,_crew] call bis_fnc_initVehicleCrew;
@@ -1264,7 +1264,7 @@ switch _mode do {
 			//--- Select random texture
 			_ctrlList = _display displayctrl (IDC_RSCDISPLAYARSENAL_LIST + IDC_RSCDISPLAYGARAGE_TAB_SUBTEXTURE);
 			_ctrlList lbsetcursel floor random (lbsize _ctrlList);
-			
+
 		} else {
 			//--- Select random vehicle type
 			{

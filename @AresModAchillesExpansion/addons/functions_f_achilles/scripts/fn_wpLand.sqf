@@ -13,11 +13,8 @@
 	BOOL
 */
 
-private ["_group","_pos","_target","_wp"];
-_group = _this param [0,grpnull,[grpnull]];
-_pos = _this param [1,[],[[]],3];
-_target = _this param [2,objnull,[objnull]];
-_wp = [_group,currentwaypoint _group];
+params [["_group", grpNull, [grpNull]], ["_pos", [], [[]], 3], ["_target", objNull, [objNull]]];
+private _wp = [_group,currentwaypoint _group];
 _wp setwaypointdescription localize "STR_A3_CfgWaypoints_Land";
 
 private ["_vehsMove","_vehsLand"];
@@ -31,7 +28,7 @@ _group setVariable ["Achilles_WP_LZobject", _lz];
 // Kex: prevent pilot from being stupid
 _group allowFleeing 0;
 
-waituntil 
+waituntil
 {
 	private ["_countReady","_vehsGroup"];
 	_countReady = 0;
@@ -46,11 +43,11 @@ waituntil
 
 				//--- Move to landing position
 				_veh domove _pos;
-				
+
 				// Kex: prevent pilot from being stupid
 				private _pilot = driver _veh;
 				_pilot setSkill 1;
-				
+
 				_vehsMove set [count _vehsMove,_veh];
 			} else {
 				if !(istouchingground _veh) then {
@@ -69,7 +66,7 @@ waituntil
 			_vehsGroup set [count _vehsGroup,_veh];
 		};
 	} foreach units _group;
-	
+
 	// adjust LZ position
 	_lz setPos (waypointPosition _wp);
 

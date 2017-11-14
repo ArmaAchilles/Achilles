@@ -13,9 +13,9 @@
 
 private _error = "";
 private _unit = effectiveCommander (param [0]);
-if (not (side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
+if (!(side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 if (isPlayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
-if (not alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
+if (!alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
 if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "STR_ERROR_UNIT_IS_UNCONSCIOUS";};
 if (isNull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorNull";};
 if (isUAVConnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
@@ -46,13 +46,13 @@ private _addActionID = _unit addAction ["Release UAV controls",
 }, nil, 0, false];
 _unit setVariable ["Achilles_var_switchUnit_addAction", _addActionID];
 
-private _eh_id = _unit addEventHandler ["HandleDamage", 
+private _eh_id = _unit addEventHandler ["HandleDamage",
 {
 	params ["_unit", "_selection", "_handler"];
 	
 	if (_handler >= 0.999) then
 	{
-		if (_selection in ["","body","head"]) then 
+		if (_selection in ["","body","head"]) then
 		{
 			[] call Achilles_fnc_switchUnit_exit;
 		};

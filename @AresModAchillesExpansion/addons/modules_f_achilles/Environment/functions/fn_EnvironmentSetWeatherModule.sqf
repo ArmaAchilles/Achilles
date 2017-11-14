@@ -2,7 +2,7 @@
 #define SHARP_DECAY_VALUE 1
 #define SMOOTH_DECAY_VALUE 0.01
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_ADVANCED_WEATHER_CHANGE",
 	[
@@ -20,7 +20,7 @@ private _dialogResult =
 	]
 ] call Achilles_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params ["_rendered", "_cloudSetting", "_rainSetting", "_lightningSetting", "_rainbowSetting", "_windForce", "_windDirection", "_wavesSetting", "_fogSetting", "_fogDecaySetting", "_fogBaseSetting"];
 _windDirection = _windDirection * 45;
@@ -56,11 +56,11 @@ if (isNil "Ares_fnc_Weather_Function") then
 		_delay setRain (_settings select 2);
 		0 setLightnings (_settings select 4);
 		_delay setFog (_settings select 7);
-		
+
 		0 setRainbow (_settings select 3);
 		setWind (_settings select 5);
 		_delay setWaves (_settings select 6);
-		
+
 		if ((_settings select 0) == 0) then {forceWeatherChange;};
 	};
 	publicVariable "Ares_fnc_Change_Weather_Function";

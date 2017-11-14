@@ -17,5 +17,4 @@
 
 private _input_config = _this;
 private _hierarchy = configHierarchy _input_config;
-private _output_config = _hierarchy select ((count _hierarchy) - 2);
-_output_config;
+_hierarchy select ((count _hierarchy) - 2)
