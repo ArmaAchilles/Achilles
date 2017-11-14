@@ -10,4 +10,5 @@ class Achilles_Objects_Function_Base
 	class ObjectsAddECM {};
 	class ObjectsIED {};
 	class ObjectsRotation {};
+	class ObjectsHide {};
 };

@@ -81,3 +81,11 @@ class Achilles_Module_Rotation : Achilles_Objects_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
+class Achilles_Hide_Objects_Module : Achilles_Objects_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_HIDE_OBJECTS";
+	function = "Achilles_fnc_ObjectsHide";
+	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+};

@@ -954,6 +954,14 @@
         <Original>%1 Axis</Original>
         <English>%1 Axis</English>
       </Key>
+      <Key ID="STR_HIDE_OBJECTS">
+        <Original>Hide Objects</Original>
+        <English>Hide Objects</English>
+      </Key>
+      <Key ID="STR_IS_OBJECT_HIDDEN">
+        <Original>Is Object Hidden</Original>
+        <English>Is Object Hidden</English>
+      </Key>
       <Key ID="STR_UNITS_NOT_ALLOWED">
         <Original>Units are not allowed!</Original>
         <English>Units are not allowed!</English>
