@@ -16,7 +16,7 @@
 private _player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // mission designer can disallow usage of execute code module, but it will still be available for logged-in admins
-if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
+if (!(missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and !(serverCommandAvailable "#kick")) exitWith
 {
 	["This module has been disabled by the mission creator."] call Ares_fnc_ShowZeusMessage;
 };
@@ -28,7 +28,7 @@ if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_AL
 [[_player, getPos _player],
 {
   params ["_player", "_playerPos"];
-  
+
   private _moderatorModule = (createGroup sideLogic) createUnit ["ModuleCurator_F", _playerPos, [], 0, ""];
   _player assignCurator _moderatorModule;
   _player setVariable ["Achilles_var_promoZeusModule", _moderatorModule, true];
@@ -37,12 +37,12 @@ if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_AL
 ["You are now a Curator!"] remoteExecCall ["hint", _player];
 
 // Loose curator rights if killed
-private _eh_id = _player addEventHandler ["killed", 
+private _eh_id = _player addEventHandler ["killed",
 {
 	params ["_unit"];
-	
+
 	private _module =  _unit getVariable ["Achilles_var_promoZeusModule", objNull];
-	if (not isNull _module) then {(group _module) deleteGroupWhenEmpty true; deleteVehicle _module};
+	if (!isNull _module) then {(group _module) deleteGroupWhenEmpty true; deleteVehicle _module};
 	_unit removeEventHandler ["killed", _unit getVariable "Achilles_var_promoZeusModuleEHID"];
 	["You lost your Curator rights!"] remoteExecCall ["hint", _unit];
 }];

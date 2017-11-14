@@ -10,7 +10,7 @@ if (_showTeleportMessage) then
 	[{ if (player in Ares_playersToShowMessageTo) then { titleText [localize "STR_YOU_ARE_BEING_TELEPORTED", "BLACK", 1]; sleep 1; titleFadeOut 2; };}, "BIS_fnc_spawn"] call BIS_fnc_MP;
 };
 
-while {count _playersToTeleport != 0} do
+while {!(_playersToTeleport isEqualto [])} do
 {
 	if (_includeVehicles) then
 	{
@@ -19,8 +19,8 @@ while {count _playersToTeleport != 0} do
 	{
 		_unit_to_tp = _playersToTeleport select 0
 	};
-	
-	[_unit_to_tp, _teleportLocation, _showTeleportMessage] spawn 
+
+	[_unit_to_tp, _teleportLocation, _showTeleportMessage] spawn
 	{
 		private _unit = _this select 0;
 		_teleportLocation = _this select 1;
@@ -32,14 +32,14 @@ while {count _playersToTeleport != 0} do
 
 		_unit setVehiclePosition [_teleportLocation, [], 0, "FORM"];
 	};
-	
+
 	if (_includeVehicles) then
-	{	
+	{
 		_playersToTeleport = _playersToTeleport - crew _unit_to_tp;
 	} else
 	{
 		_playersToTeleport = _playersToTeleport - [_unit_to_tp];
 	};
-	
+
 	sleep 0.01;
 };

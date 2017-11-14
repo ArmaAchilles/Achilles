@@ -5,7 +5,7 @@ if (count _this > 1) then
 	_message = format _this;
 };
 
-if (not (isNil "Ares_Debug_Output_Enabled")) then
+if !(isNil "Ares_Debug_Output_Enabled") then
 {
 	if (Ares_Debug_Output_Enabled) then
 	{

@@ -8,7 +8,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_HIDE_ZEUS",
 	[
@@ -18,14 +18,13 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 private _invisible = (_dialogResult select 0) == 0;
 private _display_text = [localize "STR_ZEUS_IS_NOW_VISIBLE", localize "STR_ZEUS_IS_NOW_HIDDEN"] select _invisible;
 
 private _curatorLogic = getAssignedCuratorLogic player;
-
-if (_invisible and not (isObjectHidden player)) then 
+if (_invisible and !(isObjectHidden player)) then
 {
 	[player, true] remoteExec ["hideObjectGlobal",2];
 	player allowDamage false;
@@ -35,7 +34,7 @@ if (_invisible and not (isObjectHidden player)) then
 }
 else
 {
-	if (not _invisible and (isObjectHidden player)) then
+	if (!_invisible and (isObjectHidden player)) then
 	{
 		[player, false] remoteExec ["hideObjectGlobal",2];
 		player allowDamage true;

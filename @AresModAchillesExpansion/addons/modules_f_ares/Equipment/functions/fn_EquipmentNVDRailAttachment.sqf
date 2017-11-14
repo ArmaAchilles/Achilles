@@ -17,7 +17,7 @@ if (isNull _unitUnderCursor) then
 	// select players
 	private _dialogResult = [
 		localize "STR_NVD_TACLIGHT_IR",
-		[ 
+		[
 			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
 			[localize "STR_SIDE","SIDE"],
 			[localize "STR_NVD",[localize "STR_UNCHANGED",localize "STR_NVD",localize "STR_THERMALS",localize "STR_NONE_EQUIPMENT"]],
@@ -25,33 +25,33 @@ if (isNull _unitUnderCursor) then
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectAIUnits"
 	] call Ares_fnc_ShowChooseDialog;
-	
-	if (count _dialogResult == 0) exitWith {};
-	
+
+	if (_dialogResult isEqualto []) exitWith {};
+
 	_units = switch (_dialogResult select 0) do
 	{
 		case 0:
 		{
 			allUnits select {alive _x};
 		};
-		case 1: 
+		case 1:
 		{
 			private _selection = [toLower localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
-		case 2: 
+		case 2:
 		{
 			private _side_index = _dialogResult select 1;
 			private _side = [east,west,independent,civilian] select (_side_index - 1);
 			allUnits select {(alive _x) and (side _x == _side)};
 		};
 	};
-	
+
 	if (isNil "_units") exitWith {};
-	if (count _units == 0) exitWith 
+	if (_units isEqualTo []) exitWith
 	{
-		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; 
+		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";
 	};
 	_NVD = _dialogResult select 2;
@@ -59,7 +59,7 @@ if (isNull _unitUnderCursor) then
 }
 else
 {
-	private _dialogResult = 
+	private _dialogResult =
 	[
 		localize "STR_NVD_TACLIGHT_IR",
 		[
@@ -68,9 +68,9 @@ else
 			[localize "STR_TACLIGHT_IR",[localize "STR_UNCHANGED",localize "STR_NONE_EQUIPMENT",localize "STR_TAC_LIGHT",localize "STR_IR_LASER_POINTER"]]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-	
-	if (count _dialogResult == 0) exitWith {};
-	
+
+	if (_dialogResult isEqualTo []) exitWith {};
+
 		switch (_dialogResult select 0) do
 		{
 			case 0:
@@ -135,7 +135,7 @@ if (isNil "_units") exitWith {};
 	};
 	if (_TacLight_IR > 0) then
 	{
-		switch (_TacLight_IR) do 
+		switch (_TacLight_IR) do
 		{
 			case 1:
 			{

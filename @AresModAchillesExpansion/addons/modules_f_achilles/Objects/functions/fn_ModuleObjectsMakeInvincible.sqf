@@ -10,7 +10,7 @@
 private _objects = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 _objects = [_objects];
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_MAKE_INVINCIBLE",
 	[
@@ -19,7 +19,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params ["_allowDamage", "_includeCrew"];
 _allowDamage = _allowDamage == 1;
@@ -30,7 +30,7 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};;
+if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};;
 
 {
 	private _object = _x;
@@ -46,7 +46,7 @@ if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares
 		[_object,_allowDamage] remoteExecCall ["allowDamage",_object];
 		if (_includeCrew) then
 		{
-			{[_x,_allowDamage] remoteExecCall ["allowDamage",_x]} forEach crew _object;
+			[_x,_allowDamage] remoteExecCall ["allowDamage",crew _object];
 		};
 	};
 } forEach _objects;

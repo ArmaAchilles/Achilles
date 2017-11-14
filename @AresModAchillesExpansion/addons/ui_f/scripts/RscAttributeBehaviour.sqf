@@ -5,7 +5,7 @@ _mode = _this select 0;
 _params = _this select 1;
 _entity = _this select 2;
 
-_idcs = 
+_idcs =
 [
 	IDC_RSCATTRIBUTEBEHAVIOUR_CARELESS,
 	IDC_RSCATTRIBUTEBEHAVIOUR_SAFE,
@@ -14,7 +14,7 @@ _idcs =
 	IDC_RSCATTRIBUTEBEHAVIOUR_STEALTH,
 	IDC_RSCATTRIBUTEBEHAVIOUR_DEFAULT
 ];
-_states = 
+_states =
 [
 	"CARELESS",
 	"SAFE",
@@ -23,7 +23,7 @@ _states =
 	"STEALTH",
 	"UNCHANGED"
 ];
-_colors = 
+_colors =
 
 [
 	[1,1,1,1],
@@ -48,7 +48,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current state
-		_selected = if (typename _entity == typename []) then {
+		_selected = if (_entity isEqualType []) then {
 			waypointbehaviour _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTEBEHAVIOUR_DEFAULT) ctrlshow false;
@@ -82,15 +82,15 @@ switch _mode do {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeBehaviour_selected",0];
 		_selected = _states select _selectedIndex;
-		
-		if (typename _entity == typename []) then 
+
+		if (_entity isEqualType []) then
 		{
 			if (waypointbehaviour _entity == _selected) exitWith {};
 			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
 				_group = _x select 0;
 				_wp_id = _x select 1;
-				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then
 				{
 					if (local _group) then
 					{
@@ -102,7 +102,7 @@ switch _mode do {
 				};
 				_x setwaypointbehaviour _selected;
 			} forEach _curatorSelectedWPs;
-		} else 
+		} else
 		{
 			if (behaviour leader _entity == _selected) exitWith {};
 			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;

@@ -11,8 +11,8 @@
 private _tp_pos = position _logic;
 
 private _dialogResult = [
-	localize "STR_TELEPORT", 
-	[ 
+	localize "STR_TELEPORT",
+	[
 		[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
 		["", ["..."]],
 		[localize "STR_SIDE","ALLSIDE"],
@@ -21,7 +21,7 @@ private _dialogResult = [
 	"Achilles_fnc_RscDisplayAttributes_selectPlayers"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 private _playersToTeleport = switch (_dialogResult select 0) do
 {
@@ -29,17 +29,17 @@ private _playersToTeleport = switch (_dialogResult select 0) do
 	{
 		[player];
 	};
-	case 1: 
+	case 1:
 	{
 		allPlayers select {alive _x};
 	};
-	case 2: 
+	case 2:
 	{
 		private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
 		if (isNil "_selection") exitWith {nil};
 		_selection select {isPlayer _x};
 	};
-	case 3: 
+	case 3:
 	{
 		private _side_index = _dialogResult select 2;
 		if (_side_index == 0) exitWith {[player]};
@@ -58,9 +58,9 @@ private _playersToTeleport = switch (_dialogResult select 0) do
 sleep 1;
 
 if (isNil "_playersToTeleport") exitWith {};
-if (count _playersToTeleport == 0) exitWith 
+if (_playersToTeleport isEqualTo []) exitWith
 {
-	["No players in selection!"] call Ares_fnc_ShowZeusMessage; 
+	["No players in selection!"] call Ares_fnc_ShowZeusMessage;
 	playSound "FD_Start_F";
 };
 private _includeVehicles = if ((_dialogResult select 3) == 0) then {false} else {true};

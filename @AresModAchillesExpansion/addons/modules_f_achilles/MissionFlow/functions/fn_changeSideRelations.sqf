@@ -25,7 +25,7 @@ else
 	_bluforSelectNumber = 4;
 };
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_CHANGE_SIDE_RELATIONS",
 	[
@@ -36,7 +36,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 private _firstSelectedSide = (_dialogResult select 0) call BIS_fnc_sideType;
 
@@ -44,7 +44,7 @@ if (_dialogResult select 2 < 3) then
 {
 	private _secondSelectedSide = (_dialogResult select 2) call BIS_fnc_sideType;
 	if (_firstSelectedSide == _secondSelectedSide) exitWith {[localize "STR_SIDES_CANT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
-	
+
 	private _friend_value = _dialogResult select 1;
 	[_firstSelectedSide, [_secondSelectedSide, _friend_value]] remoteExecCall ["setFriend", 2];
 	[_secondSelectedSide, [_firstSelectedSide, _friend_value]] remoteExecCall ["setFriend", 2];
@@ -56,7 +56,7 @@ if (_dialogResult select 2 < 3) then
 		private _voiceMessageEnemy1 = format["SentGenBaseSideEnemy%1", _firstSelectedSide];
 		private _voiceMessageEnemy2 = format["SentGenBaseSideEnemy%1", _secondSelectedSide];
 
-		if (_friend_value == 1) then 
+		if (_friend_value == 1) then
 		{
 			[_firstSelectedSide, _voiceMessageFriendly2, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
 			[_secondSelectedSide, _voiceMessageFriendly1, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
@@ -67,7 +67,7 @@ if (_dialogResult select 2 < 3) then
 			[_secondSelectedSide, _voiceMessageEnemy1, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
 		};
 	};
-} 
+}
 else
 {
 	private _other_sides = SIDES - [_firstSelectedSide];

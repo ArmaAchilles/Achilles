@@ -129,7 +129,7 @@ switch _mode do {
 							};
 						};
 					} foreach getarray (configfile >> "cfgpatches" >> _x >> "units");
-					
+
 					private _weaponTypeID = -1;
 					{
 						if ("Glasses" in _x) exitwith {_weaponTypeID = _foreachindex;};
@@ -179,7 +179,7 @@ switch _mode do {
 					(_xCargo select 0) pushBack (tolower _x);
 					(_xCargo select 1) pushBack 0;
 				};
-				if (isClass (configfile >> "CfgGlasses" >> _x)) then 
+				if (isClass (configfile >> "CfgGlasses" >> _x)) then
 				{
 					RscAttributeInventory_cargoVirtual pushBack _x;
 				} else
@@ -222,7 +222,7 @@ switch _mode do {
 
 		private _ctrlButtonVA = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_BUTTON_VA;
 		_ctrlButtonVA ctrladdeventhandler ["buttonclick",{with uinamespace do {["virutalArsenal",[ctrlparent (_this select 0)],objnull] call RscAttributeInventory}}];
-		
+
 		private _ctrlArrowLeft = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_ARROWLEFT;
 		_ctrlArrowLeft ctrladdeventhandler ["buttonclick",{with uinamespace do {["listModify",[ctrlparent (_this select 0),-1],objnull] call RscAttributeInventory}}];
 		private _ctrlArrowRight = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_ARROWRIGHT;
@@ -287,7 +287,7 @@ switch _mode do {
 						_ctrlList lnbsetcolor [[_lnbAdd,1],[1,1,1,_alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd,2],[1,1,1,_alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd,3],[1,1,1,_alpha]];
-						if (_arsenal) then 
+						if (_arsenal) then
 						{
 							_ctrlList lnbsettext [[_lnbAdd,3],"VA"];
 							_ctrlList lnbsetvalue [[_lnbAdd,3],1];
@@ -338,7 +338,7 @@ switch _mode do {
 		private _cursel = lnbcurselrow _ctrlList;
 		private _class = _ctrlList lnbdata [_cursel,0];
 		private _classLowered = tolower _class;
-		private _value = _ctrlList lnbvalue [_cursel,0]; 
+		private _value = _ctrlList lnbvalue [_cursel,0];
 		private _type = _ctrlList lnbvalue [_cursel,1];
 
 		private _classes = RscAttributeInventory_cargo select 0;
@@ -380,11 +380,11 @@ switch _mode do {
 		_ctrlArrowLeft = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_ARROWLEFT;
 		_ctrlArrowLeft ctrlenable (_value > 0);
 	};
-	
+
 	case "virutalArsenal": {
 		private _display = _params select 0;
 		private _ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
-		
+
 		private _cursel = lnbcurselrow _ctrlList;
 		private _arsenal = _ctrlList lnbvalue [_cursel,3];
 		private _value = _ctrlList lnbvalue [_cursel,0];
@@ -395,18 +395,18 @@ switch _mode do {
 		_ctrlList lnbsetcolor [[_cursel,2],[1,1,1,_alpha]];
 		_ctrlList lnbsetcolor [[_cursel,3],[1,1,1,_alpha]];
 		private _class = _ctrlList lnbdata [_cursel,0];
-		private _text = if (_arsenal == 1) then 
+		private _text = if (_arsenal == 1) then
 		{
 			RscAttributeInventory_cargoVirtual pushBack _class;
 			"VA"
-		} else 
+		} else
 		{
 			RscAttributeInventory_cargoVirtual = RscAttributeInventory_cargoVirtual - [_class];
 			""
 		};
-		_ctrlList lnbsettext [[_cursel,3], _text];		
+		_ctrlList lnbsettext [[_cursel,3], _text];
 	};
-	
+
 	case "keyDown":	{
 		_params params ["_ctrlList", "_key"];
 		switch true do
@@ -446,26 +446,26 @@ switch _mode do {
 	};
 	case "toggleWeaponSpecific": {
 		_params params ["_display", "_ctrlList"];
-		
+
 		private _classes = RscAttributeInventory_cargo select 0;
 		private _values = RscAttributeInventory_cargo select 1;
-		
+
 		private _cursel = _ctrlList getVariable ["WeaponSpecific",nil];
-		if (not isNil "_cursel") exitWith 
+		if (!isNil "_cursel") exitWith
 		{
 			["filterChanged",[_display,RscAttributeInventory_selected,_cursel],objnull] call RscAttributeInventory;
 		};
-		
+
 		_cursel = lnbCurSelRow _ctrlList;
 		private _weapon = _ctrlList lnbdata [_cursel,0];
-		
-		if (not isclass (configfile >> "cfgweapons" >> _weapon)) exitWith {};
+
+		if (!isclass (configfile >> "cfgweapons" >> _weapon)) exitWith {};
 		if (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096,131072]) exitWith {};
-		
+
 		_ctrlList setVariable ["WeaponSpecific",_cursel];
 		private _ctrlLable = _display displayCtrl IDC_RSCATTRIBUTEINVENTORY_FILTER13;
 		_ctrlLable ctrlSetText (localize "STR_WEAPON_SPECIFIC");
-		
+
 		private _reducedClasses = [_weapon];
 		private _index = _classes find _weapon;
 		private _reducedValues = [_values select _index];
@@ -486,11 +486,11 @@ switch _mode do {
 				};
 			} foreach getarray (_muzzle >> "magazines");
 		} foreach getarray (_weaponCfg >> "muzzles");
-		
+
 		private _list = uinamespace getvariable ["RscAttributeInventory_list",[[],[],[],[],[],[],[],[],[],[],[],[]]];
 		private _items = [];
 		{_items = _items + _x;} foreach _list;
-		
+
 		lnbclear _ctrlList;
 		{
 			private _types = _x;
@@ -500,8 +500,8 @@ switch _mode do {
 				if (_type in _types && (!_isDuplicate or (RscAttributeInventory_selected > 0))) then {
 
 					_index = _reducedClasses find _class;
-					if (_index == -1) exitWith {}; 
-					
+					if (_index == -1) exitWith {};
+
 					private _value = _reducedValues select _index;
 					private _arsenal = if (_class in RscAttributeInventory_cargoVirtual) then {true} else {false};
 
@@ -514,7 +514,7 @@ switch _mode do {
 					_ctrlList lnbsetcolor [[_lnbAdd,1],[1,1,1,_alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd,2],[1,1,1,_alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd,3],[1,1,1,_alpha]];
-					if (_arsenal) then 
+					if (_arsenal) then
 					{
 						_ctrlList lnbsettext [[_lnbAdd,3],"VA"];
 						_ctrlList lnbsetvalue [[_lnbAdd,3],1];
@@ -527,7 +527,7 @@ switch _mode do {
 		["listSelect",[_display],objnull] call RscAttributeInventory;
 	};
 
-	
+
 	case "clear": {
 		private _values = RscAttributeInventory_cargo select 1;
 		{
@@ -546,12 +546,12 @@ switch _mode do {
 
 		private _classes = RscAttributeInventory_cargo select 0;
 		private _values = RscAttributeInventory_cargo select 1;
-		
+
 		private _items = [];
 		private _weapons = [];
 		private _magazines = [];
 		private _backpacks = [];
-		
+
 		{
 			if (_x != 0) then {
 				private _class = _classes select _foreachindex;
@@ -571,7 +571,7 @@ switch _mode do {
 				};
 			};
 		} foreach _values;
-		
+
 		private _virtual_items = [];
 		private _virtual_weapons = [];
 		private _virtual_magazines = [];
@@ -593,11 +593,11 @@ switch _mode do {
 				};
 			};
 		} forEach RscAttributeInventory_cargoVirtual;
-		
+
 		private _curatorSelected = ["cargo"] call Achilles_fnc_getCuratorSelected;
 		{
 			private _box = _x;
-			
+
 			clearitemcargoglobal _box;
 			clearweaponcargoglobal _box;
 			clearmagazinecargoglobal _box;
@@ -607,7 +607,7 @@ switch _mode do {
 			_box call bis_fnc_removeVirtualWeaponCargo;
 			_box call bis_fnc_removeVirtualMagazineCargo;
 			_box call bis_fnc_removeVirtualBackpackCargo;
-			
+
 			{_box additemcargoglobal _x} forEach _items;
 			{_box addweaponcargoglobal _x} forEach _weapons;
 			{_box addmagazinecargoglobal _x} forEach _magazines;

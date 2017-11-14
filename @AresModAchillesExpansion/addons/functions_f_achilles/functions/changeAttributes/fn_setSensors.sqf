@@ -24,7 +24,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 _vehicle setVehicleRadar (_dialogResult select 0);
 _vehicle setVehicleReportRemoteTargets ((_dialogResult select 1) == 1);

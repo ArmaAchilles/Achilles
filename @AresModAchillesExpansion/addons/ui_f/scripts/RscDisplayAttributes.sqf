@@ -2,9 +2,9 @@
 
 params["_mode", "_params", "_class"];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
 		private _display = _params select 0;
 		private _displayConfig = configfile >> _class;
@@ -29,7 +29,7 @@ switch _mode do
 		//--- Show fake map in the background
 		private _ctrlMap = _display displayctrl IDC_RSCDISPLAYCURATOR_MAINMAP;
 		_ctrlMap ctrlenable false;
-		if (visiblemap) then 
+		if (visiblemap) then
 		{
 			private _ctrlCuratorMap = (finddisplay IDD_RSCDISPLAYCURATOR) displayctrl IDC_RSCDISPLAYCURATOR_MAINMAP;
 			_ctrlMap ctrlmapanimadd [0,ctrlmapscale _ctrlCuratorMap,_ctrlCuratorMap ctrlmapscreentoworld [0.5,0.5]];
@@ -85,10 +85,10 @@ switch _mode do
 
 		private _target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 		private _name = switch (typename _target) do {
-			case (typename objnull): {gettext (configfile >> "cfgvehicles" >> typeof _target >> "displayname")};
-			case (typename grpnull): {groupid _target};
-			case (typename []): {format ["%1: %3 #%2",groupid (_target select 0),_target select 1,localize "str_a3_cfgmarkers_waypoint_0"]};
-			case (typename ""): {markertext _target};
+			case "OBJECT": {gettext (configfile >> "cfgvehicles" >> typeof _target >> "displayname")};
+			case "GROUP": {groupid _target};
+			case "ARRAY": {format ["%1: %3 #%2",groupid (_target select 0),_target select 1,localize "str_a3_cfgmarkers_waypoint_0"]};
+			case "STRING": {markertext _target};
 		};
 		_ctrlTitle ctrlsettext format [ctrltext _ctrlTitle,toupper _name];
 
@@ -118,7 +118,7 @@ switch _mode do
 		_ctrlButtonCustomPos set [1,0.5 + _posH + _ctrlTitleOffsetY];
 		_ctrlButtonCustom ctrlsetposition _ctrlButtonCustomPos;
 		_ctrlButtonCustom ctrlcommit 0;
-		
+
 		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) -	(safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
 		{
 			private _idc = _x;
@@ -130,25 +130,25 @@ switch _mode do
 		} forEach [30005,30006,30007,30008,30009];
 
 		//--- Close the display when entity is altered
-		[_display] spawn 
+		[_display] spawn
 		{
 			disableserialization;
 			_display = _this select 0;
 			_target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 			switch (typename _target) do {
-				case (typename objnull): {
+				case "OBJECT": {
 					private _isAlive = alive _target;
 					waituntil {isnull _display || (_isAlive && !alive _target)};
 				};
-				case (typename grpnull): {
+				case "GROUP": {
 					waituntil {isnull _display || isnull _target};
 				};
-				case (typename []): {
+				case "ARRAY": {
 					private _grp = _target select 0;
 					private _wpCount = count waypoints _grp;
 					waituntil {isnull _display || (count waypoints _grp != _wpCount)};
 				};
-				case (typename ""): {
+				case "STRING": {
 					waituntil {isnull _display || markertype _target == ""};
 				};
 			};

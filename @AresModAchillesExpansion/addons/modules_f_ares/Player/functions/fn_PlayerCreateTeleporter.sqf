@@ -10,43 +10,41 @@ Ares_addNewTeleportMarkerActions =
 
 	{
 		// TODO deal with deleted markers.... Conditions?
-		if (_x != _newMarker && alive _x) then
-		{
-			// Add an action to THIS marker to teleport to OTHER marker.
-			private _actionName = format ["Teleport to %1", _x getVariable ["teleportMarkerName", "??"]];
-			_newMarker addAction [_actionName, {
-					private _teleportTarget = _this select 3;
-					if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
-					{
-						hint "Destination no longer exists...";
-						sleep 3;
-						hint "";
-					}
-					else
-					{
-						titleText ["You are being teleported...", "BLACK", 1];  sleep 1; titleFadeOut 2;
-						player setPosATL (getPosATL _teleportTarget);
-					};
-				}, _x];
 
-			// Add action to OTHER marker to teleport to THIS marker.
-			_actionName = format ["Teleport to %1", _newMarker getVariable ["teleportMarkerName", "??"]];
-			_x addAction [_actionName, {
-					private _teleportTarget = _this select 3;
-					if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
-					{
-						hint "Destination no longer exists...";
-						sleep 3;
-						hint "";
-					}
-					else
-					{
-						titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2;
-						player setPosATL (getPosATL _teleportTarget);
-					};
-				}, _newMarker];
-		};
-	} forEach (Ares_TeleportMarkers);
+		// Add an action to THIS marker to teleport to OTHER marker.
+		private _actionName = format ["Teleport to %1", _x getVariable ["teleportMarkerName", "??"]];
+		_newMarker addAction [_actionName, {
+			private _teleportTarget = _this select 3;
+			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
+			{
+				hint "Destination no longer exists...";
+				sleep 3;
+				hint "";
+			}
+			else
+			{
+				titleText ["You are being teleported...", "BLACK", 1];  sleep 1; titleFadeOut 2;
+				player setPosATL (getPosATL _teleportTarget);
+			};
+		}, _x];
+
+		// Add action to OTHER marker to teleport to THIS marker.
+		_actionName = format ["Teleport to %1", _newMarker getVariable ["teleportMarkerName", "??"]];
+		_x addAction [_actionName, {
+			private _teleportTarget = _this select 3;
+			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
+			{
+				hint "Destination no longer exists...";
+				sleep 3;
+				hint "";
+			}
+			else
+			{
+				titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2;
+				player setPosATL (getPosATL _teleportTarget);
+			};
+		}, _newMarker];
+	} forEach (Ares_TeleportMarkers) select {_x != _newMarker && alive _x};
 };
 
 // Check to see if there's an object under the cursor or not
@@ -84,7 +82,7 @@ publicVariable "Ares_TeleportMarkers";
 
 // Set the name of the marker (used in the action)
 private _teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_CREATE_NEW_LZ",
 	[
@@ -92,7 +90,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_showChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isequalTo []) exitWith {};
 _teleportMarkerName = _dialogResult select 0;
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 

@@ -31,7 +31,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 _side = [(_dialogResult select 0) - 1] call BIS_fnc_sideType;
 
 private _curatorSelected = ["group"] call Achilles_fnc_getCuratorSelected;

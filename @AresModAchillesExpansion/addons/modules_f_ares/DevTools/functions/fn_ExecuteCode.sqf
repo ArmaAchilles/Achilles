@@ -7,7 +7,7 @@ private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 private _params = [_position,_unitUnderCursor];
 
 // mission designer can disallow usage of execute code module, but it will still be available for logged-in admins
-if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
+if (!(missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
 {
 	["This module has been disabled by the mission creator."] call Ares_fnc_ShowZeusMessage;
 };
@@ -34,7 +34,7 @@ if (_dialogResult == 1) then
 		case 0: {_params spawn (compile _pastedText);};
 		case 1: {[_params, compile _pastedText, 2] call Achilles_fnc_spawn; };
 		case 2: {[_params, compile _pastedText, 0] call Achilles_fnc_spawn; };
-		case 3: 
+		case 3:
 		{
 			_dummyObject = [_logic] call Achilles_fnc_createDummyLogic;
 			private _JIP_id = [_params, compile _pastedText, 0, _dummyObject] call Achilles_fnc_spawn;

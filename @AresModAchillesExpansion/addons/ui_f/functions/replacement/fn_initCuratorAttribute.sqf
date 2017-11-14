@@ -18,14 +18,10 @@
 #define IDC_OK	1
 
 with uinamespace do {
-	private ["_params","_class","_path","_fncName","_control"];
-
-	_params = _this select 0;
-	_class = _this select 1;
-	_path = _this select 2;
+	params ["_params","_class","_path"];
 
 	//--- Register script for the first time
-	_fncName = _class;
+	private _fncName = _class;
 	if (isnil _fncName || cheatsEnabled) then {
 		private ["_scriptPath","_fncFile"];
 
@@ -39,7 +35,7 @@ with uinamespace do {
 	};
 
 	//--- Remove the initial handler
-	_control = _params select 0;
+	private _control = _params select 0;
 	_control ctrlremovealleventhandlers "setFocus";
 
 	//--- Add handler executed when the display closes

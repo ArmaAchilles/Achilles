@@ -30,7 +30,7 @@ if (_object isKindOf "Car" || _object isKindOf "Tank") then
   ] call Ares_fnc_showChooseDialog;
 
   if (isNil "_dialogResult") exitWith {};
-  if (count _dialogResult == 0) exitWith {};
+  if (_dialogResult isEqualTo []) exitWith {};
 
   private _isECM = _dialogResult select 0;
 

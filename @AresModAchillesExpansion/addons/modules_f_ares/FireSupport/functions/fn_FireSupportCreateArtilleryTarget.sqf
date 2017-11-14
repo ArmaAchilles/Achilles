@@ -10,14 +10,14 @@ _deleteModuleOnExit = false;
 
 private _targetPhoneticName = [Ares_ArtilleryTargetCount] call Ares_fnc_GetPhoneticName;
 private _target_name = format [localize "STR_TARGET", _targetPhoneticName];
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_CREATE_EDIT_INTEL",
 	[
 		[localize "STR_NAME", "", _target_name, true]
 	]
 ] call Ares_fnc_showChooseDialog;
-if (count _dialogResult == 0) exitWith {_deleteModuleOnExit = true};
+if (_dialogResult isEqualTo []) exitWith {_deleteModuleOnExit = true};
 _target_name = _dialogResult select 0;
 _logic setName _target_name;
 _logic setVariable ["SortOrder", Ares_ArtilleryTargetCount];

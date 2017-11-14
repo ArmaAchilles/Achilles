@@ -49,10 +49,8 @@ private _vectorUp = vectorup _plane;
 //--- Remove all other weapons;
 private _currentWeapons = weapons _plane;
 {
-	if !(tolower ((_x call bis_fnc_itemType) select 1) in (_weaponTypes + ["countermeasureslauncher"])) then {
-		_plane removeweapon _x;
-	};
-} foreach _currentWeapons;
+	_plane removeweapon _x;
+} foreach (_currentWeapons select {!(tolower ((_x call bis_fnc_itemType) select 1) in (_weaponTypes + ["countermeasureslauncher"]))});
 
 //--- Cam shake
 private _ehFired = _plane addeventhandler [
@@ -68,7 +66,7 @@ private _ehFired = _plane addeventhandler [
 	}
 ];
 _plane setvariable ["ehFired",_ehFired];
-if (not _gunner_is_driver) then
+if (!_gunner_is_driver) then
 {
 	_plane setvariable ["gunner", gunner _plane];
 };
@@ -166,7 +164,7 @@ if !(isnull _logic) then
 {
 	sleep 1;
 	private _master = _logic getvariable ["master", objnull];
-	if(not isNull _master) then {deleteVehicle _master};
+	if !(isNull _master) then {deleteVehicle _master};
 	deletevehicle _logic;
 	waituntil {_plane distance _pos > _dis || !alive _plane};
 };

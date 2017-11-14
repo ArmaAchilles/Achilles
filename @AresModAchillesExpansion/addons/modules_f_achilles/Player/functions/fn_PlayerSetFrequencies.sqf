@@ -22,7 +22,7 @@ if(isNil "Achilles_var_set_frequency_init_done") then
 	Achilles_var_set_frequency_init_done = true;
 };
 
-private _firstDialogResult = 
+private _firstDialogResult =
 [
 	localize "STR_SELECT_RADIOS",
 	[
@@ -31,7 +31,7 @@ private _firstDialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _firstDialogResult == 0) exitWith {};
+if (_firstDialogResult isEqualTo []) exitWith {};
 
 private _setSR = _firstDialogResult select 0;
 private _setLR = _firstDialogResult select 1;
@@ -42,12 +42,12 @@ private _channelsLR = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 private _secondDialogResult = [];
 private _thirdDialogResult = [];
 
-private _entriesForSR = []; 
+private _entriesForSR = [];
 {
 	_entriesForSR pushBack [format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesSR_Default];
 } forEach _channelsSR;
 
-private _entriesForLR = []; 
+private _entriesForLR = [];
 {
 	_entriesForLR pushBack [format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesLR_Default];
 } forEach _channelsLR;
@@ -61,7 +61,7 @@ if (_setSR == 0 && _setLR == 1) then
 		_entriesForSR
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _secondDialogResult == 0) exitWith {};
+	if (_secondDialogResult isEqualTo []) exitWith {};
 
 	{
 		[_forEachIndex + 1, _x] remoteExecCall ["Achilles_fnc_setSRFrequencies", 0];
@@ -77,7 +77,7 @@ if (_setSR == 1 && _setLR == 0) then
 		_entriesForLR
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _secondDialogResult == 0) exitWith {};
+	if (_secondDialogResult isEqualTo []) exitWith {};
 
 	{
 		[_forEachIndex + 1, _x] remoteExecCall ["Achilles_fnc_setLRFrequencies", 0];
@@ -94,7 +94,7 @@ if (_setSR == 0 && _setLR == 0) then
 		_entriesForSR
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _secondDialogResult == 0) exitWith {};
+	if (_secondDialogResult isEqualTo []) exitWith {};
 
 	{
 		[_forEachIndex + 1, _x] remoteExecCall ["Achilles_fnc_setSRFrequencies", 0];
@@ -107,7 +107,7 @@ if (_setSR == 0 && _setLR == 0) then
 		_entriesForLR
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _thirdDialogResult == 0) exitWith {};
+	if (_thirdDialogResult isEqualTo []) exitWith {};
 
 	{
 		[_forEachIndex + 1, _x] remoteExecCall ["Achilles_fnc_setLRFrequencies", 0];

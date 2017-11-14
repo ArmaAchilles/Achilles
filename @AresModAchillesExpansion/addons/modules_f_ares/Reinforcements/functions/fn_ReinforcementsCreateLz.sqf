@@ -9,14 +9,14 @@ _deleteModuleOnExit = false;
 
 private _targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhoneticName;
 private _target_name = format ["LZ %1", _targetPhoneticName];
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_CREATE_NEW_LZ",
 	[
 		[localize "STR_NAME", "", _target_name, true]
 	]
 ] call Ares_fnc_showChooseDialog;
-if (count _dialogResult == 0) exitWith {_deleteModuleOnExit = true};
+if (_dialogResult isequalTo []) exitWith {_deleteModuleOnExit = true};
 _target_name = _dialogResult select 0;
 _logic setName _target_name;
 _logic setVariable ["SortOrder", Ares_ReinforcementLzCount];

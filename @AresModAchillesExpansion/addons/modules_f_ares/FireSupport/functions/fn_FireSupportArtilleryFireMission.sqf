@@ -33,13 +33,7 @@ private _filteredObjects = [];
 private _batteries = [];
 {
 	private _type = getText(configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
-	private _alreadyContained = false;
-	{
-		if (_x find _type > -1) then
-		{
-			_alreadyContained = true;
-		};
-	} forEach _batteries;
+	private _alreadyContained = count (_batteries select {_x find _type > -1}) > 0;
 
 	if (!_alreadyContained) then
 	{
@@ -65,11 +59,8 @@ private _batteries = [];
 } forEach _filteredObjects;
 
 // pick battery
-private _batteryTypes = [];
-{
-	_batterytypes pushBack (_x select 0);
-} forEach _batteries;
-if (count _batteries == 0) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
+private _batteryTypes = _batteries apply {_x select 0};
+if (_batteries isEqualTo []) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
 
 // Pick a battery
 private _pickBatteryResult = [
@@ -78,7 +69,7 @@ private _pickBatteryResult = [
 			[localize "STR_BATTERY", _batteryTypes],
 			[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
 		]] call Ares_fnc_ShowChooseDialog;
-if (count _pickBatteryResult == 0) exitWith {};
+if (_pickBatteryResult isEqualTo []) exitWith {};
 private _battery = _batteries select (_pickBatteryResult select 0);
 private _mode = _pickBatteryResult select 1;
 
@@ -87,10 +78,7 @@ private _fireMission = nil;
 private _units = _battery select 1;
 private _artilleryAmmo = _battery select 2;
 
-_artilleryAmmoDisplayName = [];
-{
-	_artilleryAmmoDisplayName pushBack (getText (configFile >> "CfgMagazines" >> _x >> "displayName"));
-} forEach (_battery select 2);
+_artilleryAmmoDisplayName = (_battery select 2) apply {getText (configFile >> "CfgMagazines" >> _x >> "displayName")};
 
 private _numberOfGuns = [];
 {
@@ -100,12 +88,10 @@ private _numberOfGuns = [];
 if (_mode == 0) then
 {
 	private _allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
-	if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 	private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 	private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
-	{
-		_targetChoices pushBack (name _x);
-	} forEach _allTargets;
+    _targetChoices append (_allTargets apply {name _x});
 
 	// pick guns, rounds, ammo and coordinates
 	private _pickFireMissionResult = [
@@ -117,7 +103,7 @@ if (_mode == 0) then
 			[format [localize "STR_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 
-	if (count _pickFireMissionResult == 0) exitWith {};
+	if (_pickFireMissionResult isEqualTo []) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
@@ -127,35 +113,28 @@ if (_mode == 0) then
 	private _targetChooseAlgorithm = _pickFireMissionResult select 3;
 
 	// Make sure we only consider targets that are in range.
-	private _targetsInRange = [];
-	{
-		if ((position _x) inRangeOfArtillery [[_units select 0], _ammo]) then
-		{
-			_targetsInRange set [count _targetsInRange, _x];
-		};
-	} forEach _allTargets;
+	private _targetsInRange = _allTargets select {(position _x) inRangeOfArtillery [[_units select 0], _ammo]};
 
 	if (count _targetsInRange > 0) then
 	{
 		// Choose a target to fire at
-		private _selectedTarget = objNull;
-		switch (_targetChooseAlgorithm) do
+		private _selectedTarget = switch (_targetChooseAlgorithm) do
 		{
 			case 0: // Random
 			{
-				_selectedTarget = _targetsInRange call BIS_fnc_selectRandom;
+				_targetsInRange call BIS_fnc_selectRandom;
 			};
 			case 1: // Nearest
 			{
-				_selectedTarget = [position _logic, _targetsInRange] call Ares_fnc_GetNearest;
+				[position _logic, _targetsInRange] call Ares_fnc_GetNearest;
 			};
 			case 2: // Furthest
 			{
-				_selectedTarget = [position _logic, _targetsInRange] call Ares_fnc_GetFarthest;
+				[position _logic, _targetsInRange] call Ares_fnc_GetFarthest;
 			};
 			default // Specific target
 			{
-				_selectedTarget = _allTargets select (_targetChooseAlgorithm - 3);
+                _allTargets select (_targetChooseAlgorithm - 3);
 			};
 		};
 		_targetPos = position _selectedTarget;
@@ -173,7 +152,7 @@ if (_mode == 0) then
 			[localize "STR_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
 
-	if (count _pickFireMissionResult == 0) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
+	if (_pickFireMissionResult isEqualTo []) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)

@@ -55,14 +55,14 @@ switch _mode do {
 		private _display = _params select 0;
 		private _selectedIndex = uinamespace getvariable ["RscAttributeSpeedMode_selected",0];
 		private _selected = _states select _selectedIndex;
-		if (typename _entity == typename []) then 
+		if (_entity isEqualType []) then
 		{
 			if (waypointSpeed _entity == _selected) exitWith {};
 			private _curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
 				private _group = _x select 0;
 				private _wp_id = _x select 1;
-				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then
 				{
 					if (local _group) then
 					{

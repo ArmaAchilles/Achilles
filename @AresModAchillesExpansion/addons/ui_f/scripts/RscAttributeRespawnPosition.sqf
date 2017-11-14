@@ -24,7 +24,7 @@ switch _mode do {
 
 		private _display = _params select 0;
 		private _IDs = _entity getvariable ["RscAttributeRespawnPosition_ids",[[],[],[],[],[]]];
-		if (typename _entity == typename grpnull) then {_entity = leader _entity;};
+		if (_entity isEqualType grpnull) then {_entity = leader _entity;};
 
 		//--- Not available for destroyed object
 		if (!alive _entity || !canmove _entity) exitwith {
@@ -78,9 +78,9 @@ switch _mode do {
 		private "_mode";
 		private _display = _params select 0;
 		private _selected = uinamespace getvariable ["RscAttributeRespawnPosition_selected",4];
-		
+
 		switch true do {
-			case (typeName _entity == "GROUP"): {
+			case (_entity isEqualType grpNull): {
 				_mode = "group";
 			};
 			case (_entity isKindOf "Man"): {

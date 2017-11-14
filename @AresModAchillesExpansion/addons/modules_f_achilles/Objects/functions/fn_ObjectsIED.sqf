@@ -21,7 +21,7 @@ if(isNil "Achilles_var_ied_init_done") then
 	publicVariableServer "Achilles_fnc_fakeExplosion";
 	publicVariableServer "Achilles_fnc_disablingExplosion";
 	publicVariableServer "Achilles_fnc_deadlyExplosion";
-	
+
 	Achilles_var_ied_init_done = true;
 };
 
@@ -62,11 +62,11 @@ else
   ] call Ares_fnc_showChooseDialog;
 
   if (isNil "_dialogResult") exitWith {};
-  if (count _dialogResult == 0) exitWith {};
+  if (_dialogResult isEqualTo []) exitWith {};
 
   _object setVariable ["isIED", true, true];
 
-  _dialogResult params 
+  _dialogResult params
   [
     "_explosionSize",
     "_explosionEffect",

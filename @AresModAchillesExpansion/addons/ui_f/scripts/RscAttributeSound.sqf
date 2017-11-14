@@ -13,10 +13,8 @@ switch _mode do {
 		if (isnil "_sounds") then {
 			_sounds = [];
 			{
-				if (gettext (_x >> "sound") != "" && getnumber (_x >> "scope") > 1) then {
-					_sounds set [count _sounds,_x];
-				};
-			} foreach (((configfile >> "cfgvehicles") call bis_fnc_returnchildren) + ((missionConfigFile >> "cfgvehicles") call bis_fnc_returnchildren));
+				_sounds set [count _sounds,_x];
+			} foreach ((((configfile >> "cfgvehicles") call bis_fnc_returnchildren) + ((missionConfigFile >> "cfgvehicles") call bis_fnc_returnchildren)) select {gettext (_x >> "sound") != "" && getnumber (_x >> "scope") > 1});
 			uinamespace setvariable ["RscAttributeSound_objects",_sounds];
 		};
 

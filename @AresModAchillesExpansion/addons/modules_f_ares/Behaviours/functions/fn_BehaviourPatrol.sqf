@@ -10,7 +10,7 @@ if (isNull _logic) then
 {
 	["Null logic passed to patrol behaviour!"] call Achilles_fnc_logMessage;
 };
-if ((position _logic) select 0 == 0 && (position _logic) select 1 == 0 && (position _logic) select 2 == 0) then
+if (position _logic isEqualTo [0, 0, 0]) then
 {
 	["Logic is at [0,0,0]!"] call Achilles_fnc_logMessage;
 };
@@ -19,15 +19,12 @@ if (isNull _groupUnderCursor) then
 	["No unit under cursor!!"] call Achilles_fnc_logMessage;
 };
 
-if (not isNull _groupUnderCursor) then
+if (!isNull _groupUnderCursor) then
 {
-	
-	_doesGroupContainAnyPlayer = false;
-	{
-		if (isPlayer _x) exitWith { _doesGroupContainAnyPlayer = true; };
-	} forEach (units _groupUnderCursor);
-	
-	if (not _doesGroupContainAnyPlayer) then
+
+	private _doesGroupContainAnyPlayer = !(((units _groupUnderCursor) select {isPlayer _x}) isEqualTo []);
+
+	if (!_doesGroupContainAnyPlayer) then
 	{
 		private ["_dialogResult"];
 		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Achilles_fnc_logMessage;
@@ -40,12 +37,12 @@ if (not isNull _groupUnderCursor) then
 						[localize "STR_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
-			
+
 		["BehaviourPatrol: Prompt complete!"] call Achilles_fnc_logMessage;
 		if (count _dialogResult > 0) then
 		{
 			_radius = parseNumber (_dialogResult select 0);
-			
+
 			switch (_dialogResult select 1) do
 			{
 				// Case0 and default
@@ -91,7 +88,7 @@ if (not isNull _groupUnderCursor) then
 					_delay = [45, 60, 75];
 				};
 			};
-			
+
 			// Remove other waypoints.
 			while {(count (waypoints _groupUnderCursor)) > 0} do
 			{
@@ -104,7 +101,7 @@ if (not isNull _groupUnderCursor) then
 				_centerPoint = position _leader_vehicle;
 				_centerPoint set [2,0];
 				_wp_id = 0;
-				if (not isEngineOn _leader_vehicle) then
+				if (!isEngineOn _leader_vehicle) then
 				{
 					_waypoint = _groupUnderCursor addWaypoint [_centerPoint vectorAdd ((vectorDir _leader_vehicle) vectorMultiply 300), _wp_id];
 					_wp_id = 1;
@@ -134,12 +131,12 @@ if (not isNull _groupUnderCursor) then
 					_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, _currentDegrees] call BIS_fnc_relPos, 5];
 					_waypoint setWaypointTimeout _delay;
 				};
-				
+
 				// Add a waypoint at the location of the first WP. We started at 0 degrees.
 				// We don't delay the cycle WP since then we'd have double-time before moving.
 				_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, 0] call BIS_fnc_relPos, 5];
 				_waypoint setWaypointType "CYCLE";
-				
+
 				[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
 			};
 		}

@@ -14,7 +14,7 @@ private _dialogResult = [
 	"Achilles_fnc_RscDisplayAttributes_SpawnExplosives"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _explosive_type = Ares_var_explosive_type;
 
 if (_dialogResult select 0 == 0) then
@@ -22,10 +22,10 @@ if (_dialogResult select 0 == 0) then
 	private _number_of_mines = parseNumber (_dialogResult select 2);
 	private _radius = parseNumber (_dialogResult select 3);
 	private _warning = if (_dialogResult select 4 == 0) then {true} else {false};
-	
+
 	private _x_offset = _offset select 0;
 	private _y_offset = _offset select 1;
-	
+
 	for "_" from 1 to _number_of_mines do
 	{	private _rho = _radius * (random 1)^(0.5);
 		private _theta = random 360;
@@ -52,7 +52,7 @@ if (_dialogResult select 0 == 0) then
 {
 	private _mine = _explosive_type createVehicle _offset;
 	_mine setPos _offset;
-	[[_mine], true] call Ares_fnc_AddUnitsToCurator;		
+	[[_mine], true] call Ares_fnc_AddUnitsToCurator;
 };
 
 

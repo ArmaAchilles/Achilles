@@ -23,8 +23,7 @@ if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles
 
 private _pos = getPos _logic;
 
-private _ammoCratesDisplayName = [];
-{_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach AMMO_CRATES;
+private _ammoCratesDisplayName = AMMO_CRATES apply {_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))};
 
 private _dialogResult =
 [

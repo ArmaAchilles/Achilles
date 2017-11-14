@@ -1,7 +1,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private _ammoBox = [_logic] call Ares_fnc_GetUnitUnderCursor;
-if (not isnull _ammoBox) then
+if (!isnull _ammoBox) then
 {
 	private _dialogResult =
 		[
@@ -18,7 +18,7 @@ if (not isnull _ammoBox) then
 				// Don't ask about tents. No one cares about tents.
 			]
 		] call Ares_fnc_ShowChooseDialog;
-	
+
 	if (count _dialogResult > 0) then
 	{
 		_dialogResult params
@@ -32,11 +32,11 @@ if (not isnull _ammoBox) then
 			"_dialogAddUav",
 			"_dialogAddAutomated"
 		];
-		
+
 		// Get the setting for the side-specific items
 		private _filterChoices = ["All", "Blufor", "Opfor", "Greenfor", "None"];
 		private _sideSpecificEquipmentFilter = _filterChoices select _dialogLimitEquipmentToSide;
-		
+
 		// Apply the side-specific item filters to equipment to include
 		private _filterChoicesNone = _filterChoices select 4;
 		private _staticWeaponFilter = _filterChoicesNone;
@@ -45,10 +45,10 @@ if (not isnull _ammoBox) then
 		if (_dialogAddStaticWeapons == 0) then { _staticWeaponFilter = _sideSpecificEquipmentFilter; };
 		if (_dialogAddUav == 0) then { _uavFilter = _sideSpecificEquipmentFilter; };
 		if (_dialogAddAutomated == 0) then { _automatedFilter = _sideSpecificEquipmentFilter; };
-		
+
 		private _blacklist =
 			[
-				(_dialogAddGps == 0), 
+				(_dialogAddGps == 0),
 				(_dialogAddThermals == 0),
 				(_dialogAddNvg == 0),
 				_staticWeaponFilter,
@@ -58,7 +58,7 @@ if (not isnull _ammoBox) then
 			] call Ares_fnc_GenerateArsenalBlacklist;
 
 		private _arsenalData = [_blacklist, _sideSpecificEquipmentFilter] call Ares_fnc_GenerateArsenalDataList;
-		
+
 		[_ammoBox, _arsenalData, (_dialogCombineOrReplace == 1)] call Ares_fnc_ArsenalSetup;
 		[objNull, "Arsenal objects added."] call bis_fnc_showCuratorFeedbackMessage;
 	};

@@ -1,13 +1,13 @@
 /*
 	Generates a list of items that should be blacklisted based on some parameters provided.
-	
+
 	Note: The fields that take a 'String' parameter accept one of the following:
 		'All' - No items of this type will be blacklisted (all these items are allowed)
 		'Blufor' - All items of this type EXCEPT bluefor variants will be blacklisted.
 		'Opfor' - All items of this type EXCEPT opfor variants will be blacklisted.
 		'Greenfor' - All items of this type EXCEPT greenfor variants will be blacklisted.
 		'None' - All of the items of this type will be blacklisted (none of these items are allowed)
-	
+
 	Parameters:
 		0 - Allow GPS (Boolean) - True to allow GPS receivers, false to blacklist them. Default 'False'.
 		1 - Allow Thermals (Boolean) - True to allow scopes and items with thermals, false to blacklist them. Default 'False'.
@@ -16,7 +16,7 @@
 		4 - Allowed UAV's (String) - The type of UAV's and UAV terminals to allow. Default 'None'.
 		5 - Allowed Automated Static Weapons (String) - The type of automated static weapon backpacks to allow. Default 'None'.
 		6 - Allow respawn tents - False to blacklist the respawn tents. True to allow them. Default is 'False'.
-		
+
 	Returns:
 		A list containing all of the item classnames that should be blacklisted.
 */
@@ -45,37 +45,35 @@ private _applyFilter =
 	{
 		params["_side", "_blueItems", "_redItems", "_greenItems"];
 
-		private _itemsToBlacklist = [];
 		switch (_side) do
 		{
 			case SIDE_FILTER_BLUFOR:
 			{
-				_itemsToBlacklist = _redItems + _greenItems;
+                _redItems + _greenItems;
 			};
 			case SIDE_FILTER_OPFOR:
 			{
-				_itemsToBlacklist = _blueItems + _greenItems;
+                _blueItems + _greenItems;
 			};
 			case SIDE_FILTER_GREENFOR:
 			{
-				_itemsToBlacklist = _blueItems + _redItems;
+                _blueItems + _redItems;
 			};
 			case SIDE_FILTER_NONE:
-			{
-				_itemsToBlacklist = _blueItems + _redItems + _greenItems;
+            {
+                _blueItems + _redItems + _greenItems;
 			};
 		};
-		_itemsToBlacklist;
 	};
 
 private _blacklist = [];
-if (not _allowGPS) then
+if (!_allowGPS) then
 {
 	_blacklist pushback "ItemGPS";
 	// diag_log format["Blacklist after GPS: %1", _blacklist];
 };
 
-if (not _allowThermals) then
+if (!_allowThermals) then
 {
 	_blacklist = _blacklist + [
 			"Laserdesignator",
@@ -86,7 +84,7 @@ if (not _allowThermals) then
 	// diag_log format["Blacklist after thermals: %1", _blacklist];
 };
 
-if (not _allowNvg) then
+if (!_allowNvg) then
 {
 	_blacklist = _blacklist + [
 			"acc_pointer_IR",
@@ -128,7 +126,7 @@ _blacklist = _blacklist +
 	] call _applyFilter);
 // diag_log format["Blacklist after AutoStatics: %1", _blacklist];
 
-if (not _allowRespawnTents) then
+if (!_allowRespawnTents) then
 {
 	_blacklist = _blacklist +
 		[

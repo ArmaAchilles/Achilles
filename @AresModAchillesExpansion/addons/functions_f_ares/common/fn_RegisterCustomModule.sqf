@@ -38,29 +38,29 @@ private _replacedExistingEntry = false;
 	};
 } forEach Ares_Custom_Modules;
 
-if (not _replacedExistingEntry) then
+if (!_replacedExistingEntry) then
 {
 	disableSerialization;
-	
+
 	// Get the UI
 	private _display = findDisplay IDD_RSCDISPLAYCURATOR;
-	
+
 	// Add module to list
 	private _index = count Ares_Custom_Modules;
 	private _moduleClassName = format ["Ares_Module_User_Defined_%1", _index];
 	Ares_Custom_Modules pushBack [_categoryName, _moduleDisplayName, _codeBlock];
-	
+
 	// Handle Post-Init execution
 	if(isNull _display) exitWith {};
-	
+
 	// Add module to module tree
 	private _ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 	private _category_list = [_ctrl,Ares_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_index] call Achilles_fnc_AppendToModuleTree;
-	
+
 	//Sort category and module list
 	_ctrl tvSort [[], false];
 	for "_i" from 0 to ((_ctrl tvCount []) - 1) do {_ctrl tvSort [[_i], false];};
-	
+
 	//get module list
 	_category_list sort true;
 	Ares_category_list = _category_list;

@@ -10,12 +10,7 @@ while {(count allCurators) < 1} do {
 // Wait until at least one of the curators is associated with a unit
 private _curatorHasUnit = false;
 while {!_curatorHasUnit} do {
-	{
-		if(!isNull getassignedcuratorunit _x) then
-		{
-			_curatorHasUnit = true;
-		};
-	} foreach allCurators;
+    _curatorHasUnit = (count (allCurators select {!isNull getassignedcuratorunit _x}) > 0);
 
 	sleep 2;
 };

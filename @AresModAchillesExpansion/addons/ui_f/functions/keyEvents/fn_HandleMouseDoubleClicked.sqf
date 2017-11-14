@@ -1,11 +1,11 @@
 private _handled = false;
 
 curatorMouseOver params ["_typeName","_clickedObject"];
-if (_typeName == typeName objNull) then
+if (_typeName == "OBJECT") then
 {
 	private _ctrlKeyPressed = param [5];
 	private _altKeyPressed = param [6];
-	
+
 	switch (true) do
 	{
 		case (_ctrlKeyPressed):
@@ -24,7 +24,7 @@ if (_typeName == typeName objNull) then
 		{
 			switch (true) do
 			{
-				case (not isNil {_clickedObject getVariable "source"}):
+				case (!isNil {_clickedObject getVariable "source"}):
 				{
 					[_clickedObject] spawn Achilles_fnc_lightSourceAttributes;
 					_handled = true;
