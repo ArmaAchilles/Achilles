@@ -37,6 +37,14 @@ _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;
 
+_unit addAction ["Release UAV controls", 
+{
+	params["_target", "_caller", "_id"];
+	disableSerialization;
+	_target removeAction _id;
+	[] call Achilles_fnc_switchUnit_exit;
+}, nil, 0, false];
+
 private _eh_id = _unit addEventHandler ["HandleDamage", 
 {
 	params ["_unit", "_selection", "_handler"];
