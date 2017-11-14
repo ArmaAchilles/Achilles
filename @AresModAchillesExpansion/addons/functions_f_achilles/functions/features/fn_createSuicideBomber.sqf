@@ -22,7 +22,7 @@ params["_bomber", "_explosionSize", "_explosionEffect", "_activationSide", "_pat
 _patrolRadius = parseNumber _patrolRadius;
 _activationDistance = parseNumber _activationDistance;
 
-if (typeName _activationSide == typeName sideLogic) then {_activationSide = [_activationSide];};
+if (_activationSide isEqualType sideLogic) then {_activationSide = [_activationSide];};
 
 private _hasSpoken = false;
 private _targets = ["Car", "Tank", "Man"];
@@ -61,79 +61,76 @@ private _check = true;
 while {alive _bomber && _check} do
 {
     sleep 1;
-		private _nearestObjects = (getPos _bomber) nearObjects 100;
+	private _nearestObjects = (getPos _bomber) nearObjects 100;
 
-		if ({side _x in _activationSide} count _nearestObjects > 0) then
+	if ({side _x in _activationSide} count _nearestObjects > 0) then
+	{
+		while {(alive _bomber) && (_check)} do
 		{
-			while {(alive _bomber) && (_check)} do
+			sleep 1;
+			private _nearestUnit = [];
+			{if (side _x in _activationSide) then {_nearestUnit pushBack _x}} forEach _nearestObjects;
+			private _count = count _nearestUnit;
+
+			for "_x" from 0 to _count-1 step 1 do
 			{
-				sleep 1;
-				private _nearestUnit = [];
-				{if (side _x in _activationSide) then {_nearestUnit pushBack _x}} forEach _nearestObjects;
-				private _count = count _nearestUnit;
-
-				for "_x" from 0 to _count-1 step 1 do
+				private _enemyUnit = _nearestUnit select _x;
 				{
-					private _enemyUnit = _nearestUnit select _x;
+					_bomber setSkill 1;
+					_bomber doMove (getPos _enemyUnit);
+					sleep (5 + random 5);
+					if ((_bomber distance _enemyUnit) < 40) then
 					{
-						if (_enemyUnit isKindOf _x && alive _enemyUnit) then
+						_bomberGroup setSpeedMode "FULL";
+						_bomberGroup setBehaviour "CARELESS";
+						_bomber setUnitPos "UP";
+						_bomber disableAI "TARGET";
+						_bomber disableAI "AUTOTARGET";
+
+						_bomberGroup setCombatMode "BLUE";
+						_bomberGroup allowFleeing 0;
+						while {alive _bomber} do
 						{
-							_bomber setSkill 1;
+							sleep 1;
 							_bomber doMove (getPos _enemyUnit);
-							sleep 5 + random 5;
-							if ((_bomber distance _enemyUnit) < 40) then
+							_bomber addRating -10000;
+
+							if (!_hasSpoken) then
 							{
-								_bomberGroup setSpeedMode "FULL";
-								_bomberGroup setBehaviour "CARELESS";
-								_bomber setUnitPos "UP";
-								_bomber disableAI "TARGET";
-								_bomber disableAI "AUTOTARGET";
-
-								_bomberGroup setCombatMode "BLUE";
-								_bomberGroup allowFleeing 0;
-								while {alive _bomber} do
-								{
-									sleep 1;
-									_bomber doMove (getPos _enemyUnit);
-									_bomber addRating -10000;
-
-									if (!_hasSpoken) then
-									{
-										private _selectedMessage = selectRandom ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
-										[_bomber, _selectedMessage] remoteExec ["globalChat", 0, false];
-										_hasSpoken = true;
-									};
-								if ((_bomber distance _enemyUnit) <= _activationDistance) exitWith
-								{
-									_check = false;
-									if (alive _bomber) then
-									{
-										switch (_explosionEffect) do
-										{
-											case 0:
-											{
-												[getPos _bomber, _explosionSize] call Achilles_fnc_deadlyExplosion;
-												_bomber setDamage 1;
-											};
-											case 1:
-											{
-											[getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
-												_bomber setDamage 1;
-											};
-											case 2:
-											{
-												[getPos _bomber] call Achilles_fnc_fakeExplosion;
-												_bomber setDamage 1;
-											};
-										};
-									};
-								};
+								private _selectedMessage = selectRandom ["Allahu Akbar!", "Death to infidels!", "You are all coming with me!", "You all will pay with your blood!"];
+								[_bomber, _selectedMessage] remoteExec ["globalChat", 0, false];
+								_hasSpoken = true;
 							};
-						};
-					};
-				} forEach _targets;
-			};
-		};
+    						if ((_bomber distance _enemyUnit) <= _activationDistance) exitWith
+    						{
+    							_check = false;
+    							if (alive _bomber) then
+    							{
+    								switch (_explosionEffect) do
+    								{
+    									case 0:
+    									{
+    										[getPos _bomber, _explosionSize] call Achilles_fnc_deadlyExplosion;
+    										_bomber setDamage 1;
+    									};
+    									case 1:
+    									{
+    									[getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
+    										_bomber setDamage 1;
+    									};
+    									case 2:
+    									{
+    										[getPos _bomber] call Achilles_fnc_fakeExplosion;
+    										_bomber setDamage 1;
+    									};
+    								};
+    							};
+    						};
+    					};
+    				};
+    			} forEach (_targets select {_enemyUnit isKindOf _x && alive _enemyUnit});
+    		};
+    	};
 	};
 };
 

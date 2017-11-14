@@ -56,7 +56,7 @@ if (_object isKindOf "Man") then
   ] call Ares_fnc_showChooseDialog;
 
   if (isNil "_dialogResult") exitWith {};
-  if (count _dialogResult == 0) exitWith {};
+  if (_dialogResult isEqualTo []) exitWith {};
 
   _dialogResult params ["_explosionSize", "_explosionEffect", "_addVest", "_activationDistance", "_patrolRadius", "_activationSide"];
 

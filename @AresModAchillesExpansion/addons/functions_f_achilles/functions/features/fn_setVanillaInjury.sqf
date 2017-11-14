@@ -20,7 +20,7 @@ params ["_unit","_value_list"];
 {
 	private "_injury_value";
 	private _value = _value_list select _forEachIndex;
-	if (typeName _value == "CODE") then
+	if (_value isEqualType {}) then
 	{
 		_injury_value = [_unit] call _value;
 	} else

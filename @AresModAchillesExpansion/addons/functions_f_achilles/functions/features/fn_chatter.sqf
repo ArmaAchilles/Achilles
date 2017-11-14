@@ -38,8 +38,8 @@ if (isNull _unit) then
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _dialogResult == 0) exitWith {};
-	
+	if (_dialogResult isEqualType []) exitWith {};
+
 	switch (_dialogResult select 0) do
 	{
 		case 0: {_side = west;};
@@ -70,7 +70,7 @@ if (isNull _unit) then
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (count _dialogResult == 0) exitWith {};
+	if (_dialogResult isEqualType []) exitWith {};
 
 	private _chat_type = switch (_dialogResult select 0) do
 	{
@@ -81,12 +81,12 @@ if (isNull _unit) then
 		case 4:	{''};
 	};
 	private _message = _dialogResult select 1;
-	
+
 	// if zeus channel
 	if (_chat_type == "") exitWith {[player,_message] remoteExec ['sideChat',0];};
-	
 
-	_message = "(" + (_name) + " [" + localize "STR_AI" + "]) " + _message; 
-	
+
+	_message = "(" + (_name) + " [" + localize "STR_AI" + "]) " + _message;
+
 	[_unit,_message] remoteExec [_chat_type,0];
 };

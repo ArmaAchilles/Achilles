@@ -12,8 +12,7 @@
     	Nothing
 */
 
-private _channel = _this select 0;
-private _freq = _this select 1;
+params ["_channel", "_freq"];
 
 if (!isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {};
 

@@ -18,48 +18,45 @@ params ["_vehicles"];
 
 {
 	private _vehicle = _x;
-	if (_vehicle isKindOf "LandVehicle" or _vehicle isKindOf "Air") then
+	private _crew = crew _vehicle;
+	private _passenger = _crew select {(assignedVehicleRole _x) select 0 == "CARGO"};
 	{
-		private _crew = crew _vehicle;
-		private _passenger = _crew select {(assignedVehicleRole _x) select 0 == "CARGO"};
+		private _unit = _x;
+		if ((getPos _vehicle select 2) > 40) then
 		{
-			private _unit = _x;
-			if ((getPos _vehicle select 2) > 40) then
+			if (local _unit) then
+			{
+				[_unit, _forEachIndex] spawn Achilles_fnc_chute;
+			} else
+			{
+				[_unit, _forEachIndex] remoteExec ["Achilles_fnc_chute", _unit];
+			};
+		} else
+		{
+			if (isPlayer _unit) then
 			{
 				if (local _unit) then
 				{
-					[_unit, _forEachIndex] spawn Achilles_fnc_chute;
+					unassignVehicle _unit;
+					_unit action ["Eject", vehicle _unit];
 				} else
 				{
-					[_unit, _forEachIndex] remoteExec ["Achilles_fnc_chute", _unit];
+					_unit remoteExecCall ["unassignVehicle", _unit];
+					[_unit, ["Eject", vehicle _unit]] remoteExecCall ["action", _unit];
 				};
 			} else
 			{
-				if (isPlayer _unit) then
+				if (local _unit) then
 				{
-					if (local _unit) then
-					{
-						unassignVehicle _unit;
-						_unit action ["Eject", vehicle _unit];
-					} else
-					{
-						_unit remoteExecCall ["unassignVehicle", _unit];
-						[_unit, ["Eject", vehicle _unit]] remoteExecCall ["action", _unit];
-					};
+					unassignVehicle _unit;
+					_unit action ["Eject", vehicle _unit];
 				} else
 				{
-					if (local _unit) then
-					{
-						unassignVehicle _unit;
-						_unit action ["Eject", vehicle _unit];
-					} else
-					{
-						_unit remoteExecCall ["unassignVehicle", _unit];
-						[[_unit], false] remoteExecCall ["orderGetIn", _unit];
-					};
+					_unit remoteExecCall ["unassignVehicle", _unit];
+					[[_unit], false] remoteExecCall ["orderGetIn", _unit];
 				};
 			};
-		} forEach _passenger;
-		if ((getPos _vehicle select 2) > 40) then {[_vehicle] remoteExec ["rhs_fnc_vehPara",_vehicle]};
-	}
-} forEach _vehicles;
+		};
+	} forEach _passenger;
+	if ((getPos _vehicle select 2) > 40) then {[_vehicle] remoteExec ["rhs_fnc_vehPara",_vehicle]};
+} forEach (_vehicles select {_x isKindOf "LandVehicle" or _x isKindOf "Air"});

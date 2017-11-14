@@ -15,12 +15,12 @@ if (_type_id == -1) exitWith {["No chair selected!"] call Ares_fnc_ShowZeusMessa
 
 // chairs can only be properly occupied if their simulation is enabled!
 [_chair,true] remoteExec ["enableSimulationGlobal",2];
-		
+
 if (isNull (_chair getVariable ['occupier', ObjNull])) then
 {
 	private _unit = (["unit"] call Achilles_fnc_SelectUnits) select 0;
 	if (isNil "_unit") exitWith {};
-	if (not (_unit isKindOf "Man")) exitWith {["No unit selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (!(_unit isKindOf "Man")) exitWith {["No unit selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 	private _ehAnimDone = _unit addEventHandler
 	[
 		"AnimDone",
@@ -29,7 +29,7 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 
 			_unit = _this select 0;
 			_animset = ["HubSittingChairA_idle1","HubSittingChairA_idle2","HubSittingChairA_idle3","HubSittingChairA_move1"];
-			
+
 			if (alive _unit) then
 			{
 				_anim = _animset select (round random (count _animset - 1));

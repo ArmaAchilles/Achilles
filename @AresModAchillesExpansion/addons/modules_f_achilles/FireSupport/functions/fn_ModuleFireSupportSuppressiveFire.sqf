@@ -21,7 +21,7 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 
 // get list of possible targest
 private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
 {
@@ -30,7 +30,7 @@ private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localiz
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select parameters
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_SUPPRESIVE_FIRE",
 	[
@@ -41,7 +41,7 @@ private _dialogResult =
 		[localize "STR_DURATION", "", "10"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params
 [
@@ -55,24 +55,23 @@ _doLineUp = _doLineUp == 1;
 _duration = parseNumber _duration;
 
 // Choose a target to fire at
-private _selectedTarget = objNull;
-switch (_targetChooseAlgorithm) do
+private _selectedTarget = switch (_targetChooseAlgorithm) do
 {
 	case 0: // Random
 	{
-		_selectedTarget = _allTargets call BIS_fnc_selectRandom;
+		_allTargets call BIS_fnc_selectRandom;
 	};
 	case 1: // Nearest
 	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetNearest;
+		[position _logic, _allTargets] call Ares_fnc_GetNearest;
 	};
 	case 2: // Furthest
 	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetFarthest;
+		[position _logic, _allTargets] call Ares_fnc_GetFarthest;
 	};
 	default // Specific target
 	{
-		_selectedTarget = _allTargets select (_targetChooseAlgorithm - 3);
+		_allTargets select (_targetChooseAlgorithm - 3);
 	};
 };
 

@@ -42,7 +42,7 @@ private _saved_vehicles = [];
 		{
 			if (_object in _saved_vehicles) exitWith {};
 			_saved_vehicles pushBack _object;
-
+			private _crew_info_array = (crew _object) apply {[typeOf _x, groupID group _x, side _x, [getUnitLoadout _x, goggles _x], assignedVehicleRole _x]};
 			private _crew_info_array = [];
 			{
 				_crew_info_array pushBack 

@@ -59,7 +59,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _persistent = _dialogResult select 1;
 
 _anim = switch (_dialogResult select 0) do
@@ -67,22 +67,22 @@ _anim = switch (_dialogResult select 0) do
 	case 0:	{"TERMINATE"};
 	case 1: {"SIT_LOW"};
 	case 2: {"LEAN"};
-	case 3: 
+	case 3:
 	{
 		selectRandom ["WATCH_1", "WATCH_2"];
 	};
-	case 4: 
+	case 4:
 	{
 		selectRandom ["STAND_1", "STAND_2"];
 	};
-	case 5: 
+	case 5:
 	{
 		selectRandom ["STAND_NO_WEAP_1", "STAND_NO_WEAP_2", "STAND_NO_WEAP_3"];
 	};
 	case 6: {"GUARD"};
 	case 7: {"LISTEN_BRIEFING"};
 	case 8: {"BRIEFING"};
-	case 9: 
+	case 9:
 	{
 		selectRandom ["BRIEFING_INTERACTIVE_1", "BRIEFING_INTERACTIVE_2"];
 	};
@@ -91,7 +91,7 @@ _anim = switch (_dialogResult select 0) do
 	case 12: {"LISTEN_TO_RADIO"};
 	case 13: {"SHIELD_FROM_SUN"};
 	case 14: {"NAVIGATE"};
-	case 15: {"SHOWING_THE_WAY"};	
+	case 15: {"SHOWING_THE_WAY"};
 	case 16:
 	{
 		selectRandom ["KNEEL_TREAT_1", "KNEEL_TREAT_2"];

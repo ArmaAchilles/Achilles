@@ -10,7 +10,7 @@
 
 private _center_pos = position _logic;
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_DAMAGE_BUILDINGS",
 	[
@@ -22,7 +22,7 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 //Broadcast damage function to server
 if (isNil "Achilles_var_damageBuildings_init_done") then
@@ -34,12 +34,12 @@ if (isNil "Achilles_var_damageBuildings_init_done") then
 private _buildings = [];
 switch (_dialogResult select 0) do
 {
-	case 0:	
+	case 0:
 	{
 		_buildings = nearestObjects [_center_pos, ["Building"], 50, true];
 		_buildings resize 1;
 	};
-	case 1: 
+	case 1:
 	{
 		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 3), true];
 	};

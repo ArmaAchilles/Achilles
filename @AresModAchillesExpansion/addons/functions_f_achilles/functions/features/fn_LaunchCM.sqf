@@ -31,7 +31,7 @@ private _allSmokeMagazines = [];
 if (_vehicle isKindOf "Man") then
 {
 	// Get all of our smokes in the inventory
-	_allSmokeMagazines = 
+	_allSmokeMagazines =
 	[
 		magazinesAmmoFull _vehicle,
 		[],
@@ -41,8 +41,8 @@ if (_vehicle isKindOf "Man") then
 	] call BIS_fnc_sortBy;
 
 	// Display different messages if the unit doesn't have any smokes
-	if (count _allSmokeMagazines == 0 && !_multipleSelection) exitWith {["Smoke grenades unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (count _allSmokeMagazines == 0 && _multipleSelection) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection) exitWith {["Smoke grenades unavailable!"] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && _multipleSelection) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	// Make the unit throw the smoke grenade
 	private _smokeMuzzle = (_allSmokeMagazines select 0) select 4;
@@ -60,11 +60,11 @@ else
 		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
 	] call BIS_fnc_sortBy;
 
-	if (count _allSmokeMagazines == 0 && !_multipleSelection && !_isVehicleAir) exitWith {["Smoke dispensers unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (count _allSmokeMagazines == 0 && _multipleSelection && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection && !_isVehicleAir) exitWith {["Smoke dispensers unavailable!"] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && _multipleSelection && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
-	if (count _allSmokeMagazines == 0 && !_multipleSelection && _isVehicleAir) exitWith {["Countermeasures unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (count _allSmokeMagazines == 0 && _multipleSelection && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection && _isVehicleAir) exitWith {["Countermeasures unavailable!"] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && _multipleSelection && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	private _turretPath = (_allSmokeMagazines select 0) select 1;
 	private _weapons = _vehicle weaponsTurret _turretPath;
@@ -83,7 +83,7 @@ else
 		[_vehicle,_CMWeapon] spawn
 		{
 			params["_vehicle", "_CMWeapon"];
-			
+
 			for "_i" from 0 to 5 do
 			{
 				[_vehicle, _CMWeapon] call BIS_fnc_fire;

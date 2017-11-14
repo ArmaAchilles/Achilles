@@ -19,10 +19,10 @@ _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 _radius = parseNumber (_dialogResult select 1);
 _units = (_epicenter nearEntities ['Man',_radius]) select {_x in allPlayers};
-if (not (player in _units)) then {_units pushBack player};
+if (!(player in _units)) then {_units pushBack player};
 [(_dialogResult select 0) + 1] remoteExec ['BIS_fnc_earthquake',_units,false];
 sleep ((random 3) + 5);
 // if destroy buildings is allowed

@@ -19,8 +19,8 @@ private _object_list = param [0,[],[[]]];
 private _center_object = _object_list param [0,objNull,[objNull]];
 _object_list = _object_list - [_center_object];
 
-if (isNull _center_object or (count _object_list == 0)) exitWith {};
-if (not isNil {_center_object getVariable ["Achilles_var_groupAttributes",nil]}) exitWith {};
+if (isNull _center_object or (_object_list isEqualTo [])) exitWith {};
+if (!isNil {_center_object getVariable ["Achilles_var_groupAttributes",nil]}) exitWith {};
 
 private _center_pos = getPosWorld _center_object;
 
@@ -46,7 +46,7 @@ private _group_attributes = [];
 		_return;
 	};
 	_group_attributes pushBack ([_object] + _attributes);
-	
+
 	[_object,false] remoteExec ["enableSimulationGlobal",2];
 } forEach _object_list;
 

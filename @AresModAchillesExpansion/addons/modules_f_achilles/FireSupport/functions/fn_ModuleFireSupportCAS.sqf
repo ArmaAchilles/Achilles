@@ -13,13 +13,13 @@ private _unit_capture_firing = [7.01516,7.08106,8.06716,8.13306,9.14526,9.21216]
 private _vehicle = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 private _pilot = driver _vehicle;
 private _group = group _pilot;
-if (not (_vehicle isKindOf "Helicopter")) exitWith {["This module currently only works on attack choppers!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (!(_vehicle isKindOf "Helicopter")) exitWith {["This module currently only works on attack choppers!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _weapons = [_vehicle,true] call Achilles_fnc_weaponsAllTurrets;
 _weapons = _weapons select {getText (configfile >> "CfgWeapons" >> _x >> "cursorAim") in ["missile","rocket"] or (getText (configfile >> "CfgWeapons" >> _x >> "cursor") in ["missile","rocket"])};
-if (count _weapons == 0) exitWith {[localize "STR_NO_AMMO"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_weapons isEqualTo []) exitWith {[localize "STR_NO_AMMO"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 private _allTargetsUnsorted = allMissionObjects "Achilles_Create_CAS_Target_Module";
-if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
 {
@@ -27,7 +27,7 @@ private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localiz
 } forEach _allTargets;
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_ADVANCED_CAS",
 	[
@@ -36,7 +36,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_showChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 private _targetChooseAlgorithm = _dialogResult select 0;
 private _selectedTarget = objNull;
@@ -91,7 +91,7 @@ _vehicle forceSpeed _speed * 3.6;
 private _duration = (_end_pos distance _start_pos)/_speed;
 
 private _time = time;
-waitUntil 
+waitUntil
 {
 	private _delta_time = time - _time;
 	_vehicle setVelocityTransformation
@@ -103,7 +103,7 @@ waitUntil
 		_start_vecDir,
 		_end_vecDir,
 		_start_vecUp,
-		_end_vecUp,		
+		_end_vecUp,
 		_delta_time / _duration
 	];
 	_vehicle setVelocity [0,0,0];

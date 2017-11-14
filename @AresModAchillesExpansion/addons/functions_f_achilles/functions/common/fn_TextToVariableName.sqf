@@ -21,13 +21,13 @@ if (isNil "Achilles_var_old_special_char_unicode") then
 {
 	Achilles_var_old_special_char_unicode = [];
 	Achilles_var_new_special_char_unicode = [];
-	
+
 	private _old_letters = [" ",":","(",")","[","]"];
 	private _new_letters = ["_","_","_","_","_","_"];
-	
+
 	switch (language) do
 	{
-		case "German": 
+		case "German":
 		{
 			_old_letters append ["Ä","ä","Ö","ö","Ü","ü"];
 			_new_letters append ["A","a","O","o","U","u"];
@@ -36,14 +36,14 @@ if (isNil "Achilles_var_old_special_char_unicode") then
 		{
 			_old_letters append ["é","è","à","ç","î","ë","ê","ù","û","ô","â","ï","ÿ"];
 			_new_letters append ["e","e","a","c","i","e","e","u","u","o","a","i","y"];
-		};	
+		};
 		case "Russian":
 		{
 			_old_letters append ["А","а","Б","б","В","в","Г","г","Д","д","Е","е","Ё","ё","Ж","ж","З","з","И","и","Й","й","К","к","Л","л","М","м","Н","н","О","о","П","п","Р","р","С","с","Т","т","У","у","Ф","ф","Х","х","Ц","ц","Ч","ч","Ш","ш","Щ","щ","Ъ","ъ","Ы","ы","Ь","ь","Э","э","Ю","ю","Я","я"];
 			_new_letters append ["A","a","B","b","V","v","G","g","D","d","E","e","E","e","Z","z","Z","z","I","i","J","j","K","k","L","l","M","m","N","n","O","o","P","p","R","r","S","s","T","t","U","u","F","f","C","c","C","c","C","c","S","s","S","s","_","_","Y","y","_","_","E","e","U","u","J","j"];
 		};
 	};
-	
+
 	for "_i" from 0 to ((count _old_letters) - 1) do
 	{
 		Achilles_var_old_special_char_unicode append (toArray (_old_letters select _i));
@@ -61,6 +61,4 @@ for "_i" from 0 to ((count _input_unicode) - 1) do
 		_input_unicode set [_i,Achilles_var_new_special_char_unicode select _letter_index];
 	};
 };
-
-private _output = toString _input_unicode;
-_output;
+toString _input_unicode;

@@ -27,11 +27,11 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	{
 		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
 	};
-	
+
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (count _selected_units == 0) exitWith {};
-	
+	if (_selected_units isEqualTo []) exitWith {};
+
 	{
 		if (local _x) then
 		{
@@ -51,10 +51,10 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	{
 		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
 	};
-	
+
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (count _selected_units == 0) exitWith {};
+	if (_selected_units isEqualTo 0) exitWith {};
 
 	// Vanilla Injury System
 	{

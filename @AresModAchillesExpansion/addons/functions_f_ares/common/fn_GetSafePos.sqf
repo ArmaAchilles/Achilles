@@ -25,17 +25,10 @@
 
 scopeName "main";
 
-private ["_pos", "_minDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_newPos", "_posX", "_posY","_attempts"];
+params [["_pos", [], [[]]], ["_range", "", [""]], ["_objDist", getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius"), [0]], ["_waterMode", 1, [0]], ["_maxGradient", 1, [0]]];
 
-private _countThis	= count _this;
-_pos		= (_this select 0);
-private _range		= if(_countThis > 2) then { _this select 1 }else{ "" };
-_objDist	= if(_countThis > 2) then { _this select 2 }else{ getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius") };
-_waterMode	= if(_countThis > 3) then { _this select 3 }else{ 1 };
-_maxGradient	= if(_countThis > 4) then { _this select 4 }else{ 1 };
-
-_minDist = -1;
-_maxDist = -1;
+private _minDist = -1;
+private _maxDist = -1;
 switch (typeName _range) do {
 	case (typeName []) : {
 		_minDist = _range select 0;
@@ -55,16 +48,15 @@ if(_objDist < 0) then {
 	_objDist = getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius");
 };
 
-_newPos = [];
-_posX = _pos select 0;
-_posY = _pos select 1;
-_attempts = 0;
+private _newPos = [];
+private _posX = _pos select 0;
+private _posY = _pos select 1;
+private _attempts = 0;
 
 while {_attempts < 1000} do {
-	private ["_newX", "_newY", "_testPos"];
-	_newX = _posX + (_maxDist - (random (_maxDist * 2)));
-	_newY = _posY + (_maxDist - (random (_maxDist * 2)));
-	_testPos = [_newX, _newY];
+	private _newX = _posX + (_maxDist - (random (_maxDist * 2)));
+	private _newY = _posY + (_maxDist - (random (_maxDist * 2)));
+	private _testPos = [_newX, _newY];
 
 	if ( (_pos distance _testPos) >= _minDist) then {
 		if ! ( count(_testPos isFlatEmpty [_objDist, 0,_maxGradient,_objDist max 5,_waterMode,if(_waterMode == 0) then {false}else{true}, objNull]) == 0 ) exitWith {

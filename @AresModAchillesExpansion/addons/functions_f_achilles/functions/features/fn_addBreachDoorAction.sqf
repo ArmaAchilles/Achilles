@@ -16,19 +16,19 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 [
-	player,			
+	player,
 	"Set a Breaching Charge",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",
 	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",
-	{},			
-	{},			
+	{},
+	{},
 	{
 		// get grass cutter (= source object)
 		private _sourceObject = objNull;
 		private _nearSourceObjects = nearestObjects [getPosATL player, ["Land_ClutterCutter_small_F"], 3];
-		if (count _nearSourceObjects == 0) exitWith {};
+		if (_nearSourceObjects isEqualTo []) exitWith {};
 		_sourceObject = _nearSourceObjects select 0;
 		// remove charge from inventory and attach it to the door (grass cutter)
 		{
@@ -48,7 +48,7 @@
 		// set variables and event handlers
 		player setVariable ["breach", _charge];
 		_sourceObject setVariable ["occupied",true];
-		private _action_id = player addAction ["Touch off (breach)", 
+		private _action_id = player addAction ["Touch off (breach)",
 		{
 			player removeAction (_this select 2);
 			(_this select 3) params ["_charge"];
@@ -69,10 +69,10 @@
 		[_charge,_sourceObject,_killed_id,_action_id] spawn
 		{
 			params ["_charge","_sourceObject","_killed_id","_action_id"];
-			while {not isNull _sourceObject} do 
+			while {!isNull _sourceObject} do
 			{
 				uiSleep 1;
-				if(isNull _charge) exitWith 
+				if(isNull _charge) exitWith
 				{
 					_sourceObject setVariable ["occupied",nil];
 					player removeAction _action_id;
@@ -80,11 +80,11 @@
 				};
 			};
 		};
-	},	
-	{},			
-	[],			
-	7,	
-	20,			
-	false,		
-	false		
+	},
+	{},
+	[],
+	7,
+	20,
+	false,
+	false
 ] call BIS_fnc_holdActionAdd;
