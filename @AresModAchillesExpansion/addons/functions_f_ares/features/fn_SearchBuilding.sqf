@@ -153,7 +153,7 @@ private _searchers = [];
 {
 	_x setVariable ["Ares_isSearching", false];
 	_searchers pushBack [_x];
-} forEach ((units _group) select (_includeLeaderInSearch || (_leader != _x))) select (!isNull _x && alive _x);
+} forEach (((units _group) select {_includeLeaderInSearch || (_leader != _x)}) select {!isNull _x && alive _x});
 
 // Shuffle the order of the searcher array so that we have somewhat varied search behaviour.
 // This way the same guys don't search the same places if you do things twice.
