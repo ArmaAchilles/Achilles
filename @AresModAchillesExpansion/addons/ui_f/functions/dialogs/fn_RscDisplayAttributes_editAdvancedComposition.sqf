@@ -13,10 +13,11 @@
  IDC_NEW_ITEM			=20002;
  IDC_OK_BUTTON			=3000;
 */
+disableSerialization;
+
 private ["_mode", "_ctrl", "_comboIndex"];
 
-disableSerialization;
-_mode = (_this select 0);
+_mode = _this select 0;
 _ctrl = param [1,controlNull,[controlNull]];
 _comboIndex = param [2,0,[0]];
 
