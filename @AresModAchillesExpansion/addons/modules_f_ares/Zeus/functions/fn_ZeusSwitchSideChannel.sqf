@@ -5,7 +5,7 @@
 private _old_side = side player;
 localize "STR_ZEUS_HAS_LEFT_SIDE_CHANNEL" remoteExec ['hint', _old_side];
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_SWITCH_SIDE_CHANNEL_OF_ZEUS",
 	[
@@ -13,7 +13,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 private _side_index = _dialogResult select 0;
 

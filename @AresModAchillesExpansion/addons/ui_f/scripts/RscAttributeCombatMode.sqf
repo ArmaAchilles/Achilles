@@ -10,7 +10,7 @@ _mode = _this select 0;
 _params = _this select 1;
 _entity = _this select 2;
 
-_idcs = 
+_idcs =
 [
 	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIRE,
 	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREDEFEND,
@@ -19,7 +19,7 @@ _idcs =
 	IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE,
 	IDC_RSCATTRIBUTECOMBATMODE_DEFAULT
 ];
-_states = 
+_states =
 [
 	"BLUE",
 	"GREEN",
@@ -28,7 +28,7 @@ _states =
 	"RED",
 	"NO CHANGE"
 ];
-_colors = 
+_colors =
 
 [
 	[1,0,0,1],
@@ -53,7 +53,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current state
-		_selected = if (typename _entity == typename []) then {
+		_selected = if (_entity isEqualType []) then {
 			waypointCombatMode _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTECOMBATMODE_DEFAULT) ctrlshow false;
@@ -87,14 +87,14 @@ switch _mode do {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeCombatMode_selected",0];
 		_selected = _states select _selectedIndex;
-		if (typename _entity == typename []) then 
+		if (_entity isEqualType []) then
 		{
 			if (waypointCombatMode _entity == _selected) exitWith {};
 			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
 				_group = _x select 0;
 				_wp_id = _x select 1;
-				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
+				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then
 				{
 					if (local _group) then
 					{
@@ -106,7 +106,7 @@ switch _mode do {
 				};
 				_x setwaypointcombatmode _selected;
 			} forEach _curatorSelectedWPs;
-		} else 
+		} else
 		{
 			if (combatMode leader _entity == _selected) exitWith {};
 			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;

@@ -2,7 +2,7 @@
 
 private _center_pos = position _logic;
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
@@ -28,7 +28,7 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_editableObjects"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _addObject = (_dialogResult select 0) == 0;
 private _range_mode = _dialogResult select 1;
 private _obj_type = _dialogResult select 3;
@@ -41,7 +41,7 @@ if (_range_mode == 0) then
 	_objectsToProcess = switch (_obj_type) do
 	{
 		case 0: {nearestObjects [_center_pos, [],_radius, true]};
-		case 1: 
+		case 1:
 		{
 			private _units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
 			if (_dialogResult select 4 == 1) then
@@ -62,7 +62,7 @@ if (_range_mode == 0) then
 	_objectsToProcess = switch (_obj_type) do
 	{
 		case 0: {allMissionObjects ""};
-		case 1: 
+		case 1:
 		{
 			private _units = (allUnits + vehicles);
 			if (_dialogResult select 4 == 1) then
@@ -77,23 +77,17 @@ if (_range_mode == 0) then
 		case 2: {vehicles};
 		case 3: {allMissionObjects "Static"};
 		case 4: {allMissionObjects "Logic"};
-	};	
+	};
 };
 
 private _allCuratorObjectsBefore = curatorEditableObjects (getAssignedCuratorLogic player);
 // protect the main essential module from being added
-_objectsToProcess = _objectsToProcess select 
+_objectsToProcess = _objectsToProcess select
 {
 	private _object = _x;
 	private _type = toLower typeOf _object;
-	if (Achilles_Debug_Output_Enabled) then 
-	{
-		true;
-	}
-	else
-	{
-		({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
-	};
+	if (Achilles_Debug_Output_Enabled) exitWith	{ true;	};
+	({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
 };
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
@@ -102,14 +96,14 @@ private _allCuratorObjectsAfter = curatorEditableObjects (getAssignedCuratorLogi
 if (_addObject) then
 {
 	{
-		if ((_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x) then {_addedObjects = _addedObjects + 1};
-	} foreach _objectsToProcess;
+        _addedObjects = _addedObjects + 1;
+	} foreach (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
 }
 else
 {
 	{
-		if ((_x in _allCuratorObjectsBefore && !(_x in _allCuratorObjectsAfter)) && !isNull _x && _x != _logic) then {_addedObjects = _addedObjects + 1};
-	} foreach _objectsToProcess;
+		_addedObjects = _addedObjects + 1;
+	} foreach (_objectsToProcess select {(_x in _allCuratorObjectsBefore && !(_x in _allCuratorObjectsAfter)) && !isNull _x && _x != _logic});
 };
 
 private _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);

@@ -29,13 +29,13 @@ for "_i" from 0 to (count (_allHitPointsDamage select 0) - 1) do
 	_entries pushBack ["SLIDER", _component, [], _damage_value, true];
 };
 
-private _attribute_values = 
+private _attribute_values =
 [
 	localize "STR_DAMAGE_COMPONENTS",
 	_entries
 ] call Achilles_fnc_ShowChooseDialog;
 
-if (count _attribute_values == 0) exitWith {};
+if (_attribute_values isEqualTo []) exitWith {};
 
 private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 

@@ -16,7 +16,7 @@
 
 params ["_plane"];
 private _planeType = typeOf _plane;
-if (not isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_NO_DYNAMIC_LOADOUT"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_NO_DYNAMIC_LOADOUT"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 private _hasGunner = count fullCrew [_plane, "gunner", true] == 1;
 
@@ -34,19 +34,19 @@ if (_hasGunner) then {_entries pushBack [localize "STR_ASSIGN_WEAPONS", [localiz
 		_magazineNames pushBack format ["%1 (%2)", getText (_mag_cfg >> "displayName"), getText (_mag_cfg >> "DisplayNameShort")];
 		if (configName _mag_cfg == _allCurrentPylonMagazines select (_pylonIndex - 1)) then {_defaultIndex = _forEachIndex + 1};
 	} forEach (_plane getCompatiblePylonMagazines _pylonIndex);
-	
+
 	_entries pushBack [configName _pylon_cfg, _magazineNames, _defaultIndex, true];
 } forEach _pylon_cfgs;
 
 private _dialogResult = [localize "STR_LOADOUT", _entries] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
 private _addWeaponsTo = "";
 if (_hasGunner) then {_addWeaponsTo = _dialogResult select 0};
-_addWeaponsTo = switch (_addWeaponsTo) do 
+_addWeaponsTo = switch (_addWeaponsTo) do
 {
 	case 0: {[]};
 	case 1: {[0]};

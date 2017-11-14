@@ -1,7 +1,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private _ammoBox = [_logic] call Ares_fnc_GetUnitUnderCursor;
-if (not isnull _ammoBox) then
+if (!isnull _ammoBox) then
 {
 	private _virtualBackpacks = [_ammoBox] call BIS_fnc_getVirtualBackpackCargo;
 	private _virtualItems = [_ammoBox] call BIS_fnc_getVirtualItemCargo;
@@ -22,10 +22,10 @@ if (not isnull _ammoBox) then
 %7,
 %8]",
 	str(_virtualBackpacks), str(_virtualItems), str(_virtualMagazines), str(_virtualWeapons), str(_backpacks), str(_items), str(_magazines), str(_weapons)];
-	
+
 	// Don't do this anytime since it doesn't work on dedicated servers.
 	//copyToClipboard _stringData;
-	
+
 	uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _stringData];
 	private _dialog = createDialog "Ares_CopyPaste_Dialog";
 

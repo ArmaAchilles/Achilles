@@ -21,14 +21,14 @@ private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
 switch (_mode) do
 {
-	case "LOADED": 
+	case "LOADED":
 	{
 		{
 			_ctrl = _dialog displayCtrl (IDC_MODE_COMBO + _x);
 			if (not isNull _ctrl) then
 			{
 				_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-				_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+				_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
 				_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
 				_ctrl lbSetCurSel _last_choice;
 				if (_x == 0) then
@@ -58,14 +58,14 @@ switch (_mode) do
 					_ctrl ctrlSetFade 0;
 					if (_x in IDC_SIDE_ICONS) then {_ctrl ctrlEnable true};
 					_ctrl ctrlCommit 0;
-				} forEach (IDC_SIDE_LABLE + IDC_SIDE_ICONS);	
+				} forEach (IDC_SIDE_LABLE + IDC_SIDE_ICONS);
 			};
 		};
-		
+
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];
 	};
 	case "UNLOAD": {};
-	default 
+	default
 	{
 		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _mode], _comboIndex];
 	};

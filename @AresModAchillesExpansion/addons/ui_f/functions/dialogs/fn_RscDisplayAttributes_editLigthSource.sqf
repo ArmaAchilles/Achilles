@@ -25,7 +25,7 @@ switch (_mode) do
 		_ctrl = _dialog displayCtrl IDC_CTRL_RANGE;
 		_ctrl ctrlAddEventHandler ["KillFocus", {["UPDATE"] call Achilles_fnc_RscDisplayAttributes_editLigthSource}];
 	};
-	case "UPDATE": 
+	case "UPDATE":
 	{
 		private _rgb_color = [];
 		for "_i" from 0 to 2 do
@@ -33,11 +33,11 @@ switch (_mode) do
 			_ctrl = _dialog displayCtrl (IDC_CTRL_BASE + _i);
 			_color = sliderPosition _ctrl;
 			_rgb_color pushBack _color;
-		};		
-		
+		};
+
 		_ctrl = _dialog displayCtrl IDC_CTRL_RANGE;
 		private _attenuation = [parseNumber (ctrlText _ctrl)];
-		
+
 		for "_i" from 4 to 6 do
 		{
 			_ctrl = _dialog displayCtrl (IDC_CTRL_BASE + _i);
@@ -50,7 +50,7 @@ switch (_mode) do
 		Achilles_var_AttributeWindowTargetObject setLightColor  _rgb_color;
 	};
 	case "UNLOAD" : {};
-	default 
+	default
 	{
 		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _mode], _comboIndex];
 	};

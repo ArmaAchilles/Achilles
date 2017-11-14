@@ -33,29 +33,29 @@ if (_addToCurator) then
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 {
 	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
-	
+
 	if (_addToCurator) then
 	{
 		_simpleObjects = _simpleObjects select {isNull (_x getVariable ["master", objNull])};
-		if (count _simpleObjects == 0) exitWith {};
-		
+		if (_simpleObjects isEqualTo []) exitWith {};
+
 		_logic_list = [];
 		_logic_group = createGroup sideLogic;
 		_logic_group deleteGroupWhenEmpty true;
-		
+
 		{
 			_object = _x;
 			_pos = position _object;
 			_pos = if (surfaceIsWater _pos) then {getPosASL _object} else {getPosATL _object};
-			
+
 			_logic = _logic_group createUnit ["module_f", _pos, [], 0, "CAN_COLLIDE"];
 			_logic setVectorDirAndUp [vectorDir _object, vectorUp _object];
 			waitUntil {direction _logic - direction _object < 0.01 or {isNull _logic}};
 			_object attachTo [_logic];
-			
+
 			_logic_list pushBack _logic;
 		} forEach _simpleObjects;
-		
+
 		// critical delay for proper name setting of game logics
 		waitUntil {{name _x != "" and {not isNull _x}} count _logic_list == 0};
 		private _allocation_error_cases = 0;
@@ -63,8 +63,8 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		{
 			_object = _simpleObjects select _i;
 			_logic = _logic_list select _i;
-			
-			if (not isNull _logic) then
+
+			if !(isNull _logic) then
 			{
 				_str_content = (str _object) splitString " ";
 				_displayName = _str_content select (count _str_content - 1);
@@ -75,7 +75,7 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 			};
 		};
 		if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create reference logic for simple object! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
-		
+
 		if (_addToCurator) then
 		{
 			[getAssignedCuratorLogic player, [_logic_list, true]] remoteExecCall ["addCuratorEditableObjects", 2];
@@ -88,7 +88,7 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		{
 			_object = _x;
 			_logic = attachedTo _object;
-			if (not isNull _logic) then
+			if !(isNull _logic) then
 			{
 				detach _object;
 				deleteVehicle _logic;

@@ -5,13 +5,13 @@
 //  DESCRIPTION: Function that is executed when reloading the interface
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if (isNull (findDisplay 312)) exitWith 
+if (isNull (findDisplay 312)) exitWith
 {
 	Achilles_var_reloadDisplay = nil;
 	Achilles_var_reloadVisionModes = nil;
 };
 
-if (not isNil "Achilles_var_reloadDisplay") then
+if (!isNil "Achilles_var_reloadDisplay") then
 {
 	// reload display
 	cutText ["","BLACK OUT", 0.1,true];
@@ -23,7 +23,7 @@ if (not isNil "Achilles_var_reloadDisplay") then
 	Achilles_var_reloadDisplay = nil;
 };
 
-if (not isNil "Achilles_var_reloadVisionModes") then
+if (!isNil "Achilles_var_reloadVisionModes") then
 {
 	[] call Achilles_fnc_setCuratorVisionModes;
 	Achilles_var_reloadVisionModes = nil;

@@ -8,7 +8,7 @@ Ares_EditableObjectBlacklist =
 	"Ornate_random_F",
 	"Mackerel_F",
 	"Tuna_F",
-	"Mullet_F", 
+	"Mullet_F",
 	"CatShark_F",
 	"Rabbit_F",
 	"Snake_random_F",
@@ -33,7 +33,7 @@ private _dialogResult =
 			[localize "STR_INCLUDE_MARKERS", [localize "STR_YES", localize "STR_NO"], 1]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-if (count _dialogResult == 0) exitWith { "User cancelled dialog."; };
+if (_dialogResult isEqualTo []) exitWith { "User cancelled dialog."; };
 
 ["User chose radius with index '%1'", _dialogResult] call Achilles_fnc_logMessage;
 _radius = 100;
@@ -48,21 +48,17 @@ switch (_dialogResult select 0) do
 	case 6: { _radius = -1; };
 	default { _radius = 100; };
 };
-private _includeUnits = if (_dialogResult select 1 == 0) then { true; } else { false; };
-private _includeEmptyVehicles = if (_dialogResult select 2 == 0) then { true; } else { false; };
-private _includeEmptyObjects = if (_dialogResult select 3 == 0) then { true; } else { false; };
-private _includeMarkers = if (_dialogResult select 4 == 0) then { true; } else { false; };
+private _includeUnits = (_dialogResult select 1 == 0);
+private _includeEmptyVehicles = (_dialogResult select 2 == 0);
+private _includeEmptyObjects = (_dialogResult select 3 == 0);
+private _includeMarkers = (_dialogResult select 4 == 0);
 
 private _objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
 private _emptyObjects = [];
 private _emptyVehicles = [];
 private _groups = [];
 {
-	private _ignoreFlag = false;
-	if ((typeOf _x) in Ares_EditableObjectBlacklist || isPlayer _x) then
-	{
-		_ignoreFlag = true;
-	};
+	private _ignoreFlag = ((typeOf _x) in Ares_EditableObjectBlacklist || isPlayer _x);
 
 	if (!_ignoreFlag && ((_x distance _position <= _radius) || _radius == -1)) then
 	{
@@ -88,7 +84,7 @@ private _groups = [];
 					["In a new group."] call Achilles_fnc_logMessage;
 					_groups pushBack (group _x);
 				};
-				
+
 			}
 			else
 			{
@@ -164,7 +160,7 @@ private _totalUnitsProcessed = 0;
 	private _groupVehicles = [];
 	// Process all the infantry in the group
 	{
-		if (vehicle _x == _x) then
+		if (isNull objectParent _x) then
 		{
 			_output pushBack format [
 				"_newUnit = _newGroup createUnit ['%1', %2, [], 0, 'CAN_COLLIDE']; _newUnit setSkill %3; _newUnit setRank '%4'; _newUnit setFormDir %5; _newUnit setDir %5; _newUnit setPosWorld %6;",
@@ -177,24 +173,25 @@ private _totalUnitsProcessed = 0;
 		}
 		else
 		{
-			if (not ((vehicle _x) in _groupVehicles)) then
+			if (!((vehicle _x) in _groupVehicles)) then
 			{
 				_groupVehicles pushBack (vehicle _x);
 			};
 		};
 		_totalUnitsProcessed = _totalUnitsProcessed + 1;
 	} forEach (units _x);
-	
+
 	// Create the vehicles that are part of the group.
-	{
-		_output pushBack format [
-			"_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
-			(typeOf _x),
-			(position _x),
-			(getDir _x),
-			(getPosWorld _x)];
-	} forEach _groupVehicles;
-	
+    _output = _groupVehicles apply
+    {
+        format [
+        "_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
+        (typeOf _x),
+        (position _x),
+        (getDir _x),
+        (getPosWorld _x)];
+    };
+
 	// Set group behaviours
 	_output pushBack format [
 		"_newGroup setFormation '%1'; _newGroup setCombatMode '%2'; _newGroup setBehaviour '%3'; _newGroup setSpeedMode '%4';",
@@ -202,7 +199,7 @@ private _totalUnitsProcessed = 0;
 		(combatMode _x),
 		(behaviour (leader _x)),
 		(speedMode _x)];
-		
+
 	{
 		if (_forEachIndex > 0) then
 		{

@@ -13,23 +13,19 @@ private _side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
 private _sides = [east,west,independent];
 
 private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (count _allLzsUnsorted == 0) exitWith {[localize "STR_NO_LZ"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _lzOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
-{
-	_lzOptions pushBack (name _x);
-} forEach _allLzs;
+_lzOptions append (_allLzs apply {name _x});
 
 private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (count _allRpsUnsorted == 0) exitWith {[localize "STR_NO_RP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_NO_RP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _rpOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
-{
-	_rpOptions pushBack (name _x);
-} forEach _allRps;
+_rpOptions append (_allRps apply {name _x});
 
 // Show the user the dialog
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_SPAWN_UNITS",
 	[
@@ -43,11 +39,11 @@ private _dialogResult =
 		[localize "STR_INFANTRY_GROUP", [localize "STR_LOADING_"]],
 		[localize "STR_UNIT_RP", _rpOptions],
 		[localize "STR_UNIT_BEHAVIOUR", [localize "STR_DEFAULT", localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]]
-	], 
+	],
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 //Get dialog results
 private _side = _sides select (_dialogResult select 0);
@@ -105,7 +101,7 @@ private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	private _script = if (_dialogResult select 6 == 1) then 
+	private _script = if (_dialogResult select 6 == 1) then
 	{
 		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
 	} else
@@ -122,7 +118,7 @@ if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 // when they take contact.
 (driver (vehicle (leader _vehicleGroup))) setSkill 1;
 
-if (_vehicleType isKindOf "Air") then 
+if (_vehicleType isKindOf "Air") then
 {
 	// Special settings for helicopters. Otherwise they tend to run away instead of land
 	// if the LZ is hot.
@@ -219,7 +215,7 @@ if (count _allRps > 0) then
 
 	// Now that we've chosen an RP, increment the count for it.
 	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
-	
+
 	private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
 }
 else
@@ -235,7 +231,7 @@ else
 // Add infantry to curator
 [(units _infantryGroup)] call Ares_fnc_AddUnitsToCurator;
 
-if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith 
+if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
 	{deleteVehicle _x} forEach _infantry_list;

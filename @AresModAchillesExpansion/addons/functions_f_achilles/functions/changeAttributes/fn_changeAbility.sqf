@@ -37,14 +37,14 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 if (isNull (_units select 0)) then
 {
 	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_units") exitWith {};
-if (count _units == 0) exitWith {};
+if (_units isEqualTo []) exitWith {};
 
 {
 	private _unit = _x;

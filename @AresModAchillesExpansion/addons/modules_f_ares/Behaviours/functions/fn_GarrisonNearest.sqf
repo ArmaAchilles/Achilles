@@ -9,10 +9,7 @@ if (isNil "Achilles_var_zen_occupy_house_init_done") then
 
 private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
-private _doesGroupContainAnyPlayer = false;
-{
-	if (isPlayer _x) exitWith { _doesGroupContainAnyPlayer = true; };
-} forEach (units _groupUnderCursor);
+private	_doesGroupContainAnyPlayer = !(((units _groupUnderCursor) select {isPlayer _x}) isEqualTo []);
 
 if (_doesGroupContainAnyPlayer) then
 {
@@ -24,7 +21,7 @@ else
 {
 	private _unitCount = count (units _groupUnderCursor);
 	private _fillEvenly = if (_unitCount >= 8) then {true} else {false};
-	
+
 	if (local _groupUnderCursor) then
 	{
 		[(getPos _logic), (units _groupUnderCursor), 150, true, _fillEvenly] call Ares_fnc_ZenOccupyHouse;

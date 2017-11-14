@@ -21,34 +21,34 @@ if (isNull _unitUnderCursor) then
 {
 	// select players
 	private _dialogResult = [
-		format ["%1 (%2)",localize "STR_CHANGE_SIDE_OF_PLAYER",localize "STR_SELECT_PLAYERS"], 
-		[ 
+		format ["%1 (%2)",localize "STR_CHANGE_SIDE_OF_PLAYER",localize "STR_SELECT_PLAYERS"],
+		[
 			[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
 			["", ["..."]],
 			[localize "STR_SIDE","SIDE"]
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectPlayers"
 	] call Ares_fnc_ShowChooseDialog;
-	
-	if (count _dialogResult == 0) exitWith {};
-	
+
+	if (_dialogResult isEqualTo []) exitWith {};
+
 	_units = switch (_dialogResult select 0) do
 	{
 		case 0:
 		{
 			[player];
 		};
-		case 1: 
+		case 1:
 		{
 			allPlayers select {alive _x};
 		};
-		case 2: 
+		case 2:
 		{
 			private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {isPlayer _x};
 		};
-		case 3: 
+		case 3:
 		{
 			private _side_index = _dialogResult select 2;
 			_side = [east,west,independent,civilian] select (_side_index - 1);
@@ -65,26 +65,26 @@ if (isNull _unitUnderCursor) then
 	};
 	sleep 1;
 	if (isNil "_units") exitWith {};
-	if (count _units == 0) exitWith 
+	if (_units isEqualTo []) exitWith
 	{
-		[localize "STR_NO_PLAYER_IN_SELECTION"] call Ares_fnc_ShowZeusMessage; 
+		[localize "STR_NO_PLAYER_IN_SELECTION"] call Ares_fnc_ShowZeusMessage;
 		playSound "FD_Start_F";
 	};
-	
+
 	// select side to switch
-	_dialogResult = 
+	_dialogResult =
 	[
 		localize "STR_CHANGE_SIDE_OF_PLAYER",
 		[
 			[localize "STR_SIDE", "SIDE"]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-	if (count _dialogResult == 0) exitWith {};
+	if (_dialogResult isEqualTo []) exitWith {};
 	_side = [east,west,independent,civilian] select ((_dialogResult select 0) - 1);
 }
 else
 {
-	private _dialogResult = 
+	private _dialogResult =
 	[
 		localize "STR_CHANGE_SIDE_OF_PLAYER",
 		[
@@ -92,12 +92,12 @@ else
 			[localize "STR_SIDE", "SIDE"]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-	
+
 	if (count _dialogResult > 0) then
 	{
 		private _side_index = _dialogResult select 1;
 		_side = [east,west,independent,civilian] select (_side_index - 1);
-		
+
 		switch (_dialogResult select 0) do
 		{
 			case 0:
@@ -112,7 +112,7 @@ else
 	};
 };
 
-if (count _units == 0) exitWith {};
+if (_units isEqualTo []) exitWith {};
 
 while {count _units > 0} do
 {

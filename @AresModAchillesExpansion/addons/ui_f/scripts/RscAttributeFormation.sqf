@@ -39,7 +39,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current state
-		private _selected = if (typename _entity == typename []) then {
+		private _selected = if (_entity isEqualType []) then {
 			waypointformation _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTEFORMATION_DEFAULT) ctrlshow false;
@@ -71,15 +71,15 @@ switch _mode do {
 		private _display = _params select 0;
 		private _selectedIndex = uinamespace getvariable ["RscAttributeFormation_selected",0];
 		private _selected = _states select _selectedIndex;
-		
-		if (typename _entity == typename []) then 
+
+		if (_entity isEqualType []) then
 		{
 			if (waypointformation _entity == _selected) exitWith {};
 			private _curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
 				private _group = _x select 0;
 				private _wp_id = _x select 1;
-				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
+				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then
 				{
 					if (local _group) then
 					{
@@ -91,7 +91,7 @@ switch _mode do {
 				};
 				_x setwaypointformation _selected;
 			} forEach _curatorSelectedWPs;
-		} else 
+		} else
 		{
 			if (formation leader _entity == _selected) exitWith {};
 			private _curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;

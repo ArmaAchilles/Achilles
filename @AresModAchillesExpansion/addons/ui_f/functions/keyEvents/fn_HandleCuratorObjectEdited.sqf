@@ -26,20 +26,20 @@ switch (true) do
 			};
 			*/
 		};
-		if(not isNull (_handled_object getVariable ["slave", objNull])) then
+		if(!isNull (_handled_object getVariable ["slave", objNull])) then
 		{
 			private _slave = _handled_object getVariable "slave";
 			_slave setPosATL getPosATL _handled_object;
 			[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 		};
 	};
-	
-	case (not isNil {_handled_object getVariable "Achilles_var_groupAttributes"}):
+
+	case (!isNil {_handled_object getVariable "Achilles_var_groupAttributes"}):
 	{
 		// if object is a center object of a group => correct position and orientation for other objects of the group
 		private _group_attributes = _handled_object getVariable "Achilles_var_groupAttributes";
 		private _center_pos = getPosWorld _handled_object;
-		
+
 		// define internal basis
 		private _vector_dir = vectorDir _handled_object;
 		private _vector_up =  vectorUp _handled_object;
@@ -48,23 +48,19 @@ switch (true) do
 		// define transformation matrix
 		private _standard_to_internal = [_vector_dir, _vector_up, _vector_perpendicular];
 		private _internal_to_standard = [_standard_to_internal] call Achilles_fnc_matrixTranspose;
-		
+
 		{
 			private _object = _x select 0;
-			
+
 			// reposition
 			private _vector_center_object = [_internal_to_standard, _x select 1] call Achilles_fnc_vectorMap;
 			_object setPosWorld (_vector_center_object vectorAdd _center_pos);
-			
+
 			// reorientation
-			private _vectors_dir_up = (_x select [2,2]) apply 
-			{
-				private _return = [_internal_to_standard, _x] call Achilles_fnc_vectorMap;
-				_return;
-			};
-			
+			private _vectors_dir_up = (_x select [2,2]) apply {	[_internal_to_standard, _x] call Achilles_fnc_vectorMap; };
+
 			[_object ,_vectors_dir_up] remoteExec ["setVectorDirAndUp",0,_object];
-			
+
 		} forEach _group_attributes;
 	};
 	// does not yet work properly: e.g. catapults

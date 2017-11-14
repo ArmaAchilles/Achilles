@@ -1,6 +1,6 @@
 /*
 	Gets the unit under the mouse cursor.
-	
+
 	Params:
 		0 - [Object] The module's logic unit that is trying to get the unit under the cursor.
 		1 - Boolean - True to remove the object passed in [0] if there is no unit under the cursor. False to leave it. (Default: True)
@@ -23,12 +23,12 @@ _unitUnderCursor = objNull;
 // the item under the cursor.
 if (isNil "Ares_CuratorObjectPlaced_UnitUnderCursor") then
 {
-	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Achilles_fnc_logMessage; 
+	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Achilles_fnc_logMessage;
 }
 else
 {
 	private _mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
-	if (count _mouseOverUnit == 0) then
+	if (_mouseOverUnit isEqualTo []) then
 	{
 		["GetUnitUnderCursor: Not in curator mode"] call Achilles_fnc_logMessage;
 		// Not in curator mode.

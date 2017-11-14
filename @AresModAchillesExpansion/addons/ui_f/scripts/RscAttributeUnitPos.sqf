@@ -23,7 +23,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current rank
-		if (typename _entity == typename grpnull) then {_entity = leader _entity;};
+		if (_entity isEqualType grpnull) then {_entity = leader _entity;};
 		private _selected = _stances find (tolower unitpos _entity);
 		private _idc = _idcs select _selected;
 		['onButtonClick',[_display displayctrl _idc,0]] call RscAttributeUnitPos;
@@ -45,7 +45,7 @@ switch _mode do {
 	private ["_previousStanceId", "_entities"];
 		private _display = _params select 0;
 		private _selected = uinamespace getvariable ["RscAttributeUnitPos_selected",0];
-		if (typename _entity == typename grpnull) then {
+		if (_entity isEqualType grpnull) then {
 			private _selectedGroups = ["group"] call Achilles_fnc_getCuratorSelected;
 			_entities = [];
 			{_entities append units _x} forEach _selectedGroups;

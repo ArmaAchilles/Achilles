@@ -8,7 +8,7 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 	//--- Get unit under cursor
 	private _unit = objnull;
 	private _mouseOver = missionnamespace getvariable ["bis_fnc_curatorObjectPlaced_mouseOver",[""]];
-	if ((_mouseOver select 0) == typename objnull) then {_unit = _mouseOver select 1;};
+	if ((_mouseOver select 0) == "OBJECT") then {_unit = _mouseOver select 1;};
 	_unit = effectivecommander _unit;
 
 	//--- Temp owner

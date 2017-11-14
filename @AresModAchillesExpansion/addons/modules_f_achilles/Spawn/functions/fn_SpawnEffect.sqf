@@ -8,7 +8,7 @@ private _spawnPos = position _logic;
 private _category_names = EFFECT_MODULES apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
 _category_names pushBack (localize "STR_EFFECTS_CUSTOM_FIRE");
 
-_dialogResult = 
+_dialogResult =
 [
 	localize "STR_SPAWN_EFFECT",
 	[
@@ -18,7 +18,7 @@ _dialogResult =
 	"Achilles_fnc_RscDisplayAtttributes_SpawnEffect"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo) exitWith {};
 
 // If the module picked is the Custom Fire module
 if ((_dialogResult select 0) == 7) exitWith {[_logic] call Achilles_fnc_moduleEffectsFire; _deleteModuleOnExit = false};

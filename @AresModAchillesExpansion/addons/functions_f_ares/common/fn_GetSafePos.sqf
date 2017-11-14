@@ -30,11 +30,11 @@ params [["_pos", [], [[]]], ["_range", "", [""]], ["_objDist", getNumber(configF
 private _minDist = -1;
 private _maxDist = -1;
 switch (typeName _range) do {
-	case (typeName []) : {
+	case "ARRAY" : {
 		_minDist = _range select 0;
 		_maxDist = _range select 1;
 	};
-	case (typeName 0) : {
+	case "SCALAR" : {
 		_minDist = 0;
 		_maxDist = _range;
 	};
@@ -59,14 +59,14 @@ while {_attempts < 1000} do {
 	private _testPos = [_newX, _newY];
 
 	if ( (_pos distance _testPos) >= _minDist) then {
-		if ! ( count(_testPos isFlatEmpty [_objDist, 0,_maxGradient,_objDist max 5,_waterMode,if(_waterMode == 0) then {false}else{true}, objNull]) == 0 ) exitWith {
+		if !((_testPos isFlatEmpty [_objDist, 0, _maxGradient, _objDist max 5, _waterMode, !(_waterMode == 0), objNull]) isEqualTo []) exitWith {
 			_newPos = _testPos;
 		};
 	};
 	_attempts = _attempts + 1;
 };
 
-if ( (count _newPos) == 0 ) then {
+if (_newPos isEqualTo []) then {
 	_newPos = _pos;
 };
 

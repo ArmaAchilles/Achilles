@@ -37,7 +37,7 @@ _ctrlMessage ctrlsetfade 0;
 _ctrlMessage ctrlcommit 0.1;
 
 // Add key event handler
-private _handler_id = _display displayAddEventHandler ["KeyDown", 
+private _handler_id = _display displayAddEventHandler ["KeyDown",
 {
 	private _key = _this select 1;
 	if (_key == 28) then {Achilles_var_submit_selection = true; true} else {false};
@@ -58,21 +58,18 @@ if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
-private _output = [];
-
-if (_single) then 
+if (_single) then
 {
 	if (count (curatorSelected select 0) > 0) then
 	{
-		_output = (curatorSelected select 0) select 0;
+		(curatorSelected select 0) select 0;
 	}
 	else
 	{
-		_output = objNull;
+		objNull;
 	};
 }
 else
 {
-	_output = curatorSelected select 0;
+	curatorSelected select 0;
 };
-_output;

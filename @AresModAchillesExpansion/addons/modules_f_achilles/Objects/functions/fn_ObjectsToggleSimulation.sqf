@@ -10,7 +10,7 @@
 
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_TOGGLE_SIMULATION",
 	[
@@ -20,7 +20,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _allowed = (_dialogResult select 0) == 0;
 
 if (isNull (_objects select 0)) then
@@ -28,9 +28,9 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 {
-	[_x,_allowed] spawn 
+	[_x,_allowed] spawn
 	{
 		private _object = _this select 0;
 		_allowed = _this select 1;
