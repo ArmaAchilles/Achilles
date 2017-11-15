@@ -30,7 +30,7 @@ switch (_mode) do
 			if (not isNull _ctrl) then
 			{
 				_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-				_last_choice = if (_last_choice isEqualType) then {_last_choice} else {0};
+				_last_choice = if (_last_choice isEqualType []) then {_last_choice} else {0};
 				_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
 				_ctrl lbSetCurSel _last_choice;
 				if (_x == 0) then

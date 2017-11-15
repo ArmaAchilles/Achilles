@@ -54,7 +54,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (_selected_units isEqualTo 0) exitWith {};
+	if (_selected_units isEqualTo []) exitWith {};
 
 	// Vanilla Injury System
 	{

@@ -24,9 +24,9 @@ private _output_dict = [];
 
 private _nested_categories = _path_by_categories;
 
-if (count _input_dict == 0) then
+if (_input_dict isEqualTo []) then
 {	// create a new dict
-	
+
 	// create category references
 	for "_i" from 0 to ((count _path_by_categories) - 1) do
 	{
@@ -44,11 +44,11 @@ if (count _input_dict == 0) then
 		_temp_ref = [_temp_ref];
 	};
 	_output_dict pushBack _temp_ref;
-	
+
 } else
 {
 	// modify existing dict
-	
+
 	// determine array index path for the new element and create non-existing categories
 	private _path_by_index = [];
 	for "_i" from 0 to ((count _path_by_categories) - 1) do
@@ -58,18 +58,18 @@ if (count _input_dict == 0) then
 		{
 			_category_list = _category_list select _x;
 		} forEach _path_by_index;
-		
+
 		// find the i'th category given by input
 		private _category = _nested_categories select _i;
 		private _category_index = _category_list find _category;
-		
+
 		if (_category_index == -1) exitWith
 		{
 			// category does not exist => create a new category entry
-			
+
 			_category_index = _category_list pushBack _category;
 			_path_by_index pushBack _category_index;
-			
+
 			for "_j" from (_i + 1) to ((count _path_by_categories) - 1) do
 			{
 				// get i'th list and unpack it to i'th level
@@ -99,7 +99,7 @@ if (isNil "_dict_storage") then
 		_temp_dict = [_nested_categories select _i, _temp_dict];
 	};
 	private _dict = _temp_dict;
-	
+
 } else
 {
 	// unpack dict
@@ -115,7 +115,7 @@ if (isNil "_dict_storage") then
 		{
 			_temp_dict pushBack [_temp_category,[]];
 			_nested_categories = _nested_categories select [_i + 1,(count _nested_categories) - _i - 1];
-			reverse _nested_categories;		
+			reverse _nested_categories;
 		} else
 		{
 			_temp_dict = _temp_dict select _temp_category_index select 1;
@@ -123,10 +123,10 @@ if (isNil "_dict_storage") then
 		};
 		_nested_indices pushBack _temp_category_index;
 	};
-	
+
 	// set element
 	_temp_dict pushBack _element;
-	
+
 	// pack dict
 	reverse _nested_dicts;
 	reverse _nested_indices;

@@ -23,7 +23,7 @@ switch (_mode) do
 	{
         private _selected = (curatorSelected select 0) select {_x isKindOf "Man"};
 	    {
-				_unaddedCrew = (crew _x) select {not (_x in _selected)};
+				_unaddedCrew = (crew _x) select {!(_x in _selected)};
 				_selected append _unaddedCrew;
 		} forEach ((curatorSelected select 0) select {!(_x isKindOf "Man") and (_x isKindOf "LandVehicle" or _x isKindOf "Air" or _x isKindOf "Ship")});
         _selected

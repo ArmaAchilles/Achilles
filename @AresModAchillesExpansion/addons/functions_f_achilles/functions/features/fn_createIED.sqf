@@ -61,9 +61,7 @@ if (_canBeDefused == 0) then
   _onCompletion =
   {
     private _returnArray = _this select 3;
-
     private _dummyObject = _returnArray select 1;
-
     private _random = random 100;
 
     if (_random <= 70) then
@@ -166,15 +164,7 @@ else
 			{
 				sleep 1;
 				private _nearestTarget  = (getPos _dummyObject) nearObjects (_activationDistance);
-				private _nearestSide = [];
-
-				{
-					if (side _x in _activationSide) then
-					{
-						_nearestSide = _nearestSide + [_x];
-					};
-				} forEach _nearestTarget;
-
+				private _nearestSide = _nearestTarget select {side _x in _activationSide};
 				for "_x" from 0 to (count _nearestSide)-1 step 1 do
 				{
 					private _target = _nearestSide select _x;

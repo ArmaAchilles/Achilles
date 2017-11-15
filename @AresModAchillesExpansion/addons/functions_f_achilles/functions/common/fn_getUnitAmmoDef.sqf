@@ -17,14 +17,9 @@
 
 private _unit = _this;
 
-private _currentMagazinesClassName = [];
-private _currentMagazinesAmmoCount = [];
-
 // get current magazines ammo count
-{
-	_currentMagazinesClassName pushBack (_x select 0);
-	_currentMagazinesAmmoCount pushBack (_x select 1);
-} forEach (magazinesAmmoFull _unit);
+private _currentMagazinesClassName = (magazinesAmmoFull _unit) apply {_x select 0};
+private _currentMagazinesAmmoCount = (magazinesAmmoFull _unit) apply {_x select 1};
 
 // get config unit magazines (does not include backpacks)
 private _MagazinesClassName = getArray (configFile >> "CfgVehicles" >> typeOf _unit >> "magazines");
@@ -64,7 +59,7 @@ private _percentages = [];
 } forEach _MagazinesClassName;
 
 // return the mean of all percentages
-if (count _percentages != 0) exitWith
+if (!(_percentages isEqualTo [])) exitWith
 {
     _percentages call Achilles_fnc_arrayMean
 };

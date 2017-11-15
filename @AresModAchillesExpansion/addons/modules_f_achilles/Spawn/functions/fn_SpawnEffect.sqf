@@ -18,11 +18,10 @@ _dialogResult =
 	"Achilles_fnc_RscDisplayAtttributes_SpawnEffect"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (_dialogResult isEqualTo) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
 // If the module picked is the Custom Fire module
 if ((_dialogResult select 0) == 7) exitWith {[_logic] call Achilles_fnc_moduleEffectsFire; _deleteModuleOnExit = false};
-
 private _module_category = EFFECT_MODULES select (_dialogResult select 0);
 
 private _module_type = if (_module_category in NO_CHOICE_MODULES) then

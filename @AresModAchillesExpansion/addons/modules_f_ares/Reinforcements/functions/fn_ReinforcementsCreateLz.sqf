@@ -16,7 +16,7 @@ private _dialogResult =
 		[localize "STR_NAME", "", _target_name, true]
 	]
 ] call Ares_fnc_showChooseDialog;
-if (_dialogResult isequalTo []) exitWith {_deleteModuleOnExit = true};
+if (_dialogResult isEqualTo []) exitWith {_deleteModuleOnExit = true};
 _target_name = _dialogResult select 0;
 _logic setName _target_name;
 _logic setVariable ["SortOrder", Ares_ReinforcementLzCount];

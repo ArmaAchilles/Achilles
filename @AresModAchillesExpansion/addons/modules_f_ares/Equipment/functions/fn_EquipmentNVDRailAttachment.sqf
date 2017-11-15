@@ -26,7 +26,7 @@ if (isNull _unitUnderCursor) then
 		"Achilles_fnc_RscDisplayAttributes_selectAIUnits"
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (_dialogResult isEqualto []) exitWith {};
+	if (_dialogResult isEqualTo []) exitWith {};
 
 	_units = switch (_dialogResult select 0) do
 	{

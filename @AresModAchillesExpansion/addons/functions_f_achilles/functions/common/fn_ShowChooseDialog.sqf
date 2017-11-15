@@ -1,8 +1,8 @@
 /*
 	by Kex, based on Ares_fnc_showChooseDialog
-	Displays a dialog that prompts the user to choose an option from a set of combo boxes. 
+	Displays a dialog that prompts the user to choose an option from a set of combo boxes.
 	If the dialog has a title then the default values provided will be used the FIRST time a dialog is displayed, and the selected values remembered for the next time it is displayed.
-	
+
 	Params:
 		0 - String - (default: "") The title to display for the combo box. Do not use non-standard characters (e.g. %&$*()!@#*%^&) that cannot appear in variable names
 		1 - Array of Arrays - Each array represents a control.
@@ -10,7 +10,7 @@
 									in addition the function will be executed when the dialog was opened or closed with parameter ["LOADED", _dialog] respective ["UNLOAD", _dialog]
 	Returns:
 		An array containing the results
-	
+
 	Note: Check Achilles Wiki for more details on params and returns: https://github.com/oOKexOo/AresModAchillesExpansion/wiki/Custom-Modules
 */
 
@@ -28,7 +28,7 @@ private _dialog = findDisplay DYNAMIC_GUI_IDD;
 private _tot_height = 0;
 {
 	_x params [["_control_type","",[""]]];
-	switch (_control_type) do 
+	switch (_control_type) do
 	{
 		case "ALLSIDES"; case "SIDES": {_tot_height = _tot_height + GtC_H(4.1)};
 		case "MESSAGE"; case "SCRIPT": {_tot_height = _tot_height + TOTAL_ROW_HEIGHT + 4*COMBO_HEIGHT};
@@ -82,14 +82,14 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 {
 	_x params [["_control_type","",[""]], ["_label_data","",["",[]]], ["_data",[],[[]]], ["_default_choice",0,[0,"",[]]], ["_force_default",false,[false]], ["_event_handlers",[],[[]]]];
 	_control_type = toUpper _control_type;
-		
+
 	// If this dialog is named, attempt to get the default value from a previously displayed version
 	private _defaultVariableId = format["%1_%2", _titleVariableIdentifier, _forEachIndex];
-	if (_title_text != "" and {not _force_default}) then
+	if (_title_text != "" and {!_force_default}) then
 	{
 		_default_choice = uiNamespace getVariable [_defaultVariableId, _default_choice];
 	};
-	
+
 	// create the control
 	switch (_control_type) do
 	{
@@ -103,7 +103,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
 			_ctrl_label ctrlCommit 0;
-			
+
 			// Create the combo box
 			private _ctrl_cb = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
@@ -114,15 +114,15 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_ctrl_cb lbSetData [_id, _str_data];
 			} forEach _data;
 			_ctrl_cb ctrlCommit 0;
-			
+
 			// Adjust default choice if it is invalid and select the current choice
 			if (_default_choice < lbSize _ctrl_cb) then {_default_choice} else {(lbSize _ctrl_cb) - 1};
 			_ctrl_cb lbSetCurSel _default_choice;
-			
+
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _ctrl_cb lbData _default_choice];
-			
+
 			// add event handlers: 1) update global choice variables
 			private _combo_script = "params [""_ctrl"", ""_id""]; uiNamespace setVariable [" + str _defaultVariableId + ", _id];";
 			_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], _ctrl lbData _id];";
@@ -132,7 +132,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_x params ["_keyword", "_script"];
 				_ctrl_cb ctrlAddEventHandler [_keyword, _script];
 			} forEach _event_handlers;
-			
+
 			// Move to the next control
 			_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 		};
@@ -146,7 +146,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
 			_ctrl_label ctrlCommit 0;
-			
+
 			// Create the slider
 			private _ctrl_slider = _dialog ctrlCreate ["RscAchillesXSliderH", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_slider ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
@@ -154,16 +154,16 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_slider sliderSetRange _slider_range;
 			_ctrl_slider sliderSetSpeed _slider_speed;
 			_ctrl_slider ctrlCommit 0;
-			
+
 			// Adjust default choice if it is invalid and select the current choice
 			_default_choice = linearConversion (_slider_range + [_default_choice] + _slider_range + [true]);
 			_ctrl_slider sliderSetPosition _default_choice;
 			_ctrl_slider ctrlSetTooltip str _default_choice;
-			
+
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _default_choice];
-			
+
 			// add event handlers: 1) update global choice variables
 			private _combo_script = "params [""_ctrl"", ""_value""]; uiNamespace setVariable [" + str _defaultVariableId + ", _value];";
 			_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], _value];";
@@ -174,10 +174,10 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_x params ["_keyword", "_script"];
 				_ctrl_slider ctrlAddEventHandler [_keyword, _script];
 			} forEach _event_handlers;
-			
+
 			// Move to the next control
 			_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
-			
+
 		};
 		case "TEXT"; case "MESSAGE"; case "SCRIPT":
 		{
@@ -195,7 +195,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				};
 				_add_height = 4*COMBO_HEIGHT;
 			};
-			
+
 			// Create a label
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
@@ -204,20 +204,20 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
 			_ctrl_label ctrlCommit 0;
-			
+
 			// Create the edit control
 			private _ctrl_edit = _dialog ctrlCreate [_control_class, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_edit ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
 			_ctrl_edit ctrlCommit 0;
-			
+
 			// Adjust default choice if it is invalid and select the current choice
-			if (typeName _default_choice != typeName "") then {_default_choice = ""};
+			if (!(_default_choice isEqualType "")) then {_default_choice = ""};
 			_ctrl_edit ctrlSetText _default_choice;
-			
+
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _default_choice];
-			
+
 			// add event handlers: 1) update global choice variables
 			private _combo_script = "params [""_ctrl"", ""_value""]; uiNamespace setVariable [" + str _defaultVariableId + ", ctrlText _ctrl];";
 			_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], ctrlText _ctrl];";
@@ -227,7 +227,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_x params ["_keyword", "_script"];
 				_ctrl_edit ctrlAddEventHandler [_keyword, _script];
 			} forEach _event_handlers;
-			
+
 			// Move to the next control
 			_yCoord = _yCoord + TOTAL_ROW_HEIGHT + _add_height;
 		};
@@ -238,7 +238,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 } forEach _control_info;
 
 // set display event handlers
-if (_resource_fnc != "") then 
+if (_resource_fnc != "") then
 {
 	call compile ("[""LOADED"", " + _dialog + "] call %1;" + _resource_fnc + "];");
 	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil; _this call compile format[""['UNLOAD', _this] call %1;"", " + _resource_fnc + "];"];
@@ -259,7 +259,7 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 	for "_i" from 0 to (count _control_info - 1) do
 	{
 		private _return_value = uiNamespace getVariable format ["Ares_ChooseDialog_ReturnValue_%1", _i];
-		if (typeName _return_value == typeName "" and {_return_value == ""}) then
+		if (_return_value isEqualType "" and {_return_value == ""}) then
 		{
 			_defaultVariableId = format["%1_%2", _titleVariableIdentifier, _i];
 			_return_value = uiNamespace getVariable _defaultVariableId;

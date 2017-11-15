@@ -20,7 +20,7 @@ params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, 
 
 private _jip_id = "";
 
-if((typeName _target == typeName 0 and {_target == clientOwner}) or {typeName _target in [typeName grpNull, typeName objNull] and {local _target}}) then
+if((_target isEqualType 0 and {_target == clientOwner}) or {_target isEqualTypeAny [grpNull, objNull] and {local _target}}) then
 {
 	// if target is the local machine only
 	_args spawn _code;

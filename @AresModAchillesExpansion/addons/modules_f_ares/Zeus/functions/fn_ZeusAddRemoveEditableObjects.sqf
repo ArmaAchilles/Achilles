@@ -87,7 +87,7 @@ _objectsToProcess = _objectsToProcess select
 	private _object = _x;
 	private _type = toLower typeOf _object;
 	if (Achilles_Debug_Output_Enabled) exitWith	{ true;	};
-	({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
+	(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"]) and {(_type select [0,13]) != "modulecurator"}) /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
 };
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
@@ -95,15 +95,11 @@ private _addedObjects = 0;
 private _allCuratorObjectsAfter = curatorEditableObjects (getAssignedCuratorLogic player);
 if (_addObject) then
 {
-	{
-        _addedObjects = _addedObjects + 1;
-	} foreach (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
+    _addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
 }
 else
 {
-	{
-		_addedObjects = _addedObjects + 1;
-	} foreach (_objectsToProcess select {(_x in _allCuratorObjectsBefore && !(_x in _allCuratorObjectsAfter)) && !isNull _x && _x != _logic});
+	_addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsBefore && !(_x in _allCuratorObjectsAfter)) && !isNull _x && _x != _logic});
 };
 
 private _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);

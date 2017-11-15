@@ -18,5 +18,4 @@
 private _parent_cfg_class = _this;
 private _condition = format["configName _x isKindOf ""%1""",configName _parent_cfg_class];
 private _higherHierarchyLevel = _parent_cfg_class call Achilles_fnc_higherConfigHierarchyLevel;
-private _output = (_condition configClasses _higherHierarchyLevel) apply {configName _x};
-_output - [configName _parent_cfg_class];
+((_condition configClasses _higherHierarchyLevel) apply {configName _x}) - [configName _parent_cfg_class]

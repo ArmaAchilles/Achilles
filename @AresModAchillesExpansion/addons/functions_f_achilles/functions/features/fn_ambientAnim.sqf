@@ -75,7 +75,7 @@ _unit setVariable ["Achilles_var_noWeapon", _noWeapon,true];
 if (_noWeapon) then
 {
 	private _primWeapon = primaryWeapon _unit;
-	if (not _switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
+	if (!_switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
 	_unit removeWeapon _primWeapon;
 };
 
