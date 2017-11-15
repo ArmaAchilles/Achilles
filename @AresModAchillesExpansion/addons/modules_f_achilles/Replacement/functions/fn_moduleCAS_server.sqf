@@ -164,7 +164,7 @@ if !(isnull _logic) then
 {
 	sleep 1;
 	private _master = _logic getvariable ["master", objnull];
-	if !(isNull _master) then {deleteVehicle _master};
+	if (!isNull _master) then {deleteVehicle _master};
 	deletevehicle _logic;
 	waituntil {_plane distance _pos > _dis || !alive _plane};
 };

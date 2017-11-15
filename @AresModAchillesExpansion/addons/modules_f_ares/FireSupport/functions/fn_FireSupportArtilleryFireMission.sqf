@@ -59,8 +59,8 @@ private _batteries = [];
 } forEach _filteredObjects;
 
 // pick battery
-private _batteryTypes = _batteries apply {_x select 0};
 if (_batteries isEqualTo []) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
+private _batteryTypes = _batteries apply {_x select 0};
 
 // Pick a battery
 private _pickBatteryResult = [

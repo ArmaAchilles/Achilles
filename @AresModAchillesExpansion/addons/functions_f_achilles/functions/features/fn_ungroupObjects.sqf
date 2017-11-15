@@ -17,7 +17,7 @@
 
 private _object_list = param [0,[],[[]]];
 
-if (_object_list isEqualTo 0) exitWith {};
+if (_object_list isEqualTo []) exitWith {};
 
 {
 	private _center_object = _x;

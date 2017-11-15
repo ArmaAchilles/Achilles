@@ -21,7 +21,7 @@ if (isServer) then
 	private _curator_owners = allCurators apply {owner _x};
 	if (_rc_owner in _curator_owners) then
 	{
-		if((typeName _target == typeName 0 and {_target == 2}) or {typeName _target in [typeName grpNull, typeName objNull] and {local _target}}) then
+		if((_target isEqualType 0 and {_target == 2}) or {_target isEqualTypeAny [grpNull, objNull] and {local _target}}) then
 		{
 			// if target is server
 			_args call _code;

@@ -57,14 +57,14 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		} forEach _simpleObjects;
 
 		// critical delay for proper name setting of game logics
-		waitUntil {{name _x != "" and {not isNull _x}} count _logic_list == 0};
+		waitUntil {{name _x != "" and {!isNull _x}} count _logic_list == 0};
 		private _allocation_error_cases = 0;
 		for "_i" from 0 to (count _simpleObjects - 1) do
 		{
 			_object = _simpleObjects select _i;
 			_logic = _logic_list select _i;
 
-			if !(isNull _logic) then
+			if (!isNull _logic) then
 			{
 				_str_content = (str _object) splitString " ";
 				_displayName = _str_content select (count _str_content - 1);
@@ -88,7 +88,7 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		{
 			_object = _x;
 			_logic = attachedTo _object;
-			if !(isNull _logic) then
+			if (!isNull _logic) then
 			{
 				detach _object;
 				deleteVehicle _logic;

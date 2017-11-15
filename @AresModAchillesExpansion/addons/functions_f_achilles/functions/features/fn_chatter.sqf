@@ -16,8 +16,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 params [["_unit", objNull, [objNull]]];
-private _chat_type = "globalChat";
-private _side = blufor;
 
 if (isNull _unit) then
 {
@@ -38,14 +36,14 @@ if (isNull _unit) then
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (_dialogResult isEqualType []) exitWith {};
+	if (_dialogResult isEqualTo []) exitWith {};
 
-	switch (_dialogResult select 0) do
+	private _side = switch (_dialogResult select 0) do
 	{
-		case 0: {_side = west;};
-		case 1: {_side = east;};
-		case 2: {_side = resistance;};
-		case 3: {_side = civilian;};
+		case 0: {west};
+		case 1: {east};
+		case 2: {resistance};
+		case 3: {civilian};
 	};
 	private _message = _dialogResult select 1;
 	[[_side,"HQ"],_message] remoteExec ["sideChat",0];
@@ -70,7 +68,7 @@ if (isNull _unit) then
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
 	] call Ares_fnc_ShowChooseDialog;
 
-	if (_dialogResult isEqualType []) exitWith {};
+	if (_dialogResult isEqualTo []) exitWith {};
 
 	private _chat_type = switch (_dialogResult select 0) do
 	{

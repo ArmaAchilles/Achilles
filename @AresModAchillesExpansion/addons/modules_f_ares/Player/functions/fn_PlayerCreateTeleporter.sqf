@@ -90,7 +90,7 @@ private _dialogResult =
 	]
 ] call Ares_fnc_showChooseDialog;
 
-if (_dialogResult isequalTo []) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 _teleportMarkerName = _dialogResult select 0;
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 

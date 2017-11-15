@@ -19,12 +19,8 @@ private _vehicle = _this;
 private _vehicleType = typeOf _vehicle;
 
 // get current state of all turret magazines
-private _AllTurretCurrentMagazinesClassName = [];
-private _AllTurretCurrentMagazinesAmmoCount = [];
-{
-	_AllTurretCurrentMagazinesClassName pushBack (_x select 0);
-	_AllTurretCurrentMagazinesAmmoCount pushBack (_x select 2);
-} forEach (magazinesAllTurrets _vehicle);
+private _AllTurretCurrentMagazinesClassName = (magazinesAllTurrets _vehicle) apply {_x select 0};
+private _AllTurretCurrentMagazinesAmmoCount = (magazinesAllTurrets _vehicle) apply {_x select 2};
 
 private _turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
 
@@ -55,7 +51,7 @@ private _AllTurretAmmoPercentages = [];
 		};
 	} forEach _MagazinesClassName;
 
-	if (count _TurretAmmoPercentages != 0) then
+	if (!(_TurretAmmoPercentages isEqualTo [])) then
 	{
 		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call Achilles_fnc_arrayMean);
 	};
@@ -85,7 +81,7 @@ if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "Tra
 
 
 // return the overall mean of all percentages
-if (count _AllTurretAmmoPercentages != 0) exitWith
+if (!(_AllTurretAmmoPercentages isEqualTo [])) exitWith
 {
 	_AllTurretAmmoPercentages call Achilles_fnc_arrayMean
 };

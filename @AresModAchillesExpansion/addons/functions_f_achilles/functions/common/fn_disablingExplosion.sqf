@@ -75,4 +75,4 @@ switch (_explosionSize) do
 			_x setdamage 1;
 		};
 	};
-} forEach _spawnPos nearObjects _hitRadius;
+} forEach _spawnPos nearEntities _hitRadius;

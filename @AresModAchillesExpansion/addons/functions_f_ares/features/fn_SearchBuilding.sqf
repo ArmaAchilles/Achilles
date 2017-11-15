@@ -35,7 +35,7 @@ private _group = [_this, 0] call BIS_fnc_param;
 if (!local _group) exitWith {};
 
 // Extract necessary values from parameters
-if (_group isEqualType grpNull) then {_group = group (_this select 0)};
+if (_group isEqualType objNull) then {_group = group (_this select 0)};
 private _leader = leader _group;
 private _ldrPos = getPos _leader;
 private _previousBehaviour = behaviour _leader;
