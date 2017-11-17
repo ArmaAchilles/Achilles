@@ -20,7 +20,7 @@ private ["_path","_weapon","_cfgMagazines"];
 private _vehicle = param [0, objNull, [objNull]];
 private _non_empty_only = param [1, false, [false]];
 private _weapons = [];
-private _magazinesAllTurrets = ((magazinesAllTurrets _vehicle) select {x select 2 > 0}) apply {_x select 0};
+private _magazinesAllTurrets = ((magazinesAllTurrets _vehicle) select {_x select 2 > 0}) apply {_x select 0};
 
 {
 	_path = _x;
