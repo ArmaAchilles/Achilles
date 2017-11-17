@@ -37,7 +37,7 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Side Arsenal modules didn't work previously. #167
 * Fix: Create Mission SQF didn't retain simulation settings. #169
 * Fix: Missing localization string for Turret Optics module.
-* Code optimization and cleanup - #163 - Thanks to Victor9401 and Dedmen!
+* Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
 * Fix: Fixed a critical issue that causes stances not to work.

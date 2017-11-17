@@ -26,6 +26,7 @@ Other Contributers:
 • CoxLedere (Available factions and dynamic loadout bug fix)
 • Dedmen (For complaining at how terribly we write code and help us out to fix it)
 • Grezvany13 (Several contributions & support)
+• NeilZar (Code optimization and fixes)
 • S.Crowe (ACE healing and Eden compatibilty of compositions)
 • Shukari (Available factions bug fix)
 • Talya (Assistance in general, even if he wasn't always aware of that ;) )
