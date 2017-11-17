@@ -22,7 +22,7 @@ if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true])
 };
 
 if (isNull _player) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
-if (!isPlayer _player) exitWith {[localize "STR_NO_object_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (!isPlayer _player) exitWith {[localize "STR_NO_PLAYER_IN_SELECTION"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_ALREADY_PROMOTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
 
 [[_player, getPos _player],
