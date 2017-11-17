@@ -1,7 +1,7 @@
 /*
 	Displays a dialog that prompts the user to paste some data. If the data is parsed it will be
 	returned. Otherwise a string will be returned with an error message.
-	
+
 	Params:
 		0 - (Optional) [Integer] - The number of elements that should be in the pasted array. Default -1 (unknown).
 
@@ -30,7 +30,7 @@ if (_dialogResult == 1) then
 			throw "Failed to parse";
 		};
 		private _objectArray = call (compile _pastedText);
-		if (typeName _objectArray != typeName []) then
+		if (!(_objectArray isEqualType [])) then
 		{
 			throw "Bad clipboard data";
 		};
