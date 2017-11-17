@@ -29,6 +29,9 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
 * Feature: Supply Drop module. #158
+* Feature: Hide Objects module. #179
+* Feature: Debug Mode is available in Addon Options. It also allows to add all objects in the mission (including logics!).
+* Feature: Launch Countermeasures now can work with tanks, cars, boats, helicopters. #161
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
@@ -37,6 +40,16 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Side Arsenal modules didn't work previously. #167
 * Fix: Create Mission SQF didn't retain simulation settings. #169
 * Fix: Missing localization string for Turret Optics module.
+* Fix: Notifications were overlapping when an remote controlled unit (using the switch unit module) picked up intel. Curator recieves and logs the message when he returns back to the interface.
+* Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. As this issue cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
+* Fix: Wrong localization string for Promote To Zeus module.
+* Fix: Countermeasures and smokes for units and vehicles using the (default) C key, will now work with multiple units selected. #161
+* Fix: Countermeasures now work with >1.70 version planes and helicopters. #161
+* Fix: Set Date module was broken. #152
+* Fix: Execute Code module's JIP mode now works. #152 and #155
+* Fix: Toggle Lamps module now works in a dedicated server environment. #152 and #155
+* Fix: Set Date module would spam .rpt log.
+* Fix: Switch Unit module now retains voices and faces. #157
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
