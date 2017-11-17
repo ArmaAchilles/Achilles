@@ -28,7 +28,7 @@ Testers/Feedback:
 	Modified by Anton Struyk and Kex
 */
 
-params ["_group", ["_srchRad", 50, [0]], ["_whichOne", "RANDOM", [""]], ["_initialPos", nil, [[]], 3], ["_includeLeaderInSearch", false, [false]], ["_occupy", false, [false]], ["_delete_waypoint", false, [false]], ["_debug", false, [false]]];
+params ["_group", ["_srchRad", 50, [0]], ["_whichOne", "RANDOM", [""]], ["_initialPos", [], [[]], 3], ["_includeLeaderInSearch", false, [false]], ["_occupy", false, [false]], ["_delete_waypoint", false, [false]], ["_debug", false, [false]]];
 
 // Must be run where group leader is local.
 if (!local _group) exitWith {};
@@ -38,7 +38,7 @@ if (_group isEqualType objNull) then {_group = group _group};
 private _leader = leader _group;
 private _ldrPos = getPos _leader;
 private _previousBehaviour = behaviour _leader;
-if (isNil _initialPos) then { _initialPos = _ldrPos };
+if (_initialPos isEqualTo []) then { _initialPos = _ldrPos };
 
 // This file needs to be Self-Contained and use only standard BIS functions
 // since it will be run on the server and Ares functions may not be available.
