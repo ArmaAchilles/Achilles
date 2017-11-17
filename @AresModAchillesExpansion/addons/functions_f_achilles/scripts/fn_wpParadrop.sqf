@@ -40,13 +40,16 @@ private _vehsGroup = [];
 private _vehsType = "";
 
 {
-	private _veh = vehicle _x;
-	_vehsGroup pushBack _veh;
+    private _veh = vehicle _x;
+    if (!(_veh in _vehsGroup)) then
+    {
+        _vehsGroup pushBack _veh;
 
-	// Kex: prevent pilot from being stupid
-	private _pilot = driver _veh;
-	_pilot setSkill 1;
-} foreach ((units _group) select {!((vehicle _x) in _vehsGroup)});
+    	// Kex: prevent pilot from being stupid
+    	private _pilot = driver _veh;
+    	_pilot setSkill 1;
+    };
+} foreach (units _group);
 
 // Kex: prevent pilot from being stupid
 _group allowFleeing 0;

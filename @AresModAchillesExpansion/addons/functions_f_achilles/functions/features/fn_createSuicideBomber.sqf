@@ -72,9 +72,9 @@ while {alive _bomber && _check} do
 			{if (side _x in _activationSide) then {_nearestUnit pushBack _x}} forEach _nearestObjects;
 			private _count = count _nearestUnit;
 
-			for "_x" from 0 to _count-1 step 1 do
+			for "_b" from 0 to _count-1 do
 			{
-				private _enemyUnit = _nearestUnit select _x;
+				private _enemyUnit = _nearestUnit select _b;
 				{
 					_bomber setSkill 1;
 					_bomber doMove (getPos _enemyUnit);
@@ -115,7 +115,7 @@ while {alive _bomber && _check} do
     									};
     									case 1:
     									{
-    									[getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
+                                            [getPos _bomber, _explosionSize] call Achilles_fnc_disablingExplosion;
     										_bomber setDamage 1;
     									};
     									case 2:

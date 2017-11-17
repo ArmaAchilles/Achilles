@@ -125,7 +125,7 @@ _placeholder setPos [0,0,0];
 
 		if (isNull objectParent _unit) then
 		{
-			(weaponState _unit) params ["_muzzle", "_mode"];
+			(weaponState _unit) params ["_", "_muzzle", "_mode"];
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
