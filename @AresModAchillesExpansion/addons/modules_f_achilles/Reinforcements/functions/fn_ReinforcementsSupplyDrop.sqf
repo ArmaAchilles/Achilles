@@ -21,6 +21,8 @@ if (isNull (driver _object)) exitWith {[localize "STR_HELICOPTER_NEEDS_DRIVER"] 
 private _LZs = ["LZ"] call Achilles_fnc_getAllLZsOrRPs;
 if (count (_LZs select 0) == 0) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
 
+if (!isNull (getSlingLoad _object)) exitWith {[localize "STR_CARGO_ALREADY_ATTACHED"] call Achilles_fnc_showZeusErrorMessage};
+
 private _ammoCratesDisplayName = [];
 private _ammoCrates = ["B_supplyCrate_F", "O_supplyCrate_F", "I_supplyCrate_F", "IG_supplyCrate_F", "C_supplyCrate_F", "C_T_supplyCrate_F"];
 {_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach _ammoCrates;
@@ -69,7 +71,7 @@ switch (_fillType) do
 };
 
 private _hasAttached = _object setSlingLoad _box;
-if (!_hasAttached) exitWith {[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage};
+if (!_hasAttached) exitWith {[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage; deleteVehicle _box};
 
 private _LZWaypoint = _objectGroup addWaypoint [(getPos ((_LZs select 0) select _LZ)), 20];
 _objectGroup setSpeedMode "FULL";

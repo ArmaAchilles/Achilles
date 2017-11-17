@@ -994,6 +994,10 @@
         <Original>Failed to attach the cargo!</Original>
         <English>Failed to attach the cargo!</English>
       </Key>
+      <Key ID="STR_CARGO_ALREADY_ATTACHED">
+        <Original>Cargo is already attached!</Original>
+        <English>Cargo is already attached!</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
