@@ -82,30 +82,6 @@ if (_dialogCount == 7) then
 
 private _marker = createMarker [str _object, _object];
 
-// remove previous action
-remoteExec ["", _object];
-_object remoteExec ["RemoveAllActions", 0];
-
-private _execute = 
-{
-	private ["_object","_finder","_arguments","_curator","_title","_text","_marker","_shared","_delete","_target"];
-	_object = _this select 0;
-	_finder = _this select 1;
-	_arguments = _this select 3;
-	_curator = _arguments select 0;
-	_title = _arguments select 1;
-	_text = _arguments select 2;
-	_marker = _arguments select 3;
-	_shared = _arguments select 4;
-	_delete = _arguments select 5;
-	
-	_target = switch (_shared) do {case 0: {side _finder}; case 1: {group _finder}; case 2: {_finder};};
-	
-	[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
-	["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
-	if (_delete) then {deleteVehicle _object} else {remoteExec ["", _object]; _object remoteExec ["RemoveAllActions", 0];};
-};
-
 [
 	_object,			// Object the action is attached to
 	_actionName,		// Title of the action
@@ -115,12 +91,44 @@ private _execute =
 	"_caller distance _target < 3",	// Condition for the action to progress
 	{},			// Code executed when action starts
 	{},			// Code executed on every progress tick
-	_execute,	// Code executed on completion
+	{
+		params ["_object", "_finder", "_ID", "_arguments"];
+		_arguments params ["_curator", "_title", "_text", "_marker", "_shared", "_delete"];
+		
+		private _target = switch (_shared) do 
+		{
+			case 0: {side _finder};
+			case 1: {group _finder};
+			case 2: {_finder};
+		};
+
+		private _switchUnitData = _finder getVariable ["Achilles_var_switchUnit_data", []];
+		private _remoteControlledUnit = [_switchUnitData, []] select (_switchUnitData isEqualTo []);
+
+		if (_remoteControlledUnit isEqualTo [] || (!(_remoteControlledUnit isEqualTo []) && _finder != player)) then 
+		{
+			[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
+			["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+		}
+		else
+		{
+			[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
+
+			// Wait until the Curator stops controlling this AI and then add the info message to the curator.
+			[_finder, _curator, _title] spawn 
+			{
+				params ["_finder", "_curator", "_title"];
+				waitUntil {_finder != player};
+				["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+			};
+		};
+		if (_delete) then {deleteVehicle _object};
+	},	// Code executed on completion
 	{},			// Code executed on interrupted
 	[player,_title,_text,_marker,_shared,_delete],			// Arguments passed to the scripts
 	_duration,	// Action duration
 	20,			// Priority
-	false,		// Remove on completion
+	true,		// Remove on completion
 	false		// Show in unconscious state 
 ] remoteExec ["BIS_fnc_holdActionAdd",0,_object];
 
