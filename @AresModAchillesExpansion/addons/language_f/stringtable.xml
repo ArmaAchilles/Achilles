@@ -2452,6 +2452,10 @@
 		<Russian>Фары/Прожектор</Russian>
         <German>Scheinwerfer</German>
       </Key>
+      <Key ID="STR_ENGINE">
+        <Original>Engine</Original>
+        <English>Engine</English>
+      </Key>
       <Key ID="STR_SWITCH_ON">
         <Original>Switch on</Original>
         <English>Switch on</English>

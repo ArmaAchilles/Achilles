@@ -25,6 +25,7 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 				class Skill2: RscAttributeSkill {};
 				class Lock2: RscAttributeLock {};
 				class Headlight: RscAttributeHeadlight {};
+				class Engine: RscAttributeEngine {};
 				class RespawnVehicle2: RscAttributeRespawnVehicle {};
 				class RespawnPosition2: RscAttributeRespawnPosition {};
 				class Exec2: RscAttributeExec {};
@@ -87,6 +88,7 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 				class Ammo: RscAttributeAmmo {};
 				class Lock2: RscAttributeLock {};
 				class Headlight: RscAttributeHeadlight {};
+				class Engine: RscAttributeEngine {};
 				class RespawnVehicle2: RscAttributeRespawnVehicle {};
 				class RespawnPosition2: RscAttributeRespawnPosition {};
 				class Exec2: RscAttributeExec {};

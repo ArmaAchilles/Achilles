@@ -273,6 +273,76 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 	};
 };
 
+class RscAttributeEngine: RscControlsGroupNoScrollbars 
+{
+	onSetFocus = "[_this,""RscAttributeEngine"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	idc = 114726;
+	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
+	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
+	w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+	h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+
+	class controls 
+	{
+
+		class Title: RscText 
+		{
+			idc = 113427;
+			text = "$STR_ENGINE";
+			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0, 0, 0, 0.500000};
+		};
+
+		class Background: RscText 
+		{
+			style = 2;
+			idc = 113426;
+			x = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorText[] = {1, 1, 1, 0.500000};
+			colorBackground[] = {1, 1, 1, 0.100000};
+		};
+
+		class EngineOn: RscActivePicture 
+		{
+			idc = 113628;
+			text = "achilles\data_f_achilles\icons\icon_engineOn.paa";
+			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			tooltip = "$STR_SWITCH_ON";
+		};
+
+		class EngineOff: EngineOn
+		{
+			idc = 113631;
+			text = "achilles\data_f_achilles\icons\icon_engineOff.paa";
+			x = "19.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			tooltip = "$STR_SWITCH_OFF";
+		};
+		
+		class Default: EngineOn
+		{
+			idc = 123471;
+			text = "\a3\ui_f_curator\Data\default_ca.paa";
+			x = "24 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			tooltip = "$STR_A3_RscAttributeUnitPos_Auto_tooltip";
+		};
+	};
+};
+
 // define combat modes for groups and waypoints
 class RscAttributeCombatMode : RscControlsGroupNoScrollbars 
 {
