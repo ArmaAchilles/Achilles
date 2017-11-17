@@ -39,6 +39,8 @@ switch (_dialogResult select 0) do
 	};
 };
 
+if (_buildings isEqualTo []) exitWith {["No buildings found!"] call Achilles_fnc_showZeusErrorMessage};
+
 private _mode = _dialogResult select 2;
 private _logic_list = [];
 private _sourceObject_list = [];

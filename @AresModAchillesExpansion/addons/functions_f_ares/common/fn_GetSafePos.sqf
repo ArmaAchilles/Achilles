@@ -25,7 +25,7 @@
 
 scopeName "main";
 
-params [["_pos", [], [[]]], ["_range", "", [""]], ["_objDist", getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius"), [0]], ["_waterMode", 1, [0]], ["_maxGradient", 1, [0]]];
+params ["_pos", ["_range", ""], ["_objDist", getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius")], ["_waterMode", 1], ["_maxGradient", 1]];
 
 private _minDist = -1;
 private _maxDist = -1;
