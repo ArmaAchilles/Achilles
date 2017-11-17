@@ -14,9 +14,7 @@
 // Example:			[_object_list, true] call Ares_fnc_AddUnitsToCurator;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _unitsToModify = param [0, [], [[]]];
-private _addToCurator = param [1, true, [true]];
-private _includeSimpleObjects = param [2, false, [false]];
+params [["_unitsToModify", [], [[]]], ["_addToCurator", true, [true]], ["_includeSimpleObjects", false, [false]]];
 
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
@@ -96,6 +94,5 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		} forEach _simpleObjects;
 	};
 };
-
 
 true
