@@ -56,6 +56,7 @@ if (_current_wp_id < _waypoint_count) then
 };
 
 // force unit to change formation if not in combat
+private _oldFormation = formation _old_group;
 if (_doLineUp) then
 {
 	// set formation
@@ -167,6 +168,7 @@ _placeholder setPos [0,0,0];
 //clean up
 sleep _duration + 5;
 deleteVehicle _selectedTarget;
+if (!isNull _old_group) then {_old_group setFormation _oldFormation};
 [] spawn {{if (count units _x == 0) then {deleteGroup _x}} forEach allGroups};
 if (count _waypoints > 0 and (not isNull _old_group)) then
 {
