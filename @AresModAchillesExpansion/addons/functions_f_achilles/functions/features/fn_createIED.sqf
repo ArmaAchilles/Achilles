@@ -165,7 +165,7 @@ else
 				sleep 1;
 				private _nearestTarget  = (getPos _dummyObject) nearObjects (_activationDistance);
 				private _nearestSide = _nearestTarget select {side _x in _activationSide};
-				for "_x" from 0 to (count _nearestSide)-1 step 1 do
+				for "_x" from 0 to (count _nearestSide)-1 do
 				{
 					private _target = _nearestSide select _x;
 					private _isJammableVehicle = _target getVariable ["isECM", false];
