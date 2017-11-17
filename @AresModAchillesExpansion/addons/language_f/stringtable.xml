@@ -990,6 +990,10 @@
         <Original>Edit Cargo</Original>
         <English>Edit Cargo</English>
       </Key>
+      <Key ID="STR_VIRTUAL_ARSENAL">
+        <Original>Virtual Arsenal</Original>
+        <English>Virtual Arsenal</English>
+      </Key>
       <Key ID="STR_FAILED_TO_ATTACH_CARGO">
         <Original>Failed to attach the cargo!</Original>
         <English>Failed to attach the cargo!</English>

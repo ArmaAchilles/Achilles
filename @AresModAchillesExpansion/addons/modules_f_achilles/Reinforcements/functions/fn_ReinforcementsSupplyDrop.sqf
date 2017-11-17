@@ -35,7 +35,7 @@ private _dialogResult =
 	localize "STR_SUPPLY_DROP",
 	[
 		["Ammunition Crate", _ammoCratesDisplayName],
-		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_EMPTY"]],
+		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_VIRTUAL_ARSENAL", localize "STR_EMPTY"]],
 		[localize "STR_LZ_DZ", (_LZs select 1)]
 	]
 ] call Ares_fnc_showChooseDialog;
@@ -62,6 +62,10 @@ switch (_fillType) do
 		createDialog "RscDisplayAttributeInventory";
 	};
 	case 2:
+	{
+		["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
+	};
+	case 3:
 	{
 		clearItemCargoGlobal _box;
 		clearWeaponCargoGlobal _box;
