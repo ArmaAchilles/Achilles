@@ -13,27 +13,31 @@ private _dialogResult =
 	localize "STR_HIDE_ZEUS",
 	[
 		[
-			localize "STR_HIDE_ZEUS", [localize "STR_TRUE", localize "STR_False"]
+			localize "STR_HIDE_ZEUS", [localize "STR_YES", localize "STR_NO"]
 		]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
 if (count _dialogResult == 0) exitWith {};
-private _invisible = if ((_dialogResult select 0) == 0) then {true} else {false};
-private _display_text = if ((_dialogResult select 0) == 0) then {localize "STR_ZEUS_IS_NOW_HIDDEN"} else {localize "STR_ZEUS_IS_NOW_VISIBLE"};
+
+private _invisible = (_dialogResult select 0) == 0;
+private _display_text = [localize "STR_ZEUS_IS_NOW_VISIBLE", localize "STR_ZEUS_IS_NOW_HIDDEN"] select _invisible;
 
 if (_invisible and not (isObjectHidden player)) then 
 {
 	[player, true] remoteExec ["hideObjectGlobal",2];
 	player allowDamage false;
 	player setCaptive true;
-} else
+	(getAssignedCuratorLogic player) setVariable ["showNotification", true];
+}
+else
 {
 	if (not _invisible and (isObjectHidden player)) then
 	{
 		[player, false] remoteExec ["hideObjectGlobal",2];
 		player allowDamage true;
-		player setCaptive false;		
+		player setCaptive false;
+		(getAssignedCuratorLogic player) setVariable ["showNotification", false];
 	};
 };
 
