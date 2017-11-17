@@ -32,6 +32,7 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Hide Objects module. #179
 * Feature: Debug Mode is available in Addon Options. It also allows to add all objects in the mission (including logics!).
 * Feature: Launch Countermeasures now can work with tanks, cars, boats, helicopters. #161
+* Feature: Option to toggle the Engine in Vehicle's attribute options.
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
