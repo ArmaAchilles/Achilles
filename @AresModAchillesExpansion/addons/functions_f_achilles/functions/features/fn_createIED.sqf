@@ -184,9 +184,7 @@ else
 					};
 				} forEach _nearestTarget;
 
-				private _howMany = count _nearestSide;
-
-				for "_x" from 0 to _howMany step 1 do
+				for "_x" from 0 to (count _nearestSide)-1 step 1 do
 				{
 					private _target = _nearestSide select _x;
 					private _isJammableVehicle = _target getVariable ["isECM", false];
