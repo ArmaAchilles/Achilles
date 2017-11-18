@@ -19,6 +19,7 @@ V.0.1.0 (Not Released - In Progress)
 * Change: Bootcamp module was added back.
 * Change: Advanced CAS module now attaches to an object.
 * Change: Custom Modules have been reduced to 50 (0 to 49).
+* Change: Added different types of new module icons. #165
 * Feature: Object rotation module. #151
 * Feature: Data Link and Radar Emission controls for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156

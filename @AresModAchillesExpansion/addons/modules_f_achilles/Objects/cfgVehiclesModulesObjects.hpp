@@ -53,8 +53,8 @@ class Achilles_Transfer_Ownership_Module : Achilles_Objects_Module_Base
 	_generalMacro = "Achilles_Transfer_Ownership_Module";
 	displayName = "$STR_TRANSFER_OWNERSHIP";
 	function = "Achilles_fnc_ObjectsTransferOwnership";
-	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_transferOwnership.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_transferOwnership.paa";
 };
 class Achilles_IED_Module : Enyo_Objects_Module_Base
 {
@@ -63,6 +63,8 @@ class Achilles_IED_Module : Enyo_Objects_Module_Base
 	_generalMacro = "Achilles_IED_Module";
 	displayName = "$STR_ENYO_CREATE_IED";
 	function = "Achilles_fnc_ObjectsIED";
+	icon = "\achilles\data_f_achilles\icons\icon_createIED.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_createIED.paa";
 };
 
 class Achilles_AddECM_Module : Enyo_Objects_Module_Base
@@ -78,14 +80,14 @@ class Achilles_Module_Rotation : Achilles_Objects_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_ROTATION_MODULE";
 	function = "Achilles_fnc_ObjectsRotation";
-	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_rotateObjects.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_rotateObjects.paa";
 };
 class Achilles_Hide_Objects_Module : Achilles_Objects_Module_Base
 {
 	scopeCurator = 2;
 	displayName = "$STR_HIDE_OBJECTS";
 	function = "Achilles_fnc_ObjectsHide";
-	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_hideZeus.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_hideZeus.paa";
 };

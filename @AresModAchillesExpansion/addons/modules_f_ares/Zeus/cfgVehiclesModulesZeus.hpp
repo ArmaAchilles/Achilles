@@ -18,8 +18,8 @@ class Ares_Module_Zeus_Visibility : Ares_Zeus_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_HIDE_ZEUS";
 	function = "Ares_fnc_ZeusVisibility";
-	icon = "\achilles\data_f_ares\icons\icon_default.paa";
-	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_hideZeus.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_hideZeus.paa";
 };
 
 class Ares_Module_Zeus_Hint : Ares_Zeus_Module_Base
@@ -27,8 +27,8 @@ class Ares_Module_Zeus_Hint : Ares_Zeus_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_Hint";
 	function = "Ares_fnc_ZeusHint";
-	icon = "\achilles\data_f_ares\icons\icon_default.paa";
-	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_hint.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_hint.paa";
 };
 
 class Ares_Module_Zeus_Switch_Side : Ares_Zeus_Module_Base
