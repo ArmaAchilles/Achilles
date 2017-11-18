@@ -8,10 +8,6 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private ["_buildings","_extend_count","_damage_fnc","_mean_damage"];
-
-private _center_pos = position _logic;
-
 private _dialogResult = 
 [
 	localize "STR_TOGGLE_LAMPS",
@@ -26,7 +22,9 @@ if (count _dialogResult == 0) exitWith {};
 private _lightOn = [true,false] select (_dialogResult select 0);
 private _radius = parseNumber (_dialogResult select 1);
 
-_dummyObject = [_logic] call Achilles_fnc_createDummyLogic;
+private _dummyObject = [_logic] call Achilles_fnc_createDummyLogic;
+
+private _center_pos = position _dummyObject;
 
 private _JIP_id = [[_center_pos,_radius,_lightOn],
 {
