@@ -23,12 +23,15 @@ if (count _dialogResult == 0) exitWith {};
 private _invisible = (_dialogResult select 0) == 0;
 private _display_text = [localize "STR_ZEUS_IS_NOW_VISIBLE", localize "STR_ZEUS_IS_NOW_HIDDEN"] select _invisible;
 
+private _curatorLogic = getAssignedCuratorLogic player;
+
 if (_invisible and not (isObjectHidden player)) then 
 {
 	[player, true] remoteExec ["hideObjectGlobal",2];
 	player allowDamage false;
 	player setCaptive true;
-	(getAssignedCuratorLogic player) setVariable ["showNotification", true];
+	_curatorLogic setVariable ["showNotification", true];
+	_curatorLogic setVariable ["birdType", ""];
 }
 else
 {
@@ -37,7 +40,8 @@ else
 		[player, false] remoteExec ["hideObjectGlobal",2];
 		player allowDamage true;
 		player setCaptive false;
-		(getAssignedCuratorLogic player) setVariable ["showNotification", false];
+		_curatorLogic setVariable ["showNotification", false];
+		_curatorLogic setVariable ["birdType", "eagle_f"];
 	};
 };
 
