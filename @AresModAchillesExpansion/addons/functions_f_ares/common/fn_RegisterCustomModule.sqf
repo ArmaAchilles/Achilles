@@ -24,10 +24,7 @@
 
 params ["_categoryName", "_moduleDisplayName", "_codeBlock"];
 
-if (isNil "Ares_Custom_Modules") then
-{
-	Ares_Custom_Modules = [];
-};
+if (isNil "Ares_Custom_Modules") then {	Ares_Custom_Modules = [] };
 
 private _replacedExistingEntry = false;
 {

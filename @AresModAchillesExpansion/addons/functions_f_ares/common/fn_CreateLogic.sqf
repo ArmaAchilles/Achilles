@@ -1,6 +1,6 @@
 /*
 	Creates a new logic unit with a specified name.
-	
+
 	Parameters:
 		0 - 3D position - position of the logic.
 		1 - String (Optional) - Logic Name
@@ -16,4 +16,4 @@ if (isNull _group) then
 };
 private _logic = _group createUnit ["LOGIC", _position, [], 0, "NONE"];
 _logic setName _name;
-_logic;
+_logic

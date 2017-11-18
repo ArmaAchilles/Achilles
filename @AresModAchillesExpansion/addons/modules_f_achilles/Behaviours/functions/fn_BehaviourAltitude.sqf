@@ -32,12 +32,12 @@ if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ar
 		params ["_object","_height"];
 		if (_object isKindOf "Air") exitWith
 		{
-			if (local _object) then {_object flyInHeight _height} else {[_object,_height] remoteExec ["flyInHeight",_object]};
+			[[_object,_height] remoteExec ["flyInHeight",_object], _object flyInHeight _height] select (local _object);
 		};
 		if (_object isKindOf "Ship") exitWith
 		{
-			if (local _object) then {_object swimInDepth _height} else {[_object,_height] remoteExec ["swimInDepth",_object]};
-		};
+			[[_object,_height] remoteExec ["swimInDepth",_object], _object swimInDepth _height] select (local _object);
+        };
 	};
 } forEach _objects;
 

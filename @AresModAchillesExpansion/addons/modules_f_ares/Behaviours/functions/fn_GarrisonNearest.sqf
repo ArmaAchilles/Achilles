@@ -19,8 +19,7 @@ if (_doesGroupContainAnyPlayer) then
 }
 else
 {
-	private _unitCount = count (units _groupUnderCursor);
-	private _fillEvenly = if (_unitCount >= 8) then {true} else {false};
+	private _fillEvenly = (count (units _groupUnderCursor) >= 8);
 
 	if (local _groupUnderCursor) then
 	{

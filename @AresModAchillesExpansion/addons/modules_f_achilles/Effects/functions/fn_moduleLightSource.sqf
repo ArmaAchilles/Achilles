@@ -1,9 +1,7 @@
 #define COLOR_NAMES ["white","blue","red","green","yellow"]
 #define COLOR_RGB	[[1,1,1],[0,0,1],[1,0,0],[0,1,0],[1,1,0]]
 
-private _mode = _this select 0;
-private _params = _this select 1;
-private _logic = _params select 0;
+
 
 switch _mode do {
 	//--- Some attributes were changed (including position and rotation)
@@ -13,7 +11,7 @@ switch _mode do {
 	case "registeredToWorld3DEN": {
 		private _colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
 		private _colorIndex = COLOR_NAMES find _colorName;
-		if (_colorIndex != -1) then 
+		if (_colorIndex != -1) then
 		{
 
 			//--- Delete previous light source
@@ -64,13 +62,13 @@ switch _mode do {
 
 		//--- Terminate on all machines where the module is not local
 		if !(local _logic) exitwith {};
-		
+
 		private _sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
 		_sourceObject setPos _pos;
 		private _colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
 		private _colorIndex = COLOR_NAMES find _colorName;
 		private _color = COLOR_RGB select _colorIndex;
-		
+
 		private _source = "#lightpoint" createVehicle [0,0,0];
 		_source lightAttachObject [_sourceObject,[0,0,0]];
 		[[_source,_color],
@@ -83,10 +81,10 @@ switch _mode do {
 		_sourceObject setVariable ["LightAttributes",[_color, [1,1,1,1]],true];
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;
 		deleteVehicle _logic;
-		
+
 		_sourceObject setVariable ["source", _source];
 		_sourceObject addEventHandler ["Deleted", {_source = (_this select 0) getVariable "source"; deletevehicle _source}];
-		
+
 		[_sourceObject] call Achilles_fnc_lightSourceAttributes;
 	};
 };

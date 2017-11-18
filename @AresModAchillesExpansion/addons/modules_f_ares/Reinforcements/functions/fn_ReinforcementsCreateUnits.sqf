@@ -13,13 +13,13 @@ private _side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
 private _sides = [east,west,independent];
 
 private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _lzOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
 _lzOptions append (_allLzs apply {name _x});
 
 private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_NO_RP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _rpOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
 _rpOptions append (_allRps apply {name _x});
@@ -57,34 +57,34 @@ private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lz = objNull;
-switch (_dialogLzAlgorithm) do
+private _lz = switch (_dialogLzAlgorithm) do
 {
 	case 0: // Random
 	{
-		_lz = _allLzs call BIS_fnc_selectRandom;
+		_allLzs call BIS_fnc_selectRandom
 	};
 	case 1: // Nearest
 	{
-		_lz = [_spawnPosition, _allLzs] call Ares_fnc_GetNearest;
+		[_spawnPosition, _allLzs] call Ares_fnc_GetNearest
 	};
 	case 2: // Furthest
 	{
-		_lz = [_spawnPosition, _allLzs] call Ares_fnc_GetFarthest;
+		[_spawnPosition, _allLzs] call Ares_fnc_GetFarthest
 	};
 	case 3: // Least used
 	{
-		_lz = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
+		private _temp = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
 		{
-			if (_x getVariable ["Ares_Lz_Count", 0] < _lz getVariable ["Ares_Lz_Count", 0]) then
+			if (_x getVariable ["Ares_Lz_Count", 0] < _temp getVariable ["Ares_Lz_Count", 0]) then
 			{
-				_lz = _x;
+				_temp = _x;
 			};
 		} forEach _allLzs;
+        _temp
 	};
 	default // Specific LZ.
 	{
-		_lz = _allLzs select (_dialogLzAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
+		_allLzs select (_dialogLzAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
 	};
 };
 
@@ -101,13 +101,7 @@ private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	private _script = if (_dialogResult select 6 == 1) then
-	{
-		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
-	} else
-	{
-		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf";
-	};
+	private _script = ["\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf", "\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"] select (_dialogResult select 6 == 1);
 	_vehicleUnloadWp setWaypointScript _script;
 } else
 {
@@ -182,34 +176,34 @@ switch (_dialogUnitBehaviour) do
 if (count _allRps > 0) then
 {
 	// Choose the RP based on the algorithm the user selected
-	private _rp = objNull;
-	switch (_dialogRpAlgorithm) do
+	private _rp = switch (_dialogRpAlgorithm) do
 	{
 		case 0: // Random
 		{
-			_rp = _allRps call BIS_fnc_selectRandom;
+    		_allRps call BIS_fnc_selectRandom;
 		};
 		case 1: // Nearest
 		{
-			_rp = [position _lz, _allRps] call Ares_fnc_GetNearest;
+			[position _lz, _allRps] call Ares_fnc_GetNearest;
 		};
 		case 2: // Furthest
 		{
-			_rp = [position _lz, _allRps] call Ares_fnc_GetFarthest;
+			[position _lz, _allRps] call Ares_fnc_GetFarthest;
 		};
 		case 3: // Least Used
 		{
-			_rp = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
+			private _temp = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
 			{
-				if (_x getVariable ["Ares_Rp_Count", 0] < _rp getVariable ["Ares_Rp_Count", 0]) then
+				if (_x getVariable ["Ares_Rp_Count", 0] < _temp getVariable ["Ares_Rp_Count", 0]) then
 				{
-					_rp = _x;
+					_temp = _x;
 				}
 			} forEach _allRps;
+            _temp
 		};
 		default
 		{
-			_rp = _allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
+			_allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
 		};
 	};
 

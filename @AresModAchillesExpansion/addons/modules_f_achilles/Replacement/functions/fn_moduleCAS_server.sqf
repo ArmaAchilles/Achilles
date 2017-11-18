@@ -66,10 +66,7 @@ private _ehFired = _plane addeventhandler [
 	}
 ];
 _plane setvariable ["ehFired",_ehFired];
-if (!_gunner_is_driver) then
-{
-	_plane setvariable ["gunner", gunner _plane];
-};
+if (!_gunner_is_driver) then { _plane setvariable ["gunner", gunner _plane] };
 _plane setvariable ["logic",_logic];
 
 //--- Show hint
@@ -82,7 +79,7 @@ _plane setvariable ["logic",_logic];
 private _fire = [] spawn {waituntil {false}};
 private _fireNull = true;
 private _time = time;
-private _offset = if ({_x == "missilelauncher"} count _weaponTypes > 0) then {20} else {0};
+private _offset = [0, 20] select ({_x == "missilelauncher"} count _weaponTypes > 0);
 waituntil {
 	private _fireProgress = _plane getvariable ["fireProgress",0];
 
@@ -117,8 +114,6 @@ waituntil {
 
 	//--- Fire!
 	if ((getposasl _plane) distance _pos < 1000 && _fireNull) then {
-
-
 		//--- Create laser target
 		private _target = ((position _logic nearEntities ["LaserTarget",250])) param [0,objnull];
 		if (isnull _target) then {

@@ -31,7 +31,7 @@ if (isNil "_dict_storage") then
 		_temp_dict = [_nested_categories select _i, _temp_dict];
 	};
 	_dict = _temp_dict;
-	
+
 } else
 {
 	// unpack dict
@@ -47,7 +47,7 @@ if (isNil "_dict_storage") then
 		{
 			_temp_dict pushBack [_temp_category,[]];
 			_nested_categories = _nested_categories select [_i + 1,(count _nested_categories) - _i - 1];
-			reverse _nested_categories;		
+			reverse _nested_categories;
 		} else
 		{
 			_temp_dict = _temp_dict select _temp_category_index select 1;
@@ -55,10 +55,10 @@ if (isNil "_dict_storage") then
 		};
 		_nested_indices pushBack _temp_category_index;
 	};
-	
+
 	// set element
 	_temp_dict pushBack _element;
-	
+
 	// pack dict
 	reverse _nested_dicts;
 	reverse _nested_indices;
@@ -71,4 +71,4 @@ if (isNil "_dict_storage") then
 	_dict = _temp_dict;
 };
 _dict call compile format ["Achilles_var_dictStorage_%1 = _this;",_dict_name];
-_dict;
+_dict

@@ -1,10 +1,10 @@
 /*
 	Gets the object from an array that is nearest to a particular point.
-	
+
 	Parameters:
 		0 - Position Array - The point of reference for the search.
 		1 - Array of Objects - The objects to search through.
-		
+
 	Returns:
 		The object from the array that was nearest to the point of reference.
 */
@@ -21,4 +21,4 @@ private _nearestDistance = 0;
 	};
 } forEach _candidateObjects;
 
-_nearest;
+_nearest

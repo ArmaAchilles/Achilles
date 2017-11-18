@@ -18,7 +18,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 params[["_input_array", [], [[]]], ["_indice_array", [], [[]]], "_element"];
 
-if (count _indice_array == 0) exitWith {_input_array + [_element]};
+if (_indice_array isEqualTo []) exitWith {_input_array + [_element]};
 
 // unpack array
 private _temp_array = [_input_array];
@@ -42,4 +42,4 @@ for "_i" from 0 to ((count _temp_array) - 2) do
 	_temp_element set [_indice_array select _i, _old_element];
 };
 
-_temp_element;
+_temp_element

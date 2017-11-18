@@ -9,10 +9,7 @@ params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, s
 
 private _rc_owner = remoteExecutedOwner;
 // execute code if rc owner is server
-if (_rc_owner == 2) exitWith
-{
-	_args call _code;
-};
+if (_rc_owner == 2) exitWith { _args call _code };
 
 private _jip_id = "";
 
@@ -40,5 +37,4 @@ if (isServer) then
 		diag_log format ["Warning: %1 (UID: %2) tried to use Achilles_fnc_spawn without permission!", name _player, getPlayerUID _player];
 	};
 };
-
-_jip_id;
+_jip_id

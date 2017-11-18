@@ -22,8 +22,8 @@ private _is_single_unit = (typeName _entity == "OBJECT");
 private _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 
 
-private _skill_choices = 
-[		
+private _skill_choices =
+[
 	["SLIDER", localize "STR_AIMING_ACCURACY"],
 	["SLIDER", localize "STR_AIMING_SHAKE"],
 	["SLIDER", localize "STR_AIMING_SPEED"],
@@ -37,7 +37,7 @@ private _skill_choices =
 
 private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
 private _curatorSelected = [];
-if (_is_single_unit) then 
+if (_is_single_unit) then
 {
 	{
 		_skill_value = _entity skill (SKILLS select _forEachIndex);
@@ -50,7 +50,7 @@ if (_is_single_unit) then
 	{
 		_number_of_traits = N_TRAITS;
 		_medic_class = _entity getVariable ["ace_medical_medicClass", -1];
-		if (_medic_class == -1) then 
+		if (_medic_class == -1) then
 		{
 			_medic_class = if (_entity getUnitTrait "medic") then {1} else {0};
 		};
@@ -69,7 +69,7 @@ if (_is_single_unit) then
 		]
 	};
 	_choices append _skill_choices;
-} else 
+} else
 {
 	_entity = leader _entity;
 	{
@@ -90,9 +90,9 @@ _dialogResult =
 	_choices
 ] call Achilles_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
-_trait_values = if (_is_single_unit) then 
+_trait_values = if (_is_single_unit) then
 {
 	_dialogResult select [0,_number_of_traits];
 };
@@ -111,21 +111,21 @@ private _skill_values = _dialogResult select [_number_of_traits,count SKILLS];
 			[_unit, [_skill_type, _skill_value]] remoteExecCall ["setSkill", _unit];
 		};
 	} forEach SKILLS;
-	
+
 	if (_is_single_unit) then
 	{
 		if (_ace_loaded) then
 		{
 			_unit setVariable ["ace_medical_medicClass",_trait_values select 0,true];
-			private _trait_value = if(_trait_values select 1 == 0) then {false} else {true};
+			private _trait_value = !(_trait_values select 1 == 0);
 			_unit setVariable ["ACE_isEngineer",_trait_value,true];
-			_trait_value = if(_trait_values select 2 == 0) then {false} else {true};
+			_trait_value = !(_trait_values select 2 == 0);
 			_unit setVariable ["ACE_isEOD",_trait_value,true];
 		} else
 		{
 			{
 				private _trait_type = _x;
-				private _trait_value = if (_trait_values select _forEachIndex == 0) then {false} else {true};
+				private _trait_value = !(_trait_values select _forEachIndex == 0);
 				if (local _unit) then
 				{
 					_unit setUnitTrait [_trait_type, _trait_value];

@@ -1,9 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-if (isNil "Ares_ReinforcementRpCount") then
-{
-	Ares_ReinforcementRpCount = 0;
-};
+if (isNil "Ares_ReinforcementRpCount") then { Ares_ReinforcementRpCount = 0 };
 
 _deleteModuleOnExit = false;
 

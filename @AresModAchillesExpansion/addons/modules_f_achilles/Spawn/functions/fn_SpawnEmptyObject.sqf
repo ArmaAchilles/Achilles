@@ -2,7 +2,7 @@
 
 private _centerPos = position _logic;
 
-private _dialogResult = 
+private _dialogResult =
 [
 	localize "STR_SPAWN_EMPTY_OBJECT",
 	[
@@ -13,7 +13,7 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_SpawnEmptyObject"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 private _objectClass = Achilles_var_emptyObject;
 private _object = _objectClass createVehicle _centerPos;
 [[_object], true] call Ares_fnc_AddUnitsToCurator;

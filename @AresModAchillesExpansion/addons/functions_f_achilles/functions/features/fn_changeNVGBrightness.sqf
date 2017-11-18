@@ -1,4 +1,3 @@
-
 params["_changeInBrightness"];
 private _brightness = player getVariable ["ace_nightvision_NVGBrightness", 0];
 

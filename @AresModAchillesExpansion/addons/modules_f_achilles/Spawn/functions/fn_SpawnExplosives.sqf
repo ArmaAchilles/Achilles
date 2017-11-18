@@ -21,7 +21,7 @@ if (_dialogResult select 0 == 0) then
 {
 	private _number_of_mines = parseNumber (_dialogResult select 2);
 	private _radius = parseNumber (_dialogResult select 3);
-	private _warning = if (_dialogResult select 4 == 0) then {true} else {false};
+	private _warning = _dialogResult select 4 == 0;
 
 	private _x_offset = _offset select 0;
 	private _y_offset = _offset select 1;

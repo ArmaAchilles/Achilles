@@ -17,9 +17,8 @@ params [["_group", grpNull, [grpNull]], ["_pos", [], [[]], 3], ["_target", objNu
 private _wp = [_group,currentwaypoint _group];
 _wp setwaypointdescription localize "STR_A3_CfgWaypoints_Land";
 
-private ["_vehsMove","_vehsLand"];
-_vehsMove = [];
-_vehsLand = [];
+private _vehsMove = [];
+private _vehsLand = [];
 
 // Kex: create LZ
 private _lz = "Land_HelipadEmpty_F" createVehicleLocal _pos;
@@ -30,14 +29,12 @@ _group allowFleeing 0;
 
 waituntil
 {
-	private ["_countReady","_vehsGroup"];
-	_countReady = 0;
-	_vehsGroup = [];
+	private _countReady = 0;
+	private _vehsGroup = [];
 
 	//--- Check state of group members
 	{
-		private ["_veh"];
-		_veh = vehicle _x;
+		private _veh = vehicle _x;
 		if (_x == effectivecommander _x) then {
 			if (!(_veh in _vehsMove)) then {
 

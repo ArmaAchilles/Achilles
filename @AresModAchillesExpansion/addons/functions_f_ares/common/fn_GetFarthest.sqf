@@ -1,16 +1,15 @@
 /*
 	Gets the object from an array that is farthest from a particular point.
-	
+
 	Parameters:
 		0 - Position Array - The point of reference for the search.
 		1 - Array of Objects - The objects to search through.
-		
+
 	Returns:
 		The object from the array that was farthest to the point of reference.
 */
 
-private _pointOfReference = [_this, 0, [0,0,0], [[]], 3] call BIS_fnc_param;
-private _candidateObjects = [_this, 1, [], [[]]] call BIS_fnc_param;
+params [["_pointOfReference", [0, 0, 0], [[]], 3], ["_candidateObjects", [], [[]]]];
 
 private _farthest = objNull;
 private _farthestDistance = 0;
@@ -22,4 +21,4 @@ private _farthestDistance = 0;
 	};
 } forEach _candidateObjects;
 
-_farthest;
+_farthest

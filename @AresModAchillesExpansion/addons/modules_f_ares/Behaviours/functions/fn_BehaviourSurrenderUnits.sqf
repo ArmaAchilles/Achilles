@@ -17,10 +17,7 @@ if (isNil "Achilles_var_animation_init_done") then
 private _unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
 
 // selection option
-if (isNull (_unitsToSurrender select 0)) then
-{
-	_unitsToSurrender = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
-};
+if (isNull (_unitsToSurrender select 0)) then {	_unitsToSurrender = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits };
 if (isNil "_unitsToSurrender") exitWith {};
 if (_unitsToSurrender isEqualTo []) exitWith {};
 

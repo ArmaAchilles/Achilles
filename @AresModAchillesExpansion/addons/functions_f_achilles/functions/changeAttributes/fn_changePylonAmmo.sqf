@@ -16,7 +16,7 @@
 
 params ["_plane"];
 private _planeType = typeOf _plane;
-if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_NO_DYNAMIC_LOADOUT"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_NO_DYNAMIC_LOADOUT"] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 private _hasGunner = count fullCrew [_plane, "gunner", true] == 1;
 
@@ -46,12 +46,7 @@ _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
 private _addWeaponsTo = "";
 if (_hasGunner) then {_addWeaponsTo = _dialogResult select 0};
-_addWeaponsTo = switch (_addWeaponsTo) do
-{
-	case 0: {[]};
-	case 1: {[0]};
-	default {[]};
-};
+_addWeaponsTo = [[], [0]] select (_addWeaponsTo == 1);
 
 if (_hasGunner) then {_dialogResult deleteAt 0};
 
@@ -63,7 +58,7 @@ if (_hasGunner) then {_dialogResult deleteAt 0};
 	{
 		private _magIndex = _x;
 		private _pylonIndex = _forEachIndex + 1;
-		private _magClassName = if (_x > 0) then {(_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)} else {""};
+		private _magClassName = ["", (_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)] select (_x > 0);
 		if (local _plane) then
 		{
 			_plane setPylonLoadOut [_pylonIndex, _magClassName, false, _addWeaponsTo];

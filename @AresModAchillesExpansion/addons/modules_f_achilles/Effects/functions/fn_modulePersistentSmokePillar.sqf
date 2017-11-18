@@ -1,5 +1,4 @@
-private _mode = _this select 0;
-private _params = _this select 1;
+params ["_mode", "_params"];
 private _logic = _params select 0;
 
 switch _mode do
@@ -11,7 +10,7 @@ switch _mode do
 	case "registeredToWorld3DEN":
 	{
 		private _smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
-		if (_smokeType isEqualType 0) then 
+		if (_smokeType isEqualType 0) then
 		{
 			//--- Delete previous light source
 			private _sources = _logic getvariable ["bis_fnc_moduleSmokeSource_source",[objnull]];

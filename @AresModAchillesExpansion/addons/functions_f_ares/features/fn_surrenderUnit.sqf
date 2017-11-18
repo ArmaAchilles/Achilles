@@ -28,7 +28,7 @@ _param params["_animIndex", "_interactionIndex"];
 
 if (_animIndex == -1) then
 {
-	private _termination = if(isNull _caller) then {-1} else {_unit getVariable ["AresCaptureState",1]};
+	private _termination = [_unit getVariable ["AresCaptureState",1], -1] select (isNull _caller);
 
 	// unit gets freed
 

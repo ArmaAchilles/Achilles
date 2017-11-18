@@ -20,4 +20,4 @@ params[["_matrix", [], [[]]], ["_vector", [], [[]]]];
 
 if (count _matrix != count _vector) exitWith {diag_log "Error: matrix multiplication: incompatible dimensions!"};
 
-_matrix apply {_x vectorDotProduct _vector};
+_matrix apply {_x vectorDotProduct _vector}

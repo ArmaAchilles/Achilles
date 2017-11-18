@@ -108,9 +108,9 @@ waitUntil
 	];
 	_vehicle setVelocity [0,0,0];
 	sleep 0.01;
-	((_delta_time >= _duration) or (not canMove _vehicle) or (not alive _pilot))
+	((_delta_time >= _duration) or (!canMove _vehicle) or (!alive _pilot))
 };
-if (not alive driver _vehicle or not canMove _vehicle) exitWith {};
+if (!alive driver _vehicle or !canMove _vehicle) exitWith {};
 [_vehicle, _unit_capture_trajectory] spawn BIS_fnc_UnitPlay;
 
 private _weapon = _weapons select (_dialogResult select 1);

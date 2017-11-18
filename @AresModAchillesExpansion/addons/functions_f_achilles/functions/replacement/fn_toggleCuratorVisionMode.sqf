@@ -71,7 +71,7 @@ if !(isnull curatorcamera) then {
 
 	} else
 	{
-		if (not isNil "_effect") then
+		if (!isNil "_effect") then
 		{
 			_effect ppEffectEnable false;
 		};

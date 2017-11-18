@@ -184,7 +184,7 @@ else
 					if (_loop) then
 					{
 						{
-							_targetSpeed = if (_activationType == 2) then {true} else {(speed _target) > 7};
+							_targetSpeed = [(speed _target) > 7, true] select (_activationType == 2);
 							if ((_target isKindOf _x) && ((_target distance _dummyObject) <= _activationDistance) && _targetSpeed) exitWith {_loop = false; _dummyObject setVariable ["iedTriggered", true, true]};
 						} forEach _targets;
 					};

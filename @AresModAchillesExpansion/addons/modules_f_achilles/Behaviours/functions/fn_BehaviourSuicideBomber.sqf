@@ -29,15 +29,15 @@ if(isNil "Achilles_var_ied_init_done") then
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
-if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if the module has been placed on top of a player.
-if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if module has been placed on top of another IED
-if (_object getVariable ["isIED", false]) exitWith {[localize "STR_ENYO_OBJECT_IS_IED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isIED", false]) exitWith {[localize "STR_ENYO_OBJECT_IS_IED"] call Achilles_fnc_ShowZeusErrorMessage};
 
-if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_SB"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_SB"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Sets Suicide Bomber functionality
 if (_object isKindOf "Man") then
@@ -75,7 +75,7 @@ if (_object isKindOf "Man") then
 		case 1: {false};
 	};
 
-  if (side _object == _activationSide) exitWith {[localize "STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+  if (side _object == _activationSide) exitWith {[localize "STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
 
   _object setVariable ["isSB", true, true];
 
@@ -85,7 +85,7 @@ if (_object isKindOf "Man") then
 }
 else
 {
-  [localize "STR_ENYO_OBJECTS_NOT_ALLOWED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";
+  [localize "STR_ENYO_OBJECTS_NOT_ALLOWED"] call Achilles_fnc_ShowZeusErrorMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

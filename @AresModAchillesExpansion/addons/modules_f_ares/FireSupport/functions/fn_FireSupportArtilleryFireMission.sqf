@@ -15,10 +15,7 @@ _objects = nearestObjects [(_this select 0), ["All"], 150, true];
 private _filteredObjects = [];
 {
 	_ammo = getArtilleryAmmo [_x];
-	if (count _ammo > 0) then
-	{
-		_filteredObjects pushBack _x;
-	};
+	if (count _ammo > 0) then {	_filteredObjects pushBack _x; };
 
 } forEach _objects;
 
@@ -48,11 +45,7 @@ private _batteries = [];
 			private _units = _battery select 1;
 			private _unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
 
-			if (_unitType == (_battery select 0)) then
-			{
-			  _units pushBack _unit;
-			};
-
+			if (_unitType == (_battery select 0)) then { _units pushBack _unit };
 		} forEach _batteries;
 	};
 
@@ -64,11 +57,11 @@ private _batteryTypes = _batteries apply {_x select 0};
 
 // Pick a battery
 private _pickBatteryResult = [
-		localize "STR_SELECT_BATTERY_TO_FIRE",
-		[
-			[localize "STR_BATTERY", _batteryTypes],
-			[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
-		]] call Ares_fnc_ShowChooseDialog;
+	localize "STR_SELECT_BATTERY_TO_FIRE",
+	[
+		[localize "STR_BATTERY", _batteryTypes],
+		[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
+	]] call Ares_fnc_ShowChooseDialog;
 if (_pickBatteryResult isEqualTo []) exitWith {};
 private _battery = _batteries select (_pickBatteryResult select 0);
 private _mode = _pickBatteryResult select 1;
@@ -88,7 +81,7 @@ private _numberOfGuns = [];
 if (_mode == 0) then
 {
 	private _allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
-	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 	private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
     _targetChoices append (_allTargets apply {name _x});

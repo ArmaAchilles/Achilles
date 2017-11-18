@@ -37,16 +37,16 @@ if (_dialogResult isEqualTo []) exitWith { "User cancelled dialog."; };
 
 ["User chose radius with index '%1'", _dialogResult] call Achilles_fnc_logMessage;
 _radius = 100;
-switch (_dialogResult select 0) do
+_radius = switch (_dialogResult select 0) do
 {
-	case 0: { _radius = 50; };
-	case 1: { _radius = 100; };
-	case 2: { _radius = 500; };
-	case 3: { _radius = 1000; };
-	case 4: { _radius = 2000; };
-	case 5: { _radius = 5000; };
-	case 6: { _radius = -1; };
-	default { _radius = 100; };
+	case 0: { 50 };
+	case 1: { 100 };
+	case 2: { 500 };
+	case 3: { 1000 };
+	case 4: { 2000 };
+	case 5: { 5000 };
+	case 6: { -1 };
+	default { 100 };
 };
 private _includeUnits = (_dialogResult select 1 == 0);
 private _includeEmptyVehicles = (_dialogResult select 2 == 0);

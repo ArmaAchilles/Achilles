@@ -24,6 +24,6 @@ bis_fnc_curatorObjectPlaced_mouseOver = curatormouseover;
 private _curatorInfoType = gettext (configfile >> "cfgvehicles" >> typeof _object >> "curatorInfoType");
 private _filterAttributes = getnumber (configfile >> _curatorInfoType >> "filterAttributes");
 
-if (_filterAttributes == 0 and ([configfile >> "CfgVehicles" >> typeOf _object, "transportMaxMagazines", 0] call BIS_fnc_returnConfigEntry == 0)) then {_object call bis_fnc_showCuratorAttributes;};
+if (_filterAttributes == 0 and ([configfile >> "CfgVehicles" >> typeOf _object, "transportMaxMagazines", 0] call BIS_fnc_returnConfigEntry == 0)) then {_object call bis_fnc_showCuratorAttributes};
 
 true

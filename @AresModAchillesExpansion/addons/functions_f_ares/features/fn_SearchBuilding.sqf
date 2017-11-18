@@ -99,16 +99,7 @@ for "_b" from 0 to (count _tempArray - 1) do
 if (_bldgArray isEqualTo []) exitWith {	false };
 
 // Choose the building to be searched - either the nearest or a random one.
-private _bldgSelect = if (_whichOne == "NEAREST") then
-{
-	// nearestObjects is sorted from nearest -> farthest objects. Since we didn't change the order when
-	// we filtered candidate houses we can just choose the first element here.
-	_bldgArray select 0;
-}
-else
-{
-    _bldgArray call BIS_fnc_selectRandom;
-};
+private _bldgSelect = [_bldgArray call BIS_fnc_selectRandom, _bldgArray select 0] select (_whichOne == "NEAREST");
 
 // Make the group ready for shootin'
 _group setbehaviour "AWARE";
@@ -237,11 +228,11 @@ else
 		_x forceSpeed -1;
 		_x doMove _ldrPos;
 		[_x, _leader] spawn
-			{
-				params ["_unit", "_leader"];
-				waitUntil { moveToCompleted _unit || moveToFailed _unit };
-				_unit doFollow _leader;
-			};
+		{
+			params ["_unit", "_leader"];
+			waitUntil { moveToCompleted _unit || moveToFailed _unit };
+			_unit doFollow _leader;
+		};
 	} foreach _searchers;
 };
 

@@ -25,20 +25,12 @@ private _temp_element = [];
 
 private _dictName = _input_dict select 0;
 _dictStorage = compile format ["Achilles_var_dictStorage_%1",_dictName];
-if (isNil "_dictStorage") then
-{
-} else
-{
-	
-};
+if (isNil "_dictStorage") then {} else {};
 
-if (count _indice_array == 0) exitWith 
-{
-	_input_array + [_element];
-};
+if (count _indice_array == 0) exitWith { _input_array + [_element] };
 
 // unpack array
-private _temp_array = [_input_array];	
+private _temp_array = [_input_array];
 {
 	_temp_element = _temp_array select ((count _temp_array) - 1);
 	_temp_array pushBack (_temp_element select _x);
@@ -59,4 +51,4 @@ for "_i" from 0 to ((count _temp_array) - 2) do
 	_temp_element set [_indice_array select _i, _old_element];
 };
 
-_temp_element;
+_temp_element

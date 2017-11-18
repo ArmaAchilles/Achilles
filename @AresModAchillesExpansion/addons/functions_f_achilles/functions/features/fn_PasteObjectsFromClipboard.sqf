@@ -1,7 +1,4 @@
-if (isNil "Achilles_var_MarkerCounter") then
-{
-	Achilles_var_MarkerCounter = 0;
-};
+if (isNil "Achilles_var_MarkerCounter") then { Achilles_var_MarkerCounter = 0; };
 
 private _center_pos = if (visibleMap) then
 {
@@ -20,7 +17,7 @@ private _object_list = [];
 
 {
 	_x params ["_type"];
-	
+
 	switch (true) do
 	{
 		case (_type isKindOf "Man"):
@@ -116,11 +113,11 @@ private _object_list = [];
 						private _newGroup = createGroup _side;
 						_createdGroups pushBack _newGroup;
 						_createdGroupsId pushBack _groupID;
-						_newGroup;
+						_newGroup
 					}
 					else
 					{
-						_createdGroups select _groupIndex;
+						_createdGroups select _groupIndex
 					};
 
 					private _unit = _group createUnit [_type, [0,0,0], [], 0, "FORM"];
@@ -147,13 +144,13 @@ private _object_list = [];
 					{
 						case 0: {};
 						case 1: {call compile format ["_unit moveIn%1 _vehicle",_role select 0]};
-						case 2: 
+						case 2:
 						{
 							if (_role select 0 == "Cargo") then
 							{
 								_unit moveInCargo _vehicle;
 							}
-							else 
+							else
 							{
 								call compile format ["_unit moveIn%1 [_vehicle,%2]",_role select 0,_role select 1];
 							};
