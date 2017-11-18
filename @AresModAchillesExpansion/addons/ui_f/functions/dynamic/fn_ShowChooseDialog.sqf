@@ -309,5 +309,5 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) exitWith
 		} forEach _returnValue;
 	};
 	_returnValue
-}
+};
 []
