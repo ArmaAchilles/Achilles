@@ -197,7 +197,7 @@ class ModulePersistentSmokePillar_F : Module_F
 	};
 	class ModuleDescription: ModuleDescription
 	{
-		description = "Achilles Light Source Module";
+		description = "Achilles Persistent Smoke module";
 	};
 };
 
