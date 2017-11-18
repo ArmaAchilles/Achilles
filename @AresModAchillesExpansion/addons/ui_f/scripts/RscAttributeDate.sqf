@@ -200,8 +200,8 @@ switch _mode do
 		private _value = sliderPosition _ctrlSlider;
 		private _valueHour = floor (_value / 60);
 		private _valueMinute = floor (_value % 60);
-		private _textHour = if (_valueHour < 10) then {'0' + str _valueHour} else {str _valueHour};
-		private _textMinute = if (_valueMinute < 10) then {'0' + str _valueMinute} else {str _valueMinute};
+		private _textHour = [str _valueHour, '0' + str _valueHour] select (_valueHour < 10);
+		private _textMinute = [str _valueMinute, '0' + str _valueMinute] select (_valueMinute < 10);
 		_ctrlHour ctrlsettext _textHour;
 		_ctrlMinute ctrlsettext _textMinute;
 		_ctrlSecond ctrlsettext '00';
@@ -224,19 +224,19 @@ switch _mode do
 			case (_ctrlHour):
 			{
 				if (_valueHour > 23) then {_valueHour = 23};
-				private _textHour = if (_valueHour < 10) then {'0' + str _valueHour} else {str _valueHour};
+				private _textHour = [str _valueHour, '0' + str _valueHour] select (_valueHour < 10);
 				_ctrlHour ctrlsettext _textHour;
 			};
 			case (_ctrlMinute):
 			{
 				if (_valueMinute > 59) then {_valueMinute = 59};
-				private _textMinute = if (_valueMinute < 10) then {'0' + str _valueMinute} else {str _valueMinute};
+				private _textMinute = [str _valueMinute, '0' + str _valueMinute] select (_valueMinute < 10);
 				_ctrlMinute ctrlsettext _textMinute;
 			};
 			case (_ctrlSecond):
 			{
 				if (_valueSecond > 59) then {_valueSecond = 59};
-				private _textSecond = if (_valueSecond < 10) then {'0' + str _valueSecond} else {str _valueSecond};
+				private _textSecond = [str _valueSecond, '0'+ str _valueSecond] select (_valueSecond < 10);
 				_ctrlSecond ctrlsettext _textSecond;
 			};
 		};
@@ -246,7 +246,7 @@ switch _mode do
 	};
 	case "preview":
 	{
-		if (isServer) exitWith {["CANNOT PREVIEW AS SERVER HOST!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+		if (isServer) exitWith {["CANNOT PREVIEW AS SERVER HOST!"] call Achilles_fnc_ShowZeusErrorMessage};
 
 		private _display = _params select 0;
 

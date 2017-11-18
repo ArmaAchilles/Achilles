@@ -79,15 +79,15 @@ switch _mode do {
 		private _display = _params select 0;
 		private _selected = uinamespace getvariable ["RscAttributeRespawnPosition_selected",4];
 
-		switch true do {
+		_mode = switch true do {
 			case (_entity isEqualType grpNull): {
-				_mode = "group";
+				"group"
 			};
 			case (_entity isKindOf "Man"): {
-				_mode = "man";
+				"man"
 			};
 			default {
-				_mode = "vehicle";
+				"vehicle"
 			};
 		};
 		private _curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;

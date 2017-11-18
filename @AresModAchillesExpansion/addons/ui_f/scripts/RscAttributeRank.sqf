@@ -12,9 +12,9 @@ private _idcs = [
 	IDC_RSCATTRIBUTERANK_COLONEL
 ];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
 
 		private _display = _params select 0;
@@ -30,7 +30,7 @@ switch _mode do
 		private _rankIdc = _idcs select (rankID _unit max 0 min 6);
 		['onButtonClick',[_display displayctrl _rankIdc,0]] call RscAttributeRank;
 	};
-	case "onButtonClick": 
+	case "onButtonClick":
 	{
 		private _rankCtrl = _params select 0;
 		private _delay = _params select 1;
@@ -44,11 +44,11 @@ switch _mode do
 		[_rankCtrl,1.25,_delay] call bis_fnc_ctrlsetscale;
 		RscAttributeRank_rank = _idcs find (ctrlidc _rankCtrl);
 	};
-	case "confirmed": 
+	case "confirmed":
 	{
 		private _display = _params select 0;
 		private _rankID = uinamespace getvariable ["RscAttributeRank_rank",0];
-		_mode = if (_unit isKindOf "Man") then {"man"} else {"vehicle"};
+		_mode = ["vehicle", "man"] select (_unit isKindOf "Man");
 		if (_rankID != rankID _unit) then
 		{
 			private _rank = _rankID call bis_fnc_rankparams;

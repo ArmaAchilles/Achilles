@@ -2,15 +2,15 @@
 
 params["_mode", "_params", "_entity"];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTENAME_VALUE;
 		_ctrlValue ctrlsettext name _entity;
 	};
-	case "confirmed": 
+	case "confirmed":
 	{
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTENAME_VALUE;
@@ -19,11 +19,8 @@ switch _mode do
 		{
 			private _curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
 			{
-				if (alive _x) then 
-				{
-					[_x, _text] remoteExecCall ["setName", 0, _x];
-				};
-			} forEach _curatorSelected;
+				[_x, _text] remoteExecCall ["setName", 0, _x];
+			} forEach (_curatorSelected select {alive _x});
 		};
 	};
 	case "onUnload": {};
