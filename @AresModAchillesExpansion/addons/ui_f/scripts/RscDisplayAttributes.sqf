@@ -64,7 +64,7 @@ switch _mode do
 				private _control = _display displayctrl _idc;
 
 				//--- Admin specific attribute
-				private _show = if (getnumber (_cfgControl >> "adminOnly") > 0) then {_enableAdmin} else {true};
+				private _show = [true, _enableAdmin] select (getnumber (_cfgControl >> "adminOnly") > 0);
 
 				if ((_allAttributes || {_x == configname _cfgControl} count _attributes > 0) && _show) then {
 					private _controlPos = ctrlposition _control;

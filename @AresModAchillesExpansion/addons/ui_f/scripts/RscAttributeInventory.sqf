@@ -81,14 +81,14 @@ switch _mode do {
 									_displayNameShortArray resize 41;
 									_displayNameShort = tostring _displayNameShortArray + "...";
 								};
-								private _type = if (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096,131072]) then {1} else {0};
+								private _type = [0, 1] select (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096,131072]);
 								_addonListType pushback [_weapon,_displayName,_displayNameShort,_picture,_type,false];
 							};
 							//--- Add magazines compatible with the weapon
 							if (_weaponPublic || _weapon in ["throw","put"]) then {
 								//_addonListType = _addonList select _typeMagazine;
 								{
-									private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
+									private _muzzle = [_weaponCfg >> _x, _weaponCfg] select (_x == "this");
 									{
 										private _mag = tolower _x;
 										if ({(_x select 0) == _mag} count _addonListType == 0) then {
@@ -238,7 +238,7 @@ switch _mode do {
 		_ctrlLable ctrlSetText "";
 		//_ctrlFilter = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_FILTER;
 		//_cursel = lbcursel _ctrlFilter;
-		private _cursel = if (count _params > 1) then {_params select 1} else {RscAttributeInventory_selected};
+		private _cursel = [RscAttributeInventory_selected, _params select 1] select (count _params > 1);
 		RscAttributeInventory_selected = _cursel;
 		private _ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
 		_ctrlList setVariable ["WeaponSpecific",nil];
@@ -275,7 +275,7 @@ switch _mode do {
 					} else {
 						_values select _index
 					};
-					private _arsenal = if (_class in RscAttributeInventory_cargoVirtual) then {true} else {false};
+					private _arsenal = _class in RscAttributeInventory_cargoVirtual;
 
 					if ((_cursel == 0 and (_value != 0 or _arsenal)) or (_cursel > 0)) then {
 						private _lnbAdd = _ctrlList lnbaddrow ["",_displayNameShort,str _value,""];
@@ -283,7 +283,7 @@ switch _mode do {
 						_ctrlList lnbsetvalue [[_lnbAdd,0],_value];
 						_ctrlList lnbsetvalue [[_lnbAdd,1],_type];
 						_ctrlList lnbsetpicture [[_lnbAdd,0],_picture];
-						private _alpha = if (_value != 0 or _arsenal) then {1} else {0.5};
+						private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
 						_ctrlList lnbsetcolor [[_lnbAdd,1],[1,1,1,_alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd,2],[1,1,1,_alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd,3],[1,1,1,_alpha]];
@@ -313,7 +313,7 @@ switch _mode do {
 		["listSelect",[_display],objnull] call RscAttributeInventory;
 
 		//--- Update UI
-		private _delay = if (isnil "_curator") then {0.1} else {0};
+		private _delay = [0, 0.1] select (isnil "_curator");
 		{
 			private _ctrl = _display displayctrl _x;
 			private _color = [1,1,1,0.5];
@@ -360,9 +360,9 @@ switch _mode do {
 				if (_value > 0 || (_value == 0 && _add < 0)) then {_ctrlLoad progresssetposition _load};
 				_values set [_index,_value];
 				_ctrlList lnbsetvalue [[_cursel,0],_value];
-				_ctrlList lnbsettext [[_cursel,2],if (_value < 0) then {""} else {str _value}];
-				private _arsenal = if (_class in RscAttributeInventory_cargoVirtual) then {true} else {false};
-				private _alpha = if (_value != 0 or _arsenal) then {1} else {0.5};
+				_ctrlList lnbsettext [[_cursel,2], [str _value, ""] select (_value < 0)];
+				private _arsenal = _class in RscAttributeInventory_cargoVirtual;
+				private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
 				_ctrlList lnbsetcolor [[_cursel,1],[1,1,1,_alpha]];
 				_ctrlList lnbsetcolor [[_cursel,2],[1,1,1,_alpha]];
 				_ctrlList lnbsetcolor [[_cursel,3],[1,1,1,_alpha]];
@@ -390,7 +390,7 @@ switch _mode do {
 		private _value = _ctrlList lnbvalue [_cursel,0];
 		_arsenal = 1 - _arsenal;
 		_ctrlList lnbsetvalue [[_cursel,3], _arsenal];
-		private _alpha = if (_arsenal == 1 or _value > 0) then {1} else {0.5};
+		private _alpha = [0.5, 1] select (_arsenal == 1 or _value > 0);
 		_ctrlList lnbsetcolor [[_cursel,1],[1,1,1,_alpha]];
 		_ctrlList lnbsetcolor [[_cursel,2],[1,1,1,_alpha]];
 		_ctrlList lnbsetcolor [[_cursel,3],[1,1,1,_alpha]];
@@ -473,7 +473,7 @@ switch _mode do {
 		private _magazines = [];
 
 		{
-			private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
+			private _muzzle = [_weaponCfg >> _x, _weaponCfg] select (_x == "this");
 			{
 				private _mag = tolower _x;
 				if (getnumber (configfile >> "cfgmagazines" >> _mag >> "scope") == 2) then {
@@ -489,7 +489,7 @@ switch _mode do {
 
 		private _list = uinamespace getvariable ["RscAttributeInventory_list",[[],[],[],[],[],[],[],[],[],[],[],[]]];
 		private _items = [];
-		{_items = _items + _x;} foreach _list;
+		{_items append _x} foreach _list;
 
 		lnbclear _ctrlList;
 		{
@@ -503,14 +503,14 @@ switch _mode do {
 					if (_index == -1) exitWith {};
 
 					private _value = _reducedValues select _index;
-					private _arsenal = if (_class in RscAttributeInventory_cargoVirtual) then {true} else {false};
+					private _arsenal = _class in RscAttributeInventory_cargoVirtual;
 
 					private _lnbAdd = _ctrlList lnbaddrow ["",_displayNameShort,str _value,""];
 					_ctrlList lnbsetdata [[_lnbAdd,0],_class];
 					_ctrlList lnbsetvalue [[_lnbAdd,0],_value];
 					_ctrlList lnbsetvalue [[_lnbAdd,1],_type];
 					_ctrlList lnbsetpicture [[_lnbAdd,0],_picture];
-					private _alpha = if (_value != 0 or _arsenal) then {1} else {0.5};
+					private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
 					_ctrlList lnbsetcolor [[_lnbAdd,1],[1,1,1,_alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd,2],[1,1,1,_alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd,3],[1,1,1,_alpha]];

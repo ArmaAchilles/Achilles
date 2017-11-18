@@ -28,7 +28,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current state
-		private _selected = if (typename _entity == typename []) then {
+		private _selected = if (_entity isequalType []) then {
 			waypointspeed _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTESPEEDMODE_DEFAULT) ctrlshow false;
@@ -45,7 +45,7 @@ switch _mode do {
 		{
 			private _ctrl = _display displayctrl _x;
 			_ctrl ctrlsettextcolor [1,1,1,0.4];
-			[_ctrl,if (_ctrl != _ctrlSelected) then {1} else {1.25},_delay] call bis_fnc_ctrlsetscale;
+			[_ctrl, [1.25, 1] select (_ctrl != _ctrlSelected), _delay] call bis_fnc_ctrlsetscale;
 		} foreach _idcs;
 		_ctrlSelected ctrlsettextcolor [1,1,1,1];
 
