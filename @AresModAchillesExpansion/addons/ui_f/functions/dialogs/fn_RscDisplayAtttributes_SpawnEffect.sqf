@@ -1,5 +1,5 @@
-#define EFFECT_MODULES		["ModuleFlare_F","ModuleSmoke_F","ModuleIRGrenade_F","ModuleChemlight_F","ModuleLightSource_F","ModulePersistentSmokePillar_F","ModuleTracers_F"]
-#define NO_CHOICE_MODULES	["ModuleIRGrenade_F","ModuleTracers_F"]
+#define EFFECT_MODULES		["ModuleFlare_F","ModuleSmoke_F","ModuleIRGrenade_F","ModuleChemlight_F","ModuleLightSource_F","ModulePersistentSmokePillar_F","ModuleTracers_F", "CustomFire"]
+#define NO_CHOICE_MODULES	["ModuleIRGrenade_F","ModuleTracers_F", "CustomFire"]
 
 #define IDC_CTRL_CATEGORY	20000
 #define IDD_DYNAMIC_GUI		133798

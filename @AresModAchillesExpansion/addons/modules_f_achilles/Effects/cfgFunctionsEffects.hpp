@@ -5,4 +5,5 @@ class Achilles_Effects_Function_Base
 	class modulePersistentSmokePillar {};
 	class lightSourceAttributes {};
 	class spawnSmoke {};
+	class moduleEffectsFire {};
 };

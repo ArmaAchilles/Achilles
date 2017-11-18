@@ -622,6 +622,10 @@
         <Russian>Композиции объектов</Russian>
         <German>Erweiterte Kompositionen</German>
       </Key>
+      <Key ID="STR_EFFECTS_CUSTOM_FIRE">
+        <Original>Custom Fire</Original>
+        <English>Custom Fire</English>
+      </Key>
       <Key ID="STR_SPAWN_EFFECT">
         <Original>Spawn Effect</Original>
         <English>Spawn Effect</English>

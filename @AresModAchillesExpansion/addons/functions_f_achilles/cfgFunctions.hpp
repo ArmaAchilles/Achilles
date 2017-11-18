@@ -97,6 +97,7 @@ class CfgFunctions
 			class IED_DamageHandler;
 			class setSRFrequencies;
 			class setLRFrequencies;
+			class effectFire;
 		};
 	};
 
