@@ -10,12 +10,9 @@ IDC_SELECTION_LABLE =10001;
 IDC_SIDE_LABLE		=[10002,20002];
 IDC_SIDE_ICONS		=[12000,12010,12020,12030,12040];
 */
-private ["_mode", "_ctrl", "_comboIndex"];
 
 disableSerialization;
-_mode = (_this select 0);
-_ctrl = param [1,controlNull,[controlNull]];
-_comboIndex = param [2,0,[0]];
+params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 private _dialog = findDisplay IDD_DYNAMIC_GUI;
 

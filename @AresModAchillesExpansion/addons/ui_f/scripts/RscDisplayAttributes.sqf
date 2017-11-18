@@ -39,7 +39,7 @@ switch _mode do
 		};
 
 		//--- Load default attributes
-		private _attributes = if (getnumber (_displayConfig >> "filterAttributes") > 0) then {missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_attributes",[]]} else {["%ALL"]};
+		private _attributes = ["%ALL", missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_attributes",[]]] select (getnumber (_displayConfig >> "filterAttributes") > 0);
 		private _allAttributes = "%ALL" in _attributes;
 
 		//--- Initialize attributes

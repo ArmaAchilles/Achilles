@@ -3,7 +3,6 @@
 private _ammoBox = [_logic] call Ares_fnc_GetUnitUnderCursor;
 if (!isnull _ammoBox) then
 {
-
 	// Clear out any previous text from the dialog. We do this so it behaves consistently
 	// in dedicated and local servers.
 	Ares_CopyPaste_Dialog_Text = '';
@@ -16,11 +15,7 @@ if (!isnull _ammoBox) then
 	}
 	else
 	{
-		if (_parsedValue == "CANCELLED") then
-		{
-			// Do nothing. The paste was cancelled by the user.
-		}
-		else
+		if (_parsedValue != "CANCELLED") then
 		{
 			[objNull, format ["%1. Was the data in the right format?", _parsedValue]] call bis_fnc_showCuratorFeedbackMessage;
 		};

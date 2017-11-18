@@ -23,7 +23,6 @@ private _colorsText = +_colorsActive;
 
 switch _mode do {
 	case "onLoad": {
-
 		private _display = _params select 0;
 
 		//--- Add handlers to all buttons

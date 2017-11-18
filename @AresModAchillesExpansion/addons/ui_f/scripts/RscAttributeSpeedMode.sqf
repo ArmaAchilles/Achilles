@@ -17,7 +17,6 @@ private _states = [
 
 switch _mode do {
 	case "onLoad": {
-
 		private _display = _params select 0;
 
 		//--- Add handlers to all buttons
@@ -64,13 +63,7 @@ switch _mode do {
 				private _wp_id = _x select 1;
 				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then
 				{
-					if (local _group) then
-					{
-						_group setspeedmode _selected;
-					} else
-					{
-						[_group, _selected] remoteExec ["setspeedmode",leader _group];
-					};
+					[[_group, _selected] remoteExec ["setspeedmode",leader _group], _group setspeedmode _selected] select (local _group);
 				};
 				_x setwaypointspeed _selected;
 			} forEach _curatorSelectedWPs;
@@ -79,13 +72,7 @@ switch _mode do {
 			private _curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
 				private _leader = leader _x;
-				if (local _leader) then
-				{
-					_x setspeedmode _selected;
-				} else
-				{
-					[_x, _selected] remoteExec ["setspeedmode", _leader];
-				};
+				[[_x, _selected] remoteExec ["setspeedmode", _leader], _x setspeedmode _selected] select (local _leader);
 			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};

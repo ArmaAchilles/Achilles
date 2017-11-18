@@ -6,12 +6,8 @@
 #define IDC_LABLE_TYPE		10001
 #define IDC_CTRL_TYPE		20001
 
-private ["_mode", "_ctrl", "_comboIndex"];
-
 disableSerialization;
-_mode = (_this select 0);
-_ctrl = param [1,controlNull,[controlNull]];
-_comboIndex = param [2,0,[0]];
+params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
@@ -21,8 +17,8 @@ switch (_mode) do
 	{
 		_category_ctrl = _dialog displayCtrl IDC_CTRL_CATEGORY;
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_0", 0];
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-		_last_choice = if (_last_choice < lbSize _category_ctrl) then {_last_choice} else {(lbSize _category_ctrl) - 1};
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+		_last_choice = [(lbSize _category_ctrl) - 1, _last_choice] select (_last_choice < lbSize _category_ctrl);
 		_category_ctrl lbSetCurSel _last_choice;
 
 		[0,_category_ctrl,_last_choice] call Achilles_fnc_RscDisplayAtttributes_SpawnEffect;

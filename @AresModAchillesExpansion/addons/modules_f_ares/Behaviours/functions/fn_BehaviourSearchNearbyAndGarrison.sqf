@@ -13,10 +13,10 @@ if (isNil "Achilles_var_search_building_init_done") then
 
 if (local _groupUnderCursor) then
 {
-	[_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] call Ares_fnc_SearchBuilding;
+    [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] call Ares_fnc_SearchBuilding;
 } else
 {
-	[_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] remoteExec ["Ares_fnc_SearchBuilding", leader _groupUnderCursor];
+    [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] remoteExec ["Ares_fnc_SearchBuilding", leader _groupUnderCursor];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

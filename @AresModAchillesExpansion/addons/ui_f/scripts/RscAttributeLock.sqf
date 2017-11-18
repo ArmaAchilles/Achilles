@@ -64,11 +64,7 @@ switch _mode do {
 		if (locked _entity == _lock) exitwith {};
 		private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 		{
-			if (local _x) then {
-				_x lock _lock;
-			} else {
-				[_x, _lock] remoteExecCall ["lock", _x];
-			};
+			[[_x, _lock] remoteExecCall ["lock", _x], _x lock _lock] select (local _x);
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false

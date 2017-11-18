@@ -13,12 +13,9 @@
  IDC_NEW_ITEM			=20002;
  IDC_OK_BUTTON			=3000;
 */
-private ["_mode", "_ctrl", "_comboIndex"];
 
 disableSerialization;
-_mode = (_this select 0);
-_ctrl = param [1,controlNull,[controlNull]];
-_comboIndex = param [2,0,[0]];
+params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
@@ -105,8 +102,7 @@ switch (_mode) do
 			uiNamespace setVariable ['Ares_ChooseDialog_Result', 1];
 			closeDialog 1;
 		};
-		[localize "STR_ENTRY_ALREADY_EXISTS"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
+		[localize "STR_ENTRY_ALREADY_EXISTS"] call Achilles_fnc_ShowZeusErrorMessage
 	};
 	case "UNLOAD" : {};
 	default

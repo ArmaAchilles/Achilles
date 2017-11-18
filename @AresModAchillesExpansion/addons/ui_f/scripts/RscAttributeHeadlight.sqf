@@ -4,11 +4,9 @@
 #define IDC_RSCATTRIBUTEHEADLIGHT_DEFAULT		123470
 #define IDC_RSCATTRIBUTEHEADLIGHT_BACKGROUND	113425
 
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+params ["_mode", "_params", "_entity"];
 
-_idcs = 
+_idcs =
 [
 	IDC_RSCATTRIBUTEHEADLIGHT_ON,
 	IDC_RSCATTRIBUTEHEADLIGHT_OFF,
@@ -16,15 +14,14 @@ _idcs =
 ];
 _states = [true,false,"auto"];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
-
 		_display = _params select 0;
 
 		//--- Not available for destroyed object
-		if !(alive _entity) exitwith {
+		if (!alive _entity) exitwith {
 			{
 				_ctrl = _display displayctrl _x;
 				_ctrl ctrlenable false;
@@ -46,10 +43,9 @@ switch _mode do
 		_selectedIDC = _idcs select _selectedIndex;
 		['onButtonClick',[_display displayctrl _selectedIDC,0]] call RscAttributeHeadlight;
 	};
-	case "onButtonClick": 
+	case "onButtonClick":
 	{
-		_ctrlSelected = _params select 0;
-		_delay = _params select 1;
+		_params params ["_ctrlSelected", "_delay"];
 		_display = ctrlparent _ctrlSelected;
 		{
 			_ctrl = _display displayctrl _x;
@@ -66,20 +62,20 @@ switch _mode do
 
 		RscAttributeHeadlight_selected = _idcs find (ctrlidc _ctrlSelected);
 	};
-	case "confirmed": 
+	case "confirmed":
 	{
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeHeadlight_selected",0];
 		_light = _states select _selectedIndex;
 		if ((_entity getVariable ["headlight","auto"]) isEqualTo _light) exitwith {};
 		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
-		if (_light isEqualTo "auto") exitWith 
+		if (_light isEqualTo "auto") exitWith
 		{
 			{_x setVariable ["headlight","auto",true]} forEach _curatorSelected;
 		};
 		{
 			_x setVariable ["headlight",_light,true];
-			_codeBlock = 
+			_codeBlock =
 			{
 				_entity = _this select 0;
 				_light = _this select 1;
@@ -89,18 +85,12 @@ switch _mode do
 					_entity setpilotlight _light;
 				};
 			};
-			if (local _x) then 
-			{
-				[_x,_light] spawn _codeBlock;
-			} else 
-			{
-				[[_x,_light],_codeBlock, _x] call Achilles_fnc_spawn;
-			};
+			[[[_x,_light],_codeBlock, _x] call Achilles_fnc_spawn, [_x,_light] spawn _codeBlock] select (local _x);
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false
 	};
-	case "onUnload": 
+	case "onUnload":
 	{
 		RscAttributeHeadlight_selected = nil;
 	};

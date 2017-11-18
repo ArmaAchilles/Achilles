@@ -1,9 +1,7 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 disableSerialization;
-private ["_curator","_placedGroup"];
-_curator = _this select 0;
-_placedGroup = _this select 1;
+params ["_curator","_placedGroup"];
 
 if (!isNil "Achilles_var_specifyPositionBeforeSpawn") then
 {

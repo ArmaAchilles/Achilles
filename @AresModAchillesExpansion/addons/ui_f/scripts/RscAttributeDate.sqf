@@ -97,7 +97,7 @@ switch _mode do
 		};
 		if (_days == 0) exitwith {};
 		private _yearID = _year % 100;
-		private _monthID = [if (_isLeapYear) then {6} else {0},if (_isLeapYear) then {2} else {3},3,6,1,4,6,2,5,0,3,5] select (_month - 1);
+		private _monthID = [[0, 6] select (_isLeapYear), [3, 2] select (_isLeapYear), 3, 6, 1, 4, 6, 2, 5, 0, 3, 5] select (_month - 1);
 		private _centuryID = [6,4,2,0] select (((_year - _yearID) / 100) % 4);
 		private _dayID = 1;
 		private _weekDay = floor (_dayID + _monthID + _yearID + _yearID / 4 + _centuryID) % 7;
@@ -318,7 +318,7 @@ switch _mode do
 			private _newDateNumber = [dateToNumber _newDate + (_newDate select 0), 6] call BIS_fnc_cutDecimals;
 			private _curDateNumber = [dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals;
 
-			private _isDateSynced = compile ("[dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals" + (if (_newDateNumber - _curDateNumber >= 0) then {" >= _newDateNumber"} else {" < _curDateNumber"}));
+			private _isDateSynced = compile ("[dateToNumber date + (date select 0), 6] call BIS_fnc_cutDecimals" + ([" < _curDateNumber", " >= _newDateNumber"] select (_newDateNumber - _curDateNumber >= 0)));
 			if(_isNotZeus) then {["\A3\missions_f_epa\video\C_out2_sometime_later.ogv"] call BIS_fnc_playVideo};
 			waitUntil {sleep 0.1; call _isDateSynced};
 			1 fadesound 1;

@@ -1,7 +1,7 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 #include "\A3\ui_f\hpp\defineCommonGrids.inc"
 
-params["_mode", "_params", "_logic"];
+params ["_mode", "_params", "_logic"];
 
 switch _mode do {
 	case "onLoad": {
@@ -35,7 +35,7 @@ switch _mode do {
 					};
 					{
 						private _weaponTypes = _x;
-						private _weapons = [];
+                        private _weapons = [];
 						private _gunner_is_driver = true;
 						{
 							if (tolower ((_x call bis_fnc_itemType) select 1) in _weaponTypes) then

@@ -1,7 +1,6 @@
 
 disableSerialization;
-private "_display";
-_display = _this;
+private _display = _this;
 
 //_currentVersion = getText (configFile >> "CfgPatches" >> "achilles_ui_f" >> "versionStr");
 
