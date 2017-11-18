@@ -39,8 +39,7 @@ switch _mode do {
 		RscAttributeSound_trigger = nil;
 	};
 	case "lbSelChanged": {
-		private _ctrlValue = _params select 0;
-		private _cursel = _params select 1;
+        _params params ["_ctrlValue", "_cursel"];
 		private _sound = _ctrlValue lbdata _cursel;
 		RscAttributeSound_selected = _cursel;
 

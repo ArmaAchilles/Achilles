@@ -14,13 +14,10 @@
 disableSerialization;
 
 private ["_defaultChoice","_defaultVariableId"];
-private _titleText = _this param [0,"",[""]];
-private _choicesArray = _this param [1,["placeholder"],["",[]]];
-private _ResourceScript = _this param [2,"",[""]];
-private _ResourceScript = _this param [2,"",[""]];
+params [["_titleText", "", [""]], ["_choicesArray", ["placeholder"], ["", []]], ["_ResourceScript", "", [""]]];
 
 /*
-if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
+if ((count _this) == 2 && (_choicesArray select 0) isEqualType "") then
 {
 	// Person is using the 'short' alternate syntax. Automatically wrap in another array.
 	_choicesArray = [_this select 1];
@@ -256,7 +253,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			if (_choices == "SLIDER") then
 			{
 				// set last choice or the default choice
-				_defaultChoice = if (_defaultChoice isEqualType 0 and _defaultChoice != -1) then {_defaultChoice} else {0};
+				_defaultChoice = [0, _defaulChoice] select (_defaultChoice isEqualType 0 and _defaultChoice != -1);
 
 				_ctrl sliderSetRange [0,1];
 				_ctrl ctrlSetBackgroundColor [0, 0, 0, 1];

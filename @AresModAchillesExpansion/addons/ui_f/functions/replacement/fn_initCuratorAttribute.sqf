@@ -23,13 +23,11 @@ with uinamespace do {
 	//--- Register script for the first time
 	private _fncName = _class;
 	if (isnil _fncName || cheatsEnabled) then {
-		private ["_scriptPath","_fncFile"];
-
 		//--- Set script path
-		_scriptPath = gettext (configfile >> "cfgScriptPaths" >> _path);
+		private _scriptPath = gettext (configfile >> "cfgScriptPaths" >> _path);
 
 		//--- Execute
-		_fncFile = preprocessfilelinenumbers format [_scriptPath + "%1.sqf",_class];
+		private _fncFile = preprocessfilelinenumbers format [_scriptPath + "%1.sqf",_class];
 		_fncFile = format ["scriptname '%1_%2'; _fnc_scriptName = '%1';",_class] + _fncFile;
 		uinamespace setvariable [_fncName,compileFinal _fncFile];
 	};

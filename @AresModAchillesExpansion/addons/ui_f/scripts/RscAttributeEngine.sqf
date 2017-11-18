@@ -6,7 +6,7 @@
 
 params ["_mode", "_params", "_entity"];
 
-_idcs = 
+_idcs =
 [
 	IDC_RSCATTRIBUTEENGINE_ON,
 	IDC_RSCATTRIBUTEENGINE_OFF,
@@ -14,15 +14,15 @@ _idcs =
 ];
 private _states = [true, false, "auto"];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
 
 		private _display = _params select 0;
 
 		//--- Not available for destroyed object
-		if !(alive _entity) exitwith {
+		if (!alive _entity) exitwith {
 			{
 				private _ctrl = _display displayctrl _x;
 				_ctrl ctrlenable false;
@@ -44,7 +44,7 @@ switch _mode do
 		private _selectedIDC = _idcs select _selectedIndex;
 		['onButtonClick',[_display displayctrl _selectedIDC,0]] call RscAttributeEngine;
 	};
-	case "onButtonClick": 
+	case "onButtonClick":
 	{
 		_params params ["_ctrlSelected", "_delay"];
 		_display = ctrlparent _ctrlSelected;
@@ -63,20 +63,20 @@ switch _mode do
 
 		RscAttributeEngine_selected = _idcs find (ctrlidc _ctrlSelected);
 	};
-	case "confirmed": 
+	case "confirmed":
 	{
 		private _display = _params select 0;
 		private _selectedIndex = uinamespace getvariable ["RscAttributeEngine_selected",0];
 		private _engine = _states select _selectedIndex;
 		if ((_entity getVariable ["engine","auto"]) isEqualTo _engine) exitwith {};
 		private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
-		if (_engine isEqualTo "auto") exitWith 
+		if (_engine isEqualTo "auto") exitWith
 		{
 			{_x setVariable ["engine","auto",true]} forEach _curatorSelected;
 		};
 		{
 			_x setVariable ["engine",_engine,true];
-			private _codeBlock = 
+			private _codeBlock =
 			{
 				params ["_entity", "_engine"];
 				while {(alive _entity) and ((_entity getVariable ["engine","auto"]) isEqualTo _engine)} do
@@ -85,18 +85,12 @@ switch _mode do
 					_entity engineOn _engine;
 				};
 			};
-			if (local _x) then 
-			{
-				[_x,_engine] spawn _codeBlock;
-			} else 
-			{
-				[[_x,_engine],_codeBlock, _x] call Achilles_fnc_spawn;
-			};
+			[[[_x,_engine],_codeBlock, _x] call Achilles_fnc_spawn, [_x,_engine] spawn _codeBlock] select (local _x);
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false
 	};
-	case "onUnload": 
+	case "onUnload":
 	{
 		RscAttributeEngine_selected = nil;
 	};

@@ -6,43 +6,39 @@
 #define IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE		123469
 #define IDC_RSCATTRIBUTECOMBATMODE_DEFAULT			123470
 
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+params ["_mode", "_params", "_entity"];
 
 _idcs =
 [
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIRE,
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREDEFEND,
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREENGAGE,
-	IDC_RSCATTRIBUTECOMBATMODE_FIRE,
-	IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE,
-	IDC_RSCATTRIBUTECOMBATMODE_DEFAULT
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIRE,
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREDEFEND,
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREENGAGE,
+    IDC_RSCATTRIBUTECOMBATMODE_FIRE,
+    IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE,
+    IDC_RSCATTRIBUTECOMBATMODE_DEFAULT
 ];
 _states =
 [
-	"BLUE",
-	"GREEN",
-	"WHITE",
-	"YELLOW",
-	"RED",
-	"NO CHANGE"
+    "BLUE",
+    "GREEN",
+    "WHITE",
+    "YELLOW",
+    "RED",
+    "NO CHANGE"
 ];
 _colors =
-
 [
-	[1,0,0,1],
-	[1,0,0,1],
-	[1,0,0,1],
-	[1,1,1,1],
-	[1,1,1,1],
-	[1,1,1,1]
+    [1,0,0,1],
+    [1,0,0,1],
+    [1,0,0,1],
+    [1,1,1,1],
+    [1,1,1,1],
+    [1,1,1,1]
 ];
 
 switch _mode do {
 	case "onLoad":
 	{
-
 		_display = _params select 0;
 
 		//--- Add handlers to all buttons
@@ -96,13 +92,7 @@ switch _mode do {
 				_wp_id = _x select 1;
 				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then
 				{
-					if (local _group) then
-					{
-						_group setcombatmode _selected;
-					} else
-					{
-						[_group, _selected] remoteExec ["setcombatmode", leader _group];
-					};
+					[[_group, _selected] remoteExec ["setcombatmode", leader _group], _group setcombatmode _selected] select (local _group);
 				};
 				_x setwaypointcombatmode _selected;
 			} forEach _curatorSelectedWPs;
@@ -112,13 +102,7 @@ switch _mode do {
 			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
 				_leader = leader _x;
-				if (local _leader) then
-				{
-					_x setcombatmode _selected;
-				} else
-				{
-					[_x,_selected] remoteExec ["setcombatmode", _leader];
-				};
+				[[_x,_selected] remoteExec ["setcombatmode", _leader], _x setcombatmode _selected] select (local _leader);
 			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};

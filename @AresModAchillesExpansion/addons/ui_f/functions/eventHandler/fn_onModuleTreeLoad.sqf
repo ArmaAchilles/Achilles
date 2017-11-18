@@ -18,21 +18,19 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 #define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS",localize "STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
 
-private ["_display","_ctrl","_category_list","_all_modules","_subCategories","_categoryName","_tvData","_tvBranch","_moduleClassName","_categoryIndex","_newPath"];
-
 disableSerialization;
 
 // Get function  arguments
 private _custom_only = param [0,false,[false]];
 
 // Get the UI control
-_display = findDisplay IDD_RSCDISPLAYCURATOR;
-_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
+private _display = findDisplay IDD_RSCDISPLAYCURATOR;
+private _ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 
 
 //prepare lists
-_category_list = [];
-_all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
+private _category_list = [];
+private _all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
 _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_achilles" >> "units"));
 
 // Get all Vanilla Categories
@@ -40,7 +38,7 @@ _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f
 
 for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
-	_categoryName = _ctrl tvText [_i];
+	private _categoryName = _ctrl tvText [_i];
 	if (Achilles_var_moduleTreeHelmet and (_categoryName in ACHILLES_CATEGORIES)) then
 	{
 		_ctrl tvSetPicture [[_i], "\achilles\data_f_achilles\icons\icon_achilles_small.paa"];
@@ -56,7 +54,7 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 	for "_j" from 0 to ((_ctrl tvCount [_i]) - 1) do
 	{
 		private _path = [_i,_j];
-		_moduleClassName = _ctrl tvData _path;
+		private _moduleClassName = _ctrl tvData _path;
 		if (Achilles_var_moduleTreeDLC) then
 		{
 			private _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
@@ -71,13 +69,13 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 
 
 // Add Custom modules
-if (not isNil "Ares_Custom_Modules") then
+if (!isNil "Ares_Custom_Modules") then
 {
 	{
-		_categoryName = _x select 0;
+		private _categoryName = _x select 0;
 		private _moduleDisplayName = _x select 1;
-		_moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
-		
+		private _moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
+
 		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex] call Achilles_fnc_AppendToModuleTree;
 	} forEach Ares_Custom_Modules;
 };
@@ -205,7 +203,7 @@ if (Achilles_var_moduleTreeDLC) then
 			for "_k" from 0 to ((_tree_ctrl tvCount [_i,_j]) - 1) do
 			{
 				private _path = [_i,_j,_k];
-				_moduleClassName = _tree_ctrl tvData _path;
+				private _moduleClassName = _tree_ctrl tvData _path;
 				private _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
 				private _addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
 				if (_addonIcon != "") then

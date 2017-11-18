@@ -25,11 +25,8 @@
 
 disableSerialization;
 
-private ["_comboIndex","_item_name","_item_details","_categoryName"];
-
-private _mode = _this select 0;
-private _ctrl = param [1,controlNull,[controlNull]];
-private _treePathSelection = param [2,[],[[]]];
+private ["_item_name","_item_details","_categoryName"];
+params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 private _dialog = findDisplay IDD_COMPOSITION_GUI;
 

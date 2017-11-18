@@ -37,12 +37,7 @@ switch _mode do
 		if (abs (_skill_value - _previousSkillValue) > 0.01) then
 		{
 			{
-				if (local _x) then
-				{
-					_x setSkill _skill_value;
-				} else {
-					[_x, _skill_value] remoteExecCall ["setSkill", _x];
-				};
+				[[_x, _skill_value] remoteExecCall ["setSkill", _x], _x setSkill _skill_value] select (local _x);
 			} forEach _curatorSelected;
 		};
 	};

@@ -179,13 +179,7 @@ switch _mode do {
 					(_xCargo select 0) pushBack (tolower _x);
 					(_xCargo select 1) pushBack 0;
 				};
-				if (isClass (configfile >> "CfgGlasses" >> _x)) then
-				{
-					RscAttributeInventory_cargoVirtual pushBack _x;
-				} else
-				{
-					RscAttributeInventory_cargoVirtual pushBack (tolower _x);
-				};
+				RscAttributeInventory_cargoVirtual pushBack ([tolower _x, _x] select (isClass (configfile >> "CfgGlasses" >> _x)));
 			} foreach _x;
 		} foreach _virtualCargo;
 

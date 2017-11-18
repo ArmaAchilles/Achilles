@@ -21,7 +21,6 @@ private _colorsText = +_colorsActive;
 
 switch _mode do {
 	case "onLoad": {
-
 		private _display = _params select 0;
 		private _IDs = _entity getvariable ["RscAttributeRespawnPosition_ids",[[],[],[],[],[]]];
 		if (_entity isEqualType grpnull) then {_entity = leader _entity;};
@@ -60,10 +59,9 @@ switch _mode do {
 		_selected = 4;
 	};
 	case "onButtonClick": {
-		private ["_display"];
 		private _ctrlSelected = _params select 0;
 		private _delay = _params select 1;
-		_display = ctrlparent _ctrlSelected;
+		private _display = ctrlparent _ctrlSelected;
 		{
 			private _ctrl = _display displayctrl _x;
 			_ctrl ctrlsettextcolor (_colorsText select _foreachindex);
@@ -75,11 +73,10 @@ switch _mode do {
 		[_ctrlSelected,1.25,_delay] call bis_fnc_ctrlsetscale;
 	};
 	case "confirmed": {
-		private "_mode";
 		private _display = _params select 0;
 		private _selected = uinamespace getvariable ["RscAttributeRespawnPosition_selected",4];
 
-		_mode = switch true do {
+		private _mode = switch true do {
 			case (_entity isEqualType grpNull): {
 				"group"
 			};
