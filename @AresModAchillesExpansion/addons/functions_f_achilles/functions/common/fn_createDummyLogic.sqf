@@ -13,13 +13,11 @@
 
 params [["_logic", objNull, [objNull]]];
 
-private _dummyObject = "Land_HelipadEmpty_F" createVehicle (getPos _logic);
+private _dummyObject = (createGroup sideLogic) createUnit ["Module_f", (getPos _logic), [], 0, "NONE"];
 
-_dummyObject attachTo [_logic];
+_logic setVariable ["Achilles_var_createDummyLogic_isAttached", true];
+_logic setVariable ["Achilles_var_createDummyLogic_dummyObject", _dummyObject];
 
-_logic addEventHandler ["Deleted", {
-	_logic removeEventHandler ["Deleted", 0];
-	deleteVehicle _dummyObject;
-}];
+_dummyObject setVariable ["Achilles_var_createDummyLogic_module", _logic];
 
 _dummyObject;

@@ -1,5 +1,5 @@
 /*
-	Author: Karel Moricky (edited by Kex for specify position exception handling)
+	Author: Karel Moricky (edited by Kex for specify position exception handling. Edited by CreepPork_LV to make it work with dummy logics)
 
 	Description:
 	Code executed when curator object is edited (i.e., moved or rotated).
@@ -32,6 +32,14 @@ deletevehicle (_object getvariable [PARAVAR,objnull]);
 
 // if specify position
 if (_object in (missionNamespace getVariable ["Achilles_var_preplaceModeObjects",[]])) exitWith {true};
+
+// If the edited object is a logic that has a dummy object attached to it
+if (_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]) exitWith 
+{
+	private _dummyObject = _object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull];
+	_dummyObject setPos (getPos _object);
+	true;
+};
 
 //--- Slingload when possible
 _curatormouseover = curatormouseover;

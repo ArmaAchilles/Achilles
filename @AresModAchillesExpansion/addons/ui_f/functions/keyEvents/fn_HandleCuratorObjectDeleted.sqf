@@ -30,6 +30,11 @@ switch (true) do
 			{
 				{deleteVehicle _x} forEach (attachedObjects _handled_object);
 			};
+			case (_handled_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]):
+			{
+				private _dummyObject = _handled_object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull];
+				deleteVehicle _dummyObject;
+			};
 			default {};
 		};
 		private _logic_group = group _handled_object;
