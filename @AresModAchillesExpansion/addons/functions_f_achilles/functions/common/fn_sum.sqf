@@ -21,4 +21,4 @@ private _sum = 0;
 {
 	_sum = _sum + _x;
 } forEach _array;
-_sum;
+_sum

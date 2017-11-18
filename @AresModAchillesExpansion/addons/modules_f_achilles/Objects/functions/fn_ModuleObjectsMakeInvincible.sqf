@@ -30,7 +30,7 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};;
+if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
 
 {
 	private _object = _x;

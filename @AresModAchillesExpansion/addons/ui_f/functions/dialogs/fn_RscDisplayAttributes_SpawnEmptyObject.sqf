@@ -80,8 +80,8 @@ switch (_mode) do
 		lbClear _ctrl;
 		{_ctrl lbAdd _x} forEach Achilles_var_emptyObjects_allCategoryNames;
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_0", 0];
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-		_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+		_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 		_ctrl lbSetCurSel _last_choice;
 		[0,_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_SpawnEmptyObject;
 	};
@@ -91,8 +91,8 @@ switch (_mode) do
 		lbClear _subcategory_ctrl;
 		{_subcategory_ctrl lbAdd _x} forEach (Achilles_var_emptyObjects_subcategoryNames select _comboIndex);
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = if (_last_choice < lbSize _subcategory_ctrl) then {_last_choice} else {(lbSize _subcategory_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _subcategory_ctrl) - 1, _last_choice] select (_last_choice < lbSize _subcategory_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_subcategory_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];
@@ -109,8 +109,8 @@ switch (_mode) do
 
 		{_object_ctrl lbAdd _x} forEach (Achilles_var_emptyObjects_objectNames select _currentCategory select _comboIndex);
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = if (_last_choice < lbSize _object_ctrl) then {_last_choice} else {(lbSize _object_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _object_ctrl) - 1, _lat_choice] select (_last_choice < lbSize _object_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_object_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_1", _comboIndex];

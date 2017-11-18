@@ -42,15 +42,8 @@ private _channelsLR = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 private _secondDialogResult = [];
 private _thirdDialogResult = [];
 
-private _entriesForSR = [];
-{
-	_entriesForSR pushBack [format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesSR_Default];
-} forEach _channelsSR;
-
-private _entriesForLR = [];
-{
-	_entriesForLR pushBack [format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesLR_Default];
-} forEach _channelsLR;
+private _entriesForSR = _channelsSR apply {[format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesSR_Default]};
+private _entriesForLR = _channelsLR apply {[format [localize "STR_CHANNEL_X_FREQ", _x], "", Achilles_var_setRadioFrequenciesLR_Default]};
 
 // Set only SR radio frequencies
 if (_setSR == 0 && _setLR == 1) then

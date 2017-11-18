@@ -24,9 +24,7 @@ private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Tar
 if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
-{
-	_targetChoices pushBack (name _x);
-} forEach _allTargets;
+_targetChoices = _allTargets apply {name _x};
 if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select parameters

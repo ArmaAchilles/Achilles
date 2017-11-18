@@ -10,13 +10,13 @@
 
 private _object_to_attach = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-if (isNull _object_to_attach) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-		
+if (isNull _object_to_attach) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+
 if (isNull (_object_to_attach getVariable ['attached', objNull])) then
 {
 	private _object_to_attach_to = ([localize "STR_OBJECT", true] call Achilles_fnc_SelectUnits);
 	if (isNil "_object_to_attach_to") exitWith {};
-	if (isNull _object_to_attach_to) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (isNull _object_to_attach_to) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _phi_zero = direction _object_to_attach_to;
 	private _phi = direction _object_to_attach;
 	_object_to_attach attachTo [_object_to_attach_to];

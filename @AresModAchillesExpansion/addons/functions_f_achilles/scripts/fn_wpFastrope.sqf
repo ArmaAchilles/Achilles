@@ -87,10 +87,7 @@ private _rope_available = true;
 if (!_ar_loaded) then
 {
 	[_vehicle]  call ace_fastroping_fnc_equipFRIES;
-	if (!([_vehicle]  call ace_fastroping_fnc_canPrepareFRIES)) then
-	{
-		_rope_available = false;
-	};
+	if (!([_vehicle]  call ace_fastroping_fnc_canPrepareFRIES)) then { _rope_available = false;	};
 };
 if (!_rope_available) exitWith {true};
 

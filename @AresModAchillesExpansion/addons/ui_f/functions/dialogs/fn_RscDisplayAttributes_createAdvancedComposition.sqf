@@ -42,8 +42,8 @@ switch (_mode) do
 		{_category_ctrl lbAdd _x} forEach _categories;
 
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_0", 0];
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-		_last_choice = if (_last_choice < lbSize _category_ctrl) then {_last_choice} else {(lbSize _category_ctrl) - 1};
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+		_last_choice = [(lbSize _category_ctrl) - 1, _last_choice] select (_last_choice < lbSize _category_ctrl);
 		_category_ctrl lbSetCurSel _last_choice;
 		[0,_category_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_createAdvancedComposition;
 	};

@@ -15,11 +15,7 @@ if (!isnull _ammoBox) then
 	}
 	else
 	{
-		if (_parsedValue == "CANCELLED") then
-		{
-			// Do nothing. The paste was cancelled by the user.
-		}
-		else
+		if (_parsedValue != "CANCELLED") then
 		{
 			[objNull, format ["%1. Was the data in the right format?", _parsedValue]] call bis_fnc_showCuratorFeedbackMessage;
 		};

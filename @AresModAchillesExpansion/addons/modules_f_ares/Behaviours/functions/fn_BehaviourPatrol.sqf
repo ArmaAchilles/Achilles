@@ -68,24 +68,23 @@ if (!isNull _groupUnderCursor) then
 			private ["_moveClockwise", "_delay", "_numberOfWaypoints", "_degreesPerWaypoint", "_centerPoint", "_waypoint"];
 			_moveClockwise = (_dialogResult select 2) == 0;
 
-			_delay = [0, 0, 0];
-			switch (_dialogResult select 3) do
+			_delay = switch (_dialogResult select 3) do
 			{
 				default {}; // Already set default (0) values
 				case 1:
 				{
 					// 15s
-					_delay = [12, 15, 17];
+					[12, 15, 17]
 				};
 				case 2:
 				{
 					// 30s
-					_delay = [20, 30, 40];
+					[20, 30, 40]
 				};
 				case 3:
 				{
 					// 1m
-					_delay = [45, 60, 75];
+					[45, 60, 75]
 				};
 			};
 
@@ -109,7 +108,7 @@ if (!isNull _groupUnderCursor) then
 				_waypoint = _groupUnderCursor addWaypoint [_centerPoint, _wp_id];
 				_waypoint setWaypointType "LOITER";
 				_waypoint setWaypointLoiterRadius _radius;
-				if (not _moveClockwise) then
+				if (!_moveClockwise) then
 				{
 					_waypoint setWaypointLoiterType "CIRCLE_L";
 				};
@@ -139,10 +138,6 @@ if (!isNull _groupUnderCursor) then
 
 				[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
 			};
-		}
-		else
-		{
-			// Cancelled
 		};
 	}
 	else

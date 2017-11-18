@@ -51,7 +51,7 @@ if (isNil "Ares_fnc_Weather_Function") then
 	Ares_fnc_Change_Weather_Function =
 	{
 		private _settings = Ares_var_Weather_Settings;
-		private _delay = if ((_settings select 0) == 0) then {0} else {30};
+		private _delay = [30, 0] select ((_settings select 0) == 0);
 		0 setOvercast (_settings select 1);
 		_delay setRain (_settings select 2);
 		0 setLightnings (_settings select 4);

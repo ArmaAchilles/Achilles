@@ -49,11 +49,7 @@ if (isNull _unitUnderCursor) then
 	};
 
 	if (isNil "_vehicles") exitWith {};
-	if (_vehicles isEqualTo []) exitWith
-	{
-		[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
-	};
+	if (_vehicles isEqualTo []) exitWith { [localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_NVG = [nil,false,true] select (_dialogResult select 2);
 	_thermals = [nil,false,true] select (_dialogResult select 3);
 }

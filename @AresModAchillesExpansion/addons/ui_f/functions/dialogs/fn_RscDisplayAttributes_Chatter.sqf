@@ -17,7 +17,7 @@ switch (_mode) do
 
 		private _chat_ctrl = _dialog displayCtrl CHAT_CTRL_IDC;
 		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_0", 0];
-		_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_chat_ctrl lbSetCurSel _last_choice;
 
 		private _edit_ctrl = _dialog displayCtrl EDIT_CTRL_IDC;

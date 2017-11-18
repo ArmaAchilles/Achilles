@@ -49,11 +49,7 @@ if (isNull _unitUnderCursor) then
 	};
 
 	if (isNil "_units") exitWith {};
-	if (_units isEqualTo []) exitWith
-	{
-		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
-	};
+	if (_units isEqualTo []) exitWith {	[localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_taclight = ["AUTO","forceOn","forceOff"] select (_dialogResult select 2);
 	_IR = [false,true] select (_dialogResult select 3);
 }
@@ -71,19 +67,9 @@ else
 
 	if (_dialogResult isEqualTo []) exitWith {};
 
-		switch (_dialogResult select 0) do
-		{
-			case 0:
-			{
-				_units = units (group _unitUnderCursor);
-			};
-			case 1:
-			{
-				_units = [_unitUnderCursor];
-			};
-		};
+	_units = [units (group _unitUnderCursor), [_unitUnderCursor]] select (_dialogResult select 0);
 
-		_taclight = ["AUTO","forceOn","forceOff"] select (_dialogResult select 1);
+	_taclight = ["AUTO","forceOn","forceOff"] select (_dialogResult select 1);
 	_IR = [false,true] select (_dialogResult select 2);
 };
 

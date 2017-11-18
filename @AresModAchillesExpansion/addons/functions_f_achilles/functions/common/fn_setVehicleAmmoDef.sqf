@@ -20,15 +20,15 @@
 params ["_vehicle",["_percentage",1,[1]]];
 
 _pylonMags = getPylonMagazines _vehicle;
-if (count _pylonMags == 0) then { //Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
-	_vehicle setVehicleAmmoDef _percentage;
-} else {
-	_vehicle setVehicleAmmo _percentage;
-};
+
+//Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
+[_vehicle setVehicleAmmo _percentage, _vehicle setVehicleAmmoDef _percentage] select (_pylonMags isEqualTo []);
+
 {_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
 {_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
+
 {
 	private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
 	_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, (_vehicle getVariable ["Achilles_var_changePylonAmmo_Assigned", [0]])];
-	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];	
+	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];
 } forEach _pylonMags;

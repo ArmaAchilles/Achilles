@@ -16,14 +16,7 @@
 
 private _bluforSelectNumber = 4;
 
-if ([blufor, independent] call BIS_fnc_sideIsFriendly) then
-{
-	_bluforSelectNumber = 3;
-}
-else
-{
-	_bluforSelectNumber = 4;
-};
+_bluforSelectNumber = [4, 3] select ([blufor, independent] call BIS_fnc_sideIsFriendly);
 
 private _dialogResult =
 [

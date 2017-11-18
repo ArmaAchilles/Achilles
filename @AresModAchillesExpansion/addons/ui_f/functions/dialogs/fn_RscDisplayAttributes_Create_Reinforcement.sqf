@@ -69,7 +69,7 @@ switch (_mode) do
 			if (_factionName in (_avaiable_faction_names select _side_index)) then
 			{
 				_CfgGroupsSide = _CfgGroupsSides select _side_index;
-				_infantry_criterion = if (_factionClass find "rhs" != -1) then {"aliveCategory"} else {"name"};
+				_infantry_criterion = ["name", "aliveCategory"] select (_factionClass find "rhs" != -1);
 				_infantry = [];
 				{
 					if (getText (configfile >> "CfgGroups" >> _CfgGroupsSide >> _factionClass >> _x >> _infantry_criterion) == "Infantry" or configName (configfile >> "CfgGroups" >> _CfgGroupsSide >> _factionClass >> _x) == "Infantry") exitWith
@@ -118,7 +118,7 @@ switch (_mode) do
 					_vehicle_classes = [];
 					if (_category_name in _VALID_CATEGORIES) then
 					{
-						for "_i" from 0 to ((_tree_ctrl tvCount _category_path) - 1)	do
+						for "_i" from 0 to ((_tree_ctrl tvCount _category_path) - 1) do
 						{
 							_vehicle_path = _category_path + [_i];
 							_vehicle_class = _tree_ctrl tvData _vehicle_path;
@@ -162,8 +162,8 @@ switch (_mode) do
 		{
 			_ctrl = _dialog displayCtrl (IDC_SPAWN_REINFORCEMENT_SIDE + _x);
 			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-			_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-			_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+			_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 			_ctrl lbSetCurSel _last_choice;
 			if (_x == 0) then
 			{
@@ -184,8 +184,8 @@ switch (_mode) do
 		lbClear _faction_ctrl;
 		{_faction_ctrl lbAdd _x} forEach _current_factions;
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = if (_last_choice < lbSize _faction_ctrl) then {_last_choice} else {(lbSize _faction_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _faction_ctrl) - 1, _last_choice] select (_last_choice < lbSize _faction_ctrl);
+		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
 		_faction_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];
@@ -207,8 +207,8 @@ switch (_mode) do
 		{_category_ctrl lbAdd _x} forEach _current_categories;
 
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
-		_last_choice = if (_last_choice < lbSize _category_ctrl) then {_last_choice} else {(lbSize _category_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _category_ctrl) - 1, _last_choice] select (_last_choice < lbSize _category_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_category_ctrl lbSetCurSel _last_choice;
 
 		[2,_category_ctrl,_last_choice] call Achilles_fnc_RscDisplayAttributes_Create_Reinforcement;
@@ -223,8 +223,8 @@ switch (_mode) do
 		{_group_ctrl lbAdd _x} forEach _current_GroupNames;
 
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_7", 0];
-		_last_choice = if (_last_choice < lbSize _group_ctrl) then {_last_choice} else {(lbSize _group_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _group_ctrl) - 1, _last_choice] select (_last_choice < lbSize _group_ctrl);
+		_last_choice = [0 ,_last_choice] select (_last_choice isEqualType 0);
 		_group_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_1", _comboIndex];
@@ -248,8 +248,8 @@ switch (_mode) do
 		{_vehicle_ctrl lbAdd _x} forEach _current_vehicles;
 
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_3", 0];
-		_last_choice = if (_last_choice < lbSize _vehicle_ctrl) then {_last_choice} else {(lbSize _vehicle_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _vehicle_ctrl) - 1, _last_choice] select (_last_choice < lbSize _vehicle_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_vehicle_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_2", _comboIndex];
@@ -282,8 +282,8 @@ switch (_mode) do
 
 			_ctrl = _dialog displayCtrl IDC_SPAWN_REINFORCEMENT_WP_TYPE_C;
 			_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_6", 0];
-			_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-			_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+			_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 			_ctrl lbSetCurSel _last_choice;
 		} else
 		{

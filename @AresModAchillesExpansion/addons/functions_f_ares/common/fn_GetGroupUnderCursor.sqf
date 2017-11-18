@@ -11,9 +11,5 @@
 private _logic = _this select 0;
 private _unitUnderCursor = [_logic] call Ares_fnc_GetUnitUnderCursor;
 
-if (!isNull _unitUnderCursor) exitWith
-{
-    group _unitUnderCursor;
-};
-
-grpNull;
+if (!isNull _unitUnderCursor) exitWith { group _unitUnderCursor; };
+grpNull

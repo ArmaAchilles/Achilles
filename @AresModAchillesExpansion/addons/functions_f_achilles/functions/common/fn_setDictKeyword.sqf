@@ -86,10 +86,8 @@ if (_input_dict isEqualTo []) then
 	};
 };
 
-
-
-
 private _dict_storage = [] call compile format ["Achilles_var_dictStorage_%1;",_dictName];
+private _dict = [];
 if (isNil "_dict_storage") then
 {
 	reverse _nested_categories;
@@ -98,7 +96,7 @@ if (isNil "_dict_storage") then
 	{
 		_temp_dict = [_nested_categories select _i, _temp_dict];
 	};
-	private _dict = _temp_dict;
+	_dict = _temp_dict;
 
 } else
 {
@@ -136,7 +134,7 @@ if (isNil "_dict_storage") then
 		_temp_dict = _nested_dicts select _i;
 		_temp_dict set [_nested_indices select _i, _old_dict];
 	};
-	private _dict = _temp_dict;
+	_dict = _temp_dict;
 };
 _dict call compile format ["Achilles_var_dictStorage_%1 = _this;",_dictName];
-_dict;
+_dict

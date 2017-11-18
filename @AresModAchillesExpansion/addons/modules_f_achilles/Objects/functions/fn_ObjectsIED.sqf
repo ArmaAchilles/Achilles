@@ -29,15 +29,15 @@ if(isNil "Achilles_var_ied_init_done") then
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
-if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if the module has been placed on top of a player.
-if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if module has been placed on top of another IED
-if (_object getVariable ["isIED", false]) exitWith {[localize "STR_ENYO_OBJECT_IS_IED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isIED", false]) exitWith {[localize "STR_ENYO_OBJECT_IS_IED"] call Achilles_fnc_ShowZeusErrorMessage};
 
-if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_SB"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_SB"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Sets IED functionality
 if (_object isKindOf "Man") then

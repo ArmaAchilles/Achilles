@@ -44,7 +44,7 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		{
 			_object = _x;
 			_pos = position _object;
-			_pos = if (surfaceIsWater _pos) then {getPosASL _object} else {getPosATL _object};
+			_pos = [getPosATL _object, getPosASL _object] select (surfaceIsWater _pos);
 
 			_logic = _logic_group createUnit ["module_f", _pos, [], 0, "CAN_COLLIDE"];
 			_logic setVectorDirAndUp [vectorDir _object, vectorUp _object];

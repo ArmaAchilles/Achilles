@@ -132,18 +132,9 @@ _yCoord = START_ROW_Y;
 private _titleText_varName = _titleText call Achilles_fnc_TextToVariableName;
 private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleText_varName];
 {
-	private _choiceName = _x select 0;
-	private _choices = _x select 1;
+    _x params ["_choiceName", "_choices", ["_defaultChoice", 0], ["_force_default", false, [false]]];
 
 	private _choiceName_varName = _choiceName call Achilles_fnc_TextToVariableName;
-
-	private _defaultChoice = 0;
-	private _force_default = false;
-	if (count _x > 2) then
-	{
-		_defaultChoice = _x select 2;
-		_force_default = _x param [3, false, [false]];
-	};
 
 	// If this dialog is named, attempt to get the default value from a previously displayed version
 	if (_titleText != "" &&  !_force_default) then
@@ -185,8 +176,8 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 		} else
 		{
 			// combo boxes handled by default
-			_defaultChoice = if (_defaultChoice isEqualType 0) then {_defaultChoice} else {0};
-			_defaultChoice = if (_defaultChoice < lbSize _choiceCombo) then {_defaultChoice} else {(lbSize _choiceCombo) - 1};
+			_defaultChoice = [0, _defaultChoice] select (_defaultChoice isEqualType 0);
+			_defaultChoice = [(lbSize _choiceCombo) - 1, _defaulChoice] select (_defaultChoice < lbSize _choiceCombo);
 			_choiceCombo lbSetCurSel _defaultChoice;
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
 
@@ -221,7 +212,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex, _ctrl_group];
 				_ctrl ctrlSetBackgroundColor [1,1,1,1];
 				_ctrl ctrlSetActiveColor [1,1,1,1];
-				private _side_name = toUpper (if (_foreachindex == 0) then {"ZEUS"} else {(_foreachindex - 1) call bis_fnc_sideName});
+				private _side_name = toUpper ([(_foreachindex - 1) call bis_fnc_sideName, "ZEUS"] select (_foreachindex == 0));
 				_ctrl ctrlSetTooltip _side_name;
 				_ctrl ctrlSetText _icon;
 				_ctrl ctrlSetPosition [_xCoord,_yCoord,GtC_W(2.4),GtC_H(2)];
@@ -234,11 +225,11 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				// exclude side logic
 				_ctrl = _dialog displayCtrl 12000;
 				_ctrl ctrlShow false;
-				_defaultChoice = if (_defaultChoice isEqualType 0 and !(_defaultChoice in [-1,0])) then {_defaultChoice} else {1};
+				_defaultChoice = [1, _defaultChoice] select (_defaultChoice isEqualType 0 and !(_defaultChoice in [-1,0]));
 			} else
 			{
 				// include side logic
-				_defaultChoice = if (_defaultChoice isEqualType 0 and _defaultChoice != -1) then {_defaultChoice} else {1};
+				_defaultChoice = [1, _defaultChoice] select (_defaultChoice isEqualType 0 and _defaultChoice != -1);
 			};
 
 			["onLoad",_dialog,_forEachIndex,_defaultChoice] call Achilles_fnc_sideTab;
@@ -246,7 +237,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_yCoord = _yCoord + GtC_H(3.1);
 		} else
 		{
-			private _add_height = if (_choices == "MESSAGE") then {4*COMBO_HEIGHT} else {0};
+			private _add_height = [0, 4*COMBO_HEIGHT] select (_choices == "MESSAGE");
 
 			// set entry label position
 			_choiceLabel ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
@@ -276,7 +267,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			} else
 			{
 				// set last choice or the default choice
-				_defaultChoice = if (_defaultChoice isEqualType "") then {_defaultChoice} else {""};
+				_defaultChoice = ["", _defaultChoice] select (_defaultChoice isEqualType "");
 
 				_ctrl ctrlSetText _defaultChoice;
 				_ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
@@ -302,7 +293,7 @@ waitUntil { isNil "Ares_var_showChooseDialog" };
 if (_ResourceScript != "") then {call compile format["[""UNLOAD""] call %1;",_ResourceScript]};
 
 // Check whether the user confirmed the selection or not, and return the appropriate values.
-if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
+if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) exitWith
 {
 	private _returnValue = [];
 	{
@@ -317,9 +308,6 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 			uiNamespace setVariable [_defaultVariableId, _x];
 		} forEach _returnValue;
 	};
-	_returnValue;
+	_returnValue
 }
-else
-{
-	[];
-};
+[]

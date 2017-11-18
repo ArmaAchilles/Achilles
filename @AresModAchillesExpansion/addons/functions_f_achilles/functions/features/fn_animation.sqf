@@ -117,7 +117,7 @@ if (isNull (_units select 0)) then
 {
 	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
 };
-if (count _units == 0) exitWith {};
+if (_units isEqualTo []) exitWith {};
 if (isNil "_units") exitWith {};
 
 {

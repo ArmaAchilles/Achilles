@@ -1,9 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-if (isNil "Ares_ArtilleryTargetCount") then
-{
-	Ares_ArtilleryTargetCount = 0;
-};
+if (isNil "Ares_ArtilleryTargetCount") then { Ares_ArtilleryTargetCount = 0 };
 
 // Don't delete this module when we're done the script.
 _deleteModuleOnExit = false;

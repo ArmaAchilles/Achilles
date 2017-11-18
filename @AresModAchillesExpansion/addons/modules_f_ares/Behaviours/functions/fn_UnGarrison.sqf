@@ -19,13 +19,7 @@ private _codeBlock =
 	};
 };
 
-if (local _groupUnderCursor) then
-{
-	[_groupUnderCursor] spawn _codeBlock;
-} else
-{
-	[[_groupUnderCursor], _codeBlock, leader _groupUnderCursor] call Achilles_fnc_spawn;
-};
+[[[_groupUnderCursor], _codeBlock, leader _groupUnderCursor] call Achilles_fnc_spawn, [_groupUnderCursor] spawn _codeBlock] select (local _groupUnderCursor);
 
 [objnull, "Units released from garrison."] call bis_fnc_showCuratorFeedbackMessage;
 

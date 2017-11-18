@@ -47,7 +47,7 @@ private _fnc_getDamageType = switch (_distribution_type) do
 						private _index  = _x find "Hitzone";
 						if (_index == -1) then {_other pushBack _forEachIndex} else {_hitzones pushBack _forEachIndex};
 					} forEach (_allHitPoints select 0);
-					
+
 					if (count _other > 0) then
 					{
 						{

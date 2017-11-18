@@ -104,4 +104,4 @@ _curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
 _curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
 _curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];
 
-_display_reload;
+_display_reload

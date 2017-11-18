@@ -68,7 +68,6 @@ if (_title_text != "") then
 {
 	private _ctrlTitle = _dialog displayCtrl DYNAMIC_TITLE_IDC;
 	_ctrlTitle ctrlSetText _title_text;
-
 };
 
 // Set the start offset for the controls
@@ -116,7 +115,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_cb ctrlCommit 0;
 
 			// Adjust default choice if it is invalid and select the current choice
-			if (_default_choice < lbSize _ctrl_cb) then {_default_choice} else {(lbSize _ctrl_cb) - 1};
+			[(lbSize _ctrl_cb) - 1, _default_choice] select (_default_choice < lbSize _ctrl_cb);
 			_ctrl_cb lbSetCurSel _default_choice;
 
 			// Set the current choice in a global variable and update the default value as well
@@ -267,4 +266,4 @@ if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 		_return_values pushBack _return_value;
 	};
 };
-_return_values;
+_return_values

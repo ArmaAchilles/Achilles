@@ -20,4 +20,4 @@ _logic setVariable ["Achilles_var_createDummyLogic_dummyObject", _dummyObject];
 
 _dummyObject setVariable ["Achilles_var_createDummyLogic_module", _logic];
 
-_dummyObject;
+_dummyObject

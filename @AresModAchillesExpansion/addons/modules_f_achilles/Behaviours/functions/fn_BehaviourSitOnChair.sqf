@@ -11,7 +11,7 @@
 private _chair = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 private _type_id = ["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"] find (typeOf _chair);
-if (_type_id == -1) exitWith {["No chair selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_type_id == -1) exitWith {["No chair selected!"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // chairs can only be properly occupied if their simulation is enabled!
 [_chair,true] remoteExec ["enableSimulationGlobal",2];
@@ -20,7 +20,7 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 {
 	private _unit = (["unit"] call Achilles_fnc_SelectUnits) select 0;
 	if (isNil "_unit") exitWith {};
-	if (!(_unit isKindOf "Man")) exitWith {["No unit selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (!(_unit isKindOf "Man")) exitWith {["No unit selected!"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _ehAnimDone = _unit addEventHandler
 	[
 		"AnimDone",

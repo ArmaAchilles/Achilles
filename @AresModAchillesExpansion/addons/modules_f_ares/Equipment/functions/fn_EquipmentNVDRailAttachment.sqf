@@ -49,11 +49,7 @@ if (isNull _unitUnderCursor) then
 	};
 
 	if (isNil "_units") exitWith {};
-	if (_units isEqualTo []) exitWith
-	{
-		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
-	};
+	if (_units isEqualTo []) exitWith { [localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_NVD = _dialogResult select 2;
 	_TacLight_IR = _dialogResult select 3;
 }
@@ -71,20 +67,10 @@ else
 
 	if (_dialogResult isEqualTo []) exitWith {};
 
-		switch (_dialogResult select 0) do
-		{
-			case 0:
-			{
-				_units = units (group _unitUnderCursor);
-			};
-			case 1:
-			{
-				_units = [_unitUnderCursor];
-			};
-		};
+    _units = [units (group _unitUnderCursor), [_unitUnderCursor]] select (_dialogResult select 0);
 
-		_NVD = _dialogResult select 1;
-		_TacLight_IR = _dialogResult select 2;
+	_NVD = _dialogResult select 1;
+	_TacLight_IR = _dialogResult select 2;
 };
 
 if (isNil "_units") exitWith {};
@@ -97,23 +83,11 @@ if (isNil "_units") exitWith {};
 		{
 			case 1:
 			{
-				if (local _unit) then
-				{
-					_unit linkItem "NVGoggles";
-				} else
-				{
-					[_unit, "NVGoggles"] remoteExecCall ["linkItem", _unit];
-				};
+				[[_unit, "NVGoggles"] remoteExecCall ["linkItem", _unit], _unit linkItem "NVGoggles"] select (local _unit);
 			};
 			case 2:
 			{
-				if (local _unit) then
-				{
-					_unit linkItem "NVGogglesB_blk_F";
-				} else
-				{
-					[_unit, "NVGogglesB_blk_F"] remoteExecCall ["linkItem", _unit];
-				};
+                [[_unit, "NVGogglesB_blk_F"] remoteExecCall ["linkItem", _unit], _unit linkItem "NVGogglesB_blk_F"] select (local _unit);
 			};
 			case 3:
 			{

@@ -14,10 +14,8 @@
 
 params [["_message", "No Message", []], ["_fileName", "N/A", []]];
 
-if (!(isNil "Achilles_Debug_Output_Enabled")) then
+if (!(isNil "Achilles_Debug_Output_Enabled") && {Achilles_Debug_Output_Enabled}) then
 {
-	if (Achilles_Debug_Output_Enabled) then
-	{
 		if (_fileName isEqualTo "N/A") then 
 		{
 			systemChat (format["[ACHILLES] %1", _message]);
@@ -28,5 +26,4 @@ if (!(isNil "Achilles_Debug_Output_Enabled")) then
 			systemChat (format["[ACHILLES] [%1] %2", _fileName, _message]);
 			diag_log format["[ACHILLES] [%1] %2", _fileName, _message];
 		};
-	};
 };

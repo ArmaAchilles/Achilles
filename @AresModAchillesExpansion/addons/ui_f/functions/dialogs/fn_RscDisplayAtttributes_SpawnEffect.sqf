@@ -56,8 +56,8 @@ switch (_mode) do
 			{_type_ctrl lbAdd _x} forEach _displayNames;
 		};
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = if (_last_choice < lbSize _type_ctrl) then {_last_choice} else {(lbSize _type_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _type_ctrl) - 1, _last_choice] select (_last_choice < lbSize _type_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_type_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];

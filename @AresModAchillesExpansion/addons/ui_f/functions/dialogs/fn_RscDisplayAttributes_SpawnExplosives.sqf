@@ -26,8 +26,8 @@ switch (_mode) do
 		{
 			_ctrl = _dialog displayCtrl (IDC_CATEGORY + _x);
 			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-			_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
-			_last_choice = if (_last_choice < lbSize _ctrl) then {_last_choice} else {(lbSize _ctrl) - 1};
+			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
+			_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 			_ctrl lbSetCurSel _last_choice;
 			if (_x == 0) then
 			{
@@ -72,8 +72,8 @@ switch (_mode) do
 			_dialog setVariable ["type_list", _explosive_types];
 		};
 		_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = if (_last_choice < lbSize _type_ctrl) then {_last_choice} else {(lbSize _type_ctrl) - 1};
-		_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+		_last_choice = [(lbSize _type_ctrl) - 1, _last_choice] select (_last_choice < lbSize _type_ctrl);
+		_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 		_type_ctrl lbSetCurSel _last_choice;
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];

@@ -22,4 +22,4 @@ if (_index >= count _names) exitWith
 	private _suffix = floor (_index / (count _names));
 	format ["%1-%2", (_names select (_index mod (count _names))), _suffix];
 };
-_names select _index;
+_names select _index

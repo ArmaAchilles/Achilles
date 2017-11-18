@@ -23,13 +23,7 @@ if (isNull _entity) exitWith {};
 // exit with previous called preplace mode was not yet completed
 if (count (missionNamespace getVariable ["Achilles_var_preplaceModeObjects",[]]) > 0) exitWith {};
 
-if (_entity isEqualType grpNull) then
-{
-	_objects_list = units _entity;
-} else
-{
-	_objects_list = [_entity];
-};
+_objects_list = [[_entity], units _entity] select (_entity isEqualType grpNull);
 missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list];
 
 [_objects_list] spawn
@@ -84,16 +78,14 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	// if objects were deleted
 	if ({!isNull _x} count _objects_list == 0) exitWith
 	{
-		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
+		[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		missionNamespace setVariable ["Achilles_var_preplaceModeObjects", []];
 	};
 
 	// if escape was pressed
 	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith
 	{
-		[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
+		[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		{
 			{deleteVehicle _x} forEach (crew _x);
 			deleteVehicle _x;

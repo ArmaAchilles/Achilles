@@ -61,4 +61,4 @@ for "_i" from 0 to ((count _input_unicode) - 1) do
 		_input_unicode set [_i,Achilles_var_new_special_char_unicode select _letter_index];
 	};
 };
-toString _input_unicode;
+toString _input_unicode

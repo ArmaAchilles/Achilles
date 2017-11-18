@@ -18,7 +18,7 @@ switch (_mode) do
 		{
 			_ctrl = _dialog displayCtrl (BASE_CTRL_IDC + _x);
 			private _last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-			_last_choice = if (_last_choice isEqualType 0) then {_last_choice} else {0};
+			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 			_ctrl lbSetCurSel _last_choice;
 			if (_x == 0) then
 			{

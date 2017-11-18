@@ -15,33 +15,26 @@
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-if (isNull _object) exitWith {[localize "STR_ENYO_NO_VEHICLE_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isNull _object) exitWith {[localize "STR_ENYO_NO_VEHICLE_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
-if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_ENYO_NO_VEHICLE_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_ENYO_NO_VEHICLE_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 if (_object isKindOf "Car" || _object isKindOf "Tank") then
 {
-  private _dialogResult =
-  [
-    localize "STR_ENYO_ADD_ECM_TO_VEHICLE",
+    private _dialogResult =
     [
-      [localize "STR_ENYO_ADD_ECM", [localize "STR_YES", localize "STR_NO"]]
-    ]
-  ] call Ares_fnc_showChooseDialog;
+        localize "STR_ENYO_ADD_ECM_TO_VEHICLE",
+        [
+          [localize "STR_ENYO_ADD_ECM", [localize "STR_YES", localize "STR_NO"]]
+        ]
+    ] call Ares_fnc_showChooseDialog;
 
-  if (isNil "_dialogResult") exitWith {};
-  if (_dialogResult isEqualTo []) exitWith {};
+    if (isNil "_dialogResult") exitWith {};
+    if (_dialogResult isEqualTo []) exitWith {};
 
-  private _isECM = _dialogResult select 0;
+    private _isECM = _dialogResult select 0;
 
-  if (_isECM == 0) then
-  {
-    _object setVariable ["isECM", true, true];
-  }
-  else
-  {
-    _object setVariable ["isECM", false, true];
-  };
+    [_object setVariable ["isECM", false, true], _object setVariable ["isECM", true, true]] select (_isECM == 0);
 }
 else
 {

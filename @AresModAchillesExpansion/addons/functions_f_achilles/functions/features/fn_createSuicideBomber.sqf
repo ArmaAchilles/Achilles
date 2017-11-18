@@ -68,8 +68,7 @@ while {alive _bomber && _check} do
 		while {(alive _bomber) && (_check)} do
 		{
 			sleep 1;
-			private _nearestUnit = [];
-			{if (side _x in _activationSide) then {_nearestUnit pushBack _x}} forEach _nearestObjects;
+			private _nearestUnit = _nearestObjects select {side _x in _activationSide};
 			private _count = count _nearestUnit;
 
 			for "_b" from 0 to _count-1 do

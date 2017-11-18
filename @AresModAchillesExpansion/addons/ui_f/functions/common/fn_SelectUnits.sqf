@@ -53,23 +53,13 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
-if (_single) then
+if (_single) exitWith
 {
-	if (count (curatorSelected select 0) > 0) then
-	{
-		(curatorSelected select 0) select 0;
-	}
-	else
-	{
-		objNull;
-	};
-}
-else
-{
-	curatorSelected select 0;
+	[objNull, (curatorSelected select 0) select 0] select (count (curatorSelected select 0) > 0)
 };
+curatorSelected select 0;

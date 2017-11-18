@@ -6,12 +6,9 @@
 //  DESCRIPTION: Module for changing the side of player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-
 private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-
 
 // default values
 private _units = [];
@@ -65,11 +62,7 @@ if (isNull _unitUnderCursor) then
 	};
 	sleep 1;
 	if (isNil "_units") exitWith {};
-	if (_units isEqualTo []) exitWith
-	{
-		[localize "STR_NO_PLAYER_IN_SELECTION"] call Ares_fnc_ShowZeusMessage;
-		playSound "FD_Start_F";
-	};
+	if (_units isEqualTo []) exitWith { [localize "STR_NO_PLAYER_IN_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage };
 
 	// select side to switch
 	_dialogResult =

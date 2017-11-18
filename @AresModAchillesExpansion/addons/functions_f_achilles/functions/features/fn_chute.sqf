@@ -24,7 +24,7 @@ sleep _delay;
 if (!isPlayer _unit) then
 {
 	// for AI units
-	private _id = _unit addEventHandler ["HandleDamage",{if (_this select 4 == "") then {0} else {_this select 2}}];
+	private _id = _unit addEventHandler ["HandleDamage",{[_this select 2, 0] select (_this select 4 == "")}];
 	moveOut _unit;
 	unassignVehicle _unit;
 	[_unit] orderGetIn false;

@@ -33,13 +33,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	if (_selected_units isEqualTo []) exitWith {};
 
 	{
-		if (local _x) then
-		{
-			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
-		} else
-		{
-			[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x];
-		};
+		[[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x], [_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal] select (local _x);
 	} forEach _selected_units;
 } else
 {

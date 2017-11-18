@@ -35,7 +35,7 @@ Achilles_fnc_ambientAnim_terminate =
 	{_unit enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 	_unit playMoveNow "AmovPercMstpSrasWrflDnon";
 	_unit setUnitPos "UP";
-	private _exception = if (((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon") then {true} else {false};
+	private _exception = ((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon";
 	_unit setVariable ["Achilles_var_animations", nil,true];
 	_unit setVariable ["Achilles_var_noWeapon", nil,true];
 	private _ehAnimDone = _unit getVariable ["Achilles_EhAnimDone", 0];

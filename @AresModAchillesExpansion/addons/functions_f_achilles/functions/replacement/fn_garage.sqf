@@ -558,7 +558,7 @@ switch _mode do {
 			case IDC_RSCDISPLAYGARAGE_TAB_STATIC: {
 				_item = if (ctrltype _ctrlList == 102) then {_ctrlList lnbdata [_cursel,0]} else {_ctrlList lbdata _cursel};
 				_target = (missionnamespace getvariable ["BIS_fnc_arsenal_target",player]);
-				_centerType = if !(simulationenabled _center) then {""} else {typeof _center}; //--- Accept only previous vehicle, not player during init
+				_centerType = ["", typeof _center] select (simulationenabled _center); //--- Accept only previous vehicle, not player during init
 				_centerSizeOld = ((boundingboxreal _center select 0) vectordistance (boundingboxreal _center select 1));//sizeof _centerType;
 				_data = missionnamespace getvariable "bis_fnc_garage_data";
 				_modelData = (_data select _idc) select (_index + 1);
@@ -574,7 +574,7 @@ switch _mode do {
 					{
 						_member = _x select 0;
 						_role = _x select 1;
-						_index = if (_role == "turret") then {_x select 3} else {_x select 2};
+						_index = [_x select 2, _x select 3] select (_role == "turret");
 						_crew pushback [typeof _member,_role,_index];
 					} foreach fullcrew _center;
 					{
@@ -607,15 +607,15 @@ switch _mode do {
 						_role = _roleArray select 0;
 						switch (tolower _role) do {
 							case "driver": {
-								if (_center emptypositions _role > 0) then {_player moveindriver _center;} else {_player moveinany _center;};
+								[_player moveinany _center, _player moveindriver _center] select (_center emptypositions _role > 0);
 							};
 							case "gunner";
 							case "commander";
 							case "turret": {
-								if (count (allturrets _center) > 0) then {_player moveinturret [_center,(allturrets _center) select 0];} else {_player moveinany _center;};
+								[_player moveinany _center, _player moveinturret [_center,(allturrets _center) select 0]] select (count (allturrets _center) > 0);
 							};
 							case "cargo": {
-								if (_center emptypositions _role > 0) then {_player moveincargo _center;} else {_player moveinany _center;};
+								[_player moveinany _center, _player moveincargo _center] select (_center emptypositions _role > 0);
 							};
 						};
 					} foreach _players;
@@ -661,7 +661,7 @@ switch _mode do {
 
 					//--- Driver
 					if (getnumber (_cfg >> "hasdriver") > 0) then {
-						_text = if (_center iskindof "air") then {localize "str_pilot"} else {localize "str_driver"};
+						_text = [localize "str_driver", localize "str_pilot"] select (_center iskindof "air");
 						_isPlayer = isplayer driver _center;
 						if (_isPlayer) then {_text = format ["%1 (%2)",_text,name player];};
 						_lbAdd = _ctrlListCrew lbadd _text;
@@ -681,7 +681,7 @@ switch _mode do {
 						_lbAdd = _ctrlListCrew lbadd gettext (_cfgTurret >> "gunnerName");
 						_locked = _center lockedturret _x;
 						_ctrlListCrew lbsetdata [_lbAdd,"Turret"];
-						_ctrlListCrew lbsetvalue [_lbAdd,if (_locked) then {-_value} else {_value}];
+						_ctrlListCrew lbsetvalue [_lbAdd, [_value, -_value] select (_locked)];
 						_ctrlListCrew lbsetpicture [_lbAdd,_checkboxTextures select !(isnull (_center turretunit _x))];
 						BIS_fnc_garage_turretPaths pushback _x;
 
@@ -694,15 +694,12 @@ switch _mode do {
 					} foreach (allturrets [_center,true]);
 
 					//--- Cargo
-					_occupiedSeats = [];
-					{
-						if ((_x select 1) == "cargo") then {_occupiedSeats pushback (_x select 2);};
-					} foreach fullcrew _center;
+					_occupiedSeats = (fullcrew _center select {(_x select 1) == "cargo"}) apply {_x select 2};
 					_getInProxyOrder = getarray (_cfg >> "getInProxyOrder");
 					_transportSoldier = getnumber (_cfg >> "transportSoldier");
 
 					_cargoProxyIndexes = [];
-					if (count _getInProxyOrder == 0) then {
+					if (_getInProxyOrder isEqualTo []) then {
 						for "_i" from 1 to _transportSoldier do {_getInProxyOrder pushback _i;};
 						_turretCount = count _proxyIndexes;
 						for "_i" from (1 + _turretCount) to (_transportSoldier + _turretCount) do {_cargoProxyIndexes pushback _i;};
@@ -962,7 +959,7 @@ switch _mode do {
 				moveout _unit;
 				_isPlayer = false;
 				if (_fullVersion) then {
-					if (_unit == player) then {_unit hideobject true;} else {deletevehicle _unit;};
+					[deletevehicle _unit, _unit hideobject true] select (_unit == player);
 				};
 			};
 			_ctrlListCrew lbsetcolor [_i,_colors select _locked];
@@ -1103,7 +1100,6 @@ switch _mode do {
 					_vehClass = _importArray select _foreachindex + 1; //--- ToDo: Detect old createVehicle syntax
 					_vehModel = tolower gettext (configfile >> "cfgvehicles" >> _vehClass >> "model");
 					if (is3DEN or {!isNil "_isAchilles"}) then {
-
 						if (_vehModel == gettext (_centerCfg >> "model")) then {
 							_isVehicle = true;
 						} else {
@@ -1398,10 +1394,7 @@ switch _mode do {
 			_customization = _center call bis_fnc_getVehicleCustomization;
 			_texture = _customization select 0 select 0;
 			_anims = _customization select 1;
-			_objects = [];
-			{
-				if (_centerType == typeof _x) then {_objects pushback _x;}; //--- Change only objects of the same type
-			} foreach get3DENSelected "object";
+			_objects = ((get3DENSelected "object") select {_centerType == typeof _x});
 			set3DENAttributes [[_objects,"VehicleCustomization",[[],_anims]]];
 			set3DENAttributes [[_objects,"ObjectTexture",_texture]];
 		};
@@ -1411,7 +1404,7 @@ switch _mode do {
 	///////////////////////////////////////////////////////////////////////////////////////////
 	case "loadVehicle": {
 		disableserialization;
-		_vehClass = [_this,0,"",[""]] call bis_fnc_param;
+		_vehClass = param [0,"",[""]];
 		_vehCfg = configfile >> "cfgvehicles" >> _vehClass;
 		if (isclass _vehCfg) then {
 			_vehID = -1;
