@@ -11,6 +11,7 @@ private _tree_ctrl = param [0,controlNull,[controlNull]];
 private _display_reload = false;
 
 // broadcast safe spawn
+publicVariable "Achilles_fnc_spawn";
 publicVariable "Achilles_fnc_spawn_remote";
 
 // trick to unlock ares/achilles modules for Zeus if mission was not set up properly
