@@ -12,16 +12,21 @@
     Nothing
 */
 
-private _message = "";
-private _fileName = "N/A";
-_message = _this select 0;
-_fileName = param[1, "N/A", [], []];
+params [["_message", "No Message", []], ["_fileName", "N/A", []]];
 
 if (not (isNil "Achilles_Debug_Output_Enabled")) then
 {
 	if (Achilles_Debug_Output_Enabled) then
 	{
-		systemChat (format["[ACHILLES] [%1] %2", _fileName, _message]);
-		diag_log format["[ACHILLES] [%1] %2", _fileName, _message];
+		if (_fileName isEqualTo "N/A") then 
+		{
+			systemChat (format["[ACHILLES] %1", _message]);
+			diag_log format["[ACHILLES] %1", _message];
+		}
+		else
+		{
+			systemChat (format["[ACHILLES] [%1] %2", _fileName, _message]);
+			diag_log format["[ACHILLES] [%1] %2", _fileName, _message];
+		};
 	};
 };
