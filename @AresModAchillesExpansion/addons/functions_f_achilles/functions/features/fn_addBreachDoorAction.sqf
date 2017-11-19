@@ -17,11 +17,11 @@
 
 [
 	player,			
-	"Set demo charge",
-	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",			
-	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",			
-	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",	
-	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",	
+	"Set a Breaching Charge",
+	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
+	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
+	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",
+	"({player distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines player or {""rhsusf_m112_mag"" in magazines player}}",
 	{},			
 	{},			
 	{
@@ -60,7 +60,7 @@
 			deleteVehicle _logic;
 			deleteVehicle _sourceObject;
 			deleteVehicle _charge;
-			[_building,_source] spawn {sleep 1; params ["_building","_source"]; _building animateSource [_source, 1, true];};
+			[_building,_source] spawn {sleep 1; params ["_building","_source"]; _building animateSource [_source, 1, true]};
 			[_explosion_pos] remoteExec ["Achilles_fnc_breachStun",0];
 		}, [_charge], 20];
 		private _killed_id = player addEventHandler ["killed", {_charge = player getVariable "breach"; (attachedTo _charge) setVariable ["occupied",nil]; deleteVehicle _charge}];
@@ -77,9 +77,9 @@
 					_sourceObject setVariable ["occupied",nil];
 					player removeAction _action_id;
 					player removeEventHandler ["killed", _killed_id];
-				}
+				};
 			};
-		}
+		};
 	},	
 	{},			
 	[],			
