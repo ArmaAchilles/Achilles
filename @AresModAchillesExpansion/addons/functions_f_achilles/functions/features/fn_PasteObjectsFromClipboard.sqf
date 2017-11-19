@@ -1,4 +1,3 @@
-
 if (isNil "Achilles_var_MarkerCounter") then
 {
 	Achilles_var_MarkerCounter = 0;
@@ -7,7 +6,8 @@ if (isNil "Achilles_var_MarkerCounter") then
 private _center_pos = if (visibleMap) then
 {
 	(((findDisplay 312) displayCtrl 50) ctrlMapScreenToWorld getMousePosition) + [0];
-} else
+}
+else
 {
 	screenToWorld getMousePosition;
 };
@@ -19,24 +19,16 @@ private _createdGroupsId = [];
 private _object_list = [];
 
 {
-	_x params 
-	[
-		["_type", objNull, [objNull]],
-		["_groupID", "", [""]],
-		["_side", blufor, [blufor]],
-		["_loadout", [], [[]]],
-		["_pos", [0,0,0], [[]]],
-		["_dir", 0, [0]],
-		["_crew_info_list", [], [[]]]
-	];
-	_pos = _pos vectorAdd _center_pos;
+	_x params ["_type"];
 	
 	switch (true) do
 	{
 		case (_type isKindOf "Man"):
 		{
-			private _loadout = _loadout select 0;
-			private _goggles = _loadout select 1;
+			_x params ["_", "_groupID", "_side", "_fullLoadout", "_pos", "_dir", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+			_fullLoadout params ["_loadout", "_goggles"];
+			_pos = _pos vectorAdd _center_pos;
+
 			private _groupIndex = _createdGroupsId find _groupID;
 			private _group = if (_groupIndex == -1) then
 			{
@@ -44,15 +36,32 @@ private _object_list = [];
 				_createdGroups pushBack _newGroup;
 				_createdGroupsId pushBack _groupID;
 				_newGroup;
-			} else
+			}
+			else
 			{
 				_createdGroups select _groupIndex;
 			};
 			private _unit = _group createUnit [_type, _pos, [], 0, "FORM"];
 			_unit setDir _dir;
 			_unit setUnitLoadout _loadout;
+
 			// delay is needed, since built-in randomization of face and goggles is also delayed
-			[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
+			[_unit,_goggles, _face, _speaker, _pitch, _name, _nameSound, _rank, _skill] spawn 
+			{
+				params ["_unit", "_goggles", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+				sleep 1;
+
+				removeGoggles _unit;
+				_unit addGoggles _goggles;
+				_unit setUnitRank _rank;
+				[_unit, _face] remoteExecCall ["setFace", 0, _unit];
+				[_unit, _speaker] remoteExecCall ["setSpeaker", 0, _unit];
+				[_unit, _pitch] remoteExecCall ["setPitch", 0, _unit];
+				[_unit, _name] remoteExecCall ["setName", 0, _unit];
+				[_unit, _nameSound] remoteExecCall ["setNameSound", 0, _unit];
+				[_unit, _skill] remoteExecCall ["setSkill", 0, _unit];
+			};
+
 			if (_pos select 2 > 10) then
 			{
 				private _chute = "Steerable_Parachute_F" createVehicle [0,0,0];
@@ -62,7 +71,11 @@ private _object_list = [];
 		};
 		case (_type isKindOf "LandVehicle" or (_type isKindOf "Air") or (_type isKindOf "Ship")):
 		{
-			private _special = if (_pos select 2 > 10) then {"FLY"} else {"FORM"};
+			_x params ["_", "_groupID", "_side", "_pylonMagazines", "_pos", "_dir", "_crew_info_list", "_fuel"];
+
+			_pos = _pos vectorAdd _center_pos;
+
+			private _special = ["FORM", "FLY"] select ((_pos select 2) > 2);
 			private _vehicle = createVehicle [_type, _pos, [], 0, _special];
 			if (_pos select 2 > 10 && !(_type isKindOf "Air")) then
 			{
@@ -70,8 +83,18 @@ private _object_list = [];
 				_chute setPos _pos;
 				_vehicle attachTo [_chute];
 			};
-			{_vehicle setPylonLoadout [_forEachIndex + 1,_x]} forEach _loadout;
+
+			_vehicle setFuel _fuel;
+
+			// Add the weapons to the gunner if possible
+			if (isClass (configFile >> "cfgVehicles" >> _type >> "Components" >> "TransportPylonsComponent")) then 
+			{
+				private _addWeaponsTo = [[], [0]] select (count fullCrew [_vehicle, "gunner", true] == 1);
+				{_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, _addWeaponsTo]} forEach _pylonMagazines;
+			};
+
 			_object_list pushBack _vehicle;
+			
 			if (_vehicle in allUnitsUAV) then
 			{
 				createVehicleCrew _vehicle;
@@ -80,12 +103,13 @@ private _object_list = [];
 				{
 					(crew _vehicle) join (_createdGroups select _groupIndex);
 				};
-			} else
+			}
+			else
 			{
 				{
-					params["_type", "_groupID", "_side", "_loadout", "_role"];
-					private _loadout = _loadout select 0;
-					private _goggles = _loadout select 1;
+					_x params ["_type", "_groupID", "_side", "_fullLoadout", "_role", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+					_fullLoadout params ["_loadout", "_goggles"];
+
 					private _groupIndex = _createdGroupsId find _groupID;
 					private _group = if (_groupIndex == -1) then
 					{
@@ -93,25 +117,45 @@ private _object_list = [];
 						_createdGroups pushBack _newGroup;
 						_createdGroupsId pushBack _groupID;
 						_newGroup;
-					} else
+					}
+					else
 					{
 						_createdGroups select _groupIndex;
 					};
+
 					private _unit = _group createUnit [_type, [0,0,0], [], 0, "FORM"];
 					_unit setUnitLoadout _loadout;
-					[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
+
+					// delay is needed, since built-in randomization of face and goggles is also delayed
+					[_unit,_goggles, _face, _speaker, _pitch, _name, _nameSound, _rank, _skill] spawn 
+					{
+						params ["_unit", "_goggles", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+
+						sleep 1;
+						removeGoggles _unit;
+						_unit addGoggles _goggles;
+						_unit setUnitRank _rank;
+						[_unit, _face] remoteExecCall ["setFace", 0, _unit];
+						[_unit, _speaker] remoteExecCall ["setSpeaker", 0, _unit];
+						[_unit, _pitch] remoteExecCall ["setPitch", 0, _unit];
+						[_unit, _name] remoteExecCall ["setName", 0, _unit];
+						[_unit, _nameSound] remoteExecCall ["setNameSound", 0, _unit];
+						[_unit, _skill] remoteExecCall ["setSkill", 0, _unit];
+					};
+
 					switch (count _role) do
 					{
 						case 0: {};
-						case 1: {call compile format ["_unit moveIn%1 _vehicle;",_role select 0];};
+						case 1: {call compile format ["_unit moveIn%1 _vehicle",_role select 0]};
 						case 2: 
 						{
 							if (_role select 0 == "Cargo") then
 							{
 								_unit moveInCargo _vehicle;
-							} else 
+							}
+							else 
 							{
-								call compile format ["_unit moveIn%1 [_vehicle,%2];",_role select 0,_role select 1];
+								call compile format ["_unit moveIn%1 [_vehicle,%2]",_role select 0,_role select 1];
 							};
 						};
 					};
