@@ -18,7 +18,7 @@ private _saved_vehicles = [];
 	{
 		case (_object isKindOf "Man"):
 		{
-			_object_clipboard pushBack 
+			_object_clipboard pushBack
 			[
 				typeOf _object,
 				groupID (group _object),
@@ -42,10 +42,7 @@ private _saved_vehicles = [];
 		{
 			if (_object in _saved_vehicles) exitWith {};
 			_saved_vehicles pushBack _object;
-			private _crew_info_array = (crew _object) apply {[typeOf _x, groupID group _x, side _x, [getUnitLoadout _x, goggles _x], assignedVehicleRole _x]};
-			private _crew_info_array = [];
-			{
-				_crew_info_array pushBack 
+			private _crew_info_array = (crew _object) apply {
 				[
 					typeOf _x,
 					groupID (group _x),
@@ -62,10 +59,10 @@ private _saved_vehicles = [];
 					nameSound _x,
 					rank _x,
 					skill _x
-				];
-			} forEach (crew _object);
+				]
+			};
 
-			_object_clipboard pushBack 
+			_object_clipboard pushBack
 			[
 				typeOf _object,
 				groupID (group _object),

@@ -24,10 +24,10 @@ switch (_mode) do
 	{
 		{
 			_ctrl = _dialog displayCtrl (IDC_MODE_COMBO + _x);
-			if (not isNull _ctrl) then
+			if (!isNull _ctrl) then
 			{
 				_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-				_last_choice = [0, _last_choice] select (_last_choice isEqualType []);
+				_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 				_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 				_ctrl lbSetCurSel _last_choice;
 				if (_x == 0) then
