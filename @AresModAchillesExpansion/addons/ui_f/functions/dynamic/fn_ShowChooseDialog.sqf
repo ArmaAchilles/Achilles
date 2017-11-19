@@ -174,7 +174,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 		{
 			// combo boxes handled by default
 			_defaultChoice = [0, _defaultChoice] select (_defaultChoice isEqualType 0);
-			_defaultChoice = [(lbSize _choiceCombo) - 1, _defaulChoice] select (_defaultChoice < lbSize _choiceCombo);
+			_defaultChoice = [(lbSize _choiceCombo) - 1, _defaultChoice] select (_defaultChoice < lbSize _choiceCombo);
 			_choiceCombo lbSetCurSel _defaultChoice;
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
 
@@ -209,7 +209,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex, _ctrl_group];
 				_ctrl ctrlSetBackgroundColor [1,1,1,1];
 				_ctrl ctrlSetActiveColor [1,1,1,1];
-				private _side_name = toUpper ([(_foreachindex - 1) call bis_fnc_sideName, "ZEUS"] select (_foreachindex == 0));
+				private _side_name = if (_foreachindex == 0) then {"ZEUS"} else {toUpper ((_foreachindex - 1) call bis_fnc_sideName)};
 				_ctrl ctrlSetTooltip _side_name;
 				_ctrl ctrlSetText _icon;
 				_ctrl ctrlSetPosition [_xCoord,_yCoord,GtC_W(2.4),GtC_H(2)];
@@ -253,7 +253,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			if (_choices == "SLIDER") then
 			{
 				// set last choice or the default choice
-				_defaultChoice = [0, _defaulChoice] select (_defaultChoice isEqualType 0 and _defaultChoice != -1);
+				_defaultChoice = [0, _defaultChoice] select (_defaultChoice isEqualType 0 and _defaultChoice != -1);
 
 				_ctrl sliderSetRange [0,1];
 				_ctrl ctrlSetBackgroundColor [0, 0, 0, 1];

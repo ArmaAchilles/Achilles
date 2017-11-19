@@ -16,7 +16,7 @@
 private ["_injury_value_list","_selected_units","_value"];
 
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-private _mode = if (!isNull _unit) then {"single"} else {"multiple"};
+private _mode = ["multiple", "single"] select (!isNull _unit);
 
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
@@ -91,7 +91,12 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 
 	{
 		_unit = _x;
-		[[_unit,_injury_type,_injury_value_list] remoteExec ["Achilles_fnc_setACEInjury",_unit], [_unit,_injury_type,_injury_value_list] spawn Achilles_fnc_setACEInjury] select (local _unit);
+        if (local _unit) then {
+			[_unit,_injury_type,_injury_value_list] spawn Achilles_fnc_setACEInjury;
+		} else
+		{
+			[_unit,_injury_type,_injury_value_list] remoteExec ["Achilles_fnc_setACEInjury",_unit]
+		};
 	} forEach _selected_units;
 } else
 {
@@ -149,7 +154,13 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	// get and set hits
 	{
 		_unit = _x;
-		[[_unit,_injury_value_list] remoteExec ["Achilles_fnc_setVanillaInjury", _unit], [_unit,_injury_value_list] spawn Achilles_fnc_setVanillaInjury] select (local _unit);
+        if (local _unit) then
+		{
+			[_unit,_injury_value_list] spawn Achilles_fnc_setVanillaInjury
+		} else
+		{
+			[_unit,_injury_value_list] remoteExec ["Achilles_fnc_setVanillaInjury", _unit]
+		};
 	} forEach _selected_units;
 };
 

@@ -44,7 +44,7 @@ Ares_addNewTeleportMarkerActions =
 				player setPosATL (getPosATL _teleportTarget);
 			};
 		}, _newMarker];
-	} forEach (Ares_TeleportMarkers) select {_x != _newMarker && alive _x};
+	} forEach ((Ares_TeleportMarkers) select {_x != _newMarker && alive _x});
 };
 
 // Check to see if there's an object under the cursor or not

@@ -53,10 +53,10 @@ if (_units isEqualTo []) exitWith {};
 		private _mode = _dialogResult select _forEachIndex;
 		if (local _unit) then
 		{
-			[_unit disableAI _ability_type, _unit enableAI _ability_type] select (_mode == 0);
+			if (_mode == 0) then {_unit enableAI _ability_type} else {_unit disableAI _ability_type};
 		} else
 		{
-			[[_unit, _ability_type] remoteExecCall ["disableAI",_unit], [_unit, _ability_type] remoteExecCall ["enableAI",_unit]] select (_mode == 0);
+			if (_mode == 0) then {[_unit, _ability_type] remoteExecCall ["enableAI",_unit]} else {[_unit, _ability_type] remoteExecCall ["disableAI",_unit]};
 		};
 	} forEach ABILITIES;
 	if (local _unit) then

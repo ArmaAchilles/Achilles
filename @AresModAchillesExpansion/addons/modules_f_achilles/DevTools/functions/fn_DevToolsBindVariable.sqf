@@ -21,7 +21,7 @@ private _dialogResult = [
 if (count _dialogResult > 0) then
 {
 	private _var = _dialogResult select 0;
-	[[_object, compile format["%1 = _this;",_var], 0] call Achilles_fnc_spawn, _object call compile format["%1 = _this;",_var]] select (_dialogResult select 1 == 0);
+    if (_dialogResult select 1 == 0) then {_object call compile format["%1 = _this;",_var]} else {[_object, compile format["%1 = _this;",_var], 0]  call Achilles_fnc_spawn};
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

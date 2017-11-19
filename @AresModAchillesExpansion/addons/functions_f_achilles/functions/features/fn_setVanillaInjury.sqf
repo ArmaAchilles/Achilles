@@ -18,8 +18,7 @@
 
 params ["_unit","_value_list"];
 {
-	private "_injury_value";
 	private _value = _value_list select _forEachIndex;
-	_injury_value = [_value, [_unit] call _value] select (_value isEqualType {});
+	private _injury_value = if (_value isEqualType {}) then { [_unit] call _value } else { _value };
 	_unit setHit [_x, _injury_value];
 } forEach ["head","body","hands","legs"];

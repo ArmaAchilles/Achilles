@@ -28,8 +28,7 @@ switch _mode do {
         ['onButtonClick',[_display displayctrl _idc,0]] call RscAttributeUnitPos;
     };
     case "onButtonClick": {
-        private _control = _params select 0;
-        private _delay = _params select 1;
+        params ["_control", "_delay"];
         private _display = ctrlparent _control;
         {
             private _ctrl = _display displayctrl _x;

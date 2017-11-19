@@ -607,12 +607,12 @@ switch _mode do {
 						_role = _roleArray select 0;
 						switch (tolower _role) do {
 							case "driver": {
-								[_player moveinany _center, _player moveindriver _center] select (_center emptypositions _role > 0);
+								if (_center emptypositions _role > 0) then {_player moveindriver _center;} else {_player moveinany _center;};
 							};
 							case "gunner";
 							case "commander";
 							case "turret": {
-								[_player moveinany _center, _player moveinturret [_center,(allturrets _center) select 0]] select (count (allturrets _center) > 0);
+                                [_player moveinany _center, _player moveinturret [_center,(allturrets _center) select 0]] select (count (allturrets _center) > 0);
 							};
 							case "cargo": {
 								[_player moveinany _center, _player moveincargo _center] select (_center emptypositions _role > 0);
@@ -959,7 +959,7 @@ switch _mode do {
 				moveout _unit;
 				_isPlayer = false;
 				if (_fullVersion) then {
-					[deletevehicle _unit, _unit hideobject true] select (_unit == player);
+	                   if (_unit == player) then {_unit hideobject true;} else {deletevehicle _unit;};
 				};
 			};
 			_ctrlListCrew lbsetcolor [_i,_colors select _locked];

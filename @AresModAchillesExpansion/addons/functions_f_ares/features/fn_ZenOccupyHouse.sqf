@@ -33,7 +33,7 @@ private _Zen_ExtendPosition = {
 };
 
 private _buildingsArray = [];
-_buildingsArray = [nearestObjects [_center, ["building"], _buildingRadius, true], [nearestBuilding _center]] select (_buildingRadius < 0);
+_buildingsArray = if (_buildingRadius < 0) then {[nearestBuilding _center]} else {nearestObjects [_center, ["building"], _buildingRadius, true]};
 
 private _buildingPosArray = [];
 {
@@ -112,8 +112,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
                                 (_units select _unitIndex) setPosASL [(_housePos select 0), (_housePos select 1), (_housePos select 2) - EYE_HEIGHT];
                                 (_units select _unitIndex) setDir (_i );
 
-                                [(_units select _unitIndex) setUnitPos "UP", (_units select _unitIndex) setUnitPos "MIDDLE"] select (_isRoof);
-
+                                if (_isRoof) then {(_units select _unitIndex) setUnitPos "MIDDLE"} else {(_units select _unitIndex) setUnitPos "UP"};
                                 (_units select _unitIndex) doWatch ([_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
                                 //doStop (_units select _unitIndex);
 								//(_units select _unitIndex) disableAI "MOVE";

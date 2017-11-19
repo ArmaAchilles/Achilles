@@ -96,10 +96,10 @@ for "_b" from 0 to (count _tempArray - 1) do
 };
 
 // Check that we could actually find a building to search.
-if (_bldgArray isEqualTo []) exitWith {	false };
+if (_bldgArray isEqualTo []) exitWith { false };
 
 // Choose the building to be searched - either the nearest or a random one.
-private _bldgSelect = [_bldgArray call BIS_fnc_selectRandom, _bldgArray select 0] select (_whichOne == "NEAREST");
+private _bldgSelect = if (_whichOne == "NEAREST") then {_bldgArray select 0} else {_bldgArray call BIS_fnc_selectRandom};
 
 // Make the group ready for shootin'
 _group setbehaviour "AWARE";

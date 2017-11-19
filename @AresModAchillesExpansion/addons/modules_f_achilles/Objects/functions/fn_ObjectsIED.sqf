@@ -42,7 +42,7 @@ if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_S
 // Sets IED functionality
 if (_object isKindOf "Man") then
 {
-  [localize "STR_ENYO_UNITS_NOT_ALLOWED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";
+  [localize "STR_ENYO_UNITS_NOT_ALLOWED"] call Achilles_fnc_ShowZeusErrorMessage;
 }
 else
 {

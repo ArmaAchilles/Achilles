@@ -85,7 +85,7 @@ switch _mode do
 					_entity setpilotlight _light;
 				};
 			};
-			[[[_x,_light],_codeBlock, _x] call Achilles_fnc_spawn, [_x,_light] spawn _codeBlock] select (local _x);
+			if (local _x) then {[_x,_light] spawn _codeBlock} else {[[_x,_light],_codeBlock, _x] call Achilles_fnc_spawn};
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false

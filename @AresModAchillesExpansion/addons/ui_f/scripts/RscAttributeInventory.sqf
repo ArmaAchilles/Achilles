@@ -88,7 +88,7 @@ switch _mode do {
 							if (_weaponPublic || _weapon in ["throw","put"]) then {
 								//_addonListType = _addonList select _typeMagazine;
 								{
-									private _muzzle = [_weaponCfg >> _x, _weaponCfg] select (_x == "this");
+									private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
 									{
 										private _mag = tolower _x;
 										if ({(_x select 0) == _mag} count _addonListType == 0) then {
@@ -179,7 +179,7 @@ switch _mode do {
 					(_xCargo select 0) pushBack (tolower _x);
 					(_xCargo select 1) pushBack 0;
 				};
-				RscAttributeInventory_cargoVirtual pushBack ([tolower _x, _x] select (isClass (configfile >> "CfgGlasses" >> _x)));
+				RscAttributeInventory_cargoVirtual pushBack (if (isClass (configfile >> "CfgGlasses" >> _x)) then {_x} else {toLower _x});
 			} foreach _x;
 		} foreach _virtualCargo;
 
@@ -232,7 +232,7 @@ switch _mode do {
 		_ctrlLable ctrlSetText "";
 		//_ctrlFilter = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_FILTER;
 		//_cursel = lbcursel _ctrlFilter;
-		private _cursel = [RscAttributeInventory_selected, _params select 1] select (count _params > 1);
+		private _cursel = if (count _params > 1) then {_params select 1} else {RscAttributeInventory_selected};
 		RscAttributeInventory_selected = _cursel;
 		private _ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
 		_ctrlList setVariable ["WeaponSpecific",nil];
@@ -467,7 +467,7 @@ switch _mode do {
 		private _magazines = [];
 
 		{
-			private _muzzle = [_weaponCfg >> _x, _weaponCfg] select (_x == "this");
+			private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};;
 			{
 				private _mag = tolower _x;
 				if (getnumber (configfile >> "cfgmagazines" >> _mag >> "scope") == 2) then {

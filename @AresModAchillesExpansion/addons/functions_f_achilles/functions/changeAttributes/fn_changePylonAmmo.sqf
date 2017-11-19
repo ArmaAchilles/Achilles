@@ -58,7 +58,7 @@ if (_hasGunner) then {_dialogResult deleteAt 0};
 	{
 		private _magIndex = _x;
 		private _pylonIndex = _forEachIndex + 1;
-		private _magClassName = ["", (_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)] select (_x > 0);
+        if (_x > 0) then {(_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)} else {""};
 		if (local _plane) then
 		{
 			_plane setPylonLoadOut [_pylonIndex, _magClassName, false, _addWeaponsTo];

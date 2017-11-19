@@ -34,7 +34,7 @@ if (_object isKindOf "Car" || _object isKindOf "Tank") then
 
     private _isECM = _dialogResult select 0;
 
-    [_object setVariable ["isECM", false, true], _object setVariable ["isECM", true, true]] select (_isECM == 0);
+    if (_isECM == 0) then {_object setVariable ["isECM", true, true]} else {_object setVariable ["isECM", false, true]};
 }
 else
 {

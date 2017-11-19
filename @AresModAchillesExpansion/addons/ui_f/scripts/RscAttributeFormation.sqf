@@ -81,7 +81,7 @@ switch _mode do {
 				private _wp_id = _x select 1;
 				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then
 				{
-					[[_group,_selected] remoteExec ["setformation", leader _group], _group setformation _selected] select (local _group);
+					if (local _group) then {_group setformation _selected} else {[_group,_selected] remoteExec ["setformation", leader _group]};
 				};
 				_x setwaypointformation _selected;
 			} forEach _curatorSelectedWPs;
@@ -91,7 +91,7 @@ switch _mode do {
 			private _curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
 				private _leader = leader _x;
-				[[_x,_selected] remoteExec ["setformation", _leader], _x setformation _selected] select (local _leader);
+				if (local _leader) then {_x setformation _selected} else {[_x,_selected] remoteExec ["setformation", _leader]};
 			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};
