@@ -308,13 +308,13 @@ switch _mode do
 			
 			// isServer statement below doesn't get exectued on a dedi for some magical reason
 			// so the remoteExecCall is added here so it actually changes the time and allows it to work
-			[_newDate] remoteExecCall ["setDate", 2];
-			// if(isServer) then 
-			// {
-			// 	setDate _newDate;
-			// 	[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
-			// 	forceWeatherChange;
-			// };
+			// [_newDate] remoteExecCall ["setDate", 2];
+			if(isServer) then 
+			{
+				setDate _newDate;
+				[[_newDate], {setDate (_this select 0)}, -2, "JIP_id_setDate"] call Achilles_fnc_spawn;
+				forceWeatherChange;
+			};
 			if(not hasInterface) exitWith {};
 			
 			private _newDateNumber = [dateToNumber _newDate + (_newDate select 0), 6] call BIS_fnc_cutDecimals;
