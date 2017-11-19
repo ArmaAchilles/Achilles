@@ -85,10 +85,10 @@ switch _mode do
 
 		private _target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 		private _name = switch (typename _target) do {
-			case "OBJECT": {gettext (configfile >> "cfgvehicles" >> typeof _target >> "displayname")};
-			case "GROUP": {groupid _target};
-			case "ARRAY": {format ["%1: %3 #%2",groupid (_target select 0),_target select 1,localize "str_a3_cfgmarkers_waypoint_0"]};
-			case "STRING": {markertext _target};
+            case (typename objnull): {gettext (configfile >> "cfgvehicles" >> typeof _target >> "displayname")};
+			case (typename grpnull): {groupid _target};
+			case (typename []): {format ["%1: %3 #%2",groupid (_target select 0),_target select 1,localize "str_a3_cfgmarkers_waypoint_0"]};
+			case (typename ""): {markertext _target};
 		};
 		_ctrlTitle ctrlsettext format [ctrltext _ctrlTitle,toupper _name];
 
@@ -136,19 +136,19 @@ switch _mode do
 			_display = _this select 0;
 			_target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 			switch (typename _target) do {
-				case "OBJECT": {
+				case (typename objnull): {
 					private _isAlive = alive _target;
 					waituntil {isnull _display || (_isAlive && !alive _target)};
 				};
-				case "GROUP": {
+				case (typename grpnull): {
 					waituntil {isnull _display || isnull _target};
 				};
-				case "ARRAY": {
+				case (typename []): {
 					private _grp = _target select 0;
 					private _wpCount = count waypoints _grp;
 					waituntil {isnull _display || (count waypoints _grp != _wpCount)};
 				};
-				case "STRING": {
+				case (typename ""): {
 					waituntil {isnull _display || markertype _target == ""};
 				};
 			};
