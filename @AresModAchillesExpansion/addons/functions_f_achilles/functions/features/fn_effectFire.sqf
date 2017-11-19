@@ -42,11 +42,6 @@ params
 	"_curator"
 ];
 
-hint "Something's happening!";
-systemChat str (getPos _logic);
-systemChat str (_logic);
-diag_log (format ["Logic Pos: %1 - Logic ref: %2 - Emittor: %3", getPos _logic, _logic, _emitter]);
-
 private _pos = getPos _logic;
 
 //--- particle effect creation
