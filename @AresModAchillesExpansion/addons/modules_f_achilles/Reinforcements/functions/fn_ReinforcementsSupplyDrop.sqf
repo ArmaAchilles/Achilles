@@ -24,7 +24,7 @@ if (count (_LZs select 0) == 0) exitWith {[localize "STR_NO_LZ"] call Achilles_f
 if (!isNull (getSlingLoad _object)) exitWith {[localize "STR_CARGO_ALREADY_ATTACHED"] call Achilles_fnc_showZeusErrorMessage};
 
 private _ammoCratesDisplayName = [];
-private _ammoCrates = ["B_supplyCrate_F", "O_supplyCrate_F", "I_supplyCrate_F", "IG_supplyCrate_F", "C_supplyCrate_F", "C_T_supplyCrate_F"];
+private _ammoCrates = ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"];
 {_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach _ammoCrates;
 
 //TODO: Possibly add option to spawn a helicopter
@@ -34,7 +34,7 @@ private _dialogResult =
 [
 	localize "STR_SUPPLY_DROP",
 	[
-		["Ammunition Crate", _ammoCratesDisplayName],
+		[localize "STR_AMMUNITION_CRATE", _ammoCratesDisplayName, 5],
 		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_VIRTUAL_ARSENAL", localize "STR_EMPTY"]],
 		[localize "STR_LZ_DZ", (_LZs select 1)]
 	]
