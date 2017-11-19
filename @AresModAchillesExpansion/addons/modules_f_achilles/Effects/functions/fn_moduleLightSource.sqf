@@ -1,7 +1,8 @@
 #define COLOR_NAMES ["white","blue","red","green","yellow"]
 #define COLOR_RGB	[[1,1,1],[0,0,1],[1,0,0],[0,1,0],[1,1,0]]
 
-
+params ["_mode", "_params"];
+private _logic = _params select 0;
 
 switch _mode do {
 	//--- Some attributes were changed (including position and rotation)

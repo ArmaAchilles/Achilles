@@ -10,7 +10,7 @@ if (_activated) then {
 		[[["Curator","PlaceMines"],nil,nil,nil,nil,nil,nil,true],"bis_fnc_advHint",_logic] call bis_fnc_mp;
 
 		waituntil {sleep 0.1; isnull _explosive || isnull _logic || !alive _logic};
-		[_explosive setDamage 1, deleteVehicle _explosive] select (isnull _logic);
+		if (isnull _logic) then {deletevehicle _explosive;} else {_explosive setdamage 1;};
 		deletevehicle _logic;
 	};
 };

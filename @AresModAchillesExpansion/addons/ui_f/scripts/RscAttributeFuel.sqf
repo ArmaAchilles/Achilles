@@ -21,7 +21,7 @@ switch _mode do {
 		if (abs(fuel _unit - _fuel) < 0.01) exitwith {};
 		private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 		{
-			[[_x, _fuel] remoteExecCall ["setFuel", _x], _x setFuel _fuel] select (local _x);
+			if (local _x) then {_x setFuel _fuel} else {[_x, _fuel] remoteExecCall ["setFuel", _x]};
 		} forEach _curatorSelected;
 	};
 	case "onUnload": {

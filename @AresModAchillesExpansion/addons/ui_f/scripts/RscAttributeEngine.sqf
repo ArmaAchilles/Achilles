@@ -85,7 +85,7 @@ switch _mode do
 					_entity engineOn _engine;
 				};
 			};
-			[[[_x,_engine],_codeBlock, _x] call Achilles_fnc_spawn, [_x,_engine] spawn _codeBlock] select (local _x);
+			if (local _x) then {[_x,_engine] spawn _codeBlock} else {[[_x,_engine],_codeBlock, _x] call Achilles_fnc_spawn};
 		} forEach _curatorSelected;
 		_entity setvariable ["updated",true,true];
 		false

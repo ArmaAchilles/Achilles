@@ -13,7 +13,7 @@ switch _mode do {
 	case "onLoad": {
 		private _display = _params select 0;
 		private _ctrlSlider = _display displayctrl IDC_RSCATTRIBUTEAMMO_VALUE;
-		private _ammo = [_unit call Achilles_fnc_getVehicleAmmoDef, _unit call Achilles_fnc_getUnitAmmoDef] select(_unit isKindOf "Man");
+		private _ammo = if (_unit isKindOf "Man") then {_unit call Achilles_fnc_getUnitAmmoDef} else {_unit call Achilles_fnc_getVehicleAmmoDef};
 		_ctrlSlider sliderSetRange [0, 1];
 		_ctrlSlider sliderSetSpeed [0.1, 0.3];
 		_ctrlSlider slidersetposition _ammo;

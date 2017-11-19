@@ -22,7 +22,7 @@ params ["_vehicle",["_percentage",1,[1]]];
 _pylonMags = getPylonMagazines _vehicle;
 
 //Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
-[_vehicle setVehicleAmmo _percentage, _vehicle setVehicleAmmoDef _percentage] select (_pylonMags isEqualTo []);
+if (_pylonMags isEqualTo []) then {_vehicle setVehicleAmmoDef _percentage} else {_vehicle setVehicleAmmo _percentage};
 
 {_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
 {_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
