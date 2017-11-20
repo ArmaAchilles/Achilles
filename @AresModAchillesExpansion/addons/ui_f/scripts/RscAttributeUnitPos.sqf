@@ -55,7 +55,7 @@ switch _mode do {
         if (_previousStanceId == _selected) exitWith {};
         private _stance = _stances select _selected;
         {
-            [[_x, _stance] remoteExecCall ["setunitpos", _x], _x setunitpos _stance] select (local _x);
+            if (local _x) then {_x setunitpos _stance} else {[_x, _stance] remoteExecCall ["setunitpos", _x]}
         } forEach _entities;
         false
     };
