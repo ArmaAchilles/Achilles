@@ -27,44 +27,47 @@ private _fnc_getDamageType = switch (_distribution_type) do
 };
 
 {
-	private _building = _x;
-	private _damage_type = [] call _fnc_getDamageType;
-	switch (_damage_type) do
+	if (!isNull _x) then 
 	{
-		case 0: {_building setDamage 0};
-		case 1: {_building setDamage 0.8};
-		case 2:
+		private _building = _x;
+		private _damage_type = [] call _fnc_getDamageType;
+		switch (_damage_type) do
 		{
-			_building setDamage 0.5;
-			private _allHitPoints = getAllHitPointsDamage _building;
-			if (count _allHitPoints > 0) then
+			case 0: {_building setDamage 0};
+			case 1: {_building setDamage 0.8};
+			case 2:
 			{
-				private _hitzones = [];
-				private _other = [];
+				_building setDamage 0.5;
+				private _allHitPoints = getAllHitPointsDamage _building;
+				if (count _allHitPoints > 0) then
 				{
-					private _index  = _x find "Hitzone";
-					if (_index == -1) then {_other pushBack _forEachIndex} else {_hitzones pushBack _forEachIndex};
-				} forEach (_allHitPoints select 0);
-				
-				if (count _other > 0) then
-				{
+					private _hitzones = [];
+					private _other = [];
 					{
-						_building setHitIndex [_x,1];
-					} forEach _other;
-				};
-				private _counter = count _hitzones;
-				if (_counter > 0) then
-				{
-					private _extend_count = ceil ((random 1) * _counter);
-					for "_i" from 1 to _extend_count do
+						private _index  = _x find "Hitzone";
+						if (_index == -1) then {_other pushBack _forEachIndex} else {_hitzones pushBack _forEachIndex};
+					} forEach (_allHitPoints select 0);
+					
+					if (count _other > 0) then
 					{
-						private _hitzone = selectRandom _hitzones;
-						_building setHitIndex [_hitzone,1];
-						_hitzones = _hitzones - [_hitzone];
+						{
+							_building setHitIndex [_x,1];
+						} forEach _other;
+					};
+					private _counter = count _hitzones;
+					if (_counter > 0) then
+					{
+						private _extend_count = ceil ((random 1) * _counter);
+						for "_i" from 1 to _extend_count do
+						{
+							private _hitzone = selectRandom _hitzones;
+							_building setHitIndex [_hitzone,1];
+							_hitzones = _hitzones - [_hitzone];
+						};
 					};
 				};
 			};
-		};
-		case 3: {_building setDamage 1};
-	}; 	
+			case 3: {_building setDamage 1};
+		}; 	
+	};
 } forEach _buildings;
