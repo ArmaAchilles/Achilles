@@ -41,7 +41,7 @@ class CfgFunctions
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
 			class logMessage;
-			class getAllLZsOrRPs;
+			class getAllLZsAndRPs;
 			class createDummyLogic;
 		};
 
