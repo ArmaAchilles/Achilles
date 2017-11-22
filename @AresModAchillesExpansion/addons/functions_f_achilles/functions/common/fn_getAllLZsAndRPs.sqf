@@ -23,13 +23,16 @@
 		]
 */
 
-private _return = [[[], []], [[], []]];
+private _return = [];
+
+private _allLZsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
+private _allRPsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
+if (_allLZsPlaced isEqualTo [] && _allRPsPlaced isEqualTo []) exitWith {[]};
 
 // LZs
-private _allLZsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (!(_allLZsPlaced isEqualTo [])) then 
+if (!(_allLZsPlaced isEqualTo [])) then
 {
-	private _allLZsPlacedSorted = 
+	private _allLZsPlacedSorted =
 	[
 		_allLZsPlaced,
 		[],
@@ -37,15 +40,13 @@ if (!(_allLZsPlaced isEqualTo [])) then
 		"ASCEND"
 	] call BIS_fnc_sortBy;
 
-	{((_return select 0) select 0) pushBack _x} forEach _allLZsPlacedSorted;
-	{((_return select 0) select 1) pushBack (name _x)} forEach _allLZsPlacedSorted;
+    _return pushBack [_allLZsPlacedSorted, _allLZsPlacedSorted apply {name _x}];
 };
 
 // RPs
-private _allRPsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (!(_allRPsPlaced isEqualTo [])) then 
+if (!(_allRPsPlaced isEqualTo [])) then
 {
-	private _allRPsPlacedSorted = 
+	private _allRPsPlacedSorted =
 	[
 		_allRPsPlaced,
 		[],
@@ -53,10 +54,7 @@ if (!(_allRPsPlaced isEqualTo [])) then
 		"ASCEND"
 	] call BIS_fnc_sortBy;
 
-	{((_return select 1) select 0) pushBack _x} forEach _allRPsPlacedSorted;
-	{((_return select 1) select 1) pushBack (name _x)} forEach _allRPsPlacedSorted;
+    _return pushBack [_allRPsPlacedSorted, _allRPsPlacedSorted apply {name _x}];
 };
 
-if (_allLZsPlaced isEqualTo [] && _allRPsPlaced isEqualTo []) exitWith {[]};
-
-_return;
+_return
