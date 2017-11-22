@@ -36,8 +36,7 @@ if (_object in (missionNamespace getVariable ["Achilles_var_preplaceModeObjects"
 // If the edited object is a logic that has a dummy object attached to it
 if (_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]) exitWith 
 {
-	private _dummyObject = _object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull];
-	_dummyObject setPos (getPos _object);
+	(_object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull]) setPos (getPos _object);
 	true;
 };
 
