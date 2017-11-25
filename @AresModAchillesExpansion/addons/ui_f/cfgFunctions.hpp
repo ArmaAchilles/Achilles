@@ -61,6 +61,7 @@ class CfgFunctions
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
+			class RscDisplayAttributes_SupplyDrop;
 		};
 		
 		class ui_f_replacement
