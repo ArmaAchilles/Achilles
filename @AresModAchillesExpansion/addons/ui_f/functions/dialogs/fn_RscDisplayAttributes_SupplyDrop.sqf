@@ -407,7 +407,7 @@ switch (_mode) do
 
 				// Delete the name and classname from the respective arrays
 				_helicopterArray deleteAt _index;
-				_selectableAircraftClassnames deleteAt _index;
+				_classnamesForHelicopters deleteAt _index;
 			}
 			else
 			{
@@ -416,7 +416,7 @@ switch (_mode) do
 
 				// Delete the name and classname from the respective arrays
 				_planesArray deleteAt _index;
-				_selectableAircraftClassnames deleteAt _index;
+				_classnamesForPlanes deleteAt _index;
 			};
 
 		} forEach _aircraftForDeletion;
@@ -521,7 +521,7 @@ switch (_mode) do
 		if (_aircraftClassnames isEqualTo []) exitWith {};
 
 		// Get the selected aircraft classname.
-		private _selectedAircraft = (((_aircraftClassnames select _selectedSide) select _selectedFaction) select _selectedCategory) select _comboIndex;
+		private _selectedAircraft = (((_aircraftClassnames select _selectedSide) select _selectedFaction) select _selectedCategory) select (_comboIndex + 1);
 
 		// Set the classname to be used later in the module when spawning the aircraft.
 		player setVariable ["Achilles_var_supplyDrop_module_vehicleClass", _selectedAircraft];
@@ -540,7 +540,7 @@ switch (_mode) do
 	//
 	// Name: 6 (Ammo Crate or Vehicle)
 	//
-	// Called by: LZ/DZ control.
+	// Called by: LOADED.
 	//
 	// Handles: Ammuntion crate controls.
 	//
@@ -599,7 +599,7 @@ switch (_mode) do
 	//
 	// Name: 9 (Cargo side)
 	//
-	// Called by: Cargo inventory.
+	// Called by: LOADED.
 	//
 	// Handles: Cargo faction.
 	//
