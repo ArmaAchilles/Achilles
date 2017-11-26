@@ -196,11 +196,9 @@ switch (_mode) do
 			if (_lastDigit == 0 || _lastDigit == 6 || _lastDigit == 9) then
 			{
 				[_lastDigit, _ctrl, _lastChoice] call Achilles_fnc_RscDisplayAttributes_SupplyDrop;
-			}
-			else
-			{
-				uiNamespace setVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _lastDigit], _lastChoice];
 			};
+
+			uiNamespace setVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _lastDigit], _lastChoice];
 		} forEach 
 		[
 			IDC_SPAWN_SUPPLYDROP_SIDE,
@@ -511,9 +509,12 @@ switch (_mode) do
 	//////////
 	case "3":
 	{
+		private _factionIndexes = _dialog getVariable ["Achilles_var_SupplyDrop_dialog_factionsIndexes", []];
+		if (_factionIndexes isEqualTo []) exitWith {};
+
 		// Get the selected side, faction and category.
 		private _selectedSide = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_SIDE);
-		private _selectedFaction = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION);
+		private _selectedFaction = (_factionIndexes select _selectedSide) select (lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION));
 		private _selectedCategory = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CATEGORY);
 
 		// Get all the aircraft classnames.
@@ -523,8 +524,12 @@ switch (_mode) do
 		// Get the selected aircraft classname.
 		private _selectedAircraft = (((_aircraftClassnames select _selectedSide) select _selectedFaction) select _selectedCategory) select (_comboIndex + 1);
 
+		[_selectableAircraft, "_selectableAircraft"] call Achilles_fnc_logMessage;
+
 		// Set the classname to be used later in the module when spawning the aircraft.
 		player setVariable ["Achilles_var_supplyDrop_module_vehicleClass", _selectedAircraft];
+
+		player setVariable ["Achilles_var_supplyDrop_module_side", _selectedSide];
 
 		// Get the vehicle behaviour control.
 		private _vehicleBehaviourCtrl = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_BEHAVIOUR;
