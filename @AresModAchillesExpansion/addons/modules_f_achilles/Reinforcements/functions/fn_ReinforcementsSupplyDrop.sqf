@@ -13,73 +13,177 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private _object = [_logic, false] call Ares_fnc_getUnitUnderCursor;
+#define SIDES ["OPFOR","BLUFOR", localize "STR_INDEPENDENT"]
+#define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
-if (!(_object isKindOf "Helicopter")) exitWith {[localize "STR_NO_HELICOPTER_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
-if (isNull (driver _object)) exitWith {[localize "STR_HELICOPTER_NEEDS_DRIVER"] call Achilles_fnc_showZeusErrorMessage};
+private _LZs = (call Achilles_fnc_getAllLZsAndRPs) select 0;
+if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
 
-private _LZs = ["LZ"] call Achilles_fnc_getAllLZsOrRPs;
-if (count (_LZs select 0) == 0) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
-
-if (!isNull (getSlingLoad _object)) exitWith {[localize "STR_CARGO_ALREADY_ATTACHED"] call Achilles_fnc_showZeusErrorMessage};
+private _pos = getPos _logic;
 
 private _ammoCratesDisplayName = [];
-private _ammoCrates = ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"];
-{_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach _ammoCrates;
+{_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))} forEach AMMO_CRATES;
 
-//TODO: Possibly add option to spawn a helicopter
-//TODO: Maybe add vehicles as well
-//TODO: Add option to stay at or leave the LZ
 private _dialogResult =
 [
 	localize "STR_SUPPLY_DROP",
 	[
-		[localize "STR_AMMUNITION_CRATE", _ammoCratesDisplayName, 5],
+		[localize "STR_SIDE", SIDES],
+		[localize "STR_FACTION", [localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE",[localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
+		[localize "STR_LZ_DZ", (_LZs select 1)],
+		["Ammo Crate or Vehicle", ["Ammo Crate", "Vehicle"]],
+		[localize "STR_AMMUNITION_CRATE", _ammoCratesDisplayName],
 		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_VIRTUAL_ARSENAL", localize "STR_EMPTY"]],
-		[localize "STR_LZ_DZ", (_LZs select 1)]
-	]
+		[localize "STR_SIDE", SIDES],
+		[localize "STR_FACTION", [localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
+		[localize "STR_VEHICLE",[localize "STR_LOADING_"]]
+	],
+	"Achilles_fnc_RscDisplayAttributes_SupplyDrop"
 ] call Ares_fnc_showChooseDialog;
-if (count _dialogResult == 0) exitWith {};
 
-private _objectDriver = driver _object;
-private _objectGroup = group _objectDriver;
+if (_dialogResult isEqualTo []) exitWith {};
 
-_objectDriver setSkill 1;
-_objectGroup allowFleeing 0;
+_dialogResult params 
+[
+	"_",
+	"_",
+	"_",
+	"_",
+	"_aircraftBehaviour",
+	"_LZ",
+	"_cargoType",
+	"_cargoBoxCrate",
+	"_cargoBoxInventory",
+	"_",
+	"_",
+	"_",
+	"_cargoVehicle"
+];
 
-_dialogResult params ["_ammoCrateDisplayName", "_fillType", "_LZ"];
+private _aircraftClassname = player getVariable ["Achilles_var_supplyDrop_module_vehicleClass", ""];
+if (_aircraftClassname isEqualTo "") exitWith {["Error! Failed to spawn aircraft!"] call Achilles_fnc_showZeusErrorMessage};
 
-private _ammoCrateClassname = _ammoCrates select _ammoCrateDisplayName;
+private _aircraftSide = player getVariable ["Achilles_var_supplyDrop_module_side", 0];
 
-private _box = _ammoCrateClassname createVehicle (getPos _object);
-[[_box]] call Ares_fnc_AddUnitsToCurator;
-
-switch (_fillType) do
+_aircraftSide = switch (_aircraftSide) do
 {
-	case 1:
+	case 0: {east};
+	case 1: {west};
+	case 2: {independent};
+};
+
+private _spawnedAircraftArray = [_pos, 0, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
+
+private _aircraft = _spawnedAircraftArray select 0;
+private _aircraftCrew = _spawnedAircraftArray select 1;
+private _aircraftGroup = _spawnedAircraftArray select 2;
+
+[[_aircraft]] call Ares_fnc_AddUnitsToCurator;
+
+{
+	[[_x]] call Ares_fnc_AddUnitsToCurator;
+} forEach _aircraftCrew;
+
+private _aircraftDriver = driver _aircraft;
+
+_aircraftDriver setSkill 1;
+_aircraftGroup allowFleeing 0;
+
+// If the selected cargo is the ammo box.
+if (_cargoType == 0) then
+{
+	private _cargoBoxClassname = AMMO_CRATES select _cargoBoxCrate;
+
+	private _cargoBox = _cargoBoxClassname createVehicle _pos;
+
+	[[_cargoBox]] call Ares_fnc_AddUnitsToCurator;
+
+	switch (_cargoBoxInventory) do
 	{
-		//TODO: This works, but can't tell it to edit the boxes inventory
-		createDialog "RscDisplayAttributeInventory";
+		case 1:
+		{
+			createDialog "RscDisplayAttributeInventory";
+		};
+		case 2:
+		{
+			["AmmoboxInit", [_cargoBox, true]] spawn BIS_fnc_Arsenal;
+		};
+		case 3:
+		{
+			clearItemCargoGlobal _cargoBox;
+			clearWeaponCargoGlobal _cargoBox;
+			clearBackpackCargoGlobal _cargoBox;
+			clearMagazineCargoGlobal _cargoBox;
+		};
 	};
-	case 2:
+
+	private _hasAttached = _aircraft setSlingLoad _cargoBox;
+	if (!_hasAttached) exitWith 
 	{
-		["AmmoboxInit", [_box, true]] spawn BIS_fnc_arsenal;
-	};
-	case 3:
-	{
-		clearItemCargoGlobal _box;
-		clearWeaponCargoGlobal _box;
-		clearBackpackCargoGlobal _box;
-		clearMagazineCargoGlobal _box;
+		[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+		{deleteVehicle _x} forEach _aircraftCrew;
+		deleteVehicle _aircraft;
+		deleteVehicle _cargoBox;
 	};
 };
 
-private _hasAttached = _object setSlingLoad _box;
-if (!_hasAttached) exitWith {[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage; deleteVehicle _box};
+if (_cargoType == 1) then
+{
+	private _cargoClassname = player getVariable ["Achilles_var_supplyDrop_module_cargoVehicle", ""];
+	if (_cargoClassname isEqualTo "") exitWith {["Error! Failed to spawn cargo vehicle!"] call Achilles_fnc_showZeusErrorMessage};;
 
-private _LZWaypoint = _objectGroup addWaypoint [(getPos ((_LZs select 0) select _LZ)), 20];
-_objectGroup setSpeedMode "FULL";
-_LZWaypoint setWaypointType "UNHOOK";
-_objectGroup addWaypoint [(getPos _object), 0];
+	private _cargo = _cargoClassname createVehicle _pos;
+
+	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
+
+	if (_aircraft isKindOf "Helicopter") then
+	{
+		private _hasAttached = _aircraft setSlingLoad _cargo;
+		if (!_hasAttached) exitWith 
+		{
+			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+			{deleteVehicle _x} forEach _aircraftCrew;
+			deleteVehicle _aircraft;
+			deleteVehicle _cargo;
+		};
+	};
+	
+	if (_aircraft isKindOf "Plane") then
+	{
+		private _hasLoaded = _aircraft setVehicleCargo _cargo;
+		if (!_hasLoaded) exitWith 
+		{
+			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+			{deleteVehicle _x} forEach _aircraftCrew;
+			deleteVehicle _aircraft;
+			deleteVehicle _cargo;
+		};
+	};
+};
+
+private _LZWaypoint = _aircraftGroup addWaypoint [(getPos ((_LZs select 0) select _LZ)), 20];
+_aircraftGroup setSpeedMode "FULL";
+
+if ((getSlingLoad _aircraft) != objNull && !vehicleCargoEnabled _aircraft) then
+{
+	_LZWaypoint setWaypointType "UNHOOK";
+};
+
+if (!((getVehicleCargo _aircraft) isEqualTo [])) then
+{
+	_LZWaypoint setWaypointStatements ["true", "objNull setVehicleCargo ((getVehicleCargo (vehicle this)) select 0);"];
+};
+
+// If the aircraft is set to return back
+if (_aircraftBehaviour == 0) then
+{
+	private _returnWaypoint = _aircraftGroup addWaypoint [(getPos _aircraft), 0];
+	_returnWaypoint setWaypointTimeout [2, 2, 2];
+	_returnWaypoint setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+};
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
