@@ -23,7 +23,7 @@ if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles
 
 private _pos = getPos _logic;
 
-private _ammoCratesDisplayName = AMMO_CRATES apply {_ammoCratesDisplayName pushBack (getText (configFile >> "CfgVehicles" >> _x >> "displayName"))};
+private _ammoCratesDisplayName = AMMO_CRATES apply {getText (configFile >> "CfgVehicles" >> _x >> "displayName")};
 
 private _dialogResult =
 [
@@ -48,7 +48,7 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-_dialogResult params 
+_dialogResult params
 [
 	"_",
 	"_",
@@ -140,7 +140,7 @@ if (_cargoType == 1) then
 	if (_aircraft isKindOf "Helicopter") then
 	{
 		private _hasAttached = _aircraft setSlingLoad _cargo;
-		if (!_hasAttached) exitWith 
+		if (!_hasAttached) exitWith
 		{
 			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
 			{deleteVehicle _x} forEach _aircraftCrew;
@@ -148,11 +148,11 @@ if (_cargoType == 1) then
 			deleteVehicle _cargo;
 		};
 	};
-	
+
 	if (_aircraft isKindOf "Plane") then
 	{
 		private _hasLoaded = _aircraft setVehicleCargo _cargo;
-		if (!_hasLoaded) exitWith 
+		if (!_hasLoaded) exitWith
 		{
 			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
 			{deleteVehicle _x} forEach _aircraftCrew;

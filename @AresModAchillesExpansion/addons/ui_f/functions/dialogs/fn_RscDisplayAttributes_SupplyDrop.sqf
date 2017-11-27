@@ -98,7 +98,7 @@ switch (_mode) do
 
 			private _cargoVehicleArray = _cargoVehicles select _forEachIndex;
 			private _cargoVehicleClassnamesArray = _cargoVehicleClassnames select _forEachIndex;
-			
+
 			// Go through all factions (NATO, NATO (Pacific), FIA, etc.)
 			for "_i" from 0 to (_treeCtrl tvCount []) do
 			{
@@ -117,7 +117,7 @@ switch (_mode) do
 
 					private _hasHelicopters = _categoryName in VALID_CATEGORIES_HELICOPTERS;
 					private _hasPlanes = _categoryName in VALID_CATEGORIES_PLANES;
-					
+
 					if (_hasHelicopters || _hasPlanes) then
 					{
 						// Add the faction only then when it's in the allowed catgories and if it is not already in the array (if one faction has Planes and Helicopters)
@@ -132,12 +132,12 @@ switch (_mode) do
 						// Create seperate arrays for each faction that contain helicopters OR planes.
 						private _arrayIndexForType = (_aircraftArray select _arrayIndexForFaction) pushBack [_type];
 						private _arrayClassnameIndexForType = (_aircraftClassnamesArray select _arrayClassnameIndexForFaction) pushBack [_type];
-						
+
 						// Loop through all the aircraft that are in the Planes or Helicopters category
 						for "_z" from 0 to (_treeCtrl tvCount [_i, _y]) do
 						{
 							// Do not add if the name was an empty string (sometimes it returns it)
-							if ((_treeCtrl tvText [_i, _y, _z]) != "") then 
+							if ((_treeCtrl tvText [_i, _y, _z]) != "") then
 							{
 								((_aircraftArray select _arrayIndexForFaction) select _arrayIndexForType) pushBack (_treeCtrl tvText [_i, _y, _z]);
 								((_aircraftClassnamesArray select _arrayClassnameIndexForFaction) select _arrayClassnameIndexForType) pushBack (_treeCtrl tvData [_i, _y, _z]);
@@ -157,12 +157,12 @@ switch (_mode) do
 						// Create seperate arrays for each faction that contain helicopters OR planes.
 						private _arrayIndexForType = (_cargoVehicleArray select _cargoIndexForFaction) pushBack [_treeCtrl tvText [_i, _y]];
 						private _arrayClassnameIndexForType = (_cargoVehicleClassnamesArray select _cargoClassnameIndexForFaction) pushBack [_treeCtrl tvText [_i, _y]];
-						
+
 						// Loop through all the aircraft that are in the Planes or Helicopters category
 						for "_z" from 0 to (_treeCtrl tvCount [_i, _y]) do
 						{
 							// Do not add if the name was an empty string (sometimes it returns it)
-							if ((_treeCtrl tvText [_i, _y, _z]) != "") then 
+							if ((_treeCtrl tvText [_i, _y, _z]) != "") then
 							{
 								((_cargoVehicleArray select _cargoIndexForFaction) select _arrayIndexForType) pushBack (_treeCtrl tvText [_i, _y, _z]);
 								((_cargoVehicleClassnamesArray select _cargoClassnameIndexForFaction) select _arrayClassnameIndexForType) pushBack (_treeCtrl tvData [_i, _y, _z]);
@@ -199,7 +199,7 @@ switch (_mode) do
 			};
 
 			uiNamespace setVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _lastDigit], _lastChoice];
-		} forEach 
+		} forEach
 		[
 			IDC_SPAWN_SUPPLYDROP_SIDE,
 			IDC_SPAWN_SUPPLYDROP_BEHAVIOUR,
@@ -399,7 +399,7 @@ switch (_mode) do
 		// Add helicopters and planes to the two arrays
 		private _helicopterArray = [];
 		private _planesArray = [];
-		if ((count _aircraftFaction) isEqualTo 2) then 
+		if ((count _aircraftFaction) isEqualTo 2) then
 		{
 			// If there are planes and factions for the faction then add them to their specific arrays.
 			_helicopterArray = _aircraftFaction select 0;
@@ -502,11 +502,8 @@ switch (_mode) do
 
 		// Add all the available aircraft
 		{
-			if (_x != "HELICOPTER" && _x != "PLANE") then
-			{
-				_vehicleCtrl lbAdd _x;
-			};
-		} forEach _selectableAircraft;
+			_vehicleCtrl lbAdd _x;
+		} forEach (_selectableAircraft select {_x != "HELICOPTER" && _x != "PLANE"});
 
 		// Handle last choice
 		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
@@ -717,14 +714,14 @@ switch (_mode) do
 			_x params ["_name", "_classname"];
 			{
 				private _index = _x find _name;
-				
+
 				_x deleteAt _index;
 				(_selectedClassnames select _forEachIndex) deleteAt _index;
 			} forEach _selectedVehicles;
 		} forEach _vehiclesForDeletion;
 
 		// Clear out the list box and add the category names.
-		private _categoryIndexes = [];		
+		private _categoryIndexes = [];
 		lbClear _cargoVehicleCategoryCtrl;
 		{
 			private _vehicles = _x;
@@ -732,15 +729,12 @@ switch (_mode) do
 			private _type = _vehicles select 0;
 			{
 				// If something was left (not just the type name).
-				if (_type == _x && (count _vehicles > 1)) then
-				{
-					// Add it.
-					_cargoVehicleCategoryCtrl lbAdd _type;
-					
-					// Add indexes.
-					_categoryIndexes pushBack _index;
-				};
-			} forEach _x;
+				// Add it.
+				_cargoVehicleCategoryCtrl lbAdd _type;
+
+				// Add indexes.
+				_categoryIndexes pushBack _index;
+			} forEach (_x select {_type == _x && (count _vehicles > 1)});
 		} forEach _selectedVehicles;
 
 		// Set the indexes.
@@ -784,16 +778,13 @@ switch (_mode) do
 		private _selectedCategory = _categoryIndexes select lbCurSel _ctrl;
 
 		private _selectedVehicles = ((_cargoVehicles select _selectedSide) select _selectedFaction) select _selectedCategory;
-		
+
 		// Add the names.
 		private _type = _selectedVehicles select 0;
 		lbClear _cargoVehicleCtrl;
 		{
-			if (_x != _type) then
-			{
-				_cargoVehicleCtrl lbAdd _x;
-			}
-		} forEach _selectedVehicles;
+			_cargoVehicleCtrl lbAdd _x;
+		} forEach (_selectedVehicles select {_x != _type});
 
 		// Handle last choice
 		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_11", 0];
