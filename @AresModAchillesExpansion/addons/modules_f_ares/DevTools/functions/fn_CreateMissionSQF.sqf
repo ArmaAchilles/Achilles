@@ -182,15 +182,14 @@ private _totalUnitsProcessed = 0;
 	} forEach (units _x);
 
 	// Create the vehicles that are part of the group.
-    _output = _groupVehicles apply
     {
-        format [
-        "_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
-        (typeOf _x),
-        (position _x),
-        (getDir _x),
-        (getPosWorld _x)];
-    };
+    	_output pushBack format [
+    		"_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
+    	    (typeOf _x),
+     		(position _x),
+     		(getDir _x),
+     		(getPosWorld _x)];
+    } forEach _groupVehicles;
 
 	// Set group behaviours
 	_output pushBack format [
