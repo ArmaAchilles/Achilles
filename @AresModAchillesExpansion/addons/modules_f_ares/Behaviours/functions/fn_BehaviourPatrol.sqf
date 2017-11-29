@@ -70,7 +70,6 @@ if (!isNull _groupUnderCursor) then
 
 			_delay = switch (_dialogResult select 3) do
 			{
-				default {}; // Already set default (0) values
 				case 1:
 				{
 					// 15s
@@ -86,6 +85,9 @@ if (!isNull _groupUnderCursor) then
 					// 1m
 					[45, 60, 75]
 				};
+                default {
+                    [0, 0, 0]
+                };
 			};
 
 			// Remove other waypoints.
