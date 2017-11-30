@@ -45,8 +45,17 @@ switch _mode do
 		//--- Initialize attributes
 		private _posY = _ctrlContentOffsetY;
 		private _contentControls = _displayConfig >> "Controls" >> "Content" >> "Controls";
-		private _enableDebugConsole = ["DebugConsole",getnumber (missionconfigfile >> "enableDebugConsole")] call bis_fnc_getParamValue;
-		private _enableAdmin = (_enableDebugConsole == 1 && (isserver || serverCommandAvailable "#shutdown")) || _enableDebugConsole == 2;
+		private _curatorUID = getPlayerUID player;
+		private _enableDebugConsole = getMissionConfigValue ["enableDebugConsole", 0];
+		private _enableAdmin = false;
+		if (_enableDebugConsole isEqualType []) then
+		{
+			_enableAdmin = ((_enableDebugConsole find _curatorUID) != -1) || (isServer || serverCommandAvailable "#shutdown");
+		}
+		else
+		{
+			_enableAdmin = (_enableDebugConsole == 1 && (isserver || serverCommandAvailable "#shutdown")) || _enableDebugConsole == 2;
+		};
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
 			if (isclass _cfgControl) then {
