@@ -50,11 +50,12 @@ switch _mode do
 		private _enableAdmin = false;
 		if (_enableDebugConsole isEqualType []) then
 		{
-			_enableAdmin = ((_enableDebugConsole find _curatorUID) != -1) || (isServer || serverCommandAvailable "#shutdown");
-		}
-		else
+			_enableAdmin = ((_enableDebugConsole find _curatorUID) != -1) || (isServer || serverCommandAvailable "#shutdown") || !isMultiplayer;
+		};
+		
+		if (_enableDebugConsole isEqualType 0) then
 		{
-			_enableAdmin = (_enableDebugConsole == 1 && (isserver || serverCommandAvailable "#shutdown")) || _enableDebugConsole == 2;
+			_enableAdmin = (_enableDebugConsole == 1 && (isserver || serverCommandAvailable "#shutdown")) || !isMultiplayer || _enableDebugConsole == 2;
 		};
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
