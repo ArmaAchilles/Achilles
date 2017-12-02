@@ -13,6 +13,8 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+
 #define SIDES ["OPFOR","BLUFOR", localize "STR_INDEPENDENT"]
 #define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
@@ -69,18 +71,11 @@ if (_aircraftClassname isEqualTo "") exitWith {["Error! Failed to spawn aircraft
 
 private _aircraftSide = player getVariable ["Achilles_var_supplyDrop_module_side", 0];
 
-_aircraftSide = switch (_aircraftSide) do
-{
-	case 0: {east};
-	case 1: {west};
-	case 2: {independent};
-};
+_aircraftSide = _aircraftSide call BIS_fnc_sideType;
 
-private _spawnedAircraftArray = [_pos, 0, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
+private _spawnedAircraftArray = [_pos, (_pos getDir ((_LZs select 0) select _LZ)), _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
 
-private _aircraft = _spawnedAircraftArray select 0;
-private _aircraftCrew = _spawnedAircraftArray select 1;
-private _aircraftGroup = _spawnedAircraftArray select 2;
+_spawnedAircraftArray params ["_aircraft", "_aircraftCrew", "_aircraftGroup"];
 
 [[_aircraft]] call Ares_fnc_AddUnitsToCurator;
 
@@ -102,11 +97,23 @@ if (_cargoType == 0) then
 
 	[[_cargoBox]] call Ares_fnc_AddUnitsToCurator;
 
+	private _hasAttached = _aircraft setSlingLoad _cargoBox;
+	if (!_hasAttached) exitWith 
+	{
+		[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+		{deleteVehicle _x} forEach _aircraftCrew;
+		deleteVehicle _aircraft;
+		deleteVehicle _cargoBox;
+	};
+
 	switch (_cargoBoxInventory) do
 	{
 		case 1:
 		{
-			createDialog "RscDisplayAttributeInventory";
+			missionNamespace setVariable ["BIS_fnc_initCuratorAttributes_target", _cargoBox];
+			createDialog "RscDisplayAttributesInventory";
+			waitUntil {isNull ((uiNamespace getVariable "RscDisplayAttributesInventory") displayCtrl IDC_RSCATTRIBUTEINVENTORY_RSCATTRIBUTEINVENTORY)};
+			
 		};
 		case 2:
 		{
@@ -120,21 +127,12 @@ if (_cargoType == 0) then
 			clearMagazineCargoGlobal _cargoBox;
 		};
 	};
-
-	private _hasAttached = _aircraft setSlingLoad _cargoBox;
-	if (!_hasAttached) exitWith 
-	{
-		[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
-		{deleteVehicle _x} forEach _aircraftCrew;
-		deleteVehicle _aircraft;
-		deleteVehicle _cargoBox;
-	};
 };
 
 if (_cargoType == 1) then
 {
 	private _cargoClassname = player getVariable ["Achilles_var_supplyDrop_module_cargoVehicle", ""];
-	if (_cargoClassname isEqualTo "") exitWith {["Error! Failed to spawn cargo vehicle!"] call Achilles_fnc_showZeusErrorMessage};;
+	if (_cargoClassname isEqualTo "") exitWith {["Error! Failed to spawn cargo vehicle!"] call Achilles_fnc_showZeusErrorMessage};
 
 	private _cargo = _cargoClassname createVehicle _pos;
 
@@ -168,14 +166,13 @@ if (_cargoType == 1) then
 private _LZWaypoint = _aircraftGroup addWaypoint [(getPos ((_LZs select 0) select _LZ)), 20];
 _aircraftGroup setSpeedMode "FULL";
 
-if ((getSlingLoad _aircraft) != objNull && !vehicleCargoEnabled _aircraft) then
-{
-	_LZWaypoint setWaypointType "UNHOOK";
-};
-
 if (!((getVehicleCargo _aircraft) isEqualTo [])) then
 {
 	_LZWaypoint setWaypointStatements ["true", "objNull setVehicleCargo ((getVehicleCargo (vehicle this)) select 0);"];
+}
+else
+{
+	_LZWaypoint setWaypointType "UNHOOK";
 };
 
 // If the aircraft is set to return back
