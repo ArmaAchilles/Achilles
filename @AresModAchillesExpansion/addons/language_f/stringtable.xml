@@ -986,6 +986,10 @@
         <Original>Ammunition Crate</Original>
         <English>Ammunition Crate</English>
       </Key>
+      <Key ID="STR_AMMUNITION_CRATE_OR_VEHICLE">
+        <Original>Ammunition Crate or Vehicle</Original>
+        <English>Ammunition Crate or Vehicle</English>
+      </Key>
       <Key ID="STR_CARGO_LW">
         <Original>Cargo</Original>
         <English>Cargo</English>

@@ -36,7 +36,7 @@ private _dialogResult =
 		[localize "STR_VEHICLE",[localize "STR_LOADING_"]],
 		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
 		[localize "STR_LZ_DZ", (_LZs select 1)],
-		["Ammo Crate or Vehicle", ["Ammo Crate", "Vehicle"]],
+		[localize "STR_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMMUNITION_CRATE", localize "STR_VEHICLE"]],
 		[localize "STR_AMMUNITION_CRATE", _ammoCratesDisplayName],
 		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_VIRTUAL_ARSENAL", localize "STR_EMPTY"]],
 		[localize "STR_SIDE", SIDES],
