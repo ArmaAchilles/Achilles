@@ -96,11 +96,18 @@ private _addedObjects = 0;
 private _allCuratorObjectsAfter = curatorEditableObjects (getAssignedCuratorLogic player);
 if (_addObject) then
 {
-    _addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
+    //_addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
+	if (!(_allCuratorObjectsBefore isEqualTo _allCuratorObjectsAfter)) then
+	{
+		_addedObjects = count (_allCuratorObjectsAfter - _allCuratorObjectsBefore);
+	};
 }
 else
 {
-	_addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsBefore && !(_x in _allCuratorObjectsAfter)) && !isNull _x && _x != _logic});
+	if (!(_allCuratorObjectsBefore isEqualTo _allCuratorObjectsAfter)) then
+	{
+		_addedObjects = count (_allCuratorObjectsBefore - _allCuratorObjectsAfter);
+	};
 };
 
 private _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
