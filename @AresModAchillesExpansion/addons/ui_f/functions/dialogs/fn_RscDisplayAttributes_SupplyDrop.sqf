@@ -112,22 +112,22 @@ switch (_mode) do
 				// Go through all of the faction subcategories (Cars, Tanks, Planes, Helicopters, etc.)
 				for "_y" from 0 to (_treeCtrl tvCount [_i]) do
 				{
-					private _parentValue = _treeCtrl tvText [_i];
-					private _subValue = _treeCtrl tvText [_i, _y];
+					private _factionName = _treeCtrl tvText [_i];
+					private _categoryName = _treeCtrl tvText [_i, _y];
 
-					private _hasHelicopters = _subValue in VALID_CATEGORIES_HELICOPTERS;
-					private _hasPlanes = _subValue in VALID_CATEGORIES_PLANES;
+					private _hasHelicopters = _categoryName in VALID_CATEGORIES_HELICOPTERS;
+					private _hasPlanes = _categoryName in VALID_CATEGORIES_PLANES;
 					
 					if (_hasHelicopters || _hasPlanes) then
 					{
 						// Add the faction only then when it's in the allowed catgories and if it is not already in the array (if one faction has Planes and Helicopters)
-						if (!(_parentValue in _factionArray)) then
+						if (!(_factionName in _factionArray)) then
 						{
-							_factionArray pushBack _parentValue;
+							_factionArray pushBack _factionName;
 							_factionIndexesArray pushBack _i;
 						};
 
-						private _type = ["PLANE", "HELICOPTER"] select (_subValue in VALID_CATEGORIES_HELICOPTERS);
+						private _type = ["PLANE", "HELICOPTER"] select (_categoryName in VALID_CATEGORIES_HELICOPTERS);
 
 						// Create seperate arrays for each faction that contain helicopters OR planes.
 						private _arrayIndexForType = (_aircraftArray select _arrayIndexForFaction) pushBack [_type];
@@ -146,11 +146,11 @@ switch (_mode) do
 					};
 
 					// Cargo
-					if (_subValue in VALID_CARGO_CATEGORIES) then
+					if (_categoryName in VALID_CARGO_CATEGORIES) then
 					{
-						if (!(_parentValue in _cargoFactionArray)) then
+						if (!(_factionName in _cargoFactionArray)) then
 						{
-							_cargoFactionArray pushBack _parentValue;
+							_cargoFactionArray pushBack _factionName;
 							_cargoFactionIndexesArray pushBack _i;
 						};
 
@@ -225,8 +225,120 @@ switch (_mode) do
 		private _factions = _dialog getVariable ["Achilles_var_SupplyDrop_dialog_factionsArray", []];
 		if (_factions isEqualTo []) exitWith {};
 
-		// Get all factions from the selected side
+		// Get all current available categories for the selected side
+		private _aircraftNames = _dialog getVariable ["Achilles_var_SupplyDrop_dialog_aircraftNames", []];
+		if (_aircraftNames isEqualTo []) exitWith {};
+
+		// Get all the aircraft classnames
+		private _aircraftClassnames = _dialog getVariable ["Achilles_var_SupplyDrop_dialog_aircraftClassnames", []];
+		if (_aircraftClassnames isEqualTo []) exitWith {};
+
+		// Get the faction indexes
+		private _factionIndexes = _dialog getVariable ["Achilles_var_SupplyDrop_dialog_factionsIndexes", []];
+		if (_factionIndexes isEqualTo []) exitwith {};
+
+		// Get all factions and faction indexes from the selected side.
 		private _selectedFactions = _factions select _comboIndex;
+		private _selectedFactionIndexes = _factionIndexes select _comboIndex;
+		
+		// Get all aircraft from that side and classname.
+		private _aircraftSide = _aircraftNames select _comboIndex;
+		private _aircraftClassnameSide = _aircraftClassnames select _comboIndex;
+
+		private _aircraftForDeletion = [];
+		{
+			private _factionIndex = _forEachIndex;
+			private _aircraftClassnameArray = _aircraftClassnameSide select _factionIndex;
+			if ((count _x) > 0) then
+			{
+				{
+					private _typeIndex = _forEachIndex;
+					private _aircraftClassnames = _aircraftClassnameArray select _typeIndex;
+					private _type = _x select 0;
+					{
+						if (_x != "HELICOPTER" && _x != "PLANE") then
+						{
+							private _aircraftClassname = _aircraftClassnames select _forEachIndex;
+							if (_type == "HELICOPTER") then
+							{
+								// Get the max sling loadable mass on the helicopter
+								private _slingLoadPoints = getNumber (configFile >> "CfgVehicles" >> _aircraftClassname >> "slingLoadMaxCargoMass");
+
+								// If the there are no points for this helicopter, then remove it from the list.
+								if (_slingLoadPoints == 0) then
+								{
+									// Push the aircraft info to a seperate array where it will be deleted there.
+									_aircraftForDeletion pushBack [_x, _aircraftClassname, _factionIndex, _typeIndex];
+								};
+							};
+
+							if (_type == "PLANE") then
+							{
+								// Check if the vehicle-in-vehicle transport class exists for that plane
+								private _hasViVTransport = isClass (configFile >> "CfgVehicles" >> _aircraftClassname >> "VehicleTransport");
+
+								// If not then delete the aircraft from the list.
+								if (!_hasViVTransport) then
+								{
+									_aircraftForDeletion pushBack [_x, _aircraftClassname, _factionIndex, _typeIndex];
+								};
+							};
+						};
+					} forEach _x; // Loop through the aircraft types (helicopters, planes).
+				} forEach _x; // Loop through all aircraft from that faction (only one) (e.g. NATO)
+			};
+		} forEach _aircraftSide; // Loop all aircraft from that side (NATO, CTRG, NATO (Pacific).
+
+
+		// Delete the aircraft that don't match the criteria and mark a faction to be delted if no vehicles are left
+		private _factionForDeletion = [];
+		{
+			// Get the passed params
+			_x params ["_name", "_classname", "_factionIndex", "_typeIndex"];
+
+			// Get aircraft from the specific side, faction and the type.
+			private _vehicleArray = (_aircraftSide select _factionIndex) select _typeIndex;
+			
+			// Provides accurate indexes if one item was deleted.
+			private _index = _vehicleArray find _name;
+
+			// Delete the aircraft
+			_vehicleArray deleteAt _index;
+			((_aircraftClassnameSide select _factionIndex) select _typeIndex) deleteAt _index;
+
+			// Get all aircraft from one of the factions
+			private _aircraftArray = _aircraftSide select _factionIndex;
+			
+			// If has helicopters and planes.
+			if (count (_aircraftArray) == 2) then
+			{
+				private _helos = _aircraftArray select 0;
+				private _planes = _aircraftArray select 1;
+
+				if (count _helos == 1 && count _planes == 1) then
+				{
+					_factionForDeletion pushBack _factionIndex;
+				};
+			};
+
+			// If has only one (helicopters or planes).
+			if (count (_aircraftArray) == 1) then
+			{
+				private _helosOrPlanes = _aircraftArray select 0;
+
+				if (count _helosOrPlanes == 1) then
+				{
+					_factionForDeletion pushBack _factionIndex;
+				};
+			};
+		} forEach _aircraftForDeletion;
+
+		// Delete the factions
+		{
+			private _index = _selectedFactionIndexes find _x;
+			_selectedFactions deleteAt _index;
+			_selectedFactionIndexes deleteAt _index;
+		} forEach _factionForDeletion;
 
 		// Clear the faction list box from everything
 		private _factionCtrl = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION;
@@ -324,100 +436,6 @@ switch (_mode) do
 				_classnamesForPlanes = _classnameArray;
 			};
 		};
-
-		private _aircraftForDeletion = [];
-
-		if (!(_helicopterArray isEqualTo [])) then
-		{
-			// Get all the classnames for the available aircraft
-			private _selectableAircraftClassnames = _classnamesForHelicopters select _comboIndex;
-
-			// Loop through every helicopter that is available
-			{
-				if (_x != "HELICOPTER") then
-				{
-					// I went with find, because select could be unreliable due if the previous element had been deleted (using _forEachIndex).
-					// This solution may be slower but produces accurate indexes.
-					private _aircraftIndex = _helicopterArray find _x;
-
-					// Just in case it didn't find it
-					if (_aircraftIndex != -1) then
-					{
-						// Get the classname of this specific aircraft
-						private _aircraftClassname = _classnamesForHelicopters select _aircraftIndex;
-
-						// Get the max sling loadable mass on the helicopter
-						private _slingLoadPoints = getNumber (configFile >> "CfgVehicles" >> _aircraftClassname >> "slingLoadMaxCargoMass");
-
-						// If the there are no points for this helicopter, then remove it from the list.
-						if (_slingLoadPoints == 0) then
-						{
-							private _type = _helicopterArray select 0;
-
-							// Push the aircraft info to a seperate array where it will be deleted there.
-							_aircraftForDeletion pushBack [_x, _aircraftClassname, _type];
-						};
-					};
-				};
-			} forEach _helicopterArray;
-		};
-
-		if (!(_planesArray isEqualTo [])) then
-		{
-			// Get all the classnames for the available aircraft
-			private _selectableAircraftClassnames = _classnamesForPlanes select _comboIndex;
-
-			// Loop through every plane that is available
-			{
-				// Do not loop if the element is the Plane type.
-				if (_x != "PLANE") then
-				{
-					private _aircraftIndex = _planesArray find _x;
-
-					if (_aircraftIndex != -1) then
-					{
-						// Get classname
-						private _aircraftClassname = _classnamesForPlanes select _aircraftIndex;
-
-						// Check if the vehicle-in-vehicle transport class exists for that plane
-						private _hasViVTransport = isClass (configFile >> "CfgVehicles" >> _aircraftClassname >> "VehicleTransport");
-
-						// If not then delete the aircraft from the list.
-						if (!_hasViVTransport) then
-						{
-							private _type = _planesArray select 0;
-							_aircraftForDeletion pushBack [_x, _aircraftClassname, _type];
-						};
-					};
-				};
-			} forEach _planesArray;
-		};
-
-		// Workaround for the forEach loop due to other forEaches skipping elements when one of them is deleted.
-		{
-			// Get the passed params
-			_x params ["_name", "_classname", "_type"];
-
-			if (_type == "HELICOPTER") then
-			{
-				// We need a index to be updated on each deletion as the index will change
-				private _index = _helicopterArray find _name;
-
-				// Delete the name and classname from the respective arrays
-				_helicopterArray deleteAt _index;
-				_classnamesForHelicopters deleteAt _index;
-			}
-			else
-			{
-				// We need a index to be updated on each deletion as the index will change
-				private _index = _planesArray find _name;
-
-				// Delete the name and classname from the respective arrays
-				_planesArray deleteAt _index;
-				_classnamesForPlanes deleteAt _index;
-			};
-
-		} forEach _aircraftForDeletion;
 
 		// Clear out the list box
 		private _categoryCtrl = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CATEGORY;
@@ -523,8 +541,6 @@ switch (_mode) do
 
 		// Get the selected aircraft classname.
 		private _selectedAircraft = (((_aircraftClassnames select _selectedSide) select _selectedFaction) select _selectedCategory) select (_comboIndex + 1);
-
-		[_selectableAircraft, "_selectableAircraft"] call Achilles_fnc_logMessage;
 
 		// Set the classname to be used later in the module when spawning the aircraft.
 		player setVariable ["Achilles_var_supplyDrop_module_vehicleClass", _selectedAircraft];
