@@ -55,7 +55,7 @@ switch _mode do
 		
 		if (_enableDebugConsole isEqualType 0) then
 		{
-			_enableAdmin = (_enableDebugConsole == 1 && (call BIS_fnc_admin > 0)) || !isMultiplayer || _enableDebugConsole == 2;
+			_enableAdmin = (_enableDebugConsole == 1 && (call BIS_fnc_admin > 0 || isServer)) || !isMultiplayer || _enableDebugConsole == 2;
 		};
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
