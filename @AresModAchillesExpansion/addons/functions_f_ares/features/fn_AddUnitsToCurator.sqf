@@ -30,7 +30,7 @@ if (_addToCurator) then
 // handle simple objects
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 {
-	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
+	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_STR_AMAE_content"];
 
 	if (_addToCurator) then
 	{
@@ -64,8 +64,8 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 
 			if (!isNull _logic) then
 			{
-				_str_content = (str _object) splitString " ";
-				_displayName = _str_content select (count _str_content - 1);
+				_STR_AMAE_content = (str _object) splitString " ";
+				_displayName = _STR_AMAE_content select (count _STR_AMAE_content - 1);
 				[_logic, _displayName] remoteExecCall ["setName", 0, _logic];
 			} else
 			{

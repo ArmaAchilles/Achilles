@@ -4,9 +4,9 @@
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"
  
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_keyEject", 
-	localize "STR_KEY_EJECT_PASSENGERS", 
+	localize "STR_AMAE_KEY_EJECT_PASSENGERS", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -26,9 +26,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_keyGroup", 
-	localize "STR_KEY_GROUP", 
+	localize "STR_AMAE_KEY_GROUP", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -43,9 +43,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_keyUnGroup", 
-	localize "STR_KEY_UNGROUP", 
+	localize "STR_AMAE_KEY_UNGROUP", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -60,9 +60,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_deepCopy", 
-	localize "STR_KEY_DEEP_COPY", 
+	localize "STR_AMAE_KEY_DEEP_COPY", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -76,9 +76,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_deepPaste", 
-	localize "STR_KEY_DEEP_PASTE", 
+	localize "STR_AMAE_KEY_DEEP_PASTE", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -92,9 +92,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_countermeasure", 
-	localize "STR_KEY_COUNTERMEASURE", 
+	localize "STR_AMAE_KEY_COUNTERMEASURE", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
@@ -113,9 +113,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_increaseNVGBrightness", 
-	localize "STR_KEY_INCREASENVGBRIGHTNESS", 
+	localize "STR_AMAE_KEY_INCREASENVGBRIGHTNESS", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR && {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) exitWith
 		{
@@ -129,9 +129,9 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
 	"Achilles_id_decreaseNVGBrightness", 
-	localize "STR_KEY_DECREASEVGBRIGHTNESS", 
+	localize "STR_AMAE_KEY_DECREASEVGBRIGHTNESS", 
 	{
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR and {ppEffectEnabled (missionNamespace getVariable ["Achilles_var_NVGBrightnessEffect",-1])}) exitWith
 		{

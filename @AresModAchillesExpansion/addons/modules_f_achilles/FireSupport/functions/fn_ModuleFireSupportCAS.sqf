@@ -16,23 +16,23 @@ private _group = group _pilot;
 if (!(_vehicle isKindOf "Helicopter")) exitWith {["This module currently only works on attack choppers!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _weapons = [_vehicle,true] call Achilles_fnc_weaponsAllTurrets;
 _weapons = _weapons select {getText (configfile >> "CfgWeapons" >> _x >> "cursorAim") in ["missile","rocket"] or (getText (configfile >> "CfgWeapons" >> _x >> "cursor") in ["missile","rocket"])};
-if (_weapons isEqualTo []) exitWith {[localize "STR_NO_AMMO"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_weapons isEqualTo []) exitWith {[localize "STR_AMAE_NO_AMMO"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 private _allTargetsUnsorted = allMissionObjects "Achilles_Create_CAS_Target_Module";
-if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 {
 	_targetChoices pushBack (name _x);
 } forEach _allTargets;
-if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (count _targetChoices == 3) exitWith {[localize "STR_AMAE_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 private _dialogResult =
 [
-	localize "STR_ADVANCED_CAS",
+	localize "STR_AMAE_ADVANCED_CAS",
 	[
-		[format[localize "STR_TARGET", " "], _targetChoices],
-		[localize "STR_AMMO", _weapons apply {getText (configfile >> "CfgWeapons" >> _x >> "displayName")}]
+		[format[localize "STR_AMAE_TARGET", " "], _targetChoices],
+		[localize "STR_AMAE_AMMO", _weapons apply {getText (configfile >> "CfgWeapons" >> _x >> "displayName")}]
 	]
 ] call Ares_fnc_showChooseDialog;
 

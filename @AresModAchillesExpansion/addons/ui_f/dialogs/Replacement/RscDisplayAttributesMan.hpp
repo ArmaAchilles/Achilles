@@ -35,13 +35,13 @@ class RscDisplayAttributesMan: RscDisplayAttributes
 		
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "$STR_SKILL";
+			text = "$STR_AMAE_SKILL";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeSkills";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
-			text = "$STR_ARSENAL";
+			text = "$STR_AMAE_ARSENAL";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
 								[""Open"",[true,nil,BIS_fnc_initCuratorAttributes_target]] call bis_fnc_arsenal; \
 								[BIS_fnc_initCuratorAttributes_target] spawn { \

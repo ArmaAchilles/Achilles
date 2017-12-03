@@ -10,10 +10,10 @@
 
 private _dialogResult =
 [
-	localize "STR_TOGGLE_LAMPS",
+	localize "STR_AMAE_TOGGLE_LAMPS",
 	[
-		[localize "STR_MODE",[localize "STR_AUTOMATIC",localize "STR_SWITCH_OFF"],1],
-		[(localize "STR_RANGE") + " [m]","","100"]
+		[localize "STR_AMAE_MODE",[localize "STR_AMAE_AUTOMATIC",localize "STR_AMAE_SWITCH_OFF"],1],
+		[(localize "STR_AMAE_RANGE") + " [m]","","100"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

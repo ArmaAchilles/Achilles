@@ -7,7 +7,7 @@ class Achilles_Module_Supply_Drop : Achilles_Reinforcements_Module_Base
 {
 	scopeCurator = 2;
 	curatorCanAttach = 1;
-	displayName = "$STR_SUPPLY_DROP";
+	displayName = "$STR_AMAE_SUPPLY_DROP";
 	function = "Achilles_fnc_ReinforcementsSupplyDrop";
 	icon = "\achilles\data_f_achilles\icons\icon_supplyDrop.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_supplyDrop.paa";

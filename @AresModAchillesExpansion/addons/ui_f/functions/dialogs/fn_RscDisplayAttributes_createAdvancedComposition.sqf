@@ -29,7 +29,7 @@ switch (_mode) do
 
 		_category_ctrl = _dialog displayCtrl IDC_CATEGORIES;
 
-		_categories = [localize "STR_NEW_CATEGORY"];
+		_categories = [localize "STR_AMAE_NEW_CATEGORY"];
 		_custom_compositions = profileNamespace getVariable ["Achilles_var_compositions",[]];
 		if (count _custom_compositions > 0) then
 		{
@@ -102,7 +102,7 @@ switch (_mode) do
 			uiNamespace setVariable ['Ares_ChooseDialog_Result', 1];
 			closeDialog 1;
 		};
-		[localize "STR_ENTRY_ALREADY_EXISTS"] call Achilles_fnc_ShowZeusErrorMessage
+		[localize "STR_AMAE_ENTRY_ALREADY_EXISTS"] call Achilles_fnc_ShowZeusErrorMessage
 	};
 	case "UNLOAD" : {};
 	default

@@ -10,10 +10,10 @@
 
 private _dialogResult =
 [
-	localize "STR_HIDE_ZEUS",
+	localize "STR_AMAE_HIDE_ZEUS",
 	[
 		[
-			localize "STR_HIDE_ZEUS", [localize "STR_YES", localize "STR_NO"]
+			localize "STR_AMAE_HIDE_ZEUS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]
 		]
 	]
 ] call Ares_fnc_ShowChooseDialog;
@@ -21,7 +21,7 @@ private _dialogResult =
 if (_dialogResult isEqualTo []) exitWith {};
 
 private _invisible = (_dialogResult select 0) == 0;
-private _display_text = [localize "STR_ZEUS_IS_NOW_VISIBLE", localize "STR_ZEUS_IS_NOW_HIDDEN"] select _invisible;
+private _display_text = [localize "STR_AMAE_ZEUS_IS_NOW_VISIBLE", localize "STR_AMAE_ZEUS_IS_NOW_HIDDEN"] select _invisible;
 
 private _curatorLogic = getAssignedCuratorLogic player;
 if (_invisible and !(isObjectHidden player)) then

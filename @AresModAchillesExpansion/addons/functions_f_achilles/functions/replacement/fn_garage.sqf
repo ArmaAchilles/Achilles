@@ -661,7 +661,7 @@ switch _mode do {
 
 					//--- Driver
 					if (getnumber (_cfg >> "hasdriver") > 0) then {
-						_text = [localize "str_driver", localize "str_pilot"] select (_center iskindof "air");
+						_text = [localize "STR_AMAE_driver", localize "STR_AMAE_pilot"] select (_center iskindof "air");
 						_isPlayer = isplayer driver _center;
 						if (_isPlayer) then {_text = format ["%1 (%2)",_text,name player];};
 						_lbAdd = _ctrlListCrew lbadd _text;
@@ -711,7 +711,7 @@ switch _mode do {
 					_cargoProxyIndexes resize (_transportSoldier min (count _cargoProxyIndexes)); //--- Do not let cargoProxyIndexes be larger than transportSoldier. Added because of misconfigured HEMTTs
 					{
 						_locked = _center lockedcargo (_x - 1);
-						_lbAdd = _ctrlListCrew lbadd format ["%1 #%2",localize "STR_GETIN_POS_PASSENGER",_foreachindex + 1];
+						_lbAdd = _ctrlListCrew lbadd format ["%1 #%2",localize "STR_AMAE_GETIN_POS_PASSENGER",_foreachindex + 1];
 						_ctrlListCrew lbsetdata [_lbAdd,"Cargo"];
 						_ctrlListCrew lbsetvalue [_lbAdd,if (_locked) then {-_x} else {_x}];
 						_ctrlListCrew lbsetpicture [_lbAdd,_checkboxTextures select ((_x - 1) in _occupiedSeats)];

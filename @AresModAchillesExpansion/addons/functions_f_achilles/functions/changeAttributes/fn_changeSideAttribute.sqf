@@ -25,9 +25,9 @@ if (isNil "Achilles_var_changeSide_init_done") then
 
 private _dialogResult =
 [
-	localize "STR_CHANGE_SIDE",
+	localize "STR_AMAE_CHANGE_SIDE",
 	[
-		[localize "STR_SIDE","SIDE",([_side] call BIS_fnc_sideID) + 1, true]
+		[localize "STR_AMAE_SIDE","SIDE",([_side] call BIS_fnc_sideID) + 1, true]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

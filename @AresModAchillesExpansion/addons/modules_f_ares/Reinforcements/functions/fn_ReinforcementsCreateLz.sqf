@@ -8,9 +8,9 @@ private _targetPhoneticName = [Ares_ReinforcementLzCount] call Ares_fnc_GetPhone
 private _target_name = format ["LZ %1", _targetPhoneticName];
 private _dialogResult =
 [
-	localize "STR_CREATE_NEW_LZ",
+	localize "STR_AMAE_CREATE_NEW_LZ",
 	[
-		[localize "STR_NAME", "", _target_name, true]
+		[localize "STR_AMAE_NAME", "", _target_name, true]
 	]
 ] call Ares_fnc_showChooseDialog;
 if (_dialogResult isEqualTo []) exitWith {_deleteModuleOnExit = true};

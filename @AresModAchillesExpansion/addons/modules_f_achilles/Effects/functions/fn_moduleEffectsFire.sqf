@@ -16,7 +16,7 @@ params ["_logic"];
 
 // Create our dialog to show all the data
 private _dialogResult = [
-	localize "STR_EFFECTS_CUSTOM_FIRE",
+	localize "STR_AMAE_EFFECTS_CUSTOM_FIRE",
 	[
 		[localize "STR_A3_CfgVehicles_ModuleEffectsFire_F_Arguments_ColorRed_0", "", "0.5"],
 		[localize "STR_A3_CfgVehicles_ModuleEffectsFire_F_Arguments_ColorGreen_0", "", "0.5"],

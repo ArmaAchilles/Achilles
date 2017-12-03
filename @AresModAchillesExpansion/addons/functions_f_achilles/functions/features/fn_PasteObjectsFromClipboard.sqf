@@ -163,4 +163,4 @@ private _object_list = [];
 } forEach _object_info_list;
 
 [_object_list, true] call Ares_fnc_AddUnitsToCurator;
-[format [localize "STR_COPIED_UNITS", count _object_list]] call Ares_fnc_ShowZeusMessage;
+[format [localize "STR_AMAE_COPIED_UNITS", count _object_list]] call Ares_fnc_ShowZeusMessage;

@@ -24,15 +24,15 @@ private _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
 
 private _skill_choices =
 [
-	["SLIDER", localize "STR_AIMING_ACCURACY"],
-	["SLIDER", localize "STR_AIMING_SHAKE"],
-	["SLIDER", localize "STR_AIMING_SPEED"],
-	["SLIDER", localize "STR_ENDURANCE"],
-	["SLIDER", localize "STR_SPOT_DISTANCE"],
-	["SLIDER", localize "STR_SPOT_TIME"],
-	["SLIDER", localize "STR_COURAGE"],
-	["SLIDER", localize "STR_RELOAD_SPEED"],
-	["SLIDER", localize "STR_COMMANIDNG"]
+	["SLIDER", localize "STR_AMAE_AIMING_ACCURACY"],
+	["SLIDER", localize "STR_AMAE_AIMING_SHAKE"],
+	["SLIDER", localize "STR_AMAE_AIMING_SPEED"],
+	["SLIDER", localize "STR_AMAE_ENDURANCE"],
+	["SLIDER", localize "STR_AMAE_SPOT_DISTANCE"],
+	["SLIDER", localize "STR_AMAE_SPOT_TIME"],
+	["SLIDER", localize "STR_AMAE_COURAGE"],
+	["SLIDER", localize "STR_AMAE_RELOAD_SPEED"],
+	["SLIDER", localize "STR_AMAE_COMMANIDNG"]
 ];
 
 private _skillRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
@@ -55,17 +55,17 @@ if (_is_single_unit) then
 			_medic_class = if (_entity getUnitTrait "medic") then {1} else {0};
 		};
 		[
-			["COMBOBOX", localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_CLS", localize "STR_DOCTOR"], _medic_class, true],
-			["COMBOBOX", localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEngineer), true],
-			["COMBOBOX", localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEOD), true]
+			["COMBOBOX", localize "STR_AMAE_MEDICINE",[localize "STR_AMAE_FALSE", localize "STR_AMAE_CLS", localize "STR_AMAE_DOCTOR"], _medic_class, true],
+			["COMBOBOX", localize "STR_AMAE_ENGINEER",[localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEngineer), true],
+			["COMBOBOX", localize "STR_AMAE_EOD",[localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], parseNumber ([_entity] call ace_common_fnc_isEOD), true]
 		]
 	} else
 	{
 		_number_of_traits = N_TRAITS;
 		[
-			["COMBOBOX", localize "STR_MEDICINE",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "medic"), true],
-			["COMBOBOX", localize "STR_ENGINEER",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "engineer"), true],
-			["COMBOBOX", localize "STR_EOD",[localize "STR_FALSE", localize "STR_TRUE"], parseNumber (_entity getUnitTrait "explosiveSpecialist"), true]
+			["COMBOBOX", localize "STR_AMAE_MEDICINE",[localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], parseNumber (_entity getUnitTrait "medic"), true],
+			["COMBOBOX", localize "STR_AMAE_ENGINEER",[localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], parseNumber (_entity getUnitTrait "engineer"), true],
+			["COMBOBOX", localize "STR_AMAE_EOD",[localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], parseNumber (_entity getUnitTrait "explosiveSpecialist"), true]
 		]
 	};
 	_choices append _skill_choices;
@@ -86,7 +86,7 @@ if (_is_single_unit) then
 
 _dialogResult =
 [
-	localize "STR_SKILL",
+	localize "STR_AMAE_SKILL",
 	_choices
 ] call Achilles_fnc_ShowChooseDialog;
 

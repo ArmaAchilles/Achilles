@@ -27,14 +27,14 @@ class cfgWaypoints
 		};
 		class Paradrop
 		{
-			displayName = "$STR_PARADROP";
+			displayName = "$STR_AMAE_PARADROP";
 			displayNameDebug = "PARADROP";
 			file = "\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_dropzone.paa";
 		};
 		class SearchBuilding
 		{
-			displayName = "$STR_SEARCH_BUILDING";
+			displayName = "$STR_AMAE_SEARCH_BUILDING";
 			displayNameDebug = "SearchBuilding";
 			file = "\achilles\functions_f_achilles\scripts\fn_wpSearchBuilding.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_position.paa";

@@ -29,7 +29,7 @@ switch _mode do
 
 		private _display = _params select 0;
 		private _ctrlTitle = _display displayCtrl IDC_RSCATTRIBUTEDIALOGTITLE_VALUE;
-		_ctrlTitle ctrlSetText localize "STR_SET_DATE";
+		_ctrlTitle ctrlSetText localize "STR_AMAE_SET_DATE";
 
 		// set year
 		private _ctrlYear = _display displayctrl IDC_RSCATTRIBUTEYEAR_VALUE;
@@ -102,13 +102,13 @@ switch _mode do
 		private _dayID = 1;
 		private _weekDay = floor (_dayID + _monthID + _yearID + _yearID / 4 + _centuryID) % 7;
 		private _dayNames = [
-			'str_sunday',
-			'str_monday',
-			'str_tuesday',
-			'str_wednesday',
-			'str_thursday',
-			'str_friday',
-			'str_saturday'
+			'STR_sunday',
+			'STR_monday',
+			'STR_tuesday',
+			'STR_wednesday',
+			'STR_thursday',
+			'STR_friday',
+			'STR_saturday'
 		];
 
 		private _cursel = lbcursel _ctrlDay;

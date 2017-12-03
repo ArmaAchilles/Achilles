@@ -12,18 +12,18 @@ private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
 private _dialogResult =
 [
-	localize "STR_CHANGE_HEIGHT",
+	localize "STR_AMAE_CHANGE_HEIGHT",
 	[
-		[(localize "STR_HEIGHT") + " [m]", "","0"]
+		[(localize "STR_AMAE_HEIGHT") + " [m]", "","0"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
 private _height = parseNumber (_dialogResult select 0);
 
-if (isNull (_objects select 0)) then { _objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits };
+if (isNull (_objects select 0)) then { _objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits };
 if (isNil "_objects") exitWith {};
-if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
+if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
 {
 	[_x,_height] spawn
 	{

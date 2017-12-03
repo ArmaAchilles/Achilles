@@ -1,8 +1,8 @@
 [
 	"Achilles_var_setRadioFrequenciesSR_Default",
 	"EDITBOX",
-	localize "STR_SET_SR_RADIO_DEFAULT_FREQ",
-	localize "STR_ACHILLES_DEFAULTS",
+	localize "STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ",
+	localize "STR_AMAE_ACHILLES_DEFAULTS",
 	"150",
 	false,
 	{}
@@ -11,8 +11,8 @@
 [
 	"Achilles_var_setRadioFrequenciesLR_Default",
 	"EDITBOX",
-	localize "STR_SET_LR_RADIO_DEFAULT_FREQ",
-	localize "STR_ACHILLES_DEFAULTS",
+	localize "STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ",
+	localize "STR_AMAE_ACHILLES_DEFAULTS",
 	"50",
 	false,
 	{}

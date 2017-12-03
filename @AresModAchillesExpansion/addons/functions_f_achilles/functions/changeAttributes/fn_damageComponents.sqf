@@ -31,7 +31,7 @@ for "_i" from 0 to (count (_allHitPointsDamage select 0) - 1) do
 
 private _attribute_values =
 [
-	localize "STR_DAMAGE_COMPONENTS",
+	localize "STR_AMAE_DAMAGE_COMPONENTS",
 	_entries
 ] call Achilles_fnc_ShowChooseDialog;
 

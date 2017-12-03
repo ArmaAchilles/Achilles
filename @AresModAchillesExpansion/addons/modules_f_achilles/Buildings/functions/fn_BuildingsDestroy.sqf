@@ -12,12 +12,12 @@ private _center_pos = position _logic;
 
 private _dialogResult =
 [
-	localize "STR_DAMAGE_BUILDINGS",
+	localize "STR_AMAE_DAMAGE_BUILDINGS",
 	[
-		[localize "STR_SELECTION", [localize "STR_NEAREST", localize "STR_RANGE"]],
-		[localize "STR_MEAN_DAMAGE",[localize "STR_NO_DAMAGE",localize "STR_LIGHT_INJURY",localize "STR_SEVERE",localize "STR_FULL_DAMAGE"],2],
-		[localize "STR_DISTRIBUTION",[localize "STR_DELTA",localize "STR_UNIFORM", localize "STR_NORMAL_DISTRIBUTION"]],
-		[(localize "STR_RANGE") + " [m]","","100"]
+		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE"]],
+		[localize "STR_AMAE_MEAN_DAMAGE",[localize "STR_AMAE_NO_DAMAGE",localize "STR_AMAE_LIGHT_INJURY",localize "STR_AMAE_SEVERE",localize "STR_AMAE_FULL_DAMAGE"],2],
+		[localize "STR_AMAE_DISTRIBUTION",[localize "STR_AMAE_DELTA",localize "STR_AMAE_UNIFORM", localize "STR_AMAE_NORMAL_DISTRIBUTION"]],
+		[(localize "STR_AMAE_RANGE") + " [m]","","100"]
 	],
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;

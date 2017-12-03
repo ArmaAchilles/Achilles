@@ -34,9 +34,9 @@
 #define CURATOR_IDCs 							[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
 
 // TODO: Changes the localization values to default A3 ones
-#define VALID_CATEGORIES_HELICOPTERS 			[localize "STR_CHOPPERS", localize "STR_RHS_VEHCLASS_HELICOPTER"]
-#define VALID_CATEGORIES_PLANES 				[localize "STR_PLANES", localize "STR_RHS_VEHCLASS_AIRPLANE"]
-#define VALID_CARGO_CATEGORIES 					[localize "STR_CARS", localize "STR_APCS", localize "STR_SHIPS", localize "STR_RHS_VEHCLASS_APC", localize "STR_RHS_VEHCLASS_IFV", localize "STR_RHS_VEHCLASS_TRUCK", localize "STR_RHS_VEHCLASS_CAR", localize "STR_RHS_VEHCLASS_TANK", localize "STR_RHSUSF_VEHCLASS_MRAP"]
+#define VALID_CATEGORIES_HELICOPTERS 			[localize "STR_AMAE_CHOPPERS", localize "STR_AMAE_RHS_VEHCLASS_HELICOPTER"]
+#define VALID_CATEGORIES_PLANES 				[localize "STR_AMAE_PLANES", localize "STR_AMAE_RHS_VEHCLASS_AIRPLANE"]
+#define VALID_CARGO_CATEGORIES 					[localize "STR_AMAE_CARS", localize "STR_AMAE_APCS", localize "STR_AMAE_SHIPS", localize "STR_AMAE_RHS_VEHCLASS_APC", localize "STR_AMAE_RHS_VEHCLASS_IFV", localize "STR_AMAE_RHS_VEHCLASS_TRUCK", localize "STR_AMAE_RHS_VEHCLASS_CAR", localize "STR_AMAE_RHS_VEHCLASS_TANK", localize "STR_AMAE_RHSUSF_VEHCLASS_MRAP"]
 
 #define SIDES 									["East", "West", "Independent"]
 #define CARGO_SIDES 							["East", "West", "Independent", "Civilian"]
@@ -446,7 +446,7 @@ switch (_mode) do
 		{
 			if ((_helicopterArray select 0) isEqualTo "HELICOPTER") then
 			{
-				_categoryCtrl lbAdd (localize "STR_CHOPPERS");
+				_categoryCtrl lbAdd (localize "STR_AMAE_CHOPPERS");
 			};
 		};
 
@@ -455,7 +455,7 @@ switch (_mode) do
 		{
 			if ((_planesArray select 0) isEqualTo "PLANE") then
 			{
-				_categoryCtrl lbAdd (localize "STR_PLANES");
+				_categoryCtrl lbAdd (localize "STR_AMAE_PLANES");
 			};
 		};
 

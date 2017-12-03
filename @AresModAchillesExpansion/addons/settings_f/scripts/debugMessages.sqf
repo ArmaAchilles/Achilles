@@ -1,8 +1,8 @@
 [
     "Achilles_Debug_Output_Enabled",
     "CHECKBOX",
-    localize "STR_DEBUG_OUTPUT",
-    localize "STR_ACHILLES_DEBUG_SETTINGS",
+    localize "STR_AMAE_DEBUG_OUTPUT",
+    localize "STR_AMAE_ACHILLES_DEBUG_SETTINGS",
     false,
 	false,
 	{}

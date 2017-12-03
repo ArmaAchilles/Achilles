@@ -11,12 +11,12 @@
 private _tp_pos = position _logic;
 
 private _dialogResult = [
-	localize "STR_TELEPORT",
+	localize "STR_AMAE_TELEPORT",
 	[
-		[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
+		[localize "STR_AMAE_MODE",[localize "STR_AMAE_ZEUS", localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE", localize "STR_AMAE_PLAYERS", localize "STR_AMAE_GROUP"]],
 		["", ["..."]],
-		[localize "STR_SIDE","ALLSIDE"],
-		[localize "STR_INCLUDE_VEHICLES",[localize "STR_FALSE",localize "STR_TRUE"]]
+		[localize "STR_AMAE_SIDE","ALLSIDE"],
+		[localize "STR_AMAE_INCLUDE_VEHICLES",[localize "STR_AMAE_FALSE",localize "STR_AMAE_TRUE"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_selectPlayers"
 ] call Ares_fnc_ShowChooseDialog;
@@ -35,7 +35,7 @@ private _playersToTeleport = switch (_dialogResult select 0) do
 	};
 	case 2:
 	{
-		private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
+		private _selection = [toLower localize "STR_AMAE_PLAYERS"] call Achilles_fnc_SelectUnits;
 		if (isNil "_selection") exitWith {nil};
 		_selection select {isPlayer _x};
 	};

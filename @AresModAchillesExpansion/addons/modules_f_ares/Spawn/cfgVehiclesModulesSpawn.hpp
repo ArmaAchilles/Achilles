@@ -1,6 +1,6 @@
 class Ares_Spawn_Module_Base : Ares_Module_Base
 {
-	//subCategory = "$STR_SPAWN";
+	//subCategory = "$STR_AMAE_SPAWN";
 	Category = "Achilles_fac_Spawn";
 };
 	

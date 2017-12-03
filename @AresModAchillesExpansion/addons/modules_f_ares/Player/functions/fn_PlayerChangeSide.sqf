@@ -18,11 +18,11 @@ if (isNull _unitUnderCursor) then
 {
 	// select players
 	private _dialogResult = [
-		format ["%1 (%2)",localize "STR_CHANGE_SIDE_OF_PLAYER",localize "STR_SELECT_PLAYERS"],
+		format ["%1 (%2)",localize "STR_AMAE_CHANGE_SIDE_OF_PLAYER",localize "STR_AMAE_SELECT_PLAYERS"],
 		[
-			[localize "STR_MODE",[localize "STR_ZEUS", localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE", localize "STR_PLAYER", localize "STR_GROUP"]],
+			[localize "STR_AMAE_MODE",[localize "STR_AMAE_ZEUS", localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE", localize "STR_AMAE_PLAYERS", localize "STR_AMAE_GROUP"]],
 			["", ["..."]],
-			[localize "STR_SIDE","SIDE"]
+			[localize "STR_AMAE_SIDE","SIDE"]
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectPlayers"
 	] call Ares_fnc_ShowChooseDialog;
@@ -41,7 +41,7 @@ if (isNull _unitUnderCursor) then
 		};
 		case 2:
 		{
-			private _selection = [toLower localize "STR_PLAYERS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_AMAE_PLAYERS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {isPlayer _x};
 		};
@@ -62,14 +62,14 @@ if (isNull _unitUnderCursor) then
 	};
 	sleep 1;
 	if (isNil "_units") exitWith {};
-	if (_units isEqualTo []) exitWith { [localize "STR_NO_PLAYER_IN_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage };
+	if (_units isEqualTo []) exitWith { [localize "STR_AMAE_NO_PLAYER_IN_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage };
 
 	// select side to switch
 	_dialogResult =
 	[
-		localize "STR_CHANGE_SIDE_OF_PLAYER",
+		localize "STR_AMAE_CHANGE_SIDE_OF_PLAYER",
 		[
-			[localize "STR_SIDE", "SIDE"]
+			[localize "STR_AMAE_SIDE", "SIDE"]
 		]
 	] call Ares_fnc_ShowChooseDialog;
 	if (_dialogResult isEqualTo []) exitWith {};
@@ -79,10 +79,10 @@ else
 {
 	private _dialogResult =
 	[
-		localize "STR_CHANGE_SIDE_OF_PLAYER",
+		localize "STR_AMAE_CHANGE_SIDE_OF_PLAYER",
 		[
-			[localize "STR_CHANGE_SIDE_FOR", [localize "STR_ENTIRE_GROUP", localize "STR_SELECTED_PLAYER"]],
-			[localize "STR_SIDE", "SIDE"]
+			[localize "STR_AMAE_CHANGE_SIDE_FOR", [localize "STR_AMAE_ENTIRE_GROUP", localize "STR_AMAE_SELECTED_PLAYER"]],
+			[localize "STR_AMAE_SIDE", "SIDE"]
 		]
 	] call Ares_fnc_ShowChooseDialog;
 
@@ -118,6 +118,6 @@ while {count _units > 0} do
 	_selectedUnits joinSilent _newGroup;
 	_units = _units - _selectedUnits;
 };
-[localize "STR_CHANGED_SIDE_FOR_PLAYERS", count _units] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_CHANGED_SIDE_FOR_PLAYERS", count _units] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

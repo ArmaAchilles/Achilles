@@ -18,7 +18,7 @@ private _faction_names = [];
 				format ["Achilles_var_%1",_faction],
 				"CHECKBOX",
 				_faction_name,
-				localize "STR_AVAILABLE_FACTIONS",
+				localize "STR_AMAE_AVAILABLE_FACTIONS",
 				true,
 				false,
 				compile 

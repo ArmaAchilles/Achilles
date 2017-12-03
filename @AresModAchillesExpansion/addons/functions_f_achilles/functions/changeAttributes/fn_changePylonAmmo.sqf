@@ -16,14 +16,14 @@
 
 params ["_plane"];
 private _planeType = typeOf _plane;
-if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_NO_DYNAMIC_LOADOUT"] call Achilles_fnc_ShowZeusErrorMessage; nil};
+if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent")) exitWith {[localize "STR_AMAE_NO_DYNAMIC_LOADOUT"] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 private _hasGunner = count fullCrew [_plane, "gunner", true] == 1;
 
 private _allCurrentPylonMagazines = getPylonMagazines _plane;
 private _pylon_cfgs = (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent" >> "pylons") call BIS_fnc_returnChildren;
 private _entries = [];
-if (_hasGunner) then {_entries pushBack [localize "STR_ASSIGN_WEAPONS", [localize "STR_DRIVER", localize "STR_GUNNER"], 1]};
+if (_hasGunner) then {_entries pushBack [localize "STR_AMAE_ASSIGN_WEAPONS", [localize "STR_AMAE_DRIVER", localize "STR_AMAE_GUNNER"], 1]};
 {
 	private _pylon_cfg = _x;
 	private _pylonIndex = _forEachIndex + 1;
@@ -38,7 +38,7 @@ if (_hasGunner) then {_entries pushBack [localize "STR_ASSIGN_WEAPONS", [localiz
 	_entries pushBack [configName _pylon_cfg, _magazineNames, _defaultIndex, true];
 } forEach _pylon_cfgs;
 
-private _dialogResult = [localize "STR_LOADOUT", _entries] call Ares_fnc_ShowChooseDialog;
+private _dialogResult = [localize "STR_AMAE_LOADOUT", _entries] call Ares_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
 private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;

@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-#define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS",localize "STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
+#define ACHILLES_CATEGORIES [localize "STR_AMAE_BUILDINGS",localize "STR_AMAE_OBJECTS",localize "STR_AMAE_ARSENAL",localize "STR_AMAE_AI_BEHAVIOUR",localize "STR_AMAE_DEV_TOOLS",localize "STR_AMAE_EQUIPMENT",localize "STR_AMAE_PLAYERS",localize "STR_AMAE_REINFORCEMENTS",localize "STR_AMAE_SPAWN"]
 
 disableSerialization;
 

@@ -21,16 +21,16 @@ if (isNull _unit) then
 {
 	private _dialogResult =
 	[
-		(localize "STR_CHATTER") + " (CROSSROAD):",
+		(localize "STR_AMAE_CHATTER") + " (CROSSROAD):",
 		[
-			[localize "STR_SIDE",
+			[localize "STR_AMAE_SIDE",
 			[
 				"BLUEFOR",
 				"OPFOR",
-				localize "STR_INDEPENDENT",
-				localize "STR_CIVILIANS"
+				localize "STR_AMAE_INDEPENDENT",
+				localize "STR_AMAE_CIVILIANS"
 			]],
-			[localize "STR_MESSAGE",""
+			[localize "STR_AMAE_MESSAGE",""
 			]
 		],
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
@@ -52,17 +52,17 @@ if (isNull _unit) then
 	private _name = if (isNil {_unit getVariable "Achilles_var_switchUnit_data"}) then {name _unit} else {(_unit getVariable "Achilles_var_switchUnit_data") select 0};
 	private _dialogResult =
 	[
-		(localize "STR_CHATTER") + format [" (%1):", _name],
+		(localize "STR_AMAE_CHATTER") + format [" (%1):", _name],
 		[
-			[localize "STR_CHANNEL",
+			[localize "STR_AMAE_CHANNEL",
 			[
-				localize "STR_GLOBAL",
-				localize "STR_SIDE",
-				localize "STR_VEHICLE",
-				localize "STR_COMMAND",
-				localize "STR_ZEUS"
+				localize "STR_AMAE_GLOBAL",
+				localize "STR_AMAE_SIDE",
+				localize "STR_AMAE_VEHICLE",
+				localize "STR_AMAE_COMMAND",
+				localize "STR_AMAE_ZEUS"
 			]],
-			[localize "STR_MESSAGE",""
+			[localize "STR_AMAE_MESSAGE",""
 			]
 		],
 		"Achilles_fnc_RscDisplayAttributes_Chatter"
@@ -84,7 +84,7 @@ if (isNull _unit) then
 	if (_chat_type == "") exitWith {[player,_message] remoteExec ['sideChat',0];};
 
 
-	_message = "(" + (_name) + " [" + localize "STR_AI" + "]) " + _message;
+	_message = "(" + (_name) + " [" + localize "STR_AMAE_AI" + "]) " + _message;
 
 	[_unit,_message] remoteExec [_chat_type,0];
 };

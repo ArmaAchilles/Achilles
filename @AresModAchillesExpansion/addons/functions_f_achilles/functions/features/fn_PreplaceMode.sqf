@@ -53,7 +53,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	playSound "FD_Finish_F";
 	//[["Ares","SelectionOption"]] call BIS_fnc_advHint;
 
-	_ctrlMessage ctrlsettext (localize "STR_MOVE_SPAWN_POSITION_AND_PRESS_ENTER");
+	_ctrlMessage ctrlsettext (localize "STR_AMAE_MOVE_SPAWN_POSITION_AND_PRESS_ENTER");
 	_ctrlMessage ctrlsetfade 1;
 	_ctrlMessage ctrlcommit 0;
 	_ctrlMessage ctrlsetfade 0;
@@ -78,14 +78,14 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	// if objects were deleted
 	if ({!isNull _x} count _objects_list == 0) exitWith
 	{
-		[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		missionNamespace setVariable ["Achilles_var_preplaceModeObjects", []];
 	};
 
 	// if escape was pressed
 	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith
 	{
-		[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		{
 			{deleteVehicle _x} forEach (crew _x);
 			deleteVehicle _x;
@@ -94,7 +94,7 @@ missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list]
 	};
 
 	// if enter was pressed
-	[localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
+	[localize "STR_AMAE_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
 	{
 		{_x enableSimulation true} forEach (crew _x);

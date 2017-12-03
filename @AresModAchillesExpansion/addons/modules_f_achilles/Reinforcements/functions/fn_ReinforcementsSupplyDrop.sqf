@@ -15,11 +15,11 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-#define SIDES ["OPFOR","BLUFOR", localize "STR_INDEPENDENT"]
+#define SIDES ["OPFOR","BLUFOR", localize "STR_AMAE_INDEPENDENT"]
 #define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
 private _LZs = (call Achilles_fnc_getAllLZsAndRPs) select 0;
-if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
+if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
 
 private _pos = getPos _logic;
 
@@ -27,21 +27,21 @@ private _ammoCratesDisplayName = AMMO_CRATES apply {getText (configFile >> "CfgV
 
 private _dialogResult =
 [
-	localize "STR_SUPPLY_DROP",
+	localize "STR_AMAE_SUPPLY_DROP",
 	[
-		[localize "STR_SIDE", SIDES],
-		[localize "STR_FACTION", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE",[localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
-		[localize "STR_LZ_DZ", (_LZs select 1)],
-		[localize "STR_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMMUNITION_CRATE", localize "STR_VEHICLE"]],
-		[localize "STR_AMMUNITION_CRATE", _ammoCratesDisplayName],
-		[localize "STR_CARGO_LW", [localize "STR_DEFAULT", localize "STR_EDIT_CARGO", localize "STR_VIRTUAL_ARSENAL", localize "STR_EMPTY"]],
-		[localize "STR_SIDE", SIDES],
-		[localize "STR_FACTION", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE",[localize "STR_LOADING_"]]
+		[localize "STR_AMAE_SIDE", SIDES],
+		[localize "STR_AMAE_FACTION", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE_CATEGORY", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE",[localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
+		[localize "STR_AMAE_LZ_DZ", (_LZs select 1)],
+		[localize "STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMAE_AMMUNITION_CRATE", localize "STR_AMAE_VEHICLE"]],
+		[localize "STR_AMAE_AMMUNITION_CRATE", _ammoCratesDisplayName],
+		[localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_VIRTUAL_ARSENAL", localize "STR_AMAE_EMPTY"]],
+		[localize "STR_AMAE_SIDE", SIDES],
+		[localize "STR_AMAE_FACTION", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE_CATEGORY", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE",[localize "STR_AMAE_LOADING_"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_SupplyDrop"
 ] call Ares_fnc_showChooseDialog;
@@ -99,7 +99,7 @@ if (_cargoType == 0) then
 	private _hasAttached = _aircraft setSlingLoad _cargoBox;
 	if (!_hasAttached) exitWith 
 	{
-		[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+		[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
 		{deleteVehicle _x} forEach _aircraftCrew;
 		deleteVehicle _aircraft;
 		deleteVehicle _cargoBox;
@@ -142,7 +142,7 @@ if (_cargoType == 1) then
 		private _hasAttached = _aircraft setSlingLoad _cargo;
 		if (!_hasAttached) exitWith
 		{
-			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+			[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
 			{deleteVehicle _x} forEach _aircraftCrew;
 			deleteVehicle _aircraft;
 			deleteVehicle _cargo;
@@ -154,7 +154,7 @@ if (_cargoType == 1) then
 		private _hasLoaded = _aircraft setVehicleCargo _cargo;
 		if (!_hasLoaded) exitWith
 		{
-			[localize "STR_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+			[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
 			{deleteVehicle _x} forEach _aircraftCrew;
 			deleteVehicle _aircraft;
 			deleteVehicle _cargo;

@@ -11,15 +11,15 @@ private ["_buildings","_group_logic"];
 
 private _center_pos = position _logic;
 
-// if (not isMultiplayer) exitWith {[localize "STR_MODULE_DOES_NOT_SUPPORT_SP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+// if (not isMultiplayer) exitWith {[localize "STR_AMAE_MODULE_DOES_NOT_SUPPORT_SP"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 private _dialogResult =
 [
-	localize "STR_LOCK_DOORS",
+	localize "STR_AMAE_LOCK_DOORS",
 	[
-		[localize "STR_SELECTION", [localize "STR_NEAREST", localize "STR_RANGE"]],
-		[(localize "STR_RANGE") + " [m]","","100"],
-		[localize "STR_MODE", [localize "STR_UNBREACHABLE", localize "STR_BREACHABLE", localize "STR_OPEN"]]
+		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE"]],
+		[(localize "STR_AMAE_RANGE") + " [m]","","100"],
+		[localize "STR_AMAE_MODE", [localize "STR_AMAE_UNBREACHABLE", localize "STR_AMAE_BREACHABLE", localize "STR_AMAE_OPEN"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
 ] call Ares_fnc_ShowChooseDialog;
@@ -152,6 +152,6 @@ if (_mode < 2) then
 	if (_mode == 1) then {publicVariable "Achilles_var_breachableDoors"};
 };
 
-[objNull, format [localize "STR_DOOR_STATUS_CHANGED", count _logic_list]] call bis_fnc_showCuratorFeedbackMessage;
+[objNull, format [localize "STR_AMAE_DOOR_STATUS_CHANGED", count _logic_list]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

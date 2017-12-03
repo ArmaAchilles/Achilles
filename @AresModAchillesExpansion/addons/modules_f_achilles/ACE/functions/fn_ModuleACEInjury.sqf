@@ -29,23 +29,23 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		Achilles_var_setInjury_init_done = true;
 	};
 
-	private _severity_options = [localize "STR_NONE_INJURY", localize "STR_RANDOM", localize "STR_MODERATE_INJURY", localize "STR_SEVERE"];
+	private _severity_options = [localize "STR_AMAE_NONE_INJURY", localize "STR_AMAE_RANDOM", localize "STR_AMAE_MODERATE_INJURY", localize "STR_AMAE_SEVERE"];
 
 	private _dialogResult =
 	[
-		localize "STR_ACE_INJURY",
+		localize "STR_AMAE_ACE_INJURY",
 		[
-			["COMBOBOX", localize "STR_TYPE",[localize "STR_BULLET", localize "STR_GRENADE", localize "STR_EXPLOSIVE", localize "STR_SHRAPNEL", localize "STR_STAB", localize "STR_CRASH"]],
-			["COMBOBOX", localize "STR_HEAD",_severity_options],
-			["COMBOBOX", localize "STR_TORSO",_severity_options],
-			["COMBOBOX", localize "STR_RIGHT_ARM",_severity_options],
-			["COMBOBOX", localize "STR_LEFT_ARM",_severity_options],
-			["COMBOBOX", localize "STR_RIGHT_LEG",_severity_options],
-			["COMBOBOX", localize "STR_LEFT_LEG",_severity_options],
-			["SLIDER", localize "STR_PAIN_LEVEL"],
-			["COMBOBOX", localize "STR_HEARTH_RATE", [[localize "STR_HIGH", format ["(%1 BPM)", (HEARTH_RATES select 0)]], [localize "STR_NORMAL", format ["(%1 BPM)", (HEARTH_RATES select 1)]], [localize "STR_LOW", format ["(%1 BPM)", (HEARTH_RATES select 2)]], [localize "STR_TOO_LOW", format ["(%1 BPM)", (HEARTH_RATES select 3)]]], 1],
-			["COMBOBOX", localize "STR_BLOOD_PRESSURE",[[localize "STR_NORMAL", format ["(%1 systolic)", (BLOOD_PRESSURES select 0)]], [localize "STR_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 1)]], [localize "STR_TOO_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 2)]]]],
-			["COMBOBOX", localize "STR_FORCE_UNCONSIOUSNESS",[localize "STR_FALSE",localize "STR_TRUE"]]
+			["COMBOBOX", localize "STR_AMAE_TYPE",[localize "STR_AMAE_BULLET", localize "STR_AMAE_GRENADE", localize "STR_AMAE_EXPLOSIVE", localize "STR_AMAE_SHRAPNEL", localize "STR_AMAE_STAB", localize "STR_AMAE_CRASH"]],
+			["COMBOBOX", localize "STR_AMAE_HEAD",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_TORSO",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_RIGHT_ARM",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_LEFT_ARM",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_RIGHT_LEG",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_LEFT_LEG",_severity_options],
+			["SLIDER", localize "STR_AMAE_PAIN_LEVEL"],
+			["COMBOBOX", localize "STR_AMAE_HEARTH_RATE", [[localize "STR_AMAE_HIGH", format ["(%1 BPM)", (HEARTH_RATES select 0)]], [localize "STR_AMAE_NORMAL", format ["(%1 BPM)", (HEARTH_RATES select 1)]], [localize "STR_AMAE_LOW", format ["(%1 BPM)", (HEARTH_RATES select 2)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 BPM)", (HEARTH_RATES select 3)]]], 1],
+			["COMBOBOX", localize "STR_AMAE_BLOOD_PRESSURE",[[localize "STR_AMAE_NORMAL", format ["(%1 systolic)", (BLOOD_PRESSURES select 0)]], [localize "STR_AMAE_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 1)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 2)]]]],
+			["COMBOBOX", localize "STR_AMAE_FORCE_UNCONSIOUSNESS",[localize "STR_AMAE_FALSE",localize "STR_AMAE_TRUE"]]
 		]
 	] call Achilles_fnc_ShowChooseDialog;
 
@@ -79,7 +79,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 
 	if (_mode == "single") then
 	{
-		[localize "STR_HEALTH_CHANGED"] call Ares_fnc_ShowZeusMessage;
+		[localize "STR_AMAE_HEALTH_CHANGED"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
 	} else
 	{
@@ -109,16 +109,16 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		Achilles_var_setInjury_init_done = true;
 	};
 
-	private _severity_options = [[localize "STR_NONE_INJURY", "(0)"], localize "STR_RANDOM", [localize "STR_MODERATE_INJURY", "(0.5)"], [localize "STR_SEVERE", "(0.9)"]];
+	private _severity_options = [[localize "STR_AMAE_NONE_INJURY", "(0)"], localize "STR_AMAE_RANDOM", [localize "STR_AMAE_MODERATE_INJURY", "(0.5)"], [localize "STR_AMAE_SEVERE", "(0.9)"]];
 
 	private _dialogResult =
 	[
-		localize "STR_INJURY_WITHOUT_ACE",
+		localize "STR_AMAE_INJURY_WITHOUT_ACE",
 		[
-			["COMBOBOX", localize "STR_HEAD",_severity_options],
-			["COMBOBOX", localize "STR_TORSO",_severity_options],
-			["COMBOBOX", localize "STR_ARMS",_severity_options],
-			["COMBOBOX", localize "STR_LEGS",_severity_options]
+			["COMBOBOX", localize "STR_AMAE_HEAD",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_TORSO",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_ARMS",_severity_options],
+			["COMBOBOX", localize "STR_AMAE_LEGS",_severity_options]
 		]
 	] call Achilles_fnc_ShowChooseDialog;
 
@@ -127,7 +127,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 
 	if (_mode == "single") then
 	{
-		[localize "STR_HEALTH_CHANGED"] call Ares_fnc_ShowZeusMessage;
+		[localize "STR_AMAE_HEALTH_CHANGED"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
 	} else
 	{

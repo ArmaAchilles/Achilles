@@ -1,13 +1,13 @@
 class Ares_Reinforcements_Module_base : Ares_Module_Base
 {
-	//subCategory = "$STR_REINFORCEMENTS";
+	//subCategory = "$STR_AMAE_REINFORCEMENTS";
 	Category = "Achilles_fac_Reinforcements";
 };
 
 class Ares_Module_Reinforcements_Create_Lz : Ares_Reinforcements_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_CREATE_NEW_LZ";
+	displayName = "$STR_AMAE_CREATE_NEW_LZ";
 	function = "Ares_fnc_ReinforcementsCreateLz";
 	icon = "\achilles\data_f_ares\icons\icon_lz.paa";
 	portrait = "\achilles\data_f_ares\icons\icon_lz.paa";
@@ -16,7 +16,7 @@ class Ares_Module_Reinforcements_Create_Lz : Ares_Reinforcements_Module_Base
 class Ares_Module_Reinforcements_Create_Rp : Ares_Reinforcements_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_CREATE_NEW_RP";
+	displayName = "$STR_AMAE_CREATE_NEW_RP";
 	function = "Ares_fnc_ReinforcementsCreateRp";
 	icon = "\achilles\data_f_ares\icons\icon_rp.paa";
 	portrait = "\achilles\data_f_ares\icons\icon_rp.paa";
@@ -25,7 +25,7 @@ class Ares_Module_Reinforcements_Create_Rp : Ares_Reinforcements_Module_Base
 class Ares_Module_Reinforcements_Spawn_Units : Ares_Reinforcements_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_SPAWN_UNITS";
+	displayName = "$STR_AMAE_SPAWN_UNITS";
 	function = "Ares_fnc_ReinforcementsCreateUnits";
 };
 

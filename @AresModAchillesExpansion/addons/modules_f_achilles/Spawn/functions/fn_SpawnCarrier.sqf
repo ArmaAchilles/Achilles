@@ -4,7 +4,7 @@ private _dialogResult =
 [
 	"USS Freedom",
 	[
-		[localize "STR_DIRECTION", ["N","NE","E","SE","S","SW","W","NW"]]
+		[localize "STR_AMAE_DIRECTION", ["N","NE","E","SE","S","SW","W","NW"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

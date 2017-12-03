@@ -3,13 +3,13 @@
 private _offset = position _logic;
 
 private _dialogResult = [
-	localize "STR_MINES_EXPLOSIVES",
+	localize "STR_AMAE_MINES_EXPLOSIVES",
 	[
-		[localize "STR_CATEGORY",[localize "STR_MINEFIELD", localize "STR_EXPLOSIVE"]],
-		[localize "STR_TYPE", [localize "STR_LOADING_"]],
-		[localize "STR_NUMBER_OF_MINES", "","30"],
-		[localize "STR_RADIUS", "","50"],
-		[localize "STR_WARNING_SIGNS", [localize "STR_TRUE", localize "STR_FALSE"]]
+		[localize "STR_AMAE_CATEGORY",[localize "STR_AMAE_MINEFIELD", localize "STR_AMAE_EXPLOSIVE"]],
+		[localize "STR_AMAE_TYPE", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_NUMBER_OF_MINES", "","30"],
+		[localize "STR_AMAE_RADIUS", "","50"],
+		[localize "STR_AMAE_WARNING_SIGNS", [localize "STR_AMAE_TRUE", localize "STR_AMAE_FALSE"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_SpawnExplosives"
 ] call Ares_fnc_ShowChooseDialog;

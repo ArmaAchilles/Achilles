@@ -4,11 +4,11 @@ private _centerPos = position _logic;
 
 private _dialogResult =
 [
-	localize "STR_SPAWN_EMPTY_OBJECT",
+	localize "STR_AMAE_SPAWN_EMPTY_OBJECT",
 	[
-		[localize "STR_CATEGORY",[localize "STR_LOADING_"]],
-		[localize "STR_SUBCATEGORY", [localize "STR_LOADING_"]],
-		[localize "STR_OBJECT", [localize "STR_LOADING_"]]
+		[localize "STR_AMAE_CATEGORY",[localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_SUBCATEGORY", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_OBJECT", [localize "STR_AMAE_LOADING_"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_SpawnEmptyObject"
 ] call Ares_fnc_ShowChooseDialog;

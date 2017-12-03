@@ -52,15 +52,15 @@ private _batteries = [];
 } forEach _filteredObjects;
 
 // pick battery
-if (_batteries isEqualTo []) exitWith { [localize "STR_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
+if (_batteries isEqualTo []) exitWith { [localize "STR_AMAE_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
 private _batteryTypes = _batteries apply {_x select 0};
 
 // Pick a battery
 private _pickBatteryResult = [
-	localize "STR_SELECT_BATTERY_TO_FIRE",
+	localize "STR_AMAE_SELECT_BATTERY_TO_FIRE",
 	[
-		[localize "STR_BATTERY", _batteryTypes],
-		[format [localize "STR_TARGET", " "],[localize "STR_MARKER",localize "STR_GRID"]]
+		[localize "STR_AMAE_BATTERY", _batteryTypes],
+		[format [localize "STR_AMAE_TARGET", " "],[localize "STR_AMAE_MARKER",localize "STR_AMAE_GRID"]]
 	]] call Ares_fnc_ShowChooseDialog;
 if (_pickBatteryResult isEqualTo []) exitWith {};
 private _battery = _batteries select (_pickBatteryResult select 0);
@@ -81,19 +81,19 @@ private _numberOfGuns = [];
 if (_mode == 0) then
 {
 	private _allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
-	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
+	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-	private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+	private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
     _targetChoices append (_allTargets apply {name _x});
 
 	// pick guns, rounds, ammo and coordinates
 	private _pickFireMissionResult = [
-		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_MARKER"],
+		format ["%1 (%2)",localize "STR_AMAE_ARTILLERY_FIRE_MISSION",localize "STR_AMAE_MARKER"],
 		[
-			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
-			[localize "STR_AMMO", _artilleryAmmoDisplayName],
-			[format [localize "STR_TARGET"," "], _targetChoices, 1]
+			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
+			[localize "STR_AMAE_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
+			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
@@ -136,13 +136,13 @@ if (_mode == 0) then
 {
 	// pick guns, rounds, ammo and coordinates
 	private _pickFireMissionResult = [
-		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_GRID"],
+		format ["%1 (%2)",localize "STR_AMAE_ARTILLERY_FIRE_MISSION",localize "STR_AMAE_GRID"],
 		[
-			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
-			[localize "STR_AMMO", _artilleryAmmoDisplayName],
-			[localize "STR_GRID_EAST_WEST_XXX", "","000"],
-			[localize "STR_GRID_NORTH_SOUTH_XXX", "","000"]
+			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
+			[localize "STR_AMAE_ROUNDS", ["1", "2", "3", "4", "5"]],
+			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[localize "STR_AMAE_GRID_EAST_WEST_XXX", "","000"],
+			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (_pickFireMissionResult isEqualTo []) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
@@ -156,7 +156,7 @@ if (_mode == 0) then
 	_targetPos = [_targetX,_targetY] call CBA_fnc_mapGridToPos;
 };
 
-if (isNil "_targetPos") exitWith {[localize "STR_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (isNil "_targetPos") exitWith {[localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // Generate a list of the actual units to fire.
 private _gunsToFire = [];
@@ -170,13 +170,13 @@ private _roundEta = 99999;
 {
 	_roundEta = _roundEta min (_x getArtilleryETA [_targetPos, _ammo]);
 } forEach _gunsToFire;
-if (_roundEta == -1) exitWith { [localize "STR_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; };
+if (_roundEta == -1) exitWith { [localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; };
 
 // Fire the guns
 {
 	[_x, [_targetPos, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
 } forEach _gunsToFire;
-[localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
 
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

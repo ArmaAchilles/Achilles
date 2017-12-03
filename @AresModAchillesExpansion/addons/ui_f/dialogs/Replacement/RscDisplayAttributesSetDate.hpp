@@ -277,7 +277,7 @@ class RscDisplayAttributesModuleSetDate: RscDisplayAttributes
 		
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "$STR_PREVIEW";
+			text = "$STR_AMAE_PREVIEW";
 			onMouseButtonClick = "with uiNamespace do {[""preview"",[ctrlParent (_this select 0)],objnull] call RscAttributeDate};";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};

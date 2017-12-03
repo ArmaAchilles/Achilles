@@ -12,10 +12,10 @@ _objects = [_objects];
 
 private _dialogResult =
 [
-	localize "STR_MAKE_INVINCIBLE",
+	localize "STR_AMAE_MAKE_INVINCIBLE",
 	[
-		[localize "STR_MAKE_INVINCIBLE", [localize "STR_TRUE",localize "STR_FALSE"]],
-		[localize "STR_INCLUDE_CREW", [localize "STR_TRUE",localize "STR_FALSE"]]
+		[localize "STR_AMAE_MAKE_INVINCIBLE", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]],
+		[localize "STR_AMAE_INCLUDE_CREW", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -27,10 +27,10 @@ _includeCrew = _includeCrew == 0;
 
 if (isNull (_objects select 0)) then
 {
-	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+	_objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
+if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
 
 {
 	private _object = _x;

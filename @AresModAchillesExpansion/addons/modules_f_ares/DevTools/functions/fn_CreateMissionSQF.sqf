@@ -24,13 +24,13 @@ private _position = _this select 0;
 
 private _dialogResult =
 	[
-		localize "STR_COPY_MISSION_SQF",
+		localize "STR_AMAE_COPY_MISSION_SQF",
 		[
-			[localize "STR_RANGE", ["50m", "100m", "500m", "1km", "2km", "5km", localize "STR_ENTIRE_MAP"], 6],
-			[localize "STR_INCLUDE_AI", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_EMPTY_VEHICLES", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_OBJECTS", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_MARKERS", [localize "STR_YES", localize "STR_NO"], 1]
+			[localize "STR_AMAE_RANGE", ["50m", "100m", "500m", "1km", "2km", "5km", localize "STR_AMAE_ENTIRE_MAP"], 6],
+			[localize "STR_AMAE_INCLUDE_AI", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_EMPTY_VEHICLES", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_OBJECTS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_MARKERS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1]
 		]
 	] call Ares_fnc_ShowChooseDialog;
 if (_dialogResult isEqualTo []) exitWith { "User cancelled dialog."; };
@@ -241,6 +241,6 @@ private _text = "";
 } forEach _output;
 uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _text];
 private _dialog = createDialog "Ares_CopyPaste_Dialog";
-[localize "STR_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

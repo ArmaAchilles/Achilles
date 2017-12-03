@@ -1,16 +1,16 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 1/1/17
-//	VERSION: 2.0
-//  DESCRIPTION: function that allows changing units abilities
+//	AUTHOR Kex
+//	DATE 1/1/17
+//	VERSION 2.0
+//  DESCRIPTION function that allows changing units abilities
 //
-//	ARGUMENTS:
-//	_this select 0:			OBJECT	- unit for which abilities are changed; if objNull then selection mode is activated
+//	ARGUMENTS
+//	_this select 0			OBJECT	- unit for which abilities are changed; if objNull then selection mode is activated
 //
-//	RETURNS:
+//	RETURNS
 //	nothing (procedure)
 //
-//	Example:
+//	Example
 //	[_unit] call Achilles_fnc_changeAbility;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -20,20 +20,20 @@ private _units = [param [0,ObjNull,[ObjNull]]];
 private _abilityCount = count ABILITIES;
 private _dialogResult =
 [
-	"Abilities:",
+	"Abilities",
 	[
-		["Aiming error:",["true","false"]],
-		["Anim:",["true","false"]],
-		["Auto combat:",["true","false"]],
-		["Autotarget:",["true","false"]],
-		["Check visible:",["true","false"]],
-		["Cover:",["true","false"]],
-		["FSM:",["true","false"]],
-		["Move:",["true","false"]],
-		["Suppression:",["true","false"]],
-		["Target:",["true","false"]],
-		["Path:",["true","false"]],
-		["Allow fleeing:","SLIDER", 0.5]
+		["Aiming error",[localize "STR_AMAE_YES", localize "STR_AMAE_FALSE"]],
+		["Anim",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Auto combat",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Autotarget",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Check visible",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Cover",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["FSM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Move",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Suppression",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Target",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Path",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Allow fleeing","SLIDER", 0.5]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -41,7 +41,7 @@ if (_dialogResult isEqualTo []) exitWith {};
 
 if (isNull (_units select 0)) then
 {
-	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
+	_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_units") exitWith {};
 if (_units isEqualTo []) exitWith {};

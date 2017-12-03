@@ -17,7 +17,7 @@ if (isNil "Achilles_var_animation_init_done") then
 private _unitsToSurrender = [[_logic] call Ares_fnc_GetUnitUnderCursor];
 
 // selection option
-if (isNull (_unitsToSurrender select 0)) then {	_unitsToSurrender = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits };
+if (isNull (_unitsToSurrender select 0)) then {	_unitsToSurrender = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits };
 if (isNil "_unitsToSurrender") exitWith {};
 if (_unitsToSurrender isEqualTo []) exitWith {};
 
@@ -35,10 +35,10 @@ private _nextCaptureStateDialogResult = nil;
 		{
 			_nextCaptureStateDialogResult =
 			[
-				localize "STR_SURRENDER_UNIT",
+				localize "STR_AMAE_SURRENDER_UNIT",
 				[
-					[localize "STR_AMBIENT_ANIMATION", [localize "STR_SURRENDER_UNIT", localize "STR_TIE_UNIT"]],
-					[localize "STR_INTERACTION", [localize "STR_RELEASE_N_LEAD_UNIT", localize "STR_RELEASE_UNIT", localize "STR_TIE_UNIT"]]
+					[localize "STR_AMAE_AMBIENT_ANIMATION", [localize "STR_AMAE_SURRENDER_UNIT", localize "STR_AMAE_TIE_UNIT"]],
+					[localize "STR_AMAE_INTERACTION", [localize "STR_AMAE_RELEASE_N_LEAD_UNIT", localize "STR_AMAE_RELEASE_UNIT", localize "STR_AMAE_TIE_UNIT"]]
 				]
 			] call Ares_fnc_ShowChooseDialog;
 			// terminate script

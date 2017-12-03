@@ -16,12 +16,12 @@ if (isNull _unitUnderCursor) then
 {
 	// select players
 	private _dialogResult = [
-		localize "STR_ADD_REMOVE_TURRET_OPTICS",
+		localize "STR_AMAE_ADD_REMOVE_TURRET_OPTICS",
 		[
-			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
-			[localize "STR_SIDE","SIDE"],
-			[localize "STR_NVD",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
-			[localize "STR_THERMALS",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]]
+			[localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE"]],
+			[localize "STR_AMAE_SIDE","SIDE"],
+			[localize "STR_AMAE_NVD",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]],
+			[localize "STR_AMAE_THERMALS",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]]
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectAIUnits"
 	] call Ares_fnc_ShowChooseDialog;
@@ -36,7 +36,7 @@ if (isNull _unitUnderCursor) then
 		};
 		case 1:
 		{
-			private _selection = [toLower localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
@@ -49,7 +49,7 @@ if (isNull _unitUnderCursor) then
 	};
 
 	if (isNil "_vehicles") exitWith {};
-	if (_vehicles isEqualTo []) exitWith { [localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
+	if (_vehicles isEqualTo []) exitWith { [localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_NVG = [nil,false,true] select (_dialogResult select 2);
 	_thermals = [nil,false,true] select (_dialogResult select 3);
 }
@@ -57,10 +57,10 @@ else
 {
 	private _dialogResult =
 	[
-		localize "STR_ADD_REMOVE_TURRET_OPTICS",
+		localize "STR_AMAE_ADD_REMOVE_TURRET_OPTICS",
 		[
-			[localize "STR_NVD",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
-			[localize "STR_THERMALS",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]]
+			[localize "STR_AMAE_NVD",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]],
+			[localize "STR_AMAE_THERMALS",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]]
 		]
 	] call Ares_fnc_ShowChooseDialog;
 
@@ -76,6 +76,6 @@ if (isNil "_vehicles") exitWith {};
 	if (!isNil "_thermals") then {_x disableTIEquipment _thermals};
 } forEach _vehicles;
 
-[localize "STR_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

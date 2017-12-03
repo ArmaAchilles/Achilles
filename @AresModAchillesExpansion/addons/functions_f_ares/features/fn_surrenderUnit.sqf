@@ -59,7 +59,7 @@ if (_animIndex == -1) then
 } else
 {
 	private _anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
-	private _actionName = [localize "STR_RELEASE_UNIT",localize "STR_RELEASE_UNIT",localize "STR_TIE_UNIT"] select _interactionIndex;
+	private _actionName = [localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_TIE_UNIT"] select _interactionIndex;
 
 	// Set unit captive
 	_unit setCaptive true;

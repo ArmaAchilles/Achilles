@@ -20,12 +20,12 @@ _bluforSelectNumber = [4, 3] select ([blufor, independent] call BIS_fnc_sideIsFr
 
 private _dialogResult =
 [
-	localize "STR_CHANGE_SIDE_RELATIONS",
+	localize "STR_AMAE_CHANGE_SIDE_RELATIONS",
 	[
-		[localize "STR_SIDE", ["OPFOR", "BLUFOR", localize "STR_INDEPENDENT"], 1],
-		[localize "STR_MODE", [localize "STR_HOSTILE_TO", localize "STR_FRIENDLY_TO"], 1],
-		[localize "STR_SIDE", ["OPFOR", "BLUFOR", localize "STR_INDEPENDENT", localize "STR_NOBODY"], _bluforSelectNumber],
-		[localize "STR_PLAY_MESSAGE", [localize "STR_YES", localize "STR_NO"]]
+		[localize "STR_AMAE_SIDE", ["OPFOR", "BLUFOR", localize "STR_AMAE_INDEPENDENT"], 1],
+		[localize "STR_AMAE_MODE", [localize "STR_AMAE_HOSTILE_TO", localize "STR_AMAE_FRIENDLY_TO"], 1],
+		[localize "STR_AMAE_SIDE", ["OPFOR", "BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_AMAE_NOBODY"], _bluforSelectNumber],
+		[localize "STR_AMAE_PLAY_MESSAGE", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -36,7 +36,7 @@ private _firstSelectedSide = (_dialogResult select 0) call BIS_fnc_sideType;
 if (_dialogResult select 2 < 3) then
 {
 	private _secondSelectedSide = (_dialogResult select 2) call BIS_fnc_sideType;
-	if (_firstSelectedSide == _secondSelectedSide) exitWith {[localize "STR_SIDES_CANT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
+	if (_firstSelectedSide == _secondSelectedSide) exitWith {[localize "STR_AMAE_SIDES_CANT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
 
 	private _friend_value = _dialogResult select 1;
 	[_firstSelectedSide, [_secondSelectedSide, _friend_value]] remoteExecCall ["setFriend", 2];

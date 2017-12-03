@@ -8,9 +8,9 @@ private _targetPhoneticName = [Ares_ReinforcementRpCount] call Ares_fnc_GetPhone
 private _target_name = format ["RP %1", _targetPhoneticName];
 private _dialogResult =
 [
-	localize "STR_CREATE_NEW_RP",
+	localize "STR_AMAE_CREATE_NEW_RP",
 	[
-		[localize "STR_NAME", "", _target_name, true]
+		[localize "STR_AMAE_NAME", "", _target_name, true]
 	]
 ] call Ares_fnc_showChooseDialog;
 if (_dialogResult isEqualto []) exitWith {_deleteModuleOnExit = true};

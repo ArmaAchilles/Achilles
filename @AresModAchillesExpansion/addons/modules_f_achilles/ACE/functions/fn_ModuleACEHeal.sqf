@@ -15,7 +15,7 @@ private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 private _mode = ["single", "multiple"] select (isNull _unit);
 
-private _options = [localize "STR_RANDOM",localize "STR_NONE_INJURY",localize "STR_LIGHT_INJURY", localize "STR_SEVERE"];
+private _options = [localize "STR_AMAE_RANDOM",localize "STR_AMAE_NONE_INJURY",localize "STR_AMAE_LIGHT_INJURY", localize "STR_AMAE_SEVERE"];
 
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {

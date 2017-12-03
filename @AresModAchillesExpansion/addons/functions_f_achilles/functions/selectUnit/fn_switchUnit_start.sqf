@@ -16,10 +16,10 @@ private _unit = effectiveCommander (param [0]);
 if (!(side group _unit in [east,west,resistance,civilian])) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 if (isPlayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 if (!alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
-if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "STR_ERROR_UNIT_IS_UNCONSCIOUS";};
+if (isClass (configfile >> "CfgPatches" >> "ace_medical") and {_unit getVariable ["ACE_isUnconscious", false]}) then {_error = localize "STR_AMAE_ERROR_UNIT_IS_UNCONSCIOUS";};
 if (isNull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorNull";};
 if (isUAVConnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
-if (unitIsUAV vehicle _unit) then {_error = localize "STR_ERROR_VEHICLE_IS_A_DRONE";};
+if (unitIsUAV vehicle _unit) then {_error = localize "STR_AMAE_ERROR_VEHICLE_IS_A_DRONE";};
 
 if (_error != "") exitWith {[_error] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 

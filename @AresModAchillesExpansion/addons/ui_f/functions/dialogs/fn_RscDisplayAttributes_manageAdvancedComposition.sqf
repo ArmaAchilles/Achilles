@@ -98,13 +98,13 @@ switch (_mode) do
 			if (true) then
 			{
 				closeDialog 0;
-				_center_object = ([localize "STR_BASIS_OBJECT"] call Achilles_fnc_SelectUnits) select 0;
+				_center_object = ([localize "STR_AMAE_BASIS_OBJECT"] call Achilles_fnc_SelectUnits) select 0;
 				if (isNil "_center_object") exitWith {};
-				if (isNull _center_object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+				if (isNull _center_object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-				_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+				_objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 				if (isNil "_objects") exitWith {};
-				if (_objects isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+				if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 
 				_center_pos = getPosWorld _center_object;
@@ -123,11 +123,11 @@ switch (_mode) do
 
 				_dialogResult =
 				[
-					localize "STR_ADVANCED_COMPOSITION",
+					localize "STR_AMAE_ADVANCED_COMPOSITION",
 					[
-						[localize "STR_CATEGORY", [localize "STR_LOADING_"]],
-						[localize "STR_NEW_CATEGORY", ""],
-						[localize "STR_NAME", "", "MyFirstComposition"]
+						[localize "STR_AMAE_CATEGORY", [localize "STR_AMAE_LOADING_"]],
+						[localize "STR_AMAE_NEW_CATEGORY", ""],
+						[localize "STR_AMAE_NAME", "", "MyFirstComposition"]
 					],
 					"Achilles_fnc_RscDisplayAttributes_createAdvancedComposition"
 				] call Ares_fnc_ShowChooseDialog;
@@ -166,11 +166,11 @@ switch (_mode) do
 
 				_dialogResult =
 				[
-					localize "STR_ADVANCED_COMPOSITION",
+					localize "STR_AMAE_ADVANCED_COMPOSITION",
 					[
-						[localize "STR_CATEGORY", [_category_name]],
-						[localize "STR_NEW_CATEGORY", ""],
-						[localize "STR_NAME", "", _item_name]
+						[localize "STR_AMAE_CATEGORY", [_category_name]],
+						[localize "STR_AMAE_NEW_CATEGORY", ""],
+						[localize "STR_AMAE_NAME", "", _item_name]
 					],
 					"Achilles_fnc_RscDisplayAttributes_editAdvancedComposition"
 				] call Ares_fnc_ShowChooseDialog;
@@ -209,8 +209,8 @@ switch (_mode) do
 
 				createDialog "RscDisplayCommonMessage";
 				_dialog = findDisplay IDD_MESSAGE;
-				(_dialog displayCtrl IDC_TITLE) ctrlSetText (localize "STR_DELETE_COMPOSITION");
-				(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText (format [localize "STR_DO_YOU_WANT_TO_DELETE_X", _item_name]);
+				(_dialog displayCtrl IDC_TITLE) ctrlSetText (localize "STR_AMAE_DELETE_COMPOSITION");
+				(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText (format [localize "STR_AMAE_DO_YOU_WANT_TO_DELETE_X", _item_name]);
 
 				(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","([""REMOVE"",controlNull,[]," + str _category_name + "," + str _item_name  + "]) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition; closeDialog 1;"];
 				(_dialog displayCtrl IDC_CANCLE_WARNING) ctrlAddEventHandler ["ButtonClick", "closeDialog 2;"];
@@ -275,7 +275,7 @@ switch (_mode) do
 	case "SPAWN":
 	{
 		_objects_info = [] call compile Ares_var_current_composition;
-		if (_objects_info isEqualTo []) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+		if (_objects_info isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 		_center_object_info = _objects_info select 0;
 		_objects_info = _objects_info - [_center_object_info];
 

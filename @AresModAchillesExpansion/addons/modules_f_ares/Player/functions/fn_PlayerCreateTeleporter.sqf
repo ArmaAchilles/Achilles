@@ -84,9 +84,9 @@ publicVariable "Ares_TeleportMarkers";
 private _teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
 private _dialogResult =
 [
-	localize "STR_CREATE_NEW_LZ",
+	localize "STR_AMAE_CREATE_NEW_LZ",
 	[
-		[localize "STR_NAME", "", _teleportMarkerName, true]
+		[localize "STR_AMAE_NAME", "", _teleportMarkerName, true]
 	]
 ] call Ares_fnc_showChooseDialog;
 

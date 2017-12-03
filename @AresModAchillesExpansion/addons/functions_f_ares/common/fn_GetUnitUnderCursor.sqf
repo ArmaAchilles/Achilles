@@ -68,7 +68,7 @@ else
 if (_shouldRemoveLogicIfNoUnitFound && isNull _unitUnderCursor) then
 {
 	playSound "FD_Start_F";
-	[objNull, localize "STR_NOT_PLACED_ON_UNIT"] call bis_fnc_showCuratorFeedbackMessage;
+	[objNull, localize "STR_AMAE_NOT_PLACED_ON_UNIT"] call bis_fnc_showCuratorFeedbackMessage;
 	deleteVehicle _logic;
 };
 

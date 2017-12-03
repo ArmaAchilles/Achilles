@@ -4,25 +4,25 @@ private _center_pos = position _logic;
 
 private _dialogResult =
 [
-	localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
+	localize "STR_AMAE_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
 		[
-			localize "STR_MODE", [localize "STR_ADD", localize "STR_REMOVE"]
+			localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]
 		],
 		[
-			localize "STR_RANGE",[localize "STR_RADIUS",localize "STR_ALL_OBJECTS_IN_MISSION"]
+			localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]
 		],
 		[
-			localize "STR_RADIUS","","50"
+			localize "STR_AMAE_RADIUS","","50"
 		],
 		[
-			localize "STR_TYPE",[localize "STR_ALL",localize "STR_UNITS",localize "STR_VEHICLE",localize "STR_STATIC_OBJECTS",localize "STR_GAME_LOGIC"]
+			localize "STR_AMAE_TYPE",[localize "STR_AMAE_ALL",localize "STR_AMAE_UNITS",localize "STR_AMAE_VEHICLE",localize "STR_AMAE_STATIC_OBJECTS",localize "STR_AMAE_GAME_LOGIC"]
 		],
 		[
-			localize "STR_MODE",[localize "STR_ALL",localize "STR_SIDE"]
+			localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SIDE"]
 		],
 		[
-			localize "STR_SIDE","SIDE"
+			localize "STR_AMAE_SIDE","SIDE"
 		]
 	],
 	"Achilles_fnc_RscDisplayAttributes_editableObjects"
@@ -110,7 +110,7 @@ else
 	};
 };
 
-private _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
+private _displayText = [localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
 [objNull, format [_displayText, _addedObjects]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

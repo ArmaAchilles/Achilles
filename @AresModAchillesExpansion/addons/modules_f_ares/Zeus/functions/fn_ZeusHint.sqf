@@ -2,9 +2,9 @@
 
 private _dialogResult =
 [
-	localize "STR_HINT",
+	localize "STR_AMAE_HINT",
 	[
-		[localize "STR_MESSAGE", "MESSAGE"]
+		[localize "STR_AMAE_MESSAGE", "MESSAGE"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

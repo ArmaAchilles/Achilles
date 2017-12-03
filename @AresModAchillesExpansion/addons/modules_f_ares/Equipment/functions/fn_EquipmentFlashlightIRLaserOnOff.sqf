@@ -16,12 +16,12 @@ if (isNull _unitUnderCursor) then
 {
 	// select players
 	private _dialogResult = [
-		localize "STR_TACLIGHT_IR_ON_OFF",
+		localize "STR_AMAE_TACLIGHT_IR_ON_OFF",
 		[
-			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
-			[localize "STR_SIDE","SIDE"],
-			[localize "STR_TAC_LIGHT",[localize "STR_AUTOMATIC",localize "STR_FORCED_ON",localize "STR_FORCED_OFF"]],
-			[localize "STR_IR_LASER_POINTER",[localize "STR_FORCED_OFF",localize "STR_FORCED_ON"]]
+			[localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE"]],
+			[localize "STR_AMAE_SIDE","SIDE"],
+			[localize "STR_AMAE_TAC_LIGHT",[localize "STR_AMAE_AUTOMATIC",localize "STR_AMAE_FORCED_ON",localize "STR_AMAE_FORCED_OFF"]],
+			[localize "STR_AMAE_IR_LASER_POINTER",[localize "STR_AMAE_FORCED_OFF",localize "STR_AMAE_FORCED_ON"]]
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectAIUnits"
 	] call Ares_fnc_ShowChooseDialog;
@@ -36,7 +36,7 @@ if (isNull _unitUnderCursor) then
 		};
 		case 1:
 		{
-			private _selection = [toLower localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
@@ -49,7 +49,7 @@ if (isNull _unitUnderCursor) then
 	};
 
 	if (isNil "_units") exitWith {};
-	if (_units isEqualTo []) exitWith {	[localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
+	if (_units isEqualTo []) exitWith {	[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_taclight = ["AUTO","forceOn","forceOff"] select (_dialogResult select 2);
 	_IR = [false,true] select (_dialogResult select 3);
 }
@@ -57,11 +57,11 @@ else
 {
 	private _dialogResult =
 	[
-		localize "STR_TACLIGHT_IR_ON_OFF",
+		localize "STR_AMAE_TACLIGHT_IR_ON_OFF",
 		[
-			[localize "STR_SELECTION", [localize "STR_ENTIRE_GROUP", localize "STR_SELECTED_PLAYER"]],
-			[localize "STR_TAC_LIGHT",[localize "STR_AUTOMATIC",localize "STR_FORCED_ON",localize "STR_FORCED_OFF"]],
-			[localize "STR_IR_LASER_POINTER",[localize "STR_FORCED_OFF",localize "STR_FORCED_ON"]]
+			[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_ENTIRE_GROUP", localize "STR_AMAE_SELECTED_PLAYER"]],
+			[localize "STR_AMAE_TAC_LIGHT",[localize "STR_AMAE_AUTOMATIC",localize "STR_AMAE_FORCED_ON",localize "STR_AMAE_FORCED_OFF"]],
+			[localize "STR_AMAE_IR_LASER_POINTER",[localize "STR_AMAE_FORCED_OFF",localize "STR_AMAE_FORCED_ON"]]
 		]
 	] call Ares_fnc_ShowChooseDialog;
 
@@ -88,6 +88,6 @@ if (isNil "_units") exitWith {};
 	};
 } forEach _units;
 
-[localize "STR_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

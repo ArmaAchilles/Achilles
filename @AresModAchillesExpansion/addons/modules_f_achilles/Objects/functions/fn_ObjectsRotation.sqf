@@ -15,18 +15,18 @@
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
-if (_object isKindOf "Man") exitWith {[localize "STR_UNITS_NOT_ALLOWED"] call Achilles_fnc_showZeusErrorMessage};
+if (isNull _object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
+if (_object isKindOf "Man") exitWith {[localize "STR_AMAE_UNITS_NOT_ALLOWED"] call Achilles_fnc_showZeusErrorMessage};
 
 private _currentVectorUp = vectorUp _object;
 
 private _dialogResult =
 [
-	localize "STR_ROTATION_MODULE",
+	localize "STR_AMAE_ROTATION_MODULE",
 	[
-		[format [localize "STR_ROTATION_MODULE_X_AXIS", "X"], "SLIDER", _currentVectorUp select 0, true],
-		[format [localize "STR_ROTATION_MODULE_X_AXIS", "Y"], "SLIDER", _currentVectorUp select 1, true],
-		[format [localize "STR_ROTATION_MODULE_X_AXIS", "Z"], "SLIDER", _currentVectorUp select 2, true]
+		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "X"], "SLIDER", _currentVectorUp select 0, true],
+		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "Y"], "SLIDER", _currentVectorUp select 1, true],
+		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "Z"], "SLIDER", _currentVectorUp select 2, true]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

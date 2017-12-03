@@ -10,13 +10,13 @@
 
 private _object_to_attach = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-if (isNull _object_to_attach) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+if (isNull _object_to_attach) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 if (isNull (_object_to_attach getVariable ['attached', objNull])) then
 {
-	private _object_to_attach_to = ([localize "STR_OBJECT", true] call Achilles_fnc_SelectUnits);
+	private _object_to_attach_to = ([localize "STR_AMAE_OBJECT", true] call Achilles_fnc_SelectUnits);
 	if (isNil "_object_to_attach_to") exitWith {};
-	if (isNull _object_to_attach_to) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+	if (isNull _object_to_attach_to) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _phi_zero = direction _object_to_attach_to;
 	private _phi = direction _object_to_attach;
 	_object_to_attach attachTo [_object_to_attach_to];
@@ -29,7 +29,7 @@ if (isNull (_object_to_attach getVariable ['attached', objNull])) then
 		(_object_to_attach getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull]) attachTo [_object_to_attach_to];
 	};
 
-	[localize "STR_OBJECT_ATTCHED"] call Ares_fnc_ShowZeusMessage;
+	[localize "STR_AMAE_OBJECT_ATTCHED"] call Ares_fnc_ShowZeusMessage;
 } else {
 	detach _object_to_attach;
 	_object_to_attach setVariable ['attached', objNull];
@@ -40,7 +40,7 @@ if (isNull (_object_to_attach getVariable ['attached', objNull])) then
 		detach (_object_to_attach getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull]);
 	};
 
-	[localize "STR_OBJECT_DETACHED"] call Ares_fnc_ShowZeusMessage;
+	[localize "STR_AMAE_OBJECT_DETACHED"] call Ares_fnc_ShowZeusMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

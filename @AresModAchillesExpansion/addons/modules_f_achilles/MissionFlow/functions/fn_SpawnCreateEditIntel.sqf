@@ -19,29 +19,29 @@ if (isNil "Achilles_var_intel_init_done") then
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-private _dialog_title = localize "STR_CREATE_INTEL_ON_OBJECT";
+private _dialog_title = localize "STR_AMAE_CREATE_INTEL_ON_OBJECT";
 private _dialog_options =
 [
-	[localize "STR_ACTION_TEXT","",localize "STR_PICK_UP_INTEL"],
-	[localize "STR_ACTION_DURATION","","1"],
-	[localize "STR_DELETE_OBJECT_ON_COMPLETION",[localize "STR_TRUE",localize "STR_FALSE"],1],
-	[localize "STR_INTEL_TITLE",""],
-	[localize "STR_INTEL_TEXT", "MESSAGE"],
-	[localize "STR_INTEL_SHARED_WITH", [localize "STR_SIDE", localize "STR_GROUP", localize "STR_NO_ONE"]]
+	[localize "STR_AMAE_ACTION_TEXT","",localize "STR_AMAE_PICK_UP_INTEL"],
+	[localize "STR_AMAE_ACTION_DURATION","","1"],
+	[localize "STR_AMAE_DELETE_OBJECT_ON_COMPLETION",[localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"],1],
+	[localize "STR_AMAE_INTEL_TITLE",""],
+	[localize "STR_AMAE_INTEL_TEXT", "MESSAGE"],
+	[localize "STR_AMAE_INTEL_SHARED_WITH", [localize "STR_AMAE_SIDE", localize "STR_AMAE_GROUP", localize "STR_AMAE_NO_ONE"]]
 ];
 
 if (isNull _object) then
 {
 	// case spawn intel
-	_dialog_title = localize "STR_SPAWN_INTEL";
-	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
+	_dialog_title = localize "STR_AMAE_SPAWN_INTEL";
+	_dialog_options = [[localize "STR_AMAE_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
 } else
 {
 	private _previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
 	if (count _previous_dialogResult == count _dialog_options) then
 	{
 		// case edit intel
-		_dialog_title = format [localize "STR_EDIT_INTEL_X", _previous_dialogResult select 3];
+		_dialog_title = format [localize "STR_AMAE_EDIT_INTEL_X", _previous_dialogResult select 3];
 		{
 			_x set [2, _previous_dialogResult select _forEachIndex];
 			_x set [3, true];
@@ -108,7 +108,7 @@ private _marker = createMarker [str _object, _object];
 		if (_remoteControlledUnit isEqualTo [] || (!(_remoteControlledUnit isEqualTo []) && _finder != player)) then 
 		{
 			[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
-			["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+			["intelAdded",[format [localize "STR_AMAE_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
 		}
 		else
 		{
@@ -119,7 +119,7 @@ private _marker = createMarker [str _object, _object];
 			{
 				params ["_finder", "_curator", "_title"];
 				waitUntil {_finder != player};
-				["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+				["intelAdded",[format [localize "STR_AMAE_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
 			};
 		};
 		if (_delete) then {deleteVehicle _object};

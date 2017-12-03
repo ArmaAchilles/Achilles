@@ -33,8 +33,8 @@ if (isNil "Achilles_var_eject_init_done") then
 };
 private _wp_index = currentwaypoint _group;
 private _wp = [_group,_wp_index];
-_wp setwaypointdescription localize "STR_PARADROP";
-_wp setWaypointName localize "STR_PARADROP";
+_wp setwaypointdescription localize "STR_AMAE_PARADROP";
+_wp setWaypointName localize "STR_AMAE_PARADROP";
 
 private _vehsGroup = [];
 private _vehsType = "";

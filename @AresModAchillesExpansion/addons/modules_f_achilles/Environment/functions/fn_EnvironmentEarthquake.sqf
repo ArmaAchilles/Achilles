@@ -5,17 +5,17 @@ _epicenter = position _logic;
 
 _dialogResult =
 [
-	localize "STR_EARTHQUAKE",
+	localize "STR_AMAE_EARTHQUAKE",
 	[
-		[localize "STR_INTENSITY",
+		[localize "STR_AMAE_INTENSITY",
 		[
-			localize "STR_VERY_WEAK",
-			localize "STR_WEAK",
-			localize "STR_MEDIUM",
-			localize "STR_STRONG"
+			localize "STR_AMAE_VERY_WEAK",
+			localize "STR_AMAE_WEAK",
+			localize "STR_AMAE_MEDIUM",
+			localize "STR_AMAE_STRONG"
 		]],
-		[format ["%1 [m]", localize "STR_RANGE"],"","100"],
-		[localize "STR_DAMAGE_BUILDINGS", [localize "STR_YES", localize "STR_NO"]]
+		[format ["%1 [m]", localize "STR_AMAE_RANGE"],"","100"],
+		[localize "STR_AMAE_DAMAGE_BUILDINGS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

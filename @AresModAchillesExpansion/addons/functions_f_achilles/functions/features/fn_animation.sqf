@@ -20,9 +20,9 @@ private _anim = "TERMINATE";
 
 private _dialogResult =
 [
-	localize "STR_AMBIENT_ANIMATION",
+	localize "STR_AMAE_AMBIENT_ANIMATION",
 	[
-		[localize "STR_TYPE",
+		[localize "STR_AMAE_TYPE",
 			[
 				"stop animation",
 				"sit on floor",
@@ -55,7 +55,7 @@ private _dialogResult =
 				"repair vehicle stand"
 			]
 		],
-		["Combat Ready", [localize "STR_TRUE",localize "STR_FALSE"]]
+		["Combat Ready", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -115,7 +115,7 @@ _anim = switch (_dialogResult select 0) do
 
 if (isNull (_units select 0)) then
 {
-	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
+	_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 };
 if (_units isEqualTo []) exitWith {};
 if (isNil "_units") exitWith {};

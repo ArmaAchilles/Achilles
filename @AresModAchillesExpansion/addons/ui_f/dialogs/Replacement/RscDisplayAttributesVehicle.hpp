@@ -33,32 +33,32 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		};
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "$STR_GARAGE";
+			text = "$STR_AMAE_GARAGE";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
 								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
-			text = "$STR_CARGO";
+			text = "$STR_AMAE_CARGO";
 			onMouseButtonClick = "createdialog 'RscDisplayAttributesInventory'";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "$STR_LOADOUT";
+			text = "$STR_AMAE_LOADOUT";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
 		{
-			text = "$STR_DAMAGE";
+			text = "$STR_AMAE_DAMAGE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonSensors : ButtonCustomLeft2
 		{
-			text = "$STR_SENSORS";
+			text = "$STR_AMAE_SENSORS";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setSensors";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
@@ -96,32 +96,32 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		};
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "$STR_GARAGE";
+			text = "$STR_AMAE_GARAGE";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
 								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
-			text = "$STR_CARGO";
+			text = "$STR_AMAE_CARGO";
 			onMouseButtonClick = "createDialog ""RscDisplayAttributesInventory""";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "$STR_LOADOUT";
+			text = "$STR_AMAE_LOADOUT";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
 		{
-			text = "$STR_DAMAGE";
+			text = "$STR_AMAE_DAMAGE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonSensors : ButtonCustomLeft2
 		{
-			text = "$STR_SENSORS";
+			text = "$STR_AMAE_SENSORS";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setSensors";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};

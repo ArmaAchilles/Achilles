@@ -6,14 +6,14 @@
 private _spawnPos = position _logic;
 
 private _category_names = EFFECT_MODULES apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")};
-_category_names pushBack (localize "STR_EFFECTS_CUSTOM_FIRE");
+_category_names pushBack (localize "STR_AMAE_EFFECTS_CUSTOM_FIRE");
 
 _dialogResult =
 [
-	localize "STR_SPAWN_EFFECT",
+	localize "STR_AMAE_SPAWN_EFFECT",
 	[
-		[localize "STR_CATEGORY", _category_names],
-		[localize "STR_TYPE", [""]]
+		[localize "STR_AMAE_CATEGORY", _category_names],
+		[localize "STR_AMAE_TYPE", [""]]
 	],
 	"Achilles_fnc_RscDisplayAtttributes_SpawnEffect"
 ] call Ares_fnc_ShowChooseDialog;

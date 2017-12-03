@@ -6,7 +6,7 @@
 //  DESCRIPTION: Let the curator select units and submit the selection
 //
 //	ARGUMENTS:
-//	_this select 0:		STRING	- (Default: localize "STR_OBJECTS") Tells what has to be selected
+//	_this select 0:		STRING	- (Default: localize "STR_AMAE_OBJECTS") Tells what has to be selected
 //	_this select 1:		BOOL	- (Default: false) If true only one object is returned. Otherwise the array of all groups / objects is returned.
 //
 //	RETURNS:
@@ -30,7 +30,7 @@ Achilles_var_submit_selection = nil;
 playSound "FD_Finish_F";
 [["Ares","SelectionOption"],15,"not isNil ""Achilles_var_submit_selection""",35,"not isNil ""Achilles_var_submit_selection""",true,true] call BIS_fnc_advHint;
 
-_ctrlMessage ctrlsettext toupper (format [localize "STR_SELECT_X_APPLIED_TO_MODULE",_type]);
+_ctrlMessage ctrlsettext toupper (format [localize "STR_AMAE_SELECT_X_APPLIED_TO_MODULE",_type]);
 _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0;
 _ctrlMessage ctrlsetfade 0;
@@ -53,10 +53,10 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage; nil};
+if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 // if enter was pressed
-[localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
 
 if (_single) exitWith
 {

@@ -9,36 +9,36 @@ private _spawnPosition = position _logic;
 
 // Get the UI control
 
-private _side_names = ["OPFOR","BLUEFOR",localize "STR_INDEPENDENT"];
+private _side_names = ["OPFOR","BLUEFOR",localize "STR_AMAE_INDEPENDENT"];
 private _sides = [east,west,independent];
 
 private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _lzOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
+private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
 _lzOptions append (_allLzs apply {name _x});
 
 private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _rpOptions = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST", localize "STR_LEAST_USED"];
+private _rpOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
 _rpOptions append (_allRps apply {name _x});
 
 // Show the user the dialog
 private _dialogResult =
 [
-	localize "STR_SPAWN_UNITS",
+	localize "STR_AMAE_SPAWN_UNITS",
 	[
-		[localize "STR_SIDE", _side_names,0],
-		[localize "STR_FACTION", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE_CATEGORY", [localize "STR_LOADING_"]],
-		[localize "STR_VEHICLE",["loading ..."]],
-		[localize "STR_VEHICLE_BEHAVIOUR", [localize "STR_RTB_DESPAWN", localize "STR_STAY_AT_LZ"]],
-		[localize "STR_LZ_DZ", _lzOptions],
-		[localize "STR_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_FASTROPING",localize "STR_PARADROP"]],
-		[localize "STR_INFANTRY_GROUP", [localize "STR_LOADING_"]],
-		[localize "STR_UNIT_RP", _rpOptions],
-		[localize "STR_UNIT_BEHAVIOUR", [localize "STR_DEFAULT", localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]]
+		[localize "STR_AMAE_SIDE", _side_names,0],
+		[localize "STR_AMAE_FACTION", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE_CATEGORY", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_VEHICLE",["loading ..."]],
+		[localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
+		[localize "STR_AMAE_LZ_DZ", _lzOptions],
+		[localize "STR_AMAE_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_AMAE_FASTROPING",localize "STR_AMAE_PARADROP"]],
+		[localize "STR_AMAE_INFANTRY_GROUP", [localize "STR_AMAE_LOADING_"]],
+		[localize "STR_AMAE_UNIT_RP", _rpOptions],
+		[localize "STR_AMAE_UNIT_BEHAVIOUR", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Ares_fnc_ShowChooseDialog;

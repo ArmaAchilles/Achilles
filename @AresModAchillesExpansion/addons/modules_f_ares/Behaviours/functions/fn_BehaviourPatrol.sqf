@@ -29,12 +29,12 @@ if (!isNull _groupUnderCursor) then
 		private ["_dialogResult"];
 		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Achilles_fnc_logMessage;
 		_dialogResult =
-			[localize "STR_PATROL_LOITER",
+			[localize "STR_AMAE_PATROL_LOITER",
 					[
-						[(localize "STR_RADIUS") + " [m]", "", "100"],
-						[localize "STR_GROUP_BEHAVIOUR", [localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]],
-						[localize "STR_DIRECTION", [localize "STR_CLOCKWISE", localize "STR_COUNTERCLOCKWISE"],1],
-						[localize "STR_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
+						[(localize "STR_AMAE_RADIUS") + " [m]", "", "100"],
+						[localize "STR_AMAE_GROUP_BEHAVIOUR", [localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]],
+						[localize "STR_AMAE_DIRECTION", [localize "STR_AMAE_CLOCKWISE", localize "STR_AMAE_COUNTERCLOCKWISE"],1],
+						[localize "STR_AMAE_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
 

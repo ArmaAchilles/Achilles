@@ -9,7 +9,7 @@
 
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-if (isNull _unit) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (isNull _unit) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 //Broadcast suppression functions
 if (isNil "Achilles_var_suppressiveFire_init_done") then
@@ -21,22 +21,22 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 
 // get list of possible targest
 private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 _targetChoices = _allTargets apply {name _x};
-if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (count _targetChoices == 3) exitWith {[localize "STR_AMAE_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 // select parameters
 private _dialogResult =
 [
-	localize "STR_SUPPRESIVE_FIRE",
+	localize "STR_AMAE_SUPPRESIVE_FIRE",
 	[
-		[format [localize "STR_SUPPRESS_X", " "], _targetChoices],
-		[localize "STR_STANCE", [localize "STR_PRONE",localize "STR_CROUCH",localize "STR_STAND"]],
-		[localize "STR_LINE_UP", [localize "STR_FALSE",localize "STR_TRUE"]],
-		[localize "STR_FIRE_MODE", [localize "STR_AUTOMATIC", localize "STR_BURST", localize "STR_SINGLE_SHOT"]],
-		[localize "STR_DURATION", "", "10"]
+		[format [localize "STR_AMAE_SUPPRESS_X", " "], _targetChoices],
+		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"]],
+		[localize "STR_AMAE_LINE_UP", [localize "STR_AMAE_FALSE",localize "STR_AMAE_TRUE"]],
+		[localize "STR_AMAE_FIRE_MODE", [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
+		[localize "STR_AMAE_DURATION", "", "10"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 if (_dialogResult isEqualTo []) exitWith {};

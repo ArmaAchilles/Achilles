@@ -77,7 +77,7 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 		class Title: RscText 
 		{
 			idc = 13475;
-			text = "$STR_AMMO";
+			text = "$STR_AMAE_AMMO";
 			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -181,7 +181,7 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 		class Title: RscText 
 		{
 			idc = 117979;
-			text = "$STR_NAME";
+			text = "$STR_AMAE_NAME";
 			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -218,7 +218,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		class Title: RscText 
 		{
 			idc = 113427;
-			text = "$STR_HEADLIGHT_SEARCHLIGHT";
+			text = "$STR_AMAE_HEADLIGHT_SEARCHLIGHT";
 			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -246,7 +246,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_SWITCH_ON";
+			tooltip = "$STR_AMAE_SWITCH_ON";
 		};
 
 		class HeadlightOff: HeadlightOn
@@ -257,7 +257,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_SWITCH_OFF";
+			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
 		
 		class Default: HeadlightOn
@@ -288,7 +288,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		class Title: RscText 
 		{
 			idc = 113427;
-			text = "$STR_ENGINE";
+			text = "$STR_AMAE_ENGINE";
 			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
@@ -316,7 +316,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_SWITCH_ON";
+			tooltip = "$STR_AMAE_SWITCH_ON";
 		};
 
 		class EngineOff: EngineOn
@@ -327,7 +327,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_SWITCH_OFF";
+			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
 		
 		class Default: EngineOn
@@ -384,7 +384,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_HOLD_FIRE";
+			tooltip = "$STR_AMAE_HOLD_FIRE";
 		};
 		class HoldFireDefend : HoldFire
 		{
@@ -394,7 +394,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_HOLD_FIRE_DEFEND";
+			tooltip = "$STR_AMAE_HOLD_FIRE_DEFEND";
 		};
 
 		class HoldFireEngage: HoldFire
@@ -405,7 +405,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_HOLD_FIRE_ENGAGE";
+			tooltip = "$STR_AMAE_HOLD_FIRE_ENGAGE";
 		};
 
 		class Fire: HoldFire
@@ -416,7 +416,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_FIRE_AT_WILL";
+			tooltip = "$STR_AMAE_FIRE_AT_WILL";
 		};
 
 		class FireEngage: HoldFire
@@ -427,7 +427,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_FIRE_ENGAGE";
+			tooltip = "$STR_AMAE_FIRE_ENGAGE";
 		};
 
 		class Default: HoldFire
@@ -452,7 +452,7 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 		class Title: RscText 
 		{
 			// correction: behaviour was named combat mode in vanilla
-			text = "$STR_GROUP_BEHAVIOUR";
+			text = "$STR_AMAE_GROUP_BEHAVIOUR";
 		};
 		class Careless: RscActivePicture 
 		{
@@ -462,7 +462,7 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			tooltip = "$STR_CARELESS";
+			tooltip = "$STR_AMAE_CARELESS";
 		};
 	};
 };

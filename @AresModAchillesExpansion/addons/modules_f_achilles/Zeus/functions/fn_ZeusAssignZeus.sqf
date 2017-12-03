@@ -21,9 +21,9 @@ if (!(missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) an
 	["This module has been disabled by the mission creator."] call Ares_fnc_ShowZeusMessage;
 };
 
-if (isNull _player) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
-if (!isPlayer _player) exitWith {[localize "STR_NO_PLAYER_IN_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage};
-if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_UNIT_IS_ALREADY_PROMOTED"] call Achilles_fnc_ShowZeusErrorMessage};
+if (isNull _player) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+if (!isPlayer _player) exitWith {[localize "STR_AMAE_NO_PLAYER_IN_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage};
+if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_AMAE_UNIT_IS_ALREADY_PROMOTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 [[_player, getPos _player],
 {

@@ -223,7 +223,7 @@ switch _mode do {
 		_ctrlArrowRight ctrladdeventhandler ["buttonclick",{with uinamespace do {["listModify",[ctrlparent (_this select 0),+1],objnull] call RscAttributeInventory}}];
 
 		private _ctrlButtonCustom = _Display displayctrl IDC_RSCDISPLAYATTRIBUTES_BUTTONCUSTOM;
-		_ctrlButtonCustom ctrlsettext localize "str_disp_arcmap_clear";
+		_ctrlButtonCustom ctrlsettext localize "STR_disp_arcmap_clear";
 		_ctrlButtonCustom ctrladdeventhandler ["buttonclick",{with uinamespace do {["clear",[ctrlparent (_this select 0)],objnull] call RscAttributeInventory}}];
 	};
 	case "filterChanged": {
@@ -458,7 +458,7 @@ switch _mode do {
 
 		_ctrlList setVariable ["WeaponSpecific",_cursel];
 		private _ctrlLable = _display displayCtrl IDC_RSCATTRIBUTEINVENTORY_FILTER13;
-		_ctrlLable ctrlSetText (localize "STR_WEAPON_SPECIFIC");
+		_ctrlLable ctrlSetText (localize "STR_AMAE_WEAPON_SPECIFIC");
 
 		private _reducedClasses = [_weapon];
 		private _index = _classes find _weapon;

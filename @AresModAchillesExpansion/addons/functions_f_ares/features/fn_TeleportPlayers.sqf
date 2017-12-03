@@ -6,7 +6,7 @@ if (_showTeleportMessage) then
 	// prevent curators from seeing the message
 	Ares_playersToShowMessageTo = _playersToTeleport - (allCurators apply {getAssignedCuratorUnit _x});
 	publicVariable "Ares_playersToShowMessageTo";
-    [[], {if (player in Ares_playersToShowMessageTo) then { titleText [localize "STR_YOU_ARE_BEING_TELEPORTED", "BLACK", 1]; sleep 1; titleFadeOut 2}}] remoteExec ["spawn", -2];
+    [[], {if (player in Ares_playersToShowMessageTo) then { titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1]; sleep 1; titleFadeOut 2}}] remoteExec ["spawn", -2];
 };
 
 while {!(_playersToTeleport isEqualto [])} do
