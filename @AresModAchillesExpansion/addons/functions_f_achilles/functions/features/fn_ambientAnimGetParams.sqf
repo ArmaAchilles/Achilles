@@ -18,7 +18,7 @@
 
 private _anim_set = _this;
 
-switch (_anim_set) do
+private _return = switch (_anim_set) do
 {   // [anims, noWeapon]
 	case "STAND_1":	{ [["HubStanding_idle1","HubStanding_idle2","HubStanding_idle3"], false] };
 	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05"], false] };
@@ -34,11 +34,7 @@ switch (_anim_set) do
 	case "BRIEFING_INTERACTIVE_2": { [["Acts_HUBABriefing"], true] };
 	case "LISTEN_TO_RADIO": { [["Acts_listeningToRadio_Loop"], false] };
 	case "NAVIGATE": { [["Acts_NavigatingChopper_Loop"], false] };
-	case "LEAN":
-	{
-        [["inbasemoves_lean1"], false];
-		private _noBackpack = true; // _noWeapon?
-	};
+	case "LEAN":{ [["inbasemoves_lean1"], false] };
 	case "KNEEL": { [["amovpknlmstpslowwrfldnon","aidlpknlmstpslowwrfldnon_ai","aidlpknlmstpslowwrfldnon_g01","aidlpknlmstpslowwrfldnon_g02","aidlpknlmstpslowwrfldnon_g03","aidlpknlmstpslowwrfldnon_g0s"], false] };
 	case "REPAIR_VEH_PRONE": { [["hubfixingvehicleprone_idle1"], true] };
 	case "REPAIR_VEH_KNEEL": { [["inbasemoves_repairvehicleknl"], true] };
@@ -62,3 +58,5 @@ switch (_anim_set) do
 	case "SHIELD_FROM_SUN": { [["Acts_ShieldFromSun_Loop"], false] };
 	case "SHOWING_THE_WAY": { [["Acts_ShowingTheRightWay_loop"], false] };
 };
+
+_return;
