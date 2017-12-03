@@ -9,15 +9,18 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-if (isNull _object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+if (isNull _object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 private _dialogResult = [
-	localize "STR_BIND_VAR",
+	localize "STR_AMAE_BIND_VAR",
 	[
-		[localize "STR_VAR",""],
-		[localize "STR_MODE",["Local","Public"]]
+		[localize "STR_AMAE_VAR",""],
+		[localize "STR_AMAE_MODE",["Local","Public"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
+
+if (_dialogResult select 0 == "") exitWith {["No variable entered!"] call Achilles_fnc_ShowZeusErrorMessage};
+
 if (count _dialogResult > 0) then
 {
 	private _var = _dialogResult select 0;
