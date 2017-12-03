@@ -24,7 +24,7 @@ private _dialogResult =
 	[
 		[localize "STR_AMAE_SIDE", ["OPFOR", "BLUFOR", localize "STR_AMAE_INDEPENDENT"], 1],
 		[localize "STR_AMAE_MODE", [localize "STR_AMAE_HOSTILE_TO", localize "STR_AMAE_FRIENDLY_TO"], 1],
-		[localize "STR_AMAE_SIDE", ["OPFOR", "BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_AMAE_NOBODY"], _bluforSelectNumber],
+		[localize "STR_AMAE_SIDE", ["OPFOR", "BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_NOBODY"], _bluforSelectNumber],
 		[localize "STR_AMAE_PLAY_MESSAGE", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
