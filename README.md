@@ -110,7 +110,7 @@ And then we will have a look at your work!
 - **[Kex](https://github.com/oOKexOo)** - Achilles
 - **[CreepPork](https://github.com/CreepPork)** - Achilles
 
-See also the list of [contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/%40AresModAchillesExpansion/credits.txt) who have invested something into Achilles and Ares.
+See also the list of [contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/%40AresModAchillesExpansion/credits.md) who have invested something into Achilles and Ares.
 
 ## Contact
 
