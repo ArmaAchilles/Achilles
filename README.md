@@ -99,8 +99,10 @@ And then we will have a look at your work!
 ### Setting up your development enviornment
 
 1. Clone your forked repository;
-2. Download and configure (inside the batch file) [AddonBuilder.bat](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/Tools/AddonBuilder.bat);
-3. Build as many PBOs you need!
+2. Find the **[AddonBuilder.exe](https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/(0.1.0)/Tools/AddonBuilder)** files and all the configuration files
+3. Move **AddonBuilder.exe** and all the necessary things for it, out of your tracked Git folders
+4. Configure **AddonBuilder.exe** in the **config.ini** file.
+5. Build as many PBOs you need!
 
 ## Authors
 
