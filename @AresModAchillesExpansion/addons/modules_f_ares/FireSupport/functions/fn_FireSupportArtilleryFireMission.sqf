@@ -145,7 +145,7 @@ if (_mode == 0) then
 			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
 
-	if (_pickFireMissionResult isEqualTo []) exitWith { ["Fire mission aborted."] call Ares_fnc_ShowZeusMessage; };
+	if (_pickFireMissionResult isEqualTo []) exitWith { [localize "STR_AMAE_FIRE_MISSION_ABORTED"] call Ares_fnc_ShowZeusMessage; };
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
