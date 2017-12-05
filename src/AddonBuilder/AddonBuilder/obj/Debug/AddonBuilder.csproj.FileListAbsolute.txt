@@ -1,0 +1,9 @@
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\AddonBuilder.exe.config
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\AddonBuilder.exe
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\AddonBuilder.pdb
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\obj\Debug\AddonBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\obj\Debug\AddonBuilder.exe
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\obj\Debug\AddonBuilder.pdb
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\INIFileParser.dll
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\INIFileParser.xml
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Debug\config.ini

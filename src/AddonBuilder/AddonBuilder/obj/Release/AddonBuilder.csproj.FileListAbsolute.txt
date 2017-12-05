@@ -1,0 +1,8 @@
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\config.ini
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\AddonBuilder.exe.config
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\AddonBuilder.exe
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\AddonBuilder.pdb
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\INIFileParser.dll
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\bin\Release\INIFileParser.xml
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\obj\Release\AddonBuilder.exe
+C:\Users\Uldis\documents\visual studio 2017\Projects\AddonBuilder\AddonBuilder\obj\Release\AddonBuilder.pdb
