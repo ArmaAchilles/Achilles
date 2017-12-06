@@ -40,10 +40,10 @@ if (_range_mode == 0) then
 	private _radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
-		case 0: {nearestObjects [_center_pos, [],_radius, true]};
+		case 0: {_center_pos nearEntities _radius};
 		case 1:
 		{
-			private _units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
+			private _units = _center_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius];
 			if (_dialogResult select 4 == 1) then
 			{
 				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
@@ -53,9 +53,9 @@ if (_range_mode == 0) then
 				_units select {count crew _x > 0};
 			};
 		};
-		case 2: {nearestObjects [_center_pos, ["LandVehicle","Air","Ship"], _radius, true]};
-		case 3: {nearestObjects [_center_pos, ["Static"], _radius, true]};
-		case 4: {nearestObjects [_center_pos, ["Logic"], _radius, true]};
+		case 2: {_center_pos nearEntities [["LandVehicle","Air","Ship"], _radius]};
+		case 3: {_center_pos nearEntities ["Static", _radius]};
+		case 4: {_center_pos nearEntities ["Logic", _radius]};
 	};
 } else
 {
