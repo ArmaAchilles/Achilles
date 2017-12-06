@@ -122,4 +122,35 @@ class cfgMusic
 	{
 		musicClass = "Calm";
 	};
+
+	// Tac-Ops Action Event Tracks
+	class EventTrack01a_F_Tacops 
+	{
+		musicClass="Action";
+	};
+
+	class EventTrack01b_F_Tacops
+	{
+		musicClass="Action";
+	};
+
+	class EventTrack02a_F_Tacops
+	{
+		musicClass="Action";
+	};
+	
+	class EventTrack02b_F_Tacops
+	{
+		musicClass="Action";
+	};
+
+	class EventTrack03a_F_Tacops
+	{
+		musicClass="Action";
+	};
+
+	class EventTrack03b_F_Tacops
+	{
+		musicClass="Action";
+	};
 };
