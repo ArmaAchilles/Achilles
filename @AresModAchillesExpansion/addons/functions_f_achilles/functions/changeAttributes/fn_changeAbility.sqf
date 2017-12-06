@@ -22,18 +22,18 @@ private _dialogResult =
 [
 	"Abilities",
 	[
-		["Aiming error",[localize "STR_AMAE_YES", localize "STR_AMAE_FALSE"]],
-		["Anim",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Auto combat",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Autotarget",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Check visible",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Cover",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["FSM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Move",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Suppression",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Target",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Path",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
-		["Allow fleeing","SLIDER", 0.5]
+		[localize "STR_AMAE_ABIL_AIMING_ERROR",[localize "STR_AMAE_YES", localize "STR_AMAE_FALSE"]],
+		[localize "STR_AMAE_ABIL_ANIM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_AUTO_COMBAT",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_AUTOTARGET",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_CHECK_VISIBLE",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_COVER",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_FSM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_MOVE",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_SUPPRESSION",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_TARGET",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_PATH",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_ABIL_COWARDICE","SLIDER", 0.5]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
