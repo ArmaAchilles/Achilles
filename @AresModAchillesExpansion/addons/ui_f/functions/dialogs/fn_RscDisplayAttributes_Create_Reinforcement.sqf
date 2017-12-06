@@ -13,7 +13,22 @@
 
 #define CURATOR_IDCs 	[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
 
-private _VALID_CATEGORIES = [localize "STR_AMAE_CHOPPERS", localize "STR_AMAE_CARS", localize "STR_AMAE_APCS", localize "STR_AMAE_TANKS", localize "STR_AMAE_SHIPS", localize "STR_AMAE_PLANES", localize "STR_AMAE_RHS_VEHCLASS_APC", localize "STR_AMAE_RHS_VEHCLASS_IFV", localize "STR_AMAE_RHS_VEHCLASS_TRUCK", localize "STR_AMAE_RHS_VEHCLASS_CAR", localize "STR_AMAE_RHS_VEHCLASS_TANK", localize "STR_AMAE_RHS_VEHCLASS_AIRPLANE", localize "STR_AMAE_RHS_VEHCLASS_HELICOPTER", localize "STR_AMAE_RHSUSF_VEHCLASS_MRAP"];
+private _VALID_CATEGORIES = 
+[
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_APCs" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Helicopters" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Cars" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Tanks" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Ships" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "EdSubcat_Planes" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_apc" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_helicopter" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_mrap" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_truck" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_car" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_aircraft" >> "displayName"),
+	getText (configfile >> "CfgEditorSubcategories" >> "rhs_EdSubcat_ifv" >> "displayName")
+];
 
 disableSerialization;
 private _display = findDisplay IDD_RSCDISPLAYCURATOR;
