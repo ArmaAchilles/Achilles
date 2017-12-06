@@ -92,7 +92,7 @@ if (_mode == 0) then
 		[
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_AMAE_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
-			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 

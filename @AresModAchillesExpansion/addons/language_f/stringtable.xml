@@ -2316,13 +2316,6 @@
         <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 человек(а))</Russian>
         <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
       </Key>
-      <Key ID="STR_AMAE_GENERATED_SQF_FROM_MISSION_OBJECTS">
-        <Original>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</Original>
-        <English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
-        <French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
-        <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 человек(а))</Russian>
-        <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
-      </Key>
       <Key ID="STR_AMAE_CHANGES_SAVED">
         <Original>CHANGES WERE SAVED!</Original>
         <English>CHANGES WERE SAVED!</English>
@@ -2589,7 +2582,7 @@
         <Russian>Кол-во снарядов</Russian>
         <German>Schüsse</German>
       </Key>
-      <Key ID="STR_AMAE_AMMO">
+      <Key ID="STR_AMAE_FS_AMMO">
         <Original>Ammo</Original>
         <English>Ammo</English>
         <French>Munition</French>
@@ -2801,13 +2794,6 @@
         <Russian>Тяжёлые</Russian>
         <German>Schwer</German>
       </Key>
-	  <Key ID="STR_AMAE_PAIN_LEVEL">
-        <Original>Pain level</Original>
-        <English>Pain level</English>
-		<French>Change this!</French>
-		<Russian>Уровень боли</Russian>
-		<German>Change this!</German>
-      </Key>
 	  <Key ID="STR_AMAE_NORMAL">
         <Original>normal</Original>
         <English>normal</English>
@@ -2894,7 +2880,7 @@
       </Key>
 	</Container>
 	<Container name="Building damage dialog strings">
-      <Key ID="STR_AMAE_LIGHT_INJURY">
+      <Key ID="STR_AMAE_LIGHT_DAMAGE">
         <Original>Light</Original>
         <English>Light</English>
         <French>Légèrement</French>
