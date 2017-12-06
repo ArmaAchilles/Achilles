@@ -24,9 +24,9 @@ REM optional argument: version of bikey: <prefix>_<version>.biprivatekey
 set keyVersion=%1
 
 REM Path for the folder where the source folders are located
-set sourceDir=D:\Git\AresModAchillesExpansion\@AresModAchillesExpansion\addons
+set sourceDir=E:\Programme\Games\Steam\steamapps\common\Arma 3\AresModAchillesExpansion\@AresModAchillesExpansion\addons
 REM Path for the folder where the *.pbo's shall be moved
-set targetDir=D:\Steam\SteamApps\common\Arma 3\@AresModAchillesExpansion\addons
+set targetDir=E:\Programme\Games\Steam\steamapps\common\Arma 3\AresModAchillesExpansion\@AresModAchillesExpansion\addons
 REM Prefix: you can access your addon files via \<prefix>\<pbo name>\<file>
 REM Prefix: if projPrefix is "" then \<pbo name>\<file>
 set projPrefix=achilles
@@ -35,9 +35,9 @@ set privKeyPrefix=achilles
 REM Default version (if you don't specify the version as an argument): <prefix>_dev.biprivatekey
 set keyVersionDefault=dev
 REM Folder where the biprivatekey is located
-set privKeyDir=D:\Steam\SteamApps\common\Arma 3 Tools\DSSignFile\
+set privKeyDir=E:\Programme\Games\Steam\steamapps\common\Arma 3 Tools\DSSignFile\privateKey
 REM Temporary folder
-set tmpDir=D:\Users\%username%\AppData\Local\Temp
+set tmpDir=C:\Users\%username%\AppData\Local\Temp
 
 REM biprivatekey file name
 if "%keyVersion%"=="" (
@@ -56,8 +56,7 @@ if not exist "%sourceDir%" (
 	goto EOS
 )
 if not exist "%targetDir%" (
-rem	call:PERROR "%targetDir% does not exist!"
-	mkdir "%targetDir%"
+	call:PERROR "%targetDir% does not exist!"
 	goto EOS
 )
 if not exist "%tmpDir%" (
