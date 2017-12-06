@@ -19,6 +19,7 @@ if (_type_id == -1) exitWith {["No chair selected!"] call Ares_fnc_ShowZeusMessa
 if (isNull (_chair getVariable ['occupier', ObjNull])) then
 {
 	_unit = (["unit"] call Achilles_fnc_SelectUnits) select 0;
+	if (isNil "_unit") exitWith {};
 	if (not (_unit isKindOf "Man")) exitWith {["No unit selected!"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 	_ehAnimDone = _unit addEventHandler
 	[

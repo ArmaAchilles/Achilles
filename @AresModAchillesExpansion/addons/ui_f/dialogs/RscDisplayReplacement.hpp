@@ -12,22 +12,15 @@ class CfgScriptPaths
 	AresDisplays = "\achilles\ui_f\scripts\";
 };
 
-
 class RscDisplayCurator 
 {
 	// couple achilles init with curator display
 	onLoad = "[_this select 0] call Achilles_fnc_onDisplayCuratorLoad;";
-	
-	/*
-	// change remove map satelite texture
-	class ControlsBackground 
+	onUnload = "[_this select 0] call Achilles_fnc_onDisplayCuratorUnload;";
+	class Controls 
 	{
-		class Map: RscMapControl 
-		{
-			maxSatelliteAlpha = 0;
-		};
+		#include "Replacement\RscDisplayAttributesModuleTree.hpp"
 	};
-	*/
 };
 
 /*
@@ -45,42 +38,29 @@ class RscDisplayMain: RscStandardDisplay
 };
 */
 // load external resources
-class RscControlsGroupNoScrollbars;
-class RscControlsGroupNoHScrollbars;
 class RscAttributeOwners : RscControlsGroupNoScrollbars {};
 
 // load external attributes
-class RscAttributeDamage : RscControlsGroupNoScrollbars {};
-class RscAttributeFuel : RscControlsGroupNoScrollbars {};
-class RscAttributeLock : RscControlsGroupNoScrollbars {};
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
-class RscAttributeRespawnVehicle : RscControlsGroupNoScrollbars {};
-class RscAttributeRespawnPosition : RscControlsGroupNoScrollbars 
-{
-	class controls 
-	{
-		class Title: RscText {};
-		class Background: RscText {};
-		class West: RscActivePicture {};
-		class East: West {};
-		class Guer: West {};
-		class Civ: West {};
-		class Disabled: West {};
-	};
-};
 
 // include modified attributes
 #include "Replacement\RscAttributes.hpp"
+#include "Replacement\RscAttributeInventory.hpp"
+#include "Replacement\RscAttributesModules.hpp"
 
 // include modified dialogs and displays
+
 #include "Replacement\RscDisplayAttributesMan.hpp"
 #include "Replacement\RscDisplayAttributesVehicle.hpp"
 #include "Replacement\RscDisplayAttributesGroup.hpp"
 #include "Replacement\RscDisplayWaypointAttributes.hpp"
 
+// include module displays
+#include "Replacement\RscDisplayAttributesSetDate.hpp"
+
 // include music from description.ext
 class RscAttributeMusic : RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeMusic"",""AresDisplays""] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";	
+	onSetFocus = "[_this,""RscAttributeMusic"",""AresDisplays""] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";	
 };

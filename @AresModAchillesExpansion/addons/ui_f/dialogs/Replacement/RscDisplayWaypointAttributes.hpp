@@ -25,7 +25,7 @@ class CfgCurator
 // Change aviable waypoints in corresponding resource
 class RscAttributeWaypointType: RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeWaypointType"",'AresDisplays'] call (uinamespace getvariable ""BIS_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeWaypointType"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	h = "8.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	class controls
 	{
@@ -42,6 +42,11 @@ class RscAttributeWaypointType: RscControlsGroupNoScrollbars
 			h = "7.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 	};
+};
+
+class RscAttributeWaypointTimeout: RscControlsGroupNoScrollbars
+{
+	onSetFocus = "[_this,""RscAttributeWaypointTimeout"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 // include combat modes attribute
@@ -66,3 +71,4 @@ class RscDisplayAttributesWaypoint: RscDisplayAttributes
 		};
 	};
 };
+

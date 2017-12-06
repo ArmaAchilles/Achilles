@@ -51,9 +51,10 @@ if (isNull _unit) then
 	[[_side,"HQ"],_message] remoteExec ["sideChat",0];
 } else
 {
+	private _name = if (isNil {_unit getVariable "Achilles_var_switchUnit_data"}) then {name _unit} else {(_unit getVariable "Achilles_var_switchUnit_data") select 0};
 	_dialogResult =
 	[
-		(localize "STR_CHATTER") + format [" (%1):", name _unit],
+		(localize "STR_CHATTER") + format [" (%1):", _name],
 		[
 			[localize "STR_CHANNEL",
 			[
@@ -84,9 +85,8 @@ if (isNull _unit) then
 	// if zeus channel
 	if (_chat_type == "") exitWith {[player,_message] remoteExec ['sideChat',0];};
 	
-	if (!isPlayer _unit) then
-	{
-		_message = "(" + (name _unit) + " [" + localize "STR_AI" + "]) " + _message; 
-	};
+
+	_message = "(" + (_name) + " [" + localize "STR_AI" + "]) " + _message; 
+	
 	[_unit,_message] remoteExec [_chat_type,0];
 };

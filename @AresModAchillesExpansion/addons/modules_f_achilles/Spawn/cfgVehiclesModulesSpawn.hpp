@@ -11,11 +11,11 @@ class Achilles_Module_Spawn_Effects : Achilles_Spawn_Module_Base
 	function = "Achilles_fnc_SpawnEffect";
 };
 
-class Achilles_Module_Spawn_Advanced_Composition : Achilles_Spawn_Module_Base
+class Achilles_Module_Spawn_Carrier : Achilles_Spawn_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_ADVANCED_COMPOSITION";
-	function = "Achilles_fnc_SpawnAdvancedCompositions";
+	displayName = "USS Freedom";
+	function = "Achilles_fnc_SpawnCarrier";
 };
 
 class Achilles_Module_Spawn_Explosives : Achilles_Spawn_Module_Base
@@ -31,3 +31,11 @@ class Achilles_Module_Spawn_Empty_Object : Achilles_Spawn_Module_Base
 	displayName = "$STR_SPAWN_EMPTY_OBJECT";
 	function = "Achilles_fnc_SpawnEmptyObject";
 };
+
+class Achilles_Module_Spawn_Advanced_Composition : Achilles_Spawn_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_ADVANCED_COMPOSITION";
+	function = "Achilles_fnc_SpawnAdvancedCompositions";
+};
+

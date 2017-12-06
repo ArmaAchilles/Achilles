@@ -13,7 +13,7 @@ _dialogResult =
 [
 	localize "STR_CHANGE_ALTITUDE",
 	[
-		[(localize "STR_Altitude_ASL") + " [m]", "","0"]
+		[(localize "STR_Altitude_ASL_ATL") + " [m]", "","0"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 

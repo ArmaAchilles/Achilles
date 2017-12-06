@@ -1,1 +1,7 @@
-
+@Release/*
+*.bikey
+*.biprivatekey
+*.pbo
+*.bisign
+*.lnk
+.vscode/

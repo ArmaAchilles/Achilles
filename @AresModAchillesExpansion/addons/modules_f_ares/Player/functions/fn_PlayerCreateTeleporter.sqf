@@ -1,4 +1,4 @@
-		#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 // Create a function in the mission namespace on all players machines to add the
 // teleport action.
@@ -84,6 +84,16 @@ publicVariable "Ares_TeleportMarkers";
 
 // Set the name of the marker (used in the action)
 _teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
+_dialogResult = 
+[
+	localize "STR_CREATE_NEW_LZ",
+	[
+		[localize "STR_NAME", "", _teleportMarkerName, true]
+	]
+] call Ares_fnc_showChooseDialog;
+
+if (count _dialogResult == 0) exitWith {};
+_teleportMarkerName = _dialogResult select 0;
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 
 // Make the teleport marker editable in zeus (needs to run on server)

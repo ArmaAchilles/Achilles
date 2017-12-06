@@ -69,6 +69,7 @@ _object_list = [];
 				_chute setPos _pos;
 				_vehicle attachTo [_chute];
 			};
+			{_vehicle setPylonLoadout [_forEachIndex + 1,_x]} forEach _loadout;
 			_object_list pushBack _vehicle;
 			if (_vehicle in allUnitsUAV) then
 			{

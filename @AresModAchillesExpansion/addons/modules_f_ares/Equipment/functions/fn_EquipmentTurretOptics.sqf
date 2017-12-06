@@ -47,7 +47,8 @@ if (isNull _unitUnderCursor) then
 			vehicles select {(alive _x) and (side _x == _side)};
 		};
 	};
-
+	
+	if (isNil "_vehicles") exitWith {};
 	if (count _vehicles == 0) exitWith 
 	{
 		[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; 

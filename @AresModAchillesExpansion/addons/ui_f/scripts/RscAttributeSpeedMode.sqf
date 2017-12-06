@@ -61,27 +61,36 @@ switch _mode do {
 		diag_log _selected;
 		if (typename _entity == typename []) then 
 		{
-			_group = _entity select 0;
-			_wp_id = _entity select 1;
-			if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
+			if (waypointSpeed _entity == _selected) exitWith {};
+			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
-				if (local _group) then
+				_group = _x select 0;
+				_wp_id = _x select 1;
+				if (currentwaypoint _group == _wp_id && _selected != "UNCHANGED") then 
 				{
-					_group setspeedmode _selected;
+					if (local _group) then
+					{
+						_group setspeedmode _selected;
+					} else
+					{
+						[_group, _selected] remoteExec ["setspeedmode",leader _group];
+					};
+				};
+				_x setwaypointspeed _selected;
+			} forEach _curatorSelectedWPs;
+		} else {
+			if (speedMode leader _entity == _selected) exitWith {};
+			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
+			{
+				_leader = leader _x;
+				if (local _leader) then
+				{
+					_x setspeedmode _selected;
 				} else
 				{
-					[_group, _selected] remoteExec ["setspeedmode",leader _group];
+					[_x, _selected] remoteExec ["setspeedmode", _leader];
 				};
-			};
-			_entity setwaypointspeed _selected;
-		} else {
-			if (local _entity) then
-			{
-				_entity setspeedmode _selected;
-			} else
-			{
-				[_entity, _selected] remoteExec ["setspeedmode",leader _entity];
-			};
+			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};
 		false

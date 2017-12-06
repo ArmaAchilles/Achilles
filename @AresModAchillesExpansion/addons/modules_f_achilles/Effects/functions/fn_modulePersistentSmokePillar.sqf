@@ -49,11 +49,13 @@ switch _mode do
 	{
 		_activated = _params select 1;
 		_isCuratorPlaced = _params select 2;
+		_pos = position _logic;
 
 		//--- Terminate on all machines where the module is not local
 		if !(local _logic) exitwith {};
 		
-		_sourceObject = "Land_ClutterCutter_small_F" createVehicle (position _logic);
+		_sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
+		_sourceObject setPos _pos;
 		_smokeType = _logic getVariable ["type",getNumber (configfile >> "cfgvehicles" >> typeof _logic >> "smokeType")];
 		_sources = [_smokeType, _sourceObject] call Achilles_fnc_spawnSmoke;
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;

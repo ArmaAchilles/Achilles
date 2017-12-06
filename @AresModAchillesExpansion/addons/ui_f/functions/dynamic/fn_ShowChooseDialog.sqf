@@ -13,11 +13,11 @@
 */
 disableSerialization;
 
-_titleText = _this param [0,"",[""]];
-_choicesArray = _this param [1,["placeholder"],["",[]]];
-_ResourceScript = _this param [2,"",[""]];
-
-private "_defaultChoice";
+private ["_defaultChoice","_defaultVariableId"];
+private _titleText = _this param [0,"",[""]];
+private _choicesArray = _this param [1,["placeholder"],["",[]]];
+private _ResourceScript = _this param [2,"",[""]];
+private _ResourceScript = _this param [2,"",[""]];
 
 /*
 if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
@@ -44,10 +44,12 @@ if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
 #define DYNAMIC_GUI_IDD			133798
 #define DYNAMIC_TITLE_IDC		1000
 #define DYNAMIC_BG_IDC			2000
+#define DYNAMIC_CTRL_GROUP		7000
 #define	DYNAMIC_BOTTOM_IDCs		[2010,3000,3010]
 
 #define BG_WIDTH				(40 * GUI_GRID_W)
-#define START_ROW_Y				(2 * GUI_GRID_H + GUI_GRID_Y)
+#define START_ROW_Y				(0 * GUI_GRID_H + GUI_GRID_Y)
+#define MAX_ROW_Y				(29.4 * GUI_GRID_H + GUI_GRID_Y)
 #define LABEL_COMBO_DELTA_Y		(0.5 * GUI_GRID_H + GUI_GRID_Y)
 #define LABEL_COLUMN_X			(0.5 * GUI_GRID_W + GUI_GRID_X)
 #define LABEL_WIDTH				(39 * GUI_GRID_W)
@@ -70,17 +72,36 @@ if ((count _this) == 2 && typeName (_choicesArray select 0) == typeName "") then
 #define SIDE_BASE_IDC			(12000)
 
 // Bring up the dialog frame we are going to add things to.
-_createdDialogOk = createDialog "Ares_Dynamic_Dialog";
-_dialog = findDisplay DYNAMIC_GUI_IDD;
+createDialog "Ares_Dynamic_Dialog";
+private _dialog = findDisplay DYNAMIC_GUI_IDD;
 
 // translate the bottom line of the dialog
-_row_heights = _choicesArray apply {_choices = _x select 1; if (_choices in ["ALLSIDE","SIDE"]) then {GtC_H(4.1)} else {TOTAL_ROW_HEIGHT};};
-_yCoord = (_row_heights call Achilles_fnc_sum) + TOTAL_ROW_HEIGHT + GtC_H(0.4);
+private _row_heights = _choicesArray apply 
+{
+	_choices = _x select 1;
+	switch (_choices) do 
+	{
+		case "ALLSIDE"; case "SIDE": {GtC_H(4.1)};
+		case "MESSAGE": {TOTAL_ROW_HEIGHT + 4*COMBO_HEIGHT};
+		default {TOTAL_ROW_HEIGHT};
+	};
+};
+private _tot_height = _row_heights call Achilles_fnc_sum;
+if (_tot_height > MAX_ROW_Y) then {_tot_height = MAX_ROW_Y};
 
-_yCoord = _yCoord + (0.4 * GUI_GRID_H);
+private _yCoord = _tot_height + TOTAL_ROW_HEIGHT + GtC_H(0.4);
+
+// Resize ctrl group
+private _ctrl_group = _dialog displayCtrl DYNAMIC_CTRL_GROUP;
+private _pos = ctrlPosition _ctrl_group;
+_pos set [3,_yCoord-(_pos select 1)];
+_ctrl_group ctrlSetPosition _pos;
+_ctrl_group ctrlCommit 0;
+
+_yCoord = _yCoord + GtC_H(0.4);
 
 {
-	_bottomCtrl = _dialog displayCtrl _x;
+	private _bottomCtrl = _dialog displayCtrl _x;
 	_pos = ctrlPosition _bottomCtrl;
 	_pos set [1,_yCoord];
 	_bottomCtrl ctrlSetPosition _pos;
@@ -90,7 +111,7 @@ _yCoord = _yCoord + (0.4 * GUI_GRID_H);
 _yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 
 // Resize the background
-_background = _dialog displayCtrl DYNAMIC_BG_IDC;
+private _background = _dialog displayCtrl DYNAMIC_BG_IDC;
 _pos = ctrlPosition _background;
 _pos set [3,_yCoord-(_pos select 1)];
 _background ctrlSetPosition _pos;
@@ -99,7 +120,7 @@ _background ctrlCommit 0;
 // set dialog title
 if (_titleText != "") then
 {
-	_ctrlTitle = _dialog displayCtrl DYNAMIC_TITLE_IDC;
+	private _ctrlTitle = _dialog displayCtrl DYNAMIC_TITLE_IDC;
 	_ctrlTitle ctrlSetText _titleText;
 
 };
@@ -108,29 +129,31 @@ if (_titleText != "") then
 _yCoord = START_ROW_Y;
 
 // Get the ID for use when looking up previously selected values.
-_titleText_varName = _titleText call Achilles_fnc_TextToVariableName;
-_titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleText_varName];
+private _titleText_varName = _titleText call Achilles_fnc_TextToVariableName;
+private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleText_varName];
 {
-	_choiceName = _x select 0;
-	_choices = _x select 1;
+	private _choiceName = _x select 0;
+	private _choices = _x select 1;
 	
-	_choiceName_varName = _choiceName call Achilles_fnc_TextToVariableName;
+	private _choiceName_varName = _choiceName call Achilles_fnc_TextToVariableName;
 	
-	_defaultChoice = 0;
+	private _defaultChoice = 0;
+	private _force_default = false;
 	if (count _x > 2) then
 	{
 		_defaultChoice = _x select 2;
+		_force_default = _x param [3, false, [false]];
 	};
 	
-	// If this dialog is named, attmept to get the default value from a previously displayed version
-	if (_titleText != "") then
+	// If this dialog is named, attempt to get the default value from a previously displayed version
+	if (_titleText != "" and not _force_default) then
 	{
 		_defaultVariableId = format["%1_%2", _titleVariableIdentifier, _forEachIndex];
 		_defaultChoice = uiNamespace getVariable [_defaultVariableId, _defaultChoice];
 	};
 
 	// Create the label for this entry
-	_choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex];
+	private _choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 	_choiceLabel ctrlSetText _choiceName;
 	_choiceLabel ctrlSetBackgroundColor [0,0,0,0.6];
 	
@@ -142,7 +165,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		_choiceLabel ctrlCommit 0;
 		
 		// Create the combo box for this entry and populate it.		
-		_choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex];
+		private _choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 		_choiceCombo ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 		_choiceLabel ctrlSetBackgroundColor [0,0,0,0.5];
 		_choiceCombo ctrlCommit 0;
@@ -152,7 +175,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 		
 		// Set the current choice, record it in the global variable, and setup the event handler to update it.
 
-		_comboScript = "";
+		private _comboScript = "";
 		
 		if (_ResourceScript != "") then 
 		{
@@ -176,6 +199,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 	}
 	else 
 	{
+		private _choices = toUpper _choices;
 		if (_choices in ["ALLSIDE","SIDE"]) then
 		{
 			// set entry label position
@@ -183,7 +207,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_choiceLabel ctrlCommit 0;
 			
 			// create entry background
-			_ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex];
+			private _ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_yCoord = _yCoord + GtC_H(0.5);
 			_ctrl ctrlSetBackgroundColor [1,1,1,0.1];
 			_ctrl ctrlSetPosition [GtC_X(8),_yCoord,GtC_W(31),GtC_H(3)];
@@ -191,13 +215,13 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			
 			// create Active Entry Pictures
 			_yCoord = _yCoord + GtC_H(0.5);
-			_xCoord = GtC_X(12.5);
+			private _xCoord = GtC_X(12.5);
 			{
-				_icon = _x;
-				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex];
+				private _icon = _x;
+				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex, _ctrl_group];
 				_ctrl ctrlSetBackgroundColor [1,1,1,1];
 				_ctrl ctrlSetActiveColor [1,1,1,1];
-				_side_name = toUpper (if (_foreachindex == 0) then {"ZEUS"} else {(_foreachindex - 1) call bis_fnc_sideName});
+				private _side_name = toUpper (if (_foreachindex == 0) then {"ZEUS"} else {(_foreachindex - 1) call bis_fnc_sideName});
 				_ctrl ctrlSetTooltip _side_name;
 				_ctrl ctrlSetText _icon;
 				_ctrl ctrlSetPosition [_xCoord,_yCoord,GtC_W(2.4),GtC_H(2)];
@@ -214,7 +238,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			} else
 			{
 				// include side logic
-				defaultChoice = if (typeName _defaultChoice == "SCALAR" and _defaultChoice != -1) then {_defaultChoice} else {1};
+				_defaultChoice = if (typeName _defaultChoice == "SCALAR" and _defaultChoice != -1) then {_defaultChoice} else {1};
 			};
 			
 			["onLoad",_dialog,_forEachIndex,_defaultChoice] call Achilles_fnc_sideTab;
@@ -222,15 +246,21 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 			_yCoord = _yCoord + GtC_H(3.1);
 		} else
 		{
-		
+			private _add_height = if (_choices == "MESSAGE") then {4*COMBO_HEIGHT} else {0};
+			
 			// set entry label position
-			_choiceLabel ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
+			_choiceLabel ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
 			_choiceLabel ctrlCommit 0;
 			
 			// create the control element
-			_ctrl_type = if (_choices == "SLIDER") then {"RscXSliderH"} else {"RscEdit"};
-			_ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex];
-			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+			private _ctrl_type = switch (_choices) do
+			{
+				case "SLIDER": {"RscXSliderH"};
+				case "MESSAGE": {"RscAchillesMessageEdit"};
+				default {"RscAchillesEdit"};
+			};
+			private _ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
+			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
 			_ctrl ctrlCommit 0;
 			if (_choices == "SLIDER") then
 			{
@@ -256,7 +286,7 @@ _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1", _titleT
 				
 			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex], _defaultChoice];
 			// Move onto the next row
-			_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
+			_yCoord = _yCoord + TOTAL_ROW_HEIGHT + _add_height;
 		};
 	};
 } forEach _choicesArray;
@@ -265,14 +295,16 @@ uiNamespace setVariable ["Ares_ChooseDialog_Result", -1];
 
 if (_ResourceScript != "") then {call compile format["[""LOADED""] call %1;",_ResourceScript]};
 
-waitUntil { !dialog };
+Ares_var_showChooseDialog = true;
+_dialog displayAddEventHandler ["unload",{Ares_var_showChooseDialog = nil}];
+waitUntil { isNil "Ares_var_showChooseDialog" };
 
 if (_ResourceScript != "") then {call compile format["[""UNLOAD""] call %1;",_ResourceScript]};
 
 // Check whether the user confirmed the selection or not, and return the appropriate values.
 if (uiNamespace getVariable "Ares_ChooseDialog_Result" == 1) then
 {
-	_returnValue = [];
+	private _returnValue = [];
 	{
 		_returnValue set [_forEachIndex, uiNamespace getVariable (format["Ares_ChooseDialog_ReturnValue_%1",_forEachIndex])];
 	}forEach _choicesArray;

@@ -47,7 +47,7 @@ private _nextCaptureStateDialogResult = nil;
 					]
 				] call Ares_fnc_ShowChooseDialog;
 				// terminate script
-				if (count _nextCaptureStateDialogResult == 0) exitWith {deleteVehicle _logic};
+				if (count _nextCaptureStateDialogResult == 0) exitWith {deleteVehicle _logic; breakOut MAIN_SCOPE_NAME};
 			};
 			[_unitToSurrender,objNull,_nextCaptureStateDialogResult] remoteExec ["Ares_fnc_surrenderUnit",_unitToSurrender];
 		} else

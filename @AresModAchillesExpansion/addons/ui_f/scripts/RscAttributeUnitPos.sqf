@@ -44,23 +44,28 @@ switch _mode do {
 		RscAttributeUnitPos_selected = _idcs find (ctrlidc _control);
 	};
 	case "confirmed": {
+	private ["_previousStanceId", "_entities"];
 		_display = _params select 0;
 		_selected = uinamespace getvariable ["RscAttributeUnitPos_selected",0];
-		_entities = if (typename _entity == typename grpnull) then {units _entity} else {[_entity]};
-		if (local _entity) then
-		{
-			{_x setunitpos (_stances select _selected);} foreach _entities;
-		} else
-		{
-			[[_entities,(_stances select _selected)],
-			{
-				_entities = _this select 0;
-				_stance = _this select 1;
-				{
-					_x setUnitPos _stance;
-				} forEach _entities;
-			}] remoteExec ["spawn", _entities select 0];
+		if (typename _entity == typename grpnull) then {
+			_selectedGroups = ["group"] call Achilles_fnc_getCuratorSelected;
+			_entities = [];
+			{_entities append units _x} forEach _selectedGroups;
+			_previousStanceId = _stances find (tolower unitpos leader _entity);
+		} else {
+			_entities = ["man"] call Achilles_fnc_getCuratorSelected;
+			_previousStanceId = _stances find (tolower unitpos _entity);
 		};
+		if (_previousStanceId == _selected) exitWith {};
+		_stance = _stances select _selected;
+		{
+			if (local _x) then
+			{
+				_x setunitpos _stance;
+			} else {
+				[_x, _stance] remoteExecCall ["setunitpos", _x];
+			};
+		} forEach _entities;
 		false
 	};
 	case "onUnload": {

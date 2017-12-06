@@ -31,8 +31,8 @@ _JIP_id = [[_center_pos,_radius,_lightOn],
 	params ["_center_pos","_radius","_lightOn"];
 	{  
 	  [_x,_lightOn] call BIS_fnc_switchLamp;  
-	} forEach (nearestObjects [_center_pos,["Building"],_radius]);
-}] remoteExec ["spawn",0,_logic];
+	} forEach (nearestObjects [_center_pos,["Building"], _radius, true]);
+}, 0, _logic]  call Achilles_fnc_spawn;
 
 _logic setName format ["Toggle Lamp: JIP queue %1", _JIP_id];
 _deleteModuleOnExit = false;

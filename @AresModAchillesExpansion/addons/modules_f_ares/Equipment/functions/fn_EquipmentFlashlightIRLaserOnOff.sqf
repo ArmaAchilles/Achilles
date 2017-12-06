@@ -47,7 +47,8 @@ if (isNull _unitUnderCursor) then
 			allUnits select {(alive _x) and (side _x == _side)};
 		};
 	};
-
+	
+	if (isNil "_units") exitWith {};
 	if (count _units == 0) exitWith 
 	{
 		[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; 
@@ -96,12 +97,8 @@ if (isNil "_units") exitWith {};
 		_unit enableIRLasers _IR;
 	} else
 	{
-		[[_unit,_taclight,_IR],
-		{
-			params ["_unit","_taclight","_IR"];
-			_unit enableGunLights _taclight;
-			_unit enableIRLasers _IR;			
-		}] remoteExec ["spawn",_unit];
+		[_unit, _taclight] remoteExecCall ["enableGunLights", _unit];
+		[_unit, _IR] remoteExecCall ["enableIRLasers", _unit];
 	};
 } forEach _units;
 

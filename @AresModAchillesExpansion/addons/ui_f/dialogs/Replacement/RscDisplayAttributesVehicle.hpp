@@ -32,25 +32,26 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		};
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "BEHAVIOUR";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			text = "$STR_GARAGE";
+			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
+								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
-			text = "CARGO";
+			text = "$STR_CARGO";
 			onMouseButtonClick = "createdialog 'RscDisplayAttributesInventory'";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "AMMO";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			text = "$STR_LOADOUT";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
 		{
-			text = "DAMAGE";
+			text = "$STR_DAMAGE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
@@ -87,25 +88,26 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		};
 		class ButtonBehaviour : ButtonCustom 
 		{
-			text = "BEHAVIOUR";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			text = "$STR_GARAGE";
+			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
+								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
-			text = "CARGO";
-			onMouseButtonClick = "createdialog 'RscDisplayAttributesInventory'";
+			text = "$STR_CARGO";
+			onMouseButtonClick = "createDialog ""RscDisplayAttributesInventory""";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow
 		{
-			text = "AMMO";
-			onMouseButtonClick = "[localize 'STR_NOT_IMPLEMENTED_AT_THE_MOMENT'] call Ares_fnc_ShowZeusMessage; playSound 'FD_Start_F'";
+			text = "$STR_LOADOUT";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changePylonAmmo;";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonDamage : ButtonCustomBelow
 		{
-			text = "DAMAGE";
+			text = "$STR_DAMAGE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_damageComponents";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};

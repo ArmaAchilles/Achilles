@@ -4,6 +4,13 @@ class Achilles_Objects_Module_Base : Achilles_Module_Base
 	Category = "Objects";
 };
 
+class Enyo_Objects_Module_Base : Enyo_Module_Base
+{
+	category = "Objects";
+	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+};
+
 class Achilles_Toggle_Simulation_Module : Achilles_Objects_Module_Base
 {
 	scopeCurator = 2;
@@ -22,6 +29,15 @@ class Achilles_Attach_To_Module : Achilles_Objects_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
+class Achilles_Make_Invincible_Module : Achilles_Objects_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_Make_Invincible_Module";
+	displayName = "$STR_MAKE_INVINCIBLE";
+	function = "Achilles_fnc_ModuleObjectsMakeInvincible";
+	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+};
 class Achilles_Set_Height_Module : Achilles_Objects_Module_Base
 {
 	scopeCurator = 2;
@@ -39,4 +55,21 @@ class Achilles_Transfer_Ownership_Module : Achilles_Objects_Module_Base
 	function = "Achilles_fnc_ObjectsTransferOwnership";
 	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
+};
+class Achilles_IED_Module : Enyo_Objects_Module_Base
+{
+	scopeCurator = 2;
+	curatorCanAttach = 1;
+	_generalMacro = "Achilles_IED_Module";
+	displayName = "$STR_ENYO_CREATE_IED";
+	function = "Achilles_fnc_ObjectsIED";
+};
+
+class Achilles_AddECM_Module : Enyo_Objects_Module_Base
+{
+	scopeCurator = 2;
+	curatorCanAttach = 1;
+	_generalMacro = "Achilles_AddECM_Module";
+	displayName = "$STR_ENYO_ADD_ECM_TO_VEHICLE";
+	function = "Achilles_fnc_ObjectsAddECM";
 };

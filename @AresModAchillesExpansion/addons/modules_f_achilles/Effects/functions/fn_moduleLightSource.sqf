@@ -61,11 +61,13 @@ switch _mode do {
 	case "init": {
 		_activated = _params select 1;
 		_isCuratorPlaced = _params select 2;
+		_pos = position _logic;
 
 		//--- Terminate on all machines where the module is not local
 		if !(local _logic) exitwith {};
 		
-		_sourceObject = "Land_ClutterCutter_small_F" createVehicle (position _logic);
+		_sourceObject = "Land_ClutterCutter_small_F" createVehicle _pos;
+		_sourceObject setPos _pos;
 		_colorName = _logic getVariable ["type",getText (configfile >> "cfgvehicles" >> typeof _logic >> "color")];
 		_colorIndex = COLOR_NAMES find _colorName;
 		_color = COLOR_RGB select _colorIndex;
@@ -74,18 +76,19 @@ switch _mode do {
 		_source lightAttachObject [_sourceObject,[0,0,0]];
 		[[_source,_color],
 		{
-			_source = _this select 0;
-			_color = _this select 1;
+			params ["_source","_color"];
 			_source setLightBrightness 1.0;
 			_source setLightAmbient  _color;
 			_source setLightColor _color;
-		}] remoteExec ["BIS_fnc_spawn",0,true];
-		
+		},0,_source] call Achilles_fnc_spawn;
+		_sourceObject setVariable ["LightAttributes",[_color, [1,1,1,1]],true];
 		[[_sourceObject], true] call Ares_fnc_AddUnitsToCurator;
 		deleteVehicle _logic;
 		
-		waitUntil {sleep 1; isNull _sourceObject};
-		deletevehicle _source;
+		_sourceObject setVariable ["source", _source];
+		_sourceObject addEventHandler ["Deleted", {_source = (_this select 0) getVariable "source"; deletevehicle _source}];
+		
+		[_sourceObject] call Achilles_fnc_lightSourceAttributes;
 	};
 };
 

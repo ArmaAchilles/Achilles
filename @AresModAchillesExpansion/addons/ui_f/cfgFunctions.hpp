@@ -10,12 +10,13 @@ class CfgFunctions
 			class onGameStarted;
 		};
 		
-		class ui_f_displayCurator
+		class ui_f_eventHandler
 		{
-			file = "\achilles\ui_f\functions\displayCurator";
+			file = "\achilles\ui_f\functions\eventHandler";
 			
 			class AppendToModuleTree;
 			class onDisplayCuratorLoad;
+			class onDisplayCuratorUnload;
 			class onModuleTreeLoad;
 		};
 		
@@ -25,11 +26,13 @@ class CfgFunctions
 			file = "\achilles\ui_f\functions\keyEvents";
 			
 			class HandleCuratorKeyPressed;
-			class HandleCuratorKeyReleased;
 			class HandleRemoteKeyPressed;
-			class HandleCuratorObjectDoubleClicked;
+			class HandleMouseDoubleClicked;
 			class HandleCuratorObjectPlaced;
+			class HandleCuratorGroupPlaced;
 			class HandleCuratorObjectEdited;
+			class HandleCuratorObjectDeleted;
+			class HandleCuratorWpPlaced;
 		};
 		
 		class ui_f_common
@@ -46,20 +49,26 @@ class CfgFunctions
 			class RscDisplayAttributes_selectPlayers;
 			class RscDisplayAttributes_Create_Reinforcement;
 			class RscDisplayAttributes_BuildingsDestroy;
+			class RscDisplayAttributes_LockDoors;
 			class RscDisplayAtttributes_SpawnEffect;
+			class RscDisplayAttributes_editLigthSource;
 			class RscDisplayAttributes_SpawnAdvancedComposition;
 			class RscDisplayAttributes_manageAdvancedComposition;
 			class RscDisplayAttributes_createAdvancedComposition;
 			class RscDisplayAttributes_editAdvancedComposition;
 			class RscDisplayAttributes_SpawnExplosives;
-			class RscDisplayAtttributes_SpawnIntel;
-			class RscDisplayAtttributes_DamageComponents;
 			class RscDisplayAttributes_Chatter;
-			class RscDisplayAtttributes_ChangeSkills;
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
 		};
+		
+		class ui_f_replacement
+		{
+			file = "\achilles\ui_f\functions\replacement";
+			
+			class initCuratorAttribute;
+		}
 	};
 	
 	class Ares

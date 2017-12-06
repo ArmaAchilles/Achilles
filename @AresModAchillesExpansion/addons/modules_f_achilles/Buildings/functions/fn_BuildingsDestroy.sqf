@@ -31,12 +31,12 @@ switch (_dialogResult select 0) do
 {
 	case 0:	
 	{
-		_buildings = nearestObjects [_center_pos, ["Building"], 50];
+		_buildings = nearestObjects [_center_pos, ["Building"], 50, true];
 		_buildings resize 1;
 	};
 	case 1: 
 	{
-		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 3)];
+		_buildings = nearestObjects [_center_pos, ["Building"], parseNumber (_dialogResult select 3), true];
 	};
 };
 

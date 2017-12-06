@@ -29,7 +29,7 @@ Achilles_var_submit_selection = nil;
 
 // Inform curator what he has to do
 playSound "FD_Finish_F";
-[["Ares","SelectionOption"]] call BIS_fnc_advHint;
+[["Ares","SelectionOption"],15,"not isNil ""Achilles_var_submit_selection""",35,"not isNil ""Achilles_var_submit_selection""",true,true] call BIS_fnc_advHint;
 
 _ctrlMessage ctrlsettext toupper (format [localize "STR_SELECT_X_APPLIED_TO_MODULE",_type]);
 _ctrlMessage ctrlsetfade 1;
@@ -46,7 +46,7 @@ _handler_id = _display displayAddEventHandler ["KeyDown",
 }];
 
 // executed when the choice is submitted or cancled
-WaitUntil {!isNil "Achilles_var_submit_selection"};
+WaitUntil {!isNil "Achilles_var_submit_selection" or {isNull findDisplay 312}};
 
 // remove the key handler and the message
 _display displayRemoveEventHandler ["KeyDown", _handler_id];
@@ -54,7 +54,7 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (! Achilles_var_submit_selection) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (not isNil "Achilles_var_submit_selection" and {not Achilles_var_submit_selection}) exitWith {[localize "STR_SELECTION_CANCLED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
 
 // if enter was pressed
 [localize "STR_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;

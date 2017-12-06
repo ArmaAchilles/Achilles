@@ -1,0 +1,94 @@
+class cfgRemoteExec
+{
+	class Functions
+	{
+		mode = 1;
+		jip = 1;
+
+		class achilles_fnc_changeside_local;
+		class achilles_fnc_spawn_remote;
+		class achilles_fnc_breachstun;
+		class achilles_fnc_ambientanim;
+		class bis_fnc_holdactionadd;
+		class bis_fnc_holdactionremove;
+		class achilles_fnc_chute;
+		class rhs_fnc_vehpara;
+		class bis_fnc_initvehicle;
+		class ares_fnc_surrenderunit;
+		class ace_medical_fnc_treatmentadvanced_fullheallocal;
+		class achilles_fnc_setaceinjury;
+		class achilles_fnc_setvanillainjury;
+		class achilles_fnc_createsuicidebomber;
+		class achilles_fnc_damagebuildings;
+		class bis_fnc_earthquake;
+		class ares_fnc_weather_function;
+		class ares_fnc_change_weather_function;
+		class achilles_fnc_suppressivefire;
+		class ares_fnc_addintel;
+		class bis_fnc_shownotification;
+		class achilles_fnc_createied;
+		class bis_fnc_shakecuratorcamera;
+		class bis_fnc_advhint;
+		class bis_fnc_curatorsaymessage;
+		class bis_fnc_carrier01init;
+		class ares_fnc_searchbuilding;
+		class ares_fnc_zenoccupyhouse;
+		class achilles_fnc_eject_passengers;
+		class bis_fnc_carrier01posupdate;
+		class achilles_fnc_setunitammodef;
+		class achilles_fnc_setvehicleammodef;
+		class achilles_fnc_modulecas_server;
+		class bis_fnc_modulerespawnvehicle;
+	};
+	class Commands
+	{
+		mode = 1;
+		jip = 1;
+
+		class enableai;
+		class disableai;
+		class allowfleeing;
+		class setpylonloadout;
+		class setskill;
+		class setunittrait;
+		class sethitindex;
+		class setdir;
+		class setvectordirandup;
+		class switchmove;
+		class sidechat;
+		class globalChat;
+		class vehicleChat;
+		class commandChat;
+		class addeventhandler;
+		class say3d;
+		class unassignvehicle;
+		class action;
+		class ordergetin;
+		class enablesimulationglobal;
+		class setface;
+		class addcuratoreditableobjects;
+		class removecuratoreditableobjects;
+		class setname;
+		class removeallactions;
+		class flyinheight;
+		class swimindepth;
+		class allowdamage;
+		class hint;
+		class enablegunlights;
+		class enableirlasers;
+		class linkitem;
+		class unassignitem;
+		class removeitem;
+		class removeprimaryweaponitem;
+		class addprimaryweaponitem;
+		class commandartilleryfire;
+		class hideobjectglobal;
+		class setbehaviour;
+		class setcombatmode;
+		class setformation;
+		class setfuel;
+		class lock;
+		class setspeedmode;
+		class setunitpos;
+	};
+};

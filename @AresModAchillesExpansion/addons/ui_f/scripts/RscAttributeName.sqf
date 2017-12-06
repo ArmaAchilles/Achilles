@@ -19,7 +19,13 @@ switch _mode do
 		_text = ctrltext _ctrlValue;
 		if (_text != name _entity) then
 		{
-			[_entity, _text] remoteExec ["setName",0,_entity];
+			_curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
+			{
+				if (alive _x) then 
+				{
+					[_x, _text] remoteExecCall ["setName", 0, _x];
+				};
+			} forEach _curatorSelected;
 		};
 	};
 	case "onUnload": {};

@@ -31,11 +31,19 @@ if (!isPlayer _unit) then
 	unassignVehicle _unit;
 	[_unit] orderGetIn false;
 	sleep 1;
-	_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
-	_chute setPos (getPos _unit);
-	_chute setDir (getDir _unit);
-	_chute setVelocity (velocity _unit);
-	_unit moveInDriver _chute;
+	
+	// if the unit already has a chute
+	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then
+	{
+		_unit action ["openParachute"];
+	} else
+	{
+		_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
+		_chute setPos (getPos _unit);
+		_chute setDir (getDir _unit);
+		_chute setVelocity (velocity _unit);
+		_unit moveInDriver _chute;
+	};
 	// prevent AI to be killed by fall damage
 	waitUntil {isTouchingGround _unit or (!alive _unit)};
 	_unit removeEventHandler ["HandleDamage",_id];
@@ -45,6 +53,10 @@ if (!isPlayer _unit) then
 	// for player units
 	_unit action ["Eject", vehicle _unit];
 	_backpack_class = backpack _unit;
+	
+	// if the unit already have a chute
+	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") == "ParachuteSteerable"}) then {_backpack_class = ""};
+	
 	if (_backpack_class != "") then
 	{
 		_container = backpackContainer _unit;
@@ -57,10 +69,10 @@ if (!isPlayer _unit) then
 		_packHolder addBackpackCargoGlobal [_backpack_class, 1];
 		waitUntil {animationState _unit == "HaloFreeFall_non" or (!alive _unit)};
 		_packHolder attachTo [_unit,[-0.12,-0.02,-.74],"pelvis"]; 
-		_packHolder setVectorDirAndUp [[0,-1,-0.05],[0,0,-1]];
+		[_packHolder, [[0,-1,-0.05],[0,0,-1]]] remoteExecCall ["setVectorDirAndUp", 0, _packHolder];
 		waitUntil {animationState _unit == "para_pilot" or (!alive _unit)};
-		_packHolder attachTo [vehicle _unit,[-0.07,0.67,-0.13],"pelvis"]; 
-		_packHolder setVectorDirAndUp [[0,-0.2,-1],[0,1,0]];
+		_packHolder attachTo [vehicle _unit,[-0.07,0.67,-0.13],"pelvis"];
+		[_packHolder, [[0,-0.2,-1],[0,1,0]]] remoteExecCall ["setVectorDirAndUp", 0, _packHolder];
 				
 		waitUntil {isTouchingGround _unit or (getPos _unit select 2) < 1 or (!alive _unit)};
 		deleteVehicle _packHolder;

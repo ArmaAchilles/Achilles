@@ -40,22 +40,22 @@ if (_range_mode == 0) then
 	_radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
-		case 0: {nearestObjects [_center_pos,[],_radius]};
+		case 0: {nearestObjects [_center_pos, [],_radius, true]};
 		case 1: 
 		{
-			_units = nearestObjects [_center_pos,["Man","Car","Tank","Air","Ship"],_radius];
+			_units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
 			if (_dialogResult select 4 == 1) then
 			{
 				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
-				_units select {(side _x) isEqualTo _side};
+				_units select {(side _x) isEqualTo _side and count crew _x > 0};
 			} else
 			{
-				_units;
+				_units select {count crew _x > 0};
 			};
 		};
-		case 2: {nearestObjects [_center_pos,["Car","Tank","Air","Ship"],_radius]};
-		case 3: {nearestObjects [_center_pos,["Static"],_radius]};
-		case 4: {nearestObjects [_center_pos,["Logic"],_radius]};
+		case 2: {nearestObjects [_center_pos, ["LandVehicle","Air","Ship"], _radius, true]};
+		case 3: {nearestObjects [_center_pos, ["Static"], _radius, true]};
+		case 4: {nearestObjects [_center_pos, ["Logic"], _radius, true]};
 	};
 } else
 {
@@ -79,10 +79,13 @@ if (_range_mode == 0) then
 		case 4: {allMissionObjects "Logic"};
 	};	
 };
-[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
-// protect the main curator module from deletion
-_objectsToProcess = _objectsToProcess select {typeOf _x != "ModuleCurator_F"};
+// protect the main essential module from being added
+_objectsToProcess = _objectsToProcess select 
+{
+	private _object = _x;
+	private _type = toLower typeOf _object;
+	({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/};
 [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
 _displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);

@@ -1,47 +1,15 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: by Anton Struy, modified by Kex
-//	DATE: 3/1/17
-//	VERSION: 3.0
-//  DESCRIPTION: Function for "artillery fire mission" module
+//	AUTHOR: 		Anton Struyk, Kex, CreepPork_LV
+//	DATE: 			3/16/17
+//	VERSION: 		AMAE004
+//  DESCRIPTION: 	Function for "artillery fire mission" module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-// initalize artillery fire function
-if (isNil "Ares_FireArtilleryFunction") then
-{
-	Ares_FireArtilleryFunction = {
-		_artilleryUnit = _this select 0;
-		_targetPos = _this select 1;
-		_ammoType = _this select 2;
-		_roundsToFire = _this select 3;
-		enableEngineArtillery true;
-		if (_artilleryUnit isKindOf "Mortar_01_base_F") then
-		{
-			[_artilleryUnit,_targetPos,_ammoType,_roundsToFire] spawn
-			{
-				_artilleryUnit = _this select 0;
-				_targetPos = _this select 1;
-				_ammoType = _this select 2;
-				_roundsToFire = _this select 3;	
-				for "_i" from 1 to _roundsToFire do
-				{
-					waitUntil {not alive _artilleryUnit or (unitReady _artilleryUnit)};
-					_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, 1];
-					sleep 1;
-				};
-			};
-		} else
-		{
-			_artilleryUnit commandArtilleryFire [_targetPos, _ammoType, _roundsToFire];
-		};
-	};
-	publicVariable "Ares_FireArtilleryFunction";
-};
+private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDisplayName", "_ammoSelectedDisplayName"];
 
-private ["_objects","_guns","_rounds","_ammo","_targetPos"];
-
-_objects = nearestObjects [(_this select 0), ["All"], 150];
+_objects = nearestObjects [(_this select 0), ["All"], 150, true];
 
 // Filter for artillery
 _filteredObjects = [];
@@ -51,7 +19,7 @@ _filteredObjects = [];
 	{
 		_filteredObjects pushBack _x;
 	};
-	
+
 } forEach _objects;
 
 
@@ -72,28 +40,28 @@ _batteries = [];
 			_alreadyContained = true;
 		};
 	} forEach _batteries;
-	
+
 	if (!_alreadyContained) then
 	{
 		_ammo = getArtilleryAmmo [_x];
 		_batteries pushBack [_type, [_x], _ammo];
-	} 
-	else 
+	}
+	else
 	{
 		_unit = _x;
 		{
 			_battery = _x;
 			_units = _battery select 1;
 			_unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
-			
+
 			if (_unitType == (_battery select 0)) then
 			{
 			  _units pushBack _unit;
 			};
-			
+
 		} forEach _batteries;
 	};
-	
+
 } forEach _filteredObjects;
 
 // pick battery
@@ -119,6 +87,11 @@ _fireMission = nil;
 _units = _battery select 1;
 _artilleryAmmo = _battery select 2;
 
+_artilleryAmmoDisplayName = [];
+{
+	_artilleryAmmoDisplayName pushBack (getText (configFile >> "CfgMagazines" >> _x >> "displayName"));
+} forEach (_battery select 2);
+
 _numberOfGuns = [];
 {
 	_numberOfGuns pushBack (str (_forEachIndex + 1));
@@ -133,14 +106,14 @@ if (_mode == 0) then
 	{
 		_targetChoices pushBack (name _x);
 	} forEach _allTargets;
-	
+
 	// pick guns, rounds, ammo and coordinates
 	_pickFireMissionResult = [
 		format ["%1 (%2)",localize "STR_ARTILLERY_FIRE_MISSION",localize "STR_MARKER"],
 		[
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
-			[localize "STR_AMMO", _artilleryAmmo],
+			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
+			[localize "STR_AMMO", _artilleryAmmoDisplayName],
 			[format [localize "STR_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 
@@ -149,9 +122,10 @@ if (_mode == 0) then
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
+	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 
 	_targetChooseAlgorithm = _pickFireMissionResult select 3;
-	
+
 	// Make sure we only consider targets that are in range.
 	_targetsInRange = [];
 	{
@@ -160,7 +134,7 @@ if (_mode == 0) then
 			_targetsInRange set [count _targetsInRange, _x];
 		};
 	} forEach _allTargets;
-	
+
 	if (count _targetsInRange > 0) then
 	{
 		// Choose a target to fire at
@@ -194,7 +168,7 @@ if (_mode == 0) then
 		[
 			[localize "STR_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_ROUNDS", ["1", "2", "3", "4", "5"]],
-			[localize "STR_AMMO", _artilleryAmmo],
+			[localize "STR_AMMO", _artilleryAmmoDisplayName],
 			[localize "STR_GRID_EAST_WEST_XXX", "","000"],
 			[localize "STR_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
@@ -204,6 +178,7 @@ if (_mode == 0) then
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
 	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
+	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 	_targetX = _pickFireMissionResult select 3;
 	_targetY = _pickFireMissionResult select 4;
 	_targetPos = [_targetX,_targetY] call CBA_fnc_mapGridToPos;
@@ -227,9 +202,9 @@ if (_roundEta == -1) exitWith { [localize "STR_NO_TARGET_IN_RANGE"] call Ares_fn
 
 // Fire the guns
 {
-	[[_x, _targetPos, _ammo, _rounds], "Ares_FireArtilleryFunction", _x] call BIS_fnc_MP;
+	[_x, [_targetPos, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
 } forEach _gunsToFire;
-[localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammo, _roundEta] call Ares_fnc_ShowZeusMessage;
+[localize "STR_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
 
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
