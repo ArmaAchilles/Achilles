@@ -855,8 +855,8 @@
       <Key ID="STR_AMAE_ADD_REMOVE_TURRET_OPTICS">
         <Original>Add/Remove Turret Optics</Original>
         <English>Add/Remove Turret Optics</English>
-        <French>Ajoutez/Supprimez l'optique de tourelle/</French>
-		<Russian>Добавить/Убрать оптику турелей</Russian>
+        <French>Ajoutez/Supprimez l'optique de tourelle</French>
+		<Russian>Турели: Добав./Убрать оптику</Russian>
         <German>Füge/Entferne Geschützoptik (hinzu)</German>
       </Key>
 	  <Key ID="STR_AMAE_SPAWN_EMPTY_OBJECT">
@@ -989,6 +989,31 @@
   </Package>
   <Package name="Ares Curator Dialogs">
 	<Container name="Error messages">
+	  <Key ID="STR_AMAE_CARGO_VEHICLE_SPAWN_ERROR">
+        <Original>Error! Failed to spawn cargo vehicle</Original>
+        <English>Error! Failed to spawn cargo vehicle</English>
+		<Russian>Ошибка! Не могу создать транспортное средство с грузом!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_AIRCRAFT_SPAWN_ERROR">
+        <Original>Error! Failed to spawn aircraft!</Original>
+        <English>Error! Failed to spawn aircraft!</English>
+		<Russian>Ошибка! Не могу создать летательный аппарат!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_CODE_EXECUTION_NOT_ALLOWED">
+        <Original>This module has been disabled by the mission creator.</Original>
+        <English>This module has been disabled by the mission creator.</English>
+		<Russian>Эта возможность была отключена автором миссии!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_NO_BUILDINGS_FOUND">
+        <Original>No buildings found!</Original>
+        <English>No buildings found!</English>
+		<Russian>В указанном месте нет зданий!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_LOCKS_ALLOCATION_ERROR">
+        <Original>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</Original>
+        <English>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</English>
+		<Russian>Ошибка выделения памяти: Не могу создать модуль логики закрытия дверей! (для %1/%2 случаев)</Russian>
+	  </Key>
       <Key ID="STR_AMAE_FAILED_TO_ATTACH_CARGO">
         <Original>Failed to attach the cargo!</Original>
         <English>Failed to attach the cargo!</English>
@@ -1175,6 +1200,21 @@
       </Key>
 	</Container>
 	<Container name="Dialog interface strings">
+	  <Key ID="STR_AMAE_BLUFOR">
+        <Original>BLUFOR</Original>
+        <English>BLUFOR</English>
+		<Russian>Синие</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_OPFOR">
+        <Original>OPFOR</Original>
+        <English>OPFOR</English>
+		<Russian>Красные</Russian>
+	 </Key>
+	 <Key ID="STR_AMAE_GREENFOR">
+        <Original>GREENFOR</Original>
+        <English>GREENFOR</English>
+		<Russian>Зелёные</Russian>
+	</Key>
 	  <Key ID="STR_AMAE_FILTER_OBJECTS">
         <Original>Filter Objects</Original>
         <English>Filter Objects</English>
@@ -1230,20 +1270,10 @@
         <English>Automated weapon backpacks</English>
 		<Russian>Рюкзаки с автоматическими турелями</Russian>
 	  </Key>
-	  <Key ID="STR_AMAE_BLUFOR_ONLY">
-        <Original>BLUFOR Only</Original>
-        <English>BLUFOR Only</English>
-		<Russian>Только Синих</Russian>
-	  </Key>
-	  <Key ID="STR_AMAE_OPFOR_ONLY">
-        <Original>OPFOR Only</Original>
-        <English>OPFOR Only</English>
-		<Russian>Только Красных</Russian>
-	  </Key>
-	  <Key ID="STR_AMAE_GREENFOR_ONLY">
-        <Original>GREENFOR Only</Original>
-        <English>GREENFOR Only</English>
-		<Russian>Только Зелёных</Russian>
+	  <Key ID="STR_AMAE_ONLY">
+        <Original>Only</Original>
+        <English>Only</English>
+		<Russian>Только</Russian>
 	  </Key>
 	  <Key ID="STR_AMAE_ARSENAL_ADDED">
         <Original>Arsenal objects added!</Original>
@@ -1587,7 +1617,7 @@
         <Original>Delta</Original>
         <English>Delta</English>
         <French>Delta</French>
-		<Russian>Дельта-функция</Russian>
+		<Russian>Дельта</Russian>
         <German>Delta</German>
       </Key>
       <Key ID="STR_AMAE_UNIFORM">
@@ -2086,7 +2116,7 @@
         <Original>Subcategory</Original>
         <English>Subcategory</English>
         <French>Sous-catégorie</French>
-		<Russian>Подраздел</Russian>
+		<Russian>Подкатегория</Russian>
         <German>Unterkategorie</German>
       </Key>
       <Key ID="STR_AMAE_WEAPON_SPECIFIC">
@@ -2262,12 +2292,12 @@
       <Key ID="STR_AMAE_SET_SR_FREQ">
         <Original>Set Short Range radio frequencies</Original>
         <English>Set Short Range radio frequencies</English>
-		<Russian>Частоты для личной рации</Russian>
+		<Russian>Частоты для КВ рации</Russian>
       </Key>
       <Key ID="STR_AMAE_SET_LR_FREQ">
         <Original>Set Long Range radio frequencies</Original>
         <English>Set Long Range radio frequencies</English>
-		<Russian>Частоты для рации дальней связи</Russian>
+		<Russian>Частоты для рации ДВ рации</Russian>
       </Key>
       <Key ID="STR_AMAE_CHANNEL_X_FREQ">
         <Original>Channel %1 frequency</Original>
@@ -2277,12 +2307,12 @@
       <Key ID="STR_AMAE_SET_SR_RADIO_FREQ">
         <Original>Set Frequencies for SR radio</Original>
         <English>Set Frequencies for SR radio</English>
-		<Russian>Назначьте частоты для личной рации</Russian>
+		<Russian>Назначьте частоты для КВ рации</Russian>
       </Key>
       <Key ID="STR_AMAE_SET_LR_RADIO_FREQ">
         <Original>Set Frequencies for LR radio</Original>
         <English>Set Frequencies for LR radio</English>
-		<Russian>Назначьте частоты для рации дальней связи</Russian>
+		<Russian>Назначьте частоты для  ДВ рации</Russian>
       </Key>
 	</Container>
 	<Container name="Dialog messages">
