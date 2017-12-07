@@ -439,7 +439,14 @@
       </Key>
     </Container>
     <Container name="Ares Modules">
-      <Key ID="STR_AMAE_INJURY">
+      <Key ID="STR_AMAE_SEARCH_BUILDING">
+        <Original>Search Building</Original>
+        <English>Search Building</English>
+        <French>Perquisitionner</French>
+        <Russian>Зачистка здания</Russian>
+        <German>Gebäude Durchsuchen</German>
+      </Key>
+	  <Key ID="STR_AMAE_INJURY">
         <Original>Injury</Original>
         <English>Injury</English>
         <French>Blessure</French>
@@ -569,7 +576,7 @@
         <Original>Spawn Units</Original>
         <English>Spawn Units</English>
         <French>Spawn Unité</French>
-        <Russian>Точка появления ИИ</Russian>
+        <Russian>Вызвать подкрепление</Russian>
         <German>Einheiten Spawnen</German>
       </Key>
       <Key ID="STR_AMAE_MINES_EXPLOSIVES">
@@ -815,13 +822,15 @@
         <Russian>Обыскать и занять здание</Russian>
         <German>Suche und besetze ein Gebäude</German>
       </Key>
-      <Key ID="STR_AMAE_PATROL">
+ <!--deprecated?
+	  <Key ID="STR_AMAE_PATROL">
         <Original>Patrol</Original>
         <English>Patrol</English>
         <French>Patrouiller</French>
         <Russian>Патруль</Russian>
         <German>Patrouillieren</German>
       </Key>
+-->
       <Key ID="STR_AMAE_PATROL_LOITER">
         <Original>Patrol/Loiter</Original>
         <English>Patrol/Loiter</English>
@@ -833,14 +842,14 @@
         <Original>NVD/Tactical Light/IR</Original>
         <English>NVD/Tactical Light/IR</English>
         <French>JVN/Lampe tactique/IR</French>
-		<Russian>ПНВ/Подствольный фонарик/ИК</Russian>
+		<Russian>ПНВ/ИК ЛЦУ/Фонарик</Russian>
         <German>Nachtsichtgerät/Taktisches Licht/IR</German>
       </Key>
       <Key ID="STR_AMAE_TACLIGHT_IR_ON_OFF">
         <Original>Tactical Light/IR Laser On/Off</Original>
         <English>Tactical Light/IR Laser On/Off</English>
         <French>Allumez/Eteindez la Lampe/ le Laser IR </French>
-		<Russian>Тактический фонарик/ИК ЛЦУ Вкл/Выкл</Russian>
+		<Russian>Фонарик/ИК ЛЦУ Вкл/Выкл</Russian>
         <German>Taktisches Licht/IR Laser an/aus</German>
       </Key>
       <Key ID="STR_AMAE_ADD_REMOVE_TURRET_OPTICS">
@@ -906,27 +915,6 @@
 		<Russian>Самолёт - Атака бомбами</Russian>
 		<German>CAS - Bombe</German>
       </Key>
-      <Key ID="STR_AMAE_FRIENDLY_TO">
-        <Original>friendly to</Original>
-        <English>friendly to</English>
-		<French>sympathique à</French>
-		<Russian>стали союзником</Russian>
-		<German>freundlich gegenüber</German>
-      </Key>
-      <Key ID="STR_AMAE_HOSTILE_TO">
-        <Original>hostile to</Original>
-        <English>hostile to</English>
-		<French>hostile à</French>
-		<Russian>стали противником</Russian>
-		<German>feindlich gegenüber</German>
-      </Key>
-      <Key ID="STR_AMAE_SIDES_CANT_MATCH">
-        <Original>Sides cannot be the same!</Original>
-        <English>Sides cannot be the same!</English>
-		<French>Erreur: Les camps sont les mêmes!</French>
-		<Russian>Ошибка: сторона не может быть той же самой!</Russian>
-		<German>Die Seiten dürfen nicht dieselbe Seite sein!</German>
-      </Key>
       <Key ID="STR_AMAE_ENYO_SET_SUICIDE_BOMBER">
         <Original>Set Suicide Bomber</Original>
         <English>Set Suicide Bomber</English>
@@ -970,11 +958,6 @@
         <English>Rotate Objects</English>
 		<Russian>Повернуть объекты</Russian>
       </Key>
-      <Key ID="STR_AMAE_ROTATION_MODULE_X_AXIS">
-        <Original>%1 Axis</Original>
-        <English>%1 Axis</English>
-		<Russian>Ось %1</Russian>
-      </Key>
       <Key ID="STR_AMAE_HIDE_OBJECTS">
         <Original>Hide Objects</Original>
         <English>Hide Objects</English>
@@ -984,21 +967,6 @@
         <Original>Supply Drop</Original>
         <English>Supply Drop</English>
 		<Russian>Cброс предметов снабжения</Russian>
-      </Key>
-      <Key ID="STR_AMAE_AMMUNITION_CRATE">
-        <Original>Ammunition Crate</Original>
-        <English>Ammunition Crate</English>
-		<Russian>Ящик с боеприпасами</Russian>
-      </Key>
-      <Key ID="STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE">
-        <Original>Ammunition Crate or Vehicle</Original>
-        <English>Ammunition Crate or Vehicle</English>
-		<Russian>Ящик с боеприпасами или транспортное средство</Russian>
-      </Key>
-      <Key ID="STR_AMAE_CARGO_LW">
-        <Original>Cargo</Original>
-        <English>Cargo</English>
-		<Russian>Груз</Russian>
       </Key>
       <Key ID="STR_AMAE_EDIT_CARGO">
         <Original>Edit Cargo</Original>
@@ -1198,8 +1166,129 @@
 		<Russian>Нельзя настраивать на срабатывание от юнитов своей стороны!</Russian>
         <German>Aktivierungsseite kann nicht die Seite der Einheit sein!</German>
       </Key>
+      <Key ID="STR_AMAE_SIDES_CANT_MATCH">
+        <Original>Sides cannot be the same!</Original>
+        <English>Sides cannot be the same!</English>
+		<French>Erreur: Les camps sont les mêmes!</French>
+		<Russian>Ошибка: сторона не может быть той же самой!</Russian>
+		<German>Die Seiten dürfen nicht dieselbe Seite sein!</German>
+      </Key>
 	</Container>
 	<Container name="Dialog interface strings">
+	  <Key ID="STR_AMAE_FILTER_OBJECTS">
+        <Original>Filter Objects</Original>
+        <English>Filter Objects</English>
+		<Russian>Выбрать снаряжение</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_COMBINE_REPLACE">
+        <Original>Combine or Replace</Original>
+        <English>Combine or Replace</English>
+		<Russian>Объединить или заменить?</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_COMBINE">
+        <Original>Combine with existing items</Original>
+        <English>Combine with existing items</English>
+		<Russian>Объединить с существующим снаряжением</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_REPLACE">
+		<Original>Replace existing items</Original>
+        <English>Replace existing items</English>
+		<Russian>Заменить существующее снаряжение</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_LIMIT_SIDE">
+        <Original>Limit side-specific equip. to</Original>
+        <English>Limit side-specific equip. to</English>
+		<Russian>Ограничить снаряжение стороной</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ADD_GPS">
+        <Original>Add GPS</Original>
+        <English>Add GPS</English>
+		<Russian>Добавить ГПС</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ADD_THERMALS">
+        <Original>Add thermals</Original>
+        <English>Add thermals</English>
+		<Russian>Добавить тепловизор</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ADD_NVGS">
+        <Original>Add NVG</Original>
+        <English>Add NVG</English>
+		<Russian>Добавить ПНВ</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_STATIC_BACKPACKS">
+        <Original>Static weapon backpacks</Original>
+        <English>Static weapon backpacks</English>
+		<Russian>Рюкзаки со стационарными турелями</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_UAV_BACKPACKS">
+        <Original>UAV items and backpacks</Original>
+        <English>UAV items and backpacks</English>
+		<Russian>Рюкзаки с беспилотниками (и терминал)</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_AUTOMATED_BACKPACKS">
+        <Original>Automated weapon backpacks</Original>
+        <English>Automated weapon backpacks</English>
+		<Russian>Рюкзаки с автоматическими турелями</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_BLUFOR_ONLY">
+        <Original>BLUFOR Only</Original>
+        <English>BLUFOR Only</English>
+		<Russian>Только Синих</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_OPFOR_ONLY">
+        <Original>OPFOR Only</Original>
+        <English>OPFOR Only</English>
+		<Russian>Только Красных</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_GREENFOR_ONLY">
+        <Original>GREENFOR Only</Original>
+        <English>GREENFOR Only</English>
+		<Russian>Только Зелёных</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Arsenal objects added!</Original>
+        <English>Arsenal objects added!</English>
+		<Russian>Снаряжение добавлено!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_METERS">
+        <Original>[m]</Original>
+        <English>[m]</English>
+		<Russian>(м)</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_AMMUNITION_CRATE">
+        <Original>Ammunition Crate</Original>
+        <English>Ammunition Crate</English>
+		<Russian>Ящик с боеприпасами</Russian>
+      </Key>
+      <Key ID="STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE">
+        <Original>Ammunition Crate or Vehicle</Original>
+        <English>Ammunition Crate or Vehicle</English>
+		<Russian>Ящик или транспортное средство</Russian>
+      </Key>
+      <Key ID="STR_AMAE_CARGO_LW">
+        <Original>Cargo</Original>
+        <English>Cargo</English>
+		<Russian>Груз</Russian>
+      </Key>
+      <Key ID="STR_AMAE_FRIENDLY_TO">
+        <Original>friendly to</Original>
+        <English>friendly to</English>
+		<French>sympathique à</French>
+		<Russian>стали союзником</Russian>
+		<German>freundlich gegenüber</German>
+      </Key>
+      <Key ID="STR_AMAE_HOSTILE_TO">
+        <Original>hostile to</Original>
+        <English>hostile to</English>
+		<French>hostile à</French>
+		<Russian>стали противником</Russian>
+		<German>feindlich gegenüber</German>
+      </Key>
+      <Key ID="STR_AMAE_ROTATION_MODULE_X_AXIS">
+        <Original>%1 Axis</Original>
+        <English>%1 Axis</English>
+		<Russian>Ось %1</Russian>
+      </Key>
       <Key ID="STR_AMAE_RANDOM">
         <Original>Random</Original>
         <English>Random</English>
@@ -1962,7 +2051,7 @@
         <Original>None</Original>
         <English>None</English>
         <French>Aucun</French>
-		<Russian>Без обвеса</Russian>
+		<Russian>Не выдавать снаряжение</Russian>
         <German>Keine</German>
       </Key>
       <Key ID="STR_AMAE_CARELESS">
@@ -2051,7 +2140,7 @@
         <Original>Preview</Original>
         <English>Preview</English>
         <French>Aperçu</French>
-		<Russian>Предв.просмотр</Russian>
+		<Russian>Просмотр</Russian>
       </Key>
 	  <Key ID="STR_AMAE_GARAGE">
         <Original>GARAGE</Original>
@@ -2078,7 +2167,7 @@
         <Original>DAMAGE</Original>
         <English>DAMAGE</English>
 		<French>DÉGÂTS</French>
-		<Russian>ПОВРЕЖДЕНИЯ</Russian>
+		<Russian>СЛОМАН</Russian>
 		<German>SCHADEN</German>
       </Key>
 	  <Key ID="STR_AMAE_SENSORS">
@@ -2125,7 +2214,7 @@
         <Original>LOADOUT</Original>
         <English>LOADOUT</English>
 		<French>L'ARMEMENT</French>
-		<Russian>ВООРУЖЕНИЕ</Russian>
+		<Russian>НАГРУЗКА</Russian>
 		<German>BEWAFFNUNG</German>
       </Key>
       <Key ID="STR_AMAE_ASSIGN_WEAPONS">
@@ -2257,7 +2346,7 @@
         <Original>Select %1 to which the module should be applied!</Original>
         <English>Select %1 to which the module should be applied!</English>
         <French>Choisissez %1 à qui le module est employé!</French>
-        <Russian>Выберите %1 к которому должен быть привязан модуль!</Russian>
+        <Russian>Выберите %1 к которому(ым) должен быть привязан модуль!</Russian>
         <German>Wähle %1 auf die das Modul angewendet werden soll!</German>
       </Key>
       <Key ID="STR_AMAE_SELECTION_SUBMITTED">
@@ -2386,24 +2475,17 @@
 		<Russian>На этом человеке уже есть "пояс шахида"!</Russian>
 		<German>Dies ist bereits ein Selbstmordattentäter</German>
       </Key>
-      <Key ID="STR_AMAE_ALT_CHANGE_WARNING">
-        <Original>WARNING! After setting this parameter, your unit will not take into account &lt;br /&gt;
-		                   any obstacles, like trees and buildings! &lt;br /&gt;
-						   Also avoid to set it too low over terrain or water &lt;br /&gt;
-						   because vehicle dimensions will not be accounted for too!
-		</Original>
-        <English>WARNING! After setting this parameter, your unit will not take into account &lt;br /&gt;
-		                   any obstacles, like trees and buildings! &lt;br /&gt;
-						   Also avoid to set it too low over terrain or water &lt;br /&gt;
-						   because vehicle dimensions will not be accounted for too!
-		</English>
-		<Russian>ВНИМАНИЕ! После назначения высоты движения любые препятствия на пути &lt;br /&gt;
-		         транпортного средства не будут приняты его пилотом/водителем в расчёт!&lt;br /&gt;
-				 Не назначайте слишком низкую высоту, поскольку размеры транспортного &lt;br /&gt;
-				 средства так же не будут учтены!
-		</Russian>
+	  <Key name="STR_AMAE_WARNING">
+		<Original>WARNING!</Original>
+		<English>WARNING!</English>
+		<Russian>ВНИМАНИЕ!</Russian>
+	  </Key>
+      <Key ID="STR_AMAE_ALT_WARNING">
+        <Original>Warning! After setting this parameter, your unit will not take into account any obstacles, like trees and buildings on it's path! Also avoid to set it too low over terrain or water because vehicle dimensions will not be accounted for too!</Original>
+        <English>Warning! After setting this parameter, your unit will not take into account any obstacles, like trees and buildings on it's path! Also avoid to set it too low over terrain or water because vehicle dimensions will not be accounted for too!</English>
+		<Russian>ВНИМАНИЕ! После назначения высоты движения любые препятствия на пути транпортного средства не будут приняты его пилотом/водителем в расчёт! Не назначайте слишком низкую высоту, поскольку размеры транспортного средства так же не будут учитываться!</Russian>
       </Key>
-	  </Container>
+	</Container>
     <Container name="Create Effect dialog strings">  
       <Key ID="STR_AMAE_BLUE_LIGHT">
         <Original>Blue Light</Original>
@@ -3364,62 +3446,67 @@
       </Key>
 	</Container>
 	<Container name="Change abilities module strings">
-	  <Key IR="STR_AMAE_ABIL_AIMING_ERROR">
+	  <Key ID="STR_AMAE_ABIL_TITLE">
+		<Original>Abilities</Original>
+		<English>Abilities</English>
+		<Russian>Способности</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ABIL_AIMING_ERROR">
 		<Original>Aiming error</Original>
 		<English>Aiming error</English>
 		<Russian>Ошибка прицеливания</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_ANIM">
+	  <Key ID="STR_AMAE_ABIL_ANIM">
 		<Original>Anim</Original>
 		<English>Anim</English>
 		<Russian>Возможно поменять анимацию</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_AUTO_COMBAT">
+	  <Key ID="STR_AMAE_ABIL_AUTO_COMBAT">
 		<Original>Auto combat</Original>
 		<English>Auto combat</English>
 		<Russian>Начать бой самостоятельно</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_AUTOTARGET">
+	  <Key ID="STR_AMAE_ABIL_AUTOTARGET">
 		<Original>Autotarget</Original>
 		<English>Autotarget</English>
-		<Russian>Самостоятельные обнаружение/выбор цели</Russian>
+		<Russian>Обнаружение/выбор цели</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_CHECK_VISIBLE">
+	  <Key ID="STR_AMAE_ABIL_CHECK_VISIBLE">
 		<Original>Check visible</Original>
 		<English>Check visible</English>
 		<Russian>Проверять на обнаружение себя</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_COVER">
+	  <Key ID="STR_AMAE_ABIL_COVER">
 		<Original>Cover</Original>
 		<English>Cover</English>
 		<Russian>Использовать укрытия</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_FSM">
+	  <Key ID="STR_AMAE_ABIL_FSM">
 		<Original>FSM</Original>
 		<English>FSM</English>
 		<Russian>Выполнять программу действий</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_MOVE">
+	  <Key ID="STR_AMAE_ABIL_MOVE">
 		<Original>Move</Original>
 		<English>Move</English>
 		<Russian>Разрешить двигаться</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_SUPPRESSION">
+	  <Key ID="STR_AMAE_ABIL_SUPPRESSION">
 		<Original>Suppression</Original>
 		<English>Suppression</English>
 		<Russian>Реагировать на обстрел</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_TARGET">
+	  <Key ID="STR_AMAE_ABIL_TARGET">
 		<Original>Target</Original>
 		<English>Target</English>
-		<Russian>Отслеживать выбранную/указанную цель</Russian>
+		<Russian>Отслеживать выбранную цель</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_PATH">
+	  <Key ID="STR_AMAE_ABIL_PATH">
 		<Original>Path</Original>
 		<English>Path</English>
 		<Russian>Разрешить перемещения</Russian>
 	  </Key>
-	  <Key IR="STR_AMAE_ABIL_COWARDICE">
+	  <Key ID="STR_AMAE_ABIL_COWARDICE">
 		<Original>Allow fleeing</Original>
 		<English>Allow fleeing</English>
 		<Russian>Трусость</Russian>
@@ -3460,7 +3547,7 @@
         <Original>LIFT CLOSEST CARGO</Original>
         <English>LIFT CLOSEST CARGO</English>
         <French>Lever le plus proche</French>
-        <Russian>ПОДНЯТЬ БЛИЖАЙШИЙ ГРУЗ</Russian>
+        <Russian>ПОДНЯТЬ ГРУЗ РЯДОМ</Russian>
         <German>Nächste Ladung heben</German>
       </Key>
       <Key ID="STR_AMAE_FASTROPING">
@@ -3477,7 +3564,7 @@
 		<Russian>ДЕСАНТИРОВАНИЕ</Russian>
         <German>FALLSCHIRMABSPRUNG</German>
       </Key>
-      <Key ID="STR_AMAE_SEARCH_BUILDING">
+      <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
         <Original>SEARCH BUILDING</Original>
         <English>SEARCH BUILDING</English>
         <French>PERQUISITIONNER</French>
@@ -3502,7 +3589,7 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
 		</Original>
 		<Russian>
-			В дереве модулей отображены информатиыные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
+			В дереве модулей отображены информационные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на юнитах.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на юните или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
@@ -3621,7 +3708,7 @@
       </Key>
       <Key ID="STR_AMAE_EXECUTE_CODE">
         <Original>Execute Code Module</Original>
-        <Russian>Модуль активации кода</Russian>
+        <Russian>Выполнить код</Russian>
       </Key>
       <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
         <Original>
@@ -3631,7 +3718,7 @@
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
 		</Original>
 		<Russian>
-			Модуль выполнения кода доступен только если сервер разрешает это клиентам!
+			Модуль выполнения кода доступен только если сервер даёт разрешение клиентам!
 			%1%1Есть два доступных коду параметра:
 			%1%2%3_this select 0%4   POSITION:   координаты точки, где был расположен модуль.
 			%1%2%3_this select 1%4   OBJECT:     возвращает ObjNull или объект, на который был помещён модуль.
