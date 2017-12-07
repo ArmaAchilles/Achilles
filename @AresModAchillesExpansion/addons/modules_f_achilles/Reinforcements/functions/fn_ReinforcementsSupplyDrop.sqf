@@ -15,7 +15,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-#define SIDES ["OPFOR","BLUFOR", localize "STR_AMAE_INDEPENDENT"]
+#define SIDES [localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_GREENFOR"]
 #define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
 private _LZs = (call Achilles_fnc_getAllLZsAndRPs) select 0;
@@ -66,7 +66,7 @@ _dialogResult params
 ];
 
 private _aircraftClassname = player getVariable ["Achilles_var_supplyDrop_module_vehicleClass", ""];
-if (_aircraftClassname isEqualTo "") exitWith {["Error! Failed to spawn aircraft!"] call Achilles_fnc_showZeusErrorMessage};
+if (_aircraftClassname isEqualTo "") exitWith {[localize "STR_AMAE_AIRCRAFT_SPAWN_ERROR"] call Achilles_fnc_showZeusErrorMessage};
 
 private _aircraftSide = player getVariable ["Achilles_var_supplyDrop_module_side", 0];
 
@@ -131,7 +131,7 @@ if (_cargoType == 0) then
 if (_cargoType == 1) then
 {
 	private _cargoClassname = player getVariable ["Achilles_var_supplyDrop_module_cargoVehicle", ""];
-	if (_cargoClassname isEqualTo "") exitWith {["Error! Failed to spawn cargo vehicle!"] call Achilles_fnc_showZeusErrorMessage};
+	if (_cargoClassname isEqualTo "") exitWith {[localize "STR_AMAE_CARGO_VEHICLE_SPAWN_ERROR!"] call Achilles_fnc_showZeusErrorMessage};
 
 	private _cargo = _cargoClassname createVehicle _pos;
 
