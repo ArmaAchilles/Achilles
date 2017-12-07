@@ -8,7 +8,7 @@ if (!isnull _ammoBox) then
 			localize "STR_AMAE_FILTER_OBJECTS",
 			[
 				[localize "STR_AMAE_COMBINE_REPLACE", [localize "STR_AMAE_COMBINE", localize "STR_AMAE_REPLACE"], 1],
-				[localize "STR_AMAE_LIMIT_SIDE", [localize "STR_AMAE_ALL", localize "STR_AMAE_BLUFOR_ONLY", localize "STR_AMAE_OPFOR_ONLY", localize "STR_AMAE_GREENFOR_ONLY", localize "STR_AMAE_NONE_EQUIPMENT"], 1],
+				[localize "STR_AMAE_LIMIT_SIDE", [localize "STR_AMAE_ALL", (localize "STR_AMAE_ONLY") + " " + (localize "STR_AMAE_BLUFOR", (localize "STR_AMAE_ONLY") + " " + (localize "STR_AMAE_OPFOR"), (localize "STR_AMAE_ONLY") + " " + (localize "STR_AMAE_GREENFOR"), localize "STR_AMAE_NONE_EQUIPMENT"], 1],
 				[localize "STR_AMAE_ADD_GPS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
 				[localize "STR_AMAE_ADD_THERMALS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
 				[localize "STR_AMAE_ADD_NVGS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
