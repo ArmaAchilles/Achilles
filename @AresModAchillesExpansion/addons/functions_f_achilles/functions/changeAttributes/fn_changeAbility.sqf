@@ -20,9 +20,9 @@ private _units = [param [0,ObjNull,[ObjNull]]];
 private _abilityCount = count ABILITIES;
 private _dialogResult =
 [
-	"Abilities",
+	localize "STR_AMAE_ABIL_TITLE",
 	[
-		[localize "STR_AMAE_ABIL_AIMING_ERROR",[localize "STR_AMAE_YES", localize "STR_AMAE_FALSE"]],
+		[localize "STR_AMAE_ABIL_AIMING_ERROR",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		[localize "STR_AMAE_ABIL_ANIM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		[localize "STR_AMAE_ABIL_AUTO_COMBAT",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		[localize "STR_AMAE_ABIL_AUTOTARGET",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
