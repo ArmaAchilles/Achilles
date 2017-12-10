@@ -4,14 +4,14 @@ class Ares_Arsenal_Module_Base : Ares_Module_base
 	Category = "Achilles_fac_Arsenal";	
 };
 
-class Ares_Module_Arsenal_AddFull : Ares_Arsenal_Module_Base
+/*class Ares_Module_Arsenal_AddFull : Ares_Arsenal_Module_Base
 {
 	scopeCurator = 2;
 	displayName = "$STR_AMAE_ADD_FULL";
 	function = "Ares_fnc_ArsenalAddFull";
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
-};
+};*/
 
 class Ares_Module_Arsenal_AddCustom : Ares_Arsenal_Module_Base
 {

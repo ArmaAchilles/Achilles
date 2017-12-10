@@ -12,7 +12,7 @@ class CfgPatches
 		
 		units[] =
 		{
-			"Ares_Module_Arsenal_AddFull",
+			// "Ares_Module_Arsenal_AddFull",
 			"Ares_Module_Arsenal_AddCustom",
 			"Ares_Module_Arsenal_Copy_To_Clipboard",
 			"Ares_Module_Arsenal_Paste_Replace",
