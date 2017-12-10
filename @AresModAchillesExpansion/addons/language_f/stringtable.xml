@@ -669,15 +669,15 @@
         <German>Verletzungen (ohne ACE)</German>
       </Key>
       <Key ID="STR_AMAE_ADD_FILTERED">
-        <Original>Add filtered Arsenal...</Original>
-        <English>Add filtered Arsenal...</English>
-        <French>Ajoutez Arsenal filtrée ...</French>
-        <Russian>Добавить ограниченный...</Russian>
-        <German>Gefiltertes Arsenal hinzufügen ...</German>
+        <Original>Add Filtered Arsenal</Original>
+        <English>Add Filtered Arsenal</English>
+        <French>Ajoutez Arsenal filtrée</French>
+        <Russian>Добавить ограниченный</Russian>
+        <German>Gefiltertes Arsenal hinzufügen</German>
       </Key>
       <Key ID="STR_AMAE_ADD_FULL">
-        <Original>Add Arsenal full</Original>
-        <English>Add Arsenal full</English>
+        <Original>Add Full Arsenal</Original>
+        <English>Add Full Arsenal</English>
         <French>Ajoutez Arsenal complète</French>
         <Russian>Добавить полный</Russian>
         <German>Komplettes Arsenal hinzufügen</German>
@@ -753,8 +753,8 @@
         <German>An anderem Objekt befestigen</German>
       </Key>
       <Key ID="STR_AMAE_CHANGE_ALTITUDE">
-        <Original>Change altitude</Original>
-        <English>Change altitude</English>
+        <Original>Change Altitude</Original>
+        <English>Change Altitude</English>
         <French>Changez l'altitude</French>
         <German>Höhe ändern</German>
       </Key>
@@ -1009,6 +1009,18 @@
       <Key ID="STR_AMAE_CARGO_ALREADY_ATTACHED">
         <Original>Cargo is already attached!</Original>
         <English>Cargo is already attached!</English>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_REMOVE">
+        <Original>Remove Arsenal</Original>
+        <English>Remove Arsenal</English>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Added Arsenal to object!</Original>
+        <English>Added Arsenal to object!</English>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_REMOVED">
+        <Original>Removed Arsenal from object!</Original>
+        <English>Removed Arsenal from object!</English>
       </Key>
     </Container>
   </Package>
@@ -1440,7 +1452,6 @@
         <Russian>Расширить</Russian>
         <German>Ausmaß</German>
       </Key>
-
       <Key ID="STR_AMAE_MEAN_DAMAGE">
         <Original>Mean damage</Original>
         <English>Mean damage</English>
@@ -1500,11 +1511,11 @@
         <German>Name</German>
       </Key>
       <Key ID="STR_AMAE_LOADING_">
-        <Original>Loading ...</Original>
-        <English>Loading ...</English>
-        <French>Charger ...</French>
+        <Original>Loading...</Original>
+        <English>Loading...</English>
+        <French>Charger...</French>
         <Russian>Загрузка...</Russian>
-        <German>Lädt ...</German>
+        <German>Lädt...</German>
       </Key>
       <Key ID="STR_AMAE_BLUE_LIGHT">
         <Original>Blue Light</Original>
@@ -3355,11 +3366,11 @@
 		</German>
       </Key>
       <Key ID="STR_AMAE_ARES_FIELD_MANUAL">
-        <Original>Ares Field Manual</Original>
-        <English>Ares Field Manual</English>
-        <French>Le manuel d'Ares</French>
-        <Russian>Путеводитель Ares</Russian>
-        <German>Handbuch des Ares</German>
+        <Original>Achilles Field Manual</Original>
+        <English>Achilles Field Manual</English>
+        <French>Le manuel d'Achilles</French>
+        <Russian>Путеводитель Achilles</Russian>
+        <German>Handbuch des Achilles</German>
       </Key>
       <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
         <Original>
@@ -3406,68 +3417,68 @@
     <Container name="Settings">
         <Key ID="STR_AMAE_AVAILABLE_FACTIONS">
             <Original>Achilles - Available Factions</Original>
-			<English>Achilles - Available Factions</English>
-			<French>Achilles - Fraction disponible</French>
-			<German>Achilles - Verfügbare Fraktionen</German>
+			      <English>Achilles - Available Factions</English>
+			      <French>Achilles - Fraction disponible</French>
+			      <German>Achilles - Verfügbare Fraktionen</German>
         </Key>
         <Key ID="STR_AMAE_MODULE_INTERFACE">
             <Original>Achilles - Modules Interface</Original>
-			<English>Achilles - Modules Interface</English>
-			<French>Achilles - Interface de Modules</French>
-			<German>Achilles - Modul Benutzeroberfläche</German>
+			      <English>Achilles - Modules Interface</English>
+			      <French>Achilles - Interface de Modules</French>
+			      <German>Achilles - Modul Benutzeroberfläche</German>
         </Key>
         <Key ID="STR_AMAE_MODULE_ICONS">
             <Original>Which icons should be displayed in the Module Tree</Original>
         </Key>
         <Key ID="STR_AMAE_MODULE_ICONS_HELMET">
             <Original>Helmet Icons on Category level</Original>
-			<English>Helmet Icons on Category level</English>
-			<French>Symbole de Casque au Niveau des Catégories</French>
-			<German>Helm Symbole auf Kategorie Level</German>
+			      <English>Helmet Icons on Category level</English>
+			      <French>Symbole de Casque au Niveau des Catégories</French>
+			      <German>Helm Symbole auf Kategorie Level</German>
         </Key>
         <Key ID="STR_AMAE_MODULE_ICONS_DLC">
             <Original>DLC Icons</Original>
-			<English>DLC Icons</English>
-			<French>Symbole de DLC</French>
-			<German>DLC Symbole</German>
+			      <English>DLC Icons</English>
+			      <French>Symbole de DLC</French>
+			      <German>DLC Symbole</German>
         </Key>
         <Key ID="STR_AMAE_SETTINGS_ICON_SELECTION">
             <Original>Icon Selection</Original>
-			<English>Icon Selection</English>
+			      <English>Icon Selection</English>
         </Key>
         <Key ID="STR_AMAE_SETTINGS_ACHILLES_ICON_SELECTION">
             <Original>Achilles - Icon Selection</Original>
-			<English>Achilles - Icon Selection</English>
+			      <English>Achilles - Icon Selection</English>
         </Key>
         <Key ID="STR_AMAE_DEBUG_OUTPUT">
             <Original>Debug Mode</Original>
-			<English>Debug Mode</English>
+			      <English>Debug Mode</English>
         </Key>
         <Key ID="STR_AMAE_ACHILLES_DEBUG_SETTINGS">
             <Original>Achilles - Debug</Original>
-			<English>Achilles - Debug</English>
+			      <English>Achilles - Debug</English>
         </Key>
         <Key ID="STR_AMAE_ACHILLES_DEFAULTS">
             <Original>Achilles - Defaults</Original>
-			<English>Achilles - Defaults</English>
+			      <English>Achilles - Defaults</English>
         </Key>
         <Key ID="STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ">
             <Original>(TFAR) Short Range radio default frequency</Original>
-			<English>(TFAR) Short Range radio default frequency</English>
+			      <English>(TFAR) Short Range radio default frequency</English>
         </Key>
         <Key ID="STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ">
             <Original>(TFAR) Long Range radio default frequency</Original>
-			<English>(TFAR) Long Range radio default frequency</English>
+			      <English>(TFAR) Long Range radio default frequency</English>
         </Key>
         <Key ID="STR_AMAE_COLLAPSE_TREE_BY_DEFAULT">
             <Original>Collapse module tree by default</Original>
-			<English>Collapse module tree by default</English>
-			<French>Réduirez l'arbre de modules par défaut</French>
-			<German>Modul-Baum standardmäßig schließen</German>
+			      <English>Collapse module tree by default</English>
+			      <French>Réduirez l'arbre de modules par défaut</French>
+			      <German>Modul-Baum standardmäßig schließen</German>
         </Key>
         <Key ID="STR_AMAE_VISION_MODES">
             <Original>Achilles - Curator Vision Modes</Original>
-		<German>Achilles - Zeus Sichtmodis</German>
+		        <German>Achilles - Zeus Sichtmodis</German>
         </Key>
         <Key ID="STR_AMAE_VISION_MODES_NVG">
             <Original>Enable NVG</Original>
