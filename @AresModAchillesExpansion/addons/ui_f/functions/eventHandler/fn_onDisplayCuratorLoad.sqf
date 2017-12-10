@@ -57,7 +57,12 @@ _this spawn
 		Achilles_curator_init_done = true;
 		
 		// display advanced hints
-		[["Ares", "AresFieldManual"],15,"",35,"",true] call BIS_fnc_advHint;
+		private _hasHintBeenShown = profileNamespace getVariable ["Achilles_var_advHint_showIntro", false];
+		if (!_hasHintBeenShown) then
+		{
+			[["Ares", "AresFieldManual"],15,"",35,"",true] call BIS_fnc_advHint;
+			profileNamespace setVariable ["Achilles_var_advHint_showIntro", true];
+		};
 	};
 	// prevent unessecary double execution of functions below
 	if (_display_reload) exitWith {};
