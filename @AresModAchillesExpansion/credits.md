@@ -79,5 +79,5 @@ All of these icons are licensed under Creative Commons Attribution license.
 ## Translations
 - English (by Kex)
 - French (by Kex)
-- German (by Kex; revised by KiritoKun223)
+- German (by Kex; revised by KiritoKun223, shukari)
 - Russian (by Igor Nikolaev)
