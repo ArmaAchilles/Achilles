@@ -23,11 +23,10 @@
 		]
 */
 
-private _return = [];
+private _return = [[], []];
 
 private _allLZsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
 private _allRPsPlaced = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (_allLZsPlaced isEqualTo [] && _allRPsPlaced isEqualTo []) exitWith {[]};
 
 // LZs
 if (!(_allLZsPlaced isEqualTo [])) then
@@ -40,7 +39,9 @@ if (!(_allLZsPlaced isEqualTo [])) then
 		"ASCEND"
 	] call BIS_fnc_sortBy;
 
-    _return pushBack [_allLZsPlacedSorted, _allLZsPlacedSorted apply {name _x}];
+	private _lzArray = _return select 0;
+	_lzArray pushBack _allLZsPlacedSorted;
+	_lzArray pushBack (_allLZsPlacedSorted apply {name _x});
 };
 
 // RPs
@@ -54,7 +55,9 @@ if (!(_allRPsPlaced isEqualTo [])) then
 		"ASCEND"
 	] call BIS_fnc_sortBy;
 
-    _return pushBack [_allRPsPlacedSorted, _allRPsPlacedSorted apply {name _x}];
+    private _rpArray = _return select 1;
+	_rpArray pushBack _allRPsPlacedSorted;
+	_rpArray pushBack (_allRPsPlacedSorted apply {name _x});
 };
 
-_return
+_return;

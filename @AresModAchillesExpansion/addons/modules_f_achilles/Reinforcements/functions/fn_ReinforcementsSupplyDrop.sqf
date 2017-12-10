@@ -19,7 +19,7 @@
 #define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
 private _LZs = (call Achilles_fnc_getAllLZsAndRPs) select 0;
-if ((_LZs select 0) isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
+if (_LZs isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_showZeusErrorMessage};
 
 private _pos = getPos _logic;
 
@@ -112,7 +112,6 @@ if (_cargoType == 0) then
 			missionNamespace setVariable ["BIS_fnc_initCuratorAttributes_target", _cargoBox];
 			createDialog "RscDisplayAttributesInventory";
 			waitUntil {isNull ((uiNamespace getVariable "RscDisplayAttributesInventory") displayCtrl IDC_RSCATTRIBUTEINVENTORY_RSCATTRIBUTEINVENTORY)};
-			
 		};
 		case 2:
 		{
