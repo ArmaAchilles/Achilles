@@ -4,6 +4,7 @@ class CfgFunctions
 	class Achilles // This bit will be prefixed when actually calling the function (e.g. "Achilles_fnc_...." )
 	{
 		#include "ACE\cfgFunctionsACE.hpp"
+		#include "Arsenal\cfgFunctionsArsenal.hpp"
 		#include "Behaviours\cfgFunctionsBehaviours.hpp"
 		#include "DevTools\cfgFunctionsDevTools.hpp"
 		#include "Environment\cfgFunctionsEnvironment.hpp"
