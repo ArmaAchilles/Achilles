@@ -704,8 +704,8 @@
         <German>Gefiltertes Arsenal hinzufügen</German>
       </Key>
       <Key ID="STR_AMAE_ADD_FULL">
-        <Original>Add Arsenal full</Original>
-        <English>Add Arsenal full</English>
+        <Original>Add Full Arsenal</Original>
+        <English>Add Full Arsenal</English>
         <French>Ajoutez Arsenal complète</French>
         <Russian>Полный Арсенал</Russian>
         <German>Komplettes Arsenal hinzufügen</German>
@@ -781,8 +781,8 @@
         <German>An anderem Objekt befestigen</German>
       </Key>
       <Key ID="STR_AMAE_CHANGE_ALTITUDE">
-        <Original>Change altitude</Original>
-        <English>Change altitude</English>
+        <Original>Change Altitude</Original>
+        <English>Change Altitude</English>
         <French>Changez l'altitude</French>
 		<Russian>Высота полёта</Russian>
         <German>Höhe ändern</German>
@@ -1049,7 +1049,23 @@
 		<English>This module requires Task Force Radio!</English>
 		<Russian>Этот модуль требует TFAR для работы!</Russian>
       </Key>
-	  <Key ID="STR_AMAE_NO_TARGET_MARKER">
+      <Key ID="STR_AMAE_ARSENAL_REMOVE">
+        <Original>Remove Arsenal</Original>
+        <English>Remove Arsenal</English>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Added Arsenal to object!</Original>
+        <English>Added Arsenal to object!</English>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_REMOVED">
+        <Original>Removed Arsenal from object!</Original>
+        <English>Removed Arsenal from object!</English>
+      </Key>
+    </Container>
+  </Package>
+  <Package name="Ares Curator Dialogs">
+    <Container name="Common">
+      <Key ID="STR_AMAE_NO_TARGET_MARKER">
         <Original>You have to place a target marker first!</Original>
         <English>You have to place a target marker first!</English>
         <French>On a besoin d'un marqueur de cible!</French>
@@ -1728,11 +1744,11 @@
         <German>Name</German>
       </Key>
       <Key ID="STR_AMAE_LOADING_">
-        <Original>Loading ...</Original>
-        <English>Loading ...</English>
-        <French>Charger ...</French>
+        <Original>Loading...</Original>
+        <English>Loading...</English>
+        <French>Charger...</French>
         <Russian>Загрузка...</Russian>
-        <German>Lädt ...</German>
+        <German>Lädt...</German>
       </Key>
       <Key ID="STR_AMAE_IS_OBJECT_HIDDEN">
         <Original>Is Object Hidden</Original>
@@ -3876,11 +3892,11 @@
 		</German>
       </Key>
       <Key ID="STR_AMAE_ARES_FIELD_MANUAL">
-        <Original>Ares Field Manual</Original>
-        <English>Ares Field Manual</English>
-        <French>Le manuel d'Ares</French>
-        <Russian>Наставление по использованию Ares</Russian>
-        <German>Handbuch des Ares</German>
+        <Original>Achilles Field Manual</Original>
+        <English>Achilles Field Manual</English>
+        <French>Le manuel d'Achilles</French>
+        <German>Handbuch des Achilles</German>
+        <Russian>Наставление по использованию Achilles</Russian>
       </Key>
       <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
         <Original>
@@ -3991,12 +4007,12 @@
         <Key ID="STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ">
             <Original>(TFAR) Short Range radio default frequency</Original>
 			<English>(TFAR) Short Range radio default frequency</English>
-			<Russian>{TFAR} Частоты для личной рации</Russian>
+			<Russian>(TFAR) Частоты для личной рации</Russian>
         </Key>
         <Key ID="STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ">
             <Original>(TFAR) Long Range radio default frequency</Original>
 			<English>(TFAR) Long Range radio default frequency</English>
-			<Russian>{TFAR} Частоты для рации дальнего действия</Russian>
+			<Russian>(TFAR) Частоты для рации дальнего действия</Russian>
         </Key>
         <Key ID="STR_AMAE_COLLAPSE_TREE_BY_DEFAULT">
             <Original>Collapse module tree by default</Original>
