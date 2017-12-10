@@ -23,7 +23,8 @@ V.0.1.0 (Not Released - In Progress)
 * Change: Execute code panel will always appear in singleplayer.
 * Change: Deep Copy and Paste retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
 * Change: Deep Copy and Paste assigns dynamic loadout weapons if possible to the gunner.
-* Change: Deep Copy and Paste retains fuel for vehicles. 
+* Change: Deep Copy and Paste retains fuel for vehicles.
+* Change: On Zeus launch, intro hint will only be shown once. 
 * Feature: Object rotation module. #151
 * Feature: Data Link and Radar Emission controls for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156
@@ -40,6 +41,9 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Option to toggle the Engine in Vehicle's attribute options.
 * Feature: Added module to spawn fire under the Spawn Effects tab. #137
 * Feature: Zeus eagle and "Player has ascended as Zeus" notifications have been removed when using the Hide Zeus module.
+* Feature: Arsenal Removal module. #200
+* Feature: Added Mine Detection ability to the Change Ability module.
+* Feature: Added Tac-Ops music event tracks to the Play Music module. #193
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
@@ -59,6 +63,7 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Set Date module would spam .rpt log.
 * Fix: Switch Unit module now retains voices and faces. #157
 * Fix: Debug console now works if debug console is enabled for specific players by UID. #187
+* Fix: German entry for stringtable is fixed (by @shukari).
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
