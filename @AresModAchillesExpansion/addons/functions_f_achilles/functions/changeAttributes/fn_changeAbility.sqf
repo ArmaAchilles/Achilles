@@ -14,7 +14,7 @@
 //	[_unit] call Achilles_fnc_changeAbility;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","SUPPRESSION","TARGET","PATH"]
+#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MINEDETECTION","MOVE","SUPPRESSION","TARGET","PATH"]
 
 private _units = [param [0,ObjNull,[ObjNull]]];
 private _abilityCount = count ABILITIES;
@@ -30,6 +30,7 @@ private _dialogResult =
 		["Cover",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		["FSM",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		["Move",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+		["Mine Detection", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		["Suppression",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		["Target",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
 		["Path",[localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
