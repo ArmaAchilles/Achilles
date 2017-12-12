@@ -1214,7 +1214,22 @@
         <Original>GREENFOR</Original>
         <English>GREENFOR</English>
 		<Russian>Зелёные</Russian>
-	</Key>
+	 </Key>
+	 <Key ID="STR_AMAE_BLUFOR_ONLY">
+        <Original>BLUFOR only</Original>
+        <English>BLUFOR only</English>
+		<Russian>Только Синие</Russian>
+	 </Key>
+	  <Key ID="STR_AMAE_OPFOR_ONLY">
+        <Original>OPFOR only</Original>
+        <English>OPFOR only</English>
+		<Russian>Только Красные</Russian>
+	 </Key>
+	 <Key ID="STR_AMAE_GREENFOR_ONLY">
+        <Original>GREENFOR only</Original>
+        <English>GREENFOR only</English>
+		<Russian> Только Зелёные</Russian>
+	 </Key>
 	  <Key ID="STR_AMAE_FILTER_OBJECTS">
         <Original>Filter Objects</Original>
         <English>Filter Objects</English>
