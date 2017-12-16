@@ -30,7 +30,7 @@ if (isNil "_objects") exitWith {};
 // Remove Arsenal
 {
     [_x, (_x call BIS_fnc_getVirtualWeaponCargo), true] call BIS_fnc_removeVirtualWeaponCargo;
-    [_x, (_x call BIS_fnc_getVirtualMagazineCargo), true] call BIS_fnc_getVirtualMagazineCargo;
+    [_x, (_x call BIS_fnc_getVirtualMagazineCargo), true] call BIS_fnc_removeVirtualMagazineCargo;
     [_x, (_x call BIS_fnc_getVirtualItemCargo), true] call BIS_fnc_removeVirtualItemCargo;
     [_x, (_x call BIS_fnc_getVirtualBackpackCargo), true] call BIS_fnc_removeVirtualBackpackCargo;
     [_x] remoteExecCall ["removeAllActions", 0];
