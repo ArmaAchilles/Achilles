@@ -27,6 +27,6 @@ if((_target isEqualType 0 and {_target == clientOwner}) or {_target isEqualTypeA
 } else
 {
 	// send code to the server for remote execution
-	_jip_id = [_args, _code, _target, _jip] remoteExecCall ["Achilles_fnc_spawn_remote", 2];
+	_jip_id = [_args, _code, _target, _jip] remoteExec ["Achilles_fnc_spawn_remote", 2];
 };
 _jip_id
