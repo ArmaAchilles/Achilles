@@ -19,3 +19,5 @@
 
 **RPT log file:**
 - Add a link ([gist](https://gist.github.com) or [pastebin](http://pastebin.com)) to the client and/or server RPT file. An instruction to find your RPT files can be found [here](https://community.bistudio.com/wiki/Crash_Files#Arma_3).
+
+To see more information about this issue template go to our [wiki](https://github.com/ArmaAchilles/AresModAchillesExpansion/wiki/Issue-Template) page.
