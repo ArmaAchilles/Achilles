@@ -64,24 +64,24 @@ switch _mode do
 	};
 	case "confirmed":
 	{
-		_display = _params select 0;
-		_selectedIndex = uinamespace getvariable ["RscAttributeHeadlight_selected",0];
-		_light = _states select _selectedIndex;
+		private _display = _params select 0;
+		private _selectedIndex = uinamespace getvariable ["RscAttributeHeadlight_selected",0];
+		private _light = _states select _selectedIndex;
 		if ((_entity getVariable ["headlight","auto"]) isEqualTo _light) exitwith {};
-		_curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+		private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 		if (_light isEqualTo "auto") exitWith
 		{
 			{_x setVariable ["headlight","auto",true]} forEach _curatorSelected;
 		};
 		{
 			_x setVariable ["headlight",_light,true];
-			_codeBlock =
+			private _codeBlock =
 			{
-				_entity = _this select 0;
-				_light = _this select 1;
+				params ["_entity", "_light"];
 				while {(alive _entity) and ((_entity getVariable ["headlight","auto"]) isEqualTo _light)} do
 				{
 					sleep 0.01;
+					_entity setCollisionLight _light;
 					_entity setpilotlight _light;
 				};
 			};
