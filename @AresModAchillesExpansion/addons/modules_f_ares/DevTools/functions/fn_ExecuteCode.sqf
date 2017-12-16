@@ -27,7 +27,7 @@ if (_dialogResult == 1) then
 {
 
 	private _target = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Constraint", 0];
-	private _pastedText = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Text", "[]"];
+	private _pastedText = profileNamespace getVariable ["Ares_ExecuteCode_Dialog_Text", "[]"];
 
 	switch (_target) do
 	{
