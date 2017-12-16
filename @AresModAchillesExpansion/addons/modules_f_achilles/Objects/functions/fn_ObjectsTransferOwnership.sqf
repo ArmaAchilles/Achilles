@@ -47,11 +47,25 @@ private _group_list = [];
 if (_owner == 0) then
 {
 	// transfer ownership to server
-	[[_object_list,_group_list],{ {_x setOwner 2} forEach (_this select 0); {_x setGroupOwner 2} forEach (_this select 1)},2] call Achilles_fnc_spawn;
-} else
+	[
+		[_object_list,_group_list],
+		{
+			{_x setOwner 2} forEach (_this select 0);
+			{_x setGroupOwner 2} forEach (_this select 1)
+		}, 2
+	] call Achilles_fnc_spawn;
+}
+else
 {
 	// transfer ownership to zeus
-	[[player,_object_list,_group_list],{_owner = owner (_this select 0); {_x setOwner _owner} forEach (_this select 1); {_x setGroupOwner _owner} forEach (_this select 2)},2] call Achilles_fnc_spawn;
+	[
+		[player,_object_list,_group_list],
+		{
+			_owner = owner (_this select 0);
+			{_x setOwner _owner} forEach (_this select 1);
+			{_x setGroupOwner _owner} forEach (_this select 2)
+		}, 2
+	] call Achilles_fnc_spawn;
 };
 [localize "STR_AMAE_TRANSFER_TO" + " " + (_options select _owner)] call Ares_fnc_ShowZeusMessage;
 
