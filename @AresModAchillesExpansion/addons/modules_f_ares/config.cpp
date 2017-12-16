@@ -14,7 +14,7 @@ class CfgPatches
 		{
 			// "Ares_Module_Arsenal_AddFull",
 			"Ares_Module_Arsenal_AddCustom",
-			"Ares_Module_Arsenal_Copy_To_Clipboard",
+			//"Ares_Module_Arsenal_Copy_To_Clipboard",
 			"Ares_Module_Arsenal_Paste_Replace",
 			"Ares_Module_Arsenal_Paste_Combine",
 			"Ares_Module_Arsenal_Create_Nato",

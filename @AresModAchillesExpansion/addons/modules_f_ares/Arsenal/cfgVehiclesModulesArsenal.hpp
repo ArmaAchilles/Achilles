@@ -22,14 +22,14 @@ class Ares_Module_Arsenal_AddCustom : Ares_Arsenal_Module_Base
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
 
-class Ares_Module_Arsenal_Copy_To_Clipboard : Ares_Arsenal_Module_Base
+/*class Ares_Module_Arsenal_Copy_To_Clipboard : Ares_Arsenal_Module_Base
 {
 	scopeCurator = 2;
 	displayName = "$STR_AMAE_COPY_TO_CLIPBOARD";
 	function = "Ares_fnc_ArsenalCopyToClipboard";
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
-};
+};*/
 
 class Ares_Module_Arsenal_Paste_Replace: Ares_Arsenal_Module_Base
 {

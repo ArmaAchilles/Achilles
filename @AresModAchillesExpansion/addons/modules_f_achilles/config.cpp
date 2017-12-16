@@ -58,7 +58,8 @@ class CfgPatches
 			"Achilles_Module_Supply_Drop",
 			"Achilles_Hide_Objects_Module",
 			"Achilles_Module_Arsenal_Remove",
-			"Achilles_Module_Arsenal_AddFull"
+			"Achilles_Module_Arsenal_AddFull",
+			"Achilles_Module_Arsenal_CopyToClipboard"
 		};
 
 		requiredAddons[] =

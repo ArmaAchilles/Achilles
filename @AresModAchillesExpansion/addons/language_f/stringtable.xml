@@ -1061,6 +1061,10 @@
         <Original>Removed Arsenal from object!</Original>
         <English>Removed Arsenal from object!</English>
       </Key>
+      <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
+        <Original>Copied items to clipboard!</Original>
+        <English>Copied items to clipboard!</English>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
