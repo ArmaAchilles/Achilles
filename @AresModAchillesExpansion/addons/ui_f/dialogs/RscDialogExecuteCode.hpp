@@ -2,8 +2,8 @@ class Ares_ExecuteCode_Dialog
 {
 	idd = 123;
 	movingEnable = true;
-	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
-	onUnload = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
+	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (profileNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
+	onUnload = "profileNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
 	class controls 
 	{
