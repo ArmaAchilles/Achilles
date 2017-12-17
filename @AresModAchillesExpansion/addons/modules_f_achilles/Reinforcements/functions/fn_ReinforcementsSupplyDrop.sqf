@@ -15,7 +15,7 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-#define SIDES [localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_GREENFOR"]
+#define SIDES [localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_INDEPENDENT"]
 #define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
 
 private _LZs = (call Achilles_fnc_getAllLZsAndRPs) select 0;
