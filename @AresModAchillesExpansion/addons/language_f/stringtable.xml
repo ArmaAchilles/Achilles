@@ -697,11 +697,11 @@
         <German>Verletzungen (ohne ACE)</German>
       </Key>
       <Key ID="STR_AMAE_ADD_FILTERED">
-        <Original>Add filtered Arsenal...</Original>
-        <English>Add filtered Arsenal...</English>
-        <French>Ajoutez Arsenal filtrée ...</French>
+        <Original>Add filtered Arsenal</Original>
+        <English>Add filtered Arsenal</English>
+        <French>Ajoutez Arsenal filtrée</French>
         <Russian>Ограниченный Арсенал</Russian>
-        <German>Gefiltertes Arsenal hinzufügen ...</German>
+        <German>Gefiltertes Arsenal hinzufügen</German>
       </Key>
       <Key ID="STR_AMAE_ADD_FULL">
         <Original>Add Arsenal full</Original>
@@ -984,6 +984,11 @@
 		<French>Intervertissez l'unité</French>
 		<Russian>Вселиться в человека</Russian>
 		<German>Einheit wechseln</German>
+      </Key>
+	  <Key ID="STR_AMAE_ARSENAL_REMOVE">
+        <Original>Remove Arsenal</Original>
+        <English>Remove Arsenal</English>
+		<Russian>Удалить Арсенал</Russian>
       </Key>
     </Container>
   </Package>
@@ -2196,18 +2201,18 @@
 		<Russian>ГРУЗ</Russian>
 		<German>INVENTAR</German>
       </Key>
-	  <Key ID="STR_AMAE_AMMO">
+	  <Key ID="STR_AMAE_AMMO_UPPER">
         <Original>AMMO</Original>
         <English>AMMO</English>
 		<French>MUNITION</French>
-		<Russian>БК</Russian>
+		<Russian>БОЕПРИПАСЫ</Russian>
 		<German>MUNITION</German>
       </Key>
 	  <Key ID="STR_AMAE_DAMAGE">
         <Original>DAMAGE</Original>
         <English>DAMAGE</English>
 		<French>DÉGÂTS</French>
-		<Russian>СЛОМАН</Russian>
+		<Russian>СЛОМАНО</Russian>
 		<German>SCHADEN</German>
       </Key>
 	  <Key ID="STR_AMAE_SENSORS">
@@ -2515,6 +2520,22 @@
 		<Russian>На этом человеке уже есть "пояс шахида"!</Russian>
 		<German>Dies ist bereits ein Selbstmordattentäter</German>
       </Key>
+      <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Added Arsenal to object!</Original>
+        <English>Added Arsenal to object!</English>
+		<Russian>Арсенал добавлен!</Russian>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_REMOVED">
+        <Original>Removed Arsenal from object!</Original>
+        <English>Removed Arsenal from object!</English>
+		<Russian>Арсенал удалён!</Russian>
+      </Key>
+      <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
+        <Original>Copied items to clipboard!</Original>
+        <English>Copied items to clipboard!</English>
+		<Russian>Снаряжение скопировано в область обмена!</Russian>
+      </Key>
+<!--- unimplemented
 	  <Key name="STR_AMAE_WARNING">
 		<Original>WARNING!</Original>
 		<English>WARNING!</English>
@@ -2525,6 +2546,7 @@
         <English>Warning! After setting this parameter, your unit will not take into account any obstacles, like trees and buildings on it's path! Also avoid to set it too low over terrain or water because vehicle dimensions will not be accounted for too!</English>
 		<Russian>ВНИМАНИЕ! После назначения высоты движения любые препятствия на пути транпортного средства не будут приняты его пилотом/водителем в расчёт! Не назначайте слишком низкую высоту, поскольку размеры транспортного средства так же не будут учитываться!</Russian>
       </Key>
+-->
 	</Container>
     <Container name="Create Effect dialog strings">  
       <Key ID="STR_AMAE_BLUE_LIGHT">
@@ -3525,6 +3547,11 @@
 		<Original>FSM</Original>
 		<English>FSM</English>
 		<Russian>Выполнять программу действий</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_ABIL_MINE_DETECTION">
+		<Original>Mine Detection</Original>
+		<English>Mine Detection</English>
+		<Russian>Обнаруживать мины</Russian>
 	  </Key>
 	  <Key ID="STR_AMAE_ABIL_MOVE">
 		<Original>Move</Original>
