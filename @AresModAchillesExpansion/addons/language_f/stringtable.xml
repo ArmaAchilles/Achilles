@@ -3437,7 +3437,7 @@
         <German>Befehlen</German>
       </Key>
 	</Container>
-    <Container name="Enyo's suicide bomber modile strings">
+    <Container name="Enyo Suicide Bomber Module Strings">
 	  <Key ID="STR_AMAE_ENYO_SET_UNIT_AS_SB">
         <Original>Set Unit as an Suicide Bomber</Original>
         <English>Set Unit as an Suicide Bomber</English>
