@@ -2789,18 +2789,18 @@
 		<French>INVENTAIRE</French>
 		<German>INVENTAR</German>
       </Key>
-	  <Key ID="STR_AMAE_AMMO">
-        <Original>AMMO</Original>
-        <English>AMMO</English>
-		<French>MUNITION</French>
-		<German>MUNITION</German>
+	  <Key ID="STR_AMAE_AMMO_UPPER">
+      <Original>AMMO</Original>
+      <English>AMMO</English>
+      <French>MUNITION</French>
+      <German>MUNITION</German>
+      <Russian>БОЕПРИПАСЫ</Russian>
       </Key>
 	  <Key ID="STR_AMAE_DAMAGE">
-        <Original>DAMAGE</Original>
-        <English>DAMAGE</English>
-		<French>DÉGÂTS</French>
-		<German>SCHADEN</German>
-      </Key>
+      <Original>DAMAGE</Original>
+      <English>DAMAGE</English>
+      <French>DÉGÂTS</French>
+      <German>SCHADEN</German>
       </Key>
 	  <Key ID="STR_AMAE_SENSORS">
         <Original>SENSORS</Original>
