@@ -24,7 +24,8 @@ V.0.1.0 (Not Released - In Progress)
 * Change: Deep Copy and Paste retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
 * Change: Deep Copy and Paste assigns dynamic loadout weapons if possible to the gunner.
 * Change: Deep Copy and Paste retains fuel for vehicles.
-* Change: On Zeus launch, intro hint will only be shown once. 
+* Change: On Zeus launch, intro hint will only be shown once.
+* Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
 * Feature: Object rotation module. #151
 * Feature: Data Link and Radar Emission controls for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156
@@ -44,6 +45,7 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Arsenal Removal module. #200
 * Feature: Added Mine Detection ability to the Change Ability module.
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
+* Feature: Added new Copy to Clipboard module. #200
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
@@ -64,6 +66,10 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Switch Unit module now retains voices and faces. #157
 * Fix: Debug console now works if debug console is enabled for specific players by UID. #187
 * Fix: German entry for stringtable is fixed (by @shukari).
+* Fix: Modifying the status of the headlights using the attribute panel would produce a suspension error. #202
+* Fix: Create Teleporter module now takes into account if the Curator pressed the Cancel button and now doesn't spawn the pole. #203
+* Fix: Removed duplicate stringtable key named "STR_AMAE_AMMO".
+* Fix: Copy to Clipboard module now works if the text is larger than the format engine command limit.
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
