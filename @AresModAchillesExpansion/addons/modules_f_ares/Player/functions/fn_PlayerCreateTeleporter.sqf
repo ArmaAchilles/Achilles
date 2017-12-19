@@ -1,5 +1,21 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+// Set the name of the marker (used in the action)
+private _teleportMarkerName = if (!isNil "Ares_TeleportMarkers") then
+{
+	[(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
+};
+
+private _dialogResult =
+[
+	localize "STR_AMAE_CREATE_NEW_LZ",
+	[
+		[localize "STR_AMAE_NAME", "", _teleportMarkerName, true]
+	]
+] call Ares_fnc_showChooseDialog;
+
+if (_dialogResult isEqualTo []) exitWith {};
+
 // Create a function in the mission namespace on all players machines to add the
 // teleport action.
 Ares_addNewTeleportMarkerActions =
@@ -80,17 +96,6 @@ if (isNil "Ares_TeleportMarkers") then
 Ares_TeleportMarkers pushBack _teleportMarker;
 publicVariable "Ares_TeleportMarkers";
 
-// Set the name of the marker (used in the action)
-private _teleportMarkerName = [(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
-private _dialogResult =
-[
-	localize "STR_AMAE_CREATE_NEW_LZ",
-	[
-		[localize "STR_AMAE_NAME", "", _teleportMarkerName, true]
-	]
-] call Ares_fnc_showChooseDialog;
-
-if (_dialogResult isEqualTo []) exitWith {};
 _teleportMarkerName = _dialogResult select 0;
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 
