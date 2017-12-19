@@ -12,35 +12,35 @@ Ares_addNewTeleportMarkerActions =
 		// TODO deal with deleted markers.... Conditions?
 
 		// Add an action to THIS marker to teleport to OTHER marker.
-		private _actionName = format ["Teleport to %1", _x getVariable ["teleportMarkerName", "??"]];
+		private _actionName = format [localize "STR_AMAE_TELEPORT_TO", _x getVariable ["teleportMarkerName", "??"]];
 		_newMarker addAction [_actionName, {
 			private _teleportTarget = _this select 3;
 			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
 			{
-				hint "Destination no longer exists...";
+				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
 				sleep 3;
 				hint "";
 			}
 			else
 			{
-				titleText ["You are being teleported...", "BLACK", 1];  sleep 1; titleFadeOut 2;
+				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1];  sleep 1; titleFadeOut 2;
 				player setPosATL (getPosATL _teleportTarget);
 			};
 		}, _x];
 
 		// Add action to OTHER marker to teleport to THIS marker.
-		_actionName = format ["Teleport to %1", _newMarker getVariable ["teleportMarkerName", "??"]];
+		_actionName = format [localize "STR_AMAE_TELEPORT_TO", _newMarker getVariable ["teleportMarkerName", "??"]];
 		_x addAction [_actionName, {
 			private _teleportTarget = _this select 3;
 			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
 			{
-				hint "Destination no longer exists...";
+				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
 				sleep 3;
 				hint "";
 			}
 			else
 			{
-				titleText ["You are being teleported...", "BLACK", 1]; sleep 1; titleFadeOut 2;
+				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1]; sleep 1; titleFadeOut 2;
 				player setPosATL (getPosATL _teleportTarget);
 			};
 		}, _newMarker];
@@ -65,7 +65,7 @@ else
 	else
 	{
 		// Unit is already a teleporter! Log an error and exit.
-		[objNull, "Object is already a teleporter"] call bis_fnc_showCuratorFeedbackMessage;
+		[objNull, localize "STR_AMAE_OBJECT_ALREADY_TELEPORTER"] call bis_fnc_showCuratorFeedbackMessage;
 		breakTo MAIN_SCOPE_NAME;
 	}
 };
@@ -100,6 +100,6 @@ _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 // Call this to add the teleport marker actions on all machines. Persistent for JIP people as well.
 [[_teleportMarker], "Ares_addNewTeleportMarkerActions", true, _isFirstCallToCreateTeleporter] call BIS_fnc_MP;
 
-[objNull, format["Created teleporter '%1'", _teleportMarkerName]] call bis_fnc_showCuratorFeedbackMessage;
+[objNull, format[localize "STR_AMAE_CREATED_TELEPORT", _teleportMarkerName]] call bis_fnc_showCuratorFeedbackMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
