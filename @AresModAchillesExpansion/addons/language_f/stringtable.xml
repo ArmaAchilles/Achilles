@@ -555,7 +555,7 @@
         <Original>Advanced CAS</Original>
         <English>Advanced CAS</English>
         <French>AAR (avancée)</French>
-		<Russian>Вертолёт - Атака</Russian>
+		<Russian>Авиаподдержка - Вертолёт</Russian>
         <German>Erweiterte Luftunterstützung</German>
       </Key>
       <Key ID="STR_AMAE_CREATE_NEW_RP">
@@ -1213,9 +1213,34 @@
         <English>Object is already a teleporter!</English>
 		<Russian>Объект уже является телепортатором!</Russian>
 	  </Key>
+	  <Key ID="STR_AMAE_CANNOT_ADD_PATROL_PLAYERS">
+        <Original>Cannot add patrol for player units.</Original>
+        <English>Cannot add patrol for player units.</English>
+		<Russian>Не могу назначить маршрут для патрулирования игрокам!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_NO_GROUP_UNDER_CURSOR">
+        <Original>No group under cursor.</Original>
+        <English>No group under cursor.</English>
+		<Russian>Поместите модуль на группу!</Russian>
+	  </Key>
 	</Container>
 	<Container name="Dialog interface strings">
-	  <Key ID="STR_AMAE_CREATED_TELEPORT">
+	  <Key ID="STR_AMAE_SECOND">
+        <Original>s</Original>
+        <English>s</English>
+		<Russian>сек</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_MINUTE">
+        <Original>m</Original>
+        <English>m</English>
+		<Russian>мин</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_NONE">
+        <Original>None</Original>
+        <English>None</English>
+		<Russian>Нет</Russian>
+	  </Key>
+      <Key ID="STR_AMAE_CREATED_TELEPORT">
         <Original>Created teleporter '%1'</Original>
         <English>Created teleporter '%1'</English>
 		<Russian>Создан телепортатор '%1'</Russian>
@@ -1315,15 +1340,15 @@
         <English>Only</English>
 		<Russian>Только</Russian>
 	  </Key>
-	  <Key ID="STR_AMAE_ARSENAL_ADDED">
-        <Original>Arsenal objects added!</Original>
-        <English>Arsenal objects added!</English>
-		<Russian>Снаряжение добавлено!</Russian>
-	  </Key>
 	  <Key ID="STR_AMAE_METERS">
         <Original>[m]</Original>
         <English>[m]</English>
 		<Russian>(м)</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_KILOMETERS_PER_HOUR">
+        <Original>[km/h]</Original>
+        <English>[km/h]</English>
+		<Russian>(км/ч)</Russian>
 	  </Key>
 	  <Key ID="STR_AMAE_AMMUNITION_CRATE">
         <Original>Ammunition Crate</Original>
@@ -2259,6 +2284,16 @@
 		<Russian>БОЕВ.НАГР</Russian>
 		<German>BEWAFFNUNG</German>
       </Key>
+	  <Key ID="STR_AMAE_DRIVER">
+        <Original>Driver</Original>
+        <English>Driver</English>
+		<Russian>Пилот</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_GUNNER">
+        <Original>Gunner</Original>
+        <English>Gunner</English>
+		<Russian>Стрелок</Russian>
+	  </Key>
 	  <Key ID="STR_AMAE_CONST_ATTENUATION">
         <Original>Constant attenuation</Original>
         <English>Constant attenuation</English>
@@ -2567,6 +2602,17 @@
         <English>Copied items to clipboard!</English>
 		<Russian>Снаряжение скопировано в область обмена!</Russian>
       </Key>
+	  <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Arsenal objects added!</Original>
+        <English>Arsenal objects added!</English>
+		<Russian>Снаряжение добавлено!</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_CIRCULAR_PATROL_SETUP">
+        <Original>Circular patrol path setup for units.</Original>
+        <English>Circular patrol path setup for units.</English>
+		<Russian>Назначен круговой патрульный маршрут.</Russian>
+	  </Key>
+
 <!--- unimplemented
 	  <Key name="STR_AMAE_WARNING">
 		<Original>WARNING!</Original>
@@ -3181,7 +3227,7 @@
         <Original>Fog Setting</Original>
         <English>Fog Setting</English>
         <French>Cofiguration du brouillard</French>
-        <Russian>Настройки тумана</Russian>
+        <Russian>Плотность тумана</Russian>
         <German>Nebeleinstellung</German>
       </Key>
       <Key ID="STR_AMAE_FOG_DECAY">
