@@ -18,7 +18,7 @@ private _dialogResult =
 	localize "STR_AMAE_LOCK_DOORS",
 	[
 		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE"]],
-		[(localize "STR_AMAE_RANGE") + " " + (localize "STR_AMAE_METERS"),"","100"],
+		[[localize "STR_AMAE_RANGE",localize "STR_AMAE_METERS"] joinString " ","","100"],
 		[localize "STR_AMAE_MODE", [localize "STR_AMAE_UNBREACHABLE", localize "STR_AMAE_BREACHABLE", localize "STR_AMAE_OPEN"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
