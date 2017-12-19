@@ -37,7 +37,7 @@ _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;
 
-private _addActionID = _unit addAction ["Release UAV controls", 
+private _addActionID = _unit addAction [localize "STR_AMAE_RELEASE_UAV_CONTROLS", 
 {
 	params["_target", "_caller", "_id"];
 	disableSerialization;
