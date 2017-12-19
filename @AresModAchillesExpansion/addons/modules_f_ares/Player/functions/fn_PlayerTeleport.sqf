@@ -14,7 +14,7 @@ private _dialogResult = [
 	localize "STR_AMAE_TELEPORT",
 	[
 		[localize "STR_AMAE_MODE",[localize "STR_AMAE_ZEUS", localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE", localize "STR_AMAE_PLAYERS", localize "STR_AMAE_GROUP"]],
-		["", ["..."]],
+		["", [""]],
 		[localize "STR_AMAE_SIDE","ALLSIDE"],
 		[localize "STR_AMAE_INCLUDE_VEHICLES",[localize "STR_AMAE_FALSE",localize "STR_AMAE_TRUE"]]
 	],

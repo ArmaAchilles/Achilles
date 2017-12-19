@@ -14,7 +14,7 @@ params[["_index", 0, [0]]];
 private _names = [];
 for '_i' from 97 to 122 do
 {
-	_names pushBack (localize format ["str_a3_radio_%1",toString [_i]]);
+	_names pushBack (localize format ["str_a3_radio_%1", toString [_i]]);
 };
 
 if (_index >= count _names) exitWith
