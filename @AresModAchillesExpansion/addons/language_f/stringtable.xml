@@ -1081,7 +1081,7 @@
         <Original>No unit selected!</Original>
         <English>No unit selected!</English>
         <French>Pas d'unité a été choisi!</French>
-		<Russian>>Человек не выбран!</Russian>
+		<Russian>Человек не выбран!</Russian>
         <German>Keine Einheit wurde ausgewählt!</German>
       </Key>
       <Key ID="STR_AMAE_NOT_PLACED_ON_UNIT">
@@ -1203,8 +1203,33 @@
 		<Russian>Ошибка: сторона не может быть той же самой!</Russian>
 		<German>Die Seiten dürfen nicht dieselbe Seite sein!</German>
       </Key>
+	  	<Key ID="STR_AMAE_NO_TELEPORT_DESTINATION">
+        <Original>Destination no longer exists!</Original>
+        <English>Destination no longer exists!</English>
+		<Russian>Точка назначения больше не существует!</Russian>
+	  </Key>
+	  	<Key ID="STR_AMAE_OBJECT_ALREADY_TELEPORTER">
+        <Original>Object is already a teleporter!</Original>
+        <English>Object is already a teleporter!</English>
+		<Russian>Объект уже является телепортатором!</Russian>
+	  </Key>
 	</Container>
 	<Container name="Dialog interface strings">
+	  <Key ID="STR_AMAE_CREATED_TELEPORT">
+        <Original>Created teleporter '%1'</Original>
+        <English>Created teleporter '%1'</English>
+		<Russian>Создан телепортатор '%1'</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_TELEPORT_TO">
+        <Original>Teleport to %1</Original>
+        <English>Teleport to %1</English>
+		<Russian>Телепортация в точку %1</Russian>
+	  </Key>
+	  <Key ID="STR_AMAE_RELEASE_UAV_CONTROLS">
+        <Original>Release UAV controls</Original>
+        <English>Release UAV controls</English>
+		<Russian>Бросить управление БПА</Russian>
+	  </Key>
 	  <Key ID="STR_AMAE_BLUFOR">
         <Original>BLUFOR</Original>
         <English>BLUFOR</English>
@@ -2208,6 +2233,13 @@
 		<Russian>БОЕПРИПАСЫ</Russian>
 		<German>MUNITION</German>
       </Key>
+	  <Key ID="STR_AMAE_AMMO">
+        <Original>Ammo</Original>
+        <English>Ammo</English>
+		<French>Munition</French>
+		<Russian>Боеприпасы</Russian>
+		<German>Munition</German>
+      </Key>
 	  <Key ID="STR_AMAE_DAMAGE">
         <Original>DAMAGE</Original>
         <English>DAMAGE</English>
@@ -2219,6 +2251,13 @@
         <Original>SENSORS</Original>
         <English>SENSORS</English>
 		<Russian>РАДАР</Russian>
+      </Key>
+	  <Key ID="STR_AMAE_LOADOUT">
+        <Original>LOADOUT</Original>
+        <English>LOADOUT</English>
+		<French>L'ARMEMENT</French>
+		<Russian>БОЕВ.НАГР</Russian>
+		<German>BEWAFFNUNG</German>
       </Key>
 	  <Key ID="STR_AMAE_CONST_ATTENUATION">
         <Original>Constant attenuation</Original>
@@ -2254,13 +2293,6 @@
 		<French>Ligne</French>
 		<Russian>Выстроиться в линию</Russian>
 		<German>KREISEN (HELI)</German>
-      </Key>
-	  <Key ID="STR_AMAE_LOADOUT">
-        <Original>LOADOUT</Original>
-        <English>LOADOUT</English>
-		<French>L'ARMEMENT</French>
-		<Russian>НАГРУЗКА</Russian>
-		<German>BEWAFFNUNG</German>
       </Key>
       <Key ID="STR_AMAE_ASSIGN_WEAPONS">
         <Original>Assign Weapons To</Original>
