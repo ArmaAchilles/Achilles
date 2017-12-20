@@ -51,6 +51,8 @@ createDialog "Ares_CopyPaste_Dialog";
 		if (_dialogText isEqualTo "" || !(_dialogText isEqualType [])) exitWith {[localize "STR_AMAE_ARSENAL_FAILED_TO_PARSE"] call Achilles_fnc_ShowZeusErrorMessage};
 		
 		[_object, _dialogText, _pasteMode] call Achilles_fnc_ArsenalSetup;
+
+        [localize "STR_AMAE_INVENTORY_PASTED"] call Ares_fnc_ShowZeusMessage;
     },
     [_object, _pasteMode]
 ] call CBA_fnc_waitUntilAndExecute;
