@@ -55,7 +55,7 @@ _emitter setDropInterval (1/_particleDensity);
 //--- light
 private _lightSize = (_particleSize + _effectSize)/2;
 
-private _light = createVehicle ["#lightpoint", (getPos _emitter), [], 0, "NONE"];
+private _light = createVehicle ["#lightpoint", (getPos _emitter), [], 0, "CAN_COLLIDE"];
 _light setPos [_pos select 0,_pos select 1,(_pos select 2) + 0.5];
 _light setLightBrightness 1.0;
 _light setLightColor [1,0.65,0.4];
