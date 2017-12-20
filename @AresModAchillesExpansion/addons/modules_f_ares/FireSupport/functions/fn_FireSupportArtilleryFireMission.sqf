@@ -91,7 +91,7 @@ if (_mode == 0) then
 		format ["%1 (%2)",localize "STR_AMAE_ARTILLERY_FIRE_MISSION",localize "STR_AMAE_MARKER"],
 		[
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_AMAE_ROUNDS", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
+			[localize "STR_AMAE_ROUNDS", "", "1"],
 			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
@@ -99,7 +99,7 @@ if (_mode == 0) then
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
-	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
+	_rounds = parseNumber (_pickFireMissionResult select 1); // +1 since the options are 0-based. (0 actually fires a whole clip)
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 
@@ -139,16 +139,16 @@ if (_mode == 0) then
 		format ["%1 (%2)",localize "STR_AMAE_ARTILLERY_FIRE_MISSION",localize "STR_AMAE_GRID"],
 		[
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
-			[localize "STR_AMAE_ROUNDS", ["1", "2", "3", "4", "5"]],
-			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[localize "STR_AMAE_ROUNDS", "", "1"],
+			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[localize "STR_AMAE_GRID_EAST_WEST_XXX", "","000"],
 			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;
 
-	if (_pickFireMissionResult isEqualTo []) exitWith { [localize "STR_AMAE_FIRE_MISSION_ABORTED"] call Ares_fnc_ShowZeusMessage; };
+	if (_pickFireMissionResult isEqualTo []) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
-	_rounds = (_pickFireMissionResult select 1) + 1; // +1 since the options are 0-based. (0 actually fires a whole clip)
+	_rounds = parseNumber (_pickFireMissionResult select 1); // +1 since the options are 0-based. (0 actually fires a whole clip)
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 	private _targetX = _pickFireMissionResult select 3;
