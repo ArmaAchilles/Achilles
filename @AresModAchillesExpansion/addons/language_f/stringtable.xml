@@ -25,6 +25,10 @@
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
             </Key>
+            <Key ID="STR_AMAE_INVENTORY_PASTED">
+                <English>Inventory pasted successfully!</English>
+                <Original>Inventory pasted successfully!</Original>
+            </Key>
         </Container>
     </Package>
     <Package name="Curator Display">
