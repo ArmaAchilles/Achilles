@@ -43,6 +43,7 @@ class CfgFunctions
 			class logMessage;
 			class getAllLZsAndRPs;
 			class createDummyLogic;
+			class ArsenalSetup;
 		};
 
 		class selectUnit

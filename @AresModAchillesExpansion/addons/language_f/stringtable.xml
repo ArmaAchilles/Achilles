@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
   <Package name="General">
 	<Container name="Project Titles">
@@ -3772,15 +3772,15 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
 		</German>
-      </Key>
-      <Key ID="STR_AMAE_PLACING_MODULES_TIP">
-        <Original>
+            </Key>
+            <Key ID="STR_AMAE_PLACING_MODULES_TIP">
+                <Original>
 			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
         <Russian>
 			Модули, применяемые на объекты или юнитов, чаще всего могут быть либо помещены на юнит (объект), либо на землю, чтобы применить модуль для нескольких юнитов (объектов).
 		</Russian>
-        <German>
+                <German>
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
 		</German>
       </Key>
@@ -3797,12 +3797,12 @@
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancle the selection mode with %3[ESCAPE]%4.
 		</Original>
-        <English>
+                <English>
 			Some modules have the option to select objects on which it is apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancle the selection mode with %3[ESCAPE]%4.
 		</English>
-        <French>
+                <French>
 			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
 			%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
 			%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
@@ -3812,26 +3812,26 @@
 			%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
 			%1Вы можете отменить выбор используя %3[ESCAPE]%4.
 		</Russian>
-        <German>
+                <German>
 			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
 			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
 			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
 		</German>
-      </Key>
-      <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
-        <Original>
+            </Key>
+            <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
+                <Original>
 			You can read on top what the module want you to select.
 		</Original>
-        <English>
+                <English>
 			You can read on top what the module want you to select.
 		</English>
-        <French>
+                <French>
 			Il est écrié au-dessus qu'est-ce que vous devez choisir.
 		</French>
         <Russian>
 			Вы можете прочитать сверху название использумого Вами модуля.
 		</Russian>
-        <German>
+                <German>
 			Oben steht jeweis geschrieben, was du auswählen sollst.
 		</German>
       </Key>
@@ -3906,25 +3906,25 @@
         <Original>
 			Open the %3Field Manual%4 available in the escape menu for useful informations.
 		</Original>
-        <English>
+                <English>
 			Open the %3Field Manual%4 available in the escape menu for informations.
 		</English>
-        <French>
+                <French>
 			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
 		</French>
         <Russian>
 			Откройте %3Наставление по использованию%4 в меню игры для получения полезной информации.
 		</Russian>
-        <German>
+                <German>
 			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
 		</German>
-      </Key>
-      <Key ID="STR_AMAE_RC_VEHICLE_CREW">
-        <Original>Remote Control Vehicle Crew</Original>
-        <Russian>Дистанционный контроль экипажа</Russian>
-      </Key>
-      <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
-        <Original>
+            </Key>
+            <Key ID="STR_AMAE_RC_VEHICLE_CREW">
+                <Original>Remote Control Vehicle Crew</Original>
+                <Russian>Дистанционный контроль экипажа</Russian>
+            </Key>
+            <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
+                <Original>
 			You How to remote control a specific unit in a vehicle:
 			%1 1) Select the unit in the object list on your left.
 			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
