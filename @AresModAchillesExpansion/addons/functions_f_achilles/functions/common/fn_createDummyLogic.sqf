@@ -13,7 +13,7 @@
 
 params [["_logic", objNull, [objNull]]];
 
-private _dummyObject = (createGroup sideLogic) createUnit ["Module_f", (getPos _logic), [], 0, "NONE"];
+private _dummyObject = (createGroup sideLogic) createUnit ["Module_f", (getPos _logic), [], 0, "CAN_COLLIDE"];
 
 _logic setVariable ["Achilles_var_createDummyLogic_isAttached", true];
 _logic setVariable ["Achilles_var_createDummyLogic_dummyObject", _dummyObject];

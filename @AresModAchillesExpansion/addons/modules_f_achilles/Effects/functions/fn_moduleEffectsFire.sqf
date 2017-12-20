@@ -45,7 +45,7 @@ if (isNil "Achilles_var_moduleEffectFireInit") then
 // Create dummy logic because some users may not have Achilles.
 private _dummyLogic = _logic call Achilles_fnc_createDummyLogic;
 
-private _source = "#particlesource" createVehicle (getPos _logic);
+private _source = createVehicle ["#particlesource", getPos _logic, [], 0, "CAN_COLLIDE"];
 _dummyLogic setVariable ["effectEmitter",[_source],true];
 
 private _emitter = (_dummyLogic getVariable "effectEmitter") select 0;
