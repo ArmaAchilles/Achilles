@@ -4,5 +4,6 @@ class Achilles_Arsenal_Function_Base
     
     class ArsenalAddFull {};
     class ArsenalCopyToClipboard {};
+    class ArsenalPaste {};
     class ArsenalRemove {}; 
 };

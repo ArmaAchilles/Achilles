@@ -29,7 +29,7 @@ class Ares_Module_Arsenal_AddCustom : Ares_Arsenal_Module_Base
 	function = "Ares_fnc_ArsenalCopyToClipboard";
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
-};*/
+};
 
 class Ares_Module_Arsenal_Paste_Replace: Ares_Arsenal_Module_Base
 {
@@ -47,7 +47,7 @@ class Ares_Module_Arsenal_Paste_Combine : Ares_Arsenal_Module_base
 	function = "Ares_fnc_ArsenalPasteCombine";
 	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
-};
+};*/
 
 class Ares_Module_Arsenal_Create_Nato : Ares_Arsenal_Module_Base
 {

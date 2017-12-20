@@ -21,6 +21,15 @@ class Achilles_Module_Arsenal_CopyToClipboard : Achilles_Arsenal_Module_Base
 	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
 };
 
+class Achilles_Module_Arsenal_Paste : Achilles_Arsenal_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_AMAE_ARSENAL_PASTE";
+	function = "Achilles_fnc_ArsenalPaste";
+	icon = "\achilles\data_f_achilles\icons\icon_object.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_object.paa";
+};
+
 class Achilles_Module_Arsenal_Remove : Achilles_Arsenal_Module_Base
 {
 	scopeCurator = 2;
