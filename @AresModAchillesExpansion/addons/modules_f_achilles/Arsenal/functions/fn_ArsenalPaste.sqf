@@ -22,7 +22,7 @@ private _dialogResult =
 [
 	localize "STR_AMAE_ARSENAL_PASTE",
 	[
-		[localize "STR_AMAE_ARSENAL_PASTE_MODE", [localize "STR_AMAE_ARSENAL_REPLACE", localize "STR_AMAE_ARSENAL_COMBINE"]]
+		[localize "STR_AMAE_ARSENAL_COMBINE_OR_REPLACE", [localize "STR_AMAE_ARSENAL_REPLACE", localize "STR_AMAE_ARSENAL_COMBINE"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
