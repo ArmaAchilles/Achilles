@@ -69,6 +69,10 @@
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
             </Key>
+            <Key ID="STR_AMAE_WEAPON_TO_FIRE">
+                <English>Weapon to Fire</English>
+                <Original>Weapon to Fire</Original>
+            </Key>
         </Container>
     </Package>
     <Package name="Curator Display">
