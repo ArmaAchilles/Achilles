@@ -1,13 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 4/30/17
-//	VERSION: 1.0
+//	AUTHOR: Kex, CreepPork_LV
+//	DATE: 22/12/17
+//	VERSION: 1.1
 //  DESCRIPTION: Forces the group of the given unit to suppress the given target
 //
 //	ARGUMENTS:
 //	_this select 0:		OBJECT	- Unit that is injured
 //	_this select 1:		ARRAY	- Target position given in world position (see getPosWorld)
-//	_this select 2:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (0 by default)
+//  _this select 2:		STRING	- Weapon muzzle to fire
+//	_this select 3:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (0 by default)
 //	_this select 4:		BOOL	- (optional) Line up before firing (false by default)
 //	_this select 5:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single, 3:talking guns (0 by default)
 //	_this select 6:		SCALAR	- (optional) Duration in sec (10 by default)
@@ -16,10 +17,10 @@
 //	nothing (procedure)
 //
 //	Example:
-//	[_unit,_worldPos] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
+//	[_unit,_worldPos, _weaponToFire] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
+params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]]],["_weaponToFire", 0, [0]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
 
 private _old_group = group _unit;
 private _units = units _old_group;
@@ -27,7 +28,6 @@ private _units = units _old_group;
 //create target logic
 private _selectedTarget = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
 _selectedTarget setPosWorld _targetPos;
-
 
 //save and remove waypoints
 private _current_wp_id = currentWaypoint _old_group;
@@ -70,7 +70,7 @@ if (_doLineUp) then
 		waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
 	};
 	// orientate line perpendicular to target
-	_old_group setFormDir ([leader _old_group,_selectedTarget] call BIS_fnc_dirTo);
+	_old_group setFormDir (_old_group getDir _selectedTarget);
 	// wait until unit is in formation
 	sleep 2;
 	waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
@@ -85,7 +85,7 @@ private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], 
 _placeholder setPos [0,0,0];
 
 {
-	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder] spawn
+	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder, _weaponToFire] spawn
 	{
 		params
 		[
@@ -95,9 +95,55 @@ _placeholder setPos [0,0,0];
 			"_stanceIndex",
 			"_fireModeIndex",
 			"_duration",
-			"_placeholder"
+			"_placeholder",
+			"_weaponToFire"
 		];
 		_unit = gunner _unit;
+
+		// Find and make usage of the selected weapon by user.
+		private _weapons = [];
+		if (isNull objectParent _unit) then
+		{
+			{
+				if !(_x isEqualTo "") then
+				{
+					diag_log _x;
+					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
+					if (count _muzzleArray > 1) then
+					{
+						{
+							_weapons pushBack _x;
+						} forEach _muzzleArray;
+					}
+					else
+					{
+						_weapons pushBack _x;
+					};
+				};
+			} forEach [primaryWeapon _unit];
+		}
+		else
+		{
+			private _vehicle = vehicle _unit;
+			{
+				if !(_x isEqualTo "") then
+				{
+					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
+					if (count _muzzleArray > 1) then
+					{
+						{
+							_weapons pushBack _x;
+						} forEach _muzzleArray;
+					}
+					else
+					{
+						_weapons pushBack _x;
+					};
+				};
+			} forEach (_vehicle weaponsTurret [0]);
+		};
+
+		private _muzzle = _weapons select _weaponToFire;
 
 		// cease fire if group mate is too close to line of fire
 		if (!([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
@@ -119,31 +165,30 @@ _placeholder setPos [0,0,0];
 		_unit doWatch _target;
 		_unit doTarget _target;
 		_unit doTarget _target;
+		_unit lookAt _target;
 
 		//ensure asynchronous fire within a group
 		sleep (random [2,3,4]);
 
 		if (isNull objectParent _unit) then
 		{
-			(weaponState _unit) params ["_", "_muzzle", "_mode"];
+			
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
 				{
 					sleep 0.1;
-					_unit forceWeaponFire [_muzzle, _mode];
-					_unit setvehicleammo 1;
+					[_unit, _muzzle] call BIS_fnc_fire;
+					_unit setVehicleAmmo 1;
 				};
-				_unit doTarget _target;
 				sleep _ceaseFireTime;
 			};
-		} else
+		}
+		else
 		{
 			private _vehicle = vehicle _unit;
 			if (_unit == gunner _vehicle) then
 			{
-				private _turrets_path = (assignedVehicleRole _unit) select 1;
-				private _muzzle = weaponState [_vehicle, _turrets_path] select 1;
 				for "_" from 0 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
@@ -151,7 +196,7 @@ _placeholder setPos [0,0,0];
 						_unit lookAt _target;
 						sleep 0.1;
 						_unit fireAtTarget [_vehicle, _muzzle];
-						_vehicle setvehicleammo 1;
+						_vehicle setVehicleAmmo 1;
 					};
 					sleep _ceaseFireTime;
 				};
