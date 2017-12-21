@@ -29,7 +29,14 @@ if (isNil "_objects") exitWith {};
 
 // Add Arsenal
 {
-    ["AmmoboxInit", [_x, true]] spawn BIS_fnc_Arsenal;
+    if (["arsenal"] call Achilles_fnc_isACELoaded) then
+    {
+        [_x, true] call ace_arsenal_fnc_initBox;
+    }
+    else
+    {
+        ["AmmoboxInit", [_x, true]] spawn BIS_fnc_Arsenal;
+    };
 } forEach _objects;
 
 // Show message

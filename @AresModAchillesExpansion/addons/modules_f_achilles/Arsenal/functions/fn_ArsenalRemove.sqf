@@ -29,11 +29,18 @@ if (isNil "_objects") exitWith {};
 
 // Remove Arsenal
 {
-    [_x, (_x call BIS_fnc_getVirtualWeaponCargo), true] call BIS_fnc_removeVirtualWeaponCargo;
-    [_x, (_x call BIS_fnc_getVirtualMagazineCargo), true] call BIS_fnc_removeVirtualMagazineCargo;
-    [_x, (_x call BIS_fnc_getVirtualItemCargo), true] call BIS_fnc_removeVirtualItemCargo;
-    [_x, (_x call BIS_fnc_getVirtualBackpackCargo), true] call BIS_fnc_removeVirtualBackpackCargo;
-    [_x] remoteExecCall ["removeAllActions", 0];
+    if (["arsenal"] call Achilles_fnc_isACELoaded) then
+    {
+        [_x, true, false] call ace_arsenal_fnc_removeVirtualItems;
+    }
+    else
+    {
+        [_x, (_x call BIS_fnc_getVirtualWeaponCargo), true] call BIS_fnc_removeVirtualWeaponCargo;
+        [_x, (_x call BIS_fnc_getVirtualMagazineCargo), true] call BIS_fnc_removeVirtualMagazineCargo;
+        [_x, (_x call BIS_fnc_getVirtualItemCargo), true] call BIS_fnc_removeVirtualItemCargo;
+        [_x, (_x call BIS_fnc_getVirtualBackpackCargo), true] call BIS_fnc_removeVirtualBackpackCargo;
+        [_x] remoteExecCall ["removeAllActions", 0];
+    };
 } forEach _objects;
 
 // Show message
