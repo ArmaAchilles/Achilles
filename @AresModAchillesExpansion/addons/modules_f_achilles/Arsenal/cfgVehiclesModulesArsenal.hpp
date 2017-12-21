@@ -12,6 +12,15 @@ class Achilles_Module_Arsenal_AddFull : Achilles_Arsenal_Module_Base
 	function = "Achilles_fnc_ArsenalAddFull";
 };
 
+class Achilles_Module_Arsenal_CreateCustom : Achilles_Arsenal_Module_Base
+{
+	scopeCurator = 2;
+	displayName = "$STR_AMAE_ARSENAL_CREATE_CUSTOM";
+	function = "Achilles_fnc_ArsenalCreateCustom";
+	icon = "\achilles\data_f_ares\icons\icon_default.paa";
+	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+};
+
 class Achilles_Module_Arsenal_CopyToClipboard : Achilles_Arsenal_Module_Base
 {
 	scopeCurator = 2;
