@@ -44,6 +44,7 @@ class CfgFunctions
 			class getAllLZsAndRPs;
 			class createDummyLogic;
 			class ArsenalSetup;
+			class isACELoaded;
 		};
 
 		class selectUnit
