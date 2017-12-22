@@ -27,9 +27,9 @@ V.0.1.0 (Not Released - In Progress)
 * Change: On Zeus launch, intro hint will only be shown once.
 * Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
 * Change: Arsenal modules have been fully reworked, fixing some long lasting issues and performance improvements. #200
-* Change: Using the Fire Mission module, now Curator can specify the amount of rounds fired.
+* Change: Using the Fire Mission module, now Curator can specify the number of rounds fired.
 * Feature: Object rotation module. #151
-* Feature: Data Link and Radar Emission controls for AI vehicles. #77
+* Feature: Data Link and Radar Emission control for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156
 * Feature: Side relation change module. #130 and #149
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
@@ -39,24 +39,24 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
 * Feature: Supply Drop module. #158
 * Feature: Hide Objects module. #179
-* Feature: Debug Mode is available in Addon Options. It also allows to add all objects in the mission (including logics!).
-* Feature: Launch Countermeasures now can work with tanks, cars, boats, helicopters. #161
+* Feature: Debug Mode is available in Addon Options. It also allows adding all objects in the mission (including logics!).
+* Feature: Launch Countermeasures works with tanks, cars, boats, helicopters. #161
 * Feature: Option to toggle the Engine in Vehicle's attribute options.
 * Feature: Added module to spawn fire under the Spawn Effects tab. #137
 * Feature: Zeus eagle and "Player has ascended as Zeus" notifications have been removed when using the Hide Zeus module.
 * Feature: Arsenal Removal module. #200
 * Feature: Added Mine Detection ability to the Change Ability module. #199
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
-* Feature: Option to select what weapon AI should fire when using the Suppresive Fire module.
+* Feature: Option to select what weapon AI should fire when using the Suppressive Fire module.
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
-* Fix: When parachuting units, the function now works as intented. #127
-* Fix: Server side .rpt spam was fixed. #107
+* Fix: When parachuting units, the function now works as intended. #127
+* Fix: Server-side .rpt spam was fixed. #107
 * Fix: Side Arsenal modules didn't work previously. #167
 * Fix: Create Mission SQF didn't retain simulation settings. #169
 * Fix: Missing localization string for Turret Optics module.
-* Fix: Notifications were overlapping when an remote controlled unit (using the switch unit module) picked up intel. Curator recieves and logs the message when he returns back to the interface.
+* Fix: Notifications were overlapping when a remote-controlled unit (using the switch unit module) picked up intel. Curator receives and logs the message when he returns back to the interface.
 * Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. As this issue cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
 * Fix: Wrong localization string for Promote To Zeus module.
 * Fix: Countermeasures and smokes for units and vehicles using the (default) C key, will now work with multiple units selected. #161
@@ -67,10 +67,10 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Set Date module would spam .rpt log.
 * Fix: Switch Unit module now retains voices and faces. #157
 * Fix: Debug console now works if debug console is enabled for specific players by UID. #187
-* Fix: German entry for stringtable is fixed (by @shukari).
+* Fix: German entry for string table is fixed (by @shukari).
 * Fix: Modifying the status of the headlights using the attribute panel would produce a suspension error. #202
 * Fix: Create Teleporter module now takes into account if the Curator pressed the Cancel button and now doesn't spawn the pole. #203
-* Fix: Removed duplicate stringtable key named "STR_AMAE_AMMO".
+* Fix: Removed duplicate string table key named "STR_AMAE_AMMO".
 * Fix: Copy to Clipboard module now works if the text is larger than the format engine command limit.
 * Fix: Achilles creating dependencies. #200 and #120
 * Fix: Create Custom Arsenal not adding wanted items. #200 and #196
