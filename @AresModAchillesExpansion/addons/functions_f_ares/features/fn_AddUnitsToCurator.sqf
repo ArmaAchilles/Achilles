@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// AUTHOR: 			Anton Struyk, Kex
-// DATE: 			7/16/17
-// VERSION: 		AMAE003
+// AUTHOR: 			Anton Struyk, Kex, CreepPork_LV
+// DATE: 			22/12/17
+// VERSION: 		AMAE010
 // DESCRIPTION:		Adds (or removes) a set of objects to all of the curator modules that are active.
 //					Has to be executed on a Zeus player's machine, not on the server.
 //
@@ -9,7 +9,7 @@
 //					1: BOOLEAN - True to add the objects to curator control, false to remove them from curator control. Default is True.
 //					2: Boolean - True to also consider simple objects. Default is True.
 //
-// RETURNS:			nothing
+// RETURNS:			SCALAR - Units added or removed.
 //
 // Example:			[_object_list, true] call Ares_fnc_AddUnitsToCurator;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,25 +19,48 @@ params [["_unitsToModify", [], [[]]], ["_addToCurator", true, [true]], ["_includ
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
 
+private _curatorLogic = getAssignedCuratorLogic player;
+private _editableObjects = curatorEditableObjects _curatorLogic;
+
+private _objectsToBeModified = [];
+{
+	if (_addToCurator) then
+	{
+		if (!(_x in _editableObjects) && !isNull _x && !(_x isEqualTo Achilles_var_latestModuleLogic) && !(isAgent teamMember _x)) then
+		{
+			_objectsToBeModified pushBackUnique _x;
+		};
+	}
+	else
+	{
+		if (_x in _editableObjects && !isNull _x && !(_x isEqualTo Achilles_var_latestModuleLogic)) then
+		{
+			_objectsToBeModified pushBackUnique _x;
+		};
+	};
+} forEach _unitsToModify;
+
 if (_addToCurator) then
 {
-	[getAssignedCuratorLogic player, [_unitsToModify, true]] remoteExecCall ["addCuratorEditableObjects", 2];
-} else
+	[getAssignedCuratorLogic player, [_objectsToBeModified, true]] remoteExecCall ["addCuratorEditableObjects", 2];
+}
+else
 {
-	[getAssignedCuratorLogic player, [_unitsToModify, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
+	[getAssignedCuratorLogic player, [_objectsToBeModified, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
 };
+
+_logic_list = [];
 
 // handle simple objects
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 {
-	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_STR_AMAE_content"];
+	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
 
 	if (_addToCurator) then
 	{
 		_simpleObjects = _simpleObjects select {isNull (_x getVariable ["master", objNull])};
 		if (_simpleObjects isEqualTo []) exitWith {};
 
-		_logic_list = [];
 		_logic_group = createGroup sideLogic;
 		_logic_group deleteGroupWhenEmpty true;
 
@@ -64,10 +87,11 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 
 			if (!isNull _logic) then
 			{
-				_STR_AMAE_content = (str _object) splitString " ";
-				_displayName = _STR_AMAE_content select (count _STR_AMAE_content - 1);
+				_str_content = (str _object) splitString " ";
+				_displayName = _str_content select (count _str_content - 1);
 				[_logic, _displayName] remoteExecCall ["setName", 0, _logic];
-			} else
+			}
+			else
 			{
 				_allocation_error_cases = _allocation_error_cases + 1;
 			};
@@ -77,11 +101,13 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 		if (_addToCurator) then
 		{
 			[getAssignedCuratorLogic player, [_logic_list, true]] remoteExecCall ["addCuratorEditableObjects", 2];
-		} else
+		}
+		else
 		{
 			[getAssignedCuratorLogic player, [_logic_list, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
 		};
-	} else
+	}
+	else
 	{
 		{
 			_object = _x;
@@ -95,4 +121,4 @@ if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 	};
 };
 
-true
+(count _objectsToBeModified) + (count _logic_list);
