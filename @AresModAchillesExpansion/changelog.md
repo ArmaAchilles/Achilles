@@ -26,12 +26,14 @@ V.0.1.0 (Not Released - In Progress)
 * Change: Deep Copy and Paste retains fuel for vehicles.
 * Change: On Zeus launch, intro hint will only be shown once.
 * Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
+* Change: Arsenal modules have been fully reworked, fixing some long lasting issues and performance improvements. #200
+* Change: Using the Fire Mission module, now Curator can specify the amount of rounds fired.
 * Feature: Object rotation module. #151
 * Feature: Data Link and Radar Emission controls for AI vehicles. #77
 * Feature: TFAR Set frequency module. #156
 * Feature: Side relation change module. #130 and #149
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
-* Feature: Debug logging is now available as an option in CBA addon settings
+* Feature: Debug logging is now available as an option in CBA addon settings.
 * Feature: Debug logging function Achilles_fnc_logMessage (only logs when activated in CBA).
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
@@ -43,9 +45,9 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Added module to spawn fire under the Spawn Effects tab. #137
 * Feature: Zeus eagle and "Player has ascended as Zeus" notifications have been removed when using the Hide Zeus module.
 * Feature: Arsenal Removal module. #200
-* Feature: Added Mine Detection ability to the Change Ability module.
+* Feature: Added Mine Detection ability to the Change Ability module. #199
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
-* Feature: Added new Copy to Clipboard module. #200
+* Feature: Option to select what weapon AI should fire when using the Suppresive Fire module.
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
@@ -70,6 +72,9 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Create Teleporter module now takes into account if the Curator pressed the Cancel button and now doesn't spawn the pole. #203
 * Fix: Removed duplicate stringtable key named "STR_AMAE_AMMO".
 * Fix: Copy to Clipboard module now works if the text is larger than the format engine command limit.
+* Fix: Achilles creating dependencies. #200 and #120
+* Fix: Create Custom Arsenal not adding wanted items. #200 and #196
+* Fix: When using the Suppressive Fire module, AI now should aim first and fire after. #188
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
