@@ -57,7 +57,8 @@ if (_range_mode == 0) then
 		case 3: {_center_pos nearEntities ["Static", _radius]};
 		case 4: {_center_pos nearEntities ["Logic", _radius]};
 	};
-} else
+}
+else
 {
 	_objectsToProcess = switch (_obj_type) do
 	{
@@ -80,37 +81,23 @@ if (_range_mode == 0) then
 	};
 };
 
-private _allCuratorObjectsBefore = curatorEditableObjects (getAssignedCuratorLogic player);
 // protect the main essential module from being added
 _objectsToProcess = _objectsToProcess select
 {
 	private _object = _x;
 	private _type = toLower typeOf _object;
-	if (Achilles_Debug_Output_Enabled) then { true } else {
-	(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"]) and {(_type select [0,13]) != "modulecurator"}) /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
+	if (Achilles_Debug_Output_Enabled) then
+	{
+		true;
+	}
+	else
+	{
+		(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"]) && {(_type select [0,13]) != "modulecurator"}) /*&& {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
     };
 };
-[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
-private _addedObjects = 0;
-private _allCuratorObjectsAfter = curatorEditableObjects (getAssignedCuratorLogic player);
-if (_addObject) then
-{
-    //_addedObjects = count (_objectsToProcess select {(_x in _allCuratorObjectsAfter && !(_x in _allCuratorObjectsBefore)) && !isNull _x});
-	if (!(_allCuratorObjectsBefore isEqualTo _allCuratorObjectsAfter)) then
-	{
-		_addedObjects = count (_allCuratorObjectsAfter - _allCuratorObjectsBefore);
-	};
-}
-else
-{
-	if (!(_allCuratorObjectsBefore isEqualTo _allCuratorObjectsAfter)) then
-	{
-		_addedObjects = count (_allCuratorObjectsBefore - _allCuratorObjectsAfter);
-	};
-};
+private _objectsModified = [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
 
-private _displayText = [localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
-[objNull, format [_displayText, _addedObjects]] call bis_fnc_showCuratorFeedbackMessage;
+[format [[localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0), _objectsModified]] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
