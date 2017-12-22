@@ -99,7 +99,7 @@ if (_mode == 0) then
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
-	_rounds = parseNumber (_pickFireMissionResult select 1); // +1 since the options are 0-based. (0 actually fires a whole clip)
+	_rounds = parseNumber (_pickFireMissionResult select 1);
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 
@@ -148,7 +148,7 @@ if (_mode == 0) then
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
 	// TODO: Add validation that coordinates are actually numbers.
 	_guns = parseNumber (_numberOfGuns select (_pickFireMissionResult select 0));
-	_rounds = parseNumber (_pickFireMissionResult select 1); // +1 since the options are 0-based. (0 actually fires a whole clip)
+	_rounds = parseNumber (_pickFireMissionResult select 1);
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
 	private _targetX = _pickFireMissionResult select 3;
