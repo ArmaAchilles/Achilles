@@ -34,7 +34,7 @@ if (!isNull _groupUnderCursor) then
 						[[localize "STR_AMAE_RADIUS",localize "STR_AMAE_METERS"] joinString " ", "", "100"],
 						[localize "STR_AMAE_GROUP_BEHAVIOUR", [localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]],
 						[localize "STR_AMAE_DIRECTION", [localize "STR_AMAE_CLOCKWISE", localize "STR_AMAE_COUNTERCLOCKWISE"],1],
-						[localize "STR_AMAE_DELAY_AT_WP", [localize "STR_AMAE_NONE", ["15",localize "STR_AMAE_SECONDS"] joinString " ", ["30",localize "STR_AMAE_SECONDS"] joinString " ", ["1",localize "STR_AMAE_MINUTE"] joinString " "]
+						[localize "STR_AMAE_DELAY_AT_WP", [localize "STR_AMAE_NONE", ["15",localize "STR_AMAE_SECONDS"] joinString " ", ["30",localize "STR_AMAE_SECONDS"] joinString " ", ["1",localize "STR_AMAE_MINUTE"] joinString " "]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
 

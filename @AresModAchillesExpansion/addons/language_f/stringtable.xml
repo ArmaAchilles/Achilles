@@ -990,6 +990,21 @@
         <English>Remove Arsenal</English>
 		<Russian>Удалить Арсенал</Russian>
       </Key>
+      <Key ID="STR_AMAE_ARSENAL_ADDED">
+        <Original>Added Arsenal to object!</Original>
+        <English>Added Arsenal to object!</English>
+        <Russian>Арсенал добавлен!</Russian>
+      </Key>
+      <Key ID="STR_AMAE_ARSENAL_REMOVED">
+        <Original>Removed Arsenal from object!</Original>
+        <English>Removed Arsenal from object!</English>
+        <Russian>Арсенал удалён!</Russian>
+      </Key>
+      <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
+        <Original>Copied items to clipboard!</Original>
+        <English>Copied items to clipboard!</English>
+        <Russian>Снаряжение скопировано в область обмена!</Russian>
+      </Key>
     </Container>
   </Package>
   <Package name="Ares Curator Dialogs">
@@ -1048,22 +1063,6 @@
 		<Original>This module requires Task Force Radio!</Original>
 		<English>This module requires Task Force Radio!</English>
 		<Russian>Этот модуль требует TFAR для работы!</Russian>
-      </Key>
-      <Key ID="STR_AMAE_ARSENAL_REMOVE">
-        <Original>Remove Arsenal</Original>
-        <English>Remove Arsenal</English>
-      </Key>
-      <Key ID="STR_AMAE_ARSENAL_ADDED">
-        <Original>Added Arsenal to object!</Original>
-        <English>Added Arsenal to object!</English>
-      </Key>
-      <Key ID="STR_AMAE_ARSENAL_REMOVED">
-        <Original>Removed Arsenal from object!</Original>
-        <English>Removed Arsenal from object!</English>
-      </Key>
-      <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
-        <Original>Copied items to clipboard!</Original>
-        <English>Copied items to clipboard!</English>
       </Key>
     </Container>
   </Package>
@@ -2607,44 +2606,11 @@
 		<Russian>На этом человеке уже есть "пояс шахида"!</Russian>
 		<German>Dies ist bereits ein Selbstmordattentäter</German>
       </Key>
-      <Key ID="STR_AMAE_ARSENAL_ADDED">
-        <Original>Added Arsenal to object!</Original>
-        <English>Added Arsenal to object!</English>
-		<Russian>Арсенал добавлен!</Russian>
-      </Key>
-      <Key ID="STR_AMAE_ARSENAL_REMOVED">
-        <Original>Removed Arsenal from object!</Original>
-        <English>Removed Arsenal from object!</English>
-		<Russian>Арсенал удалён!</Russian>
-      </Key>
-      <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
-        <Original>Copied items to clipboard!</Original>
-        <English>Copied items to clipboard!</English>
-		<Russian>Снаряжение скопировано в область обмена!</Russian>
-      </Key>
-	  <Key ID="STR_AMAE_ARSENAL_ADDED">
-        <Original>Arsenal objects added!</Original>
-        <English>Arsenal objects added!</English>
-		<Russian>Снаряжение добавлено!</Russian>
-	  </Key>
 	  <Key ID="STR_AMAE_CIRCULAR_PATROL_SETUP">
         <Original>Circular patrol path setup for units.</Original>
         <English>Circular patrol path setup for units.</English>
 		<Russian>Назначен круговой патрульный маршрут.</Russian>
 	  </Key>
-
-<!--- unimplemented
-	  <Key name="STR_AMAE_WARNING">
-		<Original>WARNING!</Original>
-		<English>WARNING!</English>
-		<Russian>ВНИМАНИЕ!</Russian>
-	  </Key>
-      <Key ID="STR_AMAE_ALT_WARNING">
-        <Original>Warning! After setting this parameter, your unit will not take into account any obstacles, like trees and buildings on it's path! Also avoid to set it too low over terrain or water because vehicle dimensions will not be accounted for too!</Original>
-        <English>Warning! After setting this parameter, your unit will not take into account any obstacles, like trees and buildings on it's path! Also avoid to set it too low over terrain or water because vehicle dimensions will not be accounted for too!</English>
-		<Russian>ВНИМАНИЕ! После назначения высоты движения любые препятствия на пути транпортного средства не будут приняты его пилотом/водителем в расчёт! Не назначайте слишком низкую высоту, поскольку размеры транспортного средства так же не будут учитываться!</Russian>
-      </Key>
--->
 	</Container>
     <Container name="Create Effect dialog strings">  
       <Key ID="STR_AMAE_BLUE_LIGHT">
@@ -3678,15 +3644,6 @@
 	  </Key>
 	</Container>
 	<Container name="cfg Waypoints">
-<!--deprecated?
-    <Key ID="STR_AMAE_LOITER_HELI">
-        <Original>LOITER (HELI)</Original>
-        <English>LOITER (HELI)</English>
-        <French>CIRCULEZ (HÉLICO)</French>
-        <Russian>ЗАВИСАНИЕ (ВЕРТОЛЕТ)</Russian>
-        <German>KREISEN (HELI)</German>
-      </Key>
---->
       <Key ID="STR_AMAE_DELAY_AT_WP">
         <Original>Delay at waypoint</Original>
         <English>Delay at waypoint</English>
