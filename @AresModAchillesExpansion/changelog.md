@@ -48,6 +48,7 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Added Mine Detection ability to the Change Ability module. #199
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
 * Feature: Option to select what weapon AI should fire when using the Suppressive Fire module.
+* Feature: Added partial ACE 3 Arsenal compatability with the Arsenal modules. #200
 * Fix: Wrong localization string for Create LZ module.
 * Fix: Group names are now broadcasted to all players. #153
 * Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
@@ -75,6 +76,7 @@ V.0.1.0 (Not Released - In Progress)
 * Fix: Achilles creating dependencies. #200 and #120
 * Fix: Create Custom Arsenal not adding wanted items. #200 and #196
 * Fix: When using the Suppressive Fire module, AI now should aim first and fire after. #188
+* Fix: Added or Removed object count now should be correct. #170
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 V.0.0.9c
