@@ -6,11 +6,11 @@ if (local _placedObject) then
 {
 	Ares_CuratorObjectPlaced_UnitUnderCursor = curatorMouseOver;
 	Ares_CuratorObjectPlaces_LastPlacedObjectPosition = position _placedObject;
-	[format ["Placed Object %1 (%2) on %3 at position %4, %5", _placedObject, typeOf _placedObject, str(Ares_CuratorObjectPlaced_UnitUnderCursor), str(Ares_CuratorObjectPlaces_LastPlacedObjectPosition), (nearestLocation [Ares_CuratorObjectPlaces_LastPlacedObjectPosition, "nameCity"]) call BIS_fnc_locationDescription]] call Achilles_fnc_logMessage;
+	[format ["Placed Object %1 (%2) on %3 at position %4, %5", _placedObject, typeOf _placedObject, str(Ares_CuratorObjectPlaced_UnitUnderCursor), str(Ares_CuratorObjectPlaces_LastPlacedObjectPosition), (nearestLocation [Ares_CuratorObjectPlaces_LastPlacedObjectPosition, "nameCity"]) call BIS_fnc_locationDescription]] call Achilles_fnc_log;
 }
 else
 {
-	[format ["NON-LOCAL Placed Object %1 with %2 under mouse at position %3", _placedObject, str(Ares_CuratorObjectPlaced_UnitUnderCursor), str(Ares_CuratorObjectPlaces_LastPlacedObjectPosition)]] call Achilles_fnc_logMessage;
+	[format ["NON-LOCAL Placed Object %1 with %2 under mouse at position %3", _placedObject, str(Ares_CuratorObjectPlaced_UnitUnderCursor), str(Ares_CuratorObjectPlaces_LastPlacedObjectPosition)]] call Achilles_fnc_log;
 };
 
 if (!isNil "Achilles_var_deleteCrewOnSpawn") then

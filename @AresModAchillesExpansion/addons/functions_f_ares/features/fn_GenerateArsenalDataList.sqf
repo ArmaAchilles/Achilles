@@ -41,14 +41,14 @@ private _items = [];
 	private _weaponType = getNumber (_weaponConfig >> "type");
 	private _weaponScope = getNumber (_weaponConfig >> "scope");
 	private _weaponDisplayName = getText (_weaponConfig >> "displayName");
-	[format ["Processing weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
+	[format ["Processing weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_log;
 
 	// Assume we'll include the weapon by default. If this never gets set to false then we'll add it.
 	private _includeItem = true;
 
 	if (_weaponScope < 2) then
 	{
-		["Excluding weapon due to privacy."] call Achilles_fnc_logMessage;
+		["Excluding weapon due to privacy."] call Achilles_fnc_log;
 		_includeItem = false;
 	};
 	
@@ -96,7 +96,7 @@ private _items = [];
 			};
 			if (!_includeItem) then
 			{
-				["Excluding weapon due to side restriction."] call Achilles_fnc_logMessage;
+				["Excluding weapon due to side restriction."] call Achilles_fnc_log;
 			};
 		};
 	};
@@ -106,7 +106,7 @@ private _items = [];
 	{
 		if (_weaponClassName in _blacklist) then
 		{
-			["Excluding weapon due to blacklist."] call Achilles_fnc_logMessage;
+			["Excluding weapon due to blacklist."] call Achilles_fnc_log;
 			_includeItem = false;
 		}
 		else
@@ -120,7 +120,7 @@ private _items = [];
 					if (isClass (_weaponConfig >> "LinkedItems")) then
 					{
 						_includeItem = false;
-						["Excluding weapon due to linked items."] call Achilles_fnc_logMessage;
+						["Excluding weapon due to linked items."] call Achilles_fnc_log;
 					};
 				};
 				case CFG_TYPE_BINOC;
@@ -130,7 +130,7 @@ private _items = [];
 				};
 				default
 				{
-					["Excluding due to unsupported type."] call Achilles_fnc_logMessage;
+					["Excluding due to unsupported type."] call Achilles_fnc_log;
 					_includeItem = false;
 				};
 			};
@@ -140,12 +140,12 @@ private _items = [];
 	// Actually add the item to the list of weapons.
 	if (_includeItem) then
 	{
-		[format ["Included weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
+		[format ["Included weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_log;
 		_items pushBack _weaponClassName;
 	}
 	else
 	{
-		[format ["Excluded weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_logMessage;
+		[format ["Excluded weapon %1 (%2)", _weaponClassName, _weaponDisplayName]] call Achilles_fnc_log;
 	};
 } forEach _allWeaponsClasses;
 
@@ -154,7 +154,7 @@ private _allMagazineClasses = (configFile >> "CfgMagazines") call BIS_fnc_getCfg
 private _magazines = [];
 {
 	private _className = _x;
-	[format["Processing magazine: %1", _className]] call Achilles_fnc_logMessage;
+	[format["Processing magazine: %1", _className]] call Achilles_fnc_log;
 	private _config = configFile >> "CfgMagazines" >> _className;
 	private _displayName = getText(_config >> "displayName");
 	private _picture = getText(_config >> "picture");
@@ -163,24 +163,24 @@ private _magazines = [];
 
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{
-		["Magazine is not public or data is incomplete."] call Achilles_fnc_logMessage;
+		["Magazine is not public or data is incomplete."] call Achilles_fnc_log;
 		_includeMagazine = false;
 	};
 	
 	if (_includeMagazine && (_className in _blacklist)) then
 	{
-		["Magazine is blacklisted."] call Achilles_fnc_logMessage;
+		["Magazine is blacklisted."] call Achilles_fnc_log;
 		_includeMagazine = false;
 	};
 	
 	if (_includeMagazine) then
 	{
-		[format["Added magazine: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Added magazine: %1", _className]] call Achilles_fnc_log;
 		_magazines pushBack _className;
 	}
 	else
 	{
-		[format["Rejected magazine: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Rejected magazine: %1", _className]] call Achilles_fnc_log;
 	};
 } forEach _allMagazineClasses;
 
@@ -189,7 +189,7 @@ private _allVehicleClasses = (configFile >> "CfgVehicles") call BIS_fnc_getCfgSu
 private _backpacks = [];
 {
 	private _className = _x;
-	[format["Processing backpack: %1", _className]] call Achilles_fnc_logMessage;
+	[format["Processing backpack: %1", _className]] call Achilles_fnc_log;
 	private _config = configFile >> "CfgVehicles" >> _className;
 	private _displayName = getText(_config >> "displayName");
 	private _picture = getText(_config >> "picture");
@@ -200,7 +200,7 @@ private _backpacks = [];
 	
 	if (_scope < 2 || _isBackpack != 1 || _displayName == "" || _picture == "") then
 	{
-		[format ["Vehicle is nor backpack, is not public, or has incomplete data. (%1, %2, %3, %4)", _scope, _isBackpack, _displayName, _picture]] call Achilles_fnc_logMessage;
+		[format ["Vehicle is nor backpack, is not public, or has incomplete data. (%1, %2, %3, %4)", _scope, _isBackpack, _displayName, _picture]] call Achilles_fnc_log;
 		_includeBackpack = false;
 	};
 	
@@ -228,7 +228,7 @@ private _backpacks = [];
 			};
 			if (!_includeBackpack) then
 			{
-				["Excluding backpack due to side restriction."] call Achilles_fnc_logMessage;
+				["Excluding backpack due to side restriction."] call Achilles_fnc_log;
 			};
 		};
 	};
@@ -236,17 +236,17 @@ private _backpacks = [];
 	if (_includeBackpack && (_className in _blacklist)) then
 	{
 		_includeBackpack = false;
-		["Backpack blacklisted."] call Achilles_fnc_logMessage;
+		["Backpack blacklisted."] call Achilles_fnc_log;
 	};
 
 	if (_includeBackpack) then
 	{
-		[format["Accepted backpack: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Accepted backpack: %1", _className]] call Achilles_fnc_log;
 		_backpacks pushBack _className;
 	}
 	else
 	{
-		[format["Rejected backpack: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Rejected backpack: %1", _className]] call Achilles_fnc_log;
 	};
 } forEach _allVehicleClasses;
 
@@ -255,7 +255,7 @@ private _allGlassesClasses = (configFile >> "CfgGlasses") call BIS_fnc_getCfgSub
 private _glasses = [];
 {
 	private _className = _x;
-	[format["Processing glasses: %1", _className]] call Achilles_fnc_logMessage;
+	[format["Processing glasses: %1", _className]] call Achilles_fnc_log;
 	private _config = configFile >> "CfgGlasses" >> _className;
 	private _displayName = getText(_config >> "displayName");
 	private _picture = getText(_config >> "picture");
@@ -264,24 +264,24 @@ private _glasses = [];
 	
 	if (_scope < 2 || _displayName == "" || _picture == "") then
 	{
-		["Glasses not public or have incomplete data."] call Achilles_fnc_logMessage;
+		["Glasses not public or have incomplete data."] call Achilles_fnc_log;
 		_includeGlasses = false;
 	};
 	
 	if (_includeGlasses && (_className in _blacklist)) then
 	{
-		["Glasses blacklisted."] call Achilles_fnc_logMessage;
+		["Glasses blacklisted."] call Achilles_fnc_log;
 		_includeGlasses = false;
 	};
 	
 	if (_includeGlasses) then
 	{
-		[format["Accepted glasses: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Accepted glasses: %1", _className]] call Achilles_fnc_log;
 		_glasses pushBack _className;
 	}
 	else
 	{
-		[format["Rejected glasses: %1", _className]] call Achilles_fnc_logMessage;
+		[format["Rejected glasses: %1", _className]] call Achilles_fnc_log;
 	};
 } forEach _allGlassesClasses;
 

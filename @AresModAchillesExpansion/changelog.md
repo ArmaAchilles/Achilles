@@ -34,7 +34,7 @@ V.0.1.0 (Not Released - In Progress)
 * Feature: Side relation change module. #130 and #149
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
 * Feature: Debug logging is now available as an option in CBA addon settings.
-* Feature: Debug logging function Achilles_fnc_logMessage (only logs when activated in CBA).
+* Feature: Debug logging function Achilles_fnc_log (only logs when activated in CBA).
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
 * Feature: Supply Drop module. #158

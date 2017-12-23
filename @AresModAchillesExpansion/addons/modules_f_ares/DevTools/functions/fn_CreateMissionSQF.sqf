@@ -35,7 +35,7 @@ private _dialogResult =
 	] call Ares_fnc_ShowChooseDialog;
 if (_dialogResult isEqualTo []) exitWith { "User cancelled dialog."; };
 
-["User chose radius with index '%1'", _dialogResult] call Achilles_fnc_logMessage;
+["User chose radius with index '%1'", _dialogResult] call Achilles_fnc_log;
 _radius = 100;
 _radius = switch (_dialogResult select 0) do
 {
@@ -62,7 +62,7 @@ private _groups = [];
 
 	if (!_ignoreFlag && ((_x distance _position <= _radius) || _radius == -1)) then
 	{
-		["Processing object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_logMessage;
+		["Processing object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_log;
 		_ignoreFlag = true;
 		private _isUnit = (_x isKindOf "CAManBase")
 			|| (_x isKindOf "car")
@@ -74,14 +74,14 @@ private _groups = [];
 		{
 			if (_x isKindOf "CAManBase") then
 			{
-				["Is a man."] call Achilles_fnc_logMessage;
+				["Is a man."] call Achilles_fnc_log;
 				if ((group _x) in _groups) then
 				{
-					["In an old group."] call Achilles_fnc_logMessage;
+					["In an old group."] call Achilles_fnc_log;
 				}
 				else
 				{
-					["In a new group."] call Achilles_fnc_logMessage;
+					["In a new group."] call Achilles_fnc_log;
 					_groups pushBack (group _x);
 				};
 
@@ -90,20 +90,20 @@ private _groups = [];
 			{
 				if (count crew _x > 0) then
 				{
-					["Is a vehicle with units."] call Achilles_fnc_logMessage;
+					["Is a vehicle with units."] call Achilles_fnc_log;
 					if ((group _x) in _groups) then
 					{
-						["In an old group."] call Achilles_fnc_logMessage;
+						["In an old group."] call Achilles_fnc_log;
 					}
 					else
 					{
-						["In a new group."] call Achilles_fnc_logMessage;
+						["In a new group."] call Achilles_fnc_log;
 						_groups pushBack (group _x);
 					};
 				}
 				else
 				{
-					["Is an empty vehicle."] call Achilles_fnc_logMessage;
+					["Is an empty vehicle."] call Achilles_fnc_log;
 					_emptyVehicles pushBack _x;
 				};
 			};
@@ -112,18 +112,18 @@ private _groups = [];
 		{
 			if (_x isKindOf "Logic") then
 			{
-				["Is a logic. Ignoring."] call Achilles_fnc_logMessage;
+				["Is a logic. Ignoring."] call Achilles_fnc_log;
 			}
 			else
 			{
-				["Is an empty vehicle."] call Achilles_fnc_logMessage;
+				["Is an empty vehicle."] call Achilles_fnc_log;
 				_emptyObjects pushBack _x;
 			};
 		};
 	}
 	else
 	{
-		["Ignoring object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_logMessage;
+		["Ignoring object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_log;
 	};
 } forEach _objectsToFilter;
 
@@ -237,7 +237,7 @@ if (_includeMarkers) then
 private _text = "";
 {
 	_text = _text + _x;
-	[_x] call Achilles_fnc_logMessage;
+	[_x] call Achilles_fnc_log;
 } forEach _output;
 uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _text];
 private _dialog = createDialog "Ares_CopyPaste_Dialog";
