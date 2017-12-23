@@ -92,7 +92,7 @@ if (_mode == 0) then
 		[
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_AMAE_ROUNDS", "", "1"],
-			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1]
 		]] call Ares_fnc_ShowChooseDialog;
 
@@ -140,7 +140,7 @@ if (_mode == 0) then
 		[
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_AMAE_ROUNDS", "", "1"],
-			[localize "STR_AMAE_AMMO", _artilleryAmmoDisplayName],
+			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[localize "STR_AMAE_GRID_EAST_WEST_XXX", "","000"],
 			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"]
 		]] call Ares_fnc_ShowChooseDialog;

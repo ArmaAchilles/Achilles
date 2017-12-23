@@ -11,12 +11,12 @@ private _dialogResult =
 		["SLIDER", localize "STR_AMAE_RAIN_", [], rain, true],
 		["SLIDER", localize "STR_AMAE_LIGHTNINGS_", [], lightnings, true],
 		["SLIDER", localize "STR_AMAE_RAINBOW_", [], rainbow, true],
-		["SLIDER", (localize "STR_AMAE_WIND_SPEED") + " [km/h]", [[0.04,110], [5,10]], 3.6 * vectorMagnitude wind, true],
+		["SLIDER", [localize "STR_AMAE_WIND_SPEED",localize "STR_AMAE_KILOMETERS_PER_HOUR"] joinString " ", [[0.04,110], [5,10]], 3.6 * vectorMagnitude wind, true],
 		["COMBOBOX", localize "STR_AMAE_WIND_DIRECTION",["N","NE","E","SE","S","SW","W","NW"], if (windDir > 180) then {round ((windDir - 180) / 45)} else {round ((windDir + 180) / 45)}, true],
 		["SLIDER", localize "STR_AMAE_WAVES", [], waves, true],
 		["SLIDER", localize "STR_AMAE_FOG_SETTING", [], fogParams select 0, true],
 		["SLIDER", localize "STR_AMAE_FOG_DECAY", [[SMOOTH_DECAY_VALUE, SHARP_DECAY_VALUE]], fogParams select 1, true],
-		["TEXT", localize "STR_AMAE_Fog_Altitude_ASL" + " [m]", [], str (fogParams select 2), true]
+		["TEXT", [localize "STR_AMAE_Fog_Altitude_ASL",localize "STR_AMAE_METERS"] joinString " ", [], str (fogParams select 2), true]
 	]
 ] call Achilles_fnc_ShowChooseDialog;
 
