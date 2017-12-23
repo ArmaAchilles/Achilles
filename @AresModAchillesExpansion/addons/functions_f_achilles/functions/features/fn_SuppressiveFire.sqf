@@ -120,7 +120,7 @@ _placeholder setPos [0,0,0];
 						_weapons pushBack _x;
 					};
 				};
-			} forEach [primaryWeapon _unit];
+			} forEach [primaryWeapon _unit]; //TODO: Bug with pistol
 		}
 		else
 		{

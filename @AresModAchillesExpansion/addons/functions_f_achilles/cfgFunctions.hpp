@@ -40,10 +40,9 @@ class CfgFunctions
 			class spawn_remote;
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
-			class logMessage;
+			class log;
 			class getAllLZsAndRPs;
 			class createDummyLogic;
-			class ArsenalSetup;
 			class isACELoaded;
 		};
 
@@ -100,6 +99,8 @@ class CfgFunctions
 			class setSRFrequencies;
 			class setLRFrequencies;
 			class effectFire;
+			class ArsenalSetup;
+			class ArsenalSetupACE:
 		};
 	};
 
