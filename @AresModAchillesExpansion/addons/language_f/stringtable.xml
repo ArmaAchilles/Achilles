@@ -319,7 +319,7 @@
                 <Original>Units</Original>
                 <English>Units</English>
                 <French>Unitéd</French>
-                <Russian>Люди</Russian>
+                <Russian>Юниты</Russian>
                 <German>Einheiten</German>
             </Key>
             <Key ID="STR_AMAE_STATIC_OBJECTS">
@@ -537,14 +537,14 @@
                 <Original>Create Artillery Target</Original>
                 <English>Create Artillery Target</English>
                 <French>Créez un cible d'artillerie</French>
-                <Russian>Указать цель для артиллерии</Russian>
+                <Russian>Цель для артобстрела</Russian>
                 <German>Definiere ein Artillerieziel</German>
             </Key>
             <Key ID="STR_AMAE_CREATE_SUPPRESSION_TARGET">
                 <Original>Create Suppression Target</Original>
                 <English>Create Suppression Target</English>
                 <French>Créez un cible de suppression</French>
-                <Russian>Указать цель для подавления</Russian>
+                <Russian>Цель для подавления</Russian>
                 <German>Definiere ein Unterstützungsfeuerziel</German>
             </Key>
             <Key ID="STR_AMAE_SUPPRESIVE_FIRE">
@@ -558,28 +558,28 @@
                 <Original>Create CAS Target</Original>
                 <English>Create CAS Target</English>
                 <French>Créez un cible de AAR</French>
-                <Russian>Указать цель для авиации</Russian>
+                <Russian>Цель для авиаподдержки</Russian>
                 <German>Definiere ein Luftunterstützungsziel</German>
             </Key>
             <Key ID="STR_AMAE_ADVANCED_CAS">
                 <Original>Advanced CAS</Original>
                 <English>Advanced CAS</English>
                 <French>AAR (avancée)</French>
-                <Russian>Авиаподдержка - Вертолёт</Russian>
+                <Russian>Продвинутая Авиаподдержка</Russian>
                 <German>Erweiterte Luftunterstützung</German>
             </Key>
             <Key ID="STR_AMAE_CREATE_NEW_RP">
                 <Original>Create new RP</Original>
                 <English>Create new RP</English>
                 <French>Créer un noveau RV</French>
-                <Russian>Назначить пункт сбора</Russian>
+                <Russian>Создать пункт сбора</Russian>
                 <German>Definiere einen neuen Sammelpunkt</German>
             </Key>
             <Key ID="STR_AMAE_CREATE_NEW_LZ">
                 <Original>Create new LZ</Original>
                 <English>Create new LZ</English>
                 <French>Créer une nouvelle ZA</French>
-                <Russian>Назначить посадочную зону</Russian>
+                <Russian>Создать зону посадки</Russian>
                 <German>Definiere eine neue LZ</German>
             </Key>
             <Key ID="STR_AMAE_SPAWN_UNITS">
@@ -649,14 +649,14 @@
                 <Original>Damage Buildings</Original>
                 <English>Damage Buildings</English>
                 <French>Abîmez des Bâtiments</French>
-                <Russian>Разрушение зданий</Russian>
+                <Russian>Повредить здания</Russian>
                 <German>Gebäude zerstören</German>
             </Key>
             <Key ID="STR_AMAE_ADVANCED_COMPOSITION">
                 <Original>Advanced Composition</Original>
                 <English>Advanced Composition</English>
                 <French>Composition avancée</French>
-                <Russian>Композиции объектов</Russian>
+                <Russian>Продвинутые композиции</Russian>
                 <German>Erweiterte Kompositionen</German>
             </Key>
             <Key ID="STR_AMAE_EFFECTS_CUSTOM_FIRE">
@@ -780,14 +780,14 @@
                 <Original>Enable/Disable Simulation</Original>
                 <English>Enable/Disable Simulation</English>
                 <French>Autorisez/Interdisez la simulation</French>
-                <Russian>Имитация физики: вкл./выкл.</Russian>
+                <Russian>Симуляция физики: вкл/выкл</Russian>
                 <German>Simulation erlauben/verbieten</German>
             </Key>
             <Key ID="STR_AMAE_ATTACH_TO">
                 <Original>Attach To</Original>
                 <English>Attach To</English>
                 <French>Attchez l'objet à</French>
-                <Russian>Присоединить к объекту</Russian>
+                <Russian>Присоединить к</Russian>
                 <German>An anderem Objekt befestigen</German>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ALTITUDE">
@@ -922,7 +922,7 @@
                 <Original>CAS - Bomb Strike</Original>
                 <English>CAS - Bomb Strike</English>
                 <French>AAR - Bombe</French>
-                <Russian>Самолёт - Атака бомбами</Russian>
+                <Russian>Авиаподдержка - Бомбовый Удар</Russian>
                 <German>CAS - Bombe</German>
             </Key>
             <Key ID="STR_AMAE_ENYO_SET_SUICIDE_BOMBER">
@@ -976,7 +976,7 @@
             <Key ID="STR_AMAE_SUPPLY_DROP">
                 <Original>Supply Drop</Original>
                 <English>Supply Drop</English>
-                <Russian>Cброс предметов снабжения</Russian>
+                <Russian>Сброс предметов снабжения</Russian>
             </Key>
             <Key ID="STR_AMAE_EDIT_CARGO">
                 <Original>Edit Cargo</Original>
@@ -992,7 +992,7 @@
                 <Original>Switch unit</Original>
                 <English>Switch unit</English>
                 <French>Intervertissez l'unité</French>
-                <Russian>Вселиться в человека</Russian>
+                <Russian>Вселиться в юнит</Russian>
                 <German>Einheit wechseln</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REMOVE">
@@ -1018,70 +1018,87 @@
             <Key ID="STR_AMAE_ARSENAL_PASTE">
                 <English>Paste Inventory</English>
                 <Original>Paste Inventory</Original>
+                <Russian>Вставить Инвентарь</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REPLACE">
                 <English>Replace</English>
                 <Original>Replace</Original>
+                <Russian>Заменить</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE">
                 <English>Combine</English>
                 <Original>Paste</Original>
+                <Russian>Объединить</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_FAILED_TO_PARSE">
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
+                <Russian>Вставка не удалась!</Russian>
             </Key>
             <Key ID="STR_AMAE_INVENTORY_PASTED">
                 <English>Inventory pasted successfully!</English>
                 <Original>Inventory pasted successfully!</Original>
+                <Russian>Инвентарь успешно вставлен!</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_CREATE_CUSTOM">
                 <English>Create Custom</English>
                 <Original>Create Custom</Original>
+                <Russian>Пользовательский Арсенал</Russian>
             </Key>
             <Key ID="STR_AMAE_DEFAULT_INVENTORY">
                 <English>Default Inventory</English>
                 <Original>Default Inventory</Original>
+                <Russian>Стандартный Инвентарь</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE_OR_REPLACE">
                 <English>Combine or Replace Items</English>
                 <Original>Combine or Replace Items</Original>
+                <Russian>Объединить или Заменить Снаряжение</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_SIDE_EQUIPMENT">
                 <English>Add Equipment From</English>
                 <Original>Add Equipment From</Original>
+                <Russian>Добавить Снаряжение Стороны</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_GPS">
                 <English>Add GPS</English>
                 <Original>Add GPS</Original>
+                <Russian>Добавить GPS</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_NVGS">
                 <English>Add NVGs</English>
                 <Original>Add NVGs</Original>
+                <Russian>Добавить ПНВ</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_THERMALS">
                 <English>Add Thermal Goggles</English>
                 <Original>Add Thermal Goggles</Original>
+                <Russian>Добавить Тепловизор</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_STATIC_WEAPONS">
                 <English>Add Static Weapons</English>
                 <Original>Add Static Weapons</Original>
+                <Russian>Добавить Неподвижные Турели</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_AUTOMATED_WEAPONS">
                 <English>Add Autonomous Weapons</English>
                 <Original>Add Autonomous Weapons</Original>
+                <Russian>Добавить Автономное Оружие</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_UAVS">
                 <English>Add UAVs</English>
                 <Original>Add UAVs</Original>
+                <Russian>Добавить Беспилотники</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
+                <Russian>Добавить Палатки</Russian>
             </Key>
             <Key ID="STR_AMAE_WEAPON_TO_FIRE">
                 <English>Weapon to Fire</English>
                 <Original>Weapon to Fire</Original>
+                <Russian>Оружие для Стрельбы</Russian>
             </Key>
         </Container>
     </Package>
@@ -1135,7 +1152,7 @@
             <Key ID="STR_AMAE_UNITS_NOT_ALLOWED">
                 <Original>Units are not allowed!</Original>
                 <English>Units are not allowed!</English>
-                <Russian>Не допускается использовать на людях!</Russian>
+                <Russian>Не допускается использовать на юнитах!</Russian>
             </Key>
             <Key ID="STR_AMAE_TFAR_HAS_TO_BE_LOADED">
                 <Original>This module requires Task Force Radio!</Original>
@@ -1157,7 +1174,7 @@
                 <Original>No LZ available!</Original>
                 <English>No LZ available!</English>
                 <French>Il n'y a pas de ZA disponible!</French>
-                <Russian>Не назначена посадочная зона!</Russian>
+                <Russian>Не назначена зона посадки!</Russian>
                 <German>Keine LZ verfügbar!</German>
             </Key>
             <Key ID="STR_AMAE_NO_RP">
@@ -1171,42 +1188,42 @@
                 <Original>No object selected!</Original>
                 <English>No object selected!</English>
                 <French>Pas d'objet a été choisi!</French>
-                <Russian>Объект не выбран!</Russian>
+                <Russian>Не выбрано ни одного объекта!</Russian>
                 <German>Kein Objekt wurde ausgewählt!</German>
             </Key>
             <Key ID="STR_AMAE_NO_UNIT_SELECTED">
                 <Original>No unit selected!</Original>
                 <English>No unit selected!</English>
                 <French>Pas d'unité a été choisi!</French>
-                <Russian>Человек не выбран!</Russian>
+                <Russian>Не выбрано ни одного юнита!</Russian>
                 <German>Keine Einheit wurde ausgewählt!</German>
             </Key>
             <Key ID="STR_AMAE_NOT_PLACED_ON_UNIT">
                 <Original>This module has to be placed on a unit!</Original>
                 <English>This module has to be placed on a unit!</English>
                 <French>Il faut mettre ce module sur une unité!</French>
-                <Russian>Этот модуль должен быть помещён на человека!</Russian>
+                <Russian>Этот модуль должен быть помещён на юнит!</Russian>
                 <German>Dieses Modul muss auf eine Einheit platziert werden!</German>
             </Key>
             <Key ID="STR_AMAE_NO_GROUP_SELECTED">
                 <Original>No group selected!</Original>
                 <English>No group selected!</English>
                 <French>Pas de groupe a été choisi!</French>
-                <Russian>Группа не выбрана!</Russian>
+                <Russian>Не выбрано ни одной группы!</Russian>
                 <German>Keine Gruppe wurde ausgewählt!</German>
             </Key>
             <Key ID="STR_AMAE_NO_TARGET_AVAIABLE">
                 <Original>No target available!</Original>
                 <English>No target available!</English>
                 <French>Il n'y a pas de cible disponible!</French>
-                <Russian>Нет целеуказания!</Russian>
+                <Russian>Не доступно ни одной цели!</Russian>
                 <German>Kein Ziel verfügbar!</German>
             </Key>
             <Key ID="STR_AMAE_NO_TARGET_IN_RANGE">
                 <Original>No target in range!</Original>
                 <English>No target in range!</English>
                 <French>Il n'y a pas de cible à portée!</French>
-                <Russian>Не указана цель в радиусе поражения!</Russian>
+                <Russian>Не доступно ни одной цели в радиусе!</Russian>
                 <German>Kein Ziel in Reichweite!</German>
             </Key>
             <Key ID="STR_AMAE_NO_PLAYER_IN_SELECTION">
@@ -1227,7 +1244,7 @@
                 <Original>No nearby artillery units!</Original>
                 <English>No nearby artillery units!</English>
                 <French>Il n'y a pas d'artillerie proche!</French>
-                <Russian>Поблизости нет артиллерийских орудий!</Russian>
+                <Russian>Поблизости нет артилерии!</Russian>
                 <German>Keine Artillerie in der Nähe!</German>
             </Key>
             <Key ID="STR_AMAE_ENTRY_ALREADY_EXISTS">
@@ -1241,12 +1258,12 @@
                 <Original>Error: Unit is unconscious!</Original>
                 <English>Error: Unit is unconscious!</English>
                 <French>Erreur: L'unité est sans connaissance!</French>
-                <Russian>Ошибка: Человек без сознания!</Russian>
+                <Russian>Ошибка: Юнит без сознания!</Russian>
                 <German>Fehler: Einheit ist nicht bei Bewusstsein</German>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_ALREADY_PROMOTED">
-                <Original>Unit has already been promoted!</Original>
-                <English>Unit has already been promoted!</English>
+                <Original>Player has already been promoted!</Original>
+                <English>Player has already been promoted!</English>
                 <French>L'unité a déjà été promue!</French>
                 <Russian>Игрок уже был повышен!</Russian>
                 <German>Einheit wurde bereits befördert!</German>
@@ -1405,7 +1422,7 @@
             <Key ID="STR_AMAE_ADD_GPS">
                 <Original>Add GPS</Original>
                 <English>Add GPS</English>
-                <Russian>Добавить ГПС</Russian>
+                <Russian>Добавить GPS</Russian>
             </Key>
             <Key ID="STR_AMAE_ADD_THERMALS">
                 <Original>Add thermals</Original>
@@ -1506,7 +1523,7 @@
                 <Original>Least Used</Original>
                 <English>Least Used</English>
                 <French>Le moins utilisé</French>
-                <Russian>Наименее часто использованная</Russian>
+                <Russian>Наименее редко использованная</Russian>
                 <German>Am wenigsten gebraucht</German>
             </Key>
             <Key ID="STR_AMAE_SIDE">
@@ -1765,7 +1782,7 @@
                 <Original>Mean damage</Original>
                 <English>Mean damage</English>
                 <French>Dommage moyen</French>
-                <Russian>Повреждения</Russian>
+                <Russian>Средние повреждения</Russian>
                 <German>Mittlerer Schaden</German>
             </Key>
             <Key ID="STR_AMAE_DISTRIBUTION">
@@ -1834,7 +1851,7 @@
             <Key ID="STR_AMAE_IS_OBJECT_HIDDEN">
                 <Original>Is Object Hidden</Original>
                 <English>Is Object Hidden</English>
-                <Russian>Скрыть объект/человека?</Russian>
+                <Russian>Объект скрыт?</Russian>
             </Key>
             <Key ID="STR_AMAE_UNIT_RP">
                 <Original>Unit RP</Original>
@@ -1847,7 +1864,7 @@
                 <Original>Unit behaviour</Original>
                 <English>Unit behaviour</English>
                 <French>Comportement de l'unité</French>
-                <Russian>Поведение людей</Russian>
+                <Russian>Поведение юнитов</Russian>
                 <German>Verhalten der Einheit</German>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_AI">
@@ -1903,7 +1920,7 @@
                 <Original>Enable simulation</Original>
                 <English>Enable simulation</English>
                 <French>Autorisez la simulation</French>
-                <Russian>Включить имитацию физики</Russian>
+                <Russian>Включить симуляцию физики</Russian>
                 <German>Simulation erlauben</German>
             </Key>
             <Key ID="STR_AMAE_TRANSFER_OWNERSHIP">
@@ -2049,14 +2066,14 @@
                 <Original>burst</Original>
                 <English>burst</English>
                 <French>le tir en rafales</French>
-                <Russian>Короткими очередями</Russian>
+                <Russian>Очередями</Russian>
                 <German>Feuerstoß</German>
             </Key>
             <Key ID="STR_AMAE_SINGLE_SHOT">
                 <Original>semi-automatic</Original>
                 <English>semi-automatic</English>
                 <French>semi-automatique</French>
-                <Russian>Одиночными выстрелами</Russian>
+                <Russian>Одиночными</Russian>
                 <German>halbautomatisch</German>
             </Key>
             <Key ID="STR_AMAE_DURATION">
@@ -2194,7 +2211,7 @@
                 <Original>Tactical light</Original>
                 <English>Tactical light</English>
                 <French>Lampe tactique</French>
-                <Russian>Подствольный фонарик</Russian>
+                <Russian>Тактический фонарик</Russian>
                 <German>Taktisches Licht</German>
             </Key>
             <Key ID="STR_AMAE_IR_LASER_POINTER">
@@ -2222,7 +2239,7 @@
                 <Original>Tactical Light/IR</Original>
                 <English>Tactical Light/IR</English>
                 <French>Lampe tactique/IR</French>
-                <Russian>Подствольный фонарик/ИК</Russian>
+                <Russian>Тактический фонарик/ЛЦУ</Russian>
                 <German>Taktisches Licht/IR</German>
             </Key>
             <Key ID="STR_AMAE_CIVILIANS">
@@ -2366,7 +2383,7 @@
                 <Original>DAMAGE</Original>
                 <English>DAMAGE</English>
                 <French>DÉGÂTS</French>
-                <Russian>СЛОМАНО</Russian>
+                <Russian>ПОВРЕЖД.</Russian>
                 <German>SCHADEN</German>
             </Key>
             <Key ID="STR_AMAE_SENSORS">
@@ -2442,7 +2459,7 @@
                 <Original>Damage Components</Original>
                 <English>Damage Components</English>
                 <French>Endommagez des composants</French>
-                <Russian>Нанести повреждения</Russian>
+                <Russian>Редактор повреждений</Russian>
                 <German>Komponenten beschädigen</German>
             </Key>
             <Key ID="STR_AMAE_CREATE_INTEL_ON_OBJECT">
@@ -2583,7 +2600,7 @@
                 <Original>Copied %1 units!</Original>
                 <English>Copied %1 units!</English>
                 <French>%1 unités ont été copiées!</French>
-                <Russian>Скопировано %1 человек(а)!</Russian>
+                <Russian>Скопировано %1 юнит(ов)!</Russian>
                 <German>%1 Einheiten kopiert!</German>
             </Key>
             <Key ID="STR_AMAE_NO_AMMO">
@@ -2816,7 +2833,7 @@
                 <Original>Created Artillery Target '%1'</Original>
                 <English>Created Artillery Target '%1'</English>
                 <French>La cible d'artillerie '%1' a été créé</French>
-                <Russian>Создана цель для артиллерийского огня '%1'</Russian>
+                <Russian>Создана цель для артобстрела '%1'</Russian>
                 <German>Das Artillerieziel '%1' wurde definiert</German>
             </Key>
             <Key ID="STR_AMAE_TARGET">
@@ -3170,7 +3187,7 @@
                 <Original>Light</Original>
                 <English>Light</English>
                 <French>Légèrement</French>
-                <Russian>Небольшие разрушения</Russian>
+                <Russian>Небольшие</Russian>
                 <German>Leicht</German>
             </Key>
             <Key ID="STR_AMAE_FULL_DAMAGE">
@@ -3184,14 +3201,14 @@
                 <Original>None</Original>
                 <English>None</English>
                 <French>Aucune</French>
-                <Russian>Нет разрушений</Russian>
+                <Russian>Нет</Russian>
                 <German>Kein</German>
             </Key>
             <Key ID="STR_AMAE_SEVERE_DAMAGE">
                 <Original>Severe</Original>
                 <English>Severe</English>
                 <French>Considérable</French>
-                <Russian>Серьёзные разрушения</Russian>
+                <Russian>Серьёзные</Russian>
                 <German>Schwer</German>
             </Key>
         </Container>
@@ -3305,14 +3322,14 @@
                 <Original>Fog Altitude (ASL)</Original>
                 <English>Fog Altitude (ASL)</English>
                 <French>Altitude du brouillard</French>
-                <Russian>Высота тумана(от уровня моря)</Russian>
+                <Russian>Высота тумана (от уровня моря)</Russian>
                 <German>Nebelhöhe (ü. M.)</German>
             </Key>
             <Key ID="STR_AMAE_Altitude_ASL_ATL">
                 <Original>Altitude (ASL/ATL)</Original>
                 <English>Altitude (ASL/ATL)</English>
                 <French>Altitude</French>
-                <Russian>Высота (от уровня земли или моря)</Russian>
+                <Russian>Высота (от уровня моря или земли)</Russian>
                 <German>Höhe (ü. M./ü. Boden)</German>
             </Key>
             <Key ID="STR_AMAE_INTENSITY">
@@ -3582,14 +3599,14 @@
                 <Original>Equip with IED jammer</Original>
                 <English>Equip with IED jammer</English>
                 <French>Équipez d'un brouilleur d'EEI</French>
-                <Russian>Привинтить постановщик помех</Russian>
+                <Russian>Добавить постановщик помех</Russian>
                 <German>Mit Sprengfallenstörsender ausrüsten</German>
             </Key>
             <Key ID="STR_AMAE_ENYO_ADD_ECM">
                 <Original>Add IED jammer</Original>
                 <English>Add IED jammer</English>
                 <French>Équipez d'un brouilleur d'EEI</French>
-                <Russian>Выдать постановщик помех</Russian>
+                <Russian>Постановщик помех установлен</Russian>
                 <German>Mit Sprengfallenstörsender ausrüsten</German>
             </Key>
             <Key ID="STR_AMAE_ENYO_SET_OBJECT_AS_IED">
@@ -3603,7 +3620,7 @@
                 <Original>Can be Disarmed</Original>
                 <English>Can be Disarmed</English>
                 <French>Désamorçable</French>
-                <Russian>Можно деактивировать</Russian>
+                <Russian>Возможность деактивации</Russian>
                 <German>Kann entschärft werden</German>
             </Key>
             <Key ID="STR_AMAE_ENYO_DISARM_TIME">
@@ -3668,7 +3685,7 @@
             <Key ID="STR_AMAE_ABIL_AUTO_COMBAT">
                 <Original>Auto combat</Original>
                 <English>Auto combat</English>
-                <Russian>Начать бой самостоятельно</Russian>
+                <Russian>Автоматическое начало боя</Russian>
             </Key>
             <Key ID="STR_AMAE_ABIL_AUTOTARGET">
                 <Original>Autotarget</Original>
@@ -3794,7 +3811,7 @@
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на юнитах.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на юните или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на обхектах, но так же часто может использовать юниты.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использовать юниты.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
 			
@@ -3823,7 +3840,7 @@
 			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
                 <Russian>
-			Модули, применяемые на объекты или юнитов, чаще всего могут быть либо помещены на юнит (объект), либо на землю, чтобы применить модуль для нескольких юнитов (объектов).
+			Модули, применяемые на юниты (объекты), чаще всего могут быть либо помещены на юнит (объект), либо на землю, чтобы применить модуль для нескольких юнитов (объектов).
 		</Russian>
                 <German>
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
@@ -3877,7 +3894,7 @@
 			Il est écrié au-dessus qu'est-ce que vous devez choisir.
 		</French>
                 <Russian>
-			Вы можете прочитать сверху название использумого Вами модуля.
+			Вы можете узнать тип выделения, требуемого модулем, прочитав помощь сверху.
 		</Russian>
                 <German>
 			Oben steht jeweis geschrieben, was du auswählen sollst.
@@ -3966,7 +3983,7 @@
                 <English>Achilles Field Manual</English>
                 <French>Le manuel d'Achilles</French>
                 <German>Handbuch des Achilles</German>
-                <Russian>Наставление по использованию Achilles</Russian>
+                <Russian>Боевой устав Achilles</Russian>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
                 <Original>
@@ -3979,7 +3996,7 @@
 			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
 		</French>
                 <Russian>
-			Откройте %3Наставление по использованию%4 в меню игры для получения полезной информации.
+			Откройте %3Боевой устав%4 в меню игры для получения полезной информации.
 		</Russian>
                 <German>
 			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
@@ -3998,10 +4015,10 @@
 			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
 		</Original>
                 <Russian>
-			Как получить удалённое управление нужным Вам юнитом в транспортном средстве:
-			%1 1) Выберите юнит в списке объектов на левой панели.
+			Чтобы получить удалённое управление нужным Вам юнитом в транспортном средстве, необходимо:
+			%1 1) Выбрать юнит в списке объектов на левой панели.
 			%1 2) На транспортном средстве появится новая иконка, обозначающая выбранный юнит.
-			%1 3) Нажмите %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке юнита.
+			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке юнита.
 		</Russian>
                 <English>
 			You How to remote control a specific unit in a vehicle:
@@ -4060,7 +4077,7 @@
                 <Original>DLC Icons</Original>
                 <English>DLC Icons</English>
                 <French>Symbole de DLC</French>
-                <Russian>Пиктограммы официальных дополнений</Russian>
+                <Russian>Пиктограммы дополнений</Russian>
                 <German>DLC Symbole</German>
             </Key>
             <Key ID="STR_AMAE_SETTINGS_ICON_SELECTION">
