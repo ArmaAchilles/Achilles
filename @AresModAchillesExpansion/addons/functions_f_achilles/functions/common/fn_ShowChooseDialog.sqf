@@ -239,7 +239,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 // set display event handlers
 if (_resource_fnc != "") then
 {
-	call compile ("[""LOADED"", " + _dialog + "] call %1;" + _resource_fnc + "];");
+	with uiNamespace do {call compile ("[""LOADED"", controlNull] call " + _resource_fnc + ";")};
 	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil; _this call compile format[""['UNLOAD', _this] call %1;"", " + _resource_fnc + "];"];
 } else
 {
