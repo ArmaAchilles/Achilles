@@ -29,17 +29,17 @@ private _dialogResult =
 [
 	localize "STR_AMAE_SPAWN_UNITS",
 	[
-		[localize "STR_AMAE_SIDE", _side_names,0],
-		[localize "STR_AMAE_VEHICLE" + " " + localize "STR_AMAE_FACTION", []],
-		[localize "STR_AMAE_VEHICLE_CATEGORY", []],
-		[localize "STR_AMAE_VEHICLE",["loading ..."]],
-		[localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
-		[localize "STR_AMAE_LZ_DZ", _lzOptions],
-		[localize "STR_AMAE_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_AMAE_FASTROPING",localize "STR_AMAE_PARADROP"]],
-		[localize "STR_AMAE_GROUP" + " " + localize "STR_AMAE_FACTION", []],
-		[localize "STR_AMAE_INFANTRY_GROUP", []],
-		[localize "STR_AMAE_UNIT_RP", _rpOptions],
-		[localize "STR_AMAE_UNIT_BEHAVIOUR", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]]
+		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names,0],
+		["COMBOBOX", [localize "STR_AMAE_VEHICLE", localize "STR_AMAE_FACTION"] joinString " ", []],
+		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", []],
+		["COMBOBOX", localize "STR_AMAE_VEHICLE", []],
+		["COMBOBOX", localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
+		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
+		["COMBOBOX", localize "STR_AMAE_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_AMAE_FASTROPING",localize "STR_AMAE_PARADROP"]],
+		["COMBOBOX", [localize "STR_AMAE_GROUP", localize "STR_AMAE_FACTION"] joinString " ", []],
+		["COMBOBOX", localize "STR_AMAE_INFANTRY_GROUP", []],
+		["COMBOBOX", localize "STR_AMAE_UNIT_RP", _rpOptions],
+		["COMBOBOX", localize "STR_AMAE_UNIT_BEHAVIOUR", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Achilles_fnc_ShowChooseDialog;
