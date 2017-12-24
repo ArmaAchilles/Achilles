@@ -100,7 +100,7 @@ class CfgFunctions
 			class setLRFrequencies;
 			class effectFire;
 			class ArsenalSetup;
-			class ArsenalSetupACE:
+			class ArsenalSetupACE;
 		};
 	};
 
