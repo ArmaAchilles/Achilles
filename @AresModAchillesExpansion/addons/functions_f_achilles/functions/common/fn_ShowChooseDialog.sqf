@@ -106,10 +106,15 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// Create the combo box
 			private _ctrl_cb = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+			private _use_data = false;
 			{
 				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_STR_AMAE_data","",[""]]];
 				private _id = _ctrl_cb lbAdd _entry_text_L;
 				_ctrl_cb lbSetTextRight [_id, _entry_text_R + " "];
+				if (not (_STR_AMAE_data isEqualTo "")) then
+				{
+					_use_data = true;
+				};
 				_ctrl_cb lbSetData [_id, _STR_AMAE_data];
 			} forEach _data;
 			_ctrl_cb ctrlCommit 0;
@@ -120,11 +125,23 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];
-			uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _ctrl_cb lbData _default_choice];
+			if (_use_data) then
+			{
+				uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _ctrl_cb lbData _default_choice];
+			} else
+			{
+				uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _forEachIndex], _default_choice];
+			};
 
 			// add event handlers: 1) update global choice variables
 			private _combo_script = "params [""_ctrl"", ""_id""]; uiNamespace setVariable [" + str _defaultVariableId + ", _id];";
-			_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], _ctrl lbData _id];";
+			if (_use_data) then
+			{
+				_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], _ctrl lbData _id];";
+			} else
+			{
+				_combo_script = _combo_script + "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str _forEachIndex + "], _id];";
+			};
 			_ctrl_cb ctrlSetEventHandler["LBSelChanged", _combo_script];
 			// add event handlers: 2) custom
 			{
