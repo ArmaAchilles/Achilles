@@ -126,7 +126,6 @@ for "_side_id" from 0 to (count _sides - 1) do
 		};
 	};
 };
-systemChat str _vehicles;
 uiNamespace setVariable ["Achilles_var_nestedList_vehicleFactions", _vehicle_factions];
 uiNamespace setVariable ["Achilles_var_nestedList_vehicleCategories", _vehicle_categories];
 uiNamespace setVariable ["Achilles_var_nestedList_vehicles", _vehicles];
