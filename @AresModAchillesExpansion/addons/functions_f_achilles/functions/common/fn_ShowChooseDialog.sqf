@@ -128,8 +128,9 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_cb ctrlSetEventHandler["LBSelChanged", _combo_script];
 			// add event handlers: 2) custom
 			{
-				_x params ["_keyword", "_script"];
-				_ctrl_cb ctrlAddEventHandler [_keyword, _script];
+				_x params ["_keyword", "_mode"];
+				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				_ctrl_cb ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
 			// Move to the next control
@@ -170,8 +171,9 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_slider ctrlSetEventHandler["SliderPosChanged", _combo_script];
 			// add event handlers: 2) custom
 			{
-				_x params ["_keyword", "_script"];
-				_ctrl_slider ctrlAddEventHandler [_keyword, _script];
+				_x params ["_keyword", "_mode"];
+				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				_ctrl_slider ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
 			// Move to the next control
@@ -223,10 +225,11 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_edit ctrlSetEventHandler["KeyUp", _combo_script];
 			// add event handlers: 2) custom
 			{
-				_x params ["_keyword", "_script"];
-				_ctrl_edit ctrlAddEventHandler [_keyword, _script];
+				_x params ["_keyword", "_mode"];
+				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				_ctrl_edit ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
-
+			
 			// Move to the next control
 			_yCoord = _yCoord + TOTAL_ROW_HEIGHT + _add_height;
 		};
