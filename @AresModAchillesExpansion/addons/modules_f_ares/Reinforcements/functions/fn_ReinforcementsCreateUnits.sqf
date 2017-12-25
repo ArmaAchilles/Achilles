@@ -2,7 +2,6 @@
 
 #define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 4
 
-FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX = 4;
 disableSerialization;
 
 private _spawnPosition = position _logic;
@@ -43,7 +42,7 @@ comment "// get all factions";
 comment "// sort by display names";
 for "_side_id" from 0 to (count _sides - 1) do
 {
-	(_factions select _side_id) = [(_factions select _side_id), [], {getText (configfile >> "CfgFactionClasses" >> _x >> "displayName")}] call BIS_fnc_sortBy;
+	_factions set [_side_id, [(_factions select _side_id), [], {getText (configfile >> "CfgFactionClasses" >> _x >> "displayName")}] call BIS_fnc_sortBy];
 };
 
 comment "// get all vehicles";
@@ -101,8 +100,11 @@ for "_side_id" from 0 to (count _sides - 1) do
 {
 	for "_faction_id" from 0 to (count (_factions select _side_id) - 1) do
 	{
-		(_vehicles select _side_id select _faction_id) = [(_vehicles select _side_id select _faction_id), [], {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy;
-		(_groups select _side_id select _faction_id) = [(_groups select _side_id select _faction_id), [], {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy;
+		(_groups select _side_id) set [_faction_id, [(_groups select _side_id select _faction_id), [], {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy];
+		for "_vehicle_category_id" from 0 to (count (_vehicle_categories select _side_id select _faction_id) - 1) do
+		{
+			(_vehicles select _side_id select _faction_id) set[_vehicle_category_id, [(_vehicles select _side_id select _faction_id select _vehicle_category_id), [], {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy];
+		};
 	};
 };
 
@@ -166,6 +168,7 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Achilles_fnc_ShowChooseDialog;
 
+/*
 if (_dialogResult isEqualTo []) exitWith {};
 
 comment "//Get dialog results";
@@ -362,5 +365,6 @@ else
 {
 	[objNull, "Transport dispatched to LZ. Squad will stay at LZ."] call bis_fnc_showCuratorFeedbackMessage;
 };
+*/
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
