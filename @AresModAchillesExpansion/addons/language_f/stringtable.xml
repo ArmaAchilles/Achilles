@@ -319,7 +319,7 @@
                 <Original>Units</Original>
                 <English>Units</English>
                 <French>Unitéd</French>
-                <Russian>Юниты</Russian>
+                <Russian>Боевые единицы</Russian>
                 <German>Einheiten</German>
             </Key>
             <Key ID="STR_AMAE_STATIC_OBJECTS">
@@ -992,7 +992,7 @@
                 <Original>Switch unit</Original>
                 <English>Switch unit</English>
                 <French>Intervertissez l'unité</French>
-                <Russian>Вселиться в юнит</Russian>
+                <Russian>Вселиться в боевую единицу</Russian>
                 <German>Einheit wechseln</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REMOVE">
@@ -1018,7 +1018,7 @@
             <Key ID="STR_AMAE_ARSENAL_PASTE">
                 <English>Paste Inventory</English>
                 <Original>Paste Inventory</Original>
-                <Russian>Вставить Инвентарь</Russian>
+                <Russian>Вставить снаряжение</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REPLACE">
                 <English>Replace</English>
@@ -1033,32 +1033,32 @@
             <Key ID="STR_AMAE_ARSENAL_FAILED_TO_PARSE">
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
-                <Russian>Вставка не удалась!</Russian>
+                <Russian>Не удалось обработать!</Russian>
             </Key>
             <Key ID="STR_AMAE_INVENTORY_PASTED">
                 <English>Inventory pasted successfully!</English>
                 <Original>Inventory pasted successfully!</Original>
-                <Russian>Инвентарь успешно вставлен!</Russian>
+                <Russian>Снаряжение успешно вставлено!</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_CREATE_CUSTOM">
                 <English>Create Custom</English>
                 <Original>Create Custom</Original>
-                <Russian>Пользовательский Арсенал</Russian>
+                <Russian>Пользовательский арсенал</Russian>
             </Key>
             <Key ID="STR_AMAE_DEFAULT_INVENTORY">
                 <English>Default Inventory</English>
                 <Original>Default Inventory</Original>
-                <Russian>Стандартный Инвентарь</Russian>
+                <Russian>Стандартное снаряжение</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE_OR_REPLACE">
                 <English>Combine or Replace Items</English>
                 <Original>Combine or Replace Items</Original>
-                <Russian>Объединить или Заменить Снаряжение</Russian>
+                <Russian>Объединить или заменить снаряжение</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_SIDE_EQUIPMENT">
                 <English>Add Equipment From</English>
                 <Original>Add Equipment From</Original>
-                <Russian>Добавить Снаряжение Стороны</Russian>
+                <Russian>Добавить снаряжение от</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_GPS">
                 <English>Add GPS</English>
@@ -1073,32 +1073,32 @@
             <Key ID="STR_AMAE_ARSENAL_ADD_THERMALS">
                 <English>Add Thermal Goggles</English>
                 <Original>Add Thermal Goggles</Original>
-                <Russian>Добавить Тепловизор</Russian>
+                <Russian>Добавить тепловизор</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_STATIC_WEAPONS">
                 <English>Add Static Weapons</English>
                 <Original>Add Static Weapons</Original>
-                <Russian>Добавить Неподвижные Турели</Russian>
+                <Russian>Добавить турели</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_AUTOMATED_WEAPONS">
                 <English>Add Autonomous Weapons</English>
                 <Original>Add Autonomous Weapons</Original>
-                <Russian>Добавить Автономное Оружие</Russian>
+                <Russian>Добавить автоматические турели</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_UAVS">
                 <English>Add UAVs</English>
                 <Original>Add UAVs</Original>
-                <Russian>Добавить Беспилотники</Russian>
+                <Russian>Добавить БПА</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
-                <Russian>Добавить Палатки</Russian>
+                <Russian>Добавить палатки</Russian>
             </Key>
             <Key ID="STR_AMAE_WEAPON_TO_FIRE">
                 <English>Weapon to Fire</English>
                 <Original>Weapon to Fire</Original>
-                <Russian>Оружие для Стрельбы</Russian>
+                <Russian>Вести огонь из</Russian>
             </Key>
         </Container>
     </Package>
@@ -1152,7 +1152,7 @@
             <Key ID="STR_AMAE_UNITS_NOT_ALLOWED">
                 <Original>Units are not allowed!</Original>
                 <English>Units are not allowed!</English>
-                <Russian>Не допускается использовать на юнитах!</Russian>
+                <Russian>Не допускается использовать на боевых единицах!</Russian>
             </Key>
             <Key ID="STR_AMAE_TFAR_HAS_TO_BE_LOADED">
                 <Original>This module requires Task Force Radio!</Original>
@@ -1195,14 +1195,14 @@
                 <Original>No unit selected!</Original>
                 <English>No unit selected!</English>
                 <French>Pas d'unité a été choisi!</French>
-                <Russian>Не выбрано ни одного юнита!</Russian>
+                <Russian>Не выбрано ни одной боевой единицы!</Russian>
                 <German>Keine Einheit wurde ausgewählt!</German>
             </Key>
             <Key ID="STR_AMAE_NOT_PLACED_ON_UNIT">
                 <Original>This module has to be placed on a unit!</Original>
                 <English>This module has to be placed on a unit!</English>
                 <French>Il faut mettre ce module sur une unité!</French>
-                <Russian>Этот модуль должен быть помещён на юнит!</Russian>
+                <Russian>Этот модуль должен быть помещён на боевую единицу!</Russian>
                 <German>Dieses Modul muss auf eine Einheit platziert werden!</German>
             </Key>
             <Key ID="STR_AMAE_NO_GROUP_SELECTED">
@@ -1258,7 +1258,7 @@
                 <Original>Error: Unit is unconscious!</Original>
                 <English>Error: Unit is unconscious!</English>
                 <French>Erreur: L'unité est sans connaissance!</French>
-                <Russian>Ошибка: Юнит без сознания!</Russian>
+                <Russian>Ошибка: Человек без сознания!</Russian>
                 <German>Fehler: Einheit ist nicht bei Bewusstsein</German>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_ALREADY_PROMOTED">
@@ -1293,7 +1293,7 @@
                 <Original>Units not allowed, use Suicide Bomber module instead!</Original>
                 <English>Units not allowed, use Suicide Bomber module instead!</English>
                 <French>Des unités ne sont pas authorisés! Prenez un "Terroriste suicidaire" module à défaut</French>
-                <Russian>Не допускается использование на юнитах! Испоьзуйте модуль "Надеть "пояс шахида"!</Russian>
+                <Russian>Не допускается использование на людях! Испоьзуйте модуль "Надеть "пояс шахида"!</Russian>
                 <German>Einheiten sind nicht erlaubt! Benutze ein "Selbstmordattentäter setzen" Modul stattdessen!</German>
             </Key>
             <Key ID="STR_AMAE_ENYO_NO_VEHICLE_SELECTED">
@@ -1307,7 +1307,7 @@
                 <Original>Activation Side cannot match the unit's side!</Original>
                 <English>Activation Side cannot match the unit's side!</English>
                 <French>Le camp d'activation ne peut pas être le camp de l'unité!</French>
-                <Russian>Нельзя настраивать на срабатывание от юнитов своей стороны!</Russian>
+                <Russian>Нельзя настраивать на срабатывание от боевых единиц своей стороны!</Russian>
                 <German>Aktivierungsseite kann nicht die Seite der Einheit sein!</German>
             </Key>
             <Key ID="STR_AMAE_SIDES_CANT_MATCH">
@@ -1330,7 +1330,7 @@
             <Key ID="STR_AMAE_CANNOT_ADD_PATROL_PLAYERS">
                 <Original>Cannot add patrol for player units.</Original>
                 <English>Cannot add patrol for player units.</English>
-                <Russian>Не могу назначить маршрут для патрулирования игрокам!</Russian>
+                <Russian>Не могу назначить маршрут для боевых единиц под контролем игрока!</Russian>
             </Key>
             <Key ID="STR_AMAE_NO_GROUP_UNDER_CURSOR">
                 <Original>No group under cursor.</Original>
@@ -1523,7 +1523,7 @@
                 <Original>Least Used</Original>
                 <English>Least Used</English>
                 <French>Le moins utilisé</French>
-                <Russian>Наименее редко использованная</Russian>
+                <Russian>Реже всего использованная</Russian>
                 <German>Am wenigsten gebraucht</German>
             </Key>
             <Key ID="STR_AMAE_SIDE">
@@ -1864,7 +1864,7 @@
                 <Original>Unit behaviour</Original>
                 <English>Unit behaviour</English>
                 <French>Comportement de l'unité</French>
-                <Russian>Поведение юнитов</Russian>
+                <Russian>Поведение боевой единицы</Russian>
                 <German>Verhalten der Einheit</German>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_AI">
@@ -2600,7 +2600,7 @@
                 <Original>Copied %1 units!</Original>
                 <English>Copied %1 units!</English>
                 <French>%1 unités ont été copiées!</French>
-                <Russian>Скопировано %1 юнит(ов)!</Russian>
+                <Russian>Скопировано %1 боевых(ая) единиц(а)!</Russian>
                 <German>%1 Einheiten kopiert!</German>
             </Key>
             <Key ID="STR_AMAE_NO_AMMO">
@@ -2628,7 +2628,7 @@
                 <Original>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</Original>
                 <English>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</English>
                 <French>SQF a été généré avec objets de la mission (%1 objets, %2 groupes, %3 unités)</French>
-                <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 человек(а))</Russian>
+                <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 боевая(ых) единиц(а))</Russian>
                 <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
             </Key>
             <Key ID="STR_AMAE_CHANGES_SAVED">
@@ -2649,7 +2649,7 @@
                 <Original>Applied module to %1 units!</Original>
                 <English>Applied module to %1 units!</English>
                 <French>Vous avez appliqué le module à 1% unités!</French>
-                <Russian>Модуль применён к %1 юниту(ам)!</Russian>
+                <Russian>Модуль применён к %1 боевой(ым) единице(ам)!</Russian>
                 <German>Modul wurde an %1 Einheiten angewendet!</German>
             </Key>
             <Key ID="STR_AMAE_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
@@ -2875,7 +2875,7 @@
                 <Original>Number of units involved</Original>
                 <English>Number of units involved</English>
                 <French>Nombre d'unité engagée</French>
-                <Russian>Число орудий</Russian>
+                <Russian>Число задействованных боевых единиц</Russian>
                 <German>Anzahl involvierter Einheiten</German>
             </Key>
             <Key ID="STR_AMAE_ROUNDS">
@@ -3809,9 +3809,9 @@
                 <Russian>
 			В дереве модулей отображены информационные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на юнитах.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на юните или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использовать юниты.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на боевых единицах.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на боевой единице или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использоваться на боевых единицах.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
 			
@@ -3840,7 +3840,7 @@
 			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
                 <Russian>
-			Модули, применяемые на юниты (объекты), чаще всего могут быть либо помещены на юнит (объект), либо на землю, чтобы применить модуль для нескольких юнитов (объектов).
+			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
 		</Russian>
                 <German>
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
@@ -3918,13 +3918,13 @@
 		</Original>
                 <Russian>
 			Доступны дополнительные комбинации клавиш:
-			%1%1%2Нажмите %3[Left Ctrl]%4 + 2x %3[LMB]%4 на иконке юнита чтобы получить удалённое управление этим юнитом.
-			%1%2Нажмите %3[Left Shift]%4 + %3[G]%4 дла принудительной эвакуации юнитов (включая игроков) из транспортного средства (десантирование на парашюте из ЛА).
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 чтобы выполнить "глубокое" копирование юнитов.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 чтобы вставить "глубоко" скопированные юниты.
-			%1%2Если вы выберете юнит и нажмёте %11 он бросит дымовую гранату или выпустит ловушки, если они у него есть.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[G]%4 чтобы сгруппировать объекты.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 чтобы удалить объекты из группы.
+			%1%1%2Нажмите %3[Left Ctrl]%4 + 2x %3[LMB]%4 на иконке боевой единицы чтобы удаленно управлять ею.
+			%1%2Нажмите %3[Left Shift]%4 + %3[G]%4 дла принудительной эвакуации экипажа и пассажиров (включая игроков) из транспортного средства (десантирование на парашюте из ЛА).
+			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 чтобы выполнить "глубокое" копирование боевых единиц.
+			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 чтобы вставить "глубоко" скопированные боевые единицы.
+			%1%2Если вы выберете боевую единицу и нажмёте %11б то она бросит дымовую гранату или выпустит ловушки, если они у нее есть.
+			%1%2Нажмите %3[Left Ctrl]%4 + %3[G]%4 чтобы сгруппировать людей/ТС.
+			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 чтобы удалить людей/ТС из группы.
 		</Russian>
                 <German>
 			Weitere verfügbare Tastenzuweisungen:
@@ -4004,7 +4004,7 @@
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW">
                 <Original>Remote Control Vehicle Crew</Original>
-                <Russian>Дистанционный контроль экипажа</Russian>
+                <Russian>Дистанционное управление экипажем</Russian>
                 <English>Remote Control Vehicle Crew</English>
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
@@ -4015,10 +4015,10 @@
 			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
 		</Original>
                 <Russian>
-			Чтобы получить удалённое управление нужным Вам юнитом в транспортном средстве, необходимо:
-			%1 1) Выбрать юнит в списке объектов на левой панели.
-			%1 2) На транспортном средстве появится новая иконка, обозначающая выбранный юнит.
-			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке юнита.
+			Чтобы получить удалённое управление нужным Вам членом экипажа в транспортном средстве, необходимо:
+			%1 1) Выбрать нужного члена экипажа в списке объектов на левой панели.
+			%1 2) На транспортном средстве появится новая иконка, обозначающая выбранного члена экипажа.
+			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
 		</Russian>
                 <English>
 			You How to remote control a specific unit in a vehicle:
@@ -4108,12 +4108,12 @@
             <Key ID="STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Short Range radio default frequency</Original>
                 <English>(TFAR) Short Range radio default frequency</English>
-                <Russian>(TFAR) Частоты для личной рации</Russian>
+                <Russian>(TFAR) Частоты для КВ рации</Russian>
             </Key>
             <Key ID="STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Long Range radio default frequency</Original>
                 <English>(TFAR) Long Range radio default frequency</English>
-                <Russian>(TFAR) Частоты для рации дальнего действия</Russian>
+                <Russian>(TFAR) Частоты для ДВ рации</Russian>
             </Key>
             <Key ID="STR_AMAE_COLLAPSE_TREE_BY_DEFAULT">
                 <Original>Collapse module tree by default</Original>
@@ -4190,19 +4190,19 @@
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_COPY">
                 <Original>Deep copy selected units</Original>
-                <Russian>"Глубокая" копия выбранных юнитов</Russian>
+                <Russian>"Глубокая" копия выбранных боевых единиц</Russian>
                 <German>Einheiten mit allen Eigenschaften kopieren</German>
                 <English>Deep copy selected units</English>
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_PASTE">
                 <Original>Paste deep copied units</Original>
-                <Russian>Вставка "глубоко" скопированных юнитов</Russian>
+                <Russian>Вставка "глубоко" скопированных боевых единиц</Russian>
                 <German>Einheiten mit allen Eigenschaften einfügen</German>
                 <English>Paste deep copied units</English>
             </Key>
             <Key ID="STR_AMAE_KEY_COUNTERMEASURE">
                 <Original>Selected unit throws smoke / uses countermeasure</Original>
-                <Russian>Выбранный юнит бросает дымовую гранату / использует ловушки</Russian>
+                <Russian>Выбранная боевая единиа бросает дымовую гранату / использует ловушки</Russian>
                 <German>Ausgewählte Einheit wirft Rauch / nutzt Kontermaßnahmen</German>
                 <English>Selected unit throws smoke / uses countermeasure</English>
             </Key>
