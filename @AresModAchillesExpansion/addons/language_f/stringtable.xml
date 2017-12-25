@@ -1252,8 +1252,8 @@
                 <German>Fehler: Einheit ist nicht bei Bewusstsein</German>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_ALREADY_PROMOTED">
-                <Original>Unit has already been promoted!</Original>
-                <English>Unit has already been promoted!</English>
+                <Original>Player has already been promoted!</Original>
+                <English>Player has already been promoted!</English>
                 <French>L'unité a déjà été promue!</French>
                 <Russian>Игрок уже был повышен!</Russian>
                 <German>Einheit wurde bereits befördert!</German>
@@ -1513,7 +1513,7 @@
                 <Original>Least Used</Original>
                 <English>Least Used</English>
                 <French>Le moins utilisé</French>
-                <Russian>Наименее часто использованная</Russian>
+                <Russian>Реже всего использованная</Russian>
                 <German>Am wenigsten gebraucht</German>
             </Key>
             <Key ID="STR_AMAE_SIDE">
