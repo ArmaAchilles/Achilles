@@ -25,8 +25,8 @@ private _dialogResult =
 	localize "STR_AMAE_ROTATION_MODULE",
 	[
 		["SLIDER", localize "STR_AMAE_PITCH_ANGLE", [[-180,180]], _angles select 0, true],
-		["SLIDER", localize "STR_AMAE_ROLL_ANGLE", [-180,180]], _angles select 1, true],
-		["SLIDER", localize "STR_AMAE_YAW_ANGLE", [-180,180]], direction _object, true]
+		["SLIDER", localize "STR_AMAE_ROLL_ANGLE", [[-180,180]], _angles select 1, true],
+		["SLIDER", localize "STR_AMAE_YAW_ANGLE", [[-180,180]], direction _object, true]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -39,8 +39,8 @@ if (local _object) then
 }
 else
 {
-	[_object, _dialogResult select 2] remoteExecCall ["setDir" _object];
-	[_object, _dialogResult select 0, _dialogResult select 1] remoteExecCall ["BIS_fnc_setPitchBank" _object];
+	[_object, _dialogResult select 2] remoteExecCall ["setDir", _object];
+	[_object, _dialogResult select 0, _dialogResult select 1] remoteExecCall ["BIS_fnc_setPitchBank", _object];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
