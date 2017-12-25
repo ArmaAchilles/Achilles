@@ -1,4 +1,5 @@
 @Release/*
+Tools/AchillesTestServer.bat
 *.bikey
 *.biprivatekey
 *.pbo
