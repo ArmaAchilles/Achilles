@@ -28,7 +28,7 @@ private _dialogResult =
 		["SLIDER", localize "STR_AMAE_ROLL_ANGLE", [[-180,180]], _angles select 1, true],
 		["SLIDER", localize "STR_AMAE_YAW_ANGLE", [[-180,180]], direction _object, true]
 	]
-] call Ares_fnc_ShowChooseDialog;
+] call Achilles_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
 
