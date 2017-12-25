@@ -8,70 +8,104 @@
             <Key ID="STR_AMAE_ARSENAL_PASTE">
                 <English>Paste Inventory</English>
                 <Original>Paste Inventory</Original>
+                <French>Collez invantaire</French>
+                <German>Inventar einfügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REPLACE">
                 <English>Replace</English>
                 <Original>Replace</Original>
+                <French>Replacez</French>
+                <German>Ersetzen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE">
                 <English>Combine</English>
                 <Original>Paste</Original>
+                <French>Combinez</French>
+                <German>Kombinieren</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_FAILED_TO_PARSE">
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
+                <French>Parse</French>
+                <German>Parsen fehlgeschlagen!</German>
             </Key>
             <Key ID="STR_AMAE_INVENTORY_PASTED">
                 <English>Inventory pasted successfully!</English>
                 <Original>Inventory pasted successfully!</Original>
+                <French>Invantaire est collé avec succès!</French>
+                <German>Inventar wurde erfolgreich eingefügt!</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_CREATE_CUSTOM">
                 <English>Create Custom</English>
                 <Original>Create Custom</Original>
+                <French>Créez personnalisé</French>
+                <German>Erstelle benutzerdefiniert</German>
             </Key>
             <Key ID="STR_AMAE_DEFAULT_INVENTORY">
                 <English>Default Inventory</English>
                 <Original>Default Inventory</Original>
+                <French>Invantaire défault</French>
+                <German>Standardinventar</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE_OR_REPLACE">
                 <English>Combine or Replace Items</English>
                 <Original>Combine or Replace Items</Original>
+                <French>Combinez ou replacez des objets</French>
+                <German>Hinzufügen oder Ersetzen von Objekten</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_SIDE_EQUIPMENT">
                 <English>Add Equipment From</English>
                 <Original>Add Equipment From</Original>
+                <French>Ajoutez des equipment de</French>
+                <German>Füge Ausrüstung hinzu von</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_GPS">
                 <English>Add GPS</English>
                 <Original>Add GPS</Original>
+                <French>Ajoutez le GPS</French>
+                <German>GPS hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_NVGS">
                 <English>Add NVGs</English>
                 <Original>Add NVGs</Original>
+                <French>Ajoutez des JVN</French>
+                <German>Nachtsichtgerät hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_THERMALS">
                 <English>Add Thermal Goggles</English>
                 <Original>Add Thermal Goggles</Original>
+                <French>Ajoutez des jumelles thermiques</French>
+                <German>Thermalgerät hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_STATIC_WEAPONS">
                 <English>Add Static Weapons</English>
                 <Original>Add Static Weapons</Original>
+                <French>Ajoutez des armes statics</French>
+                <German>Geschütz hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_AUTOMATED_WEAPONS">
                 <English>Add Autonomous Weapons</English>
                 <Original>Add Autonomous Weapons</Original>
+                <French>Ajoutez des armes statiques autonome</French>
+                <German>Geschützdrohnen hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_UAVS">
                 <English>Add UAVs</English>
                 <Original>Add UAVs</Original>
+                <French>Ajoutez des drones</French>
+                <German>Drohnen hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
+                <French>Ajoutez des tentes</French>
+                <German>Zelte hinzufügen</German>
             </Key>
             <Key ID="STR_AMAE_WEAPON_TO_FIRE">
                 <English>Weapon to Fire</English>
                 <Original>Weapon to Fire</Original>
+                <French>L'arme pour tierer</French>
+                <German>Waffe zum Feuern</German>
             </Key>
         </Container>
     </Package>
@@ -693,6 +727,8 @@
             <Key ID="STR_AMAE_EFFECTS_CUSTOM_FIRE">
                 <Original>Custom Fire</Original>
                 <English>Custom Fire</English>
+                <French>Séquence de tirs personalisé</French>
+                <German>Benutzerdefiniertes Feuern</German>
             </Key>
             <Key ID="STR_AMAE_SPAWN_EFFECT">
                 <Original>Spawn Effect</Original>
@@ -1069,6 +1105,8 @@
             <Key ID="STR_AMAE_VIRTUAL_ARSENAL">
                 <Original>Virtual Arsenal</Original>
                 <English>Virtual Arsenal</English>
+                <French>Arsenal virtuel</French>
+                <German>Virtuelles Arsenal</German>
             </Key>
             <Key ID="STR_AMAE_FAILED_TO_ATTACH_CARGO">
                 <Original>Failed to attach the cargo!</Original>
@@ -1081,18 +1119,26 @@
             <Key ID="STR_AMAE_ARSENAL_REMOVE">
                 <Original>Remove Arsenal</Original>
                 <English>Remove Arsenal</English>
+                <French>Supprimez l'arsenal</French>
+                <German>Entferne Arsenal</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADDED">
                 <Original>Added Arsenal to object!</Original>
                 <English>Added Arsenal to object!</English>
+                <French>L'arsenal est adjouté à l'objet! </French>
+                <German>Arsenal wurde dem Objekt hinzugefügt!</German>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REMOVED">
                 <Original>Removed Arsenal from object!</Original>
                 <English>Removed Arsenal from object!</English>
+                <French>L'arsenal est supprimé à l'objet! </French>
+                <German>Arsenal vom Objekt entfernet!</German>
             </Key>
             <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
                 <Original>Copied items to clipboard!</Original>
                 <English>Copied items to clipboard!</English>
+                <French>Les objets sont copiés dans le presse-papier </French>
+                <German>Objekte zur Zwischenablage kopiert!</German>
             </Key>
         </Container>
     </Package>
