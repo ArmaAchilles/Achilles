@@ -18,15 +18,15 @@ private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_showZeusErrorMessage};
 if (_object isKindOf "Man") exitWith {[localize "STR_AMAE_UNITS_NOT_ALLOWED"] call Achilles_fnc_showZeusErrorMessage};
 
-private _currentVectorUp = vectorUp _object;
+private _angles = _object call BIS_fnc_getPitchBank;
 
 private _dialogResult =
 [
 	localize "STR_AMAE_ROTATION_MODULE",
 	[
-		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "X"], "SLIDER", _currentVectorUp select 0, true],
-		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "Y"], "SLIDER", _currentVectorUp select 1, true],
-		[format [localize "STR_AMAE_ROTATION_MODULE_X_AXIS", "Z"], "SLIDER", _currentVectorUp select 2, true]
+		["SLIDER", localize "STR_AMAE_PITCH_ANGLE", [[-180,180]], _angles select 0, true],
+		["SLIDER", localize "STR_AMAE_ROLL_ANGLE", [-180,180]], _angles select 1, true],
+		["SLIDER", localize "STR_AMAE_YAW_ANGLE", [-180,180]], direction _object, true]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -34,11 +34,13 @@ if (_dialogResult isEqualTo []) exitWith {};
 
 if (local _object) then
 {
-	_object setVectorUp [_dialogResult select 0, _dialogResult select 1, _dialogResult select 2];
+	_object setDir (_dialogResult select 2);
+	[_object, _dialogResult select 0, _dialogResult select 1] call BIS_fnc_setPitchBank;
 }
 else
 {
-	[_object, [_dialogResult select 0, _dialogResult select 1, _dialogResult select 2]] remoteExecCall ["setVectorUp", _object];
+	[_object, _dialogResult select 2] remoteExecCall ["setDir" _object];
+	[_object, _dialogResult select 0, _dialogResult select 1] remoteExecCall ["BIS_fnc_setPitchBank" _object];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
