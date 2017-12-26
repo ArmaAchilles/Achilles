@@ -146,7 +146,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
 				_ctrl_cb ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
@@ -189,7 +189,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
 				_ctrl_slider ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
@@ -243,7 +243,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call %2;", _mode, _resource_fnc];
+				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
 				_ctrl_edit ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 			
@@ -259,8 +259,8 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 // set display event handlers
 if (_resource_fnc != "") then
 {
-	with uiNamespace do {call compile ("[""LOADED"", controlNull] call " + _resource_fnc + ";")};
-	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil; _this call compile format[""['UNLOAD', _this] call %1;"", " + _resource_fnc + "];"];
+	with uiNamespace do {call compile format ["[""LOADED"", controlNull] call (uiNamespace getVariable ""%1"");", _resource_fnc]};
+	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil;" +  format ["[""UNLOAD"", controlNull] call (uiNamespace getVariable '%1');", _resource_fnc]];
 } else
 {
 	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil;"];
