@@ -74,7 +74,7 @@ switch _mode do {
 									private _item = gettext (_x >> "item");
 									private _itemName = gettext (configfile >> "cfgweapons" >> _item >> "displayName");
 									_displayName = _displayName + " + " + _itemName;
-								} foreach ((_weaponCfg >> "linkeditems") call bis_fnc_returnchildren);
+								} foreach ((_weaponCfg >> "linkeditems") call Achilles_fnc_returnChildren);
 								private _displayNameShort = _displayName;
 								private _displayNameShortArray = toarray _displayNameShort;
 								if (count _displayNameShortArray > 41) then { //--- Cut when the name is too long (41 chars is approximate)
@@ -141,7 +141,7 @@ switch _mode do {
 						private _picture = gettext (_glassesCfg >> "picture");
 						private _addonListType = _addonList select _weaponTypeID;
 						_addonListType pushback [_glasses,_displayName,_displayName,_picture,1,false];
-					} forEach ([configfile >> "CfgGlasses", 0, true] call BIS_fnc_returnChildren);
+					} forEach ((configfile >> "CfgGlasses") call Achilles_fnc_returnChildren);
 					_weaponAddons set [count _weaponAddons,_addon];
 					_weaponAddons set [count _weaponAddons,_addonList];
 				} else {

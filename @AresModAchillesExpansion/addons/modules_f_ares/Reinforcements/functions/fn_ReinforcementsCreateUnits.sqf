@@ -39,7 +39,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			(_vehicles select _side_id) pushBack [];
 			(_groups select _side_id) pushBack [];
 		};
-	} forEach ((configFile >> "CfgFactionClasses") call BIS_fnc_returnChildren);
+	} forEach ((configFile >> "CfgFactionClasses") call Achilles_fnc_returnChildren);
 	comment "// sort by display names";
 	for "_side_id" from 0 to (count _sides - 1) do
 	{
@@ -74,7 +74,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 				};
 			};
 		};
-	} forEach ((configFile >> "CfgVehicles") call BIS_fnc_returnChildren);
+	} forEach ((configFile >> "CfgVehicles") call Achilles_fnc_returnChildren);
 
 	comment "// get all groups";
 	{
@@ -85,7 +85,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			{
 				{
 					{
-						if ({not (getText (_x >> "vehicle") isKindOf "Man")} count (_x call BIS_fnc_returnChildren) == 0) then
+						if ({not (getText (_x >> "vehicle") isKindOf "Man")} count (_x call Achilles_fnc_returnChildren) == 0) then
 						{
 							private _faction = getText (_x >> "faction");
 							private _faction_id = (_factions select _side_id) find _faction;
@@ -94,11 +94,11 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 								(_groups select _side_id select _faction_id) pushBack _x;
 							};
 						};
-					} forEach (_x call BIS_fnc_returnChildren); comment "// for each group";
-				} forEach (_x call BIS_fnc_returnChildren); comment "// for each group category";
-			} forEach (_x call BIS_fnc_returnChildren); comment "// for each faction";
+					} forEach (_x call Achilles_fnc_returnChildren); comment "// for each group";
+				} forEach (_x call Achilles_fnc_returnChildren); comment "// for each group category";
+			} forEach (_x call Achilles_fnc_returnChildren); comment "// for each faction";
 		};
-	} forEach ((configFile >> "CfgGroups") call BIS_fnc_returnChildren);
+	} forEach ((configFile >> "CfgGroups") call Achilles_fnc_returnChildren);
 	comment "// sort by display names";
 	for "_side_id" from 0 to (count _sides - 1) do
 	{
@@ -172,13 +172,16 @@ private _dialogResult =
 	],
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Achilles_fnc_ShowChooseDialog;
-_dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_loc","_lzdz_type","_grp_fac_id","_grp_id","_rp_loc","_grp_beh"];
-systemChat str ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
-systemChat str ((uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id);
 
-/*
 if (_dialogResult isEqualTo []) exitWith {};
 
+_dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_loc","_lzdz_type","_grp_fac_id","_grp_id","_rp_loc","_grp_beh"];
+private _vehicle = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
+private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
+systemChat str _vehicle;
+systemChat str _grp_cfg;
+
+/*
 comment "//Get dialog results";
 private _side = _sides select (_dialogResult select 0);
 private _infantryGroup = Ares_var_reinforcement_infantry_group;

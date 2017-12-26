@@ -18,7 +18,5 @@ for "_i" from 0 to (count _parent_cfg - 1) do
 {
 	private _child_cfg = _parent_cfg select _i;
 	if(isClass _child_cfg) then  {_cfg_list pushBack _child_cfg};
-
 };
-
 _cfg_list;
