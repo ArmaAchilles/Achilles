@@ -20,6 +20,9 @@ disableSerialization;
 
 params [["_title_text","",[""]], ["_control_info",[],[[]]], ["_resource_fnc","",[""]]];
 
+// set function in uiNamespace
+// uiNamespace setVariable [_resource_fnc, compileFinal (call compile format ["str %1 select [1, count str %1 - 2];", _resource_fnc])];
+
 // Bring up the dialog frame we are going to add things to.
 createDialog "Ares_Dynamic_Dialog";
 private _dialog = findDisplay DYNAMIC_GUI_IDD;
@@ -146,7 +149,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
+				private _combo_script = format["with uiNamespace do {([""%1""] + _this) call (missionNamespace getVariable ""%2"")};", _mode, _resource_fnc];
 				_ctrl_cb ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
@@ -189,7 +192,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
+				private _combo_script = format["with uiNamespace do {([""%1""] + _this) call (missionNamespace getVariable ""%2"")};", _mode, _resource_fnc];
 				_ctrl_slider ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 
@@ -243,7 +246,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// add event handlers: 2) custom
 			{
 				_x params ["_keyword", "_mode"];
-				private _combo_script = format["([""%1""] + _this) call (uiNamespace getVariable ""%2"");", _mode, _resource_fnc];
+				private _combo_script = format["with uiNamespace do {([""%1""] + _this) call (missionNamespace getVariable ""%2"")};", _mode, _resource_fnc];
 				_ctrl_edit ctrlAddEventHandler [_keyword, _combo_script];
 			} forEach _event_handlers;
 			
@@ -259,8 +262,8 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 // set display event handlers
 if (_resource_fnc != "") then
 {
-	with uiNamespace do {call compile format ["[""LOADED"", controlNull] call (uiNamespace getVariable ""%1"");", _resource_fnc]};
-	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil;" +  format ["[""UNLOAD"", controlNull] call (uiNamespace getVariable '%1');", _resource_fnc]];
+	with uiNamespace do {call compile format ["[""LOADED"", controlNull] call (missionNamespace getVariable ""%1"");", _resource_fnc]};
+	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil;" +  format ["with uiNamespace do {[""UNLOAD"", controlNull] call (missionNamespace getVariable '%1')};", _resource_fnc]];
 } else
 {
 	_dialog displayAddEventHandler ["unLoad", "Achilles_var_showChooseDialog = nil;"];
