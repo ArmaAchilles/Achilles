@@ -4,7 +4,7 @@
 
 disableSerialization;
 
-private _spawnPosition = position _logic;
+private _spawn_position = position _logic;
 
 comment "// allocate data arrays";
 private _sides = [];
@@ -175,26 +175,16 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-_dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_loc","_lzdz_type","_grp_fac_id","_grp_id","_rp_loc","_grp_beh"];
-private _vehicle = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
-private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
-systemChat str _vehicle;
-systemChat str _grp_cfg;
-
-/*
 comment "//Get dialog results";
-private _side = _sides select (_dialogResult select 0);
-private _infantryGroup = Ares_var_reinforcement_infantry_group;
-private _vehicleType = Ares_var_reinforcement_vehicle_class;
-private _dialogVehicleBehaviour = _dialogResult select 4;
-private _dialogLzAlgorithm = _dialogResult select 5;
-private _dialogRpAlgorithm = _dialogResult select 8;
-private _dialogUnitBehaviour = _dialogResult select 9;
+_dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_algorithm","_lzdz_type","_grp_fac_id","_grp_id","_rp_algorithm","_grp_beh"];
+private _side = _sides select _side_id;
+private _vehicle_type = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
+private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
 private _lzSize = 20;	comment "// TODO make this a dialog parameter?";
 private _rpSize = 20;	comment "// TODO make this a dialog parameters?";
 
 comment "// Choose the LZ based on what the user indicated";
-private _lz = switch (_dialogLzAlgorithm) do
+private _lz = switch (_lzdz_algorithm) do
 {
 	case 0: comment "// Random";
 	{
@@ -202,11 +192,11 @@ private _lz = switch (_dialogLzAlgorithm) do
 	};
 	case 1: comment "// Nearest";
 	{
-		[_spawnPosition, _allLzs] call Ares_fnc_GetNearest
+		[_spawn_position, _allLzs] call Ares_fnc_GetNearest
 	};
 	case 2: comment "// Furthest";
 	{
-		[_spawnPosition, _allLzs] call Ares_fnc_GetFarthest
+		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest
 	};
 	case 3: comment "// Least used";
 	{
@@ -221,7 +211,7 @@ private _lz = switch (_dialogLzAlgorithm) do
 	};
 	default comment "// Specific LZ.";
 	{
-		_allLzs select (_dialogLzAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
+		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
 	};
 };
 
@@ -230,8 +220,9 @@ _lz setVariable ["Ares_Lz_Count", (_lz getVariable ["Ares_Lz_Count", 0]) + 1];
 
 
 comment "// create the transport vehicle";
-private _vehicleInfo = [_spawnPosition, 0, _vehicleType, _side] call BIS_fnc_spawnVehicle;
+private _vehicleInfo = [_spawn_position, 0, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _vehicleInfo select 0;
+_vehicle setVectorDir ((position _lz) vectorDiff _spawn_position);
 private _vehicleGroup = _vehicleInfo select 2;
 comment "//_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];";
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
@@ -249,7 +240,7 @@ if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 // when they take contact.
 (driver (vehicle (leader _vehicleGroup))) setSkill 1;
 
-if (_vehicleType isKindOf "Air") then
+if (_vehicle_type isKindOf "Air") then
 {
 	// Special settings for helicopters. Otherwise they tend to run away instead of land
 	// if the LZ is hot.
@@ -264,10 +255,10 @@ else
 };
 
 // Generate the waypoints for after the transport drops off the troops.
-if (_dialogVehicleBehaviour == 0) then
+if (_veh_beh == 0) then
 {
 	// RTB and despawn.
-	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
+	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawn_position, 0];
 	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
 	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
 };
@@ -275,37 +266,37 @@ if (_dialogVehicleBehaviour == 0) then
 // Add vehicle to curator
 [(units _vehicleGroup) + [(vehicle (leader _vehicleGroup))]] call Ares_fnc_AddUnitsToCurator;
 
-private _CrewTara = [_vehicleType,false] call BIS_fnc_crewCount;
-private _CrewBrutto =  [_vehicleType,true] call BIS_fnc_crewCount;
+private _CrewTara = [_vehicle_type,false] call BIS_fnc_crewCount;
+private _CrewBrutto =  [_vehicle_type,true] call BIS_fnc_crewCount;
 private _CrewNetto = _CrewBrutto - _CrewTara;
 
 // create infantry group and resize it to the given cargo space if needed
-_infantryGroup = [_spawnPosition, _side, _infantryGroup] call BIS_fnc_spawnGroup;
+private _infantry_group = [_spawn_position, _side, _grp_cfg] call BIS_fnc_spawnGroup;
 // delete remaining units if vehicle is overcrouded
-private _infantry_list = units _infantryGroup;
+private _infantry_list = units _infantry_group;
 if (count _infantry_list > _CrewNetto) then
 {
 	_infantry_list resize _CrewNetto;
-	private _infantry_to_delete = (units _infantryGroup) - _infantry_list;
+	private _infantry_to_delete = (units _infantry_group) - _infantry_list;
 	{deleteVehicle _x} forEach _infantry_to_delete;
 };
 
-switch (_dialogUnitBehaviour) do
+switch (_grp_beh) do
 {
 	case 1: // Relaxed
 	{
-		_infantryGroup setBehaviour "SAFE";
-		_infantryGroup setSpeedMode "LIMITED";
+		_infantry_group setBehaviour "SAFE";
+		_infantry_group setSpeedMode "LIMITED";
 	};
 	case 2: // Cautious
 	{
-		_infantryGroup setBehaviour "AWARE";
-		_infantryGroup setSpeedMode "LIMITED";
+		_infantry_group setBehaviour "AWARE";
+		_infantry_group setSpeedMode "LIMITED";
 	};
 	case 3: // Combat
 	{
-		_infantryGroup setBehaviour "COMBAT";
-		_infantryGroup setSpeedMode "NORMAL";
+		_infantry_group setBehaviour "COMBAT";
+		_infantry_group setSpeedMode "NORMAL";
 	};
 };
 
@@ -313,7 +304,7 @@ switch (_dialogUnitBehaviour) do
 if (count _allRps > 0) then
 {
 	// Choose the RP based on the algorithm the user selected
-	private _rp = switch (_dialogRpAlgorithm) do
+	private _rp = switch (_rp_algorithm) do
 	{
 		case 0: // Random
 		{
@@ -340,18 +331,18 @@ if (count _allRps > 0) then
 		};
 		default
 		{
-			_allRps select (_dialogRpAlgorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
+			_allRps select (_rp_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
 		};
 	};
 
 	// Now that we've chosen an RP, increment the count for it.
 	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
 
-	private _infantryRpWp = _infantryGroup addWaypoint [position _rp, _rpSize];
+	private _infantryRpWp = _infantry_group addWaypoint [position _rp, _rpSize];
 }
 else
 {
-	private _infantryMoveOnWp = _infantryGroup addWaypoint [position _lz, _rpSize];
+	private _infantryMoveOnWp = _infantry_group addWaypoint [position _lz, _rpSize];
 };
 
 // Load the units into the vehicle.
@@ -360,7 +351,7 @@ else
 } foreach _infantry_list;
 
 // Add infantry to curator
-[(units _infantryGroup)] call Ares_fnc_AddUnitsToCurator;
+[(units _infantry_group)] call Ares_fnc_AddUnitsToCurator;
 
 if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 {
@@ -376,6 +367,6 @@ else
 {
 	[objNull, "Transport dispatched to LZ. Squad will stay at LZ."] call bis_fnc_showCuratorFeedbackMessage;
 };
-*/
+
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
