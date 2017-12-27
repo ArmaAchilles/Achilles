@@ -25,7 +25,7 @@ git checkout -- .
 ```
 ### create a new branch
 ```bash
-git checkout -p <branch>
+git checkout -b <branch>
 git push --set-upstream origin <branch>`
 ```
 ### switch branch
