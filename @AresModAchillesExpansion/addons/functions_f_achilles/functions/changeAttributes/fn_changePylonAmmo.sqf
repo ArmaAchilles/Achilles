@@ -27,7 +27,7 @@ private _addWeaponsTo = [];
 if (_hasGunner) then 
 {
 	_addWeaponsTo = if(_plane getVariable ["Achilles_var_changePylonAmmo_Assigned", [0]] isEqualTo []) then {0} else {1};
-	_entries pushBack [localize "STR_AMAE_ASSIGN_WEAPONS", [localize "STR_AMAE_DRIVER", localize "STR_AMAE_GUNNER"], _addWeaponsTo];
+	_entries pushBack [localize "STR_AMAE_ASSIGN_WEAPONS", [localize "STR_AMAE_DRIVER", localize "STR_AMAE_GUNNER"], _addWeaponsTo, true];
 };
 {
 	private _pylon_cfg = _x;
