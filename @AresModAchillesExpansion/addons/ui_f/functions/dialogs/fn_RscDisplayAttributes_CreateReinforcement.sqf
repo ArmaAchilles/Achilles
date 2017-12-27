@@ -27,7 +27,7 @@ switch (_mode) do
 				
 		lbClear _ctrl_veh_fac;
 		{
-			_ctrl_veh_fac lbAdd getText (configFile >> "CfgFactionClasses" >> _x >> "displayName");
+			_ctrl_veh_fac lbAdd _x;
 		} forEach (Achilles_var_nestedList_vehicleFactions select _comboIndex);
 		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
 		_last_choice = [(lbSize _ctrl_veh_fac) - 1, _last_choice] select (_last_choice < lbSize _ctrl_veh_fac);
@@ -44,7 +44,7 @@ switch (_mode) do
 				
 		lbClear _ctrl_veh_cat;
 		{
-			_ctrl_veh_cat lbAdd getText (configFile >> "CfgEditorSubcategories" >> _x >> "displayName");
+			_ctrl_veh_cat lbAdd _x;
 		} forEach (Achilles_var_nestedList_vehicleCategories select _side_id select _comboIndex);
 		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
 		_last_choice = [(lbSize _ctrl_veh_cat) - 1, _last_choice] select (_last_choice < lbSize _ctrl_veh_cat);
@@ -66,9 +66,8 @@ switch (_mode) do
 			private _ref_name = _ctrl_veh_fac lbText _comboIndex;
 			_last_choice = 0;
 			{
-				private _name = getText (configFile >> "CfgFactionClasses" >> _x >> "displayName");
-				_ctrl_grp_fac lbAdd _name;
-				if (_ref_name == _name) then
+				_ctrl_grp_fac lbAdd _x;
+				if (_ref_name == _x) then
 				{
 					_last_choice = _forEachIndex;
 				};
@@ -76,7 +75,7 @@ switch (_mode) do
 		} else
 		{
 			{
-				_ctrl_grp_fac lbAdd getText (configFile >> "CfgFactionClasses" >> _x >> "displayName");
+				_ctrl_grp_fac lbAdd _x;
 			} forEach (Achilles_var_nestedList_groupFactions select _side_id);
 			_last_choice = [(lbSize _ctrl_grp_fac) - 1, _last_choice] select (_last_choice < lbSize _ctrl_grp_fac);
 			_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
@@ -93,10 +92,9 @@ switch (_mode) do
 		private _ctrl_veh = _dialog displayCtrl IDC_COMBO_VEHICLE;
 		lbClear _ctrl_veh;
 		{
-			private _lb_id = _ctrl_veh lbAdd getText ( _x >> "displayName");
-			private _type = configName _x;
-			_ctrl_veh lbSetData [_lb_id, _type];
-			_ctrl_veh lbSetTextRight [_lb_id, "(" + str (([_type, true] call BIS_fnc_crewCount) - ([_type, false] call BIS_fnc_crewCount)) + ") "];
+			private _lb_id = _ctrl_veh lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
+			_ctrl_veh lbSetData [_lb_id, _x];
+			_ctrl_veh lbSetTextRight [_lb_id, "(" + str (([_x, true] call BIS_fnc_crewCount) - ([_x, false] call BIS_fnc_crewCount)) + ") "];
 		} forEach (Achilles_var_nestedList_vehicles select _side_id select _faction_id select _comboIndex);
 		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_3", ""];
 		_last_choice = [(lbSize _ctrl_veh) - 1, _last_choice] select (_last_choice < lbSize _ctrl_veh);
