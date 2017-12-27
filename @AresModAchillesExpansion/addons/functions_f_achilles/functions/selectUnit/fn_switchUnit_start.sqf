@@ -34,7 +34,7 @@ bis_fnc_moduleRemoteControl_unit = _unit;
 selectPlayer _unit;
 [_unit, _face] remoteExecCall ["setFace", 0];
 [_unit, _speaker] remoteExecCall ["setSpeaker", 0];
-_unit addGoggles _goggles;
+[_unit, _goggles] spawn {params ["_unit", "_goggles"]; sleep 1; _unit addGoggles _goggles};
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;
