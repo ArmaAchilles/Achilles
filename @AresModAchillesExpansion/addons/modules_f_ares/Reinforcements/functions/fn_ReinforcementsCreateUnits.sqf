@@ -100,7 +100,6 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 					{
 						_faction_included = true;
 						(_group_factions select _side_id) pushBack _faction_name;
-						(_groups select _side_id) pushBack [];
 					};
 					_groups_in_faction pushBack _group_cfg;
 					_first = false;
