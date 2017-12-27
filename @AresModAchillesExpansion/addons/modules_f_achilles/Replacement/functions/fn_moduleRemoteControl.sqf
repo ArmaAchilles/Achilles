@@ -79,6 +79,9 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 			_color ppeffectadjust [1,1,0,[0,0,0,1],[1,1,1,1],[0,0,0,0],[0.9,0.85,0,0,0,0.5,1]];
 			_color ppeffectcommit 0.3;
 			("bis_fnc_moduleRemoteCurator" call bis_fnc_rscLayer) cuttext ["","black in",0.5];
+			
+			// add actions
+			private _addActionID = _unit call Achilles_fnc_addBreachDoorAction;
 
 			//--- Back to player
 			_vehicle = vehicle _unit;
@@ -135,6 +138,8 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 					_camPos set [2,(_unitPos select 2) + (getterrainheightasl _unitPos) - (getterrainheightasl _camPos) + 10];
 					//[_camPos,_unit] call bis_fnc_setcuratorcamera;
 					(getassignedcuratorlogic player) setvariable ["bis_fnc_modulecuratorsetcamera_params",[_camPos,_unit]];
+					// remove actions
+					[_unit, _addActionID] call BIS_fnc_holdActionRemove;
 				};
 
 				sleep 0.1; //--- Engine needs a delay in case controlled unit was deleted
