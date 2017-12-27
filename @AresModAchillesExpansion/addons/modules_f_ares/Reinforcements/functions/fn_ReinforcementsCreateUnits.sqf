@@ -6,7 +6,7 @@ disableSerialization;
 
 private _spawn_position = position _logic;
 
-comment "// allocate data arrays";
+// allocate data arrays
 private _sides = [];
 private _side_names = [];
 for "_i" from 0 to 2 do
@@ -16,7 +16,7 @@ for "_i" from 0 to 2 do
 };
 if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEqualTo []) then
 {
-	comment "// allocate data arrays";
+	// allocate data arrays
 	private _factions = [];
 	private _vehicle_categories = [];
 	private _vehicles = [];
@@ -29,7 +29,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		_groups pushBack [];
 	};
 
-	comment "// get all factions";
+	// get all factions
 	{
 		private _side_id = [_x, "side", 4] call BIS_fnc_returnConfigEntry;
 		if (_side_id <= 2 and _side_id >= 0) then
@@ -40,13 +40,13 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			(_groups select _side_id) pushBack [];
 		};
 	} forEach ((configFile >> "CfgFactionClasses") call Achilles_fnc_returnChildren);
-	comment "// sort by display names";
+	// sort by display names
 	for "_side_id" from 0 to (count _sides - 1) do
 	{
 		_factions set [_side_id, [(_factions select _side_id), [], {getText (configfile >> "CfgFactionClasses" >> _x >> "displayName")}] call BIS_fnc_sortBy];
 	};
 
-	comment "// get all vehicles";
+	// get all vehicles
 	{
 		private _type = configName _x;
 		private _side_id = [_x, "side", 4] call BIS_fnc_returnConfigEntry;
@@ -76,7 +76,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		};
 	} forEach ((configFile >> "CfgVehicles") call Achilles_fnc_returnChildren);
 
-	comment "// get all groups";
+	// get all groups
 	{
 		private _side_id = [_x, "side", 4] call BIS_fnc_returnConfigEntry;
 		if (_side_id <= 2) then
@@ -94,12 +94,12 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 								(_groups select _side_id select _faction_id) pushBack _x;
 							};
 						};
-					} forEach (_x call Achilles_fnc_returnChildren); comment "// for each group";
-				} forEach (_x call Achilles_fnc_returnChildren); comment "// for each group category";
-			} forEach (_x call Achilles_fnc_returnChildren); comment "// for each faction";
+					} forEach (_x call Achilles_fnc_returnChildren); // for each group
+				} forEach (_x call Achilles_fnc_returnChildren); // for each group category
+			} forEach (_x call Achilles_fnc_returnChildren); // for each faction
 		};
 	} forEach ((configFile >> "CfgGroups") call Achilles_fnc_returnChildren);
-	comment "// sort by display names";
+	// sort by display names
 	for "_side_id" from 0 to (count _sides - 1) do
 	{
 		for "_faction_id" from 0 to (count (_factions select _side_id) - 1) do
@@ -112,7 +112,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		};
 	};
 
-	comment "// remove empty factions";
+	// remove empty factions
 	private _vehicle_factions = +_factions;
 	private _group_factions = +_factions;
 	for "_side_id" from 0 to (count _sides - 1) do
@@ -139,21 +139,21 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 	uiNamespace setVariable ["Achilles_var_nestedList_groups", _groups];
 };
 
-comment "// get LZs";
+// get LZs
 private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
 if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
 _lzOptions append (_allLzs apply {name _x});
 
-comment "// get RPs";
+// get RPs
 private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
 if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
 private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 private _rpOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
 _rpOptions append (_allRps apply {name _x});
 
-comment "// Show the user the dialog";
+// Show the user the dialog
 private _dialogResult =
 [
 	localize "STR_AMAE_SPAWN_UNITS",
@@ -175,32 +175,32 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-comment "//Get dialog results";
+//Get dialog results
 _dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_algorithm","_lzdz_type","_grp_fac_id","_grp_id","_rp_algorithm","_grp_beh"];
 private _side = _sides select _side_id;
 private _vehicle_type = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
 private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
-private _lzSize = 20;	comment "// TODO make this a dialog parameter?";
-private _rpSize = 20;	comment "// TODO make this a dialog parameters?";
+private _lzSize = 20;	// TODO make this a dialog parameter?
+private _rpSize = 20;	// TODO make this a dialog parameters?
 
-comment "// Choose the LZ based on what the user indicated";
+// Choose the LZ based on what the user indicated
 private _lz = switch (_lzdz_algorithm) do
 {
-	case 0: comment "// Random";
+	case 0: // Random
 	{
 		_allLzs call BIS_fnc_selectRandom
 	};
-	case 1: comment "// Nearest";
+	case 1: // Nearest
 	{
 		[_spawn_position, _allLzs] call Ares_fnc_GetNearest
 	};
-	case 2: comment "// Furthest";
+	case 2: // Furthest
 	{
 		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest
 	};
-	case 3: comment "// Least used";
+	case 3: // Least used
 	{
-		private _temp = _allLzs call BIS_fnc_selectRandom; comment "// Choose randomly to start.";
+		private _temp = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
 		{
 			if (_x getVariable ["Ares_Lz_Count", 0] < _temp getVariable ["Ares_Lz_Count", 0]) then
 			{
@@ -209,22 +209,22 @@ private _lz = switch (_lzdz_algorithm) do
 		} forEach _allLzs;
         _temp
 	};
-	default comment "// Specific LZ.";
+	default // Specific LZ.
 	{
 		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
 	};
 };
 
-comment "// Now that we've chosen an LZ, increment the count for it.";
+// Now that we've chosen an LZ, increment the count for it.
 _lz setVariable ["Ares_Lz_Count", (_lz getVariable ["Ares_Lz_Count", 0]) + 1];
 
 
-comment "// create the transport vehicle";
+// create the transport vehicle
 private _vehicleInfo = [_spawn_position, 0, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _vehicleInfo select 0;
 _vehicle setVectorDir ((position _lz) vectorDiff _spawn_position);
 private _vehicleGroup = _vehicleInfo select 2;
-comment "//_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];";
+//_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
