@@ -157,10 +157,10 @@ private _dialogResult =
 
 // Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
-_dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_algorithm","_lzdz_type","_grp_fac_id","_grp_id","_rp_algorithm","_grp_beh"];
+_dialogResult params ["_side_id","_vehicle_faction_id","_vehicle_category_id","_vehicle_id","_vehicle_behaviour","_lzdz_algorithm","_lzdz_type","_group_faction_id","_group_id","_rp_algorithm","_group_behaviour"];
 private _side = _sides select _side_id;
-private _vehicle_type = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id;
-private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
+private _vehicle_type = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _vehicle_faction_id select _vehicle_category_id select _vehicle_id;
+private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _group_faction_id select _group_id;
 private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
@@ -235,7 +235,7 @@ else
 };
 
 // Generate the waypoints for after the transport drops off the troops.
-if (_veh_beh == 0) then
+if (_vehicle_behaviour == 0) then
 {
 	// RTB and despawn.
 	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawn_position, 0];
@@ -261,7 +261,7 @@ if (count _infantry_list > _CrewNetto) then
 	{deleteVehicle _x} forEach _infantry_to_delete;
 };
 
-switch (_grp_beh) do
+switch (_group_behaviour) do
 {
 	case 1: // Relaxed
 	{
@@ -281,48 +281,43 @@ switch (_grp_beh) do
 };
 
 // Choose a RP for the squad to head to once unloaded and set their waypoint.
-if (count _allRps > 0) then
+
+// Choose the RP based on the algorithm the user selected
+private _rp = switch (_rp_algorithm) do
 {
-	// Choose the RP based on the algorithm the user selected
-	private _rp = switch (_rp_algorithm) do
+	case 0: // Random
 	{
-		case 0: // Random
-		{
-    		_allRps call BIS_fnc_selectRandom;
-		};
-		case 1: // Nearest
-		{
-			[position _lz, _allRps] call Ares_fnc_GetNearest;
-		};
-		case 2: // Furthest
-		{
-			[position _lz, _allRps] call Ares_fnc_GetFarthest;
-		};
-		case 3: // Least Used
-		{
-			private _temp = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
-			{
-				if (_x getVariable ["Ares_Rp_Count", 0] < _temp getVariable ["Ares_Rp_Count", 0]) then
-				{
-					_temp = _x;
-				}
-			} forEach _allRps;
-            _temp
-		};
-		default
-		{
-			_allRps select (_rp_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
-		};
+		_allRps call BIS_fnc_selectRandom;
 	};
+	case 1: // Nearest
+	{
+		[position _lz, _allRps] call Ares_fnc_GetNearest;
+	};
+	case 2: // Furthest
+	{
+		[position _lz, _allRps] call Ares_fnc_GetFarthest;
+	};
+	case 3: // Least Used
+	{
+		private _temp = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
+		{
+			if (_x getVariable ["Ares_Rp_Count", 0] < _temp getVariable ["Ares_Rp_Count", 0]) then
+			{
+				_temp = _x;
+			}
+		} forEach _allRps;
+		_temp
+	};
+	default
+	{
+		_allRps select (_rp_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
+	};
+};
 
-	// Now that we've chosen an RP, increment the count for it.
-	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
+// Now that we've chosen an RP, increment the count for it.
+_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
 
-	_infantry_group addWaypoint [position _rp, _rpSize];
-}
-else
-{
-	_infantry_group addWaypoint [position _lz, _rpSize];
+_infantry_group addWaypoint [position _rp, _rpSize];
 };
 
 // Load the units into the vehicle.
@@ -340,14 +335,7 @@ if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 };
 
 // print a confirmation
-if (count _allRps > 0) then
-{
-	[objNull, localize "STR_AMAE_REINFORCEMENT_DISPATCHED"] call Ares_fnc_showZeusMessage;
-}
-else
-{
-	[objNull, "Transport dispatched to LZ. Squad will stay at LZ."] call bis_fnc_showCuratorFeedbackMessage;
-};
+[localize "STR_AMAE_REINFORCEMENT_DISPATCHED"] call Ares_fnc_showZeusMessage;
 
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
