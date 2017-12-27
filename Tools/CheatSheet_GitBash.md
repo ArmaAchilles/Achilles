@@ -25,8 +25,7 @@ git checkout -- .
 ```
 ### fork a new branch B from branch A 
 ```bash
-git checkout <branch A>
-git checkout -b <branch B>
+git checkout -b <branch B> <branch A>
 git push --set-upstream origin <branch B>`
 ```
 ### switch branch
