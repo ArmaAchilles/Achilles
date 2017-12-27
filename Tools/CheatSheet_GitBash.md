@@ -7,6 +7,7 @@ git log --follow <file>
 git diff <previous branch> <current branch> -- <file>
 ```
 ### track file change
+```bash
 git add <files> 
 ```
 ### untrack file change
