@@ -340,17 +340,17 @@ if (count _allRps > 0) then
 	// Now that we've chosen an RP, increment the count for it.
 	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
 
-	private _infantryRpWp = _infantry_group addWaypoint [position _rp, _rpSize];
+	_infantry_group addWaypoint [position _rp, _rpSize];
 }
 else
 {
-	private _infantryMoveOnWp = _infantry_group addWaypoint [position _lz, _rpSize];
+	_infantry_group addWaypoint [position _lz, _rpSize];
 };
 
 // Load the units into the vehicle.
 {
 	_x moveInCargo (vehicle (leader _vehicleGroup));
-} foreach _infantry_list;
+} forEach _infantry_list;
 
 // Add infantry to curator
 [(units _infantry_group)] call Ares_fnc_AddUnitsToCurator;
@@ -364,7 +364,7 @@ if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 // print a confirmation
 if (count _allRps > 0) then
 {
-	[objNull, "Transport dispatched to LZ. Squad will head to RP."] call bis_fnc_showCuratorFeedbackMessage;
+	[objNull, localize "STR_AMAE_REINFORCEMENT_DISPATCHED"] call Ares_fnc_showZeusMessage;
 }
 else
 {
