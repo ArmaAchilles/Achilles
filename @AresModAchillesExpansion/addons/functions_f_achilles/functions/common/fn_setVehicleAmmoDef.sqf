@@ -24,11 +24,12 @@ _pylonMags = getPylonMagazines _vehicle;
 //Changing Pylon Loadouts and calling setVehicleAmmoDef can cause problems.
 if (_pylonMags isEqualTo []) then {_vehicle setVehicleAmmoDef _percentage} else {_vehicle setVehicleAmmo _percentage};
 
-{_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
-{_vehicle removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_vehicle getCompatiblePylonMagazines _forEachIndex + 1);
-
 {
 	private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
-	_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, (_vehicle getVariable ["Achilles_var_changePylonAmmo_Assigned", [0]])];
+	_addWeaponsTo = if (not isNull gunner _vehicle) then
+	{
+		_vehicle getVariable ["Achilles_var_changePylonAmmo_Assigned", [0]];
+	} else {[]};
+	_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, _addWeaponsTo];
 	_vehicle setAmmoOnPylon [_forEachIndex + 1, round (_cfg_ammoCount * _percentage)];
 } forEach _pylonMags;
