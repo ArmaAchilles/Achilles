@@ -348,7 +348,7 @@ switch _mode do
 				[worldname,"size='1.1' font='PuristaMedium'"],
 				["","<br/>"]
 			];
-			private _handle = [_output,safezoneX - 0.01,safeZoneY + (1 - 0.125) * safeZoneH,true,"<t align='right' size='1,1' >%1</t>"] call BIS_fnc_typeText2;
+			private _handle = [_output,safezoneX - 0.01,safeZoneY + (1 - 0.125) * safeZoneH,true,"<t align='right' size='1,1' >%1</t>"] spawn BIS_fnc_typeText2;
 			// if(_isNotZeus) then {[1] call BIS_fnc_cinemaBorder};
 		}, 0] call Achilles_fnc_spawn;
 	};

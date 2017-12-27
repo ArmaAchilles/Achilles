@@ -15,9 +15,9 @@ private _dialogResult =
 	localize "STR_AMAE_DAMAGE_BUILDINGS",
 	[
 		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE"]],
-		[localize "STR_AMAE_MEAN_DAMAGE",[localize "STR_AMAE_NO_DAMAGE",localize "STR_AMAE_LIGHT_INJURY",localize "STR_AMAE_SEVERE",localize "STR_AMAE_FULL_DAMAGE"],2],
+		[localize "STR_AMAE_MEAN_DAMAGE",[localize "STR_AMAE_NO_DAMAGE",localize "STR_AMAE_LIGHT_DAMAGE",localize "STR_AMAE_SEVERE_DAMAGE",localize "STR_AMAE_FULL_DAMAGE"],2],
 		[localize "STR_AMAE_DISTRIBUTION",[localize "STR_AMAE_DELTA",localize "STR_AMAE_UNIFORM", localize "STR_AMAE_NORMAL_DISTRIBUTION"]],
-		[(localize "STR_AMAE_RANGE") + " [m]","","100"]
+		[[localize "STR_AMAE_RANGE",localize "STR_AMAE_METERS"] joinString " ","","100"]
 	],
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;

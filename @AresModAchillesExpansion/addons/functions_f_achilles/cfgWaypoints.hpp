@@ -34,7 +34,7 @@ class cfgWaypoints
 		};
 		class SearchBuilding
 		{
-			displayName = "$STR_AMAE_SEARCH_BUILDING";
+			displayName = "$STR_AMAE_WP_SEARCH_BUILDING";
 			displayNameDebug = "SearchBuilding";
 			file = "\achilles\functions_f_achilles\scripts\fn_wpSearchBuilding.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_position.paa";

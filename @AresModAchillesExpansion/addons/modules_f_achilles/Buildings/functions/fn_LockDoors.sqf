@@ -18,7 +18,7 @@ private _dialogResult =
 	localize "STR_AMAE_LOCK_DOORS",
 	[
 		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE"]],
-		[(localize "STR_AMAE_RANGE") + " [m]","","100"],
+		[[localize "STR_AMAE_RANGE",localize "STR_AMAE_METERS"] joinString " ","","100"],
 		[localize "STR_AMAE_MODE", [localize "STR_AMAE_UNBREACHABLE", localize "STR_AMAE_BREACHABLE", localize "STR_AMAE_OPEN"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
@@ -39,7 +39,7 @@ switch (_dialogResult select 0) do
 	};
 };
 
-if (_buildings isEqualTo []) exitWith {["No buildings found!"] call Achilles_fnc_showZeusErrorMessage};
+if (_buildings isEqualTo []) exitWith {[localize "STR_AMAE_NO_BUILDINGS_FOUND"] call Achilles_fnc_showZeusErrorMessage};
 
 private _mode = _dialogResult select 2;
 private _logic_list = [];
@@ -146,7 +146,7 @@ if (_mode < 2) then
 		};
 	} forEach _logic_list;
 
-	if (_allocation_error_cases > 0) then {hint format ["Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)", _allocation_error_cases, count _logic_list]};
+	if (_allocation_error_cases > 0) then {hint format [localize "STR_AMAE_LOCKS_ALLOCATION_ERROR", _allocation_error_cases, count _logic_list]};
 
 	[_logic_list + _sourceObject_list, true] call Ares_fnc_AddUnitsToCurator;
 	if (_mode == 1) then {publicVariable "Achilles_var_breachableDoors"};

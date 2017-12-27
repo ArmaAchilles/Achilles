@@ -9,3 +9,5 @@ Tools/AchillesTestServer.bat
 
 .idea
 /*.iml
+*.ini
+Tools/AddonBuilder/config.ini

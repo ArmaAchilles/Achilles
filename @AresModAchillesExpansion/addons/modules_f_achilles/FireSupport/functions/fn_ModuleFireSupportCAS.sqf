@@ -32,7 +32,7 @@ private _dialogResult =
 	localize "STR_AMAE_ADVANCED_CAS",
 	[
 		[format[localize "STR_AMAE_TARGET", " "], _targetChoices],
-		[localize "STR_AMAE_AMMO", _weapons apply {getText (configfile >> "CfgWeapons" >> _x >> "displayName")}]
+		[localize "STR_AMAE_FS_AMMO", _weapons apply {getText (configfile >> "CfgWeapons" >> _x >> "displayName")}]
 	]
 ] call Ares_fnc_showChooseDialog;
 
