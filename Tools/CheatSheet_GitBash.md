@@ -23,10 +23,11 @@ git push
 ```bash
 git checkout -- .
 ```
-### create a new branch
+### fork a new branch B from branch A 
 ```bash
-git checkout -b <branch>
-git push --set-upstream origin <branch>`
+git checkout <branch A>
+git checkout -b <branch B>
+git push --set-upstream origin <branch B>`
 ```
 ### switch branch
 ```bash
