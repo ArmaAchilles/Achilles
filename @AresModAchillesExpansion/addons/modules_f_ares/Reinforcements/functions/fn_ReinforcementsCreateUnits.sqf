@@ -1,10 +1,9 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-
-#include "\achilles\modules_f_ares\module_header.hpp"
-
-#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 	4
 #define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
 #define CURATOR_GROUPS_IDCs 					[IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER]
+#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 	4
+
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 disableSerialization;
 
@@ -81,7 +80,6 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		_group_factions pushBack [];
 		_groups pushBack [];
 		private _side_class = _tree_ctrl tvData [0];
-		private _faction_id = -1;
 		for "_faction_tvid" from 0 to ((_tree_ctrl tvCount [0]) - 1) do
 		{
 			private _faction_included = false;
@@ -102,7 +100,6 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 					{
 						_faction_included = true;
 						(_group_factions select _side_id) pushBack _faction_name;
-						_faction_id = _faction_id + 1;
 						(_groups select _side_id) pushBack [];
 					};
 					_groups_in_faction pushBack _group_cfg;
@@ -112,7 +109,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			if (_faction_included) then
 			{
 				_groups_in_faction = [_groups_in_faction, [], {getText (_x >> "Name")}] call BIS_fnc_sortBy;
-				(_groups select _side_id select _faction_id) pushBack _groups_in_faction;
+				(_groups select _side_id) pushBack _groups_in_faction;
 			};
 		};
 	};
