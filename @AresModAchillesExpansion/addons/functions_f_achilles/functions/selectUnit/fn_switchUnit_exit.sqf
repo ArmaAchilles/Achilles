@@ -24,6 +24,7 @@ _camPos set [2,(_unitPos select 2) + (getterrainheightasl _unitPos) - (getterrai
 (getassignedcuratorlogic _playerUnit) setvariable ["bis_fnc_modulecuratorsetcamera_params",[_camPos,_unit]];
 _unit removeEventHandler ["HandleDamage", _unit getVariable "Achilles_var_switchUnit_damageEHID"];
 
+// remove actions
 private _addActionID = _unit getVariable ["Achilles_var_switchUnit_addAction", nil];
 if (!isNil "_addActionID") then {_unit removeAction _addActionID};
 _addActionID = _unit getVariable ["Achilles_var_switchUnit_addBreachDoorAction", nil];
