@@ -113,7 +113,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			{
 				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_str_data","",[""]]];
 				private _id = _ctrl_cb lbAdd _entry_text_L;
-				_ctrl_cb lbSetTextRight [_id, _entry_text_R + " "];
+				_ctrl_cb lbSetTextRight [_id, [_entry_text_R, " "] joinString ""];
 				if (not (_str_data isEqualTo "")) then
 				{
 					_use_data = true;
