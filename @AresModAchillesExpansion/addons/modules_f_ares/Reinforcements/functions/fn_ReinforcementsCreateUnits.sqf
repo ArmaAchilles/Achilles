@@ -6,7 +6,7 @@ disableSerialization;
 
 private _spawn_position = position _logic;
 
-// allocate data arrays
+// get sides
 private _sides = [];
 private _side_names = [];
 for "_i" from 0 to 2 do
@@ -14,6 +14,8 @@ for "_i" from 0 to 2 do
 	_sides pushBack (_i call BIS_fnc_sideType);
 	_side_names pushBack (_i call BIS_fnc_sideName);
 };
+
+// cache: find all possible vehicles and groups for reinforcements 
 if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEqualTo []) then
 {
 	// allocate data arrays
@@ -132,6 +134,8 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			};
 		};
 	};
+	
+	// cache
 	uiNamespace setVariable ["Achilles_var_nestedList_vehicleFactions", _vehicle_factions];
 	uiNamespace setVariable ["Achilles_var_nestedList_vehicleCategories", _vehicle_categories];
 	uiNamespace setVariable ["Achilles_var_nestedList_vehicles", _vehicles];
@@ -173,9 +177,8 @@ private _dialogResult =
 	"Achilles_fnc_RscDisplayAttributes_Create_Reinforcement"
 ] call Achilles_fnc_ShowChooseDialog;
 
+// Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
-
-//Get dialog results
 _dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_algorithm","_lzdz_type","_grp_fac_id","_grp_id","_rp_algorithm","_grp_beh"];
 private _side = _sides select _side_id;
 private _vehicle_type = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
@@ -358,6 +361,7 @@ if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 	{deleteVehicle _x} forEach _infantry_list;
 };
 
+// print a confirmation
 if (count _allRps > 0) then
 {
 	[objNull, "Transport dispatched to LZ. Squad will head to RP."] call bis_fnc_showCuratorFeedbackMessage;
