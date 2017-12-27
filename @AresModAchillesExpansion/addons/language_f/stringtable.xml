@@ -1213,7 +1213,7 @@
             <Key ID="STR_AMAE_REINFORCEMENT_DISPATCHED">
                 <Original>Transport dispatched to LZ. Squad will head to RP.</Original>
                 <English>Transport dispatched to LZ. Squad will head to RP.</English>
-                <French>Le transport est en chemin. La troupe va aller au RV</French>
+                <French>Le transport est en route. La troupe va aller au RV</French>
                 <German>Das Transportfahrzeug ist auf dem Weg zur LZ. Die Truppe wird zum Sammelpunkt gehen.</German>
             </Key>
             <Key ID="STR_AMAE_INFANTRY_GROUP">
