@@ -218,11 +218,10 @@ private _lz = switch (_lzdz_algorithm) do
 // Now that we've chosen an LZ, increment the count for it.
 _lz setVariable ["Ares_Lz_Count", (_lz getVariable ["Ares_Lz_Count", 0]) + 1];
 
-
 // create the transport vehicle
-private _vehicleInfo = [_spawn_position, 0, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
+private _vec_dir = (position _lz) vectorDiff _spawn_position;
+private _vehicleInfo = [_spawn_position, (_vec_dir select 0) atan2 (_vec_dir select 1), _vehicle_type, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _vehicleInfo select 0;
-_vehicle setVectorDir ((position _lz) vectorDiff _spawn_position);
 private _vehicleGroup = _vehicleInfo select 2;
 //_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
