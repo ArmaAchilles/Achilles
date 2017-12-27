@@ -47,6 +47,8 @@ private _addActionID = _unit addAction [localize "STR_AMAE_RELEASE_UAV_CONTROLS"
 	[] call Achilles_fnc_switchUnit_exit;
 }, nil, 0, false];
 _unit setVariable ["Achilles_var_switchUnit_addAction", _addActionID];
+private _addActionID = [] call Achilles_fnc_addBreachDoorAction;
+_unit setVariable ["Achilles_var_switchUnit_addBreachDoorAction", _addActionID];
 
 private _eh_id = _unit addEventHandler ["HandleDamage",
 {

@@ -1,21 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 4/25/17
-//	VERSION: 1.0
-//  DESCRIPTION: THIS FUNCTION HAS TO BE EXECUTED ON THE PLAYER'S MACHINE!!!
-//				 this function adds the breach door action to the player
+// AUTHOR: 			Kex
+// DATE: 			12/27/17
+// VERSION: 		AMAE.0.1.0
+// DESCRIPTION: 	THIS FUNCTION HAS TO BE EXECUTED ON THE PLAYER'S MACHINE!!!
+//				 	this function adds the breach door action to the player
 //
-//	ARGUMENTS:
-//	nothing
+// ARGUMENTS:		nothing
 //
-//	RETURNS:
-//	nothing (procedure)
+// RETURNS:			SCALAR - Returnvalue of BIS_fnc_holdActionAdd (ID of the action)
 //
-//	Example:
-//	call Achilles_fnc_addBreachDoorAction;
+// Example:
+// call Achilles_fnc_addBreachDoorAction;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-[
+private _id = [
 	player,
 	"Set a Breaching Charge",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
@@ -89,3 +87,4 @@
 	false,
 	false
 ] call BIS_fnc_holdActionAdd;
+_id;
