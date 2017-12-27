@@ -23,7 +23,6 @@ private _id = [
 	{},
 	{},
 	{
-		params ["_target", "_caller", "_ID", "_arguments"];
 		// get grass cutter (= source object)
 		private _sourceObject = objNull;
 		private _nearSourceObjects = (getPosATL _caller) nearEntities [["Land_ClutterCutter_small_F"], 3];
@@ -49,7 +48,8 @@ private _id = [
 		_sourceObject setVariable ["occupied",true];
 		private _action_id = _caller addAction ["Touch off (breach)",
 		{
-			[_caller, _ID] call BIS_fnc_holdActionRemove;
+			params ["_", "_caller", "_ID", "_arguments"];
+			_caller removeAction _ID;
 			_arguments params ["_charge"];
 			private _explosion_pos = position _charge;
 			_sourceObject = attachedTo _charge;
@@ -62,12 +62,12 @@ private _id = [
 			[_building,_source] spawn {sleep 1; params ["_building","_source"]; _building animateSource [_source, 1, true]};
 			[_explosion_pos] remoteExec ["Achilles_fnc_breachStun",0];
 		}, [_charge], 20];
-		private _killed_id = _caller addEventHandler ["killed", {_charge = _caller getVariable "breach"; (attachedTo _charge) setVariable ["occupied",nil]; deleteVehicle _charge}];
-		_charge addEventHandler ["Deleted", format ["_caller removeEventHandler [""killed"", %1]; _caller removeAction %2", _killed_id, _action_id]];
+		private _killed_id = _caller addEventHandler ["killed", {params ["_caller"]; _charge = _caller getVariable "breach"; (attachedTo _charge) setVariable ["occupied",nil]; deleteVehicle _charge}];
+		_charge addEventHandler ["Deleted", format ["player removeEventHandler [""killed"", %1]; _caller removeAction %2", _killed_id, _action_id]];
 		// event handler for defused charge
-		[_charge,_sourceObject,_killed_id,_action_id] spawn
+		[_caller, _charge,_sourceObject,_killed_id,_action_id] spawn
 		{
-			params ["_charge","_sourceObject","_killed_id","_action_id"];
+			params ["_caller","_charge","_sourceObject","_killed_id","_action_id"];
 			while {!isNull _sourceObject} do
 			{
 				uiSleep 1;
