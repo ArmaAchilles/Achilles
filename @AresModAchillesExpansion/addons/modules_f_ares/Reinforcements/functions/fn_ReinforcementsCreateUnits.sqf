@@ -318,7 +318,6 @@ private _rp = switch (_rp_algorithm) do
 _rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
 
 _infantry_group addWaypoint [position _rp, _rpSize];
-};
 
 // Load the units into the vehicle.
 {
