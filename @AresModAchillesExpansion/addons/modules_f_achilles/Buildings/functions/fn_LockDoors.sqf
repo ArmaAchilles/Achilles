@@ -55,8 +55,8 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 	[[],
 	{
 		while {isNull player} do {uiSleep 1};
-		call Achilles_fnc_addBreachDoorAction;
-		player addEventHandler ["Respawn",{call Achilles_fnc_addBreachDoorAction}];
+		player call Achilles_fnc_addBreachDoorAction;
+		player addEventHandler ["Respawn",{player call Achilles_fnc_addBreachDoorAction}];
 	}, 0, "Achilles_id_breachInit"] call Achilles_fnc_spawn;
 };
 

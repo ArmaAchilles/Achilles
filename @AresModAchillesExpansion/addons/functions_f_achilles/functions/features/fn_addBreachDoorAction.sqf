@@ -12,9 +12,10 @@
 // Example:
 // call Achilles_fnc_addBreachDoorAction;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+params [["_unit",objNull,[objNull]]];
+if (isNull _unit) exitWith {diag_log "Error in Achilles_fnc_addBreachDoorAction: Passed objNull!"};
 private _id = [
-	player,
+	_unit,
 	"Set a Breaching Charge",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",

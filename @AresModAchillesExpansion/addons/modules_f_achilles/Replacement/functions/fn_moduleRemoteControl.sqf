@@ -81,7 +81,7 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 			("bis_fnc_moduleRemoteCurator" call bis_fnc_rscLayer) cuttext ["","black in",0.5];
 			
 			// add actions
-			private _addActionID = [] call Achilles_fnc_addBreachDoorAction;
+			private _addActionID = _unit call Achilles_fnc_addBreachDoorAction;
 
 			//--- Back to player
 			_vehicle = vehicle _unit;
