@@ -466,3 +466,11 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 		};
 	};
 };
+
+class RscAttributeOwners : RscControlsGroupNoScrollbars {
+	onSetFocus = "[_this,""RscAttributeOwners"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+};
+
+class RscAttributeOwners2 : RscControlsGroupNoScrollbars {
+	onSetFocus = "[_this,""RscAttributeOwners2"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+};
