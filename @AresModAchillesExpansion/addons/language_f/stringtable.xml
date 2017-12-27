@@ -1493,10 +1493,23 @@
                 <Russian>стали противником</Russian>
                 <German>feindlich gegenüber</German>
             </Key>
-            <Key ID="STR_AMAE_ROTATION_MODULE_X_AXIS">
-                <Original>%1 Axis</Original>
-                <English>%1 Axis</English>
-                <Russian>Ось %1</Russian>
+            <Key ID="STR_AMAE_PITCH_ANGLE">
+                <Original>Pitch Axis</Original>
+                <English>Pitch Axis</English>
+                <French>Angle d'inclinaison</French>
+                <German>Nickachse</German>
+            </Key>
+            <Key ID="STR_AMAE_ROLL_ANGLE">
+                <Original>Roll Angle</Original>
+                <English>Roll Angle</English>
+                <French>Angle de roulis</French>
+                <German>Rollwinkel</German>
+            </Key>
+            <Key ID="STR_AMAE_YAW_ANGLE">
+                <Original>Yaw Angle</Original>
+                <English>Yaw Angle</English>
+                <French>Angle d'embardée</French>
+                <German>Gierwinkel</German>
             </Key>
             <Key ID="STR_AMAE_RANDOM">
                 <Original>Random</Original>
