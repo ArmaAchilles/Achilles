@@ -44,21 +44,21 @@ if (_dialogResult isEqualTo []) exitWith {};
 private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
 _curatorSelected = _curatorSelected select {_x isKindOf _planeType};
 
-private _addWeaponsTo = "";
+private _addWeaponsTo = 0;
 if (_hasGunner) then {_addWeaponsTo = _dialogResult select 0};
 _addWeaponsTo = [[], [0]] select (_addWeaponsTo == 1);
 
 if (_hasGunner) then {_dialogResult deleteAt 0};
 
 {
-	_plane = _x;
+	private _plane = _x;
 	{_plane removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[-1]]} forEach (_plane getCompatiblePylonMagazines _forEachIndex + 1);
 	{_plane removeWeaponTurret [getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon"),[0]]} forEach (_plane getCompatiblePylonMagazines _forEachIndex + 1);
 	_plane setVariable ["Achilles_var_changePylonAmmo_Assigned", _addWeaponsTo];
 	{
 		private _magIndex = _x;
 		private _pylonIndex = _forEachIndex + 1;
-        if (_x > 0) then {(_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)} else {""};
+		private _magClassName = if (_x > 0) then {(_plane getCompatiblePylonMagazines _pylonIndex) select (_magIndex - 1)} else {""};
 		if (local _plane) then
 		{
 			_plane setPylonLoadOut [_pylonIndex, _magClassName, false, _addWeaponsTo];
