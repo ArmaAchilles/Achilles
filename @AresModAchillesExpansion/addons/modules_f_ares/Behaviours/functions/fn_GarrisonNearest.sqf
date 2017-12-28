@@ -32,7 +32,8 @@ else
 	if (_dialogResult isEqualTo []) exitWith {};
 	private _radius = parseNumber (_dialogResult param[0]);
 	private _insideOnly = (_dialogResult param[1] == 1);
-	private _fillEvenly = (_dialogResult param[1] == 1);
+	private _fillEvenly = (_dialogResult param[2] == 1);
+	_groupUnderCursor setVariable ["Achilles_var_inGarrison", true, true];
 	
 	if (local _groupUnderCursor) then
 	{

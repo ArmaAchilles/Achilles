@@ -11,6 +11,8 @@ if (isNil "Achilles_var_search_building_init_done") then
 
 [localize "STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING"] call Ares_fnc_showZeusMessage;
 
+_groupUnderCursor setVariable ["Achilles_var_inGarrison", true, true];
+
 if (local _groupUnderCursor) then
 {
     [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] call Ares_fnc_SearchBuilding;
