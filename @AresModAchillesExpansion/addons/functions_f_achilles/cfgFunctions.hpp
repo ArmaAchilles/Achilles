@@ -45,7 +45,6 @@ class CfgFunctions
 			class createDummyLogic;
 			class isACELoaded;
 			class returnChildren;
-			class instantBuildingGarrison;
 		};
 
 		class selectUnit
@@ -103,6 +102,7 @@ class CfgFunctions
 			class effectFire;
 			class ArsenalSetup;
 			class ArsenalSetupACE;
+			class instantBuildingGarrison;
 		};
 	};
 

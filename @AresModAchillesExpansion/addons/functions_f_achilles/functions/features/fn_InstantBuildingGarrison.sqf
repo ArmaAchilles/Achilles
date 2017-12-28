@@ -71,8 +71,8 @@ for "_i_unit" from 0 to (count _units - 1) do
 	{
 		if (_fillEvenly) then
 		{
-			// fill closest buildings by distributing the units randomly (preferably the closer ones)
-			private _i_building = floor random [0,0, _n_building];
+			// fill closest buildings by distributing the units randomly
+			private _i_building = floor random _n_building;
 			private _pos_list = _pos_nestedList select _i_building;
 			private _i_pos = floor random count _pos_list;
 			_pos = +(_pos_list select _i_pos);

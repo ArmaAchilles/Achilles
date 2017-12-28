@@ -25,7 +25,7 @@ else
 		localize "STR_AMAE_GARRISON_INSTANT",
 		[
 			["TEXT", [localize "STR_AMAE_RADIUS", "[m]"] joinString " ", [], "150"],
-			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 1],
+			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 0],
 			["COMBOBOX", localize "STR_AMAE_FILL_EVENLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 0]
 		]
 	] call Achilles_fnc_showChooseDialog;
