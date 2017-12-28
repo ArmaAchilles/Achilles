@@ -77,7 +77,6 @@ All of these icons are licensed under Creative Commons Attribution license.
     - https://thenounproject.com/icon/1235603/
 
 ## Translations
-- English (by Kex)
+- German (by Kex, KiritoKun223; revised by Shukari)
+- Russian (by Unhappytroll, Victor and Igor Nikolaev (former))
 - French (by Kex)
-- German (by Kex; revised by KiritoKun223, shukari)
-- Russian (by Igor Nikolaev)
