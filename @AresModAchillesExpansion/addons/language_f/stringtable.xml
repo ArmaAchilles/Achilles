@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
@@ -3347,11 +3347,12 @@
         <Container name="cfg Hints">
             <Key ID="STR_AMAE_PLACING_MODULES">
                 <Original>Placing Modules</Original>
+				<English>Placing Modules</English>
                 <Russian>Установка модулей</Russian>
                 <German>Module platzieren</German>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
-                <Original>
+            <Original>
 			The Ares Modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
@@ -3359,8 +3360,17 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
-		</Original>
-                <German>
+		    </Original>
+			<English>
+			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
+		    </English>
+            <German>
 			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
@@ -3368,18 +3378,21 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, manchmal kann es aber auch auf Einheiten platziert werden.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
-		</German>
+		    </German>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
-                <Original>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-		</Original>
-                <Russian>
+            <Original>
+			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere in order to apply it to multiple units.
+		    </Original>
+			<English>
+			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere in order to apply it to multiple units.
+		    </English>
+            <Russian>
 			Модули, примененные на объекты или юнитов, чаще всего могут быть либо поставлены на объект, либо на землю, чтобы применить модуль для большего количества объектов.
-		</Russian>
-                <German>
+		    </Russian>
+            <German>
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
-		</German>
+		    </German>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
                 <Original>Selection Option</Original>
@@ -3390,91 +3403,109 @@
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
-			Some modules have the option to select objects on which it is apply to.
-			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
-		</Original>
+		    	Some modules have the option to select objects on which it is applied to.
+		    	%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+		    	%1You can cancel the selection mode with %3[ESCAPE]%4.
+		        </Original>
                 <English>
-			Some modules have the option to select objects on which it is apply to.
-			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
-		</English>
+	    		Some modules have the option to select objects on which it is applied to.
+	    		%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+	    		%1You can cancel the selection mode with %3[ESCAPE]%4.
+	    	    </English>
                 <French>
-			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
-			%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
-			%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
-		</French>
+	    		Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
+	    		%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
+	    		%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
+	    	    </French>
                 <Russian>
-			Некоторые модули имеют опцию выбора объектов, к которым они присоединяются.
-			%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
-			%1Вы можете отменить выбор используя %3[ESCAPE]%4.
-		</Russian>
+	     		Некоторые модули имеют опцию выбора объектов, к которым они присоединяются.
+	    		%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
+	    		%1Вы можете отменить выбор используя %3[ESCAPE]%4.
+	      	    </Russian>
                 <German>
-			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
-			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
-			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
-		</German>
+	    		Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
+	    		%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
+	    		%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
+	    	    </German>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
                 <Original>
-			You can read on top what the module want you to select.
-		</Original>
+		    	You can read on top what the module wants you to select.
+	        	</Original>
                 <English>
-			You can read on top what the module want you to select.
-		</English>
+		    	You can read on top what the module wants you to select.
+	        	</English>
                 <French>
-			Il est écrié au-dessus qu'est-ce que vous devez choisir.
-		</French>
+		    	Il est écrié au-dessus qu'est-ce que vous devez choisir.
+	        	</French>
                 <Russian>
-			Вы можете прочесть сверху, какой модуль вы хотите использовать
-		</Russian>
+			    Вы можете прочесть сверху, какой модуль вы хотите использовать
+	        	</Russian>
                 <German>
-			Oben steht jeweis geschrieben, was du auswählen sollst.
-		</German>
+		    	Oben steht jeweis geschrieben, was du auswählen sollst.
+		        </German>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT">
                 <Original>Additional Key Assignment</Original>
+				<English>Additional Key Assignment</English>
                 <Russian>Назначение доп. ключей</Russian>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT_DESCRIPTION">
                 <Original>
-			Additional key assignments aviable:
-			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
-			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-			%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
-			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
-		</Original>
+			    Additional key assignments available:
+			    %1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
+			    %1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+		     	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
+		    	%1%2If you select a unit and press %11 it will pop smoke or countermeasure if available.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
+		        </Original>
+				<English>
+			    Additional key assignments available:
+			    %1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
+			    %1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+		     	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
+		    	%1%2If you select a unit and press %11 it will pop smoke or countermeasure if available.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
+		    	%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
+		        </English>
                 <German>
-			Weitere verfügbare Tastenzuweisungen:
-			%1%1%2Drücke %3[L Strg]%4 + 2x %3[LMB]%4 auf das Icon einer Einheit, um die Einheit fernzusteuern.
-			%1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) eines Fahrzeugs abspringen zu lassen (Fallschirmsprung bei Flugzeugen).
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten mit allen Eigenschaften zu kopieren.
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten mit allen Eigenschaften einzufügen.
-			%1%2Wenn du eine Einheit auswählst und %11 drückst, wird diese Rauch oder Kontermaßnahmen verwenden, falls verfügbar.
-			%1%2Drücke %3[L Strg]%4 + %3[G]%4 um Objekte zu gruppieren.
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
-		</German>
+			    Weitere verfügbare Tastenzuweisungen:
+			    %1%1%2Drücke %3[L Strg]%4 + 2x %3[LMB]%4 auf das Icon einer Einheit, um die Einheit fernzusteuern.
+			    %1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) eines Fahrzeugs abspringen zu lassen (Fallschirmsprung bei Flugzeugen).
+			    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten mit allen Eigenschaften zu kopieren.
+			    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten mit allen Eigenschaften einzufügen.
+			    %1%2Wenn du eine Einheit auswählst und %11 drückst, wird diese Rauch oder Kontermaßnahmen verwenden, falls verfügbar.
+			    %1%2Drücke %3[L Strg]%4 + %3[G]%4 um Objekte zu gruppieren.
+			    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
+		        </German>
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE">
                 <Original>Execute Code Module</Original>
+				<English>Execute Code Module</English>
                 <Russian>Модуль активации кода</Russian>
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
                 <Original>
-			The execute code module is only aviable if the server allows clients using it!
-			%1%1There are two built-in params available:
-			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
-			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
-		</Original>
+			    The execute code module is only available if the server allows clients using it!
+			    %1%1There are two built-in parameters available:
+			    %1%2%3_this select 0%4   POSITION:   position where the module was placed.
+			    %1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+		        </Original>
+				<English>
+			    The execute code module is only available if the server allows clients using it!
+			    %1%1There are two built-in parameters available:
+			    %1%2%3_this select 0%4   POSITION:   position where the module was placed.
+			    %1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+		        </English>
                 <German>
-			Das Execute Code Module ist nur verfügbar, wenn der Server die Nutzung erlaubt!
-			%1%1Es sind 2 eingebaute Parameter verfügbar:
-			%1%2%3_this select 0%4   POSITION:   Position auf der das Modul platziert wurde.
-			%1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
-		</German>
+			    Das Execute Code Module ist nur verfügbar, wenn der Server die Nutzung erlaubt!
+			    %1%1Es sind 2 eingebaute Parameter verfügbar:
+			    %1%2%3_this select 0%4   POSITION:   Position auf der das Modul platziert wurde.
+			    %1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
+		        </German>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL">
                 <Original>Achilles Field Manual</Original>
@@ -3485,32 +3516,39 @@
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
                 <Original>
-			Open the %3Field Manual%4 available in the escape menu for useful informations.
-		</Original>
+			    Open the %3Field Manual%4 available in the escape menu for more information.
+		        </Original>
                 <English>
-			Open the %3Field Manual%4 available in the escape menu for informations.
-		</English>
+			    Open the %3Field Manual%4 available in the escape menu for more information.
+		        </English>
                 <French>
-			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
-		</French>
+		  	    Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
+		        </French>
                 <Russian>
-			Откройте %3Путеводитель%4 в меню игры для полезной информации.
-		</Russian>
+			    Откройте %3Путеводитель%4 в меню игры для полезной информации.
+		        </Russian>
                 <German>
-			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
-		</German>
+			    Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
+		        </German>
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW">
                 <Original>Remote Control Vehicle Crew</Original>
+				<English>Remote Control Vehicle Crew</English>
                 <Russian>Дистанционный контроль экипажа</Russian>
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
                 <Original>
-			You How to remote control a specific unit in a vehicle:
-			%1 1) Select the unit in the object list on your left.
-			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
-		</Original>
+			    How to remote control a specific unit in a vehicle:
+			    %1 1) Select the unit in the object list on your left.
+			    %1 2) A new icon pops up on the vehicle corresponding to the target unit.
+			    %1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+		        </Original>
+				<English>
+			    How to remote control a specific unit in a vehicle:
+			    %1 1) Select the unit in the object list on your left.
+			    %1 2) A new icon pops up on the vehicle corresponding to the target unit.
+			    %1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+		        </English>
             </Key>
         </Container>
         <Container name="Main Menu">
@@ -3519,10 +3557,15 @@
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
-			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-			Latest features: &lt;br /&gt;
-			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
-		</Original>
+			    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+			    Latest features: &lt;br /&gt;
+			    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
+		        </Original>
+				<English>
+			    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+			    Latest features: &lt;br /&gt;
+			    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
+		        </English>
             </Key>
         </Container>
         <Container name="Settings">
@@ -3589,74 +3632,92 @@
             </Key>
             <Key ID="STR_AMAE_VISION_MODES">
                 <Original>Achilles - Curator Vision Modes</Original>
+				<English>Achilles - Curator Vision Modes</English>
                 <German>Achilles - Zeus Sichtmodis</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_NVG">
                 <Original>Enable NVG</Original>
+				<English>Enable NVG</English>
                 <German>Aktiviere Nachtsicht</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_WHITEHOT">
                 <Original>Enable Thermal - White Hot</Original>
+				<English>Enable Thermal - White Hot</English>
                 <German>Aktiviere Thermal - Weiß = Heiß</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOT">
                 <Original>Enable Thermal - Black Hot</Original>
+				<English>Enable Thermal - Black Hot</English>
                 <German>Aktiviere Thermal - Schwarz = Warm</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_GREENHOTCOLD">
                 <Original>Enable Thermal - Green Hot / Green Cold</Original>
+				<English>Enable Thermal - Green Hot / Green Cold</English>
                 <German>Aktiviere Thermal - Grün = Heiß / Schwarz = Kalt</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOTGREENCOLD">
                 <Original>Enable Thermal - Black Hot / Green Cold</Original>
+				<English>Enable Thermal - Black Hot / Green Cold</English>
                 <German>Aktiviere Thermal - Schwarz = Heiß / Grün = Kalt</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_REDHOT">
                 <Original>Enable Thermal - Red Hot</Original>
+				<English>Enable Thermal - Red Hot</English>
                 <German>Aktiviere Thermal - Rot = Heiß</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOTREDCOLD">
                 <Original>Enable Thermal - Black Hot / Red Cold</Original>
+				<English>Enable Thermal - Black Hot / Red Cold</English>
                 <German> Aktiviere Thermal - Schwarz = Heiß / Rot = Kalt</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_WHITEHOTREDCOLD">
                 <Original>Enable Thermal - White Hot / Red Cold</Original>
+				<English>Enable Thermal - White Hot / Red Cold</English>
                 <German>Aktiviere Thermal - Weiß = Heiß / Rot = Kalt</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_REDGREEN">
                 <Original>Enable Thermal - Red/Green / White Hot</Original>
+				<English>Enable Thermal - Red/Green / White Hot</English>
                 <German>Aktiviere Thermal - Rot/Grün / Weiß = Heiß</German>
             </Key>
             <Key ID="STR_AMAE_KEY_EJECT_PASSENGERS">
                 <Original>Eject/paradrop passengers of selected vehicle</Original>
+				<English>Eject/paradrop passengers of selected vehicle</English>
                 <German>Insassen des ausgewählten Fahrzeugs auswerfen</German>
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_COPY">
                 <Original>Deep copy selected units</Original>
+				<English>Deep copy selected units</English>
                 <German>Einheiten mit allen Eigenschaften kopieren</German>
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_PASTE">
                 <Original>Paste deep copied units</Original>
+				<English>Paste deep copied units</English>
                 <German>Einheiten mit allen Eigenschaften einfügen</German>
             </Key>
             <Key ID="STR_AMAE_KEY_COUNTERMEASURE">
                 <Original>Selected unit throws smoke / uses countermeasure</Original>
+				<English>Selected unit throws smoke / uses countermeasure</English>
                 <German>Ausgewählte Einheit wirft Rauch / nutzt Kontermaßnahmen</German>
             </Key>
             <Key ID="STR_AMAE_KEY_GROUP">
                 <Original>Group selected objects</Original>
+				<English>Group selected objects</English>
                 <German>Ausgewählte Objekte gruppieren</German>
             </Key>
             <Key ID="STR_AMAE_KEY_UNGROUP">
                 <Original>Ungroup selected objects</Original>
+				<English>Ungroup selected objects</English>
                 <German>Gruppierung von ausgewählten Objekten aufheben</German>
             </Key>
             <Key ID="STR_AMAE_KEY_INCREASENVGBRIGHTNESS">
                 <Original>Increase NVG brightness</Original>
+				<English>Increase NVG brightness</English>
                 <German>Nachtsicht Helligkeit erhöhen</German>
             </Key>
             <Key ID="STR_AMAE_KEY_DECREASEVGBRIGHTNESS">
                 <Original>Decrease NVG brightness</Original>
+				<English>Decrease NVG brightness</English>
                 <German>Nachtsicht Helligkeit verringern</German>
             </Key>
         </Container>
