@@ -21,6 +21,6 @@ private _codeBlock =
 
 if (local _groupUnderCursor) then {[_groupUnderCursor] spawn _codeBlock} else {[[_groupUnderCursor], _codeBlock, leader _groupUnderCursor] call Achilles_fnc_spawn};
 
-[objnull, "Units released from garrison."] call bis_fnc_showCuratorFeedbackMessage;
+[localize "STR_AMAE_RELEASE_GARRISON_UNITS"] call Ares_fnc_showZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

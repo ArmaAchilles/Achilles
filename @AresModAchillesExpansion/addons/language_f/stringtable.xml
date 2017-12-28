@@ -1172,6 +1172,12 @@
                 <English>This module requires Task Force Radio!</English>
                 <Russian>Этот модуль требует TFAR для работы!</Russian>
             </Key>
+            <Key ID="STR_AMAE_CANNOT_BE_APPLIED_ON_GROUPS_WITH_PLAYERS">
+                <Original>Cannot be applied on groups with players!</Original>
+                <English>Cannot be applied on groups with players!</English>
+                <French>Il est interdit d'employer ce module aux groups avec joueurs!</French>
+                <German>Kann nicht auf Gruppen mit Spielern angewendet werden!</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -2509,6 +2515,18 @@
                 <Russian>Редактировать разведданные "%1"</Russian>
                 <German>Hinweis "%1" bearbeiten</German>
             </Key>
+            <Key ID="STR_AMAE_INSIDE_ONLY">
+                <Original>Inside only</Original>
+                <English>Inside only</English>
+                <French>Seulement à l'intérieur</French>
+                <German>Nur im Gebäude</German>
+            </Key>
+            <Key ID="STR_AMAE_FILL_EVENLY">
+                <Original>Fill evenly</Original>
+                <English>Fill evenly</English>
+                <French>Remplissez uniformément</French>
+                <German>Gleichmäßig verteilen</German>
+            </Key>
         </Container>
         <Container name="TFAR integration dialog">
             <Key ID="STR_AMAE_SET_SR_FREQ">
@@ -2731,6 +2749,30 @@
                 <Original>Circular patrol path setup for units.</Original>
                 <English>Circular patrol path setup for units.</English>
                 <Russian>Назначен круговой патрульный маршрут.</Russian>
+            </Key>
+            <Key ID="STR_AMAE_GARRISONED_NEAREST_BUILDINGS">
+                <Original>Garrisoned nearest buildings!</Original>
+                <English>Garrisoned nearest buildings!</English>
+                <French>Les immeubles proches sont occupées!</French>
+                <German>Die Gebäude in der Nähe wurde besetzt!</German>
+            </Key>
+            <Key ID="STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING">
+                <Original>Units will search and then garrison nearest building!</Original>
+                <English>Units will search and then garrison nearest building!</English>
+                <French>Les unités vont chercher et occuper l'immeuble proche!</French>
+                <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen und besetzen!</German>
+            </Key>
+            <Key ID="STR_AMAE_SEARCH_NEAREST_BUILDING">
+                <Original>Units will search the nearest building!</Original>
+                <English>Units will search the nearest building!</English>
+                <French>Les unités vont chercher l'immeuble le plus proche!</French>
+                <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen!</German>
+            </Key>
+            <Key ID="STR_AMAE_RELEASE_GARRISON_UNITS">
+                <Original>Units released from garrison!</Original>
+                <English>Units released from garrison!</English>
+                <French>Les unités terminent l'occupation!</French>
+                <German>Die Einheiten beenden die Besetzung!</German>
             </Key>
         </Container>
         <Container name="Create Effect dialog strings">
