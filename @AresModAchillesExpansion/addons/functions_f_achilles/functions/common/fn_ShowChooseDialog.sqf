@@ -111,14 +111,14 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
 			private _use_data = false;
 			{
-				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_STR_AMAE_data","",[""]]];
+				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_str_data","",[""]]];
 				private _id = _ctrl_cb lbAdd _entry_text_L;
-				_ctrl_cb lbSetTextRight [_id, _entry_text_R + " "];
-				if (not (_STR_AMAE_data isEqualTo "")) then
+				_ctrl_cb lbSetTextRight [_id, [_entry_text_R, " "] joinString ""];
+				if (not (_str_data isEqualTo "")) then
 				{
 					_use_data = true;
 				};
-				_ctrl_cb lbSetData [_id, _STR_AMAE_data];
+				_ctrl_cb lbSetData [_id, _str_data];
 			} forEach _data;
 			_ctrl_cb ctrlCommit 0;
 
