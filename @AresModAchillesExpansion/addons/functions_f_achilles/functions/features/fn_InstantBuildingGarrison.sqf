@@ -22,7 +22,7 @@
 #define REL_REF_POS_VERTICAL			[0,0,25]
 
 // get arguments
-params ["_center", "_units", ["_searchRadius",150,[0]], ["_insideOnly",false,[false]], ["_fillEvenly",false,[false]];
+params ["_center", "_units", ["_searchRadius",150,[0]], ["_insideOnly",false,[false]], ["_fillEvenly",false,[false]]];
 
 private _errorOccured = false;
 
