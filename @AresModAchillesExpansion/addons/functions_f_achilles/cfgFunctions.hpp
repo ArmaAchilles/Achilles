@@ -45,6 +45,7 @@ class CfgFunctions
 			class createDummyLogic;
 			class isACELoaded;
 			class returnChildren;
+			class instantBuildingGarrison;
 		};
 
 		class selectUnit

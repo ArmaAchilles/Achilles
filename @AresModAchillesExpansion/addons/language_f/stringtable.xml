@@ -1178,6 +1178,12 @@
                 <French>Il est interdit d'employer ce module aux groups avec joueurs!</French>
                 <German>Kann nicht auf Gruppen mit Spielern angewendet werden!</German>
             </Key>
+            <Key ID="STR_AMAE_DID_NOT_FOUNT_SUFFICIENT_FREE_POSITIONS">
+                <Original>Did not found sufficient free positions!</Original>
+                <English>Did not found sufficient free positions!</English>
+                <French>Il n'y a pas assez d'espace!</French>
+                <German>Es hat nicht genug freie Positionen!</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">

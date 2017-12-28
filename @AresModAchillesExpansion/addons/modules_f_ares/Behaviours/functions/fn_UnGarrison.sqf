@@ -14,6 +14,7 @@ private _codeBlock =
 		{
 			_x setUnitPos "AUTO";
 			_x forceSpeed -1;
+			_x doWatch objNull;
 			_x doMove _outsidePos;
 		} forEach(units _groupUnderCursor);
 	};

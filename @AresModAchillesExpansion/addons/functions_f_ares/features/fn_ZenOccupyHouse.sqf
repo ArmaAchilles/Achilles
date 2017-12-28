@@ -22,8 +22,6 @@
 #define ROOF_CHECK 4
 #define ROOF_EDGE 2
 
-private [];
-
 params ["_center", "_units", "_buildingRadius", "_putOnRoof", "_fillEvenly"];
 
 private _Zen_ExtendPosition = {
@@ -82,7 +80,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
             private _checkPos = [_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2)] call _Zen_ExtendPosition;
             if !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull]) then {
                 if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
-                    _checkPos = [_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2) + (CHECK_DISTANCE * sin FOV_ANGLE / cos FOV_ANGLE)] call _Zen_ExtendPosition;
+                    _checkPos = [_housePos, CHECK_DISTANCE, (90 - _i), (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
                     if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
                         private _hitCount = 0;
                         for "_k" from 30 to 360 step 30 do {
