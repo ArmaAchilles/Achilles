@@ -8,6 +8,7 @@ if (isNil "Achilles_var_zen_occupy_house_init_done") then
 };
 
 private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
+if (isNull _groupUnderCursor) exitWith {};
 
 private	_doesGroupContainAnyPlayer = !(((units _groupUnderCursor) select {isPlayer _x}) isEqualTo []);
 
@@ -24,10 +25,11 @@ else
 		localize "STR_AMAE_GARRISON_INSTANT",
 		[
 			["TEXT", [localize "STR_AMAE_RADIUS", "[m]"] joinString " ", [], "150"],
-			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", ["STR_AMAE_FALSE", "STR_AMAE_TRUE"], 1],
-			["COMBOBOX", localize "STR_AMAE_FILL_EVENLY", ["STR_AMAE_FALSE", "STR_AMAE_TRUE"], 0]
+			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 1],
+			["COMBOBOX", localize "STR_AMAE_FILL_EVENLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 0]
 		]
 	] call Achilles_fnc_showChooseDialog;
+	if (_dialogResult isEqualTo []) exitWith {};
 	private _radius = parseNumber (_dialogResult param[0]);
 	private _insideOnly = (_dialogResult param[1] == 1);
 	private _fillEvenly = (_dialogResult param[1] == 1);
@@ -39,7 +41,7 @@ else
 	{
 		[(getPos _logic), (units _groupUnderCursor), _radius, _insideOnly, _fillEvenly] remoteExec ["Ares_fnc_ZenOccupyHouse", leader _groupUnderCursor];
 	};
-	["STR_AMAE_GARRISONED_NEAREST_BUILDINGS"] call Ares_fnc_showZeusMessage;
+	[localize "STR_AMAE_GARRISONED_NEAREST_BUILDINGS"] call Ares_fnc_showZeusMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
