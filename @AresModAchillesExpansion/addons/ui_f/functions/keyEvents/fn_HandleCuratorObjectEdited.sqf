@@ -66,7 +66,7 @@ switch (true) do
 	case (_handled_object isKindOf "Man" and {(group _handled_object) getVariable ["Achilles_var_inGarrison", false]}):
 	{
 		// enables rotation of individual units in garrisons
-		_handled_object doWatch (eyePos _handled_object vectorAdd vectorDir _handled_object);
+		_handled_object doWatch (ASLtoATL eyePos _handled_object vectorAdd vectorDir _handled_object);
 	};
 	// does not yet work properly: e.g. catapults
 	/*
