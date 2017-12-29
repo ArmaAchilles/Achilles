@@ -123,6 +123,27 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 		};
 	};
 	
+	// get ammo boxes
+	private _targetCategory = getText (configfile >> "CfgEditorCategories" >> "EdCat_Supplies" >> "displayName");
+	private _supplySubCategory = [];
+	private _supplies = [];
+	private _tree_ctrl = _curator_interface displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
+	for "_supplyCategory_id" from 0 to ((_tree_ctrl tvCount []) - 1) do
+	{
+		if (_targetCategory == _tree_ctrl tvText [_supplyCategory_id]) exitWith
+		{
+			for "_supplySubCategory_id" from 0 to ((_tree_ctrl tvCount [_supplyCategory_id]) - 1) do
+			{
+				_supplySubCategory pushBack (_tree_ctrl tvText [_supplyCategory_id,_supplySubCategory_id]);
+				_supplies pushBack [];
+				for "_supply_id" from 0 to ((_tree_ctrl tvCount [_supplyCategory_id,_supplySubCategory_id]) - 1) do
+				{
+					(_supplies select _supplySubCategory_id) pushBack (_tree_ctrl tvData [_supplyCategory_id,_supplySubCategory_id,_supply_id]);
+				};
+			};
+		};
+	};
+	
 	// cache
 	uiNamespace setVariable ["Achilles_var_supplyDrop_factions", _factions];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_categories", _categories];
@@ -130,9 +151,9 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoFactions", _cargoFactions];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoCategories", _cargoCategories];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoVehicles", _cargoVehicles];
+	uiNamespace setVariable ["Achilles_var_supplyDrop_supplySubCategories", _supplySubCategory];
+	uiNamespace setVariable ["Achilles_var_supplyDrop_supplies", _supplies];
 };
-
-private _ammoCratesDisplayName = AMMO_CRATES apply {getText (configFile >> "CfgVehicles" >> _x >> "displayName")};
 
 // Show the user the dialog
 private _dialogResult =
@@ -146,11 +167,10 @@ private _dialogResult =
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
 		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
 		["COMBOBOX", localize "STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMAE_AMMUNITION_CRATE", localize "STR_AMAE_VEHICLE"], 0, false, [["LBSelChanged","CARGO_TYPE"]]],
-		["COMBOBOX", localize "STR_AMAE_AMMUNITION_CRATE", _ammoCratesDisplayName],
 		["COMBOBOX", localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_VIRTUAL_ARSENAL", localize "STR_AMAE_EMPTY"]],
 		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","CARGO_FACTION"]]],
-		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", [], 0, false, [["LBSelChanged","CARGO_CATEGORY"]]],
+		["COMBOBOX", localize "STR_AMAE_CATEGORY", [], 0, false, [["LBSelChanged","CARGO_CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", []]
 	],
 	"Achilles_fnc_RscDisplayAttributes_SupplyDrop"
@@ -167,7 +187,6 @@ _dialogResult params
 	"_aircraftBehaviour",
 	"_lzdz_algorithm",
 	"_cargoType",
-	"_cargoBoxCrate",
 	"_cargoBoxInventory",
 	"_cargoSide_id",
 	"_cargoFaction_id",
@@ -229,7 +248,7 @@ _aircraftGroup allowFleeing 0;
 // If the selected cargo is the ammo box.
 if (_cargoType == 0) then
 {
-	private _cargoBoxClassname = AMMO_CRATES select _cargoBoxCrate;
+	private _cargoBoxClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
 
 	private _cargoBox = _cargoBoxClassname createVehicle _pos;
 
@@ -268,7 +287,6 @@ if (_cargoType == 0) then
 
 if (_cargoType == 1) then
 {
-	private _cargoClassname = player getVariable ["Achilles_var_supplyDrop_module_cargoVehicle", ""];
 	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
 	
 	private _cargo = _cargoClassname createVehicle _pos;
