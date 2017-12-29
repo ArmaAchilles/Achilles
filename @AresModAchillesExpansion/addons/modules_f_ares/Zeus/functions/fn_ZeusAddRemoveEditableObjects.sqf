@@ -91,7 +91,7 @@ _objectsToProcess = _objectsToProcess select
 	}
 	else
 	{
-		(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"]) && {(_type select [0,13]) != "modulecurator"}) /*&& {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
+		(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f", "ares_module_base", "achilles_module_base"]) && {(_type select [0,13]) != "modulecurator"}) /*&& {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
     };
 };
 
