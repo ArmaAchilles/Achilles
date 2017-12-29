@@ -3863,7 +3863,7 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
                 <Original>
-			For modules apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules that apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
                 <Russian>
 			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
@@ -3872,7 +3872,7 @@
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
 		</German>
                 <English>
-			For modules apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules that apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</English>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
