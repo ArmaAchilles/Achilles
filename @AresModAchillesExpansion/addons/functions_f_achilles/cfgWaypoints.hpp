@@ -13,7 +13,7 @@ class cfgWaypoints
 		displayName = "Achilles";
 		class Fastroping
 		{
-			displayName = "$STR_ACE_FASTROPING";
+			displayName = "$STR_AMAE_FASTROPING_WP_NAME";
 			displayNameDebug = "FASTROPING";
 			file = "\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_position.paa";
