@@ -48,12 +48,12 @@ else
 	[getAssignedCuratorLogic player, [_objectsToBeModified, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
 };
 
-_logic_list = [];
+private _logic_list = [];
 
 // handle simple objects
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 {
-	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
+	private ["_object", "_logic","_logic_group","_pos", "_displayName","_str_content"];
 
 	if (_addToCurator) then
 	{
