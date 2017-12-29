@@ -1096,13 +1096,6 @@
                 <French>Le transport est en route. La troupe va aller au RV</French>
                 <German>Das Transportfahrzeug ist auf dem Weg zur LZ. Die Truppe wird zum Sammelpunkt gehen.</German>
             </Key>
-            <Key ID="STR_AMAE_INFANTRY_GROUP">
-                <Original>Infantry Group</Original>
-                <English>Infantry Group</English>
-                <French>Groupe d'infanterie</French>
-                <Russian>Группа пехоты</Russian>
-                <German>Infanteriegruppe</German>
-            </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
