@@ -3824,7 +3824,7 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
                 <Original>
-			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			The achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
@@ -3852,7 +3852,7 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
 		</German>
                 <English>
-			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			The achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
@@ -3863,7 +3863,7 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
                 <Original>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
                 <Russian>
 			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
@@ -3872,7 +3872,7 @@
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
 		</German>
                 <English>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules apply to objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</English>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
