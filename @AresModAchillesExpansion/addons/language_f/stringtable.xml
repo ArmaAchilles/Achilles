@@ -3884,14 +3884,14 @@
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
-			Some modules have the option to select objects to which it's effect will apply to.
+			Some modules have the option to select objects to which it's effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</Original>
                 <English>
-			Some modules have the option to select objects to which it's effect will apply to.
+			Some modules have the option to select objects to which it's effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</English>
                 <French>
 			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
@@ -4047,10 +4047,10 @@
 			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
 		</Russian>
                 <English>
-			You How to remote control a specific unit in a vehicle:
-			%1 1) Select the unit in the object list on your left.
-			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+			How to remote control a specific unit inside a vehicle:
+			%1 1) Select the unit in the edit list on your left.
+			%1 2) A new icon pops up on the vehicle corresponding to the target unit.
+			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
 		</English>
             </Key>
         </Container>
