@@ -19,14 +19,13 @@ params [["_unitsToModify", [], [[]]], ["_addToCurator", true, [true]], ["_includ
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
 
-private _curatorLogic = getAssignedCuratorLogic player;
-private _editableObjects = curatorEditableObjects _curatorLogic;
+private _editableObjects = curatorEditableObjects (getAssignedCuratorLogic player);
 
 private _objectsToBeModified = [];
 {
 	if (_addToCurator) then
 	{
-		if (!(_x in _editableObjects) && !isNull _x && !(_x isEqualTo Achilles_var_latestModuleLogic) && !(isAgent teamMember _x)) then
+		if (!(_x in _editableObjects) && !isNull _x && !(isAgent teamMember _x)) then
 		{
 			_objectsToBeModified pushBackUnique _x;
 		};

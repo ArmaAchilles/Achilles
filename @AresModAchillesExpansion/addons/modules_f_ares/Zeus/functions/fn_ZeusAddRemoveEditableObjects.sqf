@@ -84,8 +84,7 @@ else
 // protect the main essential module from being added
 _objectsToProcess = _objectsToProcess select
 {
-	private _object = _x;
-	private _type = toLower typeOf _object;
+	private _type = toLower typeOf _x;
 	if (Achilles_Debug_Output_Enabled) then
 	{
 		true;
