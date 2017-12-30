@@ -3840,7 +3840,7 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использоваться на боевых единицах.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
-			
+
 		</Russian>
                 <German>
 			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
@@ -3884,12 +3884,12 @@
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
-			Some modules have the option to select objects to which it's effect(s) will apply to.
+			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</Original>
                 <English>
-			Some modules have the option to select objects to which it's effect(s) will apply to.
+			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</English>
