@@ -1,44 +1,65 @@
-### get all commits that affected the file
+# Git Bash Cheat Sheet
+
+## Get all commits that affected the file
+
 ```bash
 git log --follow <file>
 ```
-### compare file between different branches
+
+## Compare file between different branches
+
 ```bash
 git diff <previous branch> <current branch> -- <file>
 ```
-### track file change
+
+## Track a file change
+
 ```bash
 git add <files> 
 ```
-### untrack file change
+
+## Untrack a file change
+
 ```bash
 git reset <files>
 ```
-### commit tracked file changes
+
+## Commit tracked file changes
+
 ```bash
 git commit -m "<message>"
 git push
 ```
-### discard all untracked changes
+
+## Discard all untracked changes
+
 ```bash
 git checkout -- .
 ```
-### create a new branch
+
+## Fork a new branch B from branch A
+
 ```bash
-git checkout -b <branch>
-git push --set-upstream origin <branch>`
+git checkout -b <branch B> <branch A>
+git push --set-upstream origin <branch B>`
 ```
-### switch branch
+
+## Switch branch
+
 ```bash
 git checkout <branch>
 git pull`
 ```
-### delete branch A
+
+## Delete branch A
+
 ```bash
 git push -d origin <branch A>
 git branch -d <branch A>
 ```
-### apply commit x on branch A
+
+## Apply commit x on branch A
+
 ```bash
 git checkout <branch A>
 git cherry-pick <id of commit x>

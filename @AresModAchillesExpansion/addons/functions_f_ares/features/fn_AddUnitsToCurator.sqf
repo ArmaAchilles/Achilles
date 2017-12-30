@@ -19,14 +19,13 @@ params [["_unitsToModify", [], [[]]], ["_addToCurator", true, [true]], ["_includ
 private _simpleObjects = _unitsToModify select {isSimpleObject _x};
 _unitsToModify = _unitsToModify - _simpleObjects;
 
-private _curatorLogic = getAssignedCuratorLogic player;
-private _editableObjects = curatorEditableObjects _curatorLogic;
+private _editableObjects = curatorEditableObjects (getAssignedCuratorLogic player);
 
 private _objectsToBeModified = [];
 {
 	if (_addToCurator) then
 	{
-		if (!(_x in _editableObjects) && !isNull _x && !(_x isEqualTo Achilles_var_latestModuleLogic) && !(isAgent teamMember _x)) then
+		if (!(_x in _editableObjects) && !isNull _x && !(isAgent teamMember _x)) then
 		{
 			_objectsToBeModified pushBackUnique _x;
 		};
@@ -49,12 +48,12 @@ else
 	[getAssignedCuratorLogic player, [_objectsToBeModified, true]] remoteExecCall ["removeCuratorEditableObjects", 2];
 };
 
-_logic_list = [];
+private _logic_list = [];
 
 // handle simple objects
 if (_includeSimpleObjects and {count _simpleObjects > 0}) then
 {
-	private ["_object", "_logic","_logic_list","_logic_group","_pos", "_displayName","_str_content"];
+	private ["_object", "_logic","_logic_group","_pos", "_displayName","_str_content"];
 
 	if (_addToCurator) then
 	{

@@ -6,8 +6,8 @@ class CfgPatches
 		requiredVersion = 0.1;
 		author = "ArmA 3 Achilles Mod Inc.";
 		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
-		version = 0.1.0;
-		versionStr = "0.1.0";
+		version = 1.0.0;
+		versionStr = "1.0.0";
 		versionAr[] = {0,1,0};
 
 		units[] =
@@ -87,8 +87,8 @@ class CfgPatches
 		requiredVersion = 0.1;
 		author = "ArmA 3 Achilles Mod Inc.";
 		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
-		version = 0.1.0;
-		versionStr = "0.1.0";
+		version = 1.0.0;
+		versionStr = "1.0.0";
 		versionAr[] = {0,1,0};
 
 		units[] =
