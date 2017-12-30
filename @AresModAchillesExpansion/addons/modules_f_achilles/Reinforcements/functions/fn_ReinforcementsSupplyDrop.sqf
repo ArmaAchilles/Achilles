@@ -1,8 +1,8 @@
 /*
-	Author: CreepPork_LV, modified by Kex
+	Author: CreepPork_LV, Kex
 
 	Description:
-		Uses a created helicopter that sling loads a Supply Crate which then is taken to the destination.
+		Displays option to create a aircraft that takes supplies (vehicles or cargo boxes) to its destination.
 
 	Parameters:
     	None
@@ -21,7 +21,6 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-
 // get LZs
 private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
 if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
@@ -29,7 +28,7 @@ private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "A
 private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
 _lzOptions append (_allLzs apply {name _x});
 
-private _pos = position _logic;
+private _pos = getPos _logic;
 
 disableSerialization;
 // get sides
@@ -158,7 +157,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 // Show the user the dialog
 private _dialogResult =
 [
-	localize "STR_AMAE_SPAWN_UNITS",
+	localize "STR_AMAE_SUPPLY_DROP",
 	[
 		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names, 0, false, [["LBSelChanged","SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","FACTION"]]],
@@ -199,15 +198,15 @@ private _LZ = switch (_lzdz_algorithm) do
 {
 	case 0: // Random
 	{
-		_allLzs call BIS_fnc_selectRandom
+		_allLzs call BIS_fnc_selectRandom;
 	};
 	case 1: // Nearest
 	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetNearest
+		[_spawn_position, _allLzs] call Ares_fnc_GetNearest;
 	};
 	case 2: // Furthest
 	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest
+		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest;
 	};
 	case 3: // Least used
 	{
@@ -218,11 +217,11 @@ private _LZ = switch (_lzdz_algorithm) do
 				_temp = _x;
 			};
 		} forEach _allLzs;
-        _temp
+        _temp;
 	};
 	default // Specific LZ.
 	{
-		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
+		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
 	};
 };
 
@@ -273,7 +272,14 @@ if (_cargoType == 0) then
 		};
 		case 2:
 		{
-			["AmmoboxInit", [_cargoBox, true]] spawn BIS_fnc_Arsenal;
+			if (["arsenal"] call Achilles_fnc_isACELoaded) then
+			{
+				[_cargoBox, true] call ace_arsenal_fnc_initBox;
+			}
+			else
+			{
+				["AmmoboxInit", [_cargoBox, true]] spawn BIS_fnc_Arsenal;
+			};
 		};
 		case 3:
 		{
@@ -283,9 +289,9 @@ if (_cargoType == 0) then
 			clearMagazineCargoGlobal _cargoBox;
 		};
 	};
-};
-
-if (_cargoType == 1) then
+}
+// If select cargo type is a Vehicle.
+else
 {
 	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
 	
@@ -293,7 +299,7 @@ if (_cargoType == 1) then
 
 	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
 
-	if (isClass (configFile >> "CfgVehicles" >> _aircraftClassname >> "VehicleTransport" >> "Carrier")) then
+	if (vehicleCargoEnabled _aircraft) then
 	{
 		private _hasLoaded = _aircraft setVehicleCargo _cargo;
 		if (!_hasLoaded) exitWith
@@ -303,7 +309,8 @@ if (_cargoType == 1) then
 			deleteVehicle _aircraft;
 			deleteVehicle _cargo;
 		};
-	} else
+	}
+	else
 	{
 		private _hasAttached = _aircraft setSlingLoad _cargo;
 		if (!_hasAttached) exitWith
@@ -319,7 +326,7 @@ if (_cargoType == 1) then
 private _LZWaypoint = _aircraftGroup addWaypoint [_LZ, 20];
 _aircraftGroup setSpeedMode "FULL";
 
-if (!((getVehicleCargo _aircraft) isEqualTo [])) then
+if !((getVehicleCargo _aircraft) isEqualTo []) then
 {
 	_LZWaypoint setWaypointStatements ["true", "objNull setVehicleCargo ((getVehicleCargo (vehicle this)) select 0);"];
 }
