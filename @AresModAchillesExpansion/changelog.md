@@ -11,7 +11,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 
 ## Change log
 
-### v1.0.0 (Not Released - In Progress)
+### v1.0.0
 * Change: Loadouts attribute button now has the option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
 * Change: Bootcamp module was added back.
 * Change: Advanced CAS module now attaches to an object.
@@ -25,7 +25,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
 * Change: Arsenal modules have been fully reworked, fixing some long lasting issues and performance improvements. #200
 * Change: Using the Fire Mission module, now Curator can specify the number of rounds fired.
-* Change: Spawn Units module now has a cache. #145
+* Change: Spawn Units module: the faction of the group can be different. #145
+* Change: Options for the instant garrison module #37.
 * Change: Russian translation overhaul (by @unhappytroll and @Victor9041). #192
 * Change: Side restrictions for vanilla modules have been removed. #60 and #215
 * Feature: Object rotation module. #151
@@ -80,7 +81,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Fix: Added or Removed object count now should be correct. #170
 * Fix: Spelling mistakes in the Field Manual and hints (by @MaliceGFS and @ItsNoirLime). #222 and #217
 * Fix: Achilles and Ares base modules were added to Zeus for modification. #225 and #219
-* Fix: Spawn Units module should be more stable overall. #145 and #66
+* Fix: Spawn Units module should be more stable overall and makes use if caches. #145 and #66
 * Fix: When using the Switch Unit module, goggles should no longer disappear. #209
 * Fix: Suspension errors would spam the .rpt log from the Set Date module.
 * Fix: Curator should now be able to breach breachable doors when using the Remote Control or Switch Unit modules. #178 and #211
