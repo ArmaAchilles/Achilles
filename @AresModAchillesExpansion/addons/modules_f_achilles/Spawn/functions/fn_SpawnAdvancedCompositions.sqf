@@ -18,41 +18,33 @@ if (isNil "Achilles_var_acs_init_done") then
 	Achilles_var_acs_init_done = true;
 };
 
-private '_center_object';
-_spawn_pos = position _logic;
+private _spawn_pos = position _logic;
 
 createDialog "Ares_composition_Dialog";
 ["LOADED"] spawn Achilles_fnc_RscDisplayAttributes_spawnAdvancedComposition;
 waitUntil {!dialog};
 if ((uiNamespace getVariable ['Ares_Dialog_Result', -1]) == -1) exitWith {};
 
-_objects_info = [] call compile Ares_var_current_composition;
+private _objects_info = [] call compile Ares_var_current_composition;
 if (count _objects_info == 0) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_center_object_info = _objects_info select 0;
+private _center_object_info = _objects_info select 0;
 _objects_info = _objects_info - [_center_object_info];
+_center_object_info params ["_type", "_", "_center_dir", "_allow_sim"];
 
-_type = _center_object_info select 0;
-_center_dir = _center_object_info select 2;
-_allow_sim = _center_object_info select 3;
-
-_center_object = _type createVehicle [0,0,0];
+private _center_object = _type createVehicle [0,0,0];
 [_center_object,false] remoteExec ["enableSimulationGlobal",2];
 _center_object setPosATL [-500,-500,0];
 _center_object setDir _center_dir;
 
 [[_center_object], true] call Ares_fnc_AddUnitsToCurator;
-_attached_objects = [];
+private _attached_objects = [];
 {
-	_object_info = _x;
+	_x params ["_type", "_pos", "_dir", "_allow_sim"];
 	
-	_type = _object_info select 0;
-	_pos = _object_info select 1;
-	_dir = _object_info select 2;
 	_pos = (getPosWorld _center_object) vectorAdd _pos;
 	_dir = _dir - (getDir _center_object);
-	_allow_sim = _object_info select 3;
 	
-	_object = _type createVehicle [0,0,0];
+	private _object = _type createVehicle [0,0,0];
 	[_object,_allow_sim] remoteExec ["enableSimulationGlobal",2];
 	_object setPosWorld _pos;
 	_object attachTo [_center_object];

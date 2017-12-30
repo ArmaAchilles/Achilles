@@ -14,8 +14,6 @@ if (isNil "Achilles_var_acs_init_done") then
 	Achilles_var_acs_init_done = true;
 };
 
-private _spawn_pos = position _logic;
-
 createDialog "Ares_composition_Dialog";
 ["LOADED"] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
 

@@ -2,15 +2,15 @@ params[["_objects", [], [[]]], ["_groupThem", true, [false]]];
 
 {
 	private _center_object = _x;
-	private _attached_objects = _center_object getVariable ["ACS_attached_objects", objNull];
-	if (!isNull _attached_objects) then
+	private _attached_objects = _center_object getVariable ["ACS_attached_objects", []];
+	if (not (_attached_objects isEqualTo [])) then
 	{
 		if (_groupThem) then
 		{
 			private _center_dir = direction _center_object;
 			private _center_pos = getPosWorld _center_object;
 			private _center_spawn_dir = _center_object getVariable ["ACS_center_dir", 0];
-			[_center_object, _center_spawn_dir] remoteExec ['setDir',0,true];
+			[_center_object, _center_spawn_dir] remoteExecCall ['setDir',0,true];
 			private _theta = _center_spawn_dir - _center_dir;
 			{
 				private _pos = getPosWorld _x;
