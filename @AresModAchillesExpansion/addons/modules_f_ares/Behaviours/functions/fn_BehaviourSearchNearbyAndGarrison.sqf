@@ -19,7 +19,7 @@ if (local _groupUnderCursor) then
 }
 else
 {
-    [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] remoteExecCall ["Ares_fnc_SearchBuilding", leader _groupUnderCursor];
+    [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] remoteExec ["Ares_fnc_SearchBuilding", leader _groupUnderCursor];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
