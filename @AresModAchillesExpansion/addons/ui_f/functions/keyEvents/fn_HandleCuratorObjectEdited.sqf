@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private _handled_object = param [1,objNull,[objNull]];
+params [["_handled_object", objNull, [objNull]]];
 
 if (isNull _handled_object) exitWith {};
 
@@ -50,7 +50,7 @@ switch (true) do
 		private _internal_to_standard = [_standard_to_internal] call Achilles_fnc_matrixTranspose;
 
 		{
-			private _object = _x select 0;
+			_x params ["_object"];
 
 			// reposition
 			private _vector_center_object = [_internal_to_standard, _x select 1] call Achilles_fnc_vectorMap;
@@ -62,6 +62,11 @@ switch (true) do
 			[_object ,_vectors_dir_up] remoteExec ["setVectorDirAndUp",0,_object];
 
 		} forEach _group_attributes;
+	};
+	case (_handled_object isKindOf "Man" && ((group _handled_object) getVariable ["Achilles_var_inGarrison", false])):
+	{
+		// enables rotation of individual units in garrisons
+		_handled_object doWatch (ASLtoATL eyePos _handled_object vectorAdd vectorDir _handled_object);
 	};
 	// does not yet work properly: e.g. catapults
 	/*

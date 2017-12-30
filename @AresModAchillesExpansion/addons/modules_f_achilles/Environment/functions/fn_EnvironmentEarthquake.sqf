@@ -14,7 +14,7 @@ _dialogResult =
 			localize "STR_AMAE_MEDIUM",
 			localize "STR_AMAE_STRONG"
 		]],
-		[format ["%1 [m]", localize "STR_AMAE_RANGE"],"","100"],
+		[localize "STR_AMAE_RANGE","","100"],
 		[localize "STR_AMAE_DAMAGE_BUILDINGS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
