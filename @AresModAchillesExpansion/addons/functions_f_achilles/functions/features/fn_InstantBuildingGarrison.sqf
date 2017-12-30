@@ -38,16 +38,21 @@ private _fnc_isInsideBuilding =
 	// if we have at least 3 walls and a roof, we are inside
 	if (_building in (lineIntersectsObjs [_pos, _pos vectorAdd REL_REF_POS_VERTICAL])) then
 	{
-		if ({_building in (lineIntersectsObjs [_pos, _pos vectorAdd _x])} count REL_REF_POS_LIST_HORIZONTAL >= 3) then {true} else {false};
-	} else {false};
+		{_building in (lineIntersectsObjs [_pos, _pos vectorAdd _x])} count REL_REF_POS_LIST_HORIZONTAL >= 3;
+	}
+	else
+	{
+		false;
+	};
 };
 
 // get all near buildings and their positions inside
-private _buildings = if (_searchRadius < 0) then {[nearestBuilding _center]} else {nearestObjects [_center, ["building"], _searchRadius, true]};
+private _buildings = if (_searchRadius < 0) then {[nearestBuilding _center]} else {_center nearEntities ["building", _searchRadius]};
 private _pos_nestedList = [];
 {
 	private _building = _x;
 	private _pos_list = [_building] call BIS_fnc_buildingPositions;
+
 	// filter positions that are already occupied or not inside if "inside only" is true.
 	for "_i_pos" from (count _pos_list - 1) to 0 step -1 do
 	{
@@ -57,6 +62,7 @@ private _pos_nestedList = [];
 			_pos_list deleteAt _i_pos;
 		};
 	};
+
 	// filter buildings that do not offer valid positions
 	if (not (_pos_list isEqualTo [])) then
 	{
@@ -69,6 +75,7 @@ for "_i_unit" from 0 to (count _units - 1) do
 	private _unit = _units select _i_unit;
 	private "_pos";
 	private _n_building = count _pos_nestedList;
+	
 	if (_n_building > 0) then
 	{
 		if (_fillEvenly) then
@@ -80,7 +87,8 @@ for "_i_unit" from 0 to (count _units - 1) do
 			_pos = +(_pos_list select _i_pos);
 			_pos_list deleteAt _i_pos;
 			if (count _pos_list == 0) then {_pos_nestedList deleteAt _i_building};
-		} else
+		}
+		else
 		{
 			// fill closest buildings one by one
 			private _i_building = 0;
@@ -103,6 +111,7 @@ for "_i_unit" from 0 to (count _units - 1) do
 			{
 				_unit doWatch (_pos vectorAdd _relRefPos);
 			};
+
 			// use angle provisionally if the line of sight is mediocre
 			private _relRefPos = [MEDIOCRE_LOS*sin(_angle), MEDIOCRE_LOS*cos(_angle), 0];
 			if (not lineIntersects [_eyePosASL, _eyePosASL vectorAdd _relRefPos]) then
@@ -110,7 +119,8 @@ for "_i_unit" from 0 to (count _units - 1) do
 				_unit doWatch (_pos vectorAdd _relRefPos);
 			};
 		};
-	} else
+	}
+	else
 	{
 		// if we don't have sufficient building positions
 		_errorOccured = true;
