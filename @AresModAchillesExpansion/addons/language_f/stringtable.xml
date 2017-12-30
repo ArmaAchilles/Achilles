@@ -1718,12 +1718,19 @@
                 <Russian>Все объекты в пределах</Russian>
                 <German>Alle Objekte innerhalb</German>
             </Key>
-            <Key ID="STR_AMAE_RANGE">
+            <Key ID="STR_AMAE_RANGE_NO_SI">
                 <Original>Range</Original>
                 <English>Range</English>
                 <French>Portée</French>
                 <Russian>Радиус</Russian>
                 <German>Reichweite</German>
+            </Key>
+            <Key ID="STR_AMAE_RANGE">
+                <Original>Range [m]</Original>
+                <English>Range [m]</English>
+                <French>Portée [m]</French>
+                <Russian>Радиус (м)</Russian>
+                <German>Reichweite [m]</German>
             </Key>
             <Key ID="STR_AMAE_REMOVE">
                 <Original>Remove</Original>
@@ -2757,14 +2764,14 @@
                 <Russian>Назначен круговой патрульный маршрут.</Russian>
             </Key>
             <Key ID="STR_AMAE_GARRISONED_NEAREST_BUILDINGS">
-                <Original>Garrisoned nearest buildings!</Original>
-                <English>Garrisoned nearest buildings!</English>
+                <Original>Garrisoned units in the nearest buildings!</Original>
+                <English>Garrisoned units in the nearest buildings!</English>
                 <French>Les immeubles proches sont occupées!</French>
                 <German>Die Gebäude in der Nähe wurde besetzt!</German>
             </Key>
             <Key ID="STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING">
-                <Original>Units will search and then garrison nearest building!</Original>
-                <English>Units will search and then garrison nearest building!</English>
+                <Original>Units will search and then garrison the nearest building!</Original>
+                <English>Units will search and then garrison the nearest building!</English>
                 <French>Les unités vont chercher et occuper l'immeuble proche!</French>
                 <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen und besetzen!</German>
             </Key>
@@ -3465,6 +3472,13 @@
                 <German>Anzahl der Minen</German>
             </Key>
             <Key ID="STR_AMAE_RADIUS">
+                <Original>Radius [m]</Original>
+                <English>Radius [m]</English>
+                <French>Radius [m]</French>
+                <Russian>Радиус (м)</Russian>
+                <German>Radius [m]</German>
+            </Key>
+            <Key ID="STR_AMAE_RADIUS_NO_SI">
                 <Original>Radius</Original>
                 <English>Radius</English>
                 <French>Radius</French>

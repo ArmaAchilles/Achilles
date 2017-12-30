@@ -10,7 +10,7 @@ private _dialogResult =
 			localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]
 		],
 		[
-			localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]
+			localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]
 		],
 		[
 			localize "STR_AMAE_RADIUS","","50"
