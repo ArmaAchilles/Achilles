@@ -1,19 +1,27 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 4
+#define SIDES 									[east, west, independent]
+#define SIDE_NAMES								[localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_INDEPENDENT"]
+#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 	4
 
 disableSerialization;
 
 private _spawn_position = position _logic;
 
-// get sides
-private _sides = [];
-private _side_names = [];
-for "_i" from 0 to 2 do
-{
-	_sides pushBack (_i call BIS_fnc_sideType);
-	_side_names pushBack (_i call BIS_fnc_sideName);
-};
+// options for selecting positions
+private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
+
+// get LZs
+private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getPosLogicsData;
+_allLzsData params ["_allLzNames","_allLzPositions"];
+if (_allLzNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
+private _lzOptions = _extraOptions + _allLzNames;
+
+// get RPs
+private _allRpsData = ["Ares_Module_Reinforcements_Create_Rp"] call Achilles_fnc_getPosLogicsData;
+_allRpsData params ["_allRpNames","_allRpPositions"];
+if (_allRpNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
+private _rpOptions = _extraOptions + _allRpNames;
 
 // cache: find all possible vehicles and groups for reinforcements 
 if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEqualTo []) then
@@ -23,7 +31,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 	private _vehicle_categories = [];
 	private _vehicles = [];
 	private _groups = [];
-	for "_" from 1 to (count _sides) do
+	for "_" from 1 to (count SIDES) do
 	{
 		_factions pushBack [];
 		_vehicle_categories pushBack [];
@@ -43,7 +51,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		};
 	} forEach ((configFile >> "CfgFactionClasses") call Achilles_fnc_returnChildren);
 	// sort by display names
-	for "_side_id" from 0 to (count _sides - 1) do
+	for "_side_id" from 0 to (count SIDES - 1) do
 	{
 		_factions set [_side_id, [(_factions select _side_id), [], {getText (configfile >> "CfgFactionClasses" >> _x >> "displayName")}] call BIS_fnc_sortBy];
 	};
@@ -102,7 +110,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		};
 	} forEach ((configFile >> "CfgGroups") call Achilles_fnc_returnChildren);
 	// sort by display names
-	for "_side_id" from 0 to (count _sides - 1) do
+	for "_side_id" from 0 to (count SIDES - 1) do
 	{
 		for "_faction_id" from 0 to (count (_factions select _side_id) - 1) do
 		{
@@ -117,7 +125,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 	// remove empty factions
 	private _vehicle_factions = +_factions;
 	private _group_factions = +_factions;
-	for "_side_id" from 0 to (count _sides - 1) do
+	for "_side_id" from 0 to (count SIDES - 1) do
 	{
 		for "_faction_id" from (count (_factions select _side_id) - 1) to 0 step -1 do
 		{
@@ -143,26 +151,12 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 	uiNamespace setVariable ["Achilles_var_nestedList_groups", _groups];
 };
 
-// get LZs
-private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
-private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
-_lzOptions append (_allLzs apply {name _x});
-
-// get RPs
-private _allRpsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Rp";
-if (_allRpsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
-private _allRps = [_allRpsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _rpOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
-_rpOptions append (_allRps apply {name _x});
-
 // Show the user the dialog
 private _dialogResult =
 [
 	localize "STR_AMAE_SPAWN_UNITS",
 	[
-		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names, 0, false, [["LBSelChanged","SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","SIDE"]]],
 		["COMBOBOX", [localize "STR_AMAE_VEHICLE", localize "STR_AMAE_FACTION"] joinString " ", [], 0, false, [["LBSelChanged","VEHICLE_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", [], 0, false, [["LBSelChanged","VEHICLE_CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", [], 0, false, [["LBSelChanged","VEHICLE"]]],
@@ -180,54 +174,21 @@ private _dialogResult =
 // Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
 _dialogResult params ["_side_id","_veh_fac_id","_veh_cat_id","_veh_id","_veh_beh","_lzdz_algorithm","_lzdz_type","_grp_fac_id","_grp_id","_rp_algorithm","_grp_beh"];
-private _side = _sides select _side_id;
+private _side = SIDES select _side_id;
 private _vehicle_type = configName ((uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _veh_fac_id select _veh_cat_id select _veh_id);
 private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _grp_fac_id select _grp_id;
 private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lz = switch (_lzdz_algorithm) do
-{
-	case 0: // Random
-	{
-		_allLzs call BIS_fnc_selectRandom
-	};
-	case 1: // Nearest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetNearest
-	};
-	case 2: // Furthest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest
-	};
-	case 3: // Least used
-	{
-		private _temp = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
-		{
-			if (_x getVariable ["Ares_Lz_Count", 0] < _temp getVariable ["Ares_Lz_Count", 0]) then
-			{
-				_temp = _x;
-			};
-		} forEach _allLzs;
-        _temp
-	};
-	default // Specific LZ.
-	{
-		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
-	};
-};
-
-// Now that we've chosen an LZ, increment the count for it.
-_lz setVariable ["Ares_Lz_Count", (_lz getVariable ["Ares_Lz_Count", 0]) + 1];
+private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_selectPosition;
 
 // create the transport vehicle
-private _vec_dir = (position _lz) vectorDiff _spawn_position;
-private _vehicleInfo = [_spawn_position, (_vec_dir select 0) atan2 (_vec_dir select 1), _vehicle_type, _side] call BIS_fnc_spawnVehicle;
+private _vehicleInfo = [_spawn_position, _spawn_position getDir _lzPos, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
 private _vehicle = _vehicleInfo select 0;
 private _vehicleGroup = _vehicleInfo select 2;
 //_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
-private _vehicleUnloadWp = _vehicleGroup addWaypoint [position _lz, _lzSize];
+private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
@@ -303,49 +264,8 @@ switch (_grp_beh) do
 };
 
 // Choose a RP for the squad to head to once unloaded and set their waypoint.
-if (count _allRps > 0) then
-{
-	// Choose the RP based on the algorithm the user selected
-	private _rp = switch (_rp_algorithm) do
-	{
-		case 0: // Random
-		{
-    		_allRps call BIS_fnc_selectRandom;
-		};
-		case 1: // Nearest
-		{
-			[position _lz, _allRps] call Ares_fnc_GetNearest;
-		};
-		case 2: // Furthest
-		{
-			[position _lz, _allRps] call Ares_fnc_GetFarthest;
-		};
-		case 3: // Least Used
-		{
-			private _temp = _allRps call BIS_fnc_selectRandom; // Choose randomly to begin with.
-			{
-				if (_x getVariable ["Ares_Rp_Count", 0] < _temp getVariable ["Ares_Rp_Count", 0]) then
-				{
-					_temp = _x;
-				}
-			} forEach _allRps;
-            _temp
-		};
-		default
-		{
-			_allRps select (_rp_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
-		};
-	};
-
-	// Now that we've chosen an RP, increment the count for it.
-	_rp setVariable ["Ares_Rp_Count", (_rp getVariable ["Ares_Rp_Count", 0]) + 1];
-
-	_infantry_group addWaypoint [position _rp, _rpSize];
-}
-else
-{
-	_infantry_group addWaypoint [position _lz, _rpSize];
-};
+private _rpPos = [_lzPos, _allRpPositions, _rp_algorithm] call Achilles_fnc_selectPosition;
+_infantry_group addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.
 {

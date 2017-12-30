@@ -13,7 +13,8 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-#define AMMO_CRATES ["CargoNet_01_barrels_F", "CargoNet_01_box_F", "I_CargoNet_01_ammo_F", "O_CargoNet_01_ammo_F", "C_IDAP_CargoNet_01_supplies_F", "B_CargoNet_01_ammo_F"]
+#define SIDES 									[east, west, independent]
+#define SIDE_NAMES								[localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_INDEPENDENT"]
 #define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX	4
 
 #define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
@@ -21,25 +22,18 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+disableSerialization;
+
+private _spawn_position = position _logic;
+
+// options for selecting positions
+private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 
 // get LZs
-private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
-private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
-_lzOptions append (_allLzs apply {name _x});
-
-private _pos = position _logic;
-
-disableSerialization;
-// get sides
-private _sides = [];
-private _side_names = [];
-for "_i" from 0 to 2 do
-{
-	_sides pushBack (_i call BIS_fnc_sideType);
-	_side_names pushBack (_i call BIS_fnc_sideName);
-};
+private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getPosLogicsData;
+_allLzsData params ["_allLzNames","_allLzPositions"];
+if (_allLzNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
+private _lzOptions = _extraOptions + _allLzNames;
 
 // cache: find all possible vehicles and groups for reinforcements 
 if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo []) then
@@ -53,7 +47,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	private _cargoCategories = [];
 	private _cargoVehicles = [];
 	
-	for "_side_id" from 0 to (count _sides - 1) do
+	for "_side_id" from 0 to (count SIDES - 1) do
 	{
 		// find vehicles
 		private _tree_ctrl = _curator_interface displayCtrl (CURATOR_UNITS_IDCs select _side_id);
@@ -160,7 +154,7 @@ private _dialogResult =
 [
 	localize "STR_AMAE_SPAWN_UNITS",
 	[
-		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names, 0, false, [["LBSelChanged","SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", [], 0, false, [["LBSelChanged","CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", []],
@@ -168,7 +162,7 @@ private _dialogResult =
 		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
 		["COMBOBOX", localize "STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMAE_AMMUNITION_CRATE", localize "STR_AMAE_VEHICLE"], 0, false, [["LBSelChanged","CARGO_TYPE"]]],
 		["COMBOBOX", localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_VIRTUAL_ARSENAL", localize "STR_AMAE_EMPTY"]],
-		["COMBOBOX", localize "STR_AMAE_SIDE", _side_names, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","CARGO_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_CATEGORY", [], 0, false, [["LBSelChanged","CARGO_CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", []]
@@ -195,42 +189,15 @@ _dialogResult params
 ];
 
 // Choose the LZ based on what the user indicated
-private _LZ = switch (_lzdz_algorithm) do
-{
-	case 0: // Random
-	{
-		_allLzs call BIS_fnc_selectRandom
-	};
-	case 1: // Nearest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetNearest
-	};
-	case 2: // Furthest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest
-	};
-	case 3: // Least used
-	{
-		private _temp = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
-		{
-			if (_x getVariable ["Ares_Lz_Count", 0] < _temp getVariable ["Ares_Lz_Count", 0]) then
-			{
-				_temp = _x;
-			};
-		} forEach _allLzs;
-        _temp
-	};
-	default // Specific LZ.
-	{
-		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX)
-	};
-};
+
+
+private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_selectPosition;
 
 private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _side_id select _faction_id select _category_id select _vehicle_id;
 
 _aircraftSide = _side_id call BIS_fnc_sideType;
 
-private _spawnedAircraftArray = [_pos, _pos getDir _LZ, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
+private _spawnedAircraftArray = [_spawn_position, _spawn_position getDir _lzPos, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
 
 _spawnedAircraftArray params ["_aircraft", "_aircraftCrew", "_aircraftGroup"];
 
@@ -250,7 +217,7 @@ if (_cargoType == 0) then
 {
 	private _cargoBoxClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
 
-	private _cargoBox = _cargoBoxClassname createVehicle _pos;
+	private _cargoBox = _cargoBoxClassname createVehicle _spawn_position;
 
 	[[_cargoBox]] call Ares_fnc_AddUnitsToCurator;
 
@@ -289,7 +256,7 @@ if (_cargoType == 1) then
 {
 	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
 	
-	private _cargo = _cargoClassname createVehicle _pos;
+	private _cargo = _cargoClassname createVehicle _spawn_position;
 
 	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
 
@@ -316,7 +283,7 @@ if (_cargoType == 1) then
 	};
 };
 
-private _LZWaypoint = _aircraftGroup addWaypoint [_LZ, 20];
+private _LZWaypoint = _aircraftGroup addWaypoint [_lzPos, 20];
 _aircraftGroup setSpeedMode "FULL";
 
 if (!((getVehicleCargo _aircraft) isEqualTo [])) then

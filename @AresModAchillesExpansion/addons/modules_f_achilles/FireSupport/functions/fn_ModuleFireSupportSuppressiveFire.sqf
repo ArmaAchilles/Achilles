@@ -19,13 +19,12 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 	Achilles_var_suppressiveFire_init_done = true;
 };
 
-// get list of possible targest
-private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
-private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
+// get list of possible targets
+private _allTargetsData = ["Achilles_Create_Suppression_Target_Module"] call Achilles_fnc_getPosLogicsData;
+_allTargetsData params ["_allTargetNames","_allTargetPositions"];
+if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
 private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
-_targetChoices = _allTargets apply {name _x};
-if (count _targetChoices == 3) exitWith {[localize "STR_AMAE_NO_TARGET_AVAIABLE"] call Achilles_fnc_ShowZeusErrorMessage};
+_targetChoices append _allTargetNames;
 
 private _weaponsToFire = [];
 if (isNull objectParent (gunner _unit)) then
@@ -106,32 +105,14 @@ _doLineUp = _doLineUp == 0;
 _duration = parseNumber _duration;
 
 // Choose a target to fire at
-private _selectedTarget = switch (_targetChooseAlgorithm) do
-{
-	case 0: // Random
-	{
-		_allTargets call BIS_fnc_selectRandom;
-	};
-	case 1: // Nearest
-	{
-		[position _logic, _allTargets] call Ares_fnc_GetNearest;
-	};
-	case 2: // Furthest
-	{
-		[position _logic, _allTargets] call Ares_fnc_GetFarthest;
-	};
-	default // Specific target
-	{
-		_allTargets select (_targetChooseAlgorithm - 3);
-	};
-};
+private _selectedTargetPos = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_selectPosition;
 
 if (local _unit) then
 {
-	[_unit,getPosWorld _selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
+	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
 } else
 {
-	[_unit,getPosWorld _selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
+	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
