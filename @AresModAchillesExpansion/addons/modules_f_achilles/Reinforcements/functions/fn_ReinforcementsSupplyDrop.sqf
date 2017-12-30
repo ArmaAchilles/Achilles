@@ -74,7 +74,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 				for "_vehicle_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid,_category_tvid]) - 1) do
 				{
 					private _vehicle = _tree_ctrl tvData [_faction_tvid,_category_tvid,_vehicle_tvid];
-					if (_vehicle isKindOf "Air" and {count getArray (configFile >> "CfgVehicles" >> _vehicle >> "slingCargoAttach") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}}) then
+					if (count getArray (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}) then
 					{
 						if (not _factionIncludedInTransport) then
 						{
@@ -132,7 +132,11 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 				_supplies pushBack [];
 				for "_supply_id" from 0 to ((_tree_ctrl tvCount [_supplyCategory_id,_supplySubCategory_id]) - 1) do
 				{
-					(_supplies select _supplySubCategory_id) pushBack (_tree_ctrl tvData [_supplyCategory_id,_supplySubCategory_id,_supply_id]);
+					private _supply = _tree_ctrl tvData [_supplyCategory_id,_supplySubCategory_id,_supply_id];
+					if (count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0) then
+					{
+						(_supplies select _supplySubCategory_id) pushBack _supply;
+					};
 				};
 			};
 		};
