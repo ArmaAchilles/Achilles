@@ -74,7 +74,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 				for "_vehicle_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid,_category_tvid]) - 1) do
 				{
 					private _vehicle = _tree_ctrl tvData [_faction_tvid,_category_tvid,_vehicle_tvid];
-					if (count getArray (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}) then
+					if (getNumber (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}) then
 					{
 						if (not _factionIncludedInTransport) then
 						{
