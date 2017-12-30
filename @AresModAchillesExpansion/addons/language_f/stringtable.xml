@@ -3980,7 +3980,7 @@
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
                 <Original>
-			The execute code module is only available if the server allows for it's use by clients!
+			The execute code module is only available if the server allows for its use by clients!
 			%1%1There are two built-in params available:
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
@@ -3998,7 +3998,7 @@
 			%1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
 		</German>
                 <English>
-			The execute code module is only available if the server allows for it's use by clients!
+			The execute code module is only available if the server allows for its use by clients!
 			%1%1There are two built-in params available:
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
