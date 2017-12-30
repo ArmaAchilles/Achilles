@@ -3824,7 +3824,7 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
                 <Original>
-			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			The Achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
@@ -3840,7 +3840,7 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использоваться на боевых единицах.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
-			
+
 		</Russian>
                 <German>
 			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
@@ -3852,7 +3852,7 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
 		</German>
                 <English>
-			The Ares Modules have informative icons in the module tree.%1The most common are described here:
+			The Achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
@@ -3863,7 +3863,7 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
                 <Original>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</Original>
                 <Russian>
 			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
@@ -3872,26 +3872,26 @@
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
 		</German>
                 <English>
-			For modules applied on objects or units it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
+			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</English>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
-                <Original>Selection Option</Original>
-                <English>Selection Option</English>
+                <Original>Selection Options</Original>
+                <English>Selection Options</English>
                 <French>L'option de choix</French>
                 <Russian>Варианты выбора</Russian>
                 <German>Auswahl Option</German>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
-			Some modules have the option to select objects on which it is apply to.
+			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</Original>
                 <English>
-			Some modules have the option to select objects on which it is apply to.
+			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancle the selection mode with %3[ESCAPE]%4.
+			%1You can cancel the selection mode with %3[ESCAPE]%4.
 		</English>
                 <French>
 			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
@@ -3911,10 +3911,10 @@
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
                 <Original>
-			You can read on top what the module want you to select.
+			You can read the message given at the top of the screen about what the module wants you to select.
 		</Original>
                 <English>
-			You can read on top what the module want you to select.
+			You can read the message given at the top of the screen about what the module wants you to select.
 		</English>
                 <French>
 			Il est écrié au-dessus qu'est-ce que vous devez choisir.
@@ -3927,18 +3927,18 @@
 		</German>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT">
-                <Original>Additional Key Assignment</Original>
+                <Original>Additional Key Assignments</Original>
                 <Russian>Назначение доп. клавиш</Russian>
-                <English>Additional Key Assignment</English>
+                <English>Additional Key Assignments</English>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT_DESCRIPTION">
                 <Original>
-			Additional key assignments aviable:
-			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
+			Additional key assignments available:
+			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
 			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-			%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
+		    %1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
 			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
 		</Original>
@@ -3963,12 +3963,12 @@
 			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
 		</German>
                 <English>
-			Additional key assignments aviable:
-			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a unit icon in order to remote control the AI.
+			Additional key assignments available:
+			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
 			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-			%1%2If you select a unit and press %11 it will pop smoke or countermeasure if aviable.
+			%1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
 			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
 			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
 		</English>
@@ -3980,7 +3980,7 @@
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
                 <Original>
-			The execute code module is only aviable if the server allows clients using it!
+			The execute code module is only available if the server allows for its use by clients!
 			%1%1There are two built-in params available:
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
@@ -3998,7 +3998,7 @@
 			%1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
 		</German>
                 <English>
-			The execute code module is only aviable if the server allows clients using it!
+			The execute code module is only available if the server allows for its use by clients!
 			%1%1There are two built-in params available:
 			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
 			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
@@ -4013,10 +4013,10 @@
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
                 <Original>
-			Open the %3Field Manual%4 available in the escape menu for useful informations.
+			Open the %3Field Manual%4 available in the escape menu for useful information.
 		</Original>
                 <English>
-			Open the %3Field Manual%4 available in the escape menu for informations.
+			Open the %3Field Manual%4 available in the escape menu for useful information.
 		</English>
                 <French>
 			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
@@ -4035,10 +4035,10 @@
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
                 <Original>
-			You How to remote control a specific unit in a vehicle:
-			%1 1) Select the unit in the object list on your left.
-			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+			How to remote control a specific unit inside a vehicle:
+			%1 1) Select the unit in the edit list on your left.
+			%1 2) A new icon pops up on the vehicle corresponding to the target unit.
+			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
 		</Original>
                 <Russian>
 			Чтобы получить удалённое управление нужным Вам членом экипажа в транспортном средстве, необходимо:
@@ -4047,10 +4047,10 @@
 			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
 		</Russian>
                 <English>
-			You How to remote control a specific unit in a vehicle:
-			%1 1) Select the unit in the object list on your left.
-			%1 2) A new icon popes up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the unit icon.
+			How to remote control a specific unit inside a vehicle:
+			%1 1) Select the unit in the edit list on your left.
+			%1 2) A new icon pops up on the vehicle corresponding to the target unit.
+			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
 		</English>
             </Key>
         </Container>
