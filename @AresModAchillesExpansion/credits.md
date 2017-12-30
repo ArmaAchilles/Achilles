@@ -24,15 +24,35 @@ Below you can find all the authors and contributors to Ares and Achilles.
 - Kex
 
 ### Other Contributors:
-- CoxLedere (Available factions and dynamic loadout bug fix)
-- Dedmen (For complaining at how terribly we write code and help us out to fix it)
-- Grezvany13 (Several contributions & support)
-- NeilZar (Code optimization and fixes)
-- S.Crowe (ACE healing and Eden compatibilty of compositions)
-- Shukari (Available factions bug fix)
-- Talya (Assistance in general, even if he wasn't always aware of that ;) )
-- Victor9401 (Code refactoring and to help out my poor brain at some points)
-- Zakant (bug fixes and improval of code efficency)
+- CoxLedere
+    - Available factions fix;
+    - Dynamic loadout bug fix.
+- Dedmen
+    - For complaining at how terribly we write code and help us out to fix it.
+- Grezvany13
+    - Several contributions and support.
+- MaliceGFS
+    - Spelling fixes.
+- NeilZar
+    - Code optimization, refactoring
+    - General support.
+- ItsNoirLime
+    - Spelling fixes.
+- S.Crowe
+    - ACE healing;
+    - Eden compatability of compositions.
+- Shukari
+    - Available factions bug fix.
+- Talya
+    - Assistance in general.
+- Unhappytroll
+    - Localization improvements.
+- Victor9401
+    - Code refactoring and improvements;
+    - Support and suggestions.
+- Zakant
+    - Bug fixes;
+    - Improval of code efficency.
 
 ## Achilles integrates code from the following mods or scripts
 - AI HALO jump script (by cobra4v320)
