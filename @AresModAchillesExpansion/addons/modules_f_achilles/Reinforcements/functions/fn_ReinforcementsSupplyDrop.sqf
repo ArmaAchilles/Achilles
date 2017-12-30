@@ -207,10 +207,6 @@ _spawnedAircraftArray params ["_aircraft", "_aircraftCrew", "_aircraftGroup"];
 
 [[_aircraft]] call Ares_fnc_AddUnitsToCurator;
 
-{
-	[[_x]] call Ares_fnc_AddUnitsToCurator;
-} forEach _aircraftCrew;
-
 private _aircraftDriver = driver _aircraft;
 
 _aircraftDriver setSkill 1;

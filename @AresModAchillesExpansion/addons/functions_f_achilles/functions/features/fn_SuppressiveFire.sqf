@@ -27,7 +27,7 @@ private _units = units _old_group;
 
 //create target logic
 private _selectedTarget = (createGroup sideLogic) createUnit ["Module_f", [0,0,0], [], 0, "NONE"];
-_selectedTarget setPosWorld _targetPos;
+_selectedTarget setPos _targetPos;
 
 //save and remove waypoints
 private _current_wp_id = currentWaypoint _old_group;

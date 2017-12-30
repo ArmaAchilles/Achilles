@@ -152,7 +152,7 @@ private _dialogResult =
 // Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
 _dialogResult params ["_side_id","_vehicle_faction_id","_vehicle_category_id","_vehicle_id","_vehicle_behaviour","_lzdz_algorithm","_lzdz_type","_group_faction_id","_group_id","_rp_algorithm","_group_behaviour"];
-private _side = _sides select _side_id;
+private _side = SIDES select _side_id;
 private _vehicle_type = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _vehicle_faction_id select _vehicle_category_id select _vehicle_id;
 private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _group_faction_id select _group_id;
 private _lzSize = 20;	// TODO make this a dialog parameter?
@@ -163,9 +163,7 @@ private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achill
 
 // create the transport vehicle
 private _vehicleInfo = [_spawn_position, _spawn_position getDir _lzPos, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
-private _vehicle = _vehicleInfo select 0;
-private _vehicleGroup = _vehicleInfo select 2;
-//_vehicleDummyWp = _vehicleGroup addWaypoint [position _vehicle, 0];
+_vehicleInfo params ["_vehicle", "_", "_vehicleGroup"];
 private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
 if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
 {
@@ -205,7 +203,7 @@ if (_vehicle_behaviour == 0) then
 };
 
 // Add vehicle to curator
-[(units _vehicleGroup) + [(vehicle (leader _vehicleGroup))]] call Ares_fnc_AddUnitsToCurator;
+[[_vehicle]] call Ares_fnc_AddUnitsToCurator;
 
 private _CrewTara = [_vehicle_type,false] call BIS_fnc_crewCount;
 private _CrewBrutto =  [_vehicle_type,true] call BIS_fnc_crewCount;
