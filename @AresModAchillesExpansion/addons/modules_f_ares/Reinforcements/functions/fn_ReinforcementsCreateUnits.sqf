@@ -37,7 +37,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 	private _vehicles = [];
 	private _groups = [];
 
-	for "_side_id" from 1 to (count SIDES - 1) do
+	for "_side_id" from 0 to (count SIDES - 1) do
 	{
 		// find vehicles
 		private _tree_ctrl = _curator_interface displayCtrl (CURATOR_UNITS_IDCs select _side_id);
