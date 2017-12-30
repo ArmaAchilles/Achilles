@@ -41,10 +41,11 @@ class CfgFunctions
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
 			class log;
-			class getAllLZsAndRPs;
+			class getPosLogicsData;
 			class createDummyLogic;
 			class isACELoaded;
 			class returnChildren;
+			class positionSelector;
 		};
 
 		class selectUnit
