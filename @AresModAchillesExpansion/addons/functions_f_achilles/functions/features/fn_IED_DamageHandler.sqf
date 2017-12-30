@@ -15,12 +15,12 @@
     Nothing
 */
 
-_object = _this select 0;
-_projectile = _this select 4;
-_dummyObject = _object getVariable ["dummyObject", objNull];
-_activationType = _dummyObject getVariable["activationType", 0];
+private _object = _this select 0;
+private _projectile = _this select 4;
+private _dummyObject = _object getVariable ["dummyObject", objNull];
+//private _activationType = _dummyObject getVariable["activationType", 0];
 
-_explosives =
+private _explosives =
 [
   "ClaymoreDirectionalMine_Remote_Ammo",
   "DemoCharge_Remote_Ammo",

@@ -1,7 +1,7 @@
 class Ares_Welcome_Dialog
 {
 	idd = 999997;
-	onLoad = "((_this select 0) displayCtrl 1100) ctrlSetStructuredText (parseText localize ""STR_INTRO_MESSAGE"");";
+	onLoad = "((_this select 0) displayCtrl 1100) ctrlSetStructuredText (parseText localize ""STR_AMAE_INTRO_MESSAGE"");";
 
 	class controlsBackground 
 	{
@@ -58,7 +58,7 @@ class Ares_Welcome_Dialog
 		{
 			style = 0;
 			idc = 1000;
-			text = "$STR_INTRO_TITLE";
+			text = "$STR_AMAE_INTRO_TITLE";
 			x = "1 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "38 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";

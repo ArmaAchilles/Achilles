@@ -19,24 +19,19 @@
 //	[_shooter,_target,[_obstacle_1,_obstacle_2],2] call Achilles_fnc_checkLineOfFire2D; //returns true or false
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_shooter","_target","_obstacles","_minimal_radius","_free_line_of_fire"];
+params ["_shooter", "_target", "_obstacles", "_minimal_radius"];
 
-_shooter = _this select 0;
-_target = _this select 1;
-_obstacles = _this select 2;
-_minimal_radius = _this select 3;
+private _shooter_pos = position _shooter;
+private _fire_line_vec = (position _target) vectorDiff _shooter_pos;
 
-_shooter_pos = position _shooter;
-_fire_line_vec = (position _target) vectorDiff _shooter_pos;
-
-_free_line_of_fire = true;
+private _free_line_of_fire = true;
 {
-	_obstacle_pos = position _x;
-	_shooter_obstacle_vec = _obstacle_pos vectorDiff _shooter_pos;
-	_obstacle_fire_line_dist = vectorMagnitude (_fire_line_vec vectorCrossProduct _shooter_obstacle_vec) / (vectorMagnitude _fire_line_vec);
-	_projection_product = _fire_line_vec vectorDotProduct _shooter_obstacle_vec;
-	if ((_projection_product > 0) and (_obstacle_fire_line_dist < _minimal_radius)) exitWith {_free_line_of_fire = false};
-	
+	private _obstacle_pos = position _x;
+	private _shooter_obstacle_vec = _obstacle_pos vectorDiff _shooter_pos;
+	private _obstacle_fire_line_dist = vectorMagnitude (_fire_line_vec vectorCrossProduct _shooter_obstacle_vec) / (vectorMagnitude _fire_line_vec);
+	private _projection_product = _fire_line_vec vectorDotProduct _shooter_obstacle_vec;
+	if ((_projection_product > 0) and (_obstacle_fire_line_dist < _minimal_radius)) exitWith {_free_line_of_fire = false;};
+
 } forEach _obstacles;
 
-_free_line_of_fire;
+_free_line_of_fire

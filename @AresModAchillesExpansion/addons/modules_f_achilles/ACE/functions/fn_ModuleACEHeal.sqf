@@ -11,11 +11,11 @@
 
 private ["_injury","_selected_units"];
 
-_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_mode = if (!isNull _unit) then {"single"} else {"multiple"};
+private _mode = ["single", "multiple"] select (isNull _unit);
 
-_options = [localize "STR_RANDOM",localize "STR_NONE_INJURY",localize "STR_LIGHT_INJURY", localize "STR_SEVERE"];
+private _options = [localize "STR_AMAE_RANDOM",localize "STR_AMAE_NONE_INJURY",localize "STR_AMAE_LIGHT_INJURY", localize "STR_AMAE_SEVERE"];
 
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
@@ -27,34 +27,28 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	{
 		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
 	};
-	
+
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (count _selected_units == 0) exitWith {};
-	
+	if (_selected_units isEqualTo []) exitWith {};
+
 	{
-		if (local _x) then
-		{
-			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
-		} else
-		{
-			[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x];
-		};
+        if (local _x) then {[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal} else	{[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]};
 	} forEach _selected_units;
 } else
 {
 	if (_mode == "single") then
 	{
-		["Headled"] call Ares_fnc_ShowZeusMessage;
+		["Healed"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
 	} else
 	{
 		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
 	};
-	
+
 	// handle the case the selection was cancled
 	if (isNil "_selected_units") exitWith {};
-	if (count _selected_units == 0) exitWith {};
+	if (_selected_units isEqualTo []) exitWith {};
 
 	// Vanilla Injury System
 	{

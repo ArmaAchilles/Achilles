@@ -47,7 +47,7 @@ class CfgFunctions
 			file = "\achilles\ui_f\functions\dialogs";
 
 			class RscDisplayAttributes_selectPlayers;
-			class RscDisplayAttributes_Create_Reinforcement;
+			class RscDisplayAttributes_CreateReinforcement;
 			class RscDisplayAttributes_BuildingsDestroy;
 			class RscDisplayAttributes_LockDoors;
 			class RscDisplayAtttributes_SpawnEffect;
@@ -61,6 +61,7 @@ class CfgFunctions
 			class RscDisplayAttributes_SpawnEmptyObject;
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
+			class RscDisplayAttributes_SupplyDrop;
 		};
 		
 		class ui_f_replacement

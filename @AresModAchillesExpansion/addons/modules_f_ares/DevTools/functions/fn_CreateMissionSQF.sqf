@@ -1,4 +1,3 @@
-
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 Ares_EditableObjectBlacklist =
@@ -9,7 +8,7 @@ Ares_EditableObjectBlacklist =
 	"Ornate_random_F",
 	"Mackerel_F",
 	"Tuna_F",
-	"Mullet_F", 
+	"Mullet_F",
 	"CatShark_F",
 	"Rabbit_F",
 	"Snake_random_F",
@@ -20,56 +19,52 @@ Ares_EditableObjectBlacklist =
 	"Sheep_random_F"
 ];
 
-_radius = 100;
-_position = _this select 0;
+private _radius = 100;
+private _position = _this select 0;
 
-_dialogResult =
+private _dialogResult =
 	[
-		localize "STR_COPY_MISSION_SQF",
+		localize "STR_AMAE_COPY_MISSION_SQF",
 		[
-			[localize "STR_RANGE", ["50m", "100m", "500m", "1km", "2km", "5km", localize "STR_ENTIRE_MAP"], 6],
-			[localize "STR_INCLUDE_AI", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_EMPTY_VEHICLES", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_OBJECTS", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_INCLUDE_MARKERS", [localize "STR_YES", localize "STR_NO"], 1]
+			[localize "STR_AMAE_RANGE", ["50m", "100m", "500m", "1km", "2km", "5km", localize "STR_AMAE_ENTIRE_MAP"], 6],
+			[localize "STR_AMAE_INCLUDE_AI", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_EMPTY_VEHICLES", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_OBJECTS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_INCLUDE_MARKERS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-if (count _dialogResult == 0) exitWith { "User cancelled dialog."; };
+if (_dialogResult isEqualTo []) exitWith { "User cancelled dialog."; };
 
-["User chose radius with index '%1'", _dialogResult] call Ares_fnc_LogMessage;
+["User chose radius with index '%1'", _dialogResult] call Achilles_fnc_log;
 _radius = 100;
-switch (_dialogResult select 0) do
+_radius = switch (_dialogResult select 0) do
 {
-	case 0: { _radius = 50; };
-	case 1: { _radius = 100; };
-	case 2: { _radius = 500; };
-	case 3: { _radius = 1000; };
-	case 4: { _radius = 2000; };
-	case 5: { _radius = 5000; };
-	case 6: { _radius = -1; };
-	default { _radius = 100; };
+	case 0: { 50 };
+	case 1: { 100 };
+	case 2: { 500 };
+	case 3: { 1000 };
+	case 4: { 2000 };
+	case 5: { 5000 };
+	case 6: { -1 };
+	default { 100 };
 };
-_includeUnits = if (_dialogResult select 1 == 0) then { true; } else { false; };
-_includeEmptyVehicles = if (_dialogResult select 2 == 0) then { true; } else { false; };
-_includeEmptyObjects = if (_dialogResult select 3 == 0) then { true; } else { false; };
-_includeMarkers = if (_dialogResult select 4 == 0) then { true; } else { false; };
+private _includeUnits = (_dialogResult select 1 == 0);
+private _includeEmptyVehicles = (_dialogResult select 2 == 0);
+private _includeEmptyObjects = (_dialogResult select 3 == 0);
+private _includeMarkers = (_dialogResult select 4 == 0);
 
-_objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
-_emptyObjects = [];
-_emptyVehicles = [];
-_groups = [];
+private _objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
+private _emptyObjects = [];
+private _emptyVehicles = [];
+private _groups = [];
 {
-	_ignoreFlag = false;
-	if ((typeOf _x) in Ares_EditableObjectBlacklist || isPlayer _x) then
-	{
-		_ignoreFlag = true;
-	};
+	private _ignoreFlag = ((typeOf _x) in Ares_EditableObjectBlacklist || isPlayer _x);
 
 	if (!_ignoreFlag && ((_x distance _position <= _radius) || _radius == -1)) then
 	{
-		["Processing object: %1 - %2", _x, typeof(_x)] call Ares_fnc_LogMessage;
+		["Processing object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_log;
 		_ignoreFlag = true;
-		_isUnit = (_x isKindOf "CAManBase")
+		private _isUnit = (_x isKindOf "CAManBase")
 			|| (_x isKindOf "car")
 			|| (_x isKindOf "tank")
 			|| (_x isKindOf "air")
@@ -79,36 +74,36 @@ _groups = [];
 		{
 			if (_x isKindOf "CAManBase") then
 			{
-				["Is a man."] call Ares_fnc_LogMessage;
+				["Is a man."] call Achilles_fnc_log;
 				if ((group _x) in _groups) then
 				{
-					["In an old group."] call Ares_fnc_LogMessage;
+					["In an old group."] call Achilles_fnc_log;
 				}
 				else
 				{
-					["In a new group."] call Ares_fnc_LogMessage;
+					["In a new group."] call Achilles_fnc_log;
 					_groups pushBack (group _x);
 				};
-				
+
 			}
 			else
 			{
 				if (count crew _x > 0) then
 				{
-					["Is a vehicle with units."] call Ares_fnc_LogMessage;
+					["Is a vehicle with units."] call Achilles_fnc_log;
 					if ((group _x) in _groups) then
 					{
-						["In an old group."] call Ares_fnc_LogMessage;
+						["In an old group."] call Achilles_fnc_log;
 					}
 					else
 					{
-						["In a new group."] call Ares_fnc_LogMessage;
+						["In a new group."] call Achilles_fnc_log;
 						_groups pushBack (group _x);
 					};
 				}
 				else
 				{
-					["Is an empty vehicle."] call Ares_fnc_LogMessage;
+					["Is an empty vehicle."] call Achilles_fnc_log;
 					_emptyVehicles pushBack _x;
 				};
 			};
@@ -117,39 +112,40 @@ _groups = [];
 		{
 			if (_x isKindOf "Logic") then
 			{
-				["Is a logic. Ignoring."] call Ares_fnc_LogMessage;
+				["Is a logic. Ignoring."] call Achilles_fnc_log;
 			}
 			else
 			{
-				["Is an empty vehicle."] call Ares_fnc_LogMessage;
+				["Is an empty vehicle."] call Achilles_fnc_log;
 				_emptyObjects pushBack _x;
 			};
 		};
 	}
 	else
 	{
-		["Ignoring object: %1 - %2", _x, typeof(_x)] call Ares_fnc_LogMessage;
+		["Ignoring object: %1 - %2", _x, typeof(_x)] call Achilles_fnc_log;
 	};
 } forEach _objectsToFilter;
 
-_output = [];
+private _output = [];
 if (!_includeUnits) then { _groups = []; };
 if (!_includeEmptyVehicles) then { _emptyVehicles = []; };
 if (!_includeEmptyObjects) then { _emptyObjects = []; };
 
-_totalUnitsProcessed = 0;
+private _totalUnitsProcessed = 0;
 {
 	_output pushBack format [
-		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject];",
+		"_newObject = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; _newObject setPosWorld %3; [_newObject, [%4, %5]] remoteExecCall [""setVectorDirAndUp"", 0, _newObject]; _newObject enableSimulationGlobal %6;",
 		(typeOf _x),
 		(position _x),
 		(getPosWorld _x),
 		(vectorDir _x),
-		(vectorUp _x)];
+		(vectorUp _x),
+		(simulationEnabled _x)];
 } forEach _emptyObjects + _emptyVehicles;
 
 {
-	_sideString = "";
+	private _sideString = "";
 	switch (side _x) do
 	{
 		case east: { _sideString = "east"; };
@@ -161,10 +157,10 @@ _totalUnitsProcessed = 0;
 	_output pushBack format [
 		"_newGroup = createGroup %1; ",
 		_sideString];
-	_groupVehicles = [];
+	private _groupVehicles = [];
 	// Process all the infantry in the group
 	{
-		if (vehicle _x == _x) then
+		if (isNull objectParent _x) then
 		{
 			_output pushBack format [
 				"_newUnit = _newGroup createUnit ['%1', %2, [], 0, 'CAN_COLLIDE']; _newUnit setSkill %3; _newUnit setRank '%4'; _newUnit setFormDir %5; _newUnit setDir %5; _newUnit setPosWorld %6;",
@@ -177,24 +173,24 @@ _totalUnitsProcessed = 0;
 		}
 		else
 		{
-			if (not ((vehicle _x) in _groupVehicles)) then
+			if (!((vehicle _x) in _groupVehicles)) then
 			{
 				_groupVehicles pushBack (vehicle _x);
 			};
 		};
 		_totalUnitsProcessed = _totalUnitsProcessed + 1;
 	} forEach (units _x);
-	
+
 	// Create the vehicles that are part of the group.
-	{
-		_output pushBack format [
-			"_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
-			(typeOf _x),
-			(position _x),
-			(getDir _x),
-			(getPosWorld _x)];
-	} forEach _groupVehicles;
-	
+    {
+    	_output pushBack format [
+    		"_newUnit = createVehicle ['%1', %2, [], 0, 'CAN_COLLIDE']; createVehicleCrew _newUnit; (crew _newUnit) join _newGroup; _newUnit setDir %3; _newUnit setFormDir %3; _newUnit setPosWorld %4;",
+    	    (typeOf _x),
+     		(position _x),
+     		(getDir _x),
+     		(getPosWorld _x)];
+    } forEach _groupVehicles;
+
 	// Set group behaviours
 	_output pushBack format [
 		"_newGroup setFormation '%1'; _newGroup setCombatMode '%2'; _newGroup setBehaviour '%3'; _newGroup setSpeedMode '%4';",
@@ -202,7 +198,7 @@ _totalUnitsProcessed = 0;
 		(combatMode _x),
 		(behaviour (leader _x)),
 		(speedMode _x)];
-		
+
 	{
 		if (_forEachIndex > 0) then
 		{
@@ -222,7 +218,7 @@ _totalUnitsProcessed = 0;
 if (_includeMarkers) then
 {
 	{
-		_markerName = "Ares_Imported_Marker_" + str(_forEachIndex);
+		private _markerName = "Ares_Imported_Marker_" + str(_forEachIndex);
 		_output pushBack format [
 			"_newMarker = createMarker ['%1', %2]; _newMarker setMarkerShape '%3'; _newMarker setMarkerType '%4'; _newMarker setMarkerDir %5; _newMarker setMarkerColor '%6'; _newMarker setMarkerAlpha %7; %8 %9",
 			_markerName,
@@ -238,13 +234,13 @@ if (_includeMarkers) then
 	} forEach allMapMarkers;
 };
 
-_text = "";
+private _text = "";
 {
 	_text = _text + _x;
-	[_x] call Ares_fnc_LogMessage;
+	[_x] call Achilles_fnc_log;
 } forEach _output;
 uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _text];
-_dialog = createDialog "Ares_CopyPaste_Dialog";
-[localize "STR_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
+private _dialog = createDialog "Ares_CopyPaste_Dialog";
+[localize "STR_AMAE_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

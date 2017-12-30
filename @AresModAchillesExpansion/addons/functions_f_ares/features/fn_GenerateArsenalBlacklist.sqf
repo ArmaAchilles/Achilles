@@ -1,13 +1,13 @@
 /*
 	Generates a list of items that should be blacklisted based on some parameters provided.
-	
+
 	Note: The fields that take a 'String' parameter accept one of the following:
 		'All' - No items of this type will be blacklisted (all these items are allowed)
 		'Blufor' - All items of this type EXCEPT bluefor variants will be blacklisted.
 		'Opfor' - All items of this type EXCEPT opfor variants will be blacklisted.
 		'Greenfor' - All items of this type EXCEPT greenfor variants will be blacklisted.
 		'None' - All of the items of this type will be blacklisted (none of these items are allowed)
-	
+
 	Parameters:
 		0 - Allow GPS (Boolean) - True to allow GPS receivers, false to blacklist them. Default 'False'.
 		1 - Allow Thermals (Boolean) - True to allow scopes and items with thermals, false to blacklist them. Default 'False'.
@@ -16,7 +16,7 @@
 		4 - Allowed UAV's (String) - The type of UAV's and UAV terminals to allow. Default 'None'.
 		5 - Allowed Automated Static Weapons (String) - The type of automated static weapon backpacks to allow. Default 'None'.
 		6 - Allow respawn tents - False to blacklist the respawn tents. True to allow them. Default is 'False'.
-		
+
 	Returns:
 		A list containing all of the item classnames that should be blacklisted.
 */
@@ -27,56 +27,53 @@
 #define SIDE_FILTER_GREENFOR 'Greenfor'
 #define SIDE_FILTER_NONE 'None'
 
-_allowGPS =                      [_this, 0, False] call BIS_fnc_Param;
-_allowThermals =                 [_this, 1, False] call BIS_fnc_Param;
-_allowNvg =                      [_this, 2, False] call BIS_fnc_Param;
-_allowedStaticWeapons =          [_this, 3, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedUav =                    [_this, 4, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowedAutomatedStaticWeapons = [_this, 5, SIDE_FILTER_NONE] call BIS_fnc_Param;
-_allowRespawnTents =             [_this, 6, False] call BIS_fnc_Param;
+params
+[
+	["_allowGPS", false],
+	["_allowThermals", false],
+	["_allowNvg", false],
+	["_allowedStaticWeapons", SIDE_FILTER_NONE],
+	["_allowedUav", SIDE_FILTER_NONE],
+	["_allowedAutomatedStaticWeapons", SIDE_FILTER_NONE],
+	["_allowRespawnTents", false]
+];
 
 // diag_log format["Generating blacklist: %1, %2, %3, %4, %5, %6", _allowGPS, _allowThermals, _allowNvg, _allowedStaticWeapons, _allowedUav, _allowedAutomatedStaticWeapons];
 
 // Generates a list of the blacklisted items based on a filter.
-private ["_applyFilter"];
-_applyFilter =
+private _applyFilter =
 	{
-		_side = _this select 0;
-		_blueItems = _this select 1;
-		_redItems = _this select 2;
-		_greenItems = _this select 3;
-		
-		_itemsToBlacklist = [];
+		params["_side", "_blueItems", "_redItems", "_greenItems"];
+
 		switch (_side) do
 		{
 			case SIDE_FILTER_BLUFOR:
 			{
-				_itemsToBlacklist = _redItems + _greenItems;
+                _redItems + _greenItems;
 			};
 			case SIDE_FILTER_OPFOR:
 			{
-				_itemsToBlacklist = _blueItems + _greenItems;
+                _blueItems + _greenItems;
 			};
 			case SIDE_FILTER_GREENFOR:
 			{
-				_itemsToBlacklist = _blueItems + _redItems;
+                _blueItems + _redItems;
 			};
 			case SIDE_FILTER_NONE:
-			{
-				_itemsToBlacklist = _blueItems + _redItems + _greenItems;
+            {
+                _blueItems + _redItems + _greenItems;
 			};
 		};
-		_itemsToBlacklist;
 	};
 
-_blacklist = [];
-if (not _allowGPS) then
+private _blacklist = [];
+if (!_allowGPS) then
 {
 	_blacklist pushback "ItemGPS";
 	// diag_log format["Blacklist after GPS: %1", _blacklist];
 };
 
-if (not _allowThermals) then
+if (!_allowThermals) then
 {
 	_blacklist = _blacklist + [
 			"Laserdesignator",
@@ -87,7 +84,7 @@ if (not _allowThermals) then
 	// diag_log format["Blacklist after thermals: %1", _blacklist];
 };
 
-if (not _allowNvg) then
+if (!_allowNvg) then
 {
 	_blacklist = _blacklist + [
 			"acc_pointer_IR",
@@ -129,7 +126,7 @@ _blacklist = _blacklist +
 	] call _applyFilter);
 // diag_log format["Blacklist after AutoStatics: %1", _blacklist];
 
-if (not _allowRespawnTents) then
+if (!_allowRespawnTents) then
 {
 	_blacklist = _blacklist +
 		[

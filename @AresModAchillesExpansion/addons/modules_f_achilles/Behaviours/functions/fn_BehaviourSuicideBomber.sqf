@@ -18,7 +18,6 @@ if(isNil "Achilles_var_ied_init_done") then
 	publicVariableServer "Achilles_fnc_createIED";
 	publicVariableServer "Achilles_fnc_createSuicideBomber";
 	publicVariableServer "Achilles_fnc_IED_DamageHandler";
-	publicVariableServer "Achilles_fnc_hasACEExplosives";
 	publicVariableServer "Achilles_fnc_fakeExplosion";
 	publicVariableServer "Achilles_fnc_disablingExplosion";
 	publicVariableServer "Achilles_fnc_deadlyExplosion";
@@ -27,44 +26,39 @@ if(isNil "Achilles_var_ied_init_done") then
 };
 
 // Gets the object that the module was placed upon
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
-if (isNull _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isNull _object) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if the module has been placed on top of a player.
-if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (isPlayer _object || isPlayer driver _object) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Displays error message if module has been placed on top of another IED
-if (_object getVariable ["isIED", false]) exitWith {[localize "STR_ENYO_OBJECT_IS_IED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isIED", false]) exitWith {[localize "STR_AMAE_ENYO_OBJECT_IS_IED"] call Achilles_fnc_ShowZeusErrorMessage};
 
-if (_object getVariable ["isSB", false]) exitWith {[localize "STR_ENYO_UNIT_IS_SB"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";};
+if (_object getVariable ["isSB", false]) exitWith {[localize "STR_AMAE_ENYO_UNIT_IS_SB"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Sets Suicide Bomber functionality
 if (_object isKindOf "Man") then
 {
-  _dialogResult =
+  private _dialogResult =
   [
-    localize "STR_ENYO_SET_UNIT_AS_SB",
+    localize "STR_AMAE_ENYO_SET_UNIT_AS_SB",
     [
-      [localize "STR_ENYO_EXPLOSION_SIZE", [localize "STR_ENYO_EXPLOSION_SIZE_SMALL", localize "STR_ENYO_EXPLOSION_SIZE_MEDIUM", localize "STR_ENYO_EXPLOSION_SIZE_LARGE"]],
-      [localize "STR_ENYO_EXPLOSION_EFFECT", [localize "STR_ENYO_EXPLOSION_EFFECT_DEADLY", localize "STR_ENYO_EXPLOSION_EFFECT_DISABLING", localize "STR_ENYO_EXPLOSION_EFFECT_FAKE", localize "STR_ENYO_EXPLOSION_EFFECT_NONE"]],
-			[localize "STR_ENYO_ADD_SB_VEST", [localize "STR_YES", localize "STR_NO"]],
-			[localize "STR_ENYO_ACTIVATION_DISTANCE", "", "10"],
-      [localize "STR_ENYO_PATROL_RADIUS", "", "100"],
-      [localize "STR_ENYO_ACTIVATION_SIDE", "SIDE", 2]
+      [localize "STR_AMAE_ENYO_EXPLOSION_SIZE", [localize "STR_AMAE_ENYO_EXPLOSION_SIZE_SMALL", localize "STR_AMAE_ENYO_EXPLOSION_SIZE_MEDIUM", localize "STR_AMAE_ENYO_EXPLOSION_SIZE_LARGE"]],
+      [localize "STR_AMAE_ENYO_EXPLOSION_EFFECT", [localize "STR_AMAE_ENYO_EXPLOSION_EFFECT_DEADLY", localize "STR_AMAE_ENYO_EXPLOSION_EFFECT_DISABLING", localize "STR_AMAE_ENYO_EXPLOSION_EFFECT_FAKE", localize "STR_AMAE_ENYO_EXPLOSION_EFFECT_NONE"]],
+			[localize "STR_AMAE_ENYO_ADD_SB_VEST", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+			[localize "STR_AMAE_ENYO_ACTIVATION_DISTANCE", "", "10"],
+      [localize "STR_AMAE_ENYO_PATROL_RADIUS", "", "100"],
+      [localize "STR_AMAE_ENYO_ACTIVATION_SIDE", "SIDE", 2]
     ]
   ] call Ares_fnc_showChooseDialog;
 
   if (isNil "_dialogResult") exitWith {};
-  if (count _dialogResult == 0) exitWith {};
+  if (_dialogResult isEqualTo []) exitWith {};
 
-  _explosionSize = _dialogResult select 0;
-  _explosionEffect = _dialogResult select 1;
-	_addVest = _dialogResult select 2;
-  _activationDistance = _dialogResult select 3;
-  _patrolRadius = _dialogResult select 4;
-  _activationSide = _dialogResult select 5;
+  _dialogResult params ["_explosionSize", "_explosionEffect", "_addVest", "_activationDistance", "_patrolRadius", "_activationSide"];
 
   _activationSide = switch (_activationSide) do
   {
@@ -81,7 +75,7 @@ if (_object isKindOf "Man") then
 		case 1: {false};
 	};
 
-  if (side _object == _activationSide) exitWith {[localize "STR_ENYO_ACTIVATION_SIDE_CANNOT_MATCH"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+  if (side _object == _activationSide) exitWith {[localize "STR_AMAE_ENYO_ACTIVATION_SIDE_CANNOT_MATCH"] call Achilles_fnc_ShowZeusErrorMessage};
 
   _object setVariable ["isSB", true, true];
 
@@ -91,7 +85,7 @@ if (_object isKindOf "Man") then
 }
 else
 {
-  [localize "STR_ENYO_OBJECTS_NOT_ALLOWED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";
+  [localize "STR_AMAE_ENYO_OBJECTS_NOT_ALLOWED"] call Achilles_fnc_ShowZeusErrorMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

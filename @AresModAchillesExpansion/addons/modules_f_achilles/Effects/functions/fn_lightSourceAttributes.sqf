@@ -1,25 +1,23 @@
-
-
 params [["_sourceObject",objNull,[objNull]]];
 
 private _light_attributes = _sourceObject getVariable ["LightAttributes", [[1,1,1],[1,1,1,1]]];
 private _rgb_color = _light_attributes select 0;
 private _attenuation = _light_attributes select 1;
 
-_source = _sourceObject getVariable "source";
+private _source = _sourceObject getVariable "source";
 Achilles_var_AttributeWindowTargetObject = _source;
 
-_dialogResult = 
+private _dialogResult = 
 [
-	localize "STR_LIGHT_SOURCE",
+	localize "STR_AMAE_LIGHT_SOURCE",
 	[
-		[localize "STR_RED_LIGHT", "SLIDER", _rgb_color select 0, true],
-		[localize "STR_GREEN_LIGHT", "SLIDER", _rgb_color select 1, true],
-		[localize "STR_BLUE_LIGHT", "SLIDER", _rgb_color select 2, true],
-		[localize "STR_RANGE" + " [m]", "", str (_attenuation select 0), true],
-		[localize "STR_CONST_ATTENUATION", "SLIDER", (_attenuation select 1)/100, true],
-		[localize "STR_LINEAR_ATTENUATION", "SLIDER", (_attenuation select 2)/100, true],
-		[localize "STR_QUADRATIC_ATTENUATION", "SLIDER", (_attenuation select 3)/100, true]
+		[localize "STR_AMAE_RED_LIGHT", "SLIDER", _rgb_color select 0, true],
+		[localize "STR_AMAE_GREEN_LIGHT", "SLIDER", _rgb_color select 1, true],
+		[localize "STR_AMAE_BLUE_LIGHT", "SLIDER", _rgb_color select 2, true],
+		[localize "STR_AMAE_RANGE", str (_attenuation select 0), true],
+		[localize "STR_AMAE_CONST_ATTENUATION", "SLIDER", (_attenuation select 1)/100, true],
+		[localize "STR_AMAE_LINEAR_ATTENUATION", "SLIDER", (_attenuation select 2)/100, true],
+		[localize "STR_AMAE_QUADRATIC_ATTENUATION", "SLIDER", (_attenuation select 3)/100, true]
 	],
 	"Achilles_fnc_RscDisplayAttributes_editLigthSource"
 ] call Ares_fnc_showChooseDialog;

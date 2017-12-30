@@ -9,7 +9,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_units = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _units = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 [_units] call Achilles_fnc_changeAbility;
 

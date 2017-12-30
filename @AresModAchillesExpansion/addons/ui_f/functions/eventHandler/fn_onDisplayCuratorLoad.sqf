@@ -31,20 +31,20 @@ _this spawn
 {
 	disableSerialization;
 	private _display_reload = false;
-	_display = _this select 0;
-	_tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
+	private _display = _this select 0;
+	private _tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 		
 	if (isNil "Achilles_curator_init_done") then
 	{
 		// key event handler for remote controlled unit
-		_main_display = findDisplay 46;
+		private _main_display = findDisplay 46;
 		_main_display displayAddEventHandler ["KeyDown", { _this call Achilles_fnc_HandleRemoteKeyPressed; }];
 		
 		// send warning to player if both mods are running
 		if (isClass (configfile >> "CfgPatches" >> "Ares")) then 
 		{
 			createDialog "RscDisplayCommonMessage";
-			_dialog = findDisplay IDD_MESSAGE;
+			private _dialog = findDisplay IDD_MESSAGE;
 			(_dialog displayCtrl IDC_TITLE) ctrlSetText "Warning: Please unload Ares Mod!";
 			(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText "Ares Mod - Achilles Expansion may not work properly!";
 			(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","closeDialog 1;"];
@@ -57,7 +57,12 @@ _this spawn
 		Achilles_curator_init_done = true;
 		
 		// display advanced hints
-		[["Ares", "AresFieldManual"],15,"",35,"",true] call BIS_fnc_advHint;
+		private _hasHintBeenShown = profileNamespace getVariable ["Achilles_var_advHint_showIntro", false];
+		if (!_hasHintBeenShown) then
+		{
+			[["Ares", "AresFieldManual"],15,"",35,"",true] call BIS_fnc_advHint;
+			profileNamespace setVariable ["Achilles_var_advHint_showIntro", true];
+		};
 	};
 	// prevent unessecary double execution of functions below
 	if (_display_reload) exitWith {};
@@ -71,6 +76,19 @@ _this spawn
 	_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
+
+	// Add custom Zeus logo when pressing backspace
+	private _zeusLogo = (findDisplay 312) displayCtrl 15717;
+	private _addLogo = true;
+	switch (Achilles_var_iconSelection) do 
+	{
+		case "Achilles_var_iconSelection_Ares": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\ZeusEyeAres.paa"};
+		case "Achilles_var_iconSelection_Achilles": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa"};
+		case "Achilles_var_iconSelection_Enyo": {_zeusLogo ctrlSetText "\achilles\data_f_achilles\icons\icon_enyo_large.paa"};
+		case "Achilles_var_iconSelection_Default": {_addLogo = false};
+		default {_zeusLogo ctrlSetText "\achilles\data_f_achilles\pictures\ZeusEyeAres.paa"};
+	};
+	if (_addLogo) then {_zeusLogo ctrlCommit 0};
 	
 	// handle module tree loading
 	[true] call Achilles_fnc_OnModuleTreeLoad;

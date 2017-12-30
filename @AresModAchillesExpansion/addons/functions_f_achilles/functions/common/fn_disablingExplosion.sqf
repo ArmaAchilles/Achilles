@@ -12,11 +12,10 @@
     Nothing
 */
 
-_spawnPos = _this select 0;
-_explosionSize = _this select 1;
-_random	= 0;
-_hitRadius = 0;
-_killRadius = 0;
+params["_spawnPos", "_explosionSize"];
+private _random	= 0;
+private _hitRadius = 0;
+private _killRadius = 0;
 
 switch (_explosionSize) do
 {
@@ -41,8 +40,6 @@ switch (_explosionSize) do
 	   _killRadius	= 30;
 	};
 };
-
-_targetUnits = _spawnPos nearObjects _hitRadius;
 
 {
 	_random = random 10;
@@ -78,4 +75,4 @@ _targetUnits = _spawnPos nearObjects _hitRadius;
 			_x setdamage 1;
 		};
 	};
-} forEach _targetUnits;
+} forEach (_spawnPos nearEntities _hitRadius);

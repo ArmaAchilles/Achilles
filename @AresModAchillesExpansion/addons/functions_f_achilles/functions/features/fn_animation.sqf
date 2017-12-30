@@ -15,15 +15,14 @@
 //	[_unit] call Achilles_fnc_Animation;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_anim","_dialogResult"];
+params[["_units", objNull, [[objNull]]]];
+private _anim = "TERMINATE";
 
-_units = [param [0,ObjNull,[ObjNull]]];
-
-_dialogResult =
+private _dialogResult =
 [
-	localize "STR_AMBIENT_ANIMATION",
+	localize "STR_AMAE_AMBIENT_ANIMATION",
 	[
-		[localize "STR_TYPE",
+		[localize "STR_AMAE_TYPE",
 			[
 				"stop animation",
 				"sit on floor",
@@ -56,82 +55,51 @@ _dialogResult =
 				"repair vehicle stand"
 			]
 		],
-		["Combat Ready", [localize "STR_TRUE",localize "STR_FALSE"]]
+		["Combat Ready", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
-_persistent = _dialogResult select 1;
+if (_dialogResult isEqualTo []) exitWith {};
+private _persistent = _dialogResult select 1;
 
 _anim = switch (_dialogResult select 0) do
 {
 	case 0:	{"TERMINATE"};
 	case 1: {"SIT_LOW"};
 	case 2: {"LEAN"};
-	case 3: 
+	case 3:
 	{
-		_case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"WATCH_1"};
-			case 1: {"WATCH_2"};
-		};
+		selectRandom ["WATCH_1", "WATCH_2"];
 	};
-	case 4: 
+	case 4:
 	{
-		_case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"STAND_1"};
-			case 1: {"STAND_2"};
-		};
+		selectRandom ["STAND_1", "STAND_2"];
 	};
-	case 5: 
+	case 5:
 	{
-		_case = round (random 2);
-		switch (_case) do
-		{
-			case 0: {"STAND_NO_WEAP_1"};
-			case 1: {"STAND_NO_WEAP_2"};
-			case 2: {"STAND_NO_WEAP_3"};
-		};
+		selectRandom ["STAND_NO_WEAP_1", "STAND_NO_WEAP_2", "STAND_NO_WEAP_3"];
 	};
 	case 6: {"GUARD"};
 	case 7: {"LISTEN_BRIEFING"};
 	case 8: {"BRIEFING"};
-	case 9: 
+	case 9:
 	{
-		_case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"BRIEFING_INTERACTIVE_1"};
-			case 1: {"BRIEFING_INTERACTIVE_2"};
-		};
+		selectRandom ["BRIEFING_INTERACTIVE_1", "BRIEFING_INTERACTIVE_2"];
 	};
 	case 10: {"LISTEN_CIV"};
 	case 11: {"TALK_CIV"};
 	case 12: {"LISTEN_TO_RADIO"};
 	case 13: {"SHIELD_FROM_SUN"};
 	case 14: {"NAVIGATE"};
-	case 15: {"SHOWING_THE_WAY"};	
+	case 15: {"SHOWING_THE_WAY"};
 	case 16:
 	{
-		_case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"KNEEL_TREAT_1"};
-			case 1: {"KNEEL_TREAT_2"};
-		};
+		selectRandom ["KNEEL_TREAT_1", "KNEEL_TREAT_2"];
 	};
 	case 17: {"PRONE_INJURED"};
 	case 18:
 	{
-		_case = round (random 1);
-		switch (_case) do
-		{
-			case 0: {"PRONE_INJURED_NO_WEAP_1"};
-			case 1: {"PRONE_INJURED_NO_WEAP_2"};
-		};
+		selectRandom ["PRONE_INJURED_NO_WEAP_1", "PRONE_INJURED_NO_WEAP_2"];
 	};
 	case 19: {"INJURY_HEAD"};
 	case 20: {"INJURY_CHEST"};
@@ -144,15 +112,16 @@ _anim = switch (_dialogResult select 0) do
 	case 27: {"REPAIR_VEH_KNEEL"};
 	case 28: {"REPAIR_VEH_STAND"};
 };
+
 if (isNull (_units select 0)) then
 {
-	_units = [localize "STR_UNITS"] call Achilles_fnc_SelectUnits;
+	_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 };
+if (_units isEqualTo []) exitWith {};
 if (isNil "_units") exitWith {};
-if (count _units == 0) exitWith {};
 
 {
-	_unit = _x;
+	private _unit = _x;
 	if (_persistent == 0) then
 	{
 		// combat ready = can break out the animation

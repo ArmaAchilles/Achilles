@@ -1,5 +1,5 @@
 /*
-	Author: Karel Moricky (edited by Kex for specify position exception handling)
+	Author: Karel Moricky (edited by Kex for specify position exception handling. Edited by CreepPork_LV to make it work with dummy logics)
 
 	Description:
 	Code executed when curator object is edited (i.e., moved or rotated).
@@ -11,13 +11,13 @@
 
 	Returns:
 	BOOL
-*/[42,_this] call bis_fnc_log;
+*/
+[42,_this] call bis_fnc_log;
 
 #define EHVAR	"BIS_fnc_curatorObjectEdited_eh"
 #define PARAVAR	"BIS_fnc_curatorObjectEdited_para"
 
-_curator = _this param [0,objnull,[objnull]];
-_object = _this param [1,objnull,[objnull]];
+params [["_curator", objNull, [objNull]], ["_object", objNull, [objNull]]];
 _para = objnull;
 
 _object call bis_fnc_curatorAttachObject;
@@ -32,6 +32,13 @@ deletevehicle (_object getvariable [PARAVAR,objnull]);
 
 // if specify position
 if (_object in (missionNamespace getVariable ["Achilles_var_preplaceModeObjects",[]])) exitWith {true};
+
+// If the edited object is a logic that has a dummy object attached to it
+if (_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]) exitWith 
+{
+	(_object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull]) setPos (getPos _object);
+	true;
+};
 
 //--- Slingload when possible
 _curatormouseover = curatormouseover;

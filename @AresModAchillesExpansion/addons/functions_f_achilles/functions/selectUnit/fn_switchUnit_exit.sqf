@@ -15,7 +15,7 @@
 
 private _unit = bis_fnc_moduleRemoteControl_unit;
 if (isNull _unit) exitWith {bis_fnc_moduleRemoteControl_unit = nil};
-(_unit getVariable "Achilles_var_switchUnit_data") params ["_","_playerUnit","_damageAllowed"];
+(_unit getVariable "Achilles_var_switchUnit_data") params ["_","_playerUnit","_damageAllowed", "_face", "_speaker", "_goggles"];
 if (isNull _playerUnit) exitWith {_unit setVariable ["Achilles_var_switchUnit_data", nil, true]};
 // reset camera positions
 private _unitPos = getposatl _unit;
@@ -24,9 +24,15 @@ _camPos set [2,(_unitPos select 2) + (getterrainheightasl _unitPos) - (getterrai
 (getassignedcuratorlogic _playerUnit) setvariable ["bis_fnc_modulecuratorsetcamera_params",[_camPos,_unit]];
 _unit removeEventHandler ["HandleDamage", _unit getVariable "Achilles_var_switchUnit_damageEHID"];
 
+// remove actions
+private _addActionID = _unit getVariable ["Achilles_var_switchUnit_addAction", nil];
+if (!isNil "_addActionID") then {_unit removeAction _addActionID};
+_addActionID = _unit getVariable ["Achilles_var_switchUnit_addBreachDoorAction", nil];
+if (!isNil "_addActionID") then {[_unit, _addActionID] call BIS_fnc_holdActionRemove};
+
 if(isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 {
-	_eh_id = _unit getVariable ["Achilles_var_switchUnit_ACEdamageEHID", -1];
+	private _eh_id = _unit getVariable ["Achilles_var_switchUnit_ACEdamageEHID", -1];
 	if (_eh_id != -1) then 
 	{
 		["ace_unconscious", _eh_id] call CBA_fnc_removeEventHandler;
@@ -41,5 +47,8 @@ openCuratorInterface;
 private _curatorMapCtrl = ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP);
 _curatorMapCtrl ctrlMapAnimAdd [0, 0.1, _camPos]; 
 ctrlMapAnimCommit _curatorMapCtrl;
+[_unit, _face] remoteExecCall ["setFace", 0];
+[_unit, _speaker] remoteExecCall ["setSpeaker", 0];
+_unit addGoggles _goggles;
 _unit setVariable ["Achilles_var_switchUnit_data", nil, true];
 bis_fnc_moduleRemoteControl_unit = nil;

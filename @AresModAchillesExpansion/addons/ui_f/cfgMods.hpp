@@ -20,7 +20,7 @@ class CfgMods {
         dir = "@AresModAchillesExpension";
         name = "Achilles Expansion";
 
-        author = "Kex";
+        author = "ArmA 3 Achilles Mod Inc.";
 
         hidePicture = 0;
         hideName = 1;

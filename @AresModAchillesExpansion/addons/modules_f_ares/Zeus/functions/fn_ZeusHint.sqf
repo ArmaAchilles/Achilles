@@ -1,14 +1,14 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_dialogResult = 
+private _dialogResult =
 [
-	localize "STR_HINT",
+	localize "STR_AMAE_HINT",
 	[
-		[localize "STR_MESSAGE", "MESSAGE"]
+		[localize "STR_AMAE_MESSAGE", "MESSAGE"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count (_dialogResult select 0) == 0) exitWith {};
+if ((_dialogResult select 0) isEqualTo []) exitWith {};
 
 (parseText (_dialogResult select 0)) remoteExec ["Hint", 0];
 

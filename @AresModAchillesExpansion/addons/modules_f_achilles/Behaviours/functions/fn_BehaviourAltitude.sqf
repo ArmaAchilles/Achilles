@@ -7,27 +7,27 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
+private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-_dialogResult = 
+private _dialogResult =
 [
-	localize "STR_CHANGE_ALTITUDE",
+	localize "STR_AMAE_CHANGE_ALTITUDE",
 	[
-		[(localize "STR_Altitude_ASL_ATL") + " [m]", "","0"]
+		[[localize "STR_AMAE_Altitude_ASL_ATL",localize "STR_AMAE_METERS"] joinString " ", "","0"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
-_height = parseNumber (_dialogResult select 0);
+if (_dialogResult isEqualTo []) exitWith {};
+private _height = parseNumber (_dialogResult select 0);
 
 if (isNull (_objects select 0)) then
 {
-	_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+	_objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};;
+if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 {
-	[_x,_height] spawn 
+	[_x,_height] spawn
 	{
 		params ["_object","_height"];
 		if (_object isKindOf "Air") exitWith
@@ -37,7 +37,7 @@ if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares
 		if (_object isKindOf "Ship") exitWith
 		{
 			if (local _object) then {_object swimInDepth _height} else {[_object,_height] remoteExec ["swimInDepth",_object]};
-		};
+        };
 	};
 } forEach _objects;
 

@@ -15,37 +15,33 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-_vehicle = _this;
-_vehicleType = typeOf _vehicle;
+private _vehicle = _this;
+private _vehicleType = typeOf _vehicle;
 
 // get current state of all turret magazines
-_AllTurretCurrentMagazinesClassName = [];
-_AllTurretCurrentMagazinesAmmoCount = [];
-{
-	_AllTurretCurrentMagazinesClassName pushBack (_x select 0);
-	_AllTurretCurrentMagazinesAmmoCount pushBack (_x select 2);
-} forEach (magazinesAllTurrets _vehicle);
+private _AllTurretCurrentMagazinesClassName = (magazinesAllTurrets _vehicle) apply {_x select 0};
+private _AllTurretCurrentMagazinesAmmoCount = (magazinesAllTurrets _vehicle) apply {_x select 2};
 
-_turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
+private _turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
 
 // append config path for driver magazines
 _turretsCfg pushBack (configFile >> "CfgVehicles" >> _vehicleType);
 
-_AllTurretAmmoPercentages = [];
+private _AllTurretAmmoPercentages = [];
 
 // get ammo percentages for all turrets
 {
-	_TurretAmmoPercentages = [];
-	_cfgTurret = _x;
-	_MagazinesClassName = getArray (_cfgTurret >> "magazines");
+	private _TurretAmmoPercentages = [];
+	private _cfgTurret = _x;
+	private _MagazinesClassName = getArray (_cfgTurret >> "magazines");
 	{
 		// compare magazine count from config with current count
-		_CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-		_index = _AllTurretCurrentMagazinesClassName find _x;
+		private _CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
+		private _index = _AllTurretCurrentMagazinesClassName find _x;
 		if (_index != -1) then
 		{
 			_TurretAmmoPercentages pushBack ((_AllTurretCurrentMagazinesAmmoCount select _index) / _CfgAmmoCount);
-			
+
 			// remove the counted magazine from the list
 			_AllTurretCurrentMagazinesClassName deleteAt _index;
 			_AllTurretCurrentMagazinesAmmoCount deleteAt _index;
@@ -55,17 +51,17 @@ _AllTurretAmmoPercentages = [];
 		};
 	} forEach _MagazinesClassName;
 
-	if (count _TurretAmmoPercentages != 0) then
+	if (!(_TurretAmmoPercentages isEqualTo [])) then
 	{
 		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call Achilles_fnc_arrayMean);
 	};
-	
+
 } forEach _turretsCfg;
 
 // handle dynamic loadout
 if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "TransportPylonsComponent")) then
 {
-	_TurretAmmoPercentages = [];
+	private _TurretAmmoPercentages = [];
 	{
 		if (_x != "") then
 		{
@@ -85,10 +81,8 @@ if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "Tra
 
 
 // return the overall mean of all percentages
-if (count _AllTurretAmmoPercentages != 0) then
+if (!(_AllTurretAmmoPercentages isEqualTo [])) exitWith
 {
-	(_AllTurretAmmoPercentages call Achilles_fnc_arrayMean);
-} else
-{
-	0;
+	_AllTurretAmmoPercentages call Achilles_fnc_arrayMean
 };
+0

@@ -56,13 +56,13 @@ Achilles_fnc_weaponsAllTurrets =
 	if (count _weapons == 0) exitWith {systemChat "WW"};
 
 	_allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-	if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 	_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-	_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+	_targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 	{
 		_targetChoices pushBack (name _x);
 	} forEach _allTargets;
-	if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	if (count _targetChoices == 3) exitWith {[localize "STR_AMAE_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
 	_dialogResult = 
 	[

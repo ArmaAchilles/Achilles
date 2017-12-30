@@ -1,15 +1,15 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 30/4/17
-//	VERSION: 7.0
+//	AUTHOR: Kex, CreepPork_Lv
+//	DATE: 22/12/17
+//	VERSION: 8.0
 //  DESCRIPTION: Function for suppressive fire module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // find unit to perform suppressiove fire
-_unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-if (isNull _unit) exitWith {[localize "STR_NO_UNIT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+if (isNull _unit) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 //Broadcast suppression functions
 if (isNil "Achilles_var_suppressiveFire_init_done") then
@@ -19,64 +19,100 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 	Achilles_var_suppressiveFire_init_done = true;
 };
 
-// get list of possible targest
-_allTargetsUnsorted = allMissionObjects "Achilles_Create_Suppression_Target_Module";
-if (count _allTargetsUnsorted == 0) exitWith {[localize "STR_NO_TARGET_MARKER"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-_allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-_targetChoices = [localize "STR_RANDOM", localize "STR_NEAREST", localize "STR_FARTHEST"];
+// get list of possible targets
+private _allTargetsData = ["Achilles_Create_Suppression_Target_Module"] call Achilles_fnc_getPosLogicsData;
+_allTargetsData params ["_allTargetNames","_allTargetPositions"];
+if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
+private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
+_targetChoices append _allTargetNames;
+
+private _weaponsToFire = [];
+if (isNull objectParent (gunner _unit)) then
 {
-	_targetChoices pushBack (name _x);
-} forEach _allTargets;
-if (count _targetChoices == 3) exitWith {[localize "STR_NO_TARGET_AVAIABLE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+	{
+		if !(_x isEqualTo "") then
+		{
+			private _configEntry = configFile >> "CfgWeapons" >> _x;
+			private _weaponName = getText (_configEntry >> "displayName");
+			private _muzzleArray = getArray (_configEntry >> "muzzles");
+			if (count _muzzleArray > 1) then
+			{
+				{
+					if (getText (_configEntry >> _x >> "displayName") isEqualTo "") then
+					{
+						_weaponsToFire pushBack _weaponName;
+					}
+					else
+					{
+						_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, getText (_configEntry >> _x >> "displayName")]);
+					}
+				} forEach _muzzleArray;
+			}
+			else
+			{
+				_weaponsToFire pushBack _weaponName;
+			};
+		};
+	} forEach [primaryWeapon _unit, handgunWeapon _unit];
+}
+else
+{
+	{
+		if !(_x isEqualTo "") then
+		{
+			private _configEntry = configFile >> "CfgWeapons" >> _x;
+			private _weaponName = getText (_configEntry >> "displayName");
+			private _muzzleArray = getArray (_configEntry >> "muzzles");
+			if (count _muzzleArray > 1) then
+			{
+				{
+					_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, _x]);
+				} forEach _muzzleArray;
+			}
+			else
+			{
+				_weaponsToFire pushBack _weaponName;
+			};
+		};
+	} forEach (_unit weaponsTurret [0]);
+};
 
 // select parameters
-_dialogResult = 
+private _dialogResult =
 [
-	localize "STR_SUPPRESIVE_FIRE",
+	localize "STR_AMAE_SUPPRESIVE_FIRE",
 	[
-		[format [localize "STR_SUPPRESS_X", " "], _targetChoices],
-		[localize "STR_STANCE", [localize "STR_PRONE",localize "STR_CROUCH",localize "STR_STAND"]],
-		[localize "STR_LINE_UP", [localize "STR_FALSE",localize "STR_TRUE"]],
-		[localize "STR_FIRE_MODE", [localize "STR_AUTOMATIC", localize "STR_BURST", localize "STR_SINGLE_SHOT"]],
-		[localize "STR_DURATION", "", "10"]
+		[format [localize "STR_AMAE_SUPPRESS_X", " "], _targetChoices],
+		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"]],
+		[localize "STR_AMAE_LINE_UP", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"], 1],
+		[localize "STR_AMAE_WEAPON_TO_FIRE", _weaponsToFire],
+		[localize "STR_AMAE_FIRE_MODE", [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
+		[localize "STR_AMAE_DURATION", "", "10"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
-_targetChooseAlgorithm = _dialogResult select 0;
-_stanceIndex = _dialogResult select 1;
-_doLineUp = if (_dialogResult select 2 == 1) then {true} else {false};
-_fireModeIndex = _dialogResult select 3;
-_duration = parseNumber (_dialogResult select 4);
+_dialogResult params
+[
+	"_targetChooseAlgorithm",
+	"_stanceIndex",
+	"_doLineUp",
+	"_weaponToFire",
+	"_fireModeIndex",
+	"_duration"
+];
+_doLineUp = _doLineUp == 0;
+_duration = parseNumber _duration;
 
 // Choose a target to fire at
-_selectedTarget = objNull;
-switch (_targetChooseAlgorithm) do
-{
-	case 0: // Random
-	{
-		_selectedTarget = _allTargets call BIS_fnc_selectRandom;
-	};
-	case 1: // Nearest
-	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetNearest;
-	};
-	case 2: // Furthest
-	{
-		_selectedTarget = [position _logic, _allTargets] call Ares_fnc_GetFarthest;
-	};
-	default // Specific target
-	{
-		_selectedTarget = _allTargets select (_targetChooseAlgorithm - 3);
-	};
-};
+private _selectedTargetPos = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_positionSelector;
 
 if (local _unit) then
 {
-	[_unit,getPosWorld _selectedTarget,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
+	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
 } else
 {
-	[_unit,getPosWorld _selectedTarget,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
+	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

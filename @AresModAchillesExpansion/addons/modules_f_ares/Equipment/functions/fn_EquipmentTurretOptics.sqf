@@ -10,64 +10,60 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private ["_vehicles","_NVG","_thermals"];
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _unitUnderCursor) then
 {
 	// select players
-	_dialogResult = [
-		localize "STR_ADD_REMOVE_TURRET_OPTICS",
-		[ 
-			[localize "STR_MODE",[localize "STR_ALL",localize "STR_SELECTION",localize "STR_SIDE"]],
-			[localize "STR_SIDE","SIDE"],
-			[localize "STR_NVD",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
-			[localize "STR_THERMALS",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]]
+	private _dialogResult = [
+		localize "STR_AMAE_ADD_REMOVE_TURRET_OPTICS",
+		[
+			[localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE"]],
+			[localize "STR_AMAE_SIDE","SIDE"],
+			[localize "STR_AMAE_NVD",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]],
+			[localize "STR_AMAE_THERMALS",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]]
 		],
 		"Achilles_fnc_RscDisplayAttributes_selectAIUnits"
 	] call Ares_fnc_ShowChooseDialog;
-	
-	if (count _dialogResult == 0) exitWith {};
-	
+
+	if (_dialogResult isEqualTo []) exitWith {};
+
 	_vehicles = switch (_dialogResult select 0) do
 	{
 		case 0:
 		{
 			vehicles select {alive _x};
 		};
-		case 1: 
+		case 1:
 		{
-			_selection = [toLower localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
+			private _selection = [toLower localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 			if (isNil "_selection") exitWith {nil};
 			_selection select {alive _x};
 		};
-		case 2: 
+		case 2:
 		{
-			_side_index = _dialogResult select 1;
-			_side = [east,west,independent,civilian] select (_side_index - 1);
+			private _side_index = _dialogResult select 1;
+			private _side = [east,west,independent,civilian] select (_side_index - 1);
 			vehicles select {(alive _x) and (side _x == _side)};
 		};
 	};
-	
+
 	if (isNil "_vehicles") exitWith {};
-	if (count _vehicles == 0) exitWith 
-	{
-		[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; 
-		playSound "FD_Start_F";
-	};
+	if (_vehicles isEqualTo []) exitWith { [localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
 	_NVG = [nil,false,true] select (_dialogResult select 2);
 	_thermals = [nil,false,true] select (_dialogResult select 3);
 }
 else
 {
-	_dialogResult = 
+	private _dialogResult =
 	[
-		localize "STR_ADD_REMOVE_TURRET_OPTICS",
+		localize "STR_AMAE_ADD_REMOVE_TURRET_OPTICS",
 		[
-			[localize "STR_NVG",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]],
-			[localize "STR_THERMALS",[localize "STR_UNCHANGED",localize "STR_AVAILABLE",localize "STR_UNAVAILABLE"]]
+			[localize "STR_AMAE_NVD",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]],
+			[localize "STR_AMAE_THERMALS",[localize "STR_AMAE_UNCHANGED",localize "STR_AMAE_AVAILABLE",localize "STR_AMAE_UNAVAILABLE"]]
 		]
 	] call Ares_fnc_ShowChooseDialog;
-	
+
 	if (count _dialogResult == 0) exitWith {};
 	_vehicles = [_unitUnderCursor];
 	_NVG = [nil,false,true] select (_dialogResult select 0);
@@ -76,11 +72,10 @@ else
 
 if (isNil "_vehicles") exitWith {};
 {
-	if (not isNil "_NVG") then {_x disableNVGEquipment _NVG};
-	if (not isNil "_thermals") then {_x disableTIEquipment _thermals};
+	if (!isNil "_NVG") then {_x disableNVGEquipment _NVG};
+	if (!isNil "_thermals") then {_x disableTIEquipment _thermals};
 } forEach _vehicles;
 
-[localize "STR_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
+[localize "STR_AMAE_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
-

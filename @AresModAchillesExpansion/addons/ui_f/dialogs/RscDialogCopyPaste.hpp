@@ -16,7 +16,7 @@ class Ares_CopyPaste_Dialog
 			idc = 1000;
 			moving = 1;
 			
-			text = "$STR_COPY_PASTE_DIALOG"; //--- ToDo: Localize;
+			text = "$STR_AMAE_COPY_PASTE_DIALOG"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 38 * GUI_GRID_W;
@@ -80,7 +80,7 @@ class Ares_CopyPaste_Dialog
 		{
 			idc = 1020;
 
-			text = "$STR_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS"; //--- ToDo: Localize;
+			text = "$STR_AMAE_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS"; //--- ToDo: Localize;
 			x = 1 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 39 * GUI_GRID_W;

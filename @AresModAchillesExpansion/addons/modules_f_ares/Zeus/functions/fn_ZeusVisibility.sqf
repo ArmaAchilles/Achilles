@@ -8,32 +8,39 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_dialogResult = 
+private _dialogResult =
 [
-	localize "STR_HIDE_ZEUS",
+	localize "STR_AMAE_HIDE_ZEUS",
 	[
 		[
-			localize "STR_HIDE_ZEUS", [localize "STR_TRUE", localize "STR_False"]
+			localize "STR_AMAE_HIDE_ZEUS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]
 		]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
-_invisible = if ((_dialogResult select 0) == 0) then {true} else {false};
-_display_text = if ((_dialogResult select 0) == 0) then {localize "STR_ZEUS_IS_NOW_HIDDEN"} else {localize "STR_ZEUS_IS_NOW_VISIBLE"};
+if (_dialogResult isEqualTo []) exitWith {};
 
-if (_invisible and not (isObjectHidden player)) then 
+private _invisible = (_dialogResult select 0) == 0;
+private _display_text = [localize "STR_AMAE_ZEUS_IS_NOW_VISIBLE", localize "STR_AMAE_ZEUS_IS_NOW_HIDDEN"] select _invisible;
+
+private _curatorLogic = getAssignedCuratorLogic player;
+if (_invisible and !(isObjectHidden player)) then
 {
 	[player, true] remoteExec ["hideObjectGlobal",2];
 	player allowDamage false;
 	player setCaptive true;
-} else
+	_curatorLogic setVariable ["showNotification", true];
+	_curatorLogic setVariable ["birdType", ""];
+}
+else
 {
-	if (not _invisible and (isObjectHidden player)) then
+	if (!_invisible and (isObjectHidden player)) then
 	{
 		[player, false] remoteExec ["hideObjectGlobal",2];
 		player allowDamage true;
-		player setCaptive false;		
+		player setCaptive false;
+		_curatorLogic setVariable ["showNotification", false];
+		_curatorLogic setVariable ["birdType", "eagle_f"];
 	};
 };
 

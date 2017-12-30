@@ -17,55 +17,55 @@ if (isNil "Achilles_var_intel_init_done") then
 	Achilles_var_intel_init_done = true;
 };
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-_dialog_title = localize "STR_CREATE_INTEL_ON_OBJECT";
-_dialog_options =
+private _dialog_title = localize "STR_AMAE_CREATE_INTEL_ON_OBJECT";
+private _dialog_options =
 [
-	[localize "STR_ACTION_TEXT","",localize "STR_PICK_UP_INTEL"],
-	[localize "STR_ACTION_DURATION","","1"],
-	[localize "STR_DELETE_OBJECT_ON_COMPLETION",[localize "STR_TRUE",localize "STR_FALSE"],1],
-	[localize "STR_INTEL_TITLE",""],
-	[localize "STR_INTEL_TEXT", "MESSAGE"],
-	[localize "STR_INTEL_SHARED_WITH", [localize "STR_SIDE", localize "STR_GROUP", localize "STR_NO_ONE"]]
+	[localize "STR_AMAE_ACTION_TEXT","",localize "STR_AMAE_PICK_UP_INTEL"],
+	[localize "STR_AMAE_ACTION_DURATION","","1"],
+	[localize "STR_AMAE_DELETE_OBJECT_ON_COMPLETION",[localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"],1],
+	[localize "STR_AMAE_INTEL_TITLE",""],
+	[localize "STR_AMAE_INTEL_TEXT", "MESSAGE"],
+	[localize "STR_AMAE_INTEL_SHARED_WITH", [localize "STR_AMAE_SIDE", localize "STR_AMAE_GROUP", localize "STR_AMAE_NO_ONE"]]
 ];
 
 if (isNull _object) then
 {
 	// case spawn intel
-	_dialog_title = localize "STR_SPAWN_INTEL";
-	_dialog_options = [[localize "STR_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
+	_dialog_title = localize "STR_AMAE_SPAWN_INTEL";
+	_dialog_options = [[localize "STR_AMAE_OBJECT", INTEL_OBJECTS apply {getText (configfile >> "CfgVehicles" >> _x >> "displayName")}]] + _dialog_options;
 } else
 {
-	_previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
+	private _previous_dialogResult = _object getVariable ["Achilles_var_intel",[]];
 	if (count _previous_dialogResult == count _dialog_options) then
 	{
 		// case edit intel
-		_dialog_title = format [localize "STR_EDIT_INTEL_X", _previous_dialogResult select 3];
+		_dialog_title = format [localize "STR_AMAE_EDIT_INTEL_X", _previous_dialogResult select 3];
 		{
 			_x set [2, _previous_dialogResult select _forEachIndex];
 			_x set [3, true];
 		} forEach _dialog_options;
 	};
 };
-_dialogResult = [_dialog_title, _dialog_options] call Ares_fnc_ShowChooseDialog;
+private _dialogResult = [_dialog_title, _dialog_options] call Ares_fnc_ShowChooseDialog;
 
-_dialogCount = count _dialogResult;
+private _dialogCount = count _dialogResult;
 if (_dialogCount == 0) exitWith {};
 
-_actionName = _dialogResult select (_dialogCount - 6);
-_duration = parseNumber (_dialogResult select (_dialogCount - 5));
-_delete = if ((_dialogResult select (_dialogCount - 4)) == 0) then {true} else {false};;
-_title = _dialogResult select (_dialogCount - 3);
-_text = _dialogResult select (_dialogCount - 2);
+private _actionName = _dialogResult select (_dialogCount - 6);
+private _duration = parseNumber (_dialogResult select (_dialogCount - 5));
+private _delete = (_dialogResult select (_dialogCount - 4)) == 0;
+private _title = _dialogResult select (_dialogCount - 3);
+private _text = _dialogResult select (_dialogCount - 2);
 // correctly handle newline characters
 _text = (_text splitString endl) joinString "<br />";
-_shared = _dialogResult select (_dialogCount - 1);
+private _shared = _dialogResult select (_dialogCount - 1);
 
 if (_dialogCount == 7) then
 {
 	// case spawn intel:
-	_type = INTEL_OBJECTS select (_dialogResult select 0);
+	private _type = INTEL_OBJECTS select (_dialogResult select 0);
 	_object = _type createVehicle (position _logic);
 	[_object, false] remoteExec ["enableSimulationGlobal", 2];
 	_object setPos (position _logic);
@@ -80,31 +80,7 @@ if (_dialogCount == 7) then
 	_object setVariable ["Achilles_var_intel",_dialogResult];
 };
 
-_marker = createMarker [str _object, _object];
-
-// remove previous action
-remoteExec ["", _object];
-_object remoteExec ["RemoveAllActions", 0];
-
-_execute = 
-{
-	private ["_object","_finder","_arguments","_curator","_title","_text","_marker","_shared","_delete","_target"];
-	_object = _this select 0;
-	_finder = _this select 1;
-	_arguments = _this select 3;
-	_curator = _arguments select 0;
-	_title = _arguments select 1;
-	_text = _arguments select 2;
-	_marker = _arguments select 3;
-	_shared = _arguments select 4;
-	_delete = _arguments select 5;
-	
-	_target = switch (_shared) do {case 0: {side _finder}; case 1: {group _finder}; case 2: {_finder};};
-	
-	[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
-	["intelAdded",[format [localize "STR_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
-	if (_delete) then {deleteVehicle _object} else {remoteExec ["", _object]; _object remoteExec ["RemoveAllActions", 0];};
-};
+private _marker = createMarker [str _object, _object];
 
 [
 	_object,			// Object the action is attached to
@@ -115,12 +91,44 @@ _execute =
 	"_caller distance _target < 3",	// Condition for the action to progress
 	{},			// Code executed when action starts
 	{},			// Code executed on every progress tick
-	_execute,	// Code executed on completion
+	{
+		params ["_object", "_finder", "_ID", "_arguments"];
+		_arguments params ["_curator", "_title", "_text", "_marker", "_shared", "_delete"];
+		
+		private _target = switch (_shared) do 
+		{
+			case 0: {side _finder};
+			case 1: {group _finder};
+			case 2: {_finder};
+		};
+
+		private _switchUnitData = _finder getVariable ["Achilles_var_switchUnit_data", []];
+		private _remoteControlledUnit = [_switchUnitData, []] select (_switchUnitData isEqualTo []);
+
+		if (_remoteControlledUnit isEqualTo [] || (!(_remoteControlledUnit isEqualTo []) && _finder != player)) then 
+		{
+			[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
+			["intelAdded",[format [localize "STR_AMAE_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+		}
+		else
+		{
+			[_title,_text,_marker,name _finder,_shared] remoteExec ["Ares_fnc_addIntel",_target];
+
+			// Wait until the Curator stops controlling this AI and then add the info message to the curator.
+			[_finder, _curator, _title] spawn 
+			{
+				params ["_finder", "_curator", "_title"];
+				waitUntil {_finder != player};
+				["intelAdded",[format [localize "STR_AMAE_INTEL_FOUND",name _finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] remoteExec ["BIS_fnc_showNotification",_curator];
+			};
+		};
+		if (_delete) then {deleteVehicle _object};
+	},	// Code executed on completion
 	{},			// Code executed on interrupted
 	[player,_title,_text,_marker,_shared,_delete],			// Arguments passed to the scripts
 	_duration,	// Action duration
 	20,			// Priority
-	false,		// Remove on completion
+	true,		// Remove on completion
 	false		// Show in unconscious state 
 ] remoteExec ["BIS_fnc_holdActionAdd",0,_object];
 

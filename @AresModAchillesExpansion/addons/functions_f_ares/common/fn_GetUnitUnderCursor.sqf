@@ -1,6 +1,6 @@
 /*
 	Gets the unit under the mouse cursor.
-	
+
 	Params:
 		0 - [Object] The module's logic unit that is trying to get the unit under the cursor.
 		1 - Boolean - True to remove the object passed in [0] if there is no unit under the cursor. False to leave it. (Default: True)
@@ -9,7 +9,7 @@
 */
 private ["_logic", "_unitUnderCursor"];
 _logic = _this select 0;
-_shouldRemoveLogicIfNoUnitFound = [_this, 1, true] call BIS_fnc_Param;
+private _shouldRemoveLogicIfNoUnitFound = [_this, 1, true] call BIS_fnc_Param;
 
 _unitUnderCursor = objNull;
 
@@ -23,43 +23,43 @@ _unitUnderCursor = objNull;
 // the item under the cursor.
 if (isNil "Ares_CuratorObjectPlaced_UnitUnderCursor") then
 {
-	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Ares_fnc_LogMessage; 
+	["GetUnitUnderCursor: Ares_CuratorObjectPlaced_UnitUnderCursor is null. Probably the fn_HandleCuratorObjectPlaced callback did not happen."] call Achilles_fnc_log;
 }
 else
 {
-	_mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
-	if (count _mouseOverUnit == 0) then
+	private _mouseOverUnit = Ares_CuratorObjectPlaced_UnitUnderCursor;
+	if (_mouseOverUnit isEqualTo []) then
 	{
-		["GetUnitUnderCursor: Not in curator mode"] call Ares_fnc_LogMessage;
+		["GetUnitUnderCursor: Not in curator mode"] call Achilles_fnc_log;
 		// Not in curator mode.
 	}
 	else
 	{
-		["GetUnitUnderCursor: In curator mode!"] call Ares_fnc_LogMessage;
+		["GetUnitUnderCursor: In curator mode!"] call Achilles_fnc_log;
 		if (_mouseOverUnit select 0 == "") then
 		{
-			["GetUnitUnderCursor: No unit under cursor"] call Ares_fnc_LogMessage;
+			["GetUnitUnderCursor: No unit under cursor"] call Achilles_fnc_log;
 			// Mouse not over anything editable (value should be [""])
 		}
 		else
 		{
-			["GetUnitUnderCursor: Elements in select array!"] call Ares_fnc_LogMessage;
+			["GetUnitUnderCursor: Elements in select array!"] call Achilles_fnc_log;
 			if (count _mouseOverUnit == 2) then
 			{
 				if (_mouseOverUnit select 0 == "OBJECT") then
 				{
 					// value should be [typeName, object]
 					_unitUnderCursor = _mouseOverUnit select 1;
-					[format ["GetUnitUnderCursor: Got unit under cursor: %1 (@%2)", _unitUnderCursor, position _unitUnderCursor]] call Ares_fnc_LogMessage;
+					[format ["GetUnitUnderCursor: Got unit under cursor: %1 (@%2)", _unitUnderCursor, position _unitUnderCursor]] call Achilles_fnc_log;
 				}
 				else
 				{
-					[format ["GetUnitUnderCursor: Unit under cursor was of type '%1' (non-Object). Ignored."]] call Ares_fnc_LogMessage;
+					[format ["GetUnitUnderCursor: Unit under cursor was of type '%1' (non-Object). Ignored."]] call Achilles_fnc_log;
 				}
 			}
 			else
 			{
-				["GetUnitUnderCursor: Unexpected number of array options"] call Ares_fnc_LogMessage;
+				["GetUnitUnderCursor: Unexpected number of array options"] call Achilles_fnc_log;
 			};
 		};
 	};
@@ -68,7 +68,7 @@ else
 if (_shouldRemoveLogicIfNoUnitFound && isNull _unitUnderCursor) then
 {
 	playSound "FD_Start_F";
-	[objNull, localize "STR_NOT_PLACED_ON_UNIT"] call bis_fnc_showCuratorFeedbackMessage;
+	[objNull, localize "STR_AMAE_NOT_PLACED_ON_UNIT"] call bis_fnc_showCuratorFeedbackMessage;
 	deleteVehicle _logic;
 };
 

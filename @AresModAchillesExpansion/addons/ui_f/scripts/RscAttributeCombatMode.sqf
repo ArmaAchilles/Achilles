@@ -6,43 +6,39 @@
 #define IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE		123469
 #define IDC_RSCATTRIBUTECOMBATMODE_DEFAULT			123470
 
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+params ["_mode", "_params", "_entity"];
 
-_idcs = 
+_idcs =
 [
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIRE,
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREDEFEND,
-	IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREENGAGE,
-	IDC_RSCATTRIBUTECOMBATMODE_FIRE,
-	IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE,
-	IDC_RSCATTRIBUTECOMBATMODE_DEFAULT
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIRE,
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREDEFEND,
+    IDC_RSCATTRIBUTECOMBATMODE_HOLDFIREENGAGE,
+    IDC_RSCATTRIBUTECOMBATMODE_FIRE,
+    IDC_RSCATTRIBUTECOMBATMODE_FIREENGAGE,
+    IDC_RSCATTRIBUTECOMBATMODE_DEFAULT
 ];
-_states = 
+_states =
 [
-	"BLUE",
-	"GREEN",
-	"WHITE",
-	"YELLOW",
-	"RED",
-	"NO CHANGE"
+    "BLUE",
+    "GREEN",
+    "WHITE",
+    "YELLOW",
+    "RED",
+    "NO CHANGE"
 ];
-_colors = 
-
+_colors =
 [
-	[1,0,0,1],
-	[1,0,0,1],
-	[1,0,0,1],
-	[1,1,1,1],
-	[1,1,1,1],
-	[1,1,1,1]
+    [1,0,0,1],
+    [1,0,0,1],
+    [1,0,0,1],
+    [1,1,1,1],
+    [1,1,1,1],
+    [1,1,1,1]
 ];
 
 switch _mode do {
 	case "onLoad":
 	{
-
 		_display = _params select 0;
 
 		//--- Add handlers to all buttons
@@ -53,7 +49,7 @@ switch _mode do {
 		} foreach _idcs;
 
 		//--- Select the current state
-		_selected = if (typename _entity == typename []) then {
+		_selected = if (_entity isEqualType []) then {
 			waypointCombatMode _entity
 		} else {
 			(_display displayctrl IDC_RSCATTRIBUTECOMBATMODE_DEFAULT) ctrlshow false;
@@ -87,38 +83,26 @@ switch _mode do {
 		_display = _params select 0;
 		_selectedIndex = uinamespace getvariable ["RscAttributeCombatMode_selected",0];
 		_selected = _states select _selectedIndex;
-		if (typename _entity == typename []) then 
+		if (_entity isEqualType []) then
 		{
 			if (waypointCombatMode _entity == _selected) exitWith {};
 			_curatorSelectedWPs = ["wp"] call Achilles_fnc_getCuratorSelected;
 			{
 				_group = _x select 0;
 				_wp_id = _x select 1;
-				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then 
+				if (currentwaypoint _group == _wp_id && _selected != "NO CHANGE") then
 				{
-					if (local _group) then
-					{
-						_group setcombatmode _selected;
-					} else
-					{
-						[_group, _selected] remoteExec ["setcombatmode", leader _group];
-					};
+					if (local _group) then {_group setcombatmode _selected} else {[_group, _selected] remoteExec ["setcombatmode", leader _group]};
 				};
 				_x setwaypointcombatmode _selected;
 			} forEach _curatorSelectedWPs;
-		} else 
+		} else
 		{
 			if (combatMode leader _entity == _selected) exitWith {};
 			_curatorSelectedGrps = ["group"] call Achilles_fnc_getCuratorSelected;
 			{
 				_leader = leader _x;
-				if (local _leader) then
-				{
-					_x setcombatmode _selected;
-				} else
-				{
-					[_x,_selected] remoteExec ["setcombatmode", _leader];
-				};
+				if (local _leader) then {_x setcombatmode _selected} else {[_x,_selected] remoteExec ["setcombatmode", _leader]};
 			} forEach _curatorSelectedGrps;
 			_entity setvariable ["updated",true,true];
 		};

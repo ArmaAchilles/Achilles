@@ -14,57 +14,38 @@
 //	["man"] call Achilles_fnc_getCuratorSelected;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_unaddedCrew","_intersection"];
+private ["_unaddedCrew"];
 private _mode = toLower param [0, "man",[""]];
-private _selected = [];
 
 switch (_mode) do
 {
 	case "man":
 	{
-		{
-			if (_x isKindOf "Man") then
-			{
-				_selected pushBack _x;
-			} else
-			{
-				if (_x isKindOf "LandVehicle" or _x isKindOf "Air" or _x isKindOf "Ship") then
-				{
-					_unaddedCrew = (crew _x) select {not (_x in _selected)};
-					_selected append _unaddedCrew;
-				};
-			};
-		} forEach (curatorSelected select 0);	
+        private _selected = (curatorSelected select 0) select {_x isKindOf "Man"};
+	    {
+				_unaddedCrew = (crew _x) select {!(_x in _selected)};
+				_selected append _unaddedCrew;
+		} forEach ((curatorSelected select 0) select {!(_x isKindOf "Man") and (_x isKindOf "LandVehicle" or _x isKindOf "Air" or _x isKindOf "Ship")});
+        _selected
 	};
 	case "vehicle":
 	{
-		{
-			if (_x isKindOf "LandVehicle" or _x isKindOf "Air" or _x isKindOf "Ship") then
-			{
-				_selected pushBack _x;
-			};
-		} forEach (curatorSelected select 0);			
+        (curatorSelected select 0) select { _x isKindOf "LandVehicle" or _x isKindOf "Air" or _x isKindOf "Ship" }
 	};
 	case "cargo":
 	{
-		{
-			if (getNumber (configfile >> "CfgVehicles" >> typeOf _x >> "transportMaxMagazines") > 0) then
-			{
-				_selected pushBack _x;
-			};
-		} forEach (curatorSelected select 0);		
+		(curatorSelected select 0) select { getNumber (configfile >> "CfgVehicles" >> typeOf _x >> "transportMaxMagazines") > 0 }
 	};
 	case "object":
 	{
-		_selected = (curatorSelected select 0);
+		(curatorSelected select 0)
 	};
 	case "group":
 	{
-		_selected = (curatorSelected select 1);
+		(curatorSelected select 1)
 	};
 	case "wp":
 	{
-		_selected = (curatorSelected select 2);
+		(curatorSelected select 2)
 	};
 };
-_selected;

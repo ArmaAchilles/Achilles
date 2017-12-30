@@ -15,11 +15,10 @@
 //	[1,2,3] call Achilles_fnc_arrayMean; //returns 3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_sum"];
 private _n_items = count _this;
 if (_n_items == 0) exitWith {0};
 private _sum = 0;
 {
 	_sum = _sum + _x;
 } forEach _this;
-_sum / _n_items;
+_sum / _n_items

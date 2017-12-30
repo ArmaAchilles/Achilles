@@ -1,119 +1,158 @@
+if (isNil "Achilles_var_MarkerCounter") then { Achilles_var_MarkerCounter = 0; };
 
-if (isNil "Achilles_var_MarkerCounter") then
-{
-	Achilles_var_MarkerCounter = 0;
-};
-
-private ["_object","_vehicle"];
-
-_center_pos = if (visibleMap) then
+private _center_pos = if (visibleMap) then
 {
 	(((findDisplay 312) displayCtrl 50) ctrlMapScreenToWorld getMousePosition) + [0];
-} else
+}
+else
 {
 	screenToWorld getMousePosition;
 };
 
-_object_info_list = Achilles_var_ObjectClipboard;
+private _object_info_list = Achilles_var_ObjectClipboard;
 
-_createdGroups = [];
-_createdGroupsId = [];
-_object_list = [];
+private _createdGroups = [];
+private _createdGroupsId = [];
+private _object_list = [];
 
 {
-	_type = _x select 0;
-	_side = _x select 2;
-	_pos = (_x select 4) vectorAdd _center_pos;
-	_dir = _x select 5;
-	
+	_x params ["_type"];
+
 	switch (true) do
 	{
 		case (_type isKindOf "Man"):
 		{
-			_groupID = _x select 1;
-			_loadout = _x select 3 select 0;
-			_goggles = _x select 3 select 1;
-			_groupIndex = _createdGroupsId find _groupID;
-			_group = if (_groupIndex == -1) then 
+			_x params ["_", "_groupID", "_side", "_fullLoadout", "_pos", "_dir", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+			_fullLoadout params ["_loadout", "_goggles"];
+			_pos = _pos vectorAdd _center_pos;
+
+			private _groupIndex = _createdGroupsId find _groupID;
+			private _group = if (_groupIndex == -1) then
 			{
-				_newGroup = createGroup _side;
+				private _newGroup = createGroup _side;
 				_createdGroups pushBack _newGroup;
 				_createdGroupsId pushBack _groupID;
 				_newGroup;
-			} else
+			}
+			else
 			{
 				_createdGroups select _groupIndex;
 			};
-			_unit = _group createUnit [_type, _pos, [], 0, "FORM"];
+			private _unit = _group createUnit [_type, _pos, [], 0, "FORM"];
 			_unit setDir _dir;
 			_unit setUnitLoadout _loadout;
+
 			// delay is needed, since built-in randomization of face and goggles is also delayed
-			[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
+			[_unit,_goggles, _face, _speaker, _pitch, _name, _nameSound, _rank, _skill] spawn 
+			{
+				params ["_unit", "_goggles", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+				sleep 1;
+
+				removeGoggles _unit;
+				_unit addGoggles _goggles;
+				_unit setUnitRank _rank;
+				[_unit, _face] remoteExecCall ["setFace", 0, _unit];
+				[_unit, _speaker] remoteExecCall ["setSpeaker", 0, _unit];
+				[_unit, _pitch] remoteExecCall ["setPitch", 0, _unit];
+				[_unit, _name] remoteExecCall ["setName", 0, _unit];
+				[_unit, _nameSound] remoteExecCall ["setNameSound", 0, _unit];
+				[_unit, _skill] remoteExecCall ["setSkill", 0, _unit];
+			};
+
 			if (_pos select 2 > 10) then
 			{
-				_chute = "Steerable_Parachute_F" createVehicle [0,0,0];
+				private _chute = "Steerable_Parachute_F" createVehicle [0,0,0];
 				_unit moveInDriver _chute;
 			};
 			_object_list pushBack _unit;
 		};
 		case (_type isKindOf "LandVehicle" or (_type isKindOf "Air") or (_type isKindOf "Ship")):
 		{
-			_groupID = _x select 1;
-			_loadout = _x select 3;
-			_crew_info_list =  _x select 6;
-			_special = if (_pos select 2 > 10) then {"FLY"} else {"FORM"};
-			_vehicle = createVehicle [_type, _pos, [], 0, _special];
-			if (_pos select 2 > 10 and not (_type isKindOf "Air")) then
+			_x params ["_", "_groupID", "_side", "_pylonMagazines", "_pos", "_dir", "_crew_info_list", "_fuel"];
+
+			_pos = _pos vectorAdd _center_pos;
+
+			private _special = ["FORM", "FLY"] select ((_pos select 2) > 2);
+			private _vehicle = createVehicle [_type, _pos, [], 0, _special];
+			if (_pos select 2 > 10 && !(_type isKindOf "Air")) then
 			{
-				_chute = "B_Parachute_02_F" createVehicle _pos;
+				private _chute = "B_Parachute_02_F" createVehicle _pos;
 				_chute setPos _pos;
 				_vehicle attachTo [_chute];
 			};
-			{_vehicle setPylonLoadout [_forEachIndex + 1,_x]} forEach _loadout;
+
+			_vehicle setFuel _fuel;
+
+			// Add the weapons to the gunner if possible
+			if (isClass (configFile >> "cfgVehicles" >> _type >> "Components" >> "TransportPylonsComponent")) then 
+			{
+				private _addWeaponsTo = [[], [0]] select (count fullCrew [_vehicle, "gunner", true] == 1);
+				{_vehicle setPylonLoadOut [_forEachIndex + 1, _x, false, _addWeaponsTo]} forEach _pylonMagazines;
+			};
+
 			_object_list pushBack _vehicle;
+			
 			if (_vehicle in allUnitsUAV) then
 			{
 				createVehicleCrew _vehicle;
-				_groupIndex = _createdGroupsId find _groupID;
+				private _groupIndex = _createdGroupsId find _groupID;
 				if (_groupIndex != -1) then
 				{
 					(crew _vehicle) join (_createdGroups select _groupIndex);
 				};
-			} else
+			}
+			else
 			{
 				{
-					_type = _x select 0;
-					_groupID = _x select 1;
-					_side = _x select 2;
-					_loadout = _x select 3 select 0;
-					_goggles = _x select 3 select 1;
-					_role = _x select 4;
-					_groupIndex = _createdGroupsId find _groupID;
-					_group = if (_groupIndex == -1) then 
+					_x params ["_type", "_groupID", "_side", "_fullLoadout", "_role", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+					_fullLoadout params ["_loadout", "_goggles"];
+
+					private _groupIndex = _createdGroupsId find _groupID;
+					private _group = if (_groupIndex == -1) then
 					{
-						_newGroup = createGroup _side;
+						private _newGroup = createGroup _side;
 						_createdGroups pushBack _newGroup;
 						_createdGroupsId pushBack _groupID;
-						_newGroup;
-					} else
+						_newGroup
+					}
+					else
 					{
-						_createdGroups select _groupIndex;
+						_createdGroups select _groupIndex
 					};
-					_unit = _group createUnit [_type, [0,0,0], [], 0, "FORM"];
+
+					private _unit = _group createUnit [_type, [0,0,0], [], 0, "FORM"];
 					_unit setUnitLoadout _loadout;
-					[_unit,_goggles] spawn {sleep 1; (_this select 0) addGoggles (_this select 1)};
+
+					// delay is needed, since built-in randomization of face and goggles is also delayed
+					[_unit,_goggles, _face, _speaker, _pitch, _name, _nameSound, _rank, _skill] spawn 
+					{
+						params ["_unit", "_goggles", "_face", "_speaker", "_pitch", "_name", "_nameSound", "_rank", "_skill"];
+
+						sleep 1;
+						removeGoggles _unit;
+						_unit addGoggles _goggles;
+						_unit setUnitRank _rank;
+						[_unit, _face] remoteExecCall ["setFace", 0, _unit];
+						[_unit, _speaker] remoteExecCall ["setSpeaker", 0, _unit];
+						[_unit, _pitch] remoteExecCall ["setPitch", 0, _unit];
+						[_unit, _name] remoteExecCall ["setName", 0, _unit];
+						[_unit, _nameSound] remoteExecCall ["setNameSound", 0, _unit];
+						[_unit, _skill] remoteExecCall ["setSkill", 0, _unit];
+					};
+
 					switch (count _role) do
 					{
 						case 0: {};
-						case 1: {call compile format ["_unit moveIn%1 _vehicle;",_role select 0];};
-						case 2: 
+						case 1: {call compile format ["_unit moveIn%1 _vehicle",_role select 0]};
+						case 2:
 						{
 							if (_role select 0 == "Cargo") then
 							{
 								_unit moveInCargo _vehicle;
-							} else 
+							}
+							else
 							{
-								call compile format ["_unit moveIn%1 [_vehicle,%2];",_role select 0,_role select 1];
+								call compile format ["_unit moveIn%1 [_vehicle,%2]",_role select 0,_role select 1];
 							};
 						};
 					};
@@ -124,4 +163,4 @@ _object_list = [];
 } forEach _object_info_list;
 
 [_object_list, true] call Ares_fnc_AddUnitsToCurator;
-[format [localize "STR_COPIED_UNITS", count _object_list]] call Ares_fnc_ShowZeusMessage;
+[format [localize "STR_AMAE_COPIED_UNITS", count _object_list]] call Ares_fnc_ShowZeusMessage;

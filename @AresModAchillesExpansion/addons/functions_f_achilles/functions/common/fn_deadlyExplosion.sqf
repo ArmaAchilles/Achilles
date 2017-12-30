@@ -12,16 +12,11 @@
     Nothing
 */
 
-_spawnPos = _this select 0;
-_explosionSize = _this select 1;
+params["_spawnPos", "_explosionSize"];
 
-_explosiveClass = switch (_explosionSize) do {
-  case 0: {"DemoCharge_Remote_Ammo_Scripted"};
-  case 1: {"IEDUrbanSmall_Remote_Ammo"};
-  case 2: {"IEDUrbanBig_Remote_Ammo"};
-};
+private _explosiveClass = ["DemoCharge_Remote_Ammo_Scripted", "IEDUrbanSmall_Remote_Ammo", "IEDUrbanBig_Remote_Ammo"] select _explosionSize;
 
-_IED = _explosiveClass createVehicle _spawnPos;
+private _IED = _explosiveClass createVehicle _spawnPos;
 
 hideObjectGlobal _IED;
 _IED setPosATL _spawnPos;

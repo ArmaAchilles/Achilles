@@ -22,10 +22,10 @@ class CfgGroups
 
 class CfgVehicles
 {
-	#include "config\cfgVehiclesSortingOverrides.hpp"
+	//#include "config\cfgVehiclesSortingOverrides.hpp"
 };
 
 class CfgWeapons
 {
-	#include "config\cfgWeaponsSortingOverrides.hpp"
+	//#include "config\cfgWeaponsSortingOverrides.hpp"
 };

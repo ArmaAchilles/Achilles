@@ -7,8 +7,8 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-if (not isNull _object) then
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+if (!isNull _object) then
 {
 	BIS_fnc_configviewer_path = ["configfile","CfgVehicles"];
 	BIS_fnc_configviewer_selected = typeOf _object;

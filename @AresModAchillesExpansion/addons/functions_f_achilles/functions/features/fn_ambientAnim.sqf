@@ -19,30 +19,28 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // get genaral params
-_unit = param [0,ObjNull,[ObjNull]];
-_anim_set = param [1,"",[""]];
-_combatReady = param [2,false,[false]];
+params[["_unit", objNull, [objNull]], ["_anim_set", "TERMINATE", [""]], ["_combatReady", false, [false]]];
 
 //define relevant animation functions
 Achilles_fnc_ambientAnim_terminate =
 {
 	_unit = _this;
-	_noWeapon = _unit getVariable ["Achilles_var_noWeapon",false];
+	private _noWeapon = _unit getVariable ["Achilles_var_noWeapon",false];
 	if (_noWeapon) then
 	{
-		_primary_weapon = _unit getVariable ["Achilles_var_primWeapon",""];
+		private _primary_weapon = _unit getVariable ["Achilles_var_primWeapon",""];
 		_unit addWeapon _primary_weapon;
 		_unit selectWeapon _primary_weapon;
 	};
 	{_unit enableAI _x} forEach ["ANIM","AUTOTARGET","FSM","MOVE","TARGET"];
 	_unit playMoveNow "AmovPercMstpSrasWrflDnon";
 	_unit setUnitPos "UP";
-	_exception = if (((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon") then {true} else {false};
+	private _exception = ((_unit getVariable ["Achilles_var_animations",[""]]) select 0) == "AmovPercMstpSsurWnonDnon";
 	_unit setVariable ["Achilles_var_animations", nil,true];
 	_unit setVariable ["Achilles_var_noWeapon", nil,true];
-	_ehAnimDone = _unit getVariable ["Achilles_EhAnimDone", 0];
+	private _ehAnimDone = _unit getVariable ["Achilles_EhAnimDone", 0];
 	_unit removeEventHandler ["AnimDone", _ehAnimDone];
-	_ehKilled = _unit getVariable ["Achilles_EhKilled",0];
+	private _ehKilled = _unit getVariable ["Achilles_EhKilled",0];
 	_unit removeEventHandler ["Killed", _ehKilled];
 	if (_exception) then
 	{
@@ -54,18 +52,17 @@ private _switch_anim_mode = false; // true if we only switch the animation
 
 //Terminate previous animation
 if (_anim_set == "TERMINATE") exitWith {_unit call Achilles_fnc_ambientAnim_terminate};
-if (not isNil {_unit getVariable ["Achilles_var_animations",nil]}) then 
+if (!isNil {_unit getVariable ["Achilles_var_animations",nil]}) then
 {
 	_unit call Achilles_fnc_ambientAnim_terminate;
 	_switch_anim_mode = true;
 };
 
 // get anim params
-_params = _anim_set call Achilles_fnc_ambientAnimGetParams;
-_avaiable_anims = _params param [0,[],[[]]];
-_noWeapon = _params param [1, false, [false]];
+private _params = _anim_set call Achilles_fnc_ambientAnimGetParams;
+_params params [["_avaiable_anims", [], [[]]], ["_noWeapon", false, [false]]];
 
-if (count _avaiable_anims == 0) exitWith {};
+if (_avaiable_anims isEqualTo []) exitWith {};
 
 //set animation variables
 _unit setVariable ["Achilles_var_animations",_avaiable_anims,true];
@@ -77,8 +74,8 @@ _unit setVariable ["Achilles_var_noWeapon", _noWeapon,true];
 //remove primary weapon if requested
 if (_noWeapon) then
 {
-	_primWeapon = primaryWeapon _unit;
-	if (not _switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
+	private _primWeapon = primaryWeapon _unit;
+	if (!_switch_anim_mode) then {_unit setVariable ["Achilles_var_primWeapon",_primWeapon,true]};
 	_unit removeWeapon _primWeapon;
 };
 
@@ -87,19 +84,16 @@ Achilles_fnc_ambientAnim_playAnim =
 {
 	_unit = _this;
 	_avaiable_anims = _unit getVariable ["Achilles_var_animations",""];
-	
+
 	//select a random anim from the pool of available animations and play it
-	_anim = _avaiable_anims call BIS_fnc_selectRandom;
-	[_unit,_anim] remoteExec ["switchMove",0];	
+	private _anim = selectRandom _avaiable_anims;
+	[_unit,_anim] remoteExec ["switchMove",0];
 };
 
 // start animation and add termination handlers
 [_unit,_combatReady] spawn
 {
-	private["_unit","_combatReady","_ehAnimDone","_ehKilled"];
-
-	_unit			= _this select 0;
-	_combatReady	= _this select 1;
+    params ["_unit", "_combatReady"];
 
 	//wait for the simulation to start
 	waitUntil{time > 0};
@@ -112,13 +106,11 @@ Achilles_fnc_ambientAnim_playAnim =
 	_unit call Achilles_fnc_ambientAnim_playAnim;
 
 	//play next anim when previous finishes
-	_ehAnimDone = _unit addEventHandler
+	private _ehAnimDone = _unit addEventHandler
 	[
 		"AnimDone",
 		{
-			private["_unit"];
-
-			_unit = _this select 0;
+			params ["_unit"];
 
 			if (alive _unit) then
 			{
@@ -133,7 +125,7 @@ Achilles_fnc_ambientAnim_playAnim =
 	_unit setVariable ["Achilles_EhAnimDone", _ehAnimDone,true];
 
 	//free unit from anim loop if it is killed
-	_ehKilled = _unit addEventHandler
+	private _ehKilled = _unit addEventHandler
 	[
 		"Killed",
 		{
@@ -141,11 +133,11 @@ Achilles_fnc_ambientAnim_playAnim =
 		}
 	];
 	_unit setVariable ["Achilles_EhKilled", _ehKilled,true];
-	
+
 	if (_combatReady) then
 	{
 		// make unit combat ready
-		_previous_unit_damage = damage _unit;
+		private _previous_unit_damage = damage _unit;
 		waitUntil
 		{
 			sleep 0.1;

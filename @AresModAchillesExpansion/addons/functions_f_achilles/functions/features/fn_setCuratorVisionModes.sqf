@@ -1,6 +1,6 @@
 // Get settings
 
-_modes = [-1]; // default view
+private _modes = [-1]; // default view
 
 if (achilles_curator_vision_nvg)               then { _modes pushBack -2; };
 if (achilles_curator_vision_whitehot)          then { _modes pushBack 0; };
@@ -12,6 +12,6 @@ if (achilles_curator_vision_blackhotredcold)   then { _modes pushBack 5; };
 if (achilles_curator_vision_whitehotredcold)   then { _modes pushBack 6; };
 if (achilles_curator_vision_redgreen)          then { _modes pushBack -7; };
 
-_curatorLogic = (getAssignedCuratorLogic player);
+private _curatorLogic = (getAssignedCuratorLogic player);
 
 [_curatorLogic, _modes] call bis_fnc_setcuratorvisionmodes;

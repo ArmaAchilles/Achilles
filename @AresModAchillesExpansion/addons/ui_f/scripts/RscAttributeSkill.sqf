@@ -2,11 +2,11 @@
 
 params ["_mode", "_params", "_entity"];
 
-switch _mode do 
+switch _mode do
 {
-	case "onLoad": 
+	case "onLoad":
 	{
-		if (typename _entity == typename grpnull) then {_entity = leader _entity;};
+		if (_entity isEqualType grpnull) then {_entity = leader _entity;};
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTESKILL_VALUE;
 		private _sliderRange = getArray (configFile >> "Cfg3DEN" >> "Attributes" >> "Skill" >> "Controls" >> "Value" >> "sliderRange");
@@ -16,15 +16,15 @@ switch _mode do
 		_ctrlValue ctrlSetTooltip str _skill;
 		_ctrlValue ctrlSetEventHandler["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
 		_ctrlValue ctrlenable alive _entity;
-			
+
 	};
-	case "confirmed": 
+	case "confirmed":
 	{
 		private ["_unit","_curatorSelected"];
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTESKILL_VALUE;
 		private _skill_value = sliderposition _ctrlValue;
-		if (typename _entity == typename grpnull) then {
+		if (_entity isEqualType grpnull) then {
 			private _selectedGroups = ["group"] call Achilles_fnc_getCuratorSelected;
 			_curatorSelected = [];
 			{_curatorSelected append units _x} forEach _selectedGroups;
@@ -37,12 +37,7 @@ switch _mode do
 		if (abs (_skill_value - _previousSkillValue) > 0.01) then
 		{
 			{
-				if (local _x) then
-				{
-					_x setSkill _skill_value;
-				} else {
-					[_x, _skill_value] remoteExecCall ["setSkill", _x];
-				};
+				if (local _x) then {_x setSkill _skill_value} else {[_x, _skill_value] remoteExecCall ["setSkill", _x]};
 			} forEach _curatorSelected;
 		};
 	};

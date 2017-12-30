@@ -36,10 +36,16 @@ class CfgFunctions
 			class deadlyExplosion;
 			class disablingExplosion;
 			class fakeExplosion;
-			class hasACEExplosives;
 			class spawn;
 			class spawn_remote;
 			class ShowChooseDialog;
+			class showZeusErrorMessage;
+			class log;
+			class getPosLogicsData;
+			class createDummyLogic;
+			class isACELoaded;
+			class returnChildren;
+			class positionSelector;
 		};
 
 		class selectUnit
@@ -60,6 +66,7 @@ class CfgFunctions
 			class changeSide_local;
 			class changeSkills;
 			class damageComponents;
+			class setSensors;
 		};
 
 		class functions_f_features
@@ -91,6 +98,12 @@ class CfgFunctions
 			class createIED;
 			class createSuicideBomber;
 			class IED_DamageHandler;
+			class setSRFrequencies;
+			class setLRFrequencies;
+			class effectFire;
+			class ArsenalSetup;
+			class ArsenalSetupACE;
+			class instantBuildingGarrison;
 		};
 	};
 

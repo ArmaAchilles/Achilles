@@ -14,7 +14,7 @@
 //	[group player] call Achilles_fnc_changeSideAttribute;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_group = param [0,grpNull,[grpNull]];
+private _group = param [0,grpNull,[grpNull]];
 private _side = side _group;
 
 if (isNil "Achilles_var_changeSide_init_done") then
@@ -23,15 +23,15 @@ if (isNil "Achilles_var_changeSide_init_done") then
 	Achilles_var_changeSide_init_done = true;
 };
 
-_dialogResult =
+private _dialogResult =
 [
-	localize "STR_CHANGE_SIDE",
+	localize "STR_AMAE_CHANGE_SIDE",
 	[
-		[localize "STR_SIDE","SIDE",([_side] call BIS_fnc_sideID) + 1, true]
+		[localize "STR_AMAE_SIDE","SIDE",([_side] call BIS_fnc_sideID) + 1, true]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 _side = [(_dialogResult select 0) - 1] call BIS_fnc_sideType;
 
 private _curatorSelected = ["group"] call Achilles_fnc_getCuratorSelected;

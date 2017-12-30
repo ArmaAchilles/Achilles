@@ -12,15 +12,6 @@ class CfgPatches
 		
 		units[] =
 		{
-			"Ares_Module_Arsenal_AddFull",
-			"Ares_Module_Arsenal_AddCustom",
-			"Ares_Module_Arsenal_Copy_To_Clipboard",
-			"Ares_Module_Arsenal_Paste_Replace",
-			"Ares_Module_Arsenal_Paste_Combine",
-			"Ares_Module_Arsenal_Create_Nato",
-			"Ares_Module_Arsenal_Create_Csat",
-			"Ares_Module_Arsenal_Create_Aaf",
-			"Ares_Module_Arsenal_Create_Guerilla",
 			"Ares_Module_Behaviour_Patrol",
 			"Ares_Module_Behaviour_Search_Nearby_And_Garrison",
 			"Ares_Module_Behaviour_Search_Nearby_Building",

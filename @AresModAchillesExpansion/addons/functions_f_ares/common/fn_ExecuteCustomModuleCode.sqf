@@ -2,34 +2,32 @@
 	This code runs the code block associated with a registered module.
 */
 
-_moduleId = _this select 0;
-_logic = _this select 1;
+params["_moduleId", "_logic"];
+
 if (isNil "Ares_Custom_Modules") exitWith
 {
 	// No registered modules.
-	["ExecuteCustomModuleCode: No custom modules registered."] call Ares_fnc_LogMessage;
+	["ExecuteCustomModuleCode: No custom modules registered."] call Achilles_fnc_log;
 };
 
 if (count Ares_Custom_Modules <= _moduleId) exitWith
 {
 	// Not enough registered modules.
-	["ExecuteCustomModuleCode: Module ID larger than number of custom modules."] call Ares_fnc_LogMessage;
+	["ExecuteCustomModuleCode: Module ID larger than number of custom modules."] call Achilles_fnc_log;
 };
 
-_data = Ares_Custom_Modules select _moduleId;
+private _data = Ares_Custom_Modules select _moduleId;
 
 if (isNil "_data") exitWith
 {
-	["ExecuteCustomModuleCode: Unable to get data for moduleId."] call Ares_fnc_LogMessage;
+	["ExecuteCustomModuleCode: Unable to get data for moduleId."] call Achilles_fnc_log;
 };
 
-_categoryName = _data select 0;
-_displayName = _data select 1;
-_codeBlock = _data select 2;
+_data params["_categoryName", "_displayName", "_codeBlock"];
 
-[format ["ExecuteCustomModuleCode: Running code for '%1'->'%2'", _categoryName, _displayName]] call Ares_fnc_LogMessage;
-_position = position _logic;
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+[format ["ExecuteCustomModuleCode: Running code for '%1'->'%2'", _categoryName, _displayName]] call Achilles_fnc_log;
+private _position = position _logic;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 deleteVehicle _logic; // Delete the logic module before we actually execute the code in case the call fails.
 [_position, _unitUnderCursor] call _codeBlock;
-[format ["ExecuteCustomModuleCode: Done running code for '%1'->'%2'", _categoryName, _displayName]] call Ares_fnc_LogMessage;
+[format ["ExecuteCustomModuleCode: Done running code for '%1'->'%2'", _categoryName, _displayName]] call Achilles_fnc_log;

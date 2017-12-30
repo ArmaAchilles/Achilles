@@ -2,8 +2,8 @@ class Ares_ExecuteCode_Dialog
 {
 	idd = 123;
 	movingEnable = true;
-	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
-	onUnload = "uiNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
+	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (profileNamespace getVariable ['Ares_ExecuteCode_Dialog_Text', '']);";
+	onUnload = "profileNamespace setVariable ['Ares_ExecuteCode_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
 	class controls 
 	{
@@ -16,7 +16,7 @@ class Ares_ExecuteCode_Dialog
 			idc = 1000;
 			moving = 1;
 
-			text = "$STR_EXECUTE_CODE"; //--- ToDo: Localize;
+			text = "$STR_AMAE_EXECUTE_CODE"; //--- ToDo: Localize;
 			x = 2 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 38 * GUI_GRID_W;
@@ -100,7 +100,7 @@ class Ares_ExecuteCode_Dialog
 		{
 			idc = 1020;
 
-			text = "$STR_WRITE_OR_PASTE_CODE"; //--- ToDo: Localize;
+			text = "$STR_AMAE_WRITE_OR_PASTE_CODE"; //--- ToDo: Localize;
 			x = 1 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 39 * GUI_GRID_W;

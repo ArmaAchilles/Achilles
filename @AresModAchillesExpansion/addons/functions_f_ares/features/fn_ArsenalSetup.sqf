@@ -10,10 +10,7 @@
 		4 - Bool - (Optional) True to automatically add glasses, false to leave them out. Default false.
 */
 
-_ammoBox = [_this, 0] call BIS_fnc_Param;
-_itemData = [_this, 1, [], [[]]] call BIS_fnc_Param;
-_removeItems = [_this, 2, false, [false]] call BIS_fnc_Param;
-_addGlasses = [_this, 3, false, [false]] call BIS_fnc_Param;
+params [["_ammoBox", objNull], ["_itemData", []], ["_removeItems", false, [false]], ["_addGlasses", false, [false]]];
 
 if (_removeItems) then
 {
@@ -42,18 +39,18 @@ if (count _itemData > 4) then
 	{
 		// The data for the non-virtual items should be in the format returned by 'getItemCargo' and its variants. That is:
 		// [["SomeClassName", "SomeOtherClassName"], [10, 5]] <-- indicates 10 of "SomeClassName" and 5 of "SomeOtherClassName"
-		_data = _itemData select _x;
+		private _data = _itemData select _x;
 		if (count _data == 2) then
 		{
-			_names = _data select 0;
-			_counts = _data select 1;
+			private _names = _data select 0;
+			private _counts = _data select 1;
 			if (count _names > 0 && count _counts > 0 && (count _names) == (count _counts)) then
 			{
 				for "_index" from 0 to ((count _names) - 1) do
 				{
-					_currentName = _names select _index;
-					_currentCount = _counts select _index;
-					[format["Adding '%1' x %2", _currentName, _currentCount]] call Ares_fnc_LogMessage;
+					private _currentName = _names select _index;
+					private _currentCount = _counts select _index;
+					[format["Adding '%1' x %2", _currentName, _currentCount]] call Achilles_fnc_log;
 					switch (_x) do
 					{
 						case 4: { _ammoBox addBackpackCargoGlobal [_currentName, _currentCount]; };
@@ -70,7 +67,7 @@ if (count _itemData > 4) then
 if (_addGlasses) then
 {
 	// For some reason you can't add glasses in the ammo box config. Add them manually.
-	_allGlasses = [
+	private _allGlasses = [
 		"G_Diving",			//Diving Goggles
 		"G_Shades_Black",		//Shades (Black)
 		"G_Shades_Blue",		//Shades (Blue)

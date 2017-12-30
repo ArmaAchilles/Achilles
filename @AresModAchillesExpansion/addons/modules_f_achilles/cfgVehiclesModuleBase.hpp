@@ -60,6 +60,7 @@ class CfgVehicles
 	class ModuleEmpty_F : Thing {};
 
 	#include "ACE\cfgVehiclesModulesACE.hpp"
+	#include "Arsenal\cfgVehiclesModulesArsenal.hpp"
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "Buildings\cfgVehiclesModulesBuildings.hpp"
 	#include "DevTools\cfgVehiclesModulesDevTools.hpp"
@@ -68,6 +69,8 @@ class CfgVehicles
 	#include "Environment\cfgVehiclesModulesEnvironment.hpp"
 	#include "MissionFlow\cfgVehiclesModulesMissionFlow.hpp"
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
+	#include "Player\cfgVehiclesModulesPlayer.hpp"
+	#include "Reinforcements\cfgVehiclesModulesReinforcements.hpp"
 	#include "Replacement\cfgVehiclesModulesReplacement.hpp"
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
 	#include "Zeus\cfgVehiclesModulesZeus.hpp"
@@ -97,6 +100,5 @@ class CfgVehicles
 	class ModuleIRGrenade_F : Module_F {scopeCurator = 1;};
 	class ModuleTracers_F : Module_F {scopeCurator = 1;};
 
-	class ModuleBootcampStage_F : Module_F {scopeCurator = 1;};
-	class ModuleHint_F : ModuleBootcampStage_F {scopeCurator = 1;};
+	class ModuleHint_F : Module_F {scopeCurator = 1;};
 };

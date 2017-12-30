@@ -37,9 +37,6 @@ class RscDisplayMain: RscStandardDisplay
 	};
 };
 */
-// load external resources
-class RscAttributeOwners : RscControlsGroupNoScrollbars {};
-
 // load external attributes
 class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};

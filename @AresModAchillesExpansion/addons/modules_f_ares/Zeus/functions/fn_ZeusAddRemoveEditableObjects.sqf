@@ -1,73 +1,74 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_center_pos = position _logic;
+private _center_pos = position _logic;
 
-_dialogResult = 
+private _dialogResult =
 [
-	localize "STR_ADD_REMOVE_EDITABLE_OBJECTS",
+	localize "STR_AMAE_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
 		[
-			localize "STR_MODE", [localize "STR_ADD", localize "STR_REMOVE"]
+			localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]
 		],
 		[
-			localize "STR_RANGE",[localize "STR_RADIUS",localize "STR_ALL_OBJECTS_IN_MISSION"]
+			localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]
 		],
 		[
-			localize "STR_RADIUS","","50"
+			localize "STR_AMAE_RADIUS","","50"
 		],
 		[
-			localize "STR_TYPE",[localize "STR_ALL",localize "STR_UNITS",localize "STR_VEHICLE",localize "STR_STATIC_OBJECTS",localize "STR_GAME_LOGIC"]
+			localize "STR_AMAE_TYPE",[localize "STR_AMAE_ALL",localize "STR_AMAE_UNITS",localize "STR_AMAE_VEHICLE",localize "STR_AMAE_STATIC_OBJECTS",localize "STR_AMAE_GAME_LOGIC"]
 		],
 		[
-			localize "STR_MODE",[localize "STR_ALL",localize "STR_SIDE"]
+			localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SIDE"]
 		],
 		[
-			localize "STR_SIDE","SIDE"
+			localize "STR_AMAE_SIDE","SIDE"
 		]
 	],
 	"Achilles_fnc_RscDisplayAttributes_editableObjects"
 ] call Ares_fnc_ShowChooseDialog;
 
-if (count _dialogResult == 0) exitWith {};
-_addObject = if ((_dialogResult select 0) == 0) then {true} else {false};
-_range_mode = _dialogResult select 1;
-_obj_type = _dialogResult select 3;
+if (_dialogResult isEqualTo []) exitWith {};
+private _addObject = (_dialogResult select 0) == 0;
+private _range_mode = _dialogResult select 1;
+private _obj_type = _dialogResult select 3;
 
 private _objectsToProcess = [];
 
 if (_range_mode == 0) then
 {
-	_radius = parseNumber (_dialogResult select 2);
+	private _radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
-		case 0: {nearestObjects [_center_pos, [],_radius, true]};
-		case 1: 
+		case 0: {_center_pos nearEntities _radius};
+		case 1:
 		{
-			_units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
+			private _units = _center_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius];
 			if (_dialogResult select 4 == 1) then
 			{
-				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side and count crew _x > 0};
 			} else
 			{
 				_units select {count crew _x > 0};
 			};
 		};
-		case 2: {nearestObjects [_center_pos, ["LandVehicle","Air","Ship"], _radius, true]};
-		case 3: {nearestObjects [_center_pos, ["Static"], _radius, true]};
-		case 4: {nearestObjects [_center_pos, ["Logic"], _radius, true]};
+		case 2: {_center_pos nearEntities [["LandVehicle","Air","Ship"], _radius]};
+		case 3: {_center_pos nearEntities ["Static", _radius]};
+		case 4: {_center_pos nearEntities ["Logic", _radius]};
 	};
-} else
+}
+else
 {
 	_objectsToProcess = switch (_obj_type) do
 	{
 		case 0: {allMissionObjects ""};
-		case 1: 
+		case 1:
 		{
-			_units = (allUnits + vehicles);
+			private _units = (allUnits + vehicles);
 			if (_dialogResult select 4 == 1) then
 			{
-				_side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side};
 			} else
 			{
@@ -77,18 +78,25 @@ if (_range_mode == 0) then
 		case 2: {vehicles};
 		case 3: {allMissionObjects "Static"};
 		case 4: {allMissionObjects "Logic"};
-	};	
+	};
 };
 
 // protect the main essential module from being added
-_objectsToProcess = _objectsToProcess select 
+_objectsToProcess = _objectsToProcess select
 {
-	private _object = _x;
-	private _type = toLower typeOf _object;
-	({_type == _x} count ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f"] == 0) and {(_type select [0,13]) != "modulecurator"} /*and {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/};
-[_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
+	private _type = toLower typeOf _x;
+	if (Achilles_Debug_Output_Enabled) then
+	{
+		true;
+	}
+	else
+	{
+		(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f", "ares_module_base", "achilles_module_base"]) && {(_type select [0,13]) != "modulecurator"}) /*&& {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
+    };
+};
 
-_displayText = [localize "STR_ADD_OBJEKTE_TO_ZEUS", localize "STR_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0);
-[objNull, format [_displayText, count _objectsToProcess]] call bis_fnc_showCuratorFeedbackMessage;
+private _objectsModified = [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
+
+[format [[localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0), _objectsModified]] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

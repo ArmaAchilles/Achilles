@@ -10,12 +10,9 @@
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
 {
-	[] call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Advanced Compositions\Ares_var_advanced_compositions.sqf";
+	call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Advanced Compositions\Ares_var_advanced_compositions.sqf";
 	Achilles_var_acs_init_done = true;
 };
-
-private '_center_object';
-_spawn_pos = position _logic;
 
 createDialog "Ares_composition_Dialog";
 ["LOADED"] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;

@@ -11,7 +11,7 @@
     Nothing
 */
 
-_spawnPos = _this select 0;
+params ["_spawnPos"];
 
-_explosive = "SmallSecondary" createVehicle _spawnPos;
+private _explosive = "SmallSecondary" createVehicle _spawnPos;
 _explosive setPos _spawnPos;

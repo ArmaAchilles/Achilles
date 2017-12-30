@@ -2,7 +2,7 @@
 //	AUTHOR: Kex (based on BIS_fnc_ambientAnim and BIS_fnc_ambientAnimCombat)
 //	DATE: 8/26/16
 //	VERSION: 1.0
-//	FILE: 
+//	FILE:
 //  DESCRIPTION: THIS FUNCTION HAS TO BE EXECUTED WHERE THE UNIT IS LOCAL!!!
 //				 this function force AI to execute an animation in loop
 //
@@ -23,38 +23,34 @@
 
 #define UNTIE_ICON				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unbind_ca.paa"
 
-
-_unit =					_this select 0;
-_caller =				_this select 1;
-_param = 				_this select 2;
-_animIndex = 			_param select 0;
-_interactionIndex = 	_param select 1;
+params["_unit", "_caller", "_param"];
+_param params["_animIndex", "_interactionIndex"];
 
 if (_animIndex == -1) then
 {
-	_termination = if(isNull _caller) then {-1} else {_unit getVariable ["AresCaptureState",1]};
-	
+	private _termination = [_unit getVariable ["AresCaptureState",1], -1] select (isNull _caller);
+
 	// unit gets freed
-	
+
 	// No longer a captive
 	_unit setCaptive false;
 
 	// terminate animation
 	//[_unit,""] remoteExec ["switchMove",0];
-	_anim_state = animationState _unit;
+	private _anim_state = animationState _unit;
 	[_unit,"TERMINATE",false] call Achilles_fnc_ambientAnim;
-	
+
 	// remove the action
 	remoteExec ["",_unit];	// remove from JIP queue
 	_unit remoteExec ["RemoveAllActions", 0];
-	
-	if (_termination == 0) then 
+
+	if (_termination == 0) then
 	{
-		waitUntil {sleep 1; not alive _unit or (_anim_state != animationState _unit)};
+		waitUntil {sleep 1; !alive _unit or (_anim_state != animationState _unit)};
 		[_unit] join _caller;
 	};
 	_unit setVariable ["AresCaptureState",-1,true];
-	
+
 	if (_termination == 2) then
 	{
 		// unit gets tied
@@ -62,14 +58,14 @@ if (_animIndex == -1) then
 	};
 } else
 {
-	_anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
-	_actionName = [localize "STR_RELEASE_UNIT",localize "STR_RELEASE_UNIT",localize "STR_TIE_UNIT"] select _interactionIndex;
-	
+	private _anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
+	private _actionName = [localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_TIE_UNIT"] select _interactionIndex;
+
 	// Set unit captive
 	_unit setCaptive true;
-	
+
 	[_unit,_anim,false] call Achilles_fnc_ambientAnim;
-	
+
 	[
 		_unit,				// Object the action is attached to
 		_actionName,	// Title of the action
@@ -80,25 +76,22 @@ if (_animIndex == -1) then
 		{},		// Code executed when action starts
 		{},		// Code executed on every progress tick
 		{
-			_unit = _this select 0;
-			_caller = _this select 1;
-			_id = _this select 2;
-			
+			params["_unit", "_caller", "_id"];
+
 			// remove the action
 			remoteExec ["",_unit];	// remove from JIP queue
 			_unit remoteExec ["RemoveAllActions", 0];
-			
+
 			[_unit,_caller,[-1,-1]] remoteExec ["Ares_fnc_surrenderUnit",_unit];
-			
+
 		},		// Code executed on completion
 		{},		// Code executed on interrupted
 		[],		// Arguments passed to the scripts
 		7,		// Action duration
 		20,		// Priority
 		false,	// Remove on completion
-		false	// Show in unconscious state 
+		false	// Show in unconscious state
 	] remoteExec ["BIS_fnc_holdActionAdd",0,_unit];
-	
-	_unit setVariable ["AresCaptureState",_interactionIndex,true];	
-};
 
+	_unit setVariable ["AresCaptureState",_interactionIndex,true];
+};

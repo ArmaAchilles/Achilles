@@ -16,185 +16,47 @@
 //	_animation_set_details = "GUARD" call Achilles_fnc_ambientAnimGetParams;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-private ["_anims","_noWeapon"];
-_anim_set = _this;
+private _anim_set = _this;
 
-_anims = [];
-_noWeapon = false;
-
-switch (_anim_set) do
-{
-	case "STAND_1":
-	{
-		_anims 	= ["HubStanding_idle1","HubStanding_idle2","HubStanding_idle3"];
-	};
-	case "STAND_2":
-	{
-		_anims 	= ["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05"];
-	};
-	case "STAND_NO_WEAP_1":
-	{
-		_anims 	= ["HubStandingUA_idle1","HubStandingUA_idle2","HubStandingUA_idle3","HubStandingUA_move1","HubStandingUA_move2"];
-		_noWeapon = true;
-	};
-	case "STAND_NO_WEAP_2":
-	{
-		_anims = ["HubStandingUB_idle1","HubStandingUB_idle2","HubStandingUB_idle3","HubStandingUB_move1"];
-		_noWeapon = true;
-	};
-	case "STAND_NO_WEAP_3":
-	{
-		_anims 	= ["HubStandingUC_idle1","HubStandingUC_idle2","HubStandingUC_idle3","HubStandingUC_move1","HubStandingUC_move2"];
-		_noWeapon = true;
-	};
-	case "WATCH_1":
-	{
-		_anims = ["inbasemoves_patrolling1"];
-	};
-	case "WATCH_2":
-	{
-		_anims = ["inbasemoves_patrolling2"];
-	};
-	case "GUARD":
-	{
-		_anims = 
-		["inbasemoves_handsbehindback1","inbasemoves_handsbehindback2"];
-		_noWeapon = true;
-	};
-	case "LISTEN_BRIEFING":
-	{
-		_anims = ["unaercposlechvelitele1","unaercposlechvelitele2","unaercposlechvelitele3","unaercposlechvelitele4"];
-		_noWeapon = true;
-	};
-	case "BRIEFING":
-	{
-		_anims = ["hubbriefing_loop","hubbriefing_loop","hubbriefing_loop","hubbriefing_lookaround1","hubbriefing_lookaround2","hubbriefing_scratch","hubbriefing_stretch","hubbriefing_talkaround"];
-		_noWeapon = true;
-	};
-	case "BRIEFING_INTERACTIVE_1":
-	{
-		_anims = ["Acts_C_in1_briefing"];
-		_noWeapon = true;
-	};
-	case "BRIEFING_INTERACTIVE_2":
-	{
-		_anims = ["Acts_HUBABriefing"];
-		_noWeapon = true;
-	};
-	case "LISTEN_TO_RADIO":
-	{
-		_anims = ["Acts_listeningToRadio_Loop"];
-	};
-	case "NAVIGATE":
-	{
-		_anims = ["Acts_NavigatingChopper_Loop"];
-	};
-	case "LEAN":
-	{
-		_anims = ["inbasemoves_lean1"];
-		_noBackpack = true;
-	};
-	case "KNEEL":
-	{
-		_anims = ["amovpknlmstpslowwrfldnon","aidlpknlmstpslowwrfldnon_ai","aidlpknlmstpslowwrfldnon_g01","aidlpknlmstpslowwrfldnon_g02","aidlpknlmstpslowwrfldnon_g03","aidlpknlmstpslowwrfldnon_g0s"];
-	};
-	case "REPAIR_VEH_PRONE":
-	{
-		_anims = ["hubfixingvehicleprone_idle1"];
-		_noWeapon = true;
-	};
-	case "REPAIR_VEH_KNEEL":
-	{
-		_anims = ["inbasemoves_repairvehicleknl"];
-		_noWeapon = true;
-	};
-	case "REPAIR_VEH_STAND":
-	{
-		_anims = ["inbasemoves_assemblingvehicleerc"];
-		_noWeapon = true;
-	};
-	case "PRONE_INJURED_NO_WEAP_1":
-	{
-		_anims = ["ainjppnemstpsnonwnondnon"];
-		_noWeapon = true;
-	};
-	case "PRONE_INJURED_NO_WEAP_2":
-	{
-		_anims = ["hubwoundedprone_idle1","hubwoundedprone_idle2"];
-		_noWeapon = true;
-	};
-	case "PRONE_INJURED":
-	{
-		_anims = ["acts_injuredangryrifle01","acts_injuredcoughrifle02","acts_injuredlookingrifle01","acts_injuredlookingrifle02","acts_injuredlookingrifle03","acts_injuredlookingrifle04","acts_injuredlookingrifle05","acts_injuredlyingrifle01"];
-	};
-	case "KNEEL_TREAT_1":
-	{
-		_anims = ["ainvpknlmstpsnonwnondnon_medic","ainvpknlmstpsnonwnondnon_medic0","ainvpknlmstpsnonwnondnon_medic1","ainvpknlmstpsnonwnondnon_medic2","ainvpknlmstpsnonwnondnon_medic3","ainvpknlmstpsnonwnondnon_medic4","ainvpknlmstpsnonwnondnon_medic5"];
-		_noWeapon = true;
-	};
-	case "KNEEL_TREAT_2":
-	{
-		_anims = ["acts_treatingwounded01","acts_treatingwounded02","acts_treatingwounded03","acts_treatingwounded04","acts_treatingwounded05","acts_treatingwounded06"];
-		_noWeapon = true;
-	};
-	case "CAPTURED_SIT":
-	{	
-		_anims = ["Acts_AidlPsitMstpSsurWnonDnon03","Acts_AidlPsitMstpSsurWnonDnon04","Acts_AidlPsitMstpSsurWnonDnon05"];
-		_noWeapon = true;
-	};
-	case "SURRENDER":
-	{	
-		_anims = ["AmovPercMstpSsurWnonDnon"];
-	};
-	case "SIT_LOW":
-	{	
-		_anims = ["amovpsitmstpslowwrfldnon","amovpsitmstpslowwrfldnon_weaponcheck1","amovpsitmstpslowwrfldnon_weaponcheck2"];
-	};
-	case "INJURY_CHEST":
-	{
-		_anims = ["Acts_CivilinjuredChest_1"];
-	};
-	case "INJURY_HEAD":
-	{
-		_anims = ["Acts_CivilInjuredHead_1"];
-	};
-	case "INJURY_ARM":
-	{
-		_anims = ["Acts_CivilInjuredArms_1"];
-	};
-	case "INJURY_LEG":
-	{
-		_anims = ["Acts_CivilInjuredLegs_1"];
-	};
-	case "CIV_HIDE":
-	{
-		_anims = ["Acts_CivilHiding_1","Acts_CivilHiding_2"];
-		_noWeapon = true;
-	};
-	case "CIV_SHOCK":
-	{
-		_anims = ["Acts_CivilShocked_1","Acts_CivilShocked_2"];
-		_noWeapon = true;
-	};
-	case "TALK_CIV":
-	{
-		_anims = ["Acts_CivilTalking_1","Acts_CivilTalking_2"];
-		_noWeapon = true;		
-	};
-	case "LISTEN_CIV":
-	{
-		_anims = ["Acts_CivilListening_1","Acts_CivilListening_2"];
-		_noWeapon = true;
-		
-	};
-	case "SHIELD_FROM_SUN":
-	{
-		_anims = ["Acts_ShieldFromSun_Loop"];
-	};
-	case "SHOWING_THE_WAY":
-	{
-		_anims = ["Acts_ShowingTheRightWay_loop"];
-	};
+private _return = switch (_anim_set) do
+{   // [anims, noWeapon]
+	case "STAND_1":	{ [["HubStanding_idle1","HubStanding_idle2","HubStanding_idle3"], false] };
+	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05"], false] };
+	case "STAND_NO_WEAP_1": { [["HubStandingUA_idle1","HubStandingUA_idle2","HubStandingUA_idle3","HubStandingUA_move1","HubStandingUA_move2"], true] };
+	case "STAND_NO_WEAP_2": { [["HubStandingUB_idle1","HubStandingUB_idle2","HubStandingUB_idle3","HubStandingUB_move1"], true]; };
+	case "STAND_NO_WEAP_3": { [["HubStandingUC_idle1","HubStandingUC_idle2","HubStandingUC_idle3","HubStandingUC_move1","HubStandingUC_move2"], true] };
+	case "WATCH_1": { [["inbasemoves_patrolling1"], false] };
+	case "WATCH_2": { [["inbasemoves_patrolling2"], false] };
+	case "GUARD": { [["inbasemoves_handsbehindback1","inbasemoves_handsbehindback2"], true] };
+	case "LISTEN_BRIEFING": { [["unaercposlechvelitele1","unaercposlechvelitele2","unaercposlechvelitele3","unaercposlechvelitele4"], true] };
+	case "BRIEFING": { [["hubbriefing_loop","hubbriefing_loop","hubbriefing_loop","hubbriefing_lookaround1","hubbriefing_lookaround2","hubbriefing_scratch","hubbriefing_stretch","hubbriefing_talkaround"], true] };
+	case "BRIEFING_INTERACTIVE_1": { [["Acts_C_in1_briefing"], true] };
+	case "BRIEFING_INTERACTIVE_2": { [["Acts_HUBABriefing"], true] };
+	case "LISTEN_TO_RADIO": { [["Acts_listeningToRadio_Loop"], false] };
+	case "NAVIGATE": { [["Acts_NavigatingChopper_Loop"], false] };
+	case "LEAN":{ [["inbasemoves_lean1"], false] };
+	case "KNEEL": { [["amovpknlmstpslowwrfldnon","aidlpknlmstpslowwrfldnon_ai","aidlpknlmstpslowwrfldnon_g01","aidlpknlmstpslowwrfldnon_g02","aidlpknlmstpslowwrfldnon_g03","aidlpknlmstpslowwrfldnon_g0s"], false] };
+	case "REPAIR_VEH_PRONE": { [["hubfixingvehicleprone_idle1"], true] };
+	case "REPAIR_VEH_KNEEL": { [["inbasemoves_repairvehicleknl"], true] };
+	case "REPAIR_VEH_STAND": { [["inbasemoves_assemblingvehicleerc"], true] };
+	case "PRONE_INJURED_NO_WEAP_1": { [["ainjppnemstpsnonwnondnon"], true] };
+	case "PRONE_INJURED_NO_WEAP_2": { [["hubwoundedprone_idle1","hubwoundedprone_idle2"], true] };
+	case "PRONE_INJURED": { [["acts_injuredangryrifle01","acts_injuredcoughrifle02","acts_injuredlookingrifle01","acts_injuredlookingrifle02","acts_injuredlookingrifle03","acts_injuredlookingrifle04","acts_injuredlookingrifle05","acts_injuredlyingrifle01"], false] };
+	case "KNEEL_TREAT_1": { [["ainvpknlmstpsnonwnondnon_medic","ainvpknlmstpsnonwnondnon_medic0","ainvpknlmstpsnonwnondnon_medic1","ainvpknlmstpsnonwnondnon_medic2","ainvpknlmstpsnonwnondnon_medic3","ainvpknlmstpsnonwnondnon_medic4","ainvpknlmstpsnonwnondnon_medic5"], true] };
+	case "KNEEL_TREAT_2": { [["acts_treatingwounded01","acts_treatingwounded02","acts_treatingwounded03","acts_treatingwounded04","acts_treatingwounded05","acts_treatingwounded06"], true]	};
+	case "CAPTURED_SIT": { [["Acts_AidlPsitMstpSsurWnonDnon03","Acts_AidlPsitMstpSsurWnonDnon04","Acts_AidlPsitMstpSsurWnonDnon05"], true] };
+	case "SURRENDER": { [["AmovPercMstpSsurWnonDnon"], false] };
+	case "SIT_LOW": { [["amovpsitmstpslowwrfldnon","amovpsitmstpslowwrfldnon_weaponcheck1","amovpsitmstpslowwrfldnon_weaponcheck2"], false]	};
+	case "INJURY_CHEST": { [["Acts_CivilinjuredChest_1"], false] };
+	case "INJURY_HEAD": { [["Acts_CivilInjuredHead_1"], false] };
+	case "INJURY_ARM": { [["Acts_CivilInjuredArms_1"], false] };
+	case "INJURY_LEG": { [["Acts_CivilInjuredLegs_1"], false] };
+	case "CIV_HIDE": { [["Acts_CivilHiding_1","Acts_CivilHiding_2"], true] };
+	case "CIV_SHOCK": { [["Acts_CivilShocked_1","Acts_CivilShocked_2"], true] };
+	case "TALK_CIV": { [["Acts_CivilTalking_1","Acts_CivilTalking_2"], true] };
+	case "LISTEN_CIV": { [["Acts_CivilListening_1","Acts_CivilListening_2"], true] };
+	case "SHIELD_FROM_SUN": { [["Acts_ShieldFromSun_Loop"], false] };
+	case "SHOWING_THE_WAY": { [["Acts_ShowingTheRightWay_loop"], false] };
 };
 
-[_anims,_noWeapon]
+_return;

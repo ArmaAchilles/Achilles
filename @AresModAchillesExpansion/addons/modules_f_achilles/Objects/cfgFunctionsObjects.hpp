@@ -9,4 +9,6 @@ class Achilles_Objects_Function_Base
 	class ObjectsTransferOwnership {};
 	class ObjectsAddECM {};
 	class ObjectsIED {};
+	class ObjectsRotation {};
+	class ObjectsHide {};
 };

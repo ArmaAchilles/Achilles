@@ -4,8 +4,8 @@
 [
     "Achilles_var_moduleTreeHelmet",
     "CHECKBOX",
-    localize "STR_MODULE_ICONS_HELMET",
-    localize "STR_MODULE_INTERFACE",
+    localize "STR_AMAE_MODULE_ICONS_HELMET",
+    localize "STR_AMAE_MODULE_INTERFACE",
     false,
 	false,
 	{Achilles_var_reloadDisplay = true}	
@@ -14,8 +14,8 @@
 [
     "Achilles_var_moduleTreeDLC",
     "CHECKBOX",
-    localize "STR_MODULE_ICONS_DLC",
-    localize "STR_MODULE_INTERFACE",
+    localize "STR_AMAE_MODULE_ICONS_DLC",
+    localize "STR_AMAE_MODULE_INTERFACE",
     true,
 	false,
 	{Achilles_var_reloadDisplay = true}	
@@ -24,8 +24,8 @@
 [
     "Achilles_var_moduleTreeCollapse",
     "CHECKBOX",
-    localize "STR_COLLAPSE_TREE_BY_DEFAULT",
-    localize "STR_MODULE_INTERFACE",
+    localize "STR_AMAE_COLLAPSE_TREE_BY_DEFAULT",
+    localize "STR_AMAE_MODULE_INTERFACE",
     true,
 	false,
 	{Achilles_var_reloadDisplay = true}	

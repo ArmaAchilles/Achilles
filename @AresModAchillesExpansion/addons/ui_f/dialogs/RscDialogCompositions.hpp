@@ -14,7 +14,7 @@ class Ares_composition_Dialog
 			idc = 1000;
 			moving = 1;
 
-			text = "$STR_ADVANCED_COMPOSITION"; //--- ToDo: Localize;
+			text = "$STR_AMAE_ADVANCED_COMPOSITION"; //--- ToDo: Localize;
 			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 24 * GUI_GRID_W;
@@ -59,7 +59,9 @@ class Ares_composition_Dialog
 			idc = 3000;
 			
 			onButtonClick = "uiNamespace setVariable ['Ares_Dialog_Result', 1]; closeDialog 1;";			
-			text = "$STR_SPAWN"; //--- ToDo: Localize;
+			
+			text = "$STR_AMAE_SPAWN"; //--- ToDo: Localize;
+			
 			x = 26 * GUI_GRID_W + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 7 * GUI_GRID_W;

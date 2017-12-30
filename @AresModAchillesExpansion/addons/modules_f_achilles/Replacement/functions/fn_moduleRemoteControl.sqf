@@ -1,6 +1,4 @@
-_logic = _this select 0;
-_units = _this select 1;
-_activated = _this select 2;
+params["_logic","_units","_activated"];
 
 if (_activated && local _logic && !isnull curatorcamera) then {
 
@@ -8,16 +6,16 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 	if !(isnull (missionnamespace getvariable ["bis_fnc_moduleRemoteControl_unit",objnull])) exitwith {};
 
 	//--- Get unit under cursor
-	_unit = objnull;
-	_mouseOver = missionnamespace getvariable ["bis_fnc_curatorObjectPlaced_mouseOver",[""]];
-	if ((_mouseOver select 0) == typename objnull) then {_unit = _mouseOver select 1;};
+	private _unit = objnull;
+	private _mouseOver = missionnamespace getvariable ["bis_fnc_curatorObjectPlaced_mouseOver",[""]];
+	if ((_mouseOver select 0) == "OBJECT") then {_unit = _mouseOver select 1;};
 	_unit = effectivecommander _unit;
 
 	//--- Temp owner
 	private _tempOwner = _unit getvariable ["bis_fnc_moduleRemoteControl_owner", objnull];
 
 	//--- Check if the unit is suitable
-	_error = "";
+	private _error = "";
 	if !(side group _unit in [east,west,resistance,civilian]) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorEmpty";};
 	if (isplayer _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorPlayer";};
 	if !(alive _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorDestroyed";};
@@ -30,19 +28,19 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 		_unit spawn {
 			scriptname "bis_fnc_moduleRemoteControl: Loop";
 			_unit = _this;
-			_vehicle = vehicle _unit;
-			_vehicleRole = str assignedvehiclerole _unit;
+			private _vehicle = vehicle _unit;
+			private _vehicleRole = str assignedvehiclerole _unit;
 
 			_unit setvariable ["bis_fnc_moduleRemoteControl_owner",player,true];
 
-			_blur = ppeffectcreate ["RadialBlur",144];
+			private _blur = ppeffectcreate ["RadialBlur",144];
 			_blur ppeffectenable true;
 			_blur ppeffectadjust [0,0,0.3,0.3];
 			_blur ppeffectcommit 0;
 			_blur ppeffectadjust [0.03,0.03,0.1,0.1];
 			_blur ppeffectcommit 1;
 
-			_cam = "camera" camcreate getposatl curatorcamera;
+			private _cam = "camera" camcreate getposatl curatorcamera;
 			_cam cameraeffect ["internal","back"];
 			_cam campreparetarget (screentoworld [0.5,0.5]);
 			_cam camcommitprepared 0;
@@ -68,12 +66,12 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 			_cam cameraeffect ["terminate","back"];
 			camdestroy _cam;
 
-			_color = ppeffectcreate ["colorCorrections",1896];
+			private _color = ppeffectcreate ["colorCorrections",1896];
 			_color ppeffectenable true;
 			_color ppeffectadjust [1,1,0,[0,0,0,1],[1,1,1,1],[0,0,0,0],[0.9,0.0,0,0,0,0.5,1]];
 			_color ppeffectcommit 0;
 
-			_curator = getassignedcuratorlogic player;
+			private _curator = getassignedcuratorlogic player;
 			[_curator,"curatorObjectRemoteControlled",[_curator,player,_unit,true]] call bis_fnc_callScriptedEventHandler;
 			[["Curator","RemoteControl"],nil,nil,nil,nil,nil,nil,true] call bis_fnc_advHint;
 
@@ -81,11 +79,14 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 			_color ppeffectadjust [1,1,0,[0,0,0,1],[1,1,1,1],[0,0,0,0],[0.9,0.85,0,0,0,0.5,1]];
 			_color ppeffectcommit 0.3;
 			("bis_fnc_moduleRemoteCurator" call bis_fnc_rscLayer) cuttext ["","black in",0.5];
+			
+			// add actions
+			private _addActionID = _unit call Achilles_fnc_addBreachDoorAction;
 
 			//--- Back to player
 			_vehicle = vehicle _unit;
 			_vehicleRole = str assignedvehiclerole _unit;
-			_rating = rating player;
+			private _rating = rating player;
 			waituntil {
 				//--- Refresh when vehicle or vehicle role changes
 				if ((vehicle _unit != _vehicle || str assignedvehiclerole _unit != _vehicleRole) && {alive _unit}) then {
@@ -132,11 +133,13 @@ if (_activated && local _logic && !isnull curatorcamera) then {
 					sleep 1;
 				};
 				if !(isnull _unit) then {
-					_unitPos = getposatl _unit;
-					_camPos = [_unitPos,10,direction _unit + 180] call bis_fnc_relpos;
+					private _unitPos = getposatl _unit;
+					private _camPos = [_unitPos,10,direction _unit + 180] call bis_fnc_relpos;
 					_camPos set [2,(_unitPos select 2) + (getterrainheightasl _unitPos) - (getterrainheightasl _camPos) + 10];
 					//[_camPos,_unit] call bis_fnc_setcuratorcamera;
 					(getassignedcuratorlogic player) setvariable ["bis_fnc_modulecuratorsetcamera_params",[_camPos,_unit]];
+					// remove actions
+					[_unit, _addActionID] call BIS_fnc_holdActionRemove;
 				};
 
 				sleep 0.1; //--- Engine needs a delay in case controlled unit was deleted

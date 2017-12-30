@@ -1,6 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-_groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
+private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
 //Broadcast search building function
 if (isNil "Achilles_var_search_building_init_done") then
@@ -9,7 +9,7 @@ if (isNil "Achilles_var_search_building_init_done") then
 	Achilles_var_search_building_init_done = true;
 };
 
-[objnull, "Searching nearby building."] call bis_fnc_showCuratorFeedbackMessage;
+[localize "STR_AMAE_SEARCH_NEAREST_BUILDING"] call Ares_fnc_showZeusMessage;
 
 if (local _groupUnderCursor) then
 {

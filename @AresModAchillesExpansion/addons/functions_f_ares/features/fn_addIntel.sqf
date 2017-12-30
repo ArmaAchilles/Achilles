@@ -18,16 +18,12 @@
 //	["Secret NATO Documents","NATO supply convoy is expected to pass the checkpoint at 9 am.","marker001","Kex",0] call Ares_fnc_addIntel;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_title = _this select 0;
-_text = _this select 1;
-_marker = _this select 2;
-_finder = param [3,"",[""]];
-_shared = param [4,0,[0]];
+params["_title", "_text", "_marker", ["_finder", "", [""]], ["_shared", 0, [0]]];
 
-_fnc_scriptName = "Achilles_Intel";
-_shared_hint = if (isLocalized "STR_INTEL_WAS_SHARED_WITH_SIDE") then
+private _fnc_scriptName = "Achilles_Intel";
+private _shared_hint = if (isLocalized "STR_AMAE_INTEL_WAS_SHARED_WITH_SIDE") then
 {
-	[localize "STR_INTEL_WAS_SHARED_WITH_SIDE",localize "STR_INTEL_WAS_SHARED_WITH_GROUP", localize "STR_INTEL_WAS_SHARED_WITH_NONE"] select _shared;
+	[localize "STR_AMAE_INTEL_WAS_SHARED_WITH_SIDE",localize "STR_AMAE_INTEL_WAS_SHARED_WITH_GROUP", localize "STR_AMAE_INTEL_WAS_SHARED_WITH_NONE"] select _shared;
 } else
 {
 	["(The intel was shared with your side)","(The intel was shared with your group)", "(The intel was shared with no one)"] select _shared;
@@ -45,7 +41,7 @@ _text = format
 + "<br />" + "<font color='#99ffffff' face='PuristaLight'>" + _shared_hint + "</font>";
 
 // Add the intel to the diary
-["intelAdded",[format [localize "STR_INTEL_FOUND",_finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] call bis_fnc_showNotification;
+["intelAdded",[format [localize "STR_AMAE_INTEL_FOUND",_finder,_title] ,"\A3\ui_f\data\map\markers\military\warning_ca.paa"]] call bis_fnc_showNotification;
 if !(player diarysubjectexists _fnc_scriptName) then 
 {
 	player creatediarysubject [_fnc_scriptName,"Ares " + localize "STR_A3_BIS_fnc_initIntelObject_intel"];
@@ -54,4 +50,3 @@ player creatediaryrecord [_fnc_scriptName,[_title,_text]];
 
 if (name player == _finder) then {openmap [true,false]};
 deleteMarker _marker;
-

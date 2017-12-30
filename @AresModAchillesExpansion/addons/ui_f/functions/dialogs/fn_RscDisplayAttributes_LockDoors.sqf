@@ -1,25 +1,20 @@
-
 #define BASE_CTRL_IDC		20000
 #define IDD_DYNAMIC_GUI		133798
 #define LABEL_IDCs			[10001]
 #define CTRL_IDCs			[20001]
 
-private ["_mode", "_ctrl", "_comboIndex"];
-
 disableSerialization;
-_mode = (_this select 0);
-_ctrl = param [1,controlNull,[controlNull]];
-_comboIndex = param [2,0,[0]];
+params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
 
 switch (_mode) do
 {
 	case "LOADED":
 	{
-		_dialog = findDisplay IDD_DYNAMIC_GUI;
+		private _dialog = findDisplay IDD_DYNAMIC_GUI;
 		{
 			_ctrl = _dialog displayCtrl (BASE_CTRL_IDC + _x);
-			_last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
-			_last_choice = if (typeName _last_choice == "SCALAR") then {_last_choice} else {0};
+			private _last_choice = uiNamespace getVariable [format ["Ares_ChooseDialog_ReturnValue_%1", _x], 0];
+			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
 			_ctrl lbSetCurSel _last_choice;
 			if (_x == 0) then
 			{
@@ -30,7 +25,7 @@ switch (_mode) do
 	case "0":
 	{
 		// selection combo changed
-		_dialog = findDisplay IDD_DYNAMIC_GUI;
+		private _dialog = findDisplay IDD_DYNAMIC_GUI;
 
 		if (_comboIndex == 0) then
 		{
@@ -54,7 +49,7 @@ switch (_mode) do
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_0", _comboIndex];
 	};
 	case "UNLOAD" : {};
-	default 
+	default
 	{
 		uiNamespace setVariable [format["Ares_ChooseDialog_ReturnValue_%1", _mode], _comboIndex];
 	};

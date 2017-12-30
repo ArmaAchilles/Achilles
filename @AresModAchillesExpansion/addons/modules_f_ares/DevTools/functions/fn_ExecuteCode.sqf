@@ -2,41 +2,42 @@
 
 disableSerialization;
 
-_position = position _logic;
-_unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-_params = [_position,_unitUnderCursor];
+private _position = position _logic;
+private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _params = [_position,_unitUnderCursor];
 
 // mission designer can disallow usage of execute code module, but it will still be available for logged-in admins
-if (not (missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and not (serverCommandAvailable "#kick")) exitWith
+if (!(missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) and !(serverCommandAvailable "#kick")) exitWith
 {
-	["This module has been disabled by the mission creator."] call Ares_fnc_ShowZeusMessage;
+	[localize "STR_AMAE_CODE_EXECUTION_NOT_ALLOWED"] call Ares_fnc_ShowZeusMessage;
 };
 
 uiNamespace setVariable ["Ares_ExecuteCode_Dialog_Result", -1];
-_default_target = uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Constraint', 0];
+private _default_target = uiNamespace getVariable ['Ares_ExecuteCode_Dialog_Constraint', 0];
 createDialog "Ares_ExecuteCode_Dialog";
-_dialog = findDisplay 123;
-_combobox = _dialog displayCtrl 4000;
+private _dialog = findDisplay 123;
+private _combobox = _dialog displayCtrl 4000;
 {_combobox lbAdd _x} forEach ["local","server","global","global & JIP"];
 _combobox lbSetCurSel _default_target;
 waitUntil { dialog };
 waitUntil { !dialog };
-_dialogResult = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Result", -1];
+private _dialogResult = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Result", -1];
 
 if (_dialogResult == 1) then
 {
 
-	_target = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Constraint", 0];
-	_pastedText = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Text", "[]"];
+	private _target = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Constraint", 0];
+	private _pastedText = profileNamespace getVariable ["Ares_ExecuteCode_Dialog_Text", "[]"];
 
 	switch (_target) do
 	{
 		case 0: {_params spawn (compile _pastedText);};
 		case 1: {[_params, compile _pastedText, 2] call Achilles_fnc_spawn; };
 		case 2: {[_params, compile _pastedText, 0] call Achilles_fnc_spawn; };
-		case 3: 
+		case 3:
 		{
-			_JIP_id = [_params, compile _pastedText, 0, _logic] call Achilles_fnc_spawn;
+			_dummyObject = [_logic] call Achilles_fnc_createDummyLogic;
+			private _JIP_id = [_params, compile _pastedText, 0, _dummyObject] call Achilles_fnc_spawn;
 			_logic setName format ["Execute Code: JIP queue %1", _JIP_id];
 			_deleteModuleOnExit = false;
 		};

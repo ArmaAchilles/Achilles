@@ -16,16 +16,8 @@
 //	[_matrix,_vector] call Achilles_fn_vectorMap;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_matrix = param [0,[],[[]]];
-_vector = param [1,[],[[]]];
+params[["_matrix", [], [[]]], ["_vector", [], [[]]]];
 
 if (count _matrix != count _vector) exitWith {diag_log "Error: matrix multiplication: incompatible dimensions!"};
 
-private _output_vector = [];
-
-{
-	_element = _x vectorDotProduct _vector;
-	_output_vector pushBack +_element;
-} forEach _matrix;
-
-_output_vector;
+_matrix apply {_x vectorDotProduct _vector}

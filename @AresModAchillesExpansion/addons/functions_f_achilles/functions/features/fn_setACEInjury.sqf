@@ -20,16 +20,10 @@ params ["_unit","_injury_type","_injury_value_list","_hits"];
 
 {
 	private _value = _injury_value_list select _forEachIndex;
-	
-	if (typeName _value == "CODE") then
-	{
-		_hits = [_unit] call _value;
-	} else
-	{
-		_hits = _value;
-	};
-	
-	for "_i" from 1 to _hits do 
+
+    if (_value isEqualType {}) then	{_hits = [_unit] call _value} else {_hits = _value};
+
+	for "_i" from 1 to _hits do
 	{
 		[_unit, 1, _x, _injury_type] call ace_medical_fnc_addDamageToUnit;
 		sleep 0.1;

@@ -16,23 +16,21 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-#define ACHILLES_CATEGORIES [localize "STR_BUILDINGS",localize "STR_OBJECTS",localize "STR_ARSENAL",localize "STR_AI_BEHAVIOUR",localize "STR_DEV_TOOLS",localize "STR_EQUIPMENT",localize "STR_PLAYER",localize "STR_REINFORCEMENTS",localize "STR_SPAWN"]
-
-private ["_display","_ctrl","_category_list","_all_modules","_subCategories","_categoryName","_tvData","_tvBranch","_moduleClassName","_categoryIndex","_newPath"];
+#define ACHILLES_CATEGORIES [localize "STR_AMAE_BUILDINGS",localize "STR_AMAE_OBJECTS",localize "STR_AMAE_ARSENAL",localize "STR_AMAE_AI_BEHAVIOUR",localize "STR_AMAE_DEV_TOOLS",localize "STR_AMAE_EQUIPMENT",localize "STR_AMAE_PLAYERS",localize "STR_AMAE_REINFORCEMENTS",localize "STR_AMAE_SPAWN"]
 
 disableSerialization;
 
 // Get function  arguments
-_custom_only = param [0,false,[false]];
+private _custom_only = param [0,false,[false]];
 
 // Get the UI control
-_display = findDisplay IDD_RSCDISPLAYCURATOR;
-_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
+private _display = findDisplay IDD_RSCDISPLAYCURATOR;
+private _ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
 
 
 //prepare lists
-_category_list = [];
-_all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
+private _category_list = [];
+private _all_modules = (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_ares" >> "units"));
 _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f_achilles" >> "units"));
 
 // Get all Vanilla Categories
@@ -40,7 +38,7 @@ _all_modules append (getArray (configFile >> "cfgPatches" >> "achilles_modules_f
 
 for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
-	_categoryName = _ctrl tvText [_i];
+	private _categoryName = _ctrl tvText [_i];
 	if (Achilles_var_moduleTreeHelmet and (_categoryName in ACHILLES_CATEGORIES)) then
 	{
 		_ctrl tvSetPicture [[_i], "\achilles\data_f_achilles\icons\icon_achilles_small.paa"];
@@ -55,12 +53,12 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 {
 	for "_j" from 0 to ((_ctrl tvCount [_i]) - 1) do
 	{
-		_path = [_i,_j];
-		_moduleClassName = _ctrl tvData _path;
+		private _path = [_i,_j];
+		private _moduleClassName = _ctrl tvData _path;
 		if (Achilles_var_moduleTreeDLC) then
 		{
-			_dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
-			_addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
+			private _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
+			private _addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
 			if (_addonIcon != "") then
 			{
 				_ctrl tvSetPictureRight [_path, _addonIcon];
@@ -71,13 +69,13 @@ for "_i" from 0 to ((_ctrl tvCount []) - 1) do
 
 
 // Add Custom modules
-if (not isNil "Ares_Custom_Modules") then
+if (!isNil "Ares_Custom_Modules") then
 {
 	{
-		_categoryName = _x select 0;
-		_moduleDisplayName = _x select 1;
-		_moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
-		
+		private _categoryName = _x select 0;
+		private _moduleDisplayName = _x select 1;
+		private _moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
+
 		_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex] call Achilles_fnc_AppendToModuleTree;
 	} forEach Ares_Custom_Modules;
 };
@@ -119,11 +117,11 @@ _categoryIndex = _tree_ctrl tvAdd [[],_categoryName];
 if (/*count Achilles_var_excludedFactions > 0 or*/ Achilles_var_moduleTreeCollapse) then
 {
 	{
-		_tree_ctrl = _display displayCtrl _x;
+		private _tree_ctrl = _display displayCtrl _x;
 		for "_i" from ((_tree_ctrl tvCount []) - 1) to 0 step -1 do
 		{
-			_path = [_i];
-			_faction_name = _tree_ctrl tvText _path;
+			private _path = [_i];
+			private _faction_name = _tree_ctrl tvText _path;
 			if (/*_faction_name in Achilles_var_excludedFactions*/ false) then
 			{
 				_tree_ctrl tvDelete _path;
@@ -147,7 +145,7 @@ if (/*count Achilles_var_excludedFactions > 0 or*/ Achilles_var_moduleTreeCollap
 if (Achilles_var_moduleTreeCollapse) then
 {
 	{
-		_tree_ctrl = _display displayCtrl _x;
+		private _tree_ctrl = _display displayCtrl _x;
 		for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
 		{
 			_tree_ctrl tvCollapse [_i];
@@ -161,11 +159,11 @@ if (Achilles_var_moduleTreeCollapse) then
 
 //collapse group trees or remove faction
 {
-	_tree_ctrl = _display displayCtrl _x;
+	private _tree_ctrl = _display displayCtrl _x;
 	for "_i" from ((_tree_ctrl tvCount [0]) - 1) to 0 step -1 do
 	{
-		_path = [0,_i];
-		_faction_name = _tree_ctrl tvText _path;
+		private _path = [0,_i];
+		private _faction_name = _tree_ctrl tvText _path;
 		if (/*_faction_name in Achilles_var_excludedFactions*/ false) then
 		{
 			_tree_ctrl tvDelete _path;
@@ -183,7 +181,7 @@ if (Achilles_var_moduleTreeCollapse) then
 
 //collapse group trees
 {
-	_tree_ctrl = _display displayCtrl _x;
+	private _tree_ctrl = _display displayCtrl _x;
 	for "_i" from 0 to ((_tree_ctrl tvCount [0]) - 1) do
 	{
 		_tree_ctrl tvCollapse [0,_i];
@@ -197,17 +195,17 @@ if (Achilles_var_moduleTreeCollapse) then
 // Add DLC icons to empty objects to remind player which he can place for non-apex users.
 if (Achilles_var_moduleTreeDLC) then
 {
-	_tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
+	private _tree_ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
 	for "_i" from 0 to ((_tree_ctrl tvCount []) - 1) do
 	{
 		for "_j" from 0 to ((_tree_ctrl tvCount [_i]) - 1) do
 		{
 			for "_k" from 0 to ((_tree_ctrl tvCount [_i,_j]) - 1) do
 			{
-				_path = [_i,_j,_k];
-				_moduleClassName = _tree_ctrl tvData _path;
-				_dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
-				_addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
+				private _path = [_i,_j,_k];
+				private _moduleClassName = _tree_ctrl tvData _path;
+				private _dlc = [(configFile >> "CfgVehicles" >> _moduleClassName), "dlc", ""] call BIS_fnc_returnConfigEntry;
+				private _addonIcon = [(configFile >> "CfgMods" >> _dlc), "logoSmall", ""] call BIS_fnc_returnConfigEntry;
 				if (_addonIcon != "") then
 				{
 					_tree_ctrl tvSetPictureRight [_path, _addonIcon];

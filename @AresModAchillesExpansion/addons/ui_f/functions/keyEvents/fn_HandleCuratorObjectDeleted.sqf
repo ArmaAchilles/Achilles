@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is deleted
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_handled_object = param [1,objNull,[objNull]];
+private _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
@@ -15,12 +15,12 @@ switch (true) do
 	{
 		switch (true) do
 		{
-			case (not isNull (_handled_object getVariable ["slave", objNull])):
+			case (!isNull (_handled_object getVariable ["slave", objNull])):
 			{
-				_slave = _handled_object getVariable "slave";
+				private _slave = _handled_object getVariable "slave";
 				deleteVehicle _slave;
-			};	
-			case (not isNil {_handled_object getVariable "lock_params"}):
+			};
+			case (!isNil {_handled_object getVariable "lock_params"}):
 			{
 				(_handled_object getVariable "lock_params") params ["_building", "_lock_var"];
 				_building setVariable [_lock_var, 0, true];
@@ -30,9 +30,14 @@ switch (true) do
 			{
 				{deleteVehicle _x} forEach (attachedObjects _handled_object);
 			};
+			case (_handled_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]):
+			{
+				private _dummyObject = _handled_object getVariable ["Achilles_var_createDummyLogic_dummyObject", objNull];
+				deleteVehicle _dummyObject;
+			};
 			default {};
 		};
-		_logic_group = group _handled_object;
+		private _logic_group = group _handled_object;
 		_logic_group deleteGroupWhenEmpty true;
 	};
 	case (_handled_object isKindOf "Land_Carrier_01_base_F"):

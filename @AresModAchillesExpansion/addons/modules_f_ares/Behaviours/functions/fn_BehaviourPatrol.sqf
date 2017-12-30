@@ -2,50 +2,47 @@ private ["_logic", "_units", "_activated"];
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 private ["_groupUnderCursor"];
-["BehaviourPatrol: Getting group under cursor"] call Ares_fnc_LogMessage;
+["BehaviourPatrol: Getting group under cursor"] call Achilles_fnc_log;
 _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
-["BehaviourPatrol: Got group under cursor"] call Ares_fnc_LogMessage;
+["BehaviourPatrol: Got group under cursor"] call Achilles_fnc_log;
 
 if (isNull _logic) then
 {
-	["Null logic passed to patrol behaviour!"] call Ares_fnc_LogMessage;
+	["Null logic passed to patrol behaviour!"] call Achilles_fnc_log;
 };
-if ((position _logic) select 0 == 0 && (position _logic) select 1 == 0 && (position _logic) select 2 == 0) then
+if (position _logic isEqualTo [0, 0, 0]) then
 {
-	["Logic is at [0,0,0]!"] call Ares_fnc_LogMessage;
+	["Logic is at [0,0,0]!"] call Achilles_fnc_log;
 };
 if (isNull _groupUnderCursor) then
 {
-	["No unit under cursor!!"] call Ares_fnc_LogMessage;
+	["No unit under cursor!!"] call Achilles_fnc_log;
 };
 
-if (not isNull _groupUnderCursor) then
+if (!isNull _groupUnderCursor) then
 {
-	
-	_doesGroupContainAnyPlayer = false;
-	{
-		if (isPlayer _x) exitWith { _doesGroupContainAnyPlayer = true; };
-	} forEach (units _groupUnderCursor);
-	
-	if (not _doesGroupContainAnyPlayer) then
+
+	private _doesGroupContainAnyPlayer = !(((units _groupUnderCursor) select {isPlayer _x}) isEqualTo []);
+
+	if (!_doesGroupContainAnyPlayer) then
 	{
 		private ["_dialogResult"];
-		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Ares_fnc_LogMessage;
+		["BehaviourPatrol: Group under cursor was not null - showing prompt"] call Achilles_fnc_log;
 		_dialogResult =
-			[localize "STR_PATROL_LOITER",
+			[localize "STR_AMAE_PATROL_LOITER",
 					[
-						[(localize "STR_RADIUS") + " [m]", "", "100"],
-						[localize "STR_GROUP_BEHAVIOUR", [localize "STR_RELAXED", localize "STR_CAUTIOUS", localize "STR_COMBAT"]],
-						[localize "STR_DIRECTION", [localize "STR_CLOCKWISE", localize "STR_COUNTERCLOCKWISE"],1],
-						[localize "STR_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
+						[localize "STR_AMAE_RADIUS", "", "100"],
+						[localize "STR_AMAE_GROUP_BEHAVIOUR", [localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]],
+						[localize "STR_AMAE_DIRECTION", [localize "STR_AMAE_CLOCKWISE", localize "STR_AMAE_COUNTERCLOCKWISE"],1],
+						[localize "STR_AMAE_DELAY_AT_WP", [localize "STR_AMAE_NONE", ["15",localize "STR_AMAE_SECONDS"] joinString " ", ["30",localize "STR_AMAE_SECONDS"] joinString " ", ["1",localize "STR_AMAE_MINUTE"] joinString " "]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
-			
-		["BehaviourPatrol: Prompt complete!"] call Ares_fnc_LogMessage;
+
+		["BehaviourPatrol: Prompt complete!"] call Achilles_fnc_log;
 		if (count _dialogResult > 0) then
 		{
 			_radius = parseNumber (_dialogResult select 0);
-			
+
 			switch (_dialogResult select 1) do
 			{
 				// Case0 and default
@@ -71,27 +68,28 @@ if (not isNull _groupUnderCursor) then
 			private ["_moveClockwise", "_delay", "_numberOfWaypoints", "_degreesPerWaypoint", "_centerPoint", "_waypoint"];
 			_moveClockwise = (_dialogResult select 2) == 0;
 
-			_delay = [0, 0, 0];
-			switch (_dialogResult select 3) do
+			_delay = switch (_dialogResult select 3) do
 			{
-				default {}; // Already set default (0) values
 				case 1:
 				{
 					// 15s
-					_delay = [12, 15, 17];
+					[12, 15, 17]
 				};
 				case 2:
 				{
 					// 30s
-					_delay = [20, 30, 40];
+					[20, 30, 40]
 				};
 				case 3:
 				{
 					// 1m
-					_delay = [45, 60, 75];
+					[45, 60, 75]
 				};
+                default {
+                    [0, 0, 0]
+                };
 			};
-			
+
 			// Remove other waypoints.
 			while {(count (waypoints _groupUnderCursor)) > 0} do
 			{
@@ -104,7 +102,7 @@ if (not isNull _groupUnderCursor) then
 				_centerPoint = position _leader_vehicle;
 				_centerPoint set [2,0];
 				_wp_id = 0;
-				if (not isEngineOn _leader_vehicle) then
+				if (!isEngineOn _leader_vehicle) then
 				{
 					_waypoint = _groupUnderCursor addWaypoint [_centerPoint vectorAdd ((vectorDir _leader_vehicle) vectorMultiply 300), _wp_id];
 					_wp_id = 1;
@@ -112,7 +110,7 @@ if (not isNull _groupUnderCursor) then
 				_waypoint = _groupUnderCursor addWaypoint [_centerPoint, _wp_id];
 				_waypoint setWaypointType "LOITER";
 				_waypoint setWaypointLoiterRadius _radius;
-				if (not _moveClockwise) then
+				if (!_moveClockwise) then
 				{
 					_waypoint setWaypointLoiterType "CIRCLE_L";
 				};
@@ -134,28 +132,24 @@ if (not isNull _groupUnderCursor) then
 					_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, _currentDegrees] call BIS_fnc_relPos, 5];
 					_waypoint setWaypointTimeout _delay;
 				};
-				
+
 				// Add a waypoint at the location of the first WP. We started at 0 degrees.
 				// We don't delay the cycle WP since then we'd have double-time before moving.
 				_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, 0] call BIS_fnc_relPos, 5];
 				_waypoint setWaypointType "CYCLE";
-				
-				[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
+
+				[objnull, localize "STR_AMAE_CIRCULAR_PATROL_SETUP"] call bis_fnc_showCuratorFeedbackMessage;
 			};
-		}
-		else
-		{
-			// Cancelled
 		};
 	}
 	else
 	{
-		[objnull, "Cannot add patrol for player units."] call bis_fnc_showCuratorFeedbackMessage;
+		[objnull, localize "STR_AMAE_CANNOT_ADD_PATROL_PLAYERS"] call bis_fnc_showCuratorFeedbackMessage;
 	};
 }
 else
 {
-	[objnull, "No group under cursor."] call bis_fnc_showCuratorFeedbackMessage;
+	[objnull, localize "STR_AMAE_NO_GROUP_UNDER_CURSOR"] call bis_fnc_showCuratorFeedbackMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

@@ -15,15 +15,15 @@
 //	[_matrix] call Achilles_fnc_matrixTranspose;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_matrix = param [0,[],[[]]];
+private _matrix = param [0,[],[[]]];
 
-_m = count _matrix;
-_n = count (_matrix select 0);
+private _m = count _matrix;
+private _n = count (_matrix select 0);
 
 private _outputMatrix = [];
 
 for "_j" from 0 to (_n - 1) do {
-	_tmp_row = [];
+	private _tmp_row = [];
 	for "_i" from 0 to (_m - 1) do {
 		_tmp_row pushBack ((_matrix select _i) select _j);
 	};

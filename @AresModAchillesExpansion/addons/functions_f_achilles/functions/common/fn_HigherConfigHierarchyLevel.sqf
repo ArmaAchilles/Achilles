@@ -15,7 +15,6 @@
 //	_output_config = _input_config call Achilles_fnc_HigherConfigHierarchyLevel
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_input_config = _this;
-_hierarchy = configHierarchy _input_config;
-_output_config = _hierarchy select ((count _hierarchy) - 2);
-_output_config;
+private _input_config = _this;
+private _hierarchy = configHierarchy _input_config;
+_hierarchy select ((count _hierarchy) - 2)
