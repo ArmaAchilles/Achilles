@@ -41,6 +41,6 @@ class Achilles_Module_Spawn_Empty_Object : Achilles_Spawn_Module_Base
 class Achilles_Module_Spawn_Advanced_Composition : Achilles_Spawn_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_ADVANCED_COMPOSITION";
+	displayName = "$STR_AMAE_ADVANCED_COMPOSITION";
 	function = "Achilles_fnc_SpawnAdvancedCompositions";
 };

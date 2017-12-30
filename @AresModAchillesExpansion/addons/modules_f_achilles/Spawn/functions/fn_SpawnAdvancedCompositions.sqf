@@ -14,7 +14,7 @@
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
 {
-	[] call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Adcanced Compositions\Ares_var_advanced_compositions.sqf";
+	[] call compile preprocessFileLineNumbers "\achilles\data_f_achilles\Advanced Compositions\Ares_var_advanced_compositions.sqf";
 	Achilles_var_acs_init_done = true;
 };
 
@@ -27,7 +27,7 @@ waitUntil {!dialog};
 if ((uiNamespace getVariable ['Ares_Dialog_Result', -1]) == -1) exitWith {};
 
 _objects_info = [] call compile Ares_var_current_composition;
-if (count _objects_info == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+if (count _objects_info == 0) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 _center_object_info = _objects_info select 0;
 _objects_info = _objects_info - [_center_object_info];
 

@@ -209,8 +209,8 @@ switch (_mode) do
 				
 				createDialog "RscDisplayCommonMessage";
 				_dialog = findDisplay IDD_MESSAGE;
-				(_dialog displayCtrl IDC_TITLE) ctrlSetText (localize "STR_DELETE_COMPOSITION");
-				(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText (format [localize "STR_DO_YOU_WANT_TO_DELETE_X", _item_name]);
+				(_dialog displayCtrl IDC_TITLE) ctrlSetText (localize "STR_AMAE_DELETE_COMPOSITION");
+				(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText (format [localize "STR_AMAE_DO_YOU_WANT_TO_DELETE_X", _item_name]);
 				
 				(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","([""REMOVE"",controlNull,[]," + str _category_name + "," + str _item_name  + "]) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition; closeDialog 1;"];
 				(_dialog displayCtrl IDC_CANCLE_WARNING) ctrlAddEventHandler ["ButtonClick", "closeDialog 2;"];
