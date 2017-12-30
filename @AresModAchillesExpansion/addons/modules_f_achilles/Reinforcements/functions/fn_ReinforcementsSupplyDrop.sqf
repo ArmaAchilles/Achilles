@@ -13,8 +13,8 @@
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-#define SIDES 									[east, west, independent]
-#define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT"]
+#define SIDES 									[east, west, independent, civilian]
+#define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_AMAE_CIVILIANS"]
 #define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX	4
 
 #define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
@@ -118,25 +118,28 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	};
 	
 	// get ammo boxes
-	private _targetCategory = getText (configfile >> "CfgEditorCategories" >> "EdCat_Supplies" >> "displayName");
-	private _supplySubCategory = [];
+	private _supplySubCategories = [];
 	private _supplies = [];
 	private _tree_ctrl = _curator_interface displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
-	for "_supplyCategory_id" from 0 to ((_tree_ctrl tvCount []) - 1) do
+	for "_supplyCategory_tvid" from 0 to ((_tree_ctrl tvCount []) - 1) do
 	{
-		if (_targetCategory == _tree_ctrl tvText [_supplyCategory_id]) exitWith
+		_supplySubCategory_id = -1;
+		for "_supplySubCategory_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid]) - 1) do
 		{
-			for "_supplySubCategory_id" from 0 to ((_tree_ctrl tvCount [_supplyCategory_id]) - 1) do
+			_subCategoryIncluded = false;
+			for "_supply_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid,_supplySubCategory_tvid]) - 1) do
 			{
-				_supplySubCategory pushBack (_tree_ctrl tvText [_supplyCategory_id,_supplySubCategory_id]);
-				_supplies pushBack [];
-				for "_supply_id" from 0 to ((_tree_ctrl tvCount [_supplyCategory_id,_supplySubCategory_id]) - 1) do
+				private _supply = _tree_ctrl tvData [_supplyCategory_tvid,_supplySubCategory_tvid,_supply_tvid];
+				if (count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0) then
 				{
-					private _supply = _tree_ctrl tvData [_supplyCategory_id,_supplySubCategory_id,_supply_id];
-					if (count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0) then
+					if (not _subCategoryIncluded) then
 					{
-						(_supplies select _supplySubCategory_id) pushBack _supply;
+						_subCategoryIncluded = true;
+						_supplySubCategories pushBack (_tree_ctrl tvText [_supplyCategory_tvid,_supplySubCategory_tvid]);
+						_supplySubCategory_id = _supplySubCategory_id + 1;
+						_supplies pushBack [];
 					};
+					(_supplies select _supplySubCategory_id) pushBack _supply;
 				};
 			};
 		};
@@ -149,7 +152,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoFactions", _cargoFactions];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoCategories", _cargoCategories];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoVehicles", _cargoVehicles];
-	uiNamespace setVariable ["Achilles_var_supplyDrop_supplySubCategories", _supplySubCategory];
+	uiNamespace setVariable ["Achilles_var_supplyDrop_supplySubCategories", _supplySubCategories];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_supplies", _supplies];
 };
 
