@@ -102,6 +102,7 @@ class CfgFunctions
 			class effectFire;
 			class ArsenalSetup;
 			class ArsenalSetupACE;
+			class instantBuildingGarrison;
 		};
 	};
 
