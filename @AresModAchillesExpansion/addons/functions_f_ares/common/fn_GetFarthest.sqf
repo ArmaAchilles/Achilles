@@ -7,12 +7,12 @@
 
 	Returns:
 		The object from the array that is farthest to the point of reference.
-		Returns nil if the array of positions is empty.
+		Returns an empty array if the array of positions is empty.
 */
 
 params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]]]];
 
-private "_farthest";
+private _farthest = [];
 private _farthestDistance = 0;
 {
 	if (isNil "_farthest" || _pointOfReference distance _x > _farthestDistance) then

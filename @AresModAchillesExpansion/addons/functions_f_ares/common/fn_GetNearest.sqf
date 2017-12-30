@@ -7,12 +7,12 @@
 
 	Returns:
 		The position from the array that is nearest to the point of reference.
-		Returns nil if the array of positions is empty.
+		Returns an empty array if the array of positions is empty.
 */
 
 params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]]]];
 
-private "_nearest";
+private _nearest = [];
 private _nearestDistance = 0;
 {
 	if (isNil "_nearest" || _pointOfReference distance _x < _nearestDistance) then

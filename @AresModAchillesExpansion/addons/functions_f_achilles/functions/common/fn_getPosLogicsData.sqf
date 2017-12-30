@@ -30,9 +30,8 @@ if (!(_selectedLogics isEqualTo [])) then
 		[],
 		{ _x getVariable ["SortOrder", 0]}
 	] call BIS_fnc_sortBy;
-
-	private _names = _return select 0;
-	private _positions = _return select 1;
+	
+	_return params ["_names", "_positions"];
 	{
 		_names pushBack (name _x);
 		_positions pushBack (position _x);
