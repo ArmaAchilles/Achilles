@@ -2,7 +2,9 @@
 // AUTHOR: 			Kex
 // DATE: 			12/26/17
 // VERSION: 		AMAE.0.1.0
-// DESCRIPTION:		Similar to BIS_fnc_returnChildren, but more efficient and dept is always 0.
+// DESCRIPTION:		Teleports units to random positions in nearby buildings.
+//					Preferably orients them in such that they look out of windows.
+//					They won't be able to move away till forceSpeed is set to -1.
 //
 // ARGUMENTS:		0: ARRAY - 3D position from where the building search starts.
 //					1: ARRAY - Array of units which are used for the occupation.
@@ -118,7 +120,7 @@ for "_i_unit" from 0 to (count _units - 1) do
 
 if (_errorOccured) then
 {
-	[localize "STR_AMAE_DID_NOT_FOUNT_SUFFICIENT_FREE_POSITIONS"] call Achilles_fnc_showZeusErrorMessage;
+	[localize "STR_AMAE_DID_NOT_FIND_SUFFICIENT_FREE_POSITIONS"] call Achilles_fnc_showZeusErrorMessage;
 };
 
 

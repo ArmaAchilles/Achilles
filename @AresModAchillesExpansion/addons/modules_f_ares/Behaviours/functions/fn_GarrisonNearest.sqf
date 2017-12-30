@@ -25,8 +25,8 @@ else
 		localize "STR_AMAE_GARRISON_INSTANT",
 		[
 			["TEXT", [localize "STR_AMAE_RADIUS", "[m]"] joinString " ", [], "150"],
-			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 0],
-			["COMBOBOX", localize "STR_AMAE_FILL_EVENLY", [localize "STR_AMAE_FALSE", localize "STR_AMAE_TRUE"], 0]
+			["COMBOBOX", localize "STR_AMAE_INSIDE_ONLY", [localize "STR_AMAE_NO", localize "STR_AMAE_YES"], 0],
+			["COMBOBOX", localize "STR_AMAE_FILL_EVENLY", [localize "STR_AMAE_NO", localize "STR_AMAE_YES"], 0]
 		]
 	] call Achilles_fnc_showChooseDialog;
 	if (_dialogResult isEqualTo []) exitWith {};
@@ -40,7 +40,7 @@ else
 		[(getPos _logic), (units _groupUnderCursor), _radius, _insideOnly, _fillEvenly] call Achilles_fnc_instantBuildingGarrison;
 	} else
 	{
-		[(getPos _logic), (units _groupUnderCursor), _radius, _insideOnly, _fillEvenly] remoteExec ["Achilles_fnc_instantBuildingGarrison", leader _groupUnderCursor];
+		[(getPos _logic), (units _groupUnderCursor), _radius, _insideOnly, _fillEvenly] remoteExecCall ["Achilles_fnc_instantBuildingGarrison", leader _groupUnderCursor];
 	};
 	[localize "STR_AMAE_GARRISONED_NEAREST_BUILDINGS"] call Ares_fnc_showZeusMessage;
 };
