@@ -19,11 +19,11 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531)
 
 ## Achilles Expansion includes contributions by the following coders
-### Main Collaborators:
+### Main Contributors:
 - CreepPork
 - Kex
 
-### Other Contributers:
+### Other Contributors:
 - CoxLedere (Available factions and dynamic loadout bug fix)
 - Dedmen (For complaining at how terribly we write code and help us out to fix it)
 - Grezvany13 (Several contributions & support)
@@ -77,6 +77,13 @@ All of these icons are licensed under Creative Commons Attribution license.
     - https://thenounproject.com/icon/1235603/
 
 ## Translations
-- German (by Kex, KiritoKun223; revised by Shukari)
-- Russian (by Unhappytroll, Victor and Igor Nikolaev (former))
-- French (by Kex)
+- German
+    - oOKexOo
+    - KiritoKun223
+    - shukari
+- Russian
+    - Igor Nikolaev
+    - unhappytroll
+    - Victor9401
+- French
+    - oOKexOo
