@@ -12,6 +12,12 @@ git log --follow <file>
 git diff <previous branch> <current branch> -- <file>
 ```
 
+## Show all changes that have been staged for the next commit
+
+```bash
+git diff --cached
+```
+
 ## Track a file change
 
 ```bash
