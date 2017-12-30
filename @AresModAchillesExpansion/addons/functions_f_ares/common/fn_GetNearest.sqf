@@ -15,7 +15,7 @@ params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]
 private _nearest = [];
 private _nearestDistance = 0;
 {
-	if (isNil "_nearest" || _pointOfReference distance _x < _nearestDistance) then
+	if (_nearest isEqualTo [] || _pointOfReference distance _x < _nearestDistance) then
 	{
 		_nearest = _x;
 		_nearestDistance = _pointOfReference distance _nearest;

@@ -15,7 +15,7 @@ params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]
 private _farthest = [];
 private _farthestDistance = 0;
 {
-	if (isNil "_farthest" || _pointOfReference distance _x > _farthestDistance) then
+	if (_pointOfReference distance _x > _farthestDistance) then
 	{
 		_farthest = _x;
 		_farthestDistance = _pointOfReference distance _farthest;

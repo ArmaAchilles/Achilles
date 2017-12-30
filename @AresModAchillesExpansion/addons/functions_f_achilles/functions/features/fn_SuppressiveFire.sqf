@@ -20,7 +20,7 @@
 //	[_unit,_worldPos, _weaponToFire] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]]],["_weaponToFire", 0, [0]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
+params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]], 3],["_weaponToFire", 0, [0]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
 
 private _old_group = group _unit;
 private _units = units _old_group;
