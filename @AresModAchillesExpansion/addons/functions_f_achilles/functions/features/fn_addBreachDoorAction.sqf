@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AUTHOR: 			Kex
 // DATE: 			12/27/17
-// VERSION: 		AMAE.0.1.0
+// VERSION: 		AMAE.1.0.0
 // DESCRIPTION: 	THIS FUNCTION HAS TO BE EXECUTED ON THE PLAYER'S MACHINE!!!
 //				 	this function adds the breach door action to the player
 //

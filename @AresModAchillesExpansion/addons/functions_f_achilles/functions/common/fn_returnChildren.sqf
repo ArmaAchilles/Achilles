@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AUTHOR: 			Kex
 // DATE: 			12/26/17
-// VERSION: 		AMAE.0.1.0
+// VERSION: 		AMAE.1.0.0
 // DESCRIPTION:		Similar to BIS_fnc_returnChildren, but more efficient and depth is always 0.
 //
 // ARGUMENTS:		0: CONFIG - Parent config.

@@ -4056,8 +4056,8 @@
         </Container>
         <Container name="Main Menu">
             <Key ID="STR_AMAE_INTRO_TITLE">
-                <Original>Ares Mod - Achilles Expansion 0.1.0</Original>
-                <English>Ares Mod - Achilles Expansion 0.1.0</English>
+                <Original>Ares Mod - Achilles Expansion 1.0.0</Original>
+                <English>Ares Mod - Achilles Expansion 1.0.0</English>
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
