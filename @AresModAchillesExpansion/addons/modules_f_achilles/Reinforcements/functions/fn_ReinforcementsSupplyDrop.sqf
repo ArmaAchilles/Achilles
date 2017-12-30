@@ -17,8 +17,7 @@
 #define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_AMAE_CIVILIANS"]
 #define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX	4
 
-#define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
-#define CURATOR_GROUPS_IDCs 					[IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER]
+#define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV]
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
@@ -121,28 +120,39 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	private _supplySubCategories = [];
 	private _supplies = [];
 	private _tree_ctrl = _curator_interface displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
+	private _supplySubCategory_id = 0;
+	private _n_supplySubCategories = 0;
 	for "_supplyCategory_tvid" from 0 to ((_tree_ctrl tvCount []) - 1) do
 	{
-		_supplySubCategory_id = -1;
 		for "_supplySubCategory_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid]) - 1) do
 		{
-			_subCategoryIncluded = false;
+			private _subCategoryIncluded = false;
 			for "_supply_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid,_supplySubCategory_tvid]) - 1) do
 			{
 				private _supply = _tree_ctrl tvData [_supplyCategory_tvid,_supplySubCategory_tvid,_supply_tvid];
-				if (count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0) then
+				if (not (_supply isKindOf "AllVehicles") and {count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0}) then
 				{
 					if (not _subCategoryIncluded) then
 					{
 						_subCategoryIncluded = true;
-						_supplySubCategories pushBack (_tree_ctrl tvText [_supplyCategory_tvid,_supplySubCategory_tvid]);
-						_supplySubCategory_id = _supplySubCategory_id + 1;
-						_supplies pushBack [];
+						private _supplySubCategory = _tree_ctrl tvText [_supplyCategory_tvid,_supplySubCategory_tvid];
+						_supplySubCategory_id = _supplySubCategories find _supplySubCategory;
+						if (_supplySubCategory_id == -1) then 
+						{
+							_supplySubCategories pushBack _supplySubCategory;
+							_supplySubCategory_id = _n_supplySubCategories;
+							_n_supplySubCategories = _n_supplySubCategories + 1;
+							_supplies pushBack [];
+						};
 					};
 					(_supplies select _supplySubCategory_id) pushBack _supply;
 				};
 			};
 		};
+	};
+	for "_supplySubCategory_id" from 0 to (_n_supplySubCategories - 1) do
+	{
+		_supplies set [_supplySubCategory_id, [_supplies select _supplySubCategory_id, [], {getText (configFile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy]; 
 	};
 	
 	// cache
