@@ -194,9 +194,10 @@ _dialogResult params
 
 // Choose the LZ based on what the user indicated
 
-private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_selectPosition;
+private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_positionSelector;
 
 private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _side_id select _faction_id select _category_id select _vehicle_id;
+if (_aircraftClassname isEqualTo "") exitWith {[localize "STR_AMAE_AIRCRAFT_SPAWN_ERROR"] call Achilles_fnc_showZeusErrorMessage};
 
 _aircraftSide = _side_id call BIS_fnc_sideType;
 

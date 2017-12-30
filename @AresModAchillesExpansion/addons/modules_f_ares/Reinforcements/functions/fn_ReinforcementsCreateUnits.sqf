@@ -180,7 +180,7 @@ private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_selectPosition;
+private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_positionSelector;
 
 // create the transport vehicle
 private _vehicleInfo = [_spawn_position, _spawn_position getDir _lzPos, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
@@ -263,7 +263,7 @@ switch (_grp_beh) do
 };
 
 // Choose a RP for the squad to head to once unloaded and set their waypoint.
-private _rpPos = [_lzPos, _allRpPositions, _rp_algorithm] call Achilles_fnc_selectPosition;
+private _rpPos = [_lzPos, _allRpPositions, _rp_algorithm] call Achilles_fnc_positionSelector;
 _infantry_group addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.

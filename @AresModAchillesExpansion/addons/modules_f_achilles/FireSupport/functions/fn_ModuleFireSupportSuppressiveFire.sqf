@@ -105,7 +105,7 @@ _doLineUp = _doLineUp == 0;
 _duration = parseNumber _duration;
 
 // Choose a target to fire at
-private _selectedTargetPos = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_selectPosition;
+private _selectedTargetPos = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_positionSelector;
 
 if (local _unit) then
 {

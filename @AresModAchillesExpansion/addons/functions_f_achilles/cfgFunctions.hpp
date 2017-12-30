@@ -45,7 +45,7 @@ class CfgFunctions
 			class createDummyLogic;
 			class isACELoaded;
 			class returnChildren;
-			class selectPosition;
+			class positionSelector;
 		};
 
 		class selectUnit
