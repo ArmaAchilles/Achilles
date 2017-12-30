@@ -14,7 +14,7 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
 #define SIDES 									[east, west, independent]
-#define SIDE_NAMES								[localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_INDEPENDENT"]
+#define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT"]
 #define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX	4
 
 #define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER]
@@ -22,23 +22,12 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-<<<<<<< HEAD
 disableSerialization;
 
 private _spawn_position = position _logic;
 
 // options for selecting positions
 private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
-=======
-// get LZs
-private _allLzsUnsorted = allMissionObjects "Ares_Module_Reinforcements_Create_Lz";
-if (_allLzsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
-private _allLzs = [_allLzsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
-private _lzOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST", localize "STR_AMAE_LEAST_USED"];
-_lzOptions append (_allLzs apply {name _x});
-
-private _pos = getPos _logic;
->>>>>>> 0f1c5a95cfb36232551e36f49ef90dfb7ab493c0
 
 // get LZs
 private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getPosLogicsData;
@@ -204,42 +193,8 @@ _dialogResult params
 ];
 
 // Choose the LZ based on what the user indicated
-<<<<<<< HEAD
-
 
 private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_selectPosition;
-=======
-private _LZ = switch (_lzdz_algorithm) do
-{
-	case 0: // Random
-	{
-		_allLzs call BIS_fnc_selectRandom;
-	};
-	case 1: // Nearest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetNearest;
-	};
-	case 2: // Furthest
-	{
-		[_spawn_position, _allLzs] call Ares_fnc_GetFarthest;
-	};
-	case 3: // Least used
-	{
-		private _temp = _allLzs call BIS_fnc_selectRandom; // Choose randomly to start.
-		{
-			if (_x getVariable ["Ares_Lz_Count", 0] < _temp getVariable ["Ares_Lz_Count", 0]) then
-			{
-				_temp = _x;
-			};
-		} forEach _allLzs;
-        _temp;
-	};
-	default // Specific LZ.
-	{
-		_allLzs select (_lzdz_algorithm - FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX);
-	};
-};
->>>>>>> 0f1c5a95cfb36232551e36f49ef90dfb7ab493c0
 
 private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _side_id select _faction_id select _category_id select _vehicle_id;
 

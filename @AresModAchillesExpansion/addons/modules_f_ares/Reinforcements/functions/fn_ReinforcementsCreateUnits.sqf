@@ -1,8 +1,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 #define SIDES 									[east, west, independent]
-#define SIDE_NAMES								[localize "STR_AMAE_BLUFOR", localize "STR_AMAE_OPFOR", localize "STR_AMAE_INDEPENDENT"]
-#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX 	4
+#define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT"]
 
 disableSerialization;
 
