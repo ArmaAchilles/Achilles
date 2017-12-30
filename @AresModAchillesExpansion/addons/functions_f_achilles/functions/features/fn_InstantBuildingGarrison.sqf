@@ -47,7 +47,8 @@ private _fnc_isInsideBuilding =
 };
 
 // get all near buildings and their positions inside
-private _buildings = if (_searchRadius < 0) then {[nearestBuilding _center]} else {_center nearEntities ["building", _searchRadius]};
+private _nearestBuildings = nearestObjects [_center, ["building"], _searchRadius, true];
+private _buildings = if (_searchRadius < 0) then {[_nearestBuildings select 0]} else {_nearestBuildings};
 private _pos_nestedList = [];
 {
 	private _building = _x;
