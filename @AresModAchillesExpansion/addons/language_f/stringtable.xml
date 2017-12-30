@@ -3793,6 +3793,13 @@
                 <Russian>СПУСК ПО ТРОСУ(ACE/AR)</Russian>
                 <German>FAST-ROPING (ACE/AR)</German>
             </Key>
+            <Key ID="STR_AMAE_FASTROPING_WP_NAME">
+                <Original>FAST-ROPING</Original>
+                <English>FAST-ROPING</English>
+                <French>FAST-ROPING</French>
+                <Russian>СПУСК ПО ТРОСУ</Russian>
+                <German>FAST-ROPING</German>
+            </Key>
             <Key ID="STR_AMAE_PARADROP">
                 <Original>PARADROP</Original>
                 <English>PARADROP</English>
