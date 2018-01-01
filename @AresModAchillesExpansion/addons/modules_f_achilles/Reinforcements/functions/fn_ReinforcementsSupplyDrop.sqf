@@ -15,7 +15,6 @@
 
 #define SIDES 									[east, west, independent, civilian]
 #define SIDE_NAMES								[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT", localize "STR_AMAE_CIVILIANS"]
-#define FIRST_SPECIFIC_LZ_OR_RP_OPTION_INDEX	4
 
 #define CURATOR_UNITS_IDCs 						[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV]
 
@@ -198,7 +197,7 @@ _dialogResult params
 	"_aircraftBehaviour",
 	"_lzdz_algorithm",
 	"_cargoType",
-	"_cargoBoxInventory",
+	"_cargoInventory",
 	"_cargoSide_id",
 	"_cargoFaction_id",
 	"_cargoCategory_id",
@@ -225,29 +224,21 @@ private _aircraftDriver = driver _aircraft;
 _aircraftDriver setSkill 1;
 _aircraftGroup allowFleeing 0;
 
+private _cargo = objNull;
 // If the selected cargo is the ammo box.
 if (_cargoType == 0) then
 {
-	private _cargoBoxClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
+	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
 
-	private _cargoBox = _cargoBoxClassname createVehicle _spawn_position;
+	_cargo = _cargoClassname createVehicle _spawn_position;
 
-	[[_cargoBox]] call Ares_fnc_AddUnitsToCurator;
+	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
 
-	private _hasAttached = _aircraft setSlingLoad _cargoBox;
-	if (!_hasAttached) exitWith 
-	{
-		[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
-		{deleteVehicle _x} forEach _aircraftCrew;
-		deleteVehicle _aircraft;
-		deleteVehicle _cargoBox;
-	};
-
-	switch (_cargoBoxInventory) do
+	switch (_cargoInventory) do
 	{
 		case 1:
 		{
-			missionNamespace setVariable ["BIS_fnc_initCuratorAttributes_target", _cargoBox];
+			missionNamespace setVariable ["BIS_fnc_initCuratorAttributes_target", _cargo];
 			createDialog "RscDisplayAttributesInventory";
 			waitUntil {isNull ((uiNamespace getVariable "RscDisplayAttributesInventory") displayCtrl IDC_RSCATTRIBUTEINVENTORY_RSCATTRIBUTEINVENTORY)};
 		};
@@ -255,19 +246,19 @@ if (_cargoType == 0) then
 		{
 			if (["arsenal"] call Achilles_fnc_isACELoaded) then
 			{
-				[_cargoBox, true] call ace_arsenal_fnc_initBox;
+				[_cargo, true] call ace_arsenal_fnc_initBox;
 			}
 			else
 			{
-				["AmmoboxInit", [_cargoBox, true]] spawn BIS_fnc_Arsenal;
+				["AmmoboxInit", [_cargo, true]] spawn BIS_fnc_Arsenal;
 			};
 		};
 		case 3:
 		{
-			clearItemCargoGlobal _cargoBox;
-			clearWeaponCargoGlobal _cargoBox;
-			clearBackpackCargoGlobal _cargoBox;
-			clearMagazineCargoGlobal _cargoBox;
+			clearItemCargoGlobal _cargo;
+			clearWeaponCargoGlobal _cargo;
+			clearBackpackCargoGlobal _cargo;
+			clearMagazineCargoGlobal _cargo;
 		};
 	};
 }
@@ -276,31 +267,28 @@ else
 {
 	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
 	
-	private _cargo = _cargoClassname createVehicle _spawn_position;
+	_cargo = _cargoClassname createVehicle _spawn_position;
 
 	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
+};
 
-	if (vehicleCargoEnabled _aircraft) then
+// attach the cargo to the transport vehicle
+switch (true) do
+{
+	case ((_aircraft canVehicleCargo _cargo) select 0):
 	{
-		private _hasLoaded = _aircraft setVehicleCargo _cargo;
-		if (!_hasLoaded) exitWith
-		{
-			[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
-			{deleteVehicle _x} forEach _aircraftCrew;
-			deleteVehicle _aircraft;
-			deleteVehicle _cargo;
-		};
-	}
-	else
+		_aircraft setVehicleCargo _cargo;
+	};
+	case (_aircraft canSlingLoad _cargo):
 	{
-		private _hasAttached = _aircraft setSlingLoad _cargo;
-		if (!_hasAttached) exitWith
-		{
-			[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
-			{deleteVehicle _x} forEach _aircraftCrew;
-			deleteVehicle _aircraft;
-			deleteVehicle _cargo;
-		};
+		_aircraft setSlingLoad _cargo
+	};
+	default
+	{
+		[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+		{deleteVehicle _x} forEach _aircraftCrew;
+		deleteVehicle _aircraft;
+		deleteVehicle _cargo;
 	};
 };
 
