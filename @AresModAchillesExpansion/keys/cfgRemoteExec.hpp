@@ -29,6 +29,7 @@ class cfgRemoteExec
 		class ares_fnc_addintel;
 		class bis_fnc_shownotification;
 		class achilles_fnc_createied;
+		class bis_fnc_setpitchbank;
 		class achilles_fnc_setsrfrequencies;
 		class achilles_fnc_setlrfrequencies;
 		class bis_fnc_shakecuratorcamera;
@@ -37,7 +38,7 @@ class cfgRemoteExec
 		class bis_fnc_carrier01init;
 		class ares_fnc_arsenalsetup;
 		class ares_fnc_searchbuilding;
-		class ares_fnc_zenoccupyhouse;
+		class achilles_fnc_instantbuildinggarrison;
 		class achilles_fnc_eject_passengers;
 		class bis_fnc_carrier01posupdate;
 		class achilles_fnc_setunitammodef;
@@ -85,7 +86,6 @@ class cfgRemoteExec
 		class setfriend;
 		class allowdamage;
 		class hideobjectglobal;
-		class setvectorup;
 		class hint;
 		class enablegunlights;
 		class enableirlasers;
