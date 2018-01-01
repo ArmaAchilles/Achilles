@@ -1760,6 +1760,10 @@
                 <Russian>Сообщение</Russian>
                 <German>Mitteilung</German>
             </Key>
+            <Key ID="STR_AMAE_HINTTYPE">
+                <Original>Hint Type</Original>
+                <English>Hint Type</English>
+            </Key>
             <Key ID="STR_AMAE_AI">
                 <Original>AI</Original>
                 <English>AI</English>
