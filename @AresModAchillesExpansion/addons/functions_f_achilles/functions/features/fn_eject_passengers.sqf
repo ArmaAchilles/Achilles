@@ -59,4 +59,8 @@ params ["_vehicles"];
 		};
 	} forEach _passenger;
 	if ((getPos _vehicle select 2) > 40) then {[_vehicle] remoteExec ["rhs_fnc_vehPara",_vehicle]};
+	if (not (getVehicleCargo _vehicle isEqualTo [])) then
+	{
+		_vehicle setVehicleCargo objNull;
+	};
 } forEach (_vehicles select {_x isKindOf "LandVehicle" or _x isKindOf "Air"});
