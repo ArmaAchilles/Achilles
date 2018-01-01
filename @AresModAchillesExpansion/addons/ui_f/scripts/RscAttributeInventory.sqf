@@ -589,6 +589,8 @@ switch _mode do {
 		} forEach RscAttributeInventory_cargoVirtual;
 
 		private _curatorSelected = ["cargo"] call Achilles_fnc_getCuratorSelected;
+		// Add the target object to the list of selected objects if it is not yet there.
+		_curatorSelected pushBackUnique (missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull]);
 		{
 			private _box = _x;
 
