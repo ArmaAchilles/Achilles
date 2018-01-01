@@ -12,81 +12,133 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ## Change log
 
 ### v1.0.0
-* Change: Loadouts attribute button now has the option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
-* Change: Bootcamp module was added back.
-* Change: Advanced CAS module now attaches to an object.
-* Change: Custom Modules have been reduced to 50 (0 to 49).
+#### Modules
+##### New
+* Supply Drop. #158
+* Hide objects. #179
+* Object rotation. #151
+* Set TFAR frequency. #156
+* Arsenal removal. #200
+* Side relation change. #130 and #149
+##### Revised
+* Advanced CAS:
+	- Feature: Attaches to objects.
+* Artillery fire:
+	- Change: Replaced combo box by text box.
+* Suppressive fire:
+	- Feature: Option to select what weapon AI should fire
+	- Fix: AI now should aim first and fire after. #188
+* Mines/Explosives:
+	- Feature: Created mines should now randomly orient themselves.
+* Spawn units (reinforcement):
+	- Feature: The faction of the group can be different from the transport vehicle. #145
+	- Fix: should be more stable overall and makes use of caches. #145 and #66
+* Create LZ:
+	- Fix: Wrong localization string.
+* Arsenal modules:
+	- Feature: Added partial ACE 3 Arsenal compatibility. #200
+	- Fix: Fully reworked, fixing some long lasting issues and performance improvements. #200
+	- Fix: Side Arsenal modules didn't work previously. #167
+	- Fix: Create Custom Arsenal not adding wanted items. #200 and #196
+* Garrison (instant):
+	- Feature: Radius and "inside only" options.
+	- Fix: Units could not be rotated individually by Zeus.
+* Change ability:
+	- Feature: Added Mine Detection ability. #199
+* Switch Unit:
+	- Fix: Curator should now be able to breach breachable doors. #178 and #211
+	- Fix: Notifications were overlapping when he picked up an intel. Curator receives and logs the message when he returns back to the interface.
+	- Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. #177
+	- Fix: As the issue above cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
+	- Fix: Now retains voices and faces. #157
+	- Fix: Goggles should no longer disappear. #209
+* Remote control:
+	- Fix: Curator should now be able to breach breachable doors. #178 and #211
+* Promote to Zeus:
+	- Fix: Wrong localization string.
+* Turret optics:
+	- Fix: Missing localization string
+* Spawn effects:
+	- Feature: Spawn fire. #137
+* Set date:
+	- Fix: Module was broken. #152
+	- Fix: Spam the .rpt log.
+* Create Mission SQF:
+	- Fix: Didn't retain simulation settings. #169
+* Toggle lamps:
+	- Fix: Now works in a dedicated server environment. #152 and #155
+* Hide Zeus:
+	- Feature: Zeus eagle is hidden as well and "Player has ascended as Zeus" notifications does appear.
+* Execute code:
+	- Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
+	- Fix: Execute Code module's JIP mode now works. #152 and #155
+* Add/remove editable objects:
+	- Fix: Count now should be correct. #170
+* Create teleporter:
+	- Fix: Spawned the pole even if the Cancel button was pressed. #203
+* Custom modules:
+	- Change: Custom Modules have been reduced to 50 (0 to 49).
+* Bootcamp:
+	- Change: Was added back.
+* Vanilla objective modules:
+	- Side restrictions have been removed. #60 and #215
+#### Attribute windows
+##### New
+* Toggle the engine of Vehicles.
+* Data Link and Radar Emission control for AI vehicles. #77
+##### Revised
+* Loadouts attribute button:
+	- Feature: Option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
+* Ammo slider:
+	- Fix: Now assigns weapons to the last selected weapon owner. #116 and #128
+	- Fix: Caused issues for Dynamic Loadout vehicles, that resulting in losing access to the weapon. #212
+* Headlight/Searchlight:
+	- Fix: Produced a suspension error. #202
+* Group names:
+	* Fix: Now broadcasted to all players. #153
+#### Key-bindings/mouse
+##### Revised
+* Deep copy and paste:
+	- Change: Retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
+	- Change: Assigns dynamic loadout weapons if possible to the gunner.
+	- Change: Retains fuel for vehicles.
+* Eject / Paradrop:
+	- Feature: Drops vehicles/crates from vehicles (Apex vehicle in vehicle feature).
+* Countermeasure:
+	- Feature:  Works with multiple selected units. #161
+	- Fix: Did not work with >1.70 version planes and helicopters.
+	- Fix: RHS smoke grenades were not supported (thanks to RHS team).
+* Mouse:
+	- Feature: When a vehicle/crate is dragged on top another vehicle, it gets loaded if possible.
+	- Feature: When a vehicle/crate that is loaded or sling loaded is dragged on top the transport vehicle, it gets detached.
+#### Waypoints
+##### Revised
+* Fastroping:
+	- Fix: Resolved missing key string if ACE was not preset. #224
+* Paradrop:
+	- Feature: Drops vehicles/crates from vehicles (Apex vehicle in vehicle feature).
+#### Other
 * Change: Added different types of new module icons. #165
 * Change: Execute code panel will always appear in singleplayer.
-* Change: Deep Copy and Paste retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
-* Change: Deep Copy and Paste assigns dynamic loadout weapons if possible to the gunner.
-* Change: Deep Copy and Paste retains fuel for vehicles.
 * Change: On Zeus launch, intro hint will only be shown once.
-* Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
-* Change: Arsenal modules have been fully reworked, fixing some long lasting issues and performance improvements. #200
-* Change: Using the Fire Mission module, now Curator can specify the number of rounds fired.
-* Change: Spawn Units module: the faction of the group can be different. #145
-* Change: Options for the instant garrison module #37.
 * Change: Russian translation overhaul (by @unhappytroll and @Victor9041). #192
-* Change: Side restrictions for vanilla modules have been removed. #60 and #215
-* Feature: Object rotation module. #151
-* Feature: Data Link and Radar Emission control for AI vehicles. #77
-* Feature: TFAR Set frequency module. #156
-* Feature: Side relation change module. #130 and #149
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
 * Feature: Debug logging is now available as an option in CBA addon settings.
 * Feature: Debug logging function Achilles_fnc_log (only logs when activated in CBA).
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
-* Feature: Supply Drop module. #158
-* Feature: Hide Objects module. #179
 * Feature: Debug Mode is available in Addon Options. It also allows adding all objects in the mission (including logics!).
-* Feature: Launch Countermeasures works with tanks, cars, boats, helicopters. #161
-* Feature: Option to toggle the Engine in Vehicle's attribute options.
-* Feature: Added module to spawn fire under the Spawn Effects tab. #137
-* Feature: Zeus eagle and "Player has ascended as Zeus" notifications have been removed when using the Hide Zeus module.
-* Feature: Arsenal Removal module. #200
-* Feature: Added Mine Detection ability to the Change Ability module. #199
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
-* Feature: Option to select what weapon AI should fire when using the Suppressive Fire module.
-* Feature: Added partial ACE 3 Arsenal compatability with the Arsenal modules. #200
-* Feature: Created mines should now randomly orient themselves.
-* Fix: Wrong localization string for Create LZ module.
-* Fix: Group names are now broadcasted to all players. #153
-* Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
+* Fix: Switching tabs while searching in a "create tree" (Zeus interface) led to loss of a side in certain cases.
 * Fix: When parachuting units, the function now works as intended. #127
 * Fix: Server-side .rpt spam was fixed. #107
-* Fix: Side Arsenal modules didn't work previously. #167
-* Fix: Create Mission SQF didn't retain simulation settings. #169
-* Fix: Missing localization string for Turret Optics module.
-* Fix: Notifications were overlapping when a remote-controlled unit (using the switch unit module) picked up intel. Curator receives and logs the message when he returns back to the interface.
-* Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. As this issue cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
-* Fix: Wrong localization string for Promote To Zeus module.
-* Fix: Countermeasures and smokes for units and vehicles using the (default) C key, will now work with multiple units selected. #161
-* Fix: Countermeasures now work with >1.70 version planes and helicopters. #161
-* Fix: Set Date module was broken. #152
-* Fix: Execute Code module's JIP mode now works. #152 and #155
-* Fix: Toggle Lamps module now works in a dedicated server environment. #152 and #155
-* Fix: Set Date module would spam the .rpt log.
-* Fix: Switch Unit module now retains voices and faces. #157
 * Fix: Debug console now works if debug console is enabled for specific players by UID. #187
 * Fix: German entry for string table is fixed (by @shukari).
-* Fix: Modifying the status of the headlights using the attribute panel would produce a suspension error. #202
-* Fix: Create Teleporter module now takes into account if the Curator pressed the Cancel button and now doesn't spawn the pole. #203
 * Fix: Removed duplicate string table keys.
 * Fix: Copy to Clipboard module now works if the text is larger than the format engine command limit.
 * Fix: Achilles creating dependencies. #200 and #120
-* Fix: Create Custom Arsenal not adding wanted items. #200 and #196
-* Fix: When using the Suppressive Fire module, AI now should aim first and fire after. #188
-* Fix: Added or Removed object count now should be correct. #170
 * Fix: Spelling mistakes in the Field Manual and hints (by @MaliceGFS and @ItsNoirLime). #222 and #217
 * Fix: Achilles and Ares base modules were added to Zeus for modification. #225 and #219
-* Fix: Spawn Units module should be more stable overall and makes use if caches. #145 and #66
-* Fix: When using the Switch Unit module, goggles should no longer disappear. #209
-* Fix: Suspension errors would spam the .rpt log from the Set Date module.
-* Fix: Curator should now be able to breach breachable doors when using the Remote Control or Switch Unit modules. #178 and #211
-* Fix: Resolved missing key string if ACE was not preset for Fastroping waypoint. #224
-* Fix: Ammo slider caused issues for Dynamic Loadout vehicles, that resulting in losing access to the weapon. #212
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
 ### v0.0.9c
