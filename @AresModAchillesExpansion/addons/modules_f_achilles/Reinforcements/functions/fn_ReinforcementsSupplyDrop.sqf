@@ -72,7 +72,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 				for "_vehicle_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid,_category_tvid]) - 1) do
 				{
 					private _vehicle = _tree_ctrl tvData [_faction_tvid,_category_tvid,_vehicle_tvid];
-					if (getNumber (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}) then
+					if (not (_vehicle isKindOf "UAV_06_base_F") and {getNumber (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}}) then
 					{
 						if (not _factionIncludedInTransport) then
 						{
@@ -129,7 +129,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 			for "_supply_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid,_supplySubCategory_tvid]) - 1) do
 			{
 				private _supply = _tree_ctrl tvData [_supplyCategory_tvid,_supplySubCategory_tvid,_supply_tvid];
-				if (not (_supply isKindOf "AllVehicles") and {count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0}) then
+				if (not (_supply isKindOf "AllVehicles" or {_supply isKindOf "Cargo10_base_F"}) and {count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0}) then
 				{
 					if (not _subCategoryIncluded) then
 					{
@@ -177,7 +177,7 @@ private _dialogResult =
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
 		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
 		["COMBOBOX", localize "STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMAE_AMMUNITION_CRATE", localize "STR_AMAE_VEHICLE"], 0, false, [["LBSelChanged","CARGO_TYPE"]]],
-		["COMBOBOX", localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_VIRTUAL_ARSENAL", localize "STR_AMAE_EMPTY"]],
+		["COMBOBOX", localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_ADD_FULL", localize "STR_AMAE_EMPTY"]],
 		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","CARGO_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_CATEGORY", [], 0, false, [["LBSelChanged","CARGO_CATEGORY"]]],
