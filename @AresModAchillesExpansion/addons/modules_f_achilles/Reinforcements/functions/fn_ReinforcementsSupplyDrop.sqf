@@ -224,16 +224,40 @@ private _aircraftDriver = driver _aircraft;
 _aircraftDriver setSkill 1;
 _aircraftGroup allowFleeing 0;
 
-private _cargo = objNull;
+// spawn the cargo
+private _cargoClassname = if (_cargoType == 0) then
+{
+	(uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
+} else
+{
+	(uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
+};
+private _cargo = _cargoClassname createVehicle _spawn_position;
+[[_cargo]] call Ares_fnc_AddUnitsToCurator;
+
+// attach the cargo to the transport vehicle
+switch (true) do
+{
+	case ((_aircraft canVehicleCargo _cargo) select 0):
+	{
+		_aircraft setVehicleCargo _cargo;
+	};
+	case (_aircraft canSlingLoad _cargo):
+	{
+		_aircraft setSlingLoad _cargo
+	};
+	default
+	{
+		[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
+		{deleteVehicle _x} forEach _aircraftCrew;
+		deleteVehicle _aircraft;
+		deleteVehicle _cargo;
+	};
+};
+
 // If the selected cargo is the ammo box.
 if (_cargoType == 0) then
 {
-	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
-
-	_cargo = _cargoClassname createVehicle _spawn_position;
-
-	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
-
 	switch (_cargoInventory) do
 	{
 		case 1:
@@ -260,35 +284,6 @@ if (_cargoType == 0) then
 			clearBackpackCargoGlobal _cargo;
 			clearMagazineCargoGlobal _cargo;
 		};
-	};
-}
-// If select cargo type is a Vehicle.
-else
-{
-	private _cargoClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
-	
-	_cargo = _cargoClassname createVehicle _spawn_position;
-
-	[[_cargo]] call Ares_fnc_AddUnitsToCurator;
-};
-
-// attach the cargo to the transport vehicle
-switch (true) do
-{
-	case ((_aircraft canVehicleCargo _cargo) select 0):
-	{
-		_aircraft setVehicleCargo _cargo;
-	};
-	case (_aircraft canSlingLoad _cargo):
-	{
-		_aircraft setSlingLoad _cargo
-	};
-	default
-	{
-		[localize "STR_AMAE_FAILED_TO_ATTACH_CARGO"] call Achilles_fnc_showZeusErrorMessage;
-		{deleteVehicle _x} forEach _aircraftCrew;
-		deleteVehicle _aircraft;
-		deleteVehicle _cargo;
 	};
 };
 
