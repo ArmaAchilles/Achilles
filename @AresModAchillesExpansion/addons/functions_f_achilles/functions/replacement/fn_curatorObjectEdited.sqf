@@ -43,16 +43,35 @@ if (_object getVariable ["Achilles_var_createDummyLogic_isAttached", false]) exi
 //--- Slingload when possible
 _curatormouseover = curatormouseover;
 if ((_curatormouseover select 0) == "object") exitwith {
-	_target = _curatormouseover select 1;
-	if (_target canSlingload _object) then {
-		[getslingload _target,0] call bis_fnc_setheight;
-		detach _object;
-		_object setpos (_target modeltoworld [0,0,-15]);
-		_lol = _target setSlingload _object;
-	} else {
-		if (!isnull ropeattachedto _object) then {
-			(ropeattachedto _object) setSlingload objnull;
-			_object setposatl [position _target select 0,position _target select 1,0];
+	private _target = _curatormouseover select 1;
+	
+	switch (true) do
+	{
+		case (_target == isVehicleCargo _object):
+		{
+			objNull setVehicleCargo _object;
+		};
+		case (_target == ropeAttachedto _object):
+		{
+			_target setSlingload objnull;
+			_object setPosATL [position _target select 0, position _target select 1, 0];
+		};
+		case ((_target canVehicleCargo _object) select 0):
+		{
+			detach _object;
+			_target setVehicleCargo _object;
+		};
+		case (_target canSlingLoad _object):
+		{
+			private _old_transporter = ropeAttachedto _object;
+			if (not isNull _old_transporter) then
+			{
+				_old_transporter setSlingLoad objNull;
+			};
+			[getslingload _target,0] call bis_fnc_setheight;
+			detach _object;
+			_object setpos (_target modeltoworld [0,0,-15]);
+			_target setSlingLoad _object;
 		};
 	};
 };
