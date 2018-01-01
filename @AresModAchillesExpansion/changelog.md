@@ -1,104 +1,166 @@
-﻿Known issues				<br>
-─────────────────────────────────── 	<br>
-* Switch Unit for non-local units: Notable delay observed before control works.
-* CUP planes are not working properly for vanilla CAS module.
-* Reinforcement module may mix up groups of 3rd pary add-ons.
+﻿# Change log of Ares Mod - Achilles Expansion
 
-Versioning (introduced with 0.0.8)	<br>
-───────────────────────────────────	<br>
-X.X.Xc					<br>
-│ │ │└ hotfixes (optional)		<br>
-│ │ └─ "small" update			<br>
-│ └─── "major" update			<br>
-└───── stage (alpha, beta, ...)		<br>
+## Versioning (introduced with 1.0.0)
+X.X.X  
+│ │ │  
+│ │ └─ patch  
+│ └─── minor  
+└───── major  
 
-Change log				<br>
-───────────────────────────────────	<br>
-V.0.1.0 (Not Released - In Progress)
-* Change: Loadouts attribute button now has the option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
-* Change: Bootcamp module was added back.
-* Change: Advanced CAS module now attaches to an object.
-* Change: Custom Modules have been reduced to 50 (0 to 49).
+Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
+
+## Change log
+
+### v1.0.0
+#### Modules
+##### New
+* Supply Drop. #158
+* Hide objects. #179
+* Object rotation. #151
+* Set TFAR frequency. #156
+* Arsenal removal. #200
+* Side relation change. #130 and #149
+##### Revised
+* Advanced CAS:
+	- Feature: Attaches to objects.
+* Artillery fire:
+	- Change: Replaced combo box by text box.
+* Suppressive fire:
+	- Feature: Option to select what weapon AI should fire
+	- Fix: AI now should aim first and fire after. #188
+* Mines/Explosives:
+	- Feature: Created mines should now randomly orient themselves.
+* Spawn units (reinforcement):
+	- Feature: The faction of the group can be different from the transport vehicle. #145
+	- Fix: should be more stable overall and makes use of caches. #145 and #66
+* Create LZ:
+	- Fix: Wrong localization string.
+* Arsenal modules:
+	- Feature: Added partial ACE 3 Arsenal compatibility. #200
+	- Fix: Fully reworked, fixing some long lasting issues and performance improvements. #200
+	- Fix: Side Arsenal modules didn't work previously. #167
+	- Fix: Create Custom Arsenal not adding wanted items. #200 and #196
+* Garrison (instant):
+	- Feature: Radius and "inside only" options.
+	- Fix: Units could not be rotated individually by Zeus.
+* Change ability:
+	- Feature: Added Mine Detection ability. #199
+* Switch Unit:
+	- Fix: Curator should now be able to breach breachable doors. #178 and #211
+	- Fix: Notifications were overlapping when he picked up an intel. Curator receives and logs the message when he returns back to the interface.
+	- Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. #177
+	- Fix: As the issue above cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
+	- Fix: Now retains voices and faces. #157
+	- Fix: Goggles should no longer disappear. #209
+* Remote control:
+	- Fix: Curator should now be able to breach breachable doors. #178 and #211
+* Promote to Zeus:
+	- Fix: Wrong localization string.
+* Turret optics:
+	- Fix: Missing localization string
+* Spawn effects:
+	- Feature: Spawn fire. #137
+* Set date:
+	- Fix: Module was broken. #152
+	- Fix: Spam the .rpt log.
+* Create Mission SQF:
+	- Fix: Didn't retain simulation settings. #169
+* Toggle lamps:
+	- Fix: Now works in a dedicated server environment. #152 and #155
+* Hide Zeus:
+	- Feature: Zeus eagle is hidden as well and "Player has ascended as Zeus" notifications does appear.
+* Execute code:
+	- Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
+	- Fix: Execute Code module's JIP mode now works. #152 and #155
+* Add/remove editable objects:
+	- Fix: Count now should be correct. #170
+* Create teleporter:
+	- Fix: Spawned the pole even if the Cancel button was pressed. #203
+* Custom modules:
+	- Change: Custom Modules have been reduced to 50 (0 to 49).
+* Bootcamp:
+	- Change: Was added back.
+* Vanilla objective modules:
+	- Side restrictions have been removed. #60 and #215
+#### Attribute windows
+##### New
+* Toggle the engine of Vehicles.
+* Data Link and Radar Emission control for AI vehicles. #77
+##### Revised
+* Loadouts attribute button:
+	- Feature: Option to assign weapons either to the driver or the gunner (if the vehicle has a gunner slot). #116 and #128
+* Ammo slider:
+	- Fix: Now assigns weapons to the last selected weapon owner. #116 and #128
+	- Fix: Caused issues for Dynamic Loadout vehicles, that resulting in losing access to the weapon. #212
+* Headlight/Searchlight:
+	- Fix: Produced a suspension error. #202
+* Group names:
+	* Fix: Now broadcasted to all players. #153
+#### Key-bindings/mouse
+##### Revised
+* Deep copy and paste:
+	- Change: Retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
+	- Change: Assigns dynamic loadout weapons if possible to the gunner.
+	- Change: Retains fuel for vehicles.
+* Eject / Paradrop:
+	- Feature: Drops vehicles/crates from vehicles (Apex vehicle in vehicle feature).
+* Countermeasure:
+	- Feature:  Works with multiple selected units. #161
+	- Fix: Did not work with >1.70 version planes and helicopters.
+	- Fix: RHS smoke grenades were not supported (thanks to RHS team).
+* Mouse:
+	- Feature: When a vehicle/crate is dragged on top another vehicle, it gets loaded if possible.
+	- Feature: When a vehicle/crate that is loaded or sling loaded is dragged on top the transport vehicle, it gets detached.
+#### Waypoints
+##### Revised
+* Fastroping:
+	- Fix: Resolved missing key string if ACE was not preset. #224
+* Paradrop:
+	- Feature: Drops vehicles/crates from vehicles (Apex vehicle in vehicle feature).
+#### Other
 * Change: Added different types of new module icons. #165
 * Change: Execute code panel will always appear in singleplayer.
-* Change: Deep Copy and Paste retains, goggles, ranks, faces, voices, voice pitches, names, name callsigns and skills.
-* Change: Deep Copy and Paste assigns dynamic loadout weapons if possible to the gunner.
-* Change: Deep Copy and Paste retains fuel for vehicles.
 * Change: On Zeus launch, intro hint will only be shown once.
-* Change: Last piece of executed code will be saved in the user's profile from the Execute Code module.
-* Change: Arsenal modules have been fully reworked, fixing some long lasting issues and performance improvements. #200
-* Change: Using the Fire Mission module, now Curator can specify the number of rounds fired.
-* Feature: Object rotation module. #151
-* Feature: Data Link and Radar Emission control for AI vehicles. #77
-* Feature: TFAR Set frequency module. #156
-* Feature: Side relation change module. #130 and #149
+* Change: Russian translation overhaul (by @unhappytroll and @Victor9041). #192
 * Feature: Zeus watermark when pressing backspace is now replaced by our own custom one (configurable in CBA). #147
 * Feature: Debug logging is now available as an option in CBA addon settings.
 * Feature: Debug logging function Achilles_fnc_log (only logs when activated in CBA).
 * Feature: Feedback function for the Curator - Achilles_fnc_showZeusErrorMessage, which works similarly to Achilles_fnc_showZeusMessage, but adds a failure sound.
 * Feature: Warning text appears from a Suicide Bomber when he goes into attack mode.
-* Feature: Supply Drop module. #158
-* Feature: Hide Objects module. #179
 * Feature: Debug Mode is available in Addon Options. It also allows adding all objects in the mission (including logics!).
-* Feature: Launch Countermeasures works with tanks, cars, boats, helicopters. #161
-* Feature: Option to toggle the Engine in Vehicle's attribute options.
-* Feature: Added module to spawn fire under the Spawn Effects tab. #137
-* Feature: Zeus eagle and "Player has ascended as Zeus" notifications have been removed when using the Hide Zeus module.
-* Feature: Arsenal Removal module. #200
-* Feature: Added Mine Detection ability to the Change Ability module. #199
 * Feature: Added Tac-Ops music event tracks to the Play Music module. #193
-* Feature: Option to select what weapon AI should fire when using the Suppressive Fire module.
-* Feature: Added partial ACE 3 Arsenal compatability with the Arsenal modules. #200
-* Fix: Wrong localization string for Create LZ module.
-* Fix: Group names are now broadcasted to all players. #153
-* Fix: Ammo slider now assigns weapons to the last selected weapon owner. #116 and #128
+* Fix: Switching tabs while searching in a "create tree" (Zeus interface) led to loss of a side in certain cases.
 * Fix: When parachuting units, the function now works as intended. #127
 * Fix: Server-side .rpt spam was fixed. #107
-* Fix: Side Arsenal modules didn't work previously. #167
-* Fix: Create Mission SQF didn't retain simulation settings. #169
-* Fix: Missing localization string for Turret Optics module.
-* Fix: Notifications were overlapping when a remote-controlled unit (using the switch unit module) picked up intel. Curator receives and logs the message when he returns back to the interface.
-* Fix: Players couldn't get out of Switch Unit when they had a different keybinding than the default one. As this issue cannot be fully resolved, a "Release UAV controls" action is now available in the action menu. #177
-* Fix: Wrong localization string for Promote To Zeus module.
-* Fix: Countermeasures and smokes for units and vehicles using the (default) C key, will now work with multiple units selected. #161
-* Fix: Countermeasures now work with >1.70 version planes and helicopters. #161
-* Fix: Set Date module was broken. #152
-* Fix: Execute Code module's JIP mode now works. #152 and #155
-* Fix: Toggle Lamps module now works in a dedicated server environment. #152 and #155
-* Fix: Set Date module would spam .rpt log.
-* Fix: Switch Unit module now retains voices and faces. #157
 * Fix: Debug console now works if debug console is enabled for specific players by UID. #187
 * Fix: German entry for string table is fixed (by @shukari).
-* Fix: Modifying the status of the headlights using the attribute panel would produce a suspension error. #202
-* Fix: Create Teleporter module now takes into account if the Curator pressed the Cancel button and now doesn't spawn the pole. #203
-* Fix: Removed duplicate string table key named "STR_AMAE_AMMO".
+* Fix: Removed duplicate string table keys.
 * Fix: Copy to Clipboard module now works if the text is larger than the format engine command limit.
 * Fix: Achilles creating dependencies. #200 and #120
-* Fix: Create Custom Arsenal not adding wanted items. #200 and #196
-* Fix: When using the Suppressive Fire module, AI now should aim first and fire after. #188
-* Fix: Added or Removed object count now should be correct. #170
+* Fix: Spelling mistakes in the Field Manual and hints (by @MaliceGFS and @ItsNoirLime). #222 and #217
+* Fix: Achilles and Ares base modules were added to Zeus for modification. #225 and #219
 * Code optimization, cleanup and fixes - #163 and #181 - Thanks to Victor9401, Dedmen and NeilZar!
 
-V.0.0.9c
+### v0.0.9c
 * Fix: Fixed a critical issue that causes stances not to work.
 
-V.0.0.9
+### v0.0.9
 * Change:	Locked vehicles can be entered by remote controlled AI (same as "Locked for Players" in Eden).
 * Change:	Advanced Weather Module: Takes current weather data as default values; Rainbow slider.
 * Change:	Add objects to Zeus: Only adds objects to the Zeus player that used the module.
 * Change:	Adjusted name of Patrol/Loiter module to emphasize that loiter is not restricted to choppers.
-* Change:   displayName config parameter is now used when selecting ammo types when using the Fire Mission module. This improves user-friendliness and allows easier selection of muntion types.
+* Change:	displayName config parameter is now used when selecting ammo types when using the Fire Mission module. This improves user-friendliness and allows easier selection of muntion types.
 * Feature:	Attribute window: Sliders show actual value as a tooltip.
 * Feature:	Achilles_fnc_showChooseDialog, a revised version of Ares_fnc_showChooseDialog (the latter is kept for compatibility reasons).
 * Feature:	New useful global veriable: Achilles_var_latestModuleLogic.
-* Feature:  Option to give suicide bombers vests to make it look more realistic.
-* Fix:      CAS Bomb Strike: Module was listed twice and cluster bombs were not available.
-* Fix:	    Hotkey for remote control and switch unit features did not work while the map was open.
-* Fix:	    Set map position to camera position after loading interface.
-* Fix:	    Fix weapons not being removed when Pylon Loadout is changed (by @CoxLedere).
-* Fix:      Fixed an error when suicide bombers were used when the disabling type was selected.
+* Feature:	Option to give suicide bombers vests to make it look more realistic.
+** Fix:		CAS Bomb Strike: Module was listed twice and cluster bombs were not available.
+* Fix:		Hotkey for remote control and switch unit features did not work while the map was open.
+* Fix:		Set map position to camera position after loading interface.
+* Fix:		Fix weapons not being removed when Pylon Loadout is changed (by @CoxLedere).
+* Fix:		Fixed an error when suicide bombers were used when the disabling type was selected.
 
-V.0.0.8c
+### v0.0.8c
 * Change:	Removed Zeus wind sound effect for remote control (by @CreepPork).
 * Change:	If Ares is enabled at the same time, Achilles will just spawn a warning message and not block Zeus entirely.
 * Change:	Skill slider range is no longer hard-coded. It takes the range as in 3den instead (see [BIS forum](https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3204945)).
@@ -115,7 +177,7 @@ V.0.0.8c
 * Fix:		Achilles_fnc_arrayMean had no exception handling for empty arrays.
 * Fix:		Paradrop: Exception handling did not work for 3rd party add-on chutes (= unit had 2 chutes instead of one; see [Steam](http://steamcommunity.com/workshop/filedetails/discussion/723217262/1291817208487058671/)).
 
-V.0.0.8
+### v0.0.8
 * Change:	Carrier base gets added automatically; Deletion will affect all carrier parts (the carrier is not movable though).
 * Change:	Intel: The map only opens for the player that picked it up. Who actually gets the intel as well still depends on the settings.
 * Change:	Heal and injury modules check for ace_medical instead of ace_main (by @CreepPork).
@@ -138,7 +200,7 @@ V.0.0.8
 * Fix:		"Create/Edit Intel" did not handle newline characters (Hotkey: LSHIFT+RETURN).
 * Fix:		Create/Edit Intel: Dialog title did not describe the exact action (create, spawn or edit). 
 
-V.0.0.7d (Achilles Expansion (alpha version))
+### v0.0.7d (Achilles Expansion (alpha version))
 * Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
 * Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
 * Feature:	Dynamic loadout as a vehicle attribute (ammo button).
@@ -151,7 +213,7 @@ V.0.0.7d (Achilles Expansion (alpha version))
 * Fix:		CAS modules did not support planes with dynamic loadouts.
 * Fix:		Earthquake module: Missing text in dialog (by @CreepPork)
 
-V.0.0.7c (Achilles Expansion (alpha version))
+### v0.0.7c (Achilles Expansion (alpha version))
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
 * Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
@@ -161,7 +223,7 @@ V.0.0.7c (Achilles Expansion (alpha version))
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
-V.0.0.7 (Achilles Expansion (alpha version))
+### v0.0.7 (Achilles Expansion (alpha version))
 * Change:	ACE injury module: Adjusted damage levels.
 * Change:	Removed side restriction for vanilla CAS modules.
 * Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).
@@ -174,7 +236,7 @@ V.0.0.7 (Achilles Expansion (alpha version))
 * Feature:	Make object invincible module.
 * Feature:	Suppressive fire module: Line-up is now an option and no longer handled automatically.
 * Feature:	ACE injury module: injury types, pain level, blood volume and hearth rate.
-* Feature:	Add/remove Zeus objects can now handle simple objects (EXPERIMENTAL - DO NOT YET SUPPORT FEATURES SUCH AS COPY/PASTE, ADV. COMPOSITIONS, SAVE MISSION SQF, ...).
+* Feature:	Add/remove Zeus objects can now handle simple objects (EXPERIMENTAL - DO NOT YET SUPPORT FEATURES SUCH AS COPY/PASTE, AD### v COMPOSITIONS, SAVE MISSION SQF, ...).
 * Feature:	Show config and animation viewer modules.
 * Feature:	Vehicle garage from Eden editor.
 * Feature:	Create TPs: Custom names can be given to teleport flags.
@@ -197,7 +259,7 @@ Went missing in previous versions: Instant occupation does distribute large grou
 * Fix:		Syntax error in dynamic dialog cfg   (fixed by @shukari)
 * Fix:		Missing error message for modules such as "Hava a seat".
 
-V.0.0.6d (Achilles Expansion (alpha version))
+### v0.0.6d (Achilles Expansion (alpha version))
 * Change:	Artillery fire support module: Removed workaround (BIS fixed it).
 * Fix:		Add/Remove objects to Zeus: Type "Unit" did not select soldiers. Moreover, it did select empty vehicles.
 * Fix:		Ares Compositions did not work properly in 1.68.
@@ -205,13 +267,13 @@ V.0.0.6d (Achilles Expansion (alpha version))
 * Fix:		Cange Skills/Traits: EOD label was missing in ACE version.
 * Fix:		Cange Skills/Traits: EOD and engineer did not work for ACE.
 
-V.0.0.6c (Achilles Expansion (alpha version))
+### v0.0.6c (Achilles Expansion (alpha version))
 * Fix:		Spawn attributes ticks were not updated after reopening zeus interface.
 * Fix:		Target/LZ/RP logics default value was always the same & wrong message.
 * Fix:		Static artillery from third-party add-ons did not fire multiple rounds.
 
 Changelists
-V.0.0.6 (Achilles Expansion (alpha version))
+### v0.0.6 (Achilles Expansion (alpha version))
 * Change:	Create Intel: Simulation of new created intel is no longer enabled.
 * Change:	Ammo box inventory is no longer opened automatically on spawn.
 * Change:	Add/Remove editable objects: Extend search pattern to static turrets for type "units" and "vehicles".
@@ -242,7 +304,7 @@ V.0.0.6 (Achilles Expansion (alpha version))
 * Fix:		Unessecary creation of dependency on achilles_data_f_achilles when placing compositions in Eden ([BIS Forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3140115)).
 * Fix:		Mines were still revealed to players (0.0.5 only removed the map markers...).
 
-V.0.0.5 (Achilles Expansion (alpha version))
+### v0.0.5 (Achilles Expansion (alpha version))
 * Change:	Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
 * Change:	Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see #40)
 * Change:	"Destroy Buildings" Module was changed to "Damage Buildings" Module (=more options).
@@ -274,14 +336,14 @@ V.0.0.5 (Achilles Expansion (alpha version))
 * Fix:		Mines were marked on map (check ACE3 solution?)
 * Fix:		Mortar only fire one shell (see #36)
 
-V.0.0.4d (Achilles Expansion (alpha version))
+### v0.0.4d (Achilles Expansion (alpha version))
 * Feature: Updated Russian Translation (by Igor Nikolaev).
 * Fix:     Single unit player teleport option was broken.
 
-V.0.0.4c (Achilles Expansion (alpha version))
+### v0.0.4c (Achilles Expansion (alpha version))
 * Fix:     Player edit menu was broken.
 
-V.0.0.4 (Achilles Expansion (alpha version))
+### v0.0.4 (Achilles Expansion (alpha version))
 * Change:  Teleport player: Teleport entire vehcile is now optional.
 * Change:  Instant occupation does distribute large group (>8 members) on different buildings (by Grezvany13)
 * Change:  Revised equipment module category.
@@ -313,7 +375,7 @@ V.0.0.4 (Achilles Expansion (alpha version))
 
 
 
-V.0.0.3 (Achilles Expansion (alpha version))
+### v0.0.3 (Achilles Expansion (alpha version))
 * Change:  Heavily reorganized scripts and compartmentalized pbo similar to vanilla add-ons
            This might lead to unintented losses of some functionalities (please report!)
 * Change:  Optimized the way the add-on is initialized
@@ -353,7 +415,7 @@ V.0.0.3 (Achilles Expansion (alpha version))
            - Ares modules were not avaiable in recent modules
 * Fix:     Error message was missing when fire support modules had a lack of possible targets
 
-V.0.0.2 (Achilles Expansion (alpha version))
+### v0.0.2 (Achilles Expansion (alpha version))
 * Feature: More ambient animations + combat ready option
 * Feature: Spawn Mines/Explosives module.
 * Feature: More waypoints are avaiable.
@@ -375,7 +437,7 @@ V.0.0.2 (Achilles Expansion (alpha version))
 * Fix:     Last choices in some dialogs were not saved properly.
 * Fix:     Cancle button was to small for german translation.
 
-V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
+### v0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
 * Feature: Avaiable languages: English, French, German (not yet completed)
 * Feature: More vanilla music is aviable in the "Play Music" module.
 * Feature: Music defined in description.ext are added to "Play Music" module if a valid "musicClass" is defined (e.g. "Lead", "Action", "Stealth", "Calm")
@@ -407,29 +469,29 @@ V.0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
 * Fix:     The modules will now show up as soon as "Zeus" module category shows up too
 * Additional fixes and change in code structure
 
-V.1.8.1 (basic version)
+### v1.8.1 (basic version)
 * Fix some broken inheritance for vests and hats that might have been interfering with other equipment mods
 * Fix an issue where bad SQF was being generated by the for Guerilla and Civilian units when saving.
 * Add enable/disable simulation modules.
 
-V.1.8.0 (basic version)
+### v1.8.0 (basic version)
 * Artillery - Add 'Artillery Fire Mission' module to fire artillery using map coordinates and multiple artillery pieces. (Author JonasJurczok)
 * Util - Pass 'Unit under cursor' and location to 'Execute Script' modules.
 * Save/Load - Remove deprecated Save/Load modules (using old non-SQF format)
 * NOTE - Ares now requires CBA_A3! Make sure it's running on any machine that had Ares loaded.
 
-V.1.7.0 (basic version)
+### v1.7.0 (basic version)
 * Save/Load - Add module to export current mission objects to SQF script (including AI, Groups and markers).
 * Util - Add module to execute custom code on the server, locally, or on all machines.
 * General - Fixed an issue where custom modules that caused an error would leave a logic object around.
 * Deprecated - 'Spawn Custom Mission Objects' was removed (use custom modules instead).
 * Deprecated - New SQF saving will replace existing copy-paste functionality in 1.8.0.
 
-V.1.6.1 (basic version)
+### v1.6.1 (basic version)
 * Util - Fixed an issue where player groups would be lost when switching sides
 * Util - Added more options to the 'switch player sides' module (allowing single player, group, or side)
 
-V.1.6.0 (basic version)
+### v1.6.0 (basic version)
 * Arsenal - Added ability to put full (unfiltered) Arsenal on an object.
 * Arsenal - Renamed the 'Add All...' option to 'Add Filtered...'
 * Behaviours - Fixed issue where AI units that were garrisoned wouldn't turn to shoot (#179)
@@ -443,10 +505,10 @@ V.1.6.0 (basic version)
 * Util - Added modules to enable/disable debug logs in RPT.
 * Util - Replaced 'Go Invisible'/'Become Visible' action menu items with modules in the 'Util' section
 
-V.1.5.1 (basic version)
+### v1.5.1 (basic version)
 * Fix a signing issue that prevented connection to servers running some other mods (see http://feedback.arma3.com/view.php?id=22133 )
 
-V.1.5.0 (basic version)
+### v1.5.0 (basic version)
 * Arsenal - Copying to clipboard (and pasting) now includes non-virtual items as well
 * Arsenal - Fixes a bunch of issues where side-filtering wasn't applying to Vests, Weapons and Backpacks when using 'Add All...'
 * Arsenal - Performance improvements when using 'Add All...'
@@ -459,10 +521,10 @@ V.1.5.0 (basic version)
 * Teleport - Dropping the 'Teleporter' module on an object will now make that object a teleporter instead of creating a new one.
 * Util - Added first-pass at a 'Change Weather' module.
 
-V.1.4.0 (basic version)
+### v1.4.0 (basic version)
 * Added a bunch more premade base compositions from Vernei's prebuilt pastable bases ( http://www.armaholic.com/page.php?id=27531 ). Used with permission.
 
-V.1.3.0 (basic version)
+### v1.3.0 (basic version)
 * Util - Added module to dump composition code to RPT file (aimed at making it easier for me to generate compositions)
 * Compositions - Re-organized the Ares composition menus to be a little more clear
 * Compositions - Fixed some placement issues with a few existing compositions
@@ -474,20 +536,20 @@ V.1.3.0 (basic version)
   * Roadblocks - Added three more kinds of roadblocks of varying size
   * FOB Helipad - Added a helipad for improvised bases with landing lights and some sandbags
 
-V.1.2.1 (basic version)
+### v1.2.1 (basic version)
 * Arsenal - Change the wording in 'All...' module to be more clear and require fewer selections for common use cases (See #155)
 * Arsenal - Fix an issue where magazines weren't being added when using the 'All...' module
 * Arsenal - Uniforms and helmets are now filtered based on side selection when using 'All...' modules to populate arsenal.
 * General - Supress the RPT log output by default. Use 'Ares_Debug_Output_Enabled = true;' to re-enable
 
-V.1.2.0 (basic version)
+### v1.2.0 (basic version)
 * General - Fix an issue with some modules running twice when dedicated server had Ares mod loaded (See #144)
 * Spawn - Add ability to spawn submarine
 * Spawn - Add ability to spawn trawler
 * Save/Load - Include some larger options when choosing the radius for saving to clipboard (1k, 2k, 5k)
 * Util - Add module to delete closest LZ, RP or Artillery Target (hack fix in case they are not editable, see #145)
 
-V.1.1.0 (basic version)
+### v1.1.0 (basic version)
 * Arsenal - Added an 'Add All ...' option to Arsenal that adds all items from loaded mods automatically.
 * Behaviours - Add ability for players to 'Release' surrendered units (as alternative to 'Secure'). Can also be applied by Zeus when dropping the module on a surrendered unit.
 * Behaviours - Artillery targets are now named phonetically (Alpha, Bravo, Charlie, etc...)
@@ -508,10 +570,10 @@ V.1.1.0 (basic version)
 * Util - Add more distance options when adding/removing objects from curator.
 * Util - Made behaviour of Copy/Paste dialog (for Save/Load & Arsenal functions) consistent on dedicated servers and local servers. You MUST copy and paste by hand in all cases now.
 
-V.1.0.2 (basic version)
+### v1.0.2 (basic version)
 * Fix an issue where running Ares on a dedicated server or on more than one client would cause a race-condition that would break lots of modules.
 
-V.1.0.1 - Bugfixes
+### v1.0.1 - Bugfixes
 * Behaviours - Fix issue where 'Fire Artillery' module wouldn't work with units that were spawned by dedicated server
 * Behaviours - Garrisoned units should turn to fire at enemy units now
 * Behaviours - Possible fix for issue where sometimes patrols would set wapoints around [0,0,0] instead of around selected unit
@@ -523,7 +585,7 @@ V.1.0.1 - Bugfixes
 * Teleport - Fix issue where creating too many teleporters would cause script errors due to running out of phonetic names
 * Util - Fixed some issues where adding objects to curator would grab ambient objects (rabbits, snakes, etc..)
 
-V.1.0.0 - Public Release!
+### v1.0.0 - Public Release!
 * Actions - Fix issue where invisible Zeus sometimes wasn't
 * Arsenal - 'Paste & Replace' works again
 * Behaviours - Added 'Artillery' module to control AI artillery firing.
@@ -551,13 +613,13 @@ V.1.0.0 - Public Release!
 * Util - Allowed you to choose radius when adding/removing objects from Zeus
 * Experimental - Custom Map Objects - Added preliminary support for allowing maps to add custom objects spawnable through Ares.
 
-V.0.1.1
+### v0.1.1
 * Fixed backgrounds on some UI elements being transparent
 * Reinforcements - Expanded deletion radius of 'Delete LZ/RP' module to 15m (from 5m)
 * Reinforcements - Helicopters no longer wait after unloading troops.
 * Reinforcements - Units don't wait as long before deleting themselves.
 
-V.0.1.0 - BETA!
+### v0.1.0 - BETA!
 * Add 'Reinforcements' module. 
 * Fix backpacks not being removed when clearing inventory for Arsenal
 * Fix pasting not working in MP (Affected Save/Load as well as Arsenal functions)
@@ -566,8 +628,8 @@ V.0.1.0 - BETA!
 * Added module to 'Save/Load' for Zeus to add all objects in the map to curator
 * Added ability to teleport a group
 
-V.0.0.2
+### v0.0.2
 * Added Arsenal functions
 
-V.0.0.1
+### v0.0.1
 * Initial alpha release.

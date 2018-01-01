@@ -5,16 +5,16 @@ if (!isnull _ammoBox) then
 {
 	private _dialogResult =
 		[
-			"Filter Objects",
+			localize "STR_AMAE_FILTER_OBJECTS",
 			[
-				["Combine or Replace?", ["Combine with existing items", "Replace existing items"], 1],
-				["Limit side-specific equip. to", ["All", "Blufor Only", "Opfor Only", "Greenfor Only", "None"], 1],
-				["Add GPS?", ["Yes", "No"]],
-				["Add thermals?", ["Yes", "No"], 1],
-				["Add NVG's?", ["Yes", "No"]],
-				["Static weapon backpacks", ["Yes", "No"], 1],
-				["UAV items & backpacks", ["Yes", "No"], 1],
-				["Automated weapon backpacks", ["Yes", "No"], 1]
+				[localize "STR_AMAE_COMBINE_REPLACE", [localize "STR_AMAE_COMBINE", localize "STR_AMAE_REPLACE"], 1],
+				[localize "STR_AMAE_LIMIT_SIDE", [localize "STR_AMAE_ALL", localize "STR_AMAE_BLUFOR_ONLY", localize "STR_AMAE_OPFOR_ONLY", localize "STR_AMAE_GREENFOR_ONLY", localize "STR_AMAE_NONE_EQUIPMENT"], 1],
+				[localize "STR_AMAE_ADD_GPS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+				[localize "STR_AMAE_ADD_THERMALS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+				[localize "STR_AMAE_ADD_NVGS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+				[localize "STR_AMAE_STATIC_BACKPACKS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+				[localize "STR_AMAE_UAV_BACKPACKS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+				[localize "STR_AMAE_AUTOMATED_BACKPACKS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1]
 				// Don't ask about tents. No one cares about tents.
 			]
 		] call Ares_fnc_ShowChooseDialog;
@@ -60,7 +60,7 @@ if (!isnull _ammoBox) then
 		private _arsenalData = [_blacklist, _sideSpecificEquipmentFilter] call Ares_fnc_GenerateArsenalDataList;
 
 		[_ammoBox, _arsenalData, (_dialogCombineOrReplace == 1)] call Ares_fnc_ArsenalSetup;
-		[objNull, "Arsenal objects added."] call bis_fnc_showCuratorFeedbackMessage;
+		[localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 	};
 };
 

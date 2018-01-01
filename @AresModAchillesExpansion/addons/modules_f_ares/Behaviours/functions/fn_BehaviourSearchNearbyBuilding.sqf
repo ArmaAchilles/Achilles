@@ -9,7 +9,7 @@ if (isNil "Achilles_var_search_building_init_done") then
 	Achilles_var_search_building_init_done = true;
 };
 
-[objnull, "Searching nearby building."] call bis_fnc_showCuratorFeedbackMessage;
+[localize "STR_AMAE_SEARCH_NEAREST_BUILDING"] call Ares_fnc_showZeusMessage;
 
 if (local _groupUnderCursor) then
 {

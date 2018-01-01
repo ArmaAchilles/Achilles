@@ -20,6 +20,9 @@
 #define IDC_TEXT_WARNING		235102
 #define IDC_CONFIRM_WARNING		235106
 #define IDC_CANCLE_WARNING		235107
+#define ALL_ADD_CREATE_IDCS	[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_CIV, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EMPTY]
+#define ALL_ADD_MODE_IDCS		[IDC_RSCDISPLAYCURATOR_MODEUNITS, IDC_RSCDISPLAYCURATOR_MODEGROUPS, IDC_RSCDISPLAYCURATOR_MODEMODULES, IDC_RSCDISPLAYCURATOR_MODEMARKERS, IDC_RSCDISPLAYCURATOR_MODERECENT]
+#define ALL_ADD_SIDE_IDCS		[IDC_RSCDISPLAYCURATOR_SIDEOPFOR, IDC_RSCDISPLAYCURATOR_SIDEBLUFOR, IDC_RSCDISPLAYCURATOR_SIDEINDEPENDENT, IDC_RSCDISPLAYCURATOR_SIDECIVILIAN, IDC_RSCDISPLAYCURATOR_SIDEEMPTY]
 
 // execute vanilla display curator function
 ["onLoad",_this,"RscDisplayCurator","CuratorDisplays"] call (uinamespace getvariable "BIS_fnc_initDisplay");
@@ -76,7 +79,73 @@ _this spawn
 	_display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_HandleCuratorKeyPressed;}];
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MOUSEAREA) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
 	(_display displayCtrl IDC_RSCDISPLAYCURATOR_MAINMAP) ctrlAddEventHandler ["MouseButtonDblClick",{_this call Achilles_fnc_HandleMouseDoubleClicked;}];
-
+	
+	// Fixes the loss of sides in the module tree caused by an ongoing search
+	{
+		private _ctrl = _display displayCtrl _x;
+		_ctrl ctrlAddEventHandler ["ButtonClick",
+		{
+			params ["_ctrlMode"];
+			private _display = ctrlParent _ctrlMode;
+			private	_ctrlSearch = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_SEARCH;
+			private _searchText = ctrlText _ctrlSearch;
+			(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_","_curSide"];
+			private _curMode = ALL_ADD_MODE_IDCS find ctrlIDC _ctrlMode;
+			if (_searchText != "") then
+			{
+				private _ctrlCreateList = ALL_ADD_CREATE_IDCS apply {_display displayCtrl _x};
+				if (_curMode <= 1) then
+				{
+					_ctrlCreateList deleteAt (5 * _curMode + _curSide);
+				};
+				[_ctrlCreateList,_ctrlSearch,_searchText] spawn
+				{
+					disableSerialization;
+					params ["_ctrlCreateList","_ctrlSearch","_searchText"];
+					{_x ctrlSetFade 0.99; _x ctrlShow true; _x ctrlCommit 0} forEach _ctrlCreateList;
+					waitUntil {{not ctrlShown _x} count _ctrlCreateList == 0};
+					_ctrlSearch ctrlSetText "";
+					uiSleep 0.05;
+					{_x ctrlShow false; _x ctrlSetFade 0; _x ctrlCommit 0} forEach _ctrlCreateList;
+					waitUntil {{ctrlShown _x} count _ctrlCreateList == 0};
+					_ctrlSearch ctrlSetText _searchText;
+				};
+			};
+		}];
+	} forEach ALL_ADD_MODE_IDCS;
+	{
+		private _ctrl = _display displayCtrl _x;
+		_ctrl ctrlAddEventHandler ["ButtonClick",
+		{
+			params ["_ctrlSide"];
+			private _display = ctrlParent _ctrlSide;
+			private	_ctrlSearch = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_SEARCH;
+			private _searchText = ctrlText _ctrlSearch;
+			(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_curMode"];
+			private _curSide = ALL_ADD_SIDE_IDCS find ctrlIDC _ctrlSide;
+			if (_searchText != "") then
+			{
+				private _ctrlCreateList = ALL_ADD_CREATE_IDCS apply {_display displayCtrl _x};
+				if (_curMode <= 1) then
+				{
+					_ctrlCreateList deleteAt (5 * _curMode + _curSide);
+				};
+				[_ctrlCreateList,_ctrlSearch,_searchText] spawn
+				{
+					disableSerialization;
+					params ["_ctrlCreateList","_ctrlSearch","_searchText"];
+					{_x ctrlSetFade 0.99; _x ctrlShow true; _x ctrlCommit 0} forEach _ctrlCreateList;
+					waitUntil {{not ctrlShown _x} count _ctrlCreateList == 0};
+					_ctrlSearch ctrlSetText "";
+					uiSleep 0.05;
+					{_x ctrlShow false; _x ctrlSetFade 0; _x ctrlCommit 0} forEach _ctrlCreateList;
+					waitUntil {{ctrlShown _x} count _ctrlCreateList == 0};
+					_ctrlSearch ctrlSetText _searchText;
+				};
+			};
+		}];
+	} forEach ALL_ADD_SIDE_IDCS;
+	
 	// Add custom Zeus logo when pressing backspace
 	private _zeusLogo = (findDisplay 312) displayCtrl 15717;
 	private _addLogo = true;

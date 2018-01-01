@@ -41,9 +41,11 @@ class CfgFunctions
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
 			class log;
-			class getAllLZsAndRPs;
+			class getPosLogicsData;
 			class createDummyLogic;
 			class isACELoaded;
+			class returnChildren;
+			class positionSelector;
 		};
 
 		class selectUnit
@@ -101,6 +103,7 @@ class CfgFunctions
 			class effectFire;
 			class ArsenalSetup;
 			class ArsenalSetupACE;
+			class instantBuildingGarrison;
 		};
 	};
 

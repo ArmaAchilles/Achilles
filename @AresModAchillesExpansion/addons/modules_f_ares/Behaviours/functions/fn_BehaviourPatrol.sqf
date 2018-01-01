@@ -31,10 +31,10 @@ if (!isNull _groupUnderCursor) then
 		_dialogResult =
 			[localize "STR_AMAE_PATROL_LOITER",
 					[
-						[(localize "STR_AMAE_RADIUS") + " [m]", "", "100"],
+						[localize "STR_AMAE_RADIUS", "", "100"],
 						[localize "STR_AMAE_GROUP_BEHAVIOUR", [localize "STR_AMAE_RELAXED", localize "STR_AMAE_CAUTIOUS", localize "STR_AMAE_COMBAT"]],
 						[localize "STR_AMAE_DIRECTION", [localize "STR_AMAE_CLOCKWISE", localize "STR_AMAE_COUNTERCLOCKWISE"],1],
-						[localize "STR_AMAE_DELAY_AT_WP", ["None", "15s", "30s", "1m"]]
+						[localize "STR_AMAE_DELAY_AT_WP", [localize "STR_AMAE_NONE", ["15",localize "STR_AMAE_SECONDS"] joinString " ", ["30",localize "STR_AMAE_SECONDS"] joinString " ", ["1",localize "STR_AMAE_MINUTE"] joinString " "]]
 					]
 			] call Ares_fnc_ShowChooseDialog;
 
@@ -138,18 +138,18 @@ if (!isNull _groupUnderCursor) then
 				_waypoint = _groupUnderCursor addWaypoint [[_centerPoint, _radius, 0] call BIS_fnc_relPos, 5];
 				_waypoint setWaypointType "CYCLE";
 
-				[objnull, "Circular patrol path setup for units."] call bis_fnc_showCuratorFeedbackMessage;
+				[objnull, localize "STR_AMAE_CIRCULAR_PATROL_SETUP"] call bis_fnc_showCuratorFeedbackMessage;
 			};
 		};
 	}
 	else
 	{
-		[objnull, "Cannot add patrol for player units."] call bis_fnc_showCuratorFeedbackMessage;
+		[objnull, localize "STR_AMAE_CANNOT_ADD_PATROL_PLAYERS"] call bis_fnc_showCuratorFeedbackMessage;
 	};
 }
 else
 {
-	[objnull, "No group under cursor."] call bis_fnc_showCuratorFeedbackMessage;
+	[objnull, localize "STR_AMAE_NO_GROUP_UNDER_CURSOR"] call bis_fnc_showCuratorFeedbackMessage;
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

@@ -21,23 +21,25 @@ if (isNull _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontro
 if (isUAVConnected vehicle _unit) then {_error = localize "str_a3_cfgvehicles_moduleremotecontrol_f_errorControl";};
 if (unitIsUAV vehicle _unit) then {_error = localize "STR_AMAE_ERROR_VEHICLE_IS_A_DRONE";};
 
-if (_error != "") exitWith {[_error] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"; nil};
+if (_error != "") exitWith {[_error] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 private _playerUnit = player;
 private _damage_allowed = isDamageAllowed _playerUnit;
 private _face = face _unit;
 private _speaker = speaker _unit;
-_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed, _face, _speaker], true];
+private _goggles = goggles _unit;
+_unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed, _face, _speaker, _goggles], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
 selectPlayer _unit;
 [_unit, _face] remoteExecCall ["setFace", 0];
 [_unit, _speaker] remoteExecCall ["setSpeaker", 0];
+[_unit, _goggles] spawn {params ["_unit", "_goggles"]; sleep 1; _unit addGoggles _goggles};
 _playerUnit disableAI "ALL";
 _playerUnit enableAI "ANIM";
 _playerUnit allowDamage false;
 
-private _addActionID = _unit addAction ["Release UAV controls", 
+private _addActionID = _unit addAction [localize "STR_AMAE_RELEASE_UAV_CONTROLS", 
 {
 	params["_target", "_caller", "_id"];
 	disableSerialization;
@@ -45,6 +47,8 @@ private _addActionID = _unit addAction ["Release UAV controls",
 	[] call Achilles_fnc_switchUnit_exit;
 }, nil, 0, false];
 _unit setVariable ["Achilles_var_switchUnit_addAction", _addActionID];
+private _addActionID = _unit call Achilles_fnc_addBreachDoorAction;
+_unit setVariable ["Achilles_var_switchUnit_addBreachDoorAction", _addActionID];
 
 private _eh_id = _unit addEventHandler ["HandleDamage",
 {

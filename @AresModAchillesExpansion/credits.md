@@ -19,20 +19,40 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531)
 
 ## Achilles Expansion includes contributions by the following coders
-### Main Collaborators:
+### Main Contributors:
 - CreepPork
 - Kex
 
-### Other Contributers:
-- CoxLedere (Available factions and dynamic loadout bug fix)
-- Dedmen (For complaining at how terribly we write code and help us out to fix it)
-- Grezvany13 (Several contributions & support)
-- NeilZar (Code optimization and fixes)
-- S.Crowe (ACE healing and Eden compatibilty of compositions)
-- Shukari (Available factions bug fix)
-- Talya (Assistance in general, even if he wasn't always aware of that ;) )
-- Victor9401 (Code refactoring and to help out my poor brain at some points)
-- Zakant (bug fixes and improval of code efficency)
+### Other Contributors:
+- CoxLedere
+    - Available factions fix;
+    - Dynamic loadout bug fix.
+- Dedmen
+    - For complaining at how terribly we write code and help us out to fix it.
+- Grezvany13
+    - Several contributions and support.
+- MaliceGFS
+    - Spelling fixes.
+- NeilZar
+    - Code optimization, refactoring
+    - General support.
+- ItsNoirLime
+    - Spelling fixes.
+- S.Crowe
+    - ACE healing;
+    - Eden compatability of compositions.
+- Shukari
+    - Available factions bug fix.
+- Talya
+    - Assistance in general.
+- Unhappytroll
+    - Localization improvements.
+- Victor9401
+    - Code refactoring and improvements;
+    - Support and suggestions.
+- Zakant
+    - Bug fixes;
+    - Improval of code efficency.
 
 ## Achilles integrates code from the following mods or scripts
 - AI HALO jump script (by cobra4v320)
@@ -77,7 +97,13 @@ All of these icons are licensed under Creative Commons Attribution license.
     - https://thenounproject.com/icon/1235603/
 
 ## Translations
-- English (by Kex)
-- French (by Kex)
-- German (by Kex; revised by KiritoKun223, shukari)
-- Russian (by Igor Nikolaev)
+- German
+    - oOKexOo
+    - KiritoKun223
+    - shukari
+- Russian
+    - Igor Nikolaev
+    - unhappytroll
+    - Victor9401
+- French
+    - oOKexOo

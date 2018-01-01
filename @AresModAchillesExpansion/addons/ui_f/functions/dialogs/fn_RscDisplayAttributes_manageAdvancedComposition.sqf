@@ -1,9 +1,6 @@
 
 #define IDD_COMPOSITION_GUI		133799
 #define IDC_TREE_CTRL			1400
-#define IDC_EDIT_BUTTON			3030
-#define IDC_DEL_BUTTON			3020
-#define IDC_ADD_BUTTON			3040
 #define IDC_OK_BUTTON			3000
 #define IDC_CANCLE_BUTTON		3010
 #define IDD_MESSAGE				999
@@ -25,27 +22,30 @@
 
 disableSerialization;
 
-private ["_item_name","_item_details","_categoryName"];
-params ["_mode", ["_ctrl", controlNull, [controlNull]], ["_comboIndex", 0, [0]]];
+private ["_mode", "_ctrl", "_comboIndex","_item_name","_item_details","_categoryName"];
 
-private _dialog = findDisplay IDD_COMPOSITION_GUI;
+_mode = _this select 0;
+_ctrl = param [1,controlNull,[controlNull]];
+_treePathSelection = param [2,[],[[]]];
+
+_dialog = findDisplay IDD_COMPOSITION_GUI;
 
 switch (_mode) do
 {
 	case "LOADED":
 	{
-		private _ok_ctrl = _dialog displayCtrl IDC_OK_BUTTON;
-		_ok_ctrl ctrlRemoveAllEventHandlers "ButtonClick";
-		_ok_ctrl ctrlAddEventHandler ["ButtonClick", "([""SPAWN""] + _this) call Achilles_fnc_RscDisplayAttributes_spawnAdvancedComposition;"];
-
-		private _cancle_ctrl = _dialog displayCtrl IDC_CANCLE_BUTTON;
+		_cancle_ctrl = _dialog displayCtrl IDC_CANCLE_BUTTON;
 		_cancle_ctrl ctrlRemoveAllEventHandlers "ButtonClick";
-		_cancle_ctrl ctrlAddEventHandler ["ButtonClick", "closeDialog 2"];
-
+		_cancle_ctrl ctrlAddEventHandler ["ButtonClick", "saveProfileNamespace; hint localize ""STR_CHANGES_SAVED""; closeDialog 2;"];
+		_dialog displayAddEventHandler ["KeyDown", "if (_this select 1 == 1) then {saveProfileNamespace; hint localize ""STR_CHANGES_SAVED"";}"];
+		
+		_button = _dialog displayCtrl IDC_OK_BUTTON;
+		_button ctrlShow false;
+		
 		_tree_ctrl = _dialog displayCtrl IDC_TREE_CTRL;
-
+		
 		_tree_ctrl ctrlAddEventHandler ["TreeSelChanged", "([""SELECTION_CHANGED""] + _this) call Achilles_fnc_RscDisplayAttributes_spawnAdvancedComposition;"];
-
+		
 		_tvPath_ares = [_tree_ctrl tvAdd [[], "Ares"]];
 		{
 			_tvPath_category = [_tree_ctrl tvAdd [_tvPath_ares, _x select 0]];
@@ -58,7 +58,7 @@ switch (_mode) do
 		_tree_ctrl tvSort [_tvPath_ares, false];
 
 		_custom_compositions = profileNamespace getVariable ["Achilles_var_compositions",[]];
-
+		
 		if (count _custom_compositions > 0) then
 		{
 			_tvPath_custom = [_tree_ctrl tvAdd [[], "Custom"]];
@@ -72,7 +72,7 @@ switch (_mode) do
 			} forEach (_custom_compositions);
 			_tree_ctrl tvSort [_tvPath_custom, false];
 		};
-
+		
 		_last_choice = uiNamespace getVariable ["Ares_composition_last_choice", []];
 		if (count _last_choice == 3) then
 		{
@@ -93,47 +93,47 @@ switch (_mode) do
 	};
 	case "NEW_BUTTON":
 	{
-		[] spawn
+		[] spawn 
 		{
-			if (true) then
+			if (true) then 
 			{
 				closeDialog 0;
-				_center_object = ([localize "STR_AMAE_BASIS_OBJECT"] call Achilles_fnc_SelectUnits) select 0;
+				_center_object = ([localize "STR_BASIS_OBJECT"] call Achilles_fnc_SelectUnits) select 0;
 				if (isNil "_center_object") exitWith {};
-				if (isNull _center_object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+				if (isNull _center_object) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-				_objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
+				_objects = [localize "STR_OBJECTS"] call Achilles_fnc_SelectUnits;
 				if (isNil "_objects") exitWith {};
-				if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
+				if (count _objects == 0) exitWith {[localize "STR_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};	
 
-
+				
 				_center_pos = getPosWorld _center_object;
 				_dir = direction _center_object;
 				_type = typeOf _center_object;
 				_composition_details = [[_type, [0,0,0], _dir, false]];
 
 				{
-					_dir = direction _x;
-					_type = typeOf _x;
-					_pos_diff = (getPosWorld _x) vectorDiff _center_pos;
-					_enableSimulation = (_x isKindOf "AllVehicles");
-					_enableSimulation = _x getVariable ["enabledSimulation", _enableSimulation];
-					_composition_details pushBack [_type, _pos_diff, _dir, _enableSimulation];
+						_dir = direction _x;
+						_type = typeOf _x;
+						_pos_diff = (getPosWorld _x) vectorDiff _center_pos;
+						_enableSimulation = if (_x isKindOf "AllVehicles") then {true} else {false};
+						_enableSimulation = _x getVariable ["enabledSimulation", _enableSimulation];
+						_composition_details pushBack [_type, _pos_diff, _dir, _enableSimulation];
 				} forEach (_objects - [_center_object]);
-
-				_dialogResult =
+				
+				_dialogResult = 
 				[
-					localize "STR_AMAE_ADVANCED_COMPOSITION",
+					localize "STR_ADVANCED_COMPOSITION",
 					[
-						[localize "STR_AMAE_CATEGORY", [localize "STR_AMAE_LOADING_"]],
-						[localize "STR_AMAE_NEW_CATEGORY", ""],
-						[localize "STR_AMAE_NAME", "", "MyFirstComposition"]
+						[localize "STR_CATEGORY", [localize "STR_LOADING_"]],
+						[localize "STR_NEW_CATEGORY", ""],
+						[localize "STR_NAME", "", "MyFirstComposition"]
 					],
 					"Achilles_fnc_RscDisplayAttributes_createAdvancedComposition"
 				] call Ares_fnc_ShowChooseDialog;
-
+				
 				if (count _dialogResult > 0) then
-				{
+				{					
 					if (_dialogResult select 0 == 0) then
 					{
 						["ADD",controlNull,[],_dialogResult select 2,_composition_details,_dialogResult select 1] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
@@ -163,19 +163,19 @@ switch (_mode) do
 				_item_details = call compile (_tree_ctrl tvData _tvPath);
 				_category_name = _tree_ctrl tvText [_tvPath select 0, _tvPath select 1];
 				closeDialog 0;
-
-				_dialogResult =
+				
+				_dialogResult = 
 				[
-					localize "STR_AMAE_ADVANCED_COMPOSITION",
+					localize "STR_ADVANCED_COMPOSITION",
 					[
-						[localize "STR_AMAE_CATEGORY", [_category_name]],
-						[localize "STR_AMAE_NEW_CATEGORY", ""],
-						[localize "STR_AMAE_NAME", "", _item_name]
+						[localize "STR_CATEGORY", [_category_name]],
+						[localize "STR_NEW_CATEGORY", ""],
+						[localize "STR_NAME", "", _item_name]
 					],
 					"Achilles_fnc_RscDisplayAttributes_editAdvancedComposition"
 				] call Ares_fnc_ShowChooseDialog;
-
-				if (_dialogResult isEqualTo []) exitWith {};
+				
+				if (count _dialogResult == 0) exitWith {};
 				if (_dialogResult select 0 == 1) then
 				{
 					["ADD",controlNull,[],_dialogResult select 2,_item_details,_dialogResult select 1] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
@@ -188,7 +188,7 @@ switch (_mode) do
 			waitUntil {!dialog};
 			createDialog "Ares_composition_Dialog";
 			["LOADED"] spawn Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
-		};
+		};	
 	};
 	case "DELETE_BUTTON":
 	{
@@ -206,12 +206,12 @@ switch (_mode) do
 				_item = [_item_name, call compile (_tree_ctrl tvData _tvPath)];
 				_category_name = _tree_ctrl tvText [_tvPath select 0, _tvPath select 1];
 				closeDialog 0;
-
+				
 				createDialog "RscDisplayCommonMessage";
 				_dialog = findDisplay IDD_MESSAGE;
 				(_dialog displayCtrl IDC_TITLE) ctrlSetText (localize "STR_AMAE_DELETE_COMPOSITION");
 				(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText (format [localize "STR_AMAE_DO_YOU_WANT_TO_DELETE_X", _item_name]);
-
+				
 				(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","([""REMOVE"",controlNull,[]," + str _category_name + "," + str _item_name  + "]) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition; closeDialog 1;"];
 				(_dialog displayCtrl IDC_CANCLE_WARNING) ctrlAddEventHandler ["ButtonClick", "closeDialog 2;"];
 			};
@@ -225,9 +225,9 @@ switch (_mode) do
 		_item_name = _this select 3;
 		_item_details = _this select 4;
 		_categoryName = param [5,"",[""]];
-
+		
 		_custom_compositions = profileNamespace getVariable ["Achilles_var_compositions",[]];
-
+		
 		if (_categoryName != "") then
 		{
 			_custom_compositions pushBack [_categoryName, [[_item_name, _item_details]]];
@@ -240,20 +240,20 @@ switch (_mode) do
 			_custom_categories set [_category_index,_category_details];
 		};
 		profileNamespace setVariable ["Achilles_var_compositions",_custom_compositions];
-		saveProfileNamespace;
+		
 	};
 	case "REMOVE":
 	{
 		_category_name = _this select 3;
 		_item_name = _this select 4;
-
+		
 		_custom_compositions = profileNamespace getVariable ["Achilles_var_compositions",[]];
 		_category_names = _custom_compositions apply {_x select 0};
 		_categoryIndex = _category_names find _category_name;
 		_category_items = _custom_compositions select _categoryIndex select 1;
 		if (count _category_items == 1) then
 		{
-			if (_custom_compositions isEqualTo []) then
+			if (count _custom_compositions == 0) then
 			{
 				_custom_compositions = [];
 			} else
@@ -269,51 +269,7 @@ switch (_mode) do
 			_category_items = _category_items - [-1];
 			_custom_compositions set [_categoryIndex, [_category_name,_category_items]];
 		};
-		profileNamespace setVariable ["Achilles_var_compositions",_custom_compositions];
-		saveProfileNamespace;
-	};
-	case "SPAWN":
-	{
-		_objects_info = [] call compile Ares_var_current_composition;
-		if (_objects_info isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
-		_center_object_info = _objects_info select 0;
-		_objects_info = _objects_info - [_center_object_info];
-
-		_type = _center_object_info select 0;
-		_center_dir = _center_object_info select 2;
-		_allow_sim = _center_object_info select 3;
-
-		_center_object = _type createVehicle [0,0,0];
-		[_center_object,false] remoteExec ["enableSimulationGlobal",2];
-		_center_object setPosATL [-500,-500,0];
-		_center_object setDir _center_dir;
-
-		[[_center_object], true] call Ares_fnc_AddUnitsToCurator;
-		_attached_objects = [];
-		{
-			_object_info = _x;
-
-			_type = _object_info select 0;
-			_pos = _object_info select 1;
-			_dir = _object_info select 2;
-			_pos = (getPosWorld _center_object) vectorAdd _pos;
-			_dir = _dir - (getDir _center_object);
-			_allow_sim = _object_info select 3;
-
-			_object = _type createVehicle [0,0,0];
-			[_object,_allow_sim] remoteExec ["enableSimulationGlobal",2];
-			_object setPosWorld _pos;
-			_object attachTo [_center_object];
-			[_object, _dir] remoteExec ['setDir',0,true];
-			_attached_objects pushBack _object;
-		} forEach _objects_info;
-		_center_object setPos position Achilles_var_latestModuleLogic;
-		[_center_object,true] remoteExec ["enableSimulationGlobal",2];
-		_center_object setVariable ["ACS_attached_objects",_attached_objects];
-		_center_object setVariable ["ACS_center_dir", _center_dir];
-		_center_object addEventHandler ["Deleted", {_attached_objects = (_this select 0) getVariable ["ACS_attached_objects", []]; {deleteVehicle _x} forEach _attached_objects}];
-
-		closeDialog 1;
+		profileNamespace setVariable ["Achilles_var_compositions",_custom_compositions];		
 	};
 	case "UNLOAD" : {};
 };

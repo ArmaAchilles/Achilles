@@ -20,7 +20,7 @@ switch _mode do {
             _ctrl ctrladdeventhandler ["buttonclick","with uinamespace do {['onButtonClick',[_this select 0,0.1]] call RscAttributeUnitPos};"];
             _ctrl ctrlcommit 0;
         } foreach _idcs;
-
+		
         //--- Select the current rank
         if (_entity isEqualType grpnull) then {_entity = leader _entity;};
         private _selected = _stances find (tolower unitpos _entity);

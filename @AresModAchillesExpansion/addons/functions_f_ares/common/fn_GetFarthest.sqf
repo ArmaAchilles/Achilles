@@ -1,24 +1,25 @@
 /*
-	Gets the object from an array that is farthest from a particular point.
+	Gets the position from an array that is farthest from a particular point.
 
 	Parameters:
-		0 - Position Array - The point of reference for the search.
-		1 - Array of Objects - The objects to search through.
+		0 - Position - The point of reference for the search.
+		1 - Array of positions - The objects to search through.
 
 	Returns:
-		The object from the array that was farthest to the point of reference.
+		The object from the array that is farthest to the point of reference.
+		Returns an empty array if the array of positions is empty.
 */
 
-params [["_pointOfReference", [0, 0, 0], [[]], 3], ["_candidateObjects", [], [[]]]];
+params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]]]];
 
-private _farthest = objNull;
+private _farthest = [];
 private _farthestDistance = 0;
 {
-	if (isNull _farthest || _pointOfReference distance _x > _farthestDistance) then
+	if (_pointOfReference distance _x > _farthestDistance) then
 	{
 		_farthest = _x;
 		_farthestDistance = _pointOfReference distance _farthest;
 	};
-} forEach _candidateObjects;
+} forEach _candidatePositions;
 
 _farthest

@@ -6,8 +6,8 @@ class CfgPatches
 		requiredVersion = 0.1;
 		author = "ArmA 3 Achilles Mod Inc.";
 		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
-		version = 0.1.0;
-		versionStr = "0.1.0";
+		version = 1.0.0;
+		versionStr = "1.0.0";
 		versionAr[] = {0,1,0};
 
 		units[] =
@@ -51,6 +51,7 @@ class CfgPatches
 			"Achilles_Module_Change_Side_Relations",
 			"Achilles_Module_Spawn_Explosives",
 			"Achilles_Module_Spawn_Carrier",
+			"Achilles_Module_Spawn_Advanced_Composition",
 			"Achilles_Module_Zeus_SwitchUnit",
 			"Achilles_Module_Zeus_AssignZeus",
 			"Achilles_Module_Player_Set_Frequencies",
@@ -87,8 +88,8 @@ class CfgPatches
 		requiredVersion = 0.1;
 		author = "ArmA 3 Achilles Mod Inc.";
 		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
-		version = 0.1.0;
-		versionStr = "0.1.0";
+		version = 1.0.0;
+		versionStr = "1.0.0";
 		versionAr[] = {0,1,0};
 
 		units[] =

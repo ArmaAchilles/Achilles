@@ -14,7 +14,7 @@ private _dialogResult =
 		[localize "STR_AMAE_RED_LIGHT", "SLIDER", _rgb_color select 0, true],
 		[localize "STR_AMAE_GREEN_LIGHT", "SLIDER", _rgb_color select 1, true],
 		[localize "STR_AMAE_BLUE_LIGHT", "SLIDER", _rgb_color select 2, true],
-		[localize "STR_AMAE_RANGE" + " [m]", "", str (_attenuation select 0), true],
+		[localize "STR_AMAE_RANGE", str (_attenuation select 0), true],
 		[localize "STR_AMAE_CONST_ATTENUATION", "SLIDER", (_attenuation select 1)/100, true],
 		[localize "STR_AMAE_LINEAR_ATTENUATION", "SLIDER", (_attenuation select 2)/100, true],
 		[localize "STR_AMAE_QUADRATIC_ATTENUATION", "SLIDER", (_attenuation select 3)/100, true]

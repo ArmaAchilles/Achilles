@@ -14,13 +14,16 @@ private _codeBlock =
 		{
 			_x setUnitPos "AUTO";
 			_x forceSpeed -1;
+			_x doWatch objNull;
 			_x doMove _outsidePos;
 		} forEach(units _groupUnderCursor);
 	};
 };
 
+_groupUnderCursor setVariable ["Achilles_var_inGarrison", nil, true];
+
 if (local _groupUnderCursor) then {[_groupUnderCursor] spawn _codeBlock} else {[[_groupUnderCursor], _codeBlock, leader _groupUnderCursor] call Achilles_fnc_spawn};
 
-[objnull, "Units released from garrison."] call bis_fnc_showCuratorFeedbackMessage;
+[localize "STR_AMAE_RELEASE_GARRISON_UNITS"] call Ares_fnc_showZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

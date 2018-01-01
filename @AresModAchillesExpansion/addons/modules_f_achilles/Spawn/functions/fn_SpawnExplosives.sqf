@@ -31,6 +31,7 @@ if (_dialogResult select 0 == 0) then
 		private _theta = random 360;
 		private _pos = [_rho * cos _theta + _x_offset, _rho * sin _theta + _y_offset, 0];
 		private _mine = _explosive_type createVehicle _pos;
+		_mine setDir (random 360);
 		_mine setPos _pos;
 		[[_mine], true] call Ares_fnc_AddUnitsToCurator;
 	};
@@ -51,6 +52,7 @@ if (_dialogResult select 0 == 0) then
 } else
 {
 	private _mine = _explosive_type createVehicle _offset;
+	_mine setDir (random 360);
 	_mine setPos _offset;
 	[[_mine], true] call Ares_fnc_AddUnitsToCurator;
 };
