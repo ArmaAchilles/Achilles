@@ -64,6 +64,13 @@ git push -d origin <branch A>
 git branch -d <branch A>
 ```
 
+## Deletes all stale remote-tracking branches
+
+
+```bash
+git remote prune origin
+```
+
 ## Apply commit x on branch A
 
 ```bash
