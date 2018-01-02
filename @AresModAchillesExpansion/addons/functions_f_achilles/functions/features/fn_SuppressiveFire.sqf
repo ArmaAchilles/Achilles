@@ -92,7 +92,8 @@ if (_fireModeIndex == 0) then
 		params ["_units", "_duration"];
 		_units = _units call BIS_fnc_arrayShuffle;
 		private _unit_count = count _units;
-		private _number_of_switches = round ((_duration + 5) / 2);
+		private _number_of_switches = round ((_duration + 2) / 2);
+		sleep 3;
 		for "_i_switch" from 1 to _number_of_switches do
 		{
 			private _unit = _units select (_i_switch mod _unit_count);
@@ -196,9 +197,12 @@ if (_fireModeIndex == 0) then
 		_unit doTarget _target;
 		_unit lookAt _target;
 
-		//ensure asynchronous fire within a group
-		if (_fireModeIndex > 0) then
+		if (_fireModeIndex == 0) then
 		{
+			sleep 3;
+		} else
+		{
+			//ensure asynchronous fire within a group
 			sleep (random [2,3,4]);
 		};
 

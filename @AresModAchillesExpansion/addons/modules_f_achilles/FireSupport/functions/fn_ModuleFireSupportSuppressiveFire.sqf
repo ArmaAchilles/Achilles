@@ -83,11 +83,11 @@ private _dialogResult =
 	localize "STR_AMAE_SUPPRESIVE_FIRE",
 	[
 		[format [localize "STR_AMAE_SUPPRESS_X", " "], _targetChoices],
-		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"]],
+		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"], 1],
 		[localize "STR_AMAE_LINE_UP", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"], 1],
 		[localize "STR_AMAE_WEAPON_TO_FIRE", _weaponsToFire],
 		[localize "STR_AMAE_FIRE_MODE", ["Talking guns", localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
-		[localize "STR_AMAE_DURATION", "", "10"]
+		[localize "STR_AMAE_DURATION", "", "20"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 if (_dialogResult isEqualTo []) exitWith {};
