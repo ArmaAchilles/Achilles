@@ -44,11 +44,12 @@ if (isNull (_units select 0)) then
 {
 	_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 };
-if (isNil "_units") exitWith {};
-if (_units isEqualTo []) exitWith {};
+
+if (isNil "_units" || _units isEqualTo []) exitWith {};
 
 {
 	private _unit = _x;
+	if (isPlayer _unit) exitWith {[localize "STR_AMAE_SELECT_NON_PLAYER_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;};
 	{
 		private _ability_type = _x;
 		private _mode = _dialogResult select _forEachIndex;
