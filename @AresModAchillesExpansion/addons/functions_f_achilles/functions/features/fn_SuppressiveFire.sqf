@@ -154,7 +154,36 @@ _placeholder setPos [0,0,0];
 		_unit setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
 
 		// get fire mode parameters
-		private _params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
+		private _params = [];
+		if (_fireModeIndex == 0) then
+		{
+			_params = [10,0];
+			{_x setVariable ["Achilles_var_fireGranted", false]} forEach _units;
+			[_units, _duration] spawn
+			{
+				params ["_units", "_duration"];
+				_units = [_units] call BIS_fnc_arrayShuffle;
+				private _unit_count = count _units;
+				private _number_of_switches = round (_duration / 3);
+				for "_i_switch" from 1  to _number_of_switches do
+				{
+					private _unit = _units select (_i_switch mod _unit_count);
+					_unit setVariable ["Achilles_var_fireGranted", nil];
+					sleep random [2.6,3.0,3.4];
+					[_unit] spawn 
+					{
+						params ["_unit"];
+						sleep random [0.0,0.2,0.8];
+						_unit setVariable ["Achilles_var_fireGranted", false];
+					};
+				};
+			};
+			{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
+		} else
+		{
+			_params = [[10,0],[3,0.7],[1,0.9]] select (_fireModeIndex - 1);
+		};
+		private _params = 
 		_params params ["_fireRepeater", "_ceaseFireTime"];
 
 		private _new_group = createGroup (side _unit);
@@ -178,8 +207,11 @@ _placeholder setPos [0,0,0];
 				for "_" from 1 to _fireRepeater do
 				{
 					sleep 0.1;
-					[_unit, _muzzle] call BIS_fnc_fire;
-					_unit setVehicleAmmo 1;
+					if (_unit getVariable ["Achilles_var_fireGranted", true]) then
+					{
+						[_unit, _muzzle] call BIS_fnc_fire;
+						_unit setVehicleAmmo 1;
+					};
 				};
 				sleep _ceaseFireTime;
 			};
