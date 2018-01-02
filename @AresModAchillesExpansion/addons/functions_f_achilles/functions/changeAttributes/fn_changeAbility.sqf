@@ -49,7 +49,7 @@ if (isNil "_units" || _units isEqualTo []) exitWith {};
 
 {
 	private _unit = _x;
-	if (isPlayer _x) exitWith {[localize "STR_AMAE_SELECT_NON_PLAYER_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;};
+	if (isPlayer _unit) exitWith {[localize "STR_AMAE_SELECT_NON_PLAYER_UNITS"] call Achilles_fnc_ShowZeusErrorMessage};
 	{
 		private _ability_type = _x;
 		private _mode = _dialogResult select _forEachIndex;
