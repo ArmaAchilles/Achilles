@@ -45,7 +45,7 @@ if (isNull objectParent (gunner _unit)) then
 					else
 					{
 						_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, getText (_configEntry >> _x >> "displayName")]);
-					}
+					};
 				} forEach _muzzleArray;
 			}
 			else
@@ -53,7 +53,7 @@ if (isNull objectParent (gunner _unit)) then
 				_weaponsToFire pushBack _weaponName;
 			};
 		};
-	} forEach [primaryWeapon _unit, handgunWeapon _unit];
+	} forEach [primaryWeapon _unit]; //TODO: Bug with pistol
 }
 else
 {
@@ -74,7 +74,7 @@ else
 				_weaponsToFire pushBack _weaponName;
 			};
 		};
-	} forEach (_unit weaponsTurret [0]);
+	} forEach (_unit weaponsTurret [0]); // TODO: Could create issues if vehicle (e.g. Hummingbird) doesn't have weapons for the gunner
 };
 
 // select parameters
@@ -90,6 +90,7 @@ private _dialogResult =
 		[localize "STR_AMAE_DURATION", "", "20"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
+
 if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params
