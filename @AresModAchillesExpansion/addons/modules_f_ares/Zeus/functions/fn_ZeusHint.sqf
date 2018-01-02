@@ -21,15 +21,15 @@ switch (_hintType) do
 {
 	case 0: 
 	{
-		parseText (_message) remoteExecCall ["hint", 0];
+		[parseText _message] remoteExecCall ["hint", 0];
 	};
 	case 1: 
 	{
-		parseText (_message) remoteExecCall ["hintSilent", 0];
+		[parseText _message] remoteExecCall ["hintSilent", 0];
 	};
 	case 2: 
 	{
-		 parseText (_message) remoteExecCall ["hintCadet", 0];
+		[parseText _message] remoteExecCall ["hintCadet", 0];
 	};
 };
 
