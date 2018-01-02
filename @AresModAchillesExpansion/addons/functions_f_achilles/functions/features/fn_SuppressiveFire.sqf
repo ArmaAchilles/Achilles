@@ -84,6 +84,35 @@ _units = _units select {gunner vehicle _x == _x};
 private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
+// Talking guns
+if (_fireModeIndex == 0) then
+{
+	[_units, _duration] spawn
+	{
+		params ["_units", "_duration"];
+		_units = _units call BIS_fnc_arrayShuffle;
+		private _unit_count = count _units;
+		private _number_of_switches = round ((_duration + 5) / 2);
+		for "_i_switch" from 1 to _number_of_switches do
+		{
+			private _unit = _units select (_i_switch mod _unit_count);
+			_unit setVariable ["Achilles_var_fireGranted", true];
+			sleep random [1.6,2.0,2.4];
+			[_unit] spawn 
+			{
+				params ["_unit"];
+				sleep random [0.0,0.2,0.4];
+				_unit setVariable ["Achilles_var_fireGranted", nil];
+			};
+		};
+		{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
+	};
+// Other modes
+} else
+{
+	{_x setVariable ["Achilles_var_fireGranted", true]} forEach _units;
+};
+
 {
 	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder, _weaponToFire] spawn
 	{
@@ -154,36 +183,7 @@ _placeholder setPos [0,0,0];
 		_unit setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
 
 		// get fire mode parameters
-		private _params = [];
-		if (_fireModeIndex == 0) then
-		{
-			_params = [10,0];
-			{_x setVariable ["Achilles_var_fireGranted", false]} forEach _units;
-			[_units, _duration] spawn
-			{
-				params ["_units", "_duration"];
-				_units = [_units] call BIS_fnc_arrayShuffle;
-				private _unit_count = count _units;
-				private _number_of_switches = round (_duration / 3);
-				for "_i_switch" from 1  to _number_of_switches do
-				{
-					private _unit = _units select (_i_switch mod _unit_count);
-					_unit setVariable ["Achilles_var_fireGranted", nil];
-					sleep random [2.6,3.0,3.4];
-					[_unit] spawn 
-					{
-						params ["_unit"];
-						sleep random [0.0,0.2,0.8];
-						_unit setVariable ["Achilles_var_fireGranted", false];
-					};
-				};
-			};
-			{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
-		} else
-		{
-			_params = [[10,0],[3,0.7],[1,0.9]] select (_fireModeIndex - 1);
-		};
-		private _params = 
+		private _params = [[10,0],[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
 		_params params ["_fireRepeater", "_ceaseFireTime"];
 
 		private _new_group = createGroup (side _unit);
@@ -197,7 +197,10 @@ _placeholder setPos [0,0,0];
 		_unit lookAt _target;
 
 		//ensure asynchronous fire within a group
-		sleep (random [2,3,4]);
+		if (_fireModeIndex > 0) then
+		{
+			sleep (random [2,3,4]);
+		};
 
 		if (isNull objectParent _unit) then
 		{
@@ -207,7 +210,7 @@ _placeholder setPos [0,0,0];
 				for "_" from 1 to _fireRepeater do
 				{
 					sleep 0.1;
-					if (_unit getVariable ["Achilles_var_fireGranted", true]) then
+					if (_unit getVariable ["Achilles_var_fireGranted", false]) then
 					{
 						[_unit, _muzzle] call BIS_fnc_fire;
 						_unit setVehicleAmmo 1;
@@ -244,6 +247,7 @@ _placeholder setPos [0,0,0];
 
 //clean up
 sleep (_duration + 5);
+{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
 deleteVehicle _selectedTarget;
 if (!isNull _old_group) then {_old_group setFormation _oldFormation};
 [] spawn {{deleteGroup _x} forEach (allGroups select {units _x isEqualTo []})};
