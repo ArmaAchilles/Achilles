@@ -13,21 +13,23 @@ private _dialogResult =
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
-if ((_dialogResult select 0) isEqualTo []) exitWith {};
+if (_dialogResult isEqualTo []) exitWith {};
 
-switch (_dialogResult select 0) do 
+_dialogResult params ["_hintType", "_message"];
+
+switch (_hintType) do 
 {
 	case 0: 
 	{
-		parseText (_dialogResult select 1) remoteExec ["hint", 0];
+		parseText (_message) remoteExecCall ["hint", 0];
 	};
 	case 1: 
 	{
-		parseText (_dialogResult select 1) remoteExec ["hintSilent", 0];
+		parseText (_message) remoteExecCall ["hintSilent", 0];
 	};
 	case 2: 
 	{
-		 parseText (_dialogResult select 1) remoteExec ["hintCadet", 0];
+		 parseText (_message) remoteExecCall ["hintCadet", 0];
 	};
 };
 
