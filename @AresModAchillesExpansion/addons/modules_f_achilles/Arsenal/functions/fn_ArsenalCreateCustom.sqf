@@ -47,17 +47,32 @@ private _object = _selectedCrate createVehicle (getPos _logic);
 if (_defaultInventory) exitWith
 {
     // Get current cargo from the new box and set it all to be virtual.
-    [
-        _object,
-        [
-            (getWeaponCargo _object) select 0,
-            (getMagazineCargo _object) select 0,
-            (getItemCargo _object) select 0,
-            (getBackpackCargo _object) select 0
-        ],
-        true
-    ] call Achilles_fnc_ArsenalSetup;
-
+	if (["arsenal"] call Achilles_fnc_isACELoaded) then
+	{
+		[
+			_object,
+			[
+				(getWeaponCargo _object) select 0,
+				(getMagazineCargo _object) select 0,
+				(getItemCargo _object) select 0,
+				(getBackpackCargo _object) select 0
+			],
+			true
+		] call Achilles_fnc_ArsenalSetupACE;
+	}
+	else
+	{
+		[
+			_object,
+			[
+				(getWeaponCargo _object) select 0,
+				(getMagazineCargo _object) select 0,
+				(getItemCargo _object) select 0,
+				(getBackpackCargo _object) select 0
+			],
+			true
+		] call Achilles_fnc_ArsenalSetup;
+	};
     [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 };
 
@@ -183,7 +198,6 @@ else
     if (_tents) then {{_dataBackpacks pushBackUnique _x} forEach _arsenalTents};
     if (_uavs) then {{_dataBackpacks pushBackUnique _x} forEach _arsenalUAVs; {_dataItems pushBackUnique _x} forEach _arsenalUAVController};
 };
-
 
 if (["arsenal"] call Achilles_fnc_isACELoaded) then
 {
