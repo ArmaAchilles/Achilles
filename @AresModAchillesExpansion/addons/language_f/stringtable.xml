@@ -1251,6 +1251,10 @@
                 <Russian>Игрок не выбран!</Russian>
                 <German>Keine Spieler ausgewählt!</German>
             </Key>
+            <Key ID="STR_AMAE_SELECT_NON_PLAYER_UNITS">
+                <Original>Select non player units only!</Original>
+                <English>Select non player units only!</English>
+            </Key>
             <Key ID="STR_AMAE_NOT_IMPLEMENTED_AT_THE_MOMENT">
                 <Original>Not implemented at the moment!</Original>
                 <English>Not implemented at the moment!</English>
