@@ -11,6 +11,25 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 
 ## Change log
 
+### v1.0.1
+#### Modules
+##### Revised
+* Arsenal modules:
+	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded.
+	- Fix: Copy/Paste arsenal was broken when ACE3 is running.
+* Add/remove editable objects:
+	- Fix: Not all objects could be added/removed.
+* Change abilities:
+	- Fix: Added exception handling for players (by @MaliceGFS).
+	- Fix: Error messages were not shown properly in certain cases (by @MaliceGFS).
+* Hint (Module category: Zeus):
+	- Feature: Added option for the hint type (by @MaliceGFS).
+
+#### Attribute windows
+##### Revised
+* Inventory:
+	- Fix: Did not use ACE's arsenal when ACE3 is loaded.
+
 ### v1.0.0
 #### Modules
 ##### New
