@@ -1764,6 +1764,22 @@
                 <Russian>Сообщение</Russian>
                 <German>Mitteilung</German>
             </Key>
+            <Key ID="STR_AMAE_HINT_TYPE">
+                <Original>Hint Type</Original>
+                <English>Hint Type</English>
+            </Key>
+            <Key ID="STR_AMAE_HINT">
+                <Original>Hint</Original>
+                <English>Hint</English>
+            </Key>
+            <Key ID="STR_AMAE_HINT_SILENT">
+                <Original>Hint Silent</Original>
+                <English>Hint Silent</English>
+            </Key>
+            <Key ID="STR_AMAE_HINT_CADET">
+                <Original>Hint Cadet</Original>
+                <English>Hint Cadet</English>
+            </Key>
             <Key ID="STR_AMAE_AI">
                 <Original>AI</Original>
                 <English>AI</English>
