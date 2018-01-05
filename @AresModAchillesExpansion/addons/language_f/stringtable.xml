@@ -2093,6 +2093,10 @@
                 <Russian>Режим стрельбы</Russian>
                 <German>Feuermodus</German>
             </Key>
+            <Key ID="STR_AMAE_TALKING_GUNS">
+                <Original>Talking guns</Original>
+                <English>Talking guns</English>
+            </Key>
             <Key ID="STR_AMAE_AUTOMATIC">
                 <Original>automatic</Original>
                 <English>automatic</English>
