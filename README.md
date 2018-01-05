@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/Pictures/Achilles_Logo_Github.png" width="196" alt="AMAE Logo">
+    <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/Pictures/logo/achilles_logo_whiteBackground.png" width="140" alt="AMAE Logo">
     <h1 align="center">Ares Mod - Achilles Expansion</h1>
 </p>
 
@@ -11,7 +11,7 @@
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/AresModAchillesExpansion.svg?style=flat-square&label=Issues" alt="AMAE issues">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/releases">
-        <img src="https://img.shields.io/github/downloads/ArmaAchilles/AresModAchillesExpansion/total.svg?style=flat-square&label=Downloads" alt="ACE3 Downloads">
+        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Downloads&colorB=brightgreen&prefix=&suffix=&query=downloads&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE Downloads">
     </a>
     <a href="https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/">
         <img src="https://img.shields.io/badge/BIF-Thread-lightgrey.svg?style=flat-square" alt="BIF thread">

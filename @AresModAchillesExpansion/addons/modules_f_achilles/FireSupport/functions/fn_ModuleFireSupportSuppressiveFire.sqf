@@ -80,7 +80,7 @@ else
 				_weaponsToFire pushBack _weaponName;
 			};
 		};
-	} forEach (_unit weaponsTurret [0]); // TODO: Could create issues if vehicle (e.g. Hummingbird) doesn't have weapons for the gunner
+	} forEach (_unit weaponsTurret [0]); // TODO: This could break for some vehicles that don't have weapons for the gunner (Hummingbird).
 };
 if (_weaponsToFire isEqualTo []) exitWith {[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage};
 
