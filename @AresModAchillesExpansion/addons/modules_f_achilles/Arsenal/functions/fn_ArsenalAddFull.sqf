@@ -31,7 +31,7 @@ if (isNil "_objects") exitWith {};
 {
     if (["arsenal"] call Achilles_fnc_isACELoaded) then
     {
-        [_x, true] call ace_arsenal_fnc_initBox;
+        [_x, true, true] call ace_arsenal_fnc_initBox;
     }
     else
     {
