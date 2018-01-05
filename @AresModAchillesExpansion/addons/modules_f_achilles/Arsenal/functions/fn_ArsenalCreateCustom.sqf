@@ -184,7 +184,7 @@ else
     if (_uavs) then {{_dataBackpacks pushBackUnique _x} forEach _arsenalUAVs; {_dataItems pushBackUnique _x} forEach _arsenalUAVController};
 };
 
-[_object, _data, _replaceItems] call Achilles_fnc_ArsenalSetup;
+[_box, _data, _replaceItems] call Achilles_fnc_updateVirtualArsenal;
 
 [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 
