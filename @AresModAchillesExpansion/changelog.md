@@ -14,9 +14,14 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ### v1.0.1
 #### Modules
 ##### Revised
-* Injury:
-	- Fix: Localization was missing for sever injury in vanilla.
+* Suppressive fire:
+	- Feature: "Talking guns" fire mode.
+	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire.
+	- Change: Changed default dialog options.
+	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers).
+	- Fix: Removed handgun from the list of weapons.
 * Arsenal modules:
+	- Note: VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!
 	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded.
 	- Fix: Copy/Paste arsenal was broken when ACE3 is running.
 * Add/remove editable objects:
@@ -26,11 +31,13 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Error messages were not shown properly in certain cases (by @MaliceGFS).
 * Hint (Module category: Zeus):
 	- Feature: Added option for the hint type (by @MaliceGFS).
+* Injury:
+	- Fix: Localization was missing for severe injury in vanilla.
 
 #### Attribute windows
 ##### Revised
 * Inventory:
-	- Fix: Did not use ACE's arsenal when ACE3 is loaded.
+	- Fix: Did not use ACE's arsenal when ACE3 was loaded.
 * Execute:
 	- Fix: Enable debug mission parameter was ignored.
 
