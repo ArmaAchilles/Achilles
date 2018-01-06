@@ -14,6 +14,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ### v1.0.1
 #### Modules
 ##### Revised
+* Injury:
+	- Fix: Localization was missing for sever injury in vanilla.
 * Arsenal modules:
 	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded.
 	- Fix: Copy/Paste arsenal was broken when ACE3 is running.
@@ -29,6 +31,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ##### Revised
 * Inventory:
 	- Fix: Did not use ACE's arsenal when ACE3 is loaded.
+* Execute:
+	- Fix: Enable debug mission parameter was ignored.
 
 ### v1.0.0
 #### Modules

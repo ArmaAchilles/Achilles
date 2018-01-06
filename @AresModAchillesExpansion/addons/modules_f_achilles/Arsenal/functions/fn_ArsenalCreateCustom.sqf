@@ -47,25 +47,19 @@ private _object = _selectedCrate createVehicle (getPos _logic);
 if (_defaultInventory) exitWith
 {
     // Get current cargo from the new box and set it all to be virtual.
-    [
-        _object,
-        [
-            (getWeaponCargo _object) select 0,
-            (getMagazineCargo _object) select 0,
-            (getItemCargo _object) select 0,
-            (getBackpackCargo _object) select 0
-        ],
-        true
-    ] call Achilles_fnc_ArsenalSetup;
-
-    [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
+	[_object, [(getItemCargo _object) select 0, (getWeaponCargo _object) select 0, (getMagazineCargo _object) select 0, (getBackpackCargo _object) select 0], true] call Achilles_fnc_updateVirtualArsenal;
+	// clear inventory
+	clearitemcargoglobal _object;
+	clearweaponcargoglobal _object;
+	clearmagazinecargoglobal _object;
+	clearbackpackcargoglobal _object;
+	[localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 };
 
 private _dialogResult =
 [
     localize "STR_AMAE_ARSENAL_CREATE_CUSTOM",
     [
-        [localize "STR_AMAE_ARSENAL_COMBINE_OR_REPLACE", [localize "STR_AMAE_ARSENAL_REPLACE", localize "STR_AMAE_ARSENAL_COMBINE"]],
         [localize "STR_AMAE_ARSENAL_SIDE_EQUIPMENT", SIDE_EQUIPMENT, 1],
         [localize "STR_AMAE_ARSENAL_ADD_GPS", YES_NO],
         [localize "STR_AMAE_ARSENAL_ADD_NVGS", YES_NO],
@@ -81,7 +75,6 @@ if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params
 [
-    "_replaceItems",
     "_sideEquipment",
     "_gps",
     "_nvgs",
@@ -93,7 +86,6 @@ _dialogResult params
 ];
 
 // Convert numbers to booleans.
-_replaceItems = _replaceItems == 0;
 _gps = _gps == 0;
 _nvgs = _nvgs == 0;
 _thermals = _thermals == 0;
@@ -184,7 +176,13 @@ else
     if (_uavs) then {{_dataBackpacks pushBackUnique _x} forEach _arsenalUAVs; {_dataItems pushBackUnique _x} forEach _arsenalUAVController};
 };
 
-[_object, _data, _replaceItems] call Achilles_fnc_ArsenalSetup;
+// clear inventory
+clearitemcargoglobal _object;
+clearweaponcargoglobal _object;
+clearmagazinecargoglobal _object;
+clearbackpackcargoglobal _object;
+
+[_object, _data, true] call Achilles_fnc_updateVirtualArsenal;
 
 [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 

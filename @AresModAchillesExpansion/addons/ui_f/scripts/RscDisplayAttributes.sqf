@@ -46,7 +46,7 @@ switch _mode do
 		private _posY = _ctrlContentOffsetY;
 		private _contentControls = _displayConfig >> "Controls" >> "Content" >> "Controls";
 		private _curatorUID = getPlayerUID player;
-		private _enableDebugConsole = getMissionConfigValue ["enableDebugConsole", 0];
+		private _enableDebugConsole = getMissionConfigValue ["enableDebugConsole", "DebugConsole" call BIS_fnc_getParamValue];
 		private _enableAdmin = false;
 		if (_enableDebugConsole isEqualType []) then
 		{
