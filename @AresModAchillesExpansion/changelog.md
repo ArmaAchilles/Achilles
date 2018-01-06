@@ -29,6 +29,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Change abilities:
 	- Fix: Added exception handling for players (by @MaliceGFS).
 	- Fix: Error messages were not shown properly in certain cases (by @MaliceGFS).
+	- Fix: Mine detection and move abilities were mixed up.
 * Hint (Module category: Zeus):
 	- Feature: Added option for the hint type (by @MaliceGFS).
 * Injury:
