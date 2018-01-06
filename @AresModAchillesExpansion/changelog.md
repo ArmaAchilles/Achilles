@@ -18,14 +18,14 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Feature: "Talking guns" fire mode.
 	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire.
 	- Change: Changed default dialog options.
-	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers).
-	- Fix: Removed handgun from the list of weapons.
+	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers). #230
+	- Fix: Removed handgun from the list of weapons. #230
 * Arsenal modules:
 	- Note: VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!
-	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded.
-	- Fix: Copy/Paste arsenal was broken when ACE3 is running.
+	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded. #230
+	- Fix: Copy/Paste arsenal was broken when ACE3 is running. #230
 * Add/remove editable objects:
-	- Fix: Not all objects could be added/removed.
+	- Fix: Not all objects could be added/removed. #230
 * Change abilities:
 	- Fix: Added exception handling for players (by @MaliceGFS).
 	- Fix: Error messages were not shown properly in certain cases (by @MaliceGFS).
@@ -33,13 +33,14 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Feature: Added option for the hint type (by @MaliceGFS).
 * Injury:
 	- Fix: Localization was missing for severe injury in vanilla.
-
 #### Attribute windows
 ##### Revised
 * Inventory:
-	- Fix: Did not use ACE's arsenal when ACE3 was loaded.
+	- Fix: Did not use ACE's arsenal when ACE3 was loaded. #230
 * Execute:
-	- Fix: Enable debug mission parameter was ignored.
+	- Fix: Enable debug mission parameter was ignored. #234
+#### Other
+* Change: Replaced the Achilles logo.
 
 ### v1.0.0
 #### Modules
