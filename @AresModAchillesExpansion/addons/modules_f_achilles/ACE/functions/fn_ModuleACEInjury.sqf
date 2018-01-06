@@ -109,7 +109,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		Achilles_var_setInjury_init_done = true;
 	};
 
-	private _severity_options = [[localize "STR_AMAE_NONE_INJURY", "(0)"], localize "STR_AMAE_RANDOM", [localize "STR_AMAE_MODERATE_INJURY", "(0.5)"], [localize "STR_AMAE_SEVERE_INJURY", "(0.9)"]];
+	private _severity_options = [[localize "STR_AMAE_NONE_INJURY", "(0)"], localize "STR_AMAE_RANDOM", [localize "STR_AMAE_MODERATE_INJURY", "(0.5)"], [localize "STR_AMAE_SEVERE", "(0.9)"]];
 
 	private _dialogResult =
 	[

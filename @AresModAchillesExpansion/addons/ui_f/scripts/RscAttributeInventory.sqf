@@ -164,8 +164,12 @@ switch _mode do {
 			getmagazinecargo _entity,
 			getbackpackcargo _entity
 		];
-		private _virtualCargo = [_entity] call Achilles_fnc_getVirtualArsenal;
-		
+		private _virtualCargo = [
+			_entity call bis_fnc_getVirtualItemCargo,
+			_entity call bis_fnc_getVirtualWeaponCargo,
+			_entity call bis_fnc_getVirtualMagazineCargo,
+			_entity call bis_fnc_getVirtualBackpackCargo
+		];
 		RscAttributeInventory_cargoVirtual = [];
 		{
 			private _xCargo = _cargo select _foreachindex;
@@ -562,6 +566,28 @@ switch _mode do {
 			};
 		} foreach _values;
 
+		private _virtual_items = [];
+		private _virtual_weapons = [];
+		private _virtual_magazines = [];
+		private _virtual_backpacks = [];
+
+		{
+			switch true do {
+				case (getnumber (configfile >> "cfgweapons" >> _x >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _x)): {
+					_virtual_items pushBack _x;
+				};
+				case (isclass (configfile >> "cfgweapons" >> _x)): {
+					_virtual_weapons pushBack _x;
+				};
+				case (isclass (configfile >> "cfgmagazines" >> _x)): {
+					_virtual_magazines pushBack _x;
+				};
+				case (isclass (configfile >> "cfgvehicles" >> _x)): {
+					_virtual_backpacks pushBack _x;
+				};
+			};
+		} forEach RscAttributeInventory_cargoVirtual;
+
 		private _curatorSelected = ["cargo"] call Achilles_fnc_getCuratorSelected;
 		// Add the target object to the list of selected objects if it is not yet there.
 		_curatorSelected pushBackUnique (missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull]);
@@ -572,13 +598,20 @@ switch _mode do {
 			clearweaponcargoglobal _box;
 			clearmagazinecargoglobal _box;
 			clearbackpackcargoglobal _box;
-			
+
+			_box call bis_fnc_removeVirtualItemCargo;
+			_box call bis_fnc_removeVirtualWeaponCargo;
+			_box call bis_fnc_removeVirtualMagazineCargo;
+			_box call bis_fnc_removeVirtualBackpackCargo;
+
 			{_box additemcargoglobal _x} forEach _items;
 			{_box addweaponcargoglobal _x} forEach _weapons;
 			{_box addmagazinecargoglobal _x} forEach _magazines;
 			{_box addbackpackcargoglobal _x} forEach _backpacks;
-			
-			with missionNamespace do {[_box, uiNamespace getVariable ["RscAttributeInventory_cargoVirtual", []], true] call Achilles_fnc_updateVirtualArsenal};
+			[_box, _virtual_items,true] call bis_fnc_addVirtualItemCargo;
+			[_box, _virtual_weapons,true] call bis_fnc_addVirtualWeaponCargo;
+			[_box, _virtual_magazines,true] call bis_fnc_addVirtualMagazineCargo;
+			[_box, _virtual_backpacks,true] call bis_fnc_addVirtualBackpackCargo;
 		} forEach _curatorSelected;
 	};
 	case "onUnload": {

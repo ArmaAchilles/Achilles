@@ -27,7 +27,10 @@ private _dialogResult =
 ] call Ares_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
-private _replace = (_dialogResult select 0) == 0;
+
+_dialogResult params ["_pasteMode"];
+
+_pasteMode = _pasteMode == 0;
 
 uiNamespace setVariable ["Ares_CopyPaste_Dialog_Text", ""];
 createDialog "Ares_CopyPaste_Dialog";
@@ -35,7 +38,7 @@ createDialog "Ares_CopyPaste_Dialog";
 [
     {isNull ((findDisplay 123) displayCtrl 1000)}, 
     {
-        params ["_object", "_replace"];
+        params ["_object", "_pasteMode"];
 
 		private _dialogResult = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Result", -1];
 		if (_dialogResult isEqualTo -1) exitWith {};
@@ -43,15 +46,22 @@ createDialog "Ares_CopyPaste_Dialog";
         private _dialogText = uiNamespace getVariable ["Ares_CopyPaste_Dialog_Text", ""];
 
         // Security concern, but no other way to convert string to array.
-        private _cargo = call compile _dialogText;
+        _dialogText = call compile _dialogText;
 
-		if !(_cargo isEqualType []) exitWith {[localize "STR_AMAE_ARSENAL_FAILED_TO_PARSE"] call Achilles_fnc_ShowZeusErrorMessage};
+		if (_dialogText isEqualTo "" || !(_dialogText isEqualType [])) exitWith {[localize "STR_AMAE_ARSENAL_FAILED_TO_PARSE"] call Achilles_fnc_ShowZeusErrorMessage};
 		
-		[_object, _cargo, _replace] call Achilles_fnc_updateVirtualArsenal; 
+        if (["arsenal"] call Achilles_fnc_isACELoaded) then
+        {
+            [_object, _dialogText, _pasteMode] call Achilles_fnc_ArsenalSetupACE;
+        }
+        else
+        {
+		    [_object, _dialogText, _pasteMode] call Achilles_fnc_ArsenalSetup;
+        };
 
         [localize "STR_AMAE_INVENTORY_PASTED"] call Ares_fnc_ShowZeusMessage;
     },
-    [_object, _replace]
+    [_object, _pasteMode]
 ] call CBA_fnc_waitUntilAndExecute;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
