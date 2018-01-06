@@ -1,3 +1,22 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUTHOR: 			Kex
+// DATE: 			06.01.18
+// VERSION: 		AMAE.1.0.1
+// DESCRIPTION:		Updates the virtual arsenal of an object. Supports vanilla as well as ACE arsenal.
+//					This function can also be used for initializing/removing the virtual arsenal.
+//
+// ARGUMENTS:		0: OBJECT - The object of which the virtual arsenal is updated.
+//					1: ARRAY - (Default: []) The new cargo that is added or replaces the old. 
+//						Either a nested array of weapon/magazine/backpack/item class names as string of the form
+//						[<item list>, <weapon list>, <magazine list>, <backpack list>] or a single array with all class names.
+//					2: BOOLEAN - (Default: true) True: replaces the old virtual arsenal, false: combines.
+//
+//
+// RETURNS:			NOTHING
+//
+// Example:			[_ammoBox, _cargo, true] call Achilles_fnc_updateVirtualArsenal;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 params
 [
 	["_crate",objNull,[objNull]],

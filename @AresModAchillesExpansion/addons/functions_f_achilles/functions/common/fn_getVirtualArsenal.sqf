@@ -1,3 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUTHOR: 			Kex
+// DATE: 			06.01.18
+// VERSION: 		AMAE.1.0.1
+// DESCRIPTION:		Returns the virtual arsenal of an object. Supports vanilla as well as ACE arsenal.
+//
+// ARGUMENTS:		0: OBJECT - The object of which the virtual arsenal is inspected.
+//					1: BOOLEAN - (Default: true) True: returns a nested array of weapon/magazine/backpack/item class names as string
+//						of the form [<item list>, <weapon list>, <magazine list>, <backpack list>], false: returns a single array with
+//						all class names.
+//
+//
+// RETURNS:			ARRAY - Returns the cargo in a format that depends on argument _this select 1.
+//
+// Example:			_cargo = [_ammoBox, true] call Achilles_fnc_getVirtualArsenal;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 params
 [
 	["_crate",objNull,[objNull]],
