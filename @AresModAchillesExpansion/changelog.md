@@ -21,7 +21,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers). #230
 	- Fix: Removed handgun from the list of weapons. #230
 * Arsenal modules:
-	- Note: VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!
+	- Note: *VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!*
 	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded. #230
 	- Fix: Copy/Paste arsenal was broken when ACE3 is running. #230
 * Add/remove editable objects:
