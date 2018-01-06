@@ -18,6 +18,12 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 	publicVariable "Achilles_fnc_SuppressiveFire";
 	Achilles_var_suppressiveFire_init_done = true;
 };
+//Broadcast set ammo function
+if (isNil "Achilles_var_setammo_init_done") then {
+	publicVariableServer "Achilles_fnc_setUnitAmmoDef";
+	publicVariableServer "Achilles_fnc_setVehicleAmmoDef";
+	Achilles_var_setammo_init_done = true;
+};
 
 // get list of possible targets
 private _allTargetsData = ["Achilles_Create_Suppression_Target_Module"] call Achilles_fnc_getPosLogicsData;
@@ -76,6 +82,7 @@ else
 		};
 	} forEach (_unit weaponsTurret [0]); // TODO: This could break for some vehicles that don't have weapons for the gunner (Hummingbird).
 };
+if (_weaponsToFire isEqualTo []) exitWith {[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // select parameters
 private _dialogResult =
@@ -83,13 +90,14 @@ private _dialogResult =
 	localize "STR_AMAE_SUPPRESIVE_FIRE",
 	[
 		[format [localize "STR_AMAE_SUPPRESS_X", " "], _targetChoices],
-		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"]],
+		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"], 1],
 		[localize "STR_AMAE_LINE_UP", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"], 1],
 		[localize "STR_AMAE_WEAPON_TO_FIRE", _weaponsToFire],
-		[localize "STR_AMAE_FIRE_MODE", [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
-		[localize "STR_AMAE_DURATION", "", "10"]
+		[localize "STR_AMAE_FIRE_MODE", [localize "STR_AMAE_TALKING_GUNS", localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
+		[localize "STR_AMAE_DURATION", "", "20"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
+
 if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params
