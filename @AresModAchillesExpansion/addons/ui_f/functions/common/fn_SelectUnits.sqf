@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 5/1/16
 //	VERSION: 1.0
-//	FILE: Achilles\functions\fn_SelectObjects.sqf
+//	FILE: Achilles\functions\fn_SelectUnits.sqf
 //  DESCRIPTION: Let the curator select units and submit the selection
 //
 //	ARGUMENTS:

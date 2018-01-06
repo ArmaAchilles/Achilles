@@ -1,22 +1,22 @@
 <p align="center">
-    <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/Pictures/Achilles_Logo_Github.png" width="196" alt="AMAE Logo">
+    <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/Pictures/logo/achilles_logo_whiteBackground.png" width="140" alt="AMAE Logo">
     <h1 align="center">Ares Mod - Achilles Expansion</h1>
 </p>
 
 <p align="center">
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/(0.1.0)">
+    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/master">
         <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg?style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/issues">
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/AresModAchillesExpansion.svg?style=flat-square&label=Issues" alt="AMAE issues">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/releases">
-        <img src="https://img.shields.io/github/downloads/ArmaAchilles/AresModAchillesExpansion/total.svg?style=flat-square&label=Downloads" alt="ACE3 Downloads">
+        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Downloads&colorB=brightgreen&prefix=&suffix=&query=downloads&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE Downloads">
     </a>
     <a href="https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/">
         <img src="https://img.shields.io/badge/BIF-Thread-lightgrey.svg?style=flat-square" alt="BIF thread">
     </a>
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/LICENSE">
+    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-orange.svg?style=flat-square" alt="AMAE license">
     </a>
     <a href="https://discord.gg/kN7Jnhr">
@@ -27,9 +27,9 @@
     </a>
 </p>
 
-**Ares Mod - Achilles Expansion** more known as _Achilles_, is a gameplay modification for Arma 3. It expands the real-time editor, Zeus, with many new additions.  
+**Ares Mod - Achilles Expansion**, better known as _Achilles_, is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
 
-**Ares Mod - Achilles Expansion** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod which was created by [Anton Struyk](https://github.com/astruyk), but Ares hadn't been updated for a long time, so development on Achilles started. Achilles has grown into a _splendid_ project but things are still to come! 
+**Ares Mod - Achilles Expansion** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod, which was created by [Anton Struyk](https://github.com/astruyk). Achilles became the _de facto_ successor to Ares at the point the latter was no longer updated. Achilles has already grown into a _splendid_ project, but new additions are still to come! 
 
 * * *
 
@@ -108,7 +108,7 @@ And then we will have a look at your work!
 - **[Kex](https://github.com/oOKexOo)** - Achilles
 - **[CreepPork](https://github.com/CreepPork)** - Achilles
 
-See also the list of [contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/%40AresModAchillesExpansion/credits.md) who have invested something into Achilles and Ares.
+See also the list of [contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.md) who have invested something into Achilles and Ares.
 
 ## Contact
 
@@ -116,4 +116,4 @@ To contact us - find us on our [Discord](https://discord.gg/kN7Jnhr) server.
 
 ## License
 
-**Ares Mod - Achilles Expansion** is licensed under the **[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/(0.1.0)/LICENSE)** license.
+**Ares Mod - Achilles Expansion** is licensed under the **[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE)** license.

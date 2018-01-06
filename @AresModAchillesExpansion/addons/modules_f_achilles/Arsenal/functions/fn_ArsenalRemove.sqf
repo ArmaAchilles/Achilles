@@ -31,7 +31,7 @@ if (isNil "_objects") exitWith {};
 {
     if (["arsenal"] call Achilles_fnc_isACELoaded) then
     {
-        [_x, true, false] call ace_arsenal_fnc_removeVirtualItems;
+		[_x, true] call ace_arsenal_fnc_removeBox;
     }
     else
     {

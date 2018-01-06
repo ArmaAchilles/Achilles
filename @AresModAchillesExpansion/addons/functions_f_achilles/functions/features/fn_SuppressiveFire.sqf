@@ -70,7 +70,7 @@ if (_doLineUp) then
 		waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
 	};
 	// orientate line perpendicular to target
-	_old_group setFormDir (_old_group getDir _selectedTarget);
+	_old_group setFormDir (leader _old_group getDir _selectedTarget);
 	// wait until unit is in formation
 	sleep 2;
 	waitUntil {sleep 1; {(speed _x > 0) and (alive _x)} count _units == 0};
@@ -107,7 +107,6 @@ _placeholder setPos [0,0,0];
 			{
 				if !(_x isEqualTo "") then
 				{
-					diag_log _x;
 					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
 					if (count _muzzleArray > 1) then
 					{
