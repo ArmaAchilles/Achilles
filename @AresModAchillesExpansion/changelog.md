@@ -1,4 +1,4 @@
-﻿# Change log of Ares Mod - Achilles Expansion
+# Change log of Ares Mod - Achilles Expansion
 
 ## Versioning (introduced with 1.0.0)
 X.X.X  
@@ -11,8 +11,6 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 
 ## Change log
 
-<<<<<<< HEAD
-=======
 ### v1.0.1
 #### Modules
 ##### Revised
@@ -33,8 +31,9 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ##### Revised
 * Inventory:
 	- Fix: Did not use ACE's arsenal when ACE3 is loaded.
+* Execute:
+	- Fix: Enable debug mission parameter was ignored.
 
->>>>>>> 1da82d5... New arsenal functions: getVirtualArsenal and updateVirtualArsenal
 ### v1.0.0
 #### Modules
 ##### New
