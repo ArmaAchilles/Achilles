@@ -27,9 +27,9 @@
     </a>
 </p>
 
-**Ares Mod - Achilles Expansion** more known as _Achilles_, is a gameplay modification for Arma 3. It expands the real-time editor, Zeus, with many new additions.  
+**Ares Mod - Achilles Expansion**, better known as _Achilles_, is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
 
-**Ares Mod - Achilles Expansion** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod which was created by [Anton Struyk](https://github.com/astruyk), but Ares hadn't been updated for a long time, so development on Achilles started. Achilles has grown into a _splendid_ project but things are still to come! 
+**Ares Mod - Achilles Expansion** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod, which was created by [Anton Struyk](https://github.com/astruyk). Achilles became the _de facto_ successor to Ares at the point the latter was no longer updated. Achilles has already grown into a _splendid_ project, but new additions are still to come! 
 
 * * *
 

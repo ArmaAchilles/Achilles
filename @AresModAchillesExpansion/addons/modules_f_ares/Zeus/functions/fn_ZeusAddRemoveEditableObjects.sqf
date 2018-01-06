@@ -40,10 +40,10 @@ if (_range_mode == 0) then
 	private _radius = parseNumber (_dialogResult select 2);
 	_objectsToProcess = switch (_obj_type) do
 	{
-		case 0: {_center_pos nearEntities _radius};
+		case 0: {nearestObjects [_center_pos, [],_radius, true]};
 		case 1:
 		{
-			private _units = _center_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius];
+			private _units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
 			if (_dialogResult select 4 == 1) then
 			{
 				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
@@ -53,9 +53,9 @@ if (_range_mode == 0) then
 				_units select {count crew _x > 0};
 			};
 		};
-		case 2: {_center_pos nearEntities [["LandVehicle","Air","Ship"], _radius]};
-		case 3: {_center_pos nearEntities ["Static", _radius]};
-		case 4: {_center_pos nearEntities ["Logic", _radius]};
+		case 2: {nearestObjects [_center_pos, ["LandVehicle","Air","Ship"], _radius, true]};
+		case 3: {nearestObjects [_center_pos, ["Static"], _radius, true]};
+		case 4: {nearestObjects [_center_pos, ["Logic"], _radius, true]};
 	};
 }
 else
@@ -84,13 +84,13 @@ else
 // protect the main essential module from being added
 _objectsToProcess = _objectsToProcess select
 {
-	private _type = toLower typeOf _x;
 	if (Achilles_Debug_Output_Enabled) then
 	{
 		true;
 	}
 	else
 	{
+		private _type = toLower typeOf _x;
 		(!(_type in ["logic", "modulehq_f", "modulemptypegamemaster_f", "land_helipadempty_f", "ares_module_base", "achilles_module_base"]) && {(_type select [0,13]) != "modulecurator"}) /*&& {{_object isKindOf _x} count ["Land_Carrier_01_hull_GEO_Base_F","Land_Carrier_01_hull_base_F","DynamicAirport_01_F"] == 0}*/
     };
 };
