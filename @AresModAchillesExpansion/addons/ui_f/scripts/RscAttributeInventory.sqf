@@ -578,7 +578,7 @@ switch _mode do {
 			{_box addmagazinecargoglobal _x} forEach _magazines;
 			{_box addbackpackcargoglobal _x} forEach _backpacks;
 			
-			[_box, RscAttributeInventory_cargoVirtual, true] call Achilles_fnc_updateVirtualArsenal;
+			with missionNamespace do {[_box, uiNamespace getVariable ["RscAttributeInventory_cargoVirtual", []], true] call Achilles_fnc_updateVirtualArsenal};
 		} forEach _curatorSelected;
 	};
 	case "onUnload": {

@@ -4,7 +4,6 @@ params
 	["_cargo",[],[[]]],
 	["_replace",true,[true]]
 ];
-
 if (["arsenal"] call Achilles_fnc_isACELoaded) then
 {
 	private _cargoNotNested = [];
@@ -17,30 +16,17 @@ if (["arsenal"] call Achilles_fnc_isACELoaded) then
 	{
 		_cargoNotNested = _cargo;
 	};
-	
-	if (isNil {_crate getVariable "ace_arsenal_virtualItems"}) then
+	systemChat str _cargoNotNested;
+	if (_replace) then
 	{
-		// Initialize arsenal if it is not yet present
-		[_crate, _cargoNotNested, true] call ace_arsenal_fnc_initBox;
-	}
-	else
+		systemChat "remove";
+		[_crate, true] call ace_arsenal_fnc_removeBox;
+	};
+	if (not (_cargoNotNested isEqualTo [])) then
 	{
-		if (_replace) then
-		{
-			if (_cargoNotNested isEqualTo []) then
-			{
-				// completely remove arsenal if an empty list is passed
-				[_crate, true] call ace_arsenal_fnc_removeBox;
-			} else
-			{
-				[_box, true, true] call ace_arsenal_fnc_removeVirtualItems;
-				[_box, _cargoNotNested, true] call ace_arsenal_fnc_addVirtualItems;
-			};
-		}
-		else
-		{
-			[_box, _cargoNotNested, true] call ace_arsenal_fnc_addVirtualItems;
-		};
+		systemChat "add";
+		[_crate, [], true] call ace_arsenal_fnc_initBox;
+		[_crate, _cargoNotNested, true] call ace_arsenal_fnc_addVirtualItems;
 	};
 }
 else
