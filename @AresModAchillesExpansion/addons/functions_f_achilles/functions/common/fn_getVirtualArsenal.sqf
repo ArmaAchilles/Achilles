@@ -90,5 +90,4 @@ else
 		_return append (_crate call bis_fnc_getVirtualBackpackCargo);
 	};
 };
-systemChat str _return;
 _return;

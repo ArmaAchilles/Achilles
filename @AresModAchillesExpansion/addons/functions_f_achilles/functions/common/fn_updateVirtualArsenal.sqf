@@ -35,15 +35,12 @@ if (["arsenal"] call Achilles_fnc_isACELoaded) then
 	{
 		_cargoNotNested = _cargo;
 	};
-	systemChat str _cargoNotNested;
 	if (_replace) then
 	{
-		systemChat "remove";
 		[_crate, true] call ace_arsenal_fnc_removeBox;
 	};
 	if (not (_cargoNotNested isEqualTo [])) then
 	{
-		systemChat "add";
 		[_crate, [], true] call ace_arsenal_fnc_initBox;
 		[_crate, _cargoNotNested, true] call ace_arsenal_fnc_addVirtualItems;
 	};
