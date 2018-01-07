@@ -35,11 +35,11 @@ if (isNil "_objects") exitWith {};
     }
     else
     {
-        [_x, (_x call BIS_fnc_getVirtualWeaponCargo), true] call BIS_fnc_removeVirtualWeaponCargo;
-        [_x, (_x call BIS_fnc_getVirtualMagazineCargo), true] call BIS_fnc_removeVirtualMagazineCargo;
-        [_x, (_x call BIS_fnc_getVirtualItemCargo), true] call BIS_fnc_removeVirtualItemCargo;
-        [_x, (_x call BIS_fnc_getVirtualBackpackCargo), true] call BIS_fnc_removeVirtualBackpackCargo;
-        [_x] remoteExecCall ["removeAllActions", 0];
+        _x call BIS_fnc_removeVirtualWeaponCargo;
+        _x call BIS_fnc_removeVirtualMagazineCargo;
+        _x call BIS_fnc_removeVirtualItemCargo;
+        _x call BIS_fnc_removeVirtualBackpackCargo;
+		["AmmoboxExit", [_x]] call BIS_fnc_arsenal;
     };
 } forEach _objects;
 

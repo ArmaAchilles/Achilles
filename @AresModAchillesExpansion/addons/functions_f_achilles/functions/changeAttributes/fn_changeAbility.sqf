@@ -14,7 +14,7 @@
 //	[_unit] call Achilles_fnc_changeAbility;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MINEDETECTION","MOVE","SUPPRESSION","TARGET","PATH"]
+#define ABILITIES ["AIMINGERROR","ANIM","AUTOCOMBAT","AUTOTARGET","CHECKVISIBLE","COVER","FSM","MOVE","MINEDETECTION","SUPPRESSION","TARGET","PATH"]
 
 private _units = [param [0,ObjNull,[ObjNull]]];
 private _abilityCount = count ABILITIES;

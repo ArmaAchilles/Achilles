@@ -1291,6 +1291,13 @@
                 <French>Il n'y a pas assez d'espace!</French>
                 <German>Es hat nicht genug freie Positionen!</German>
             </Key>
+            <Key ID="STR_AMAE_NO_VALID_WEAPON_AVAILABLE">
+                <Original>No valid weapon available!</Original>
+                <English>No valid weapon available!</English>
+                <French>Il n'y a pas des armes valide!</French>
+                <German>Keine gültige Waffe verfügbar!</German>
+            </Key>
+			
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -2226,6 +2233,10 @@
                 <French>Le mode de tir</French>
                 <Russian>Режим стрельбы</Russian>
                 <German>Feuermodus</German>
+            </Key>
+            <Key ID="STR_AMAE_TALKING_GUNS">
+                <Original>Talking guns</Original>
+                <English>Talking guns</English>
             </Key>
             <Key ID="STR_AMAE_AUTOMATIC">
                 <Original>automatic</Original>
@@ -3304,6 +3315,12 @@
                 <French>Considérable</French>
                 <Russian>Тяжёлые</Russian>
                 <German>Schwer</German>
+            </Key>
+            <Key ID="STR_AMAE_HIGH">
+                <Original>high</Original>
+                <English>high</English>
+                <French>haute</French>
+                <German>hoch</German>
             </Key>
             <Key ID="STR_AMAE_NORMAL">
                 <Original>normal</Original>

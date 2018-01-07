@@ -8,10 +8,10 @@
 //	_this select 0:		OBJECT	- Unit that is injured
 //	_this select 1:		ARRAY	- Target position given in world position (see getPosWorld)
 //  _this select 2:		STRING	- Weapon muzzle to fire
-//	_this select 3:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (0 by default)
+//	_this select 3:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (1 by default)
 //	_this select 4:		BOOL	- (optional) Line up before firing (false by default)
-//	_this select 5:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single, 3:talking guns (0 by default)
-//	_this select 6:		SCALAR	- (optional) Duration in sec (10 by default)
+//	_this select 5:		SCALAR	- (optional) Stance index: 0:talking guns, 1:auto, 2:burst, 3:single (0 by default)
+//	_this select 6:		SCALAR	- (optional) Duration in sec (20 by default)
 //
 //	RETURNS:
 //	nothing (procedure)
@@ -20,7 +20,7 @@
 //	[_unit,_worldPos, _weaponToFire] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_unit",objNull,[objNull]],["_targetPos",[0,0,0],[[]], 3],["_weaponToFire", 0, [0]],["_stanceIndex",0,[0]],["_doLineUp",false,[false]],["_fireModeIndex",0,[0]],["_duration",10,[0]]];
+params [["_unit",objNull,[objNull]], ["_targetPos",[0,0,0],[[]], 3], ["_weaponToFire", 0, [0]], ["_stanceIndex",1,[0]], ["_doLineUp",false,[false]], ["_fireModeIndex",0,[0]], ["_duration",20,[0]]];
 
 private _old_group = group _unit;
 private _units = units _old_group;
@@ -84,6 +84,46 @@ _units = _units select {gunner vehicle _x == _x};
 private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], [], 0, "NONE"];
 _placeholder setPos [0,0,0];
 
+// Talking guns
+if (_fireModeIndex == 0) then
+{
+	[_units, _duration] spawn
+	{
+		params ["_units", "_duration"];
+		_units = _units call BIS_fnc_arrayShuffle;
+		private _number_of_switches = round ((_duration + 2) / 2);
+		sleep 3;
+		for "_i_switch" from 1 to _number_of_switches do
+		{
+			if (_units isEqualTo []) exitWith {};
+			private _unit = _units select (_i_switch mod count _units);
+			if (not alive _unit or {isNull _unit}) then
+			{
+				// remove unit if it is dead or non-existent
+				_i_switch = _i_switch - 1;
+				_units = _units - [_unit];
+			}
+			else
+			{
+				// grant the unit fire
+				_unit setVariable ["Achilles_var_fireGranted", true];
+				sleep random [1.6,2.0,2.4];
+				[_unit] spawn 
+				{
+					params ["_unit"];
+					sleep random [0.0,0.2,0.4];
+					_unit setVariable ["Achilles_var_fireGranted", nil];
+				};
+			};
+		};
+		{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
+	};
+// Other modes
+} else
+{
+	{_x setVariable ["Achilles_var_fireGranted", true]} forEach _units;
+};
+
 {
 	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder, _weaponToFire] spawn
 	{
@@ -105,18 +145,27 @@ _placeholder setPos [0,0,0];
 		if (isNull objectParent _unit) then
 		{
 			{
-				if !(_x isEqualTo "") then
+				private _weapon  = _x;
+				if !(_weapon isEqualTo "") then
 				{
-					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
+					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles") select {_x != "SAFE"};
 					if (count _muzzleArray > 1) then
 					{
 						{
-							_weapons pushBack _x;
+							private _muzzle = _x;
+							if (_muzzle == "this") then
+							{
+								_weapons pushBack _weapon;
+							}
+							else
+							{
+								_weapons pushBack _muzzle;
+							};
 						} forEach _muzzleArray;
 					}
 					else
 					{
-						_weapons pushBack _x;
+						_weapons pushBack _weapon;
 					};
 				};
 			} forEach [primaryWeapon _unit]; //TODO: Bug with pistol
@@ -141,9 +190,8 @@ _placeholder setPos [0,0,0];
 				};
 			} forEach (_vehicle weaponsTurret [0]);
 		};
-
-		private _muzzle = _weapons select _weaponToFire;
-
+		// cease fire if no weapon is not present
+		if (_weapons isEqualTo []) exitWith {};
 		// cease fire if group mate is too close to line of fire
 		if (!([_unit, _target, _units - [_unit], 2] call Achilles_fnc_checkLineOfFire2D)) exitWith {};
 
@@ -151,9 +199,10 @@ _placeholder setPos [0,0,0];
 		private _aiming = _unit skill "aimingAccuracy";
 		_unit setSkill ["aimingAccuracy", 0.2];
 		_unit setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
-
+		// select muzzle
+		private _muzzle = if (count _weapons > _weaponToFire) then {_weapons select _weaponToFire} else {_weapons select 0};
 		// get fire mode parameters
-		private _params = [[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
+		private _params = [[10,0],[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
 		_params params ["_fireRepeater", "_ceaseFireTime"];
 
 		private _new_group = createGroup (side _unit);
@@ -166,22 +215,44 @@ _placeholder setPos [0,0,0];
 		_unit doTarget _target;
 		_unit lookAt _target;
 
-		//ensure asynchronous fire within a group
-		sleep (random [2,3,4]);
+		if (_fireModeIndex == 0) then
+		{
+			sleep 3;
+		} else
+		{
+			//ensure asynchronous fire within a group
+			sleep (random [2,3,4]);
+		};
 
 		if (isNull objectParent _unit) then
 		{
+			private _fireEh = if (_fireModeIndex == 0) then
+			{
+				// talking guns: they would reload during the break, but we just give them infinite ammo instead				
+				_unit addEventHandler ["Fired", {(_this select 0) setAmmo [_this select 1, 100000]}];
+			} else {nil};
+			_reloadEh =_unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
 			
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
 				{
 					sleep 0.1;
-					[_unit, _muzzle] call BIS_fnc_fire;
-					_unit setVehicleAmmo 1;
+					if (_unit getVariable ["Achilles_var_fireGranted", false]) then
+					{
+						[_unit, _muzzle] call BIS_fnc_fire;
+					};
 				};
-				sleep _ceaseFireTime;
+				if (_ceaseFireTime > 0) then
+				{
+					sleep random [_ceaseFireTime-0.3,_ceaseFireTime,_ceaseFireTime+0.3];
+				};
 			};
+			if (_fireModeIndex == 0) then
+			{
+				_unit removeEventHandler ["Fired", _fireEh];
+			};
+			_unit removeEventHandler ["Reloaded", _reloadEh];
 		}
 		else
 		{
@@ -194,10 +265,13 @@ _placeholder setPos [0,0,0];
 					{
 						_unit lookAt _target;
 						sleep 0.1;
-						_unit fireAtTarget [_vehicle, _muzzle];
-						_vehicle setVehicleAmmo 1;
+						if (_unit getVariable ["Achilles_var_fireGranted", false]) then
+						{
+							_unit fireAtTarget [_vehicle, _muzzle];
+						};
 					};
 					sleep _ceaseFireTime;
+					_vehicle setVehicleAmmo 1;
 				};
 			};
 		};
@@ -211,6 +285,7 @@ _placeholder setPos [0,0,0];
 
 //clean up
 sleep (_duration + 5);
+{_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
 deleteVehicle _selectedTarget;
 if (!isNull _old_group) then {_old_group setFormation _oldFormation};
 [] spawn {{deleteGroup _x} forEach (allGroups select {units _x isEqualTo []})};

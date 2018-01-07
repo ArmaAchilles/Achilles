@@ -14,25 +14,43 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ### v1.0.1
 #### Modules
 ##### Revised
-* Injury:
-	- Fix: Localization was missing for sever injury in vanilla.
+* Target modules (Fire Support):
+	- Change: Only artillery target can get attached to an object when the module logic is placed on top of it.
+* Suppressive fire:
+	- Feature: "Talking guns" fire mode.
+	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire (except for "talking guns").
+	- Change: Changed default dialog options.
+	- Change: Randomization of cease fire time between bursts/single shots.
+	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers). #230
+	- Fix: Removed handgun from the list of weapons. #230
 * Arsenal modules:
-	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded.
-	- Fix: Copy/Paste arsenal was broken when ACE3 is running.
+	- Note: **VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!**
+	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded. #230
+	- Fix: Copy/Paste arsenal was broken when ACE3 is running. #230
+	- Fix: Custom arsenal did not filter TVS and NVS properly.
 * Add/remove editable objects:
-	- Fix: Not all objects could be added/removed.
+	- Fix: Not all objects could be added/removed. #230
 * Change abilities:
 	- Fix: Added exception handling for players (by @MaliceGFS).
 	- Fix: Error messages were not shown properly in certain cases (by @MaliceGFS).
+	- Fix: Mine detection and move abilities were mixed up.
 * Hint (Module category: Zeus):
 	- Feature: Added option for the hint type (by @MaliceGFS).
-
+* Hide Zeus:
+	- Fix: Eagle was still visible.
+* Create teleporter:
+	- Fix: Script error.
+	- Fix: Could not teleport to any teleporter as jip when there were more than 2 teleporters.
+* Injury:
+	- Fix: Localization were missing for severe injury and high blood pressure.
 #### Attribute windows
 ##### Revised
 * Inventory:
-	- Fix: Did not use ACE's arsenal when ACE3 is loaded.
+	- Fix: Did not use ACE's arsenal when ACE3 was loaded. #230
 * Execute:
-	- Fix: Enable debug mission parameter was ignored.
+	- Fix: Enable debug mission parameter was ignored. #234
+#### Other
+* Change: Replaced the Achilles logo.
 
 ### v1.0.0
 #### Modules

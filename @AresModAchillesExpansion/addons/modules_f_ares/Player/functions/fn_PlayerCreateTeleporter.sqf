@@ -1,9 +1,13 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
 // Set the name of the marker (used in the action)
-private _teleportMarkerName = if (!isNil "Ares_TeleportMarkers") then
+private _teleportMarkerName = if (isNil "Ares_TeleportMarkers") then
 {
-	[(count Ares_TeleportMarkers) - 1] call Ares_fnc_GetPhoneticName;
+	[0] call Ares_fnc_GetPhoneticName;
+}
+else
+{
+	[count Ares_TeleportMarkers] call Ares_fnc_GetPhoneticName;
 };
 
 private _dialogResult =
@@ -16,52 +20,6 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-// Create a function in the mission namespace on all players machines to add the
-// teleport action.
-Ares_addNewTeleportMarkerActions =
-{
-	private _newMarker = _this select 0;
-
-	if (isNil "Ares_TeleportMarkers") then { Ares_TeleportMarkers = []; };
-
-	{
-		// TODO deal with deleted markers.... Conditions?
-
-		// Add an action to THIS marker to teleport to OTHER marker.
-		private _actionName = format [localize "STR_AMAE_TELEPORT_TO", _x getVariable ["teleportMarkerName", "??"]];
-		_newMarker addAction [_actionName, {
-			private _teleportTarget = _this select 3;
-			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
-			{
-				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
-				sleep 3;
-				hint "";
-			}
-			else
-			{
-				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1];  sleep 1; titleFadeOut 2;
-				player setPosATL (getPosATL _teleportTarget);
-			};
-		}, _x];
-
-		// Add action to OTHER marker to teleport to THIS marker.
-		_actionName = format [localize "STR_AMAE_TELEPORT_TO", _newMarker getVariable ["teleportMarkerName", "??"]];
-		_x addAction [_actionName, {
-			private _teleportTarget = _this select 3;
-			if (isNil "_teleportTarget" || !(alive _teleportTarget)) then
-			{
-				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
-				sleep 3;
-				hint "";
-			}
-			else
-			{
-				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1]; sleep 1; titleFadeOut 2;
-				player setPosATL (getPosATL _teleportTarget);
-			};
-		}, _newMarker];
-	} forEach ((Ares_TeleportMarkers) select {_x != _newMarker && alive _x});
-};
 
 // Check to see if there's an object under the cursor or not
 private _unitUnderMouseCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -74,7 +32,7 @@ if (isNull _unitUnderMouseCursor) then
 }
 else
 {
-	if (_unitUnderMouseCursor getVariable ["teleportMarkerName", ""] == "") then
+	if (_unitUnderMouseCursor getVariable ["teleportMarkerName", ""] isEqualTo "") then
 	{
 		_teleportMarker = _unitUnderMouseCursor;
 	}
@@ -87,23 +45,64 @@ else
 };
 
 private _isFirstCallToCreateTeleporter = false;
+// on first call
 if (isNil "Ares_TeleportMarkers") then
 {
 	Ares_TeleportMarkers = [];
+	
+	// Create a function in the mission namespace on all players machines to add the
+	// teleport action.
+	Ares_fnc_updateTeleportMarkerActions =
+	{
+		private _actionCode =
+		{
+			private _teleportTarget = param[3];
+			if (not alive _teleportTarget) then
+			{
+				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
+				sleep 3;
+				hintSilent "";
+			}
+			else
+			{
+				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1];  sleep 1; titleFadeOut 2;
+				player setPosATL (getPosATL _teleportTarget);
+			};
+		};
+		
+		private _tpMarkerCounter = count Ares_TeleportMarkers;
+		for "_idx_tpMarkerA" from 0 to (_tpMarkerCounter - 1) do
+		{
+			private _tpMarkerA = Ares_TeleportMarkers select _idx_tpMarkerA;
+			private _actionNameToA = format [localize "STR_AMAE_TELEPORT_TO", _tpMarkerA getVariable ["teleportMarkerName", "??"]];
+			removeAllActions _tpMarkerA;
+			for "_idx_tpMarkerB" from 0 to (_idx_tpMarkerA - 1) do
+			{
+				private _tpMarkerB = Ares_TeleportMarkers select _idx_tpMarkerB;
+				private _actionNameToB = format [localize "STR_AMAE_TELEPORT_TO", _tpMarkerB getVariable ["teleportMarkerName", "??"]];
+				_tpMarkerA addAction [_actionNameToB, _actionCode, _tpMarkerB];
+				_tpMarkerB addAction [_actionNameToA, _actionCode, _tpMarkerA];
+			};
+		};
+	};
+	publicVariable "Ares_fnc_updateTeleportMarkerActions";
 	_isFirstCallToCreateTeleporter = true;
-	publicVariable "Ares_addNewTeleportMarkerActions";
 };
+
+// update teleport marker list
+Ares_TeleportMarkers = Ares_TeleportMarkers select {alive _x};
 Ares_TeleportMarkers pushBack _teleportMarker;
 publicVariable "Ares_TeleportMarkers";
 
-_teleportMarkerName = _dialogResult select 0;
+// set teleporter name
+ _dialogResult params ["_teleportMarkerName"];
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 
-// Make the teleport marker editable in zeus (needs to run on server)
-[[_teleportMarker]] call Ares_fnc_AddUnitsToCurator;
-
 // Call this to add the teleport marker actions on all machines. Persistent for JIP people as well.
-[[_teleportMarker], "Ares_addNewTeleportMarkerActions", true, _isFirstCallToCreateTeleporter] call BIS_fnc_MP;
+remoteExecCall ["Ares_fnc_updateTeleportMarkerActions", 0, _isFirstCallToCreateTeleporter];
+
+// Make the teleport marker editable in Zeus (needs to run on server)
+[[_teleportMarker]] call Ares_fnc_AddUnitsToCurator;
 
 [objNull, format[localize "STR_AMAE_CREATED_TELEPORT", _teleportMarkerName]] call bis_fnc_showCuratorFeedbackMessage;
 
