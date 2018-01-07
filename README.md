@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/master">
-        <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg?style=flat-square" alt="AMAE version">
+        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Version&colorB=007EC6&prefix=&suffix=&query=version&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/issues">
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/AresModAchillesExpansion.svg?style=flat-square&label=Issues" alt="AMAE issues">
