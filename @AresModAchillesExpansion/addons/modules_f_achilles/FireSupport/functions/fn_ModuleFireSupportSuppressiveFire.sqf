@@ -113,14 +113,14 @@ _doLineUp = _doLineUp == 0;
 _duration = parseNumber _duration;
 
 // Choose a target to fire at
-private _selectedTargetPos = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_positionSelector;
+private _selectedTarget = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_positionSelector;
 
 if (local _unit) then
 {
-	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
+	[_unit,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
 } else
 {
-	[_unit,_selectedTargetPos,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
+	[_unit,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

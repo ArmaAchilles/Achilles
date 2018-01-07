@@ -243,7 +243,10 @@ if (_fireModeIndex == 0) then
 						[_unit, _muzzle] call BIS_fnc_fire;
 					};
 				};
-				sleep _ceaseFireTime;
+				if (_ceaseFireTime > 0) then
+				{
+					sleep random [_ceaseFireTime-0.3,_ceaseFireTime,_ceaseFireTime+0.3];
+				};
 			};
 			if (_fireModeIndex == 0) then
 			{

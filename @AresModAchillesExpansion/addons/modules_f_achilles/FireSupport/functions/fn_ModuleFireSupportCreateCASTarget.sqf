@@ -1,5 +1,11 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+private _objectUnderCursor = param[1];
+if (not isNull _objectUnderCursor) then
+{
+	_logic attachTo [_objectUnderCursor];
+};
+
 if (isNil "Ares_CASTargetCount") then
 {
 	Ares_CASTargetCount = 0;

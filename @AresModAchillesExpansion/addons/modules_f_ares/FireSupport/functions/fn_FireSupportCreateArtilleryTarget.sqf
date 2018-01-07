@@ -1,5 +1,11 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+private _objectUnderCursor = param[1];
+if (not isNull _objectUnderCursor) then
+{
+	_logic attachTo [_objectUnderCursor];
+};
+
 if (isNil "Ares_ArtilleryTargetCount") then { Ares_ArtilleryTargetCount = 0 };
 
 // Don't delete this module when we're done the script.

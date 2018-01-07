@@ -14,16 +14,20 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ### v1.0.1
 #### Modules
 ##### Revised
+* Target modules (Fire Support):
+	- Feature: They get attached to an object when the module logic is placed on top of it.
 * Suppressive fire:
 	- Feature: "Talking guns" fire mode.
 	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire (except for "talking guns").
 	- Change: Changed default dialog options.
+	- Change: Randomization of cease fire time between bursts/single shots.
 	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers). #230
 	- Fix: Removed handgun from the list of weapons. #230
 * Arsenal modules:
 	- Note: **VIRTUAL ARSENALS ARE ONLY ACCESSIBLE VIA THE ACE INTERACTION MENU WHEN ACE3 IS LOADED!!!**
 	- Fix: Create custom did not use ACE's arsenal when ACE3 is loaded. #230
 	- Fix: Copy/Paste arsenal was broken when ACE3 is running. #230
+	- Fix: Custom arsenal did not filter TVS and NVS properly.
 * Add/remove editable objects:
 	- Fix: Not all objects could be added/removed. #230
 * Change abilities:
