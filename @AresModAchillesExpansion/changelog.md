@@ -15,7 +15,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 #### Modules
 ##### Revised
 * Target modules (Fire Support):
-	- Feature: They get attached to an object when the module logic is placed on top of it.
+	- Change: Only artillery target can get attached to an object when the module logic is placed on top of it.
 * Suppressive fire:
 	- Feature: "Talking guns" fire mode.
 	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire (except for "talking guns").
