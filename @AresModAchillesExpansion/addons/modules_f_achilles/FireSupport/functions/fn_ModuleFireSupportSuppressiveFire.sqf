@@ -40,7 +40,7 @@ if (isNull objectParent (gunner _unit)) then
 		{
 			private _configEntry = configFile >> "CfgWeapons" >> _x;
 			private _weaponName = getText (_configEntry >> "displayName");
-			private _muzzleArray = getArray (_configEntry >> "muzzles");
+			private _muzzleArray = getArray (_configEntry >> "muzzles") select {_x != "SAFE"};
 			if (count _muzzleArray > 1) then
 			{
 				{

@@ -148,7 +148,7 @@ if (_fireModeIndex == 0) then
 				private _weapon  = _x;
 				if !(_weapon isEqualTo "") then
 				{
-					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
+					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles") select {_x != "SAFE"};
 					if (count _muzzleArray > 1) then
 					{
 						{
@@ -247,7 +247,7 @@ if (_fireModeIndex == 0) then
 			};
 			if (_fireModeIndex == 0) then
 			{
-				_unit removeEventHandler ["Reloaded", _fireEh];
+				_unit removeEventHandler ["Fired", _fireEh];
 			};
 			_unit removeEventHandler ["Reloaded", _reloadEh];
 		}
