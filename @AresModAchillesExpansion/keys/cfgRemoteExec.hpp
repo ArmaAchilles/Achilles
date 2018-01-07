@@ -39,6 +39,7 @@ class cfgRemoteExec
 		class ares_fnc_arsenalsetup;
 		class ares_fnc_searchbuilding;
 		class achilles_fnc_instantbuildinggarrison;
+		class ares_fnc_updateteleportmarkeractions;
 		class achilles_fnc_eject_passengers;
 		class bis_fnc_carrier01posupdate;
 		class achilles_fnc_setunitammodef;
@@ -66,7 +67,6 @@ class cfgRemoteExec
 		class vehicleChat;
 		class commandChat;
 		class addeventhandler;
-		class say3d;
 		class globalchat;
 		class unassignvehicle;
 		class action;
@@ -95,6 +95,8 @@ class cfgRemoteExec
 		class removeprimaryweaponitem;
 		class addprimaryweaponitem;
 		class commandartilleryfire;
+		class hintsilent;
+		class hintcadet;
 		class setbehaviour;
 		class setcombatmode;
 		class setdate;
