@@ -226,7 +226,7 @@ if (_fireModeIndex == 0) then
 
 		if (isNull objectParent _unit) then
 		{
-			private _reloadEh = _unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 4 select 0)}];
+			private _reloadEh = _unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
