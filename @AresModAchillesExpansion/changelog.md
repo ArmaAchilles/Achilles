@@ -36,6 +36,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Mine detection and move abilities were mixed up.
 * Hint (Module category: Zeus):
 	- Feature: Added option for the hint type (by @MaliceGFS).
+* Hide Zeus:
+	- Fix: Eagle was still visible.
 * Injury:
 	- Fix: Localization were missing for severe injury and high blood pressure.
 #### Attribute windows
