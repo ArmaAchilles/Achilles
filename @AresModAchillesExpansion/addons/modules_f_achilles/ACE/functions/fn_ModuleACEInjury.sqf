@@ -45,7 +45,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 			["SLIDER", localize "STR_AMAE_PAIN_LEVEL"],
 			["COMBOBOX", localize "STR_AMAE_HEARTH_RATE", [[localize "STR_AMAE_HIGH", format ["(%1 BPM)", (HEARTH_RATES select 0)]], [localize "STR_AMAE_NORMAL", format ["(%1 BPM)", (HEARTH_RATES select 1)]], [localize "STR_AMAE_LOW", format ["(%1 BPM)", (HEARTH_RATES select 2)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 BPM)", (HEARTH_RATES select 3)]]], 1],
 			["COMBOBOX", localize "STR_AMAE_BLOOD_PRESSURE",[[localize "STR_AMAE_NORMAL", format ["(%1 systolic)", (BLOOD_PRESSURES select 0)]], [localize "STR_AMAE_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 1)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 2)]]]],
-			["COMBOBOX", localize "STR_AMAE_FORCE_UNCONSIOUSNESS",[localize "STR_AMAE_FALSE",localize "STR_AMAE_TRUE"]]
+			["COMBOBOX", localize "STR_AMAE_FORCE_UNCONSIOUSNESS",[localize "STR_AMAE_NO",localize "STR_AMAE_YES"]]
 		]
 	] call Achilles_fnc_ShowChooseDialog;
 

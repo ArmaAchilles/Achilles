@@ -3202,6 +3202,12 @@
                 <Russian>Тяжёлые</Russian>
                 <German>Schwer</German>
             </Key>
+            <Key ID="STR_AMAE_HIGH">
+                <Original>high</Original>
+                <English>high</English>
+                <French>haute</French>
+                <German>hoch</German>
+            </Key>
             <Key ID="STR_AMAE_NORMAL">
                 <Original>normal</Original>
                 <English>normal</English>
