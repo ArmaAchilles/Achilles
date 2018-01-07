@@ -15,14 +15,11 @@
 
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
-private _isObjectVisible = 1;
-if (!isNull (_objects select 0)) then {	_isObjectVisible = [1, 0] select (isObjectHidden (_objects select 0)) };
-
 private _dialogResult =
 [
 	localize "STR_AMAE_HIDE_OBJECTS",
 	[
-		[localize "STR_AMAE_IS_OBJECT_HIDDEN", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], _isObjectVisible]
+		[localize "STR_AMAE_IS_OBJECT_HIDDEN", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
