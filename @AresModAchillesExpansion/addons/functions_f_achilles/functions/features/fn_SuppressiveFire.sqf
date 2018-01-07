@@ -226,7 +226,13 @@ if (_fireModeIndex == 0) then
 
 		if (isNull objectParent _unit) then
 		{
-			private _reloadEh = _unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
+			private _fireEh = if (_fireModeIndex == 0) then
+			{
+				// talking guns: they would reload during the break, but we just give them infinite ammo instead				
+				_unit addEventHandler ["Fired", {(_this select 0) setAmmo [_this select 1, 100000]}];
+			} else {nil};
+			_reloadEh =_unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
+			
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
@@ -238,6 +244,10 @@ if (_fireModeIndex == 0) then
 					};
 				};
 				sleep _ceaseFireTime;
+			};
+			if (_fireModeIndex == 0) then
+			{
+				_unit removeEventHandler ["Reloaded", _fireEh];
 			};
 			_unit removeEventHandler ["Reloaded", _reloadEh];
 		}

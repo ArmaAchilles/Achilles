@@ -16,7 +16,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ##### Revised
 * Suppressive fire:
 	- Feature: "Talking guns" fire mode.
-	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire.
+	- Change: Units now have infinite reloads instead of infinite ammo in the magazine during the suppressive fire (except for "talking guns").
 	- Change: Changed default dialog options.
 	- Fix: Some soldiers did not fire their weapon (e.g. grenadiers). #230
 	- Fix: Removed handgun from the list of weapons. #230
@@ -33,7 +33,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Hint (Module category: Zeus):
 	- Feature: Added option for the hint type (by @MaliceGFS).
 * Injury:
-	- Fix: Localization was missing for severe injury in vanilla.
+	- Fix: Localization were missing for severe injury and high blood pressure.
 #### Attribute windows
 ##### Revised
 * Inventory:
