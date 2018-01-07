@@ -38,6 +38,9 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Feature: Added option for the hint type (by @MaliceGFS).
 * Hide Zeus:
 	- Fix: Eagle was still visible.
+* Create teleporter:
+	- Fix: Script error.
+	- Fix: Could not teleport to any teleporter as jip when there were more than 2 teleporters.
 * Injury:
 	- Fix: Localization were missing for severe injury and high blood pressure.
 #### Attribute windows
