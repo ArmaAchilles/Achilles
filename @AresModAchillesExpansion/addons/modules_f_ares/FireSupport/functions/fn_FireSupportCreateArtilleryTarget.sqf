@@ -3,7 +3,7 @@
 private _objectUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (not isNull _objectUnderCursor) then
 {
-	_logic attachTo [_objectUnderCursor];
+	_logic attachTo [_objectUnderCursor, [0,0,5]];
 };
 
 if (isNil "Ares_ArtilleryTargetCount") then { Ares_ArtilleryTargetCount = 0 };
