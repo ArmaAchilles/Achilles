@@ -1,6 +1,6 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private _objectUnderCursor = param[1];
+private _objectUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (not isNull _objectUnderCursor) then
 {
 	_logic attachTo [_objectUnderCursor];
