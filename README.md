@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/master">
+    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/tree/release">
         <img src="https://img.shields.io/badge/dynamic/json.svg?label=Version&colorB=007EC6&prefix=&suffix=&query=version&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/issues">
