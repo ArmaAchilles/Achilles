@@ -6,12 +6,13 @@
 //
 //	ARGUMENTS:
 //	_this select 0:		OBJECT	- Unit that is injured
-//	_this select 1:		ARRAY	- Target position given in world position (see getPosWorld)
-//  _this select 2:		STRING	- Weapon muzzle to fire
-//	_this select 3:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (1 by default)
-//	_this select 4:		BOOL	- (optional) Line up before firing (false by default)
-//	_this select 5:		SCALAR	- (optional) Stance index: 0:talking guns, 1:auto, 2:burst, 3:single (0 by default)
-//	_this select 6:		SCALAR	- (optional) Duration in sec (20 by default)
+//	_this select 1:		OBJECT	- Logic
+//	_this select 2:		ARRAY	- Target position given in world position (see getPosWorld)
+//  _this select 3:		STRING	- Weapon muzzle to fire
+//	_this select 4:		SCALAR	- (optional) Stance index: 0:prone, 1:crouch, 2:stand (1 by default)
+//	_this select 5:		BOOL	- (optional) Line up before firing (false by default)
+//	_this select 6:		SCALAR	- (optional) Stance index: 0:auto, 1:burst, 2:single, 3:talking guns (0 by default)
+//	_this select 7:		SCALAR	- (optional) Duration in sec (20 by default)
 //
 //	RETURNS:
 //	nothing (procedure)
@@ -20,7 +21,21 @@
 //	[_unit,_worldPos, _weaponToFire] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_unit",objNull,[objNull]], ["_targetPos",[0,0,0],[[]], 3], ["_weaponToFire", 0, [0]], ["_stanceIndex",1,[0]], ["_doLineUp",false,[false]], ["_fireModeIndex",0,[0]], ["_duration",20,[0]]];
+#define HORNS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3"]
+
+params
+[
+	["_unit", objNull, [objNull]],
+	["_logic", objNull, [objNull]],
+	["_targetPos", [0,0,0], [[]], 3],
+	["_weaponToFire", 0, [0]],
+	["_stanceIndex", 1, [0]],
+	["_doLineUp", false, [false]],
+	["_fireModeIndex", 0, [0]],
+	["_duration", 20, [0]]
+];
+
+if (isNull _logic) exitWith {};
 
 private _old_group = group _unit;
 private _units = units _old_group;
@@ -85,7 +100,7 @@ private _placeholder = _old_group createUnit ["B_Story_Protagonist_F", [0,0,0], 
 _placeholder setPos [0,0,0];
 
 // Talking guns
-if (_fireModeIndex == 0) then
+if (_fireModeIndex == 3) then
 {
 	[_units, _duration] spawn
 	{
@@ -125,7 +140,7 @@ if (_fireModeIndex == 0) then
 };
 
 {
-	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder, _weaponToFire] spawn
+	[_x, _units, _selectedTarget, _stanceIndex, _fireModeIndex, _duration, _placeholder, _weaponToFire, _logic] spawn
 	{
 		params
 		[
@@ -136,7 +151,8 @@ if (_fireModeIndex == 0) then
 			"_fireModeIndex",
 			"_duration",
 			"_placeholder",
-			"_weaponToFire"
+			"_weaponToFire",
+			"_logic"
 		];
 		_unit = gunner _unit;
 
@@ -173,22 +189,26 @@ if (_fireModeIndex == 0) then
 		else
 		{
 			private _vehicle = vehicle _unit;
+			private _turrets = [[-1]];
+			_turrets pushBack ((allTurrets _vehicle) select 0);
 			{
-				if !(_x isEqualTo "") then
 				{
-					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
-					if (count _muzzleArray > 1) then
+					if !(_x isEqualTo "" && _x in HORNS) then
 					{
+						private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
+						if (count _muzzleArray > 1) then
+						{
+							{
+								_weapons pushBack _x;
+							} forEach _muzzleArray;
+						}
+						else
 						{
 							_weapons pushBack _x;
-						} forEach _muzzleArray;
-					}
-					else
-					{
-						_weapons pushBack _x;
+						};
 					};
-				};
-			} forEach (_vehicle weaponsTurret [0]);
+				} forEach (_vehicle weaponsTurret _x);
+			} forEach _turrets;
 		};
 		// cease fire if no weapon is not present
 		if (_weapons isEqualTo []) exitWith {};
@@ -215,7 +235,7 @@ if (_fireModeIndex == 0) then
 		_unit doTarget _target;
 		_unit lookAt _target;
 
-		if (_fireModeIndex == 0) then
+		if (_fireModeIndex == 3) then
 		{
 			sleep 3;
 		} else
@@ -226,17 +246,19 @@ if (_fireModeIndex == 0) then
 
 		if (isNull objectParent _unit) then
 		{
-			private _fireEh = if (_fireModeIndex == 0) then
+			private _fireEh = if (_fireModeIndex == 3) then
 			{
 				// talking guns: they would reload during the break, but we just give them infinite ammo instead				
 				_unit addEventHandler ["Fired", {(_this select 0) setAmmo [_this select 1, 100000]}];
 			} else {nil};
-			_reloadEh =_unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
+			private _reloadEh =_unit addEventHandler ["Reloaded", {(_this select 0) addMagazine (_this select 3 select 0)}];
 			
+			scopeName "forLoop";
 			for "_" from 1 to _duration do
 			{
 				for "_" from 1 to _fireRepeater do
 				{
+					if (isNil "_logic" || {isNull _logic}) then {breakOut "forLoop"};
 					sleep 0.1;
 					if (_unit getVariable ["Achilles_var_fireGranted", false]) then
 					{
@@ -248,7 +270,7 @@ if (_fireModeIndex == 0) then
 					sleep random [_ceaseFireTime-0.3,_ceaseFireTime,_ceaseFireTime+0.3];
 				};
 			};
-			if (_fireModeIndex == 0) then
+			if (_fireModeIndex == 3) then
 			{
 				_unit removeEventHandler ["Fired", _fireEh];
 			};
@@ -259,10 +281,12 @@ if (_fireModeIndex == 0) then
 			private _vehicle = vehicle _unit;
 			if (_unit == gunner _vehicle) then
 			{
+				scopeName "forLoop";
 				for "_" from 0 to _duration do
 				{
 					for "_" from 1 to _fireRepeater do
 					{
+						if (isNil "_logic" || {isNull _logic}) then {breakOut "forLoop"};
 						_unit lookAt _target;
 						sleep 0.1;
 						if (_unit getVariable ["Achilles_var_fireGranted", false]) then
@@ -280,12 +304,16 @@ if (_fireModeIndex == 0) then
 		_units joinSilent _old_group;
 		_old_group setBehaviour "AWARE";
 		deleteVehicle _placeholder;
+		_unit setVariable ["Achilles_var_suppressiveFire_ready", true];
 	};
 } forEach _units;
 
 //clean up
-sleep (_duration + 5);
+// Wait untill all units are ready (have done their task or the module has been deleted)
+waitUntil {sleep 1; {_x getVariable ["Achilles_var_suppressiveFire_ready", false]} forEach _units};
+sleep 3;
 {_x setVariable ["Achilles_var_fireGranted", nil]} forEach _units;
+{_x setVariable ["Achilles_var_suppressiveFire_ready", nil]} forEach _units;
 deleteVehicle _selectedTarget;
 if (!isNull _old_group) then {_old_group setFormation _oldFormation};
 [] spawn {{deleteGroup _x} forEach (allGroups select {units _x isEqualTo []})};

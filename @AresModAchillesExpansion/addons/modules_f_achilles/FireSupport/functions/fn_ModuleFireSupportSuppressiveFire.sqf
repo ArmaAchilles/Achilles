@@ -7,9 +7,12 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
+#define HORNS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3"]
+
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _unit) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_unit isKindOf "Thing") exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 //Broadcast suppression functions
 if (isNil "Achilles_var_suppressiveFire_init_done") then
@@ -32,9 +35,12 @@ if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER
 private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 _targetChoices append _allTargetNames;
 
+private _fireModes = [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"];
+
 private _weaponsToFire = [];
-if (isNull objectParent (gunner _unit)) then
+if (_unit isKindOf "Man") then
 {
+	if (count (units _unit) > 1) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
 	{
 		if !(_x isEqualTo "") then
 		{
@@ -63,24 +69,42 @@ if (isNull objectParent (gunner _unit)) then
 }
 else
 {
+	// If all of the group units are in the same vehicle then don't add the Talking Guns mode.
+	private _areUnitsInSameVehicle = []; 
+	private _groupUnits = units _unit; 
+	{ 
+		private _unitFromGroup = _x; 
+		{ 
+			private _unitInVehicle = _x select 0; 
+			if (_unitFromGroup in vehicle _unitInVehicle) then {_areUnitsInSameVehicle pushBackUnique true} else {_areUnitsInSameVehicle pushBackUnique false}; 
+		} forEach (fullCrew _unit); 
+	} forEach _groupUnits; 
+	if (false in _areUnitsInSameVehicle) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
+
+	private _turrets = [[-1]] + (allTurrets _unit);
+	[_turrets, "_turrets"] call Achilles_fnc_log;
 	{
-		if !(_x isEqualTo "") then
 		{
-			private _configEntry = configFile >> "CfgWeapons" >> _x;
-			private _weaponName = getText (_configEntry >> "displayName");
-			private _muzzleArray = getArray (_configEntry >> "muzzles");
-			if (count _muzzleArray > 1) then
+			[_x, "_x"] call Achilles_fnc_log;
+			if !(_x isEqualTo "" && _x in HORNS) then
 			{
+				private _configEntry = configFile >> "CfgWeapons" >> _x;
+				private _weaponName = getText (_configEntry >> "displayName");
+				private _muzzleArray = getArray (_configEntry >> "muzzles");
+				if (count _muzzleArray > 1) then
 				{
-					_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, _x]);
-				} forEach _muzzleArray;
-			}
-			else
-			{
-				_weaponsToFire pushBack _weaponName;
+					{
+						_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, _x]);
+					} forEach _muzzleArray;
+				}
+				else
+				{
+					_weaponsToFire pushBack _weaponName;
+				};
 			};
-		};
-	} forEach (_unit weaponsTurret [0]); // TODO: This could break for some vehicles that don't have weapons for the gunner (Hummingbird).
+		} forEach (_unit weaponsTurret _x);
+		[_unit weaponsTurret _x, "_unit weaponsTurret _x"] call Achilles_fnc_log;
+	} forEach _turrets;
 };
 if (_weaponsToFire isEqualTo []) exitWith {[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage};
 
@@ -93,7 +117,7 @@ private _dialogResult =
 		[localize "STR_AMAE_STANCE", [localize "STR_AMAE_PRONE",localize "STR_AMAE_CROUCH",localize "STR_AMAE_STAND"], 1],
 		[localize "STR_AMAE_LINE_UP", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"], 1],
 		[localize "STR_AMAE_WEAPON_TO_FIRE", _weaponsToFire],
-		[localize "STR_AMAE_FIRE_MODE", [localize "STR_AMAE_TALKING_GUNS", localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"]],
+		[localize "STR_AMAE_FIRE_MODE", _fireModes],
 		[localize "STR_AMAE_DURATION", "", "20"]
 	]
 ] call Ares_fnc_ShowChooseDialog;
@@ -112,15 +136,20 @@ _dialogResult params
 _doLineUp = _doLineUp == 0;
 _duration = parseNumber _duration;
 
+// Spawn our dummy logic (if executing client does not have Achilles)
+private _dummyLogic = [_logic] call Achilles_fnc_createDummyLogic;
+
 // Choose a target to fire at
 private _selectedTarget = [position _logic, _allTargetPositions, _targetChooseAlgorithm] call Achilles_fnc_positionSelector;
 
 if (local _unit) then
 {
-	[_unit,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
+	// Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
+	[_unit,_dummyLogic,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
 } else
 {
-	[_unit,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
+	// Executing here with remoteExec (with suspension) because on the other machines it won't be a suspended enviornment.
+	[_unit,_dummyLogic,_selectedTarget,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
