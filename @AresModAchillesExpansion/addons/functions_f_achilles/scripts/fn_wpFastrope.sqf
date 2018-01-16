@@ -21,7 +21,7 @@ private _vehicle = vehicle leader _group;
 
 // Kex: check if ACE or advanced rappeling is available
 private _ace_loaded = isClass (configfile >> "CfgPatches" >> "ace_main");
-private _ar_loaded = isClass (configfile >> "CfgPatches" >> "AR_AdvancedRappelling");
+private _ar_loaded = !isNil "AR_RAPPELLING_INIT";
 if (!_ace_loaded and !_ar_loaded) exitWith
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
