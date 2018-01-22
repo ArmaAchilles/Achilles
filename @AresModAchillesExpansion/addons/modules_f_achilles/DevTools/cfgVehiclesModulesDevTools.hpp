@@ -50,3 +50,13 @@ class Achilles_DevTools_FunctionViewer : Achilles_Dev_Tools_Module_Base
 	icon = "\achilles\data_f_ares\icons\icon_default.paa";
 	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
 };
+
+class Achilles_DevTools_CopyFurnitureToClipboard : Achilles_Dev_Tools_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_DevTools_CopyFurnitureToClipboard";
+	displayName = "Copy furniture to clipboard";
+	function = "Achilles_fnc_DevToolsCopyFurnitureToClipboard";
+	icon = "\achilles\data_f_ares\icons\icon_default.paa";
+	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+};

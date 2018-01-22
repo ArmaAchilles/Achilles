@@ -27,6 +27,7 @@ class CfgPatches
 			"Achilles_DevTools_ShowInAnimViewer",
 			"Achilles_DevTools_ShowInConfig",
 			"Achilles_DevTools_FunctionViewer",
+			"Achilles_DevTools_CopyFurnitureToClipboard",
 			"Achilles_Set_Weather_Module",
 			"Achilles_Set_Date_Module",
 			"Achilles_Earthquake_Module",

@@ -6,4 +6,5 @@ class Achilles_DevTools_Function_Base
 	class DevToolsShowInConfig {};
 	class DevToolsShowInAnimViewer {};
 	class DevToolsFunctionViewer {};
+	class DevToolsCopyFurnitureToClipboard {};
 };
