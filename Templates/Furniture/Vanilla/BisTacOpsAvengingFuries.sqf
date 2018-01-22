@@ -1,5 +1,5 @@
 [
-    ["Fortified","Land_u_House_Big_01_V1_dam_F",[0.174285,1]],
+    ["fortified","Land_u_House_Big_01_V1_dam_F",[0.174285,1]],
     ["Land_SandbagBarricade_01_hole_F",[2.14648,2.14799,-2.51563],[-0.52045,0,0.853892],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_F",[3.87305,2.14548,-1.98242],[0.0475569,0,0.998869],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_F",[0.490234,2.14548,-3.29102],[-0.0206948,0,-0.999786],[0,1,0],[],[]],
@@ -9,7 +9,7 @@
 ]
 
 [
-    ["Fortified","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+    ["fortified","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[3.02148,0.613342,-4.80078],[-0.00365463,0.0010305,0.999993],[0.000108405,0.999999,-0.00103011],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]],
     ["UserTexture10m_F",[-7.58984,-0.779892,0.742188],[0.999968,-0.000100204,0.00795837],[0.000108405,0.999999,-0.00103011],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]],
     ["Land_BagFence_Long_F",[-7.30078,-2.33216,-3.61719],[-0.999604,7.87938e-006,0.0281572],[6.21812e-006,1,-5.9087e-005],[],[]],
@@ -20,17 +20,17 @@
 ]
 
 [
-    ["Abandoned","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[7.77539,1.05583,-2.12109],[-0.999999,-0.00128762,0.000781028],[-0.00128754,0.999999,0.000105685],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Abandoned","Land_i_House_Big_02_V1_dam_F",[1,1,0,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_House_Big_02_V1_dam_F",[1,1,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[1.03711,2.46382,5.91016],[0.00187051,0.000131099,-0.999998],[-0.00128545,0.999999,0.000128694],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Fortified","Land_i_Shop_01_V2_dam_F",[0.217444,1,0,0,0,0,0,0,0,0]],
+    ["fortified","Land_i_Shop_01_V2_dam_F",[0.217444,1,0,0,0,0,0,0,0,0]],
     ["Land_SandbagBarricade_01_hole_F",[-3.43359,-1.47766,-1.28125],[-0.998955,-0.00248046,0.0456366],[-0.00248768,0.999997,-0.000101428],[],[]],
     ["Land_SandbagBarricade_01_half_F",[-0.736328,1.44421,0.871094],[0.328406,0.00072117,-0.944536],[-0.00248769,0.999997,-0.00010143],[],[]],
     ["Land_SandbagBarricade_01_hole_F",[-3.37109,-1.53433,-3.39453],[0.999981,0.00248822,0.00561069],[-0.00248769,0.999997,-0.000101428],[],[]],
@@ -43,18 +43,18 @@
 ]
 
 [
-    ["Abandoned","Land_i_House_Small_01_V2_F",[0,0,0,0,0]],
+    ["abandoned","Land_i_House_Small_01_V2_F",[0,0,0,0,0]],
     ["UserTexture10m_F",[5.29297,0.265869,1.54102],[-0.999975,0,-0.00710193],[0,1,0],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]],
     ["UserTexture10m_F",[5.29492,-2.9663,1.96289],[-0.999871,0.00214253,-0.0158909],[0.009392,0.881493,-0.472104],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Abandoned","Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[1.11914,2.36351,5.15039],[-0.0155095,-0.0013673,-0.999879],[-0.00123282,0.999998,-0.00134834],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Fortified","Land_u_House_Big_01_V1_F",[0,0]],
+    ["fortified","Land_u_House_Big_01_V1_F",[0,0]],
     ["Land_Sofa_01_F",[0.384766,-2.10781,1.47461],[-0.998844,7.02968e-005,-0.0480614],[7.42765e-005,1,-8.10184e-005],[],[]],
     ["Land_Garbage_square5_F",[-1.90234,-2.55446,0.775391],[0.73711,0,0.675772],[7.42765e-005,1,-8.10184e-005],[],[]],
     ["Land_WoodenTable_large_F",[-2.87695,-2.07002,0.96875],[0.524967,0.000154743,0.851123],[-0.848174,0.0832703,0.523132],[],[]],
@@ -77,12 +77,12 @@
 ]
 
 [
-    ["Abandoned","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_House_Big_01_V2_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[7.75391,1.13789,-2.23047],[-0.999982,0.000293129,-0.00599194],[0.000289377,1,0.000626976],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Fortified","Land_i_House_Big_02_V2_dam_F",[1,0.0485429,0,0,0,0,0,0,0,0,0]],
+    ["fortified","Land_i_House_Big_02_V2_dam_F",[1,0.0485429,0,0,0,0,0,0,0,0,0]],
     ["Land_SandbagBarricade_01_hole_F",[-3.00781,1.91242,0.634766],[0.583941,0.00156167,-0.811795],[-0.00143942,0.999999,0.000888315],[],[]],
     ["Land_SandbagBarricade_01_F",[-4.21875,-1.00453,4.23242],[0.999236,0.001473,-0.0390436],[-0.00143941,0.999999,0.000888315],[],[]],
     ["Land_SandbagBarricade_01_F",[-3.72656,1.94831,-0.527344],[0.999073,0.00147631,-0.043027],[-0.00143942,0.999999,0.000888316],[],[]],
@@ -94,18 +94,18 @@
 ]
 
 [
-    ["Abandoned","Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[0.826172,-0.639297,-4.90039],[-0.00147592,0,0.999999],[0,1,0],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_hole.paa"],[""]],
     ["UserTexture10m_F",[1.32422,2.04834,-4.89844],[0.00526835,0,0.999986],[0,1,0],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_d2.paa"],[""]]
 ]
 
 [
-    ["Abandoned","Land_i_Shop_01_V2_dam_F",[0.217444,1,0,0,0,0,0,0,0,0]],
+    ["abandoned","Land_i_Shop_01_V2_dam_F",[0.217444,1,0,0,0,0,0,0,0,0]],
     ["UserTexture10m_F",[1.39453,2.72096,-4.69336],[-0.00784379,-0.00224926,0.999967],[0.00104987,0.999997,0.00225757],["a3\missions_f_tacops\campaign_1\missions\to_c01m02.altis\house_hole.paa"],[""]]
 ]
 
 [
-    ["Fortified","Land_i_House_Small_01_V2_dam_F",[1,0.217651,0,0,0]],
+    ["fortified","Land_i_House_Small_01_V2_dam_F",[1,0.217651,0,0,0]],
     ["Land_Ammobox_rounds_F",[-3.91211,0.213789,1.89258],[-0.256474,0,0.966551],[0,1,0],[],[]],
     ["Land_Ammobox_rounds_F",[-4.33008,0.203763,1.74414],[0.935961,0,-0.352105],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_half_F",[-4.76172,1.2017,-2.49023],[-0.999211,0,0.0397255],[0,1,0],[],[]],
@@ -114,7 +114,7 @@
 ]
 
 [
-    ["Fortified","Land_i_Garage_V1_F",[0]],
+    ["fortified","Land_i_Garage_V1_F",[0]],
     ["Land_Bodybag_01_black_F",[-1.33984,0.0420661,-1.14844],[-0.924692,0.000320566,-0.380716],[0.000247607,1,0.000240615],["a3\props_f_orange\humanitarian\camps\data\bodybag_01_black_co.paa"],[""]],
     ["Land_Bodybag_01_empty_black_F",[-0.589844,-0.0741997,-2.32422],[-0.696908,0,0.71716],[0.000247607,1,0.000240615],["a3\props_f_orange\humanitarian\camps\data\bodybag_01_empty_black_co.paa"],[""]],
     ["Land_Bodybag_01_black_F",[-1.34766,0.0366416,0.253906],[0.999945,-0.000250112,0.0104668],[0.000247607,1,0.000240615],["a3\props_f_orange\humanitarian\camps\data\bodybag_01_black_co.paa"],[""]],
@@ -146,7 +146,7 @@
 ]
 
 [
-    ["Fortified","Land_u_House_Small_01_V1_dam_F",[1,1]],
+    ["fortified","Land_u_House_Small_01_V1_dam_F",[1,1]],
     ["Land_SandbagBarricade_01_hole_F",[-1.83984,1.87203,-2.47852],[0.472613,0,0.88127],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_half_F",[-0.121094,1.16939,-2.89063],[0.047566,0,-0.998868],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_F",[-3.61328,1.8704,-1.67969],[0.330134,0,0.943934],[0,1,0],[],[]],

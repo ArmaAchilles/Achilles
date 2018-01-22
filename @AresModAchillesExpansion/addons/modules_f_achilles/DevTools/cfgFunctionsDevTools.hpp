@@ -7,4 +7,5 @@ class Achilles_DevTools_Function_Base
 	class DevToolsShowInAnimViewer {};
 	class DevToolsFunctionViewer {};
 	class DevToolsCopyFurnitureToClipboard {};
+	class DevToolsSpawnFurnishedBuildingFromClipboard {};
 };

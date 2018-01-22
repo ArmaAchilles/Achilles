@@ -1106,6 +1106,17 @@
                 <Original>Weapon to Fire</Original>
                 <Russian>Вести огонь из</Russian>
             </Key>
+            <Key ID="STR_AMAE_COPY_FURNITURE_TO_CLIPBOARD">
+                <Original>Copy furniture to clipboard</Original>
+                <English>Copy furniture to clipboard</English>
+                <French>Copiez l'ameublement au presse-papier</French>
+                <German>Möbelierung in die Zwischenablage kopieren</German>
+            </Key>
+            <Key ID="STR_AMAE_SPAWN_FURNISHED_BUILDINGS_FROM_CLIPBOARD">
+                <English>Spawn furnished building from clipboard</English>
+                <French>Créez l'immeuble meublé avec le presse-papier</French>
+                <German>Möbelierung in die Zwischenablage kopieren</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -3293,6 +3304,32 @@
                 <German>Kollision</German>
             </Key>
         </Container>
+		<Container name="Building Interior Categories">
+            <Key ID="STR_AMAE_INSURGENT_HIDEOUT">
+                <Original>insurgent hideout</Original>
+                <English>insurgent hideout</English>
+                <French>cachette insurgée</French>
+                <German>Versteck von Aufständischen</German>
+            </Key>
+            <Key ID="STR_AMAE_MILITARY_BASE">
+                <Original>military base</Original>
+                <English>military base</English>
+                <French>base militaire</French>
+                <German>militärischer Stützpunkt</German>
+            </Key>
+            <Key ID="STR_AMAE_FORTIFIED">
+                <Original>military base</Original>
+                <English>military base</English>
+                <French>base militaire</French>
+                <German>militärischer Stützpunkt</German>
+            </Key>
+            <Key ID="STR_AMAE_ABANDONED">
+                <Original>abandoned</Original>
+                <English>abandoned</English>
+                <French>abandonné</French>
+                <German>verlassen</German>
+            </Key>
+		</Container>
         <Container name="Building damage dialog strings">
             <Key ID="STR_AMAE_LIGHT_DAMAGE">
                 <Original>Light</Original>

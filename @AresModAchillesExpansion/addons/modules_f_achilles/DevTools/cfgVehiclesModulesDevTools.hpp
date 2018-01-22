@@ -55,8 +55,18 @@ class Achilles_DevTools_CopyFurnitureToClipboard : Achilles_Dev_Tools_Module_Bas
 {
 	scopeCurator = 2;
 	_generalMacro = "Achilles_DevTools_CopyFurnitureToClipboard";
-	displayName = "Copy furniture to clipboard";
+	displayName = "STR_AMAE_COPY_FURNITURE_TO_CLIPBOARD";
 	function = "Achilles_fnc_DevToolsCopyFurnitureToClipboard";
+	icon = "\achilles\data_f_ares\icons\icon_default.paa";
+	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
+};
+
+class Achilles_DevTools_SpawnFurnishedBuildingFromClipboard : Achilles_Dev_Tools_Module_Base
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_DevTools_SpawnFurnishedBuildingFromClipboard";
+	displayName = "$STR_AMAE_SPAWN_FURNISHED_BUILDINGS_FROM_CLIPBOARD";
+	function = "Achilles_fnc_DevToolsSpawnFurnishedBuildingFromClipboard";
 	icon = "\achilles\data_f_ares\icons\icon_default.paa";
 	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
 };

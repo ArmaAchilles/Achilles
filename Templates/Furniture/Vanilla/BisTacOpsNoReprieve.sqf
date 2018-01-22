@@ -1,5 +1,5 @@
 [
-    ["Fortified","Land_Unfinished_Building_02_F",[]],
+    ["fortified","Land_Unfinished_Building_02_F",[]],
     ["Land_Camping_Light_off_F",[1.64844,-1.50927,1.54492],[-0.693359,0.00406937,-0.720581],[0.00286508,0.999992,0.00289045],[],[]],
     ["Land_PaperBox_01_small_ransacked_brown_F",[1.8457,-2.34973,1.85547],[0.870831,0.00149524,-0.491581],[-0.00111271,0.999999,0.00107054],["a3\props_f_orange\humanitarian\supplies\data\paperbox_01_small_brown_dmg_co.paa"],[""]],
     ["Land_Leaflet_03_F",[1.41406,-0.79167,1.54492],[-0.999946,-0.000642942,0.0104145],[-0.000657989,0.999999,-0.00144145],["a3\structures_f_epb\items\documents\data\leaflets_co.paa"],[""]],
@@ -74,7 +74,7 @@
 ]
 
 [
-    ["Abandoned","Land_u_House_Big_02_V1_F",[0,0]],
+    ["abandoned","Land_u_House_Big_02_V1_F",[0,0]],
     ["Land_WoodenTable_small_F",[0.519531,-1.96507,0.576172],[-0.999981,-3.70212e-006,-0.00612266],[-3.6868e-006,1,-2.51364e-006],[],[]],
     ["Land_CampingChair_V2_F",[1.77539,-1.89088,0.5625],[0.775601,1.84929e-005,-0.631224],[-2.27621e-005,1,1.32855e-006],["a3\structures_f\civ\camping\data\tablechair_co.paa"],[""]],
     ["Land_Stretcher_01_olive_F",[1.01172,-2.1477,2.51758],[-0.999954,-0.00773183,-0.00576018],[-0.00772303,0.999969,-0.00154889],["a3\props_f_orange\humanitarian\camps\data\stretcher_olive_f_co.paa"],[""]],
@@ -84,7 +84,7 @@
 ]
 
 [
-    ["Fortified","Land_Unfinished_Building_01_F",[]],
+    ["fortified","Land_Unfinished_Building_01_F",[]],
     ["Land_SandbagBarricade_01_half_F",[2.81641,1.86573,0.919922],[-0.0390004,0.00124288,-0.999238],[0.000118921,0.999999,0.00123918],[],[]],
     ["Land_SandbagBarricade_01_half_F",[4.90039,1.86242,0.894531],[-0.0390004,0.00124288,-0.999238],[0.000118921,0.999999,0.00123918],[],[]],
     ["Land_Barricade_01_10m_F",[3.05078,-2.48353,5.43359],[0.0148455,0,-0.99989],[0,1,0],[],[]],
@@ -94,14 +94,14 @@
 ]
 
 [
-    ["Normal","Land_i_Garage_V1_F",[0]],
+    ["civilian","Land_i_Garage_V1_F",[0]],
     ["Land_GarbageHeap_04_F",[2.4082,0.323166,-1.9082],[-0.997043,0,0.0768407],[0,1,0],[],[]],
     ["Land_PaperBox_closed_F",[-1.7832,0.544277,-2.85742],[0.999927,0,-0.0120959],[0,1,0],[],[]],
     ["C_Offroad_02_unarmed_F",[0.820313,1.36976,2.33008],[0.0153879,0.0092461,-0.999839],[-0.00066547,0.999957,0.00923695],["a3\soft_f_exp\offroad_02\data\offroad_02_ext_green_co.paa","a3\soft_f_exp\offroad_02\data\offroad_02_ext_green_co.paa","a3\soft_f_exp\offroad_02\data\offroad_02_int_green_co.paa","a3\soft_f_exp\offroad_02\data\offroad_02_int_green_co.paa"],["a3\soft_f_exp\offroad_02\data\offroad_02_ext_metal.rvmat","a3\soft_f_exp\offroad_02\data\offroad_02_ext_chrome.rvmat","a3\soft_f_exp\offroad_02\data\offroad_02_int_metal.rvmat","a3\soft_f_exp\offroad_02\data\offroad_02_int_chrome.rvmat"]]
 ]
 
 [
-    ["Fortified","Land_i_House_Small_01_V2_dam_F",[1,0.0884987,0,0,0]],
+    ["fortified","Land_i_House_Small_01_V2_dam_F",[1,0.0884987,0,0,0]],
     ["Land_SandbagBarricade_01_half_F",[-4.76172,1.2017,-2.49023],[-0.999211,0,0.0397255],[0,1,0],[],[]],
     ["Land_SandbagBarricade_01_half_F",[-3.91992,1.20941,-3.81836],[0.0387079,0,0.999251],[0,1,0],[],[]],
     ["Land_Barricade_01_4m_F",[-0.621094,-0.172116,-5.56641],[-0.909668,0,0.415336],[0,1,0],[],[]],

@@ -1,17 +1,16 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
-#define FURNITURE_CATEGORIES	["Normal", "Messy", "Fortified", "Abandoned"]
-
- FURNITURE_CATEGORIES=	["Normal", "Messy", "Fortified", "Abandoned"];
+#define FURNITURE_CATEGORY_LABELS	[localize "STR_AMAE_CIVILIANS", localize "STR_AMAE_ABANDONED", localize "STR_AMAE_FORTIFIED", localize "STR_AMAE_MILITARY_BASE", localize "STR_AMAE_INSURGENT_HIDEOUT"]
+#define FURNITURE_CATEGORIES		["civilian", "abandoned", "fortified", "base", "hideout"]
 
 private _centerPos = position _logic;
 
 private _dialogResult =
 [
-	"Copy Furniture to Clipboard",
+	localize "STR_AMAE_COPY_FURNITURE_TO_CLIPBOARD",
 	[
 		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE_NO_SI"]],
 		[localize "STR_AMAE_RANGE","","100"],
-		[localize "STR_AMAE_CATEGORY", FURNITURE_CATEGORIES]
+		[localize "STR_AMAE_CATEGORY", FURNITURE_CATEGORY_LABELS]
 	],
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
 ] call Ares_fnc_ShowChooseDialog;
