@@ -3,6 +3,7 @@
 private _centerPos = position _logic;
 private _toAddToCurator = [];
 
+disableSerialization;
 uiNamespace setVariable ["Ares_CopyPaste_Dialog_Result", -1];
 createDialog "Ares_CopyPaste_Dialog";
 private _dialog = findDisplay 123;

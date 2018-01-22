@@ -55,7 +55,7 @@ class Achilles_DevTools_CopyFurnitureToClipboard : Achilles_Dev_Tools_Module_Bas
 {
 	scopeCurator = 2;
 	_generalMacro = "Achilles_DevTools_CopyFurnitureToClipboard";
-	displayName = "STR_AMAE_COPY_FURNITURE_TO_CLIPBOARD";
+	displayName = "$STR_AMAE_COPY_FURNITURE_TO_CLIPBOARD";
 	function = "Achilles_fnc_DevToolsCopyFurnitureToClipboard";
 	icon = "\achilles\data_f_ares\icons\icon_default.paa";
 	portrait = "\achilles\data_f_ares\icons\icon_default.paa";
