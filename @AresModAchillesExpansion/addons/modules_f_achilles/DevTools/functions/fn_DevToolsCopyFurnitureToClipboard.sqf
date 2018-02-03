@@ -10,13 +10,14 @@ private _dialogResult =
 	[
 		[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_NEAREST", localize "STR_AMAE_RANGE_NO_SI"]],
 		[localize "STR_AMAE_RANGE","","100"],
-		[localize "STR_AMAE_CATEGORY", FURNITURE_CATEGORY_LABELS]
+		[localize "STR_AMAE_CATEGORY", FURNITURE_CATEGORY_LABELS],
+		[[localize "STR_AMAE_NAME"] joinString "", [name player, "'s design X"] joinString " ", ""]
 	],
 	"Achilles_fnc_RscDisplayAttributes_LockDoors"
 ] call Ares_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
-_dialogResult params ["_selectionMode", "_strRadius", "_categoryIdx"];
+_dialogResult params ["_selectionMode", "_strRadius", "_categoryIdx", "_name"];
 private _category = FURNITURE_CATEGORIES select _categoryIdx;
 
 private _buildings = [];
