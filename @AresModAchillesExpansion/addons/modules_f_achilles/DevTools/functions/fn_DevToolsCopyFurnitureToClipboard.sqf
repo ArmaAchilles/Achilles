@@ -57,7 +57,7 @@ private _clipboard = "";
 	private _hasFurniture = false;
 	{
 		private _type = typeOf _x;
-		if (_x != _building and not (_type in ["","HouseFly","HoneyBee","ButterFly_random"]) and (_type select [0,1 ] != "#") and not (_x isKindOf "Animal") and not (_x isKindOf "Man") and not (_x isKindOf "Module_f")) then
+		if (not (isObjectHidden _x) and _x != _building and not (_type in ["","HouseFly","HoneyBee","ButterFly_random"]) and (_type select [0,1 ] != "#") and not (_x isKindOf "Animal") and not (_x isKindOf "Man") and not (_x isKindOf "Module_f")) then
 		{
 			private _isInsideDetectionBox = true;
 			private _posWorld = getPosWorld _x;
