@@ -4706,7 +4706,7 @@
 				<French>Le manuel d'Achilles</French>
 				<German>Handbuch des Achilles</German>
 				<Russian>Боевой устав Achilles</Russian>
-				<Japanese>アキレス野戦教範</Japanese>
+				<Japanese>アキレス フィールド マニュアル</Japanese>
 			</Key>
 			<Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
 				<Original>
@@ -4725,7 +4725,7 @@
 			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
 		</German>
 				<Japanese>
-			参考のためにエスケープ メニューから利用できる %3野戦教範%4 を開きます。
+			参考のためにエスケープ メニューから利用できる %3フィールド マニュアル%4 を開きます。
     </Japanese>
 			</Key>
 			<Key ID="STR_AMAE_RC_VEHICLE_CREW">
