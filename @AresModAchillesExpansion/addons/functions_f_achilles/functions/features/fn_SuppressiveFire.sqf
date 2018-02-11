@@ -222,7 +222,7 @@ if (_fireModeIndex == 3) then
 		// select muzzle
 		private _muzzle = if (count _weapons > _weaponToFire) then {_weapons select _weaponToFire} else {_weapons select 0};
 		// get fire mode parameters
-		private _params = [[10,0],[10,0],[3,0.7],[1,0.9]] select _fireModeIndex;
+		private _params = [[10,0],[3,0.7],[1,0.9],[10,0]] select _fireModeIndex;
 		_params params ["_fireRepeater", "_ceaseFireTime"];
 
 		private _new_group = createGroup (side _unit);
