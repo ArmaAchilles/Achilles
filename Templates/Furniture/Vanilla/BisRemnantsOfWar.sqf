@@ -1,6 +1,6 @@
 
 [
-    ["base","Oreokastro Outpost","Nathan MacDade",""],
+    ["1.0.2","base","Oreokastro Outpost","Nathan MacDade",""],
     ["Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0],[]],
     ["Land_Sign_MinesTall_Greek_F",[-1.05664,-2.73413,0.736328],[0.885581,-0.317732,0.33881],[0.268914,0.945471,0.183764],["a3\structures_f_orange\signs\mines\data\signmines_greek_co.paa"],[""]],
     ["Box_I_UAV_06_F",[-1.08398,-2.44812,0.498047],[-0.000351883,0.998905,-0.0467775],[-0.0484041,0.0467057,0.997735],["a3\air_f_orange\uav_06\data\i_uav_06_co.paa",""],["",""]],
@@ -141,7 +141,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0],[]],
     ["Land_Tyre_F",[3.9707,0.0709839,-0.783203],[-0.186481,-0.421558,0.88742],[-0.0866923,0.906801,0.412548],[],[]],
     ["Land_Tyre_F",[3.99609,-0.0275879,-1.16211],[-0.205647,0,0.978626],[0,1,0],[],[]],
@@ -165,7 +165,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0],[]],
     ["Land_ClutterCutter_large_F",[1.82617,-0.102295,0.0820313],[0.665247,0,-0.746623],[0,1,0],[],[]],
     ["Land_RattanChair_01_F",[-0.164063,0.455078,-0.474609],[-0.873476,0,-0.486867],[0,1,0],[],[]],
@@ -202,7 +202,7 @@
 
 
 [
-    ["civilian","Fitness Center","Nathan MacDade",""],
+    ["1.0.2","civilian","Fitness Center","Nathan MacDade",""],
     ["Land_i_House_Small_01_V1_F",[0,0,0,0,0],[]],
     ["Land_Tableware_01_cup_F",[1.13477,-0.349273,-1.72852],[0.230103,0,-0.973166],[0,1,0],[],[]],
     ["Land_GymRack_03_F",[-3.34961,-0.484039,0.730469],[-0.77543,0,0.631433],[0,1,0],[],[]],
@@ -245,7 +245,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_01_V3_F",[0,0,0,0,0],[]],
     ["Fridge_01_closed_F",[-1.41993,-0.578919,1.16601],[-0.0535201,0,0.998567],[0,1,0],[],[]],
     ["Land_Microwave_01_F",[-1.36914,0.0230708,1.07031],[-0.185753,0,0.982596],[0,1,0],[],[]],
@@ -311,7 +311,7 @@
 
 
 [
-    ["base","","Nathan MacDade",""],
+    ["1.0.2","base","","Nathan MacDade",""],
     ["Land_i_Addon_02_V1_F",[0,0,0],[]],
     ["Land_Pallets_stack_F",[3.57031,-0.00512695,1.44336],[-0.999995,0,0.00317652],[0,1,0],[],[]],
     ["Land_PaperBox_open_full_F",[2.32812,0.684325,-1.74805],[0.999989,0,-0.00467729],[0,1,0],[],[]],
@@ -334,7 +334,7 @@
 
 
 [
-    ["base","Oreokastro Outpost Addon","Nathan MacDade",""],
+    ["1.0.2","base","Oreokastro Outpost Addon","Nathan MacDade",""],
     ["Land_i_Addon_04_V1_F",[],[]],
     ["Land_WaterBottle_01_empty_F",[0.505859,0.209039,-0.298828],[-0.134914,0,0.990857],[0.000342104,1,4.65805e-005],[],[]],
     ["Weapon_arifle_Mk20_F",[-0.888672,0.448426,1.92188],[-0.0181063,-3.6087e-005,0.999836],[0.925935,0.37731,0.0167816],[],[]],
@@ -354,7 +354,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V1_F",[0,0],[]],
     ["Land_ChairPlastic_F",[0.173828,-0.1436,2.11914],[0.97151,-0.00104355,-0.236995],[-1.0938e-005,0.99999,-0.00444805],[],[]],
     ["Land_WaterBottle_01_cap_F",[0.380859,0.278977,2.54102],[-0.702285,0.00315887,0.711889],[-1.0939e-005,0.99999,-0.00444805],[],[]],
@@ -402,7 +402,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V3_F",[0,0],[]],
     ["Land_CinderBlock_01_F",[1.11523,-1.54404,1.14648],[-0.0584501,0.00258333,0.998287],[0.000150996,0.999997,-0.00257891],[],[]],
     ["Land_CinderBlock_01_F",[2.25391,-1.53958,1.5918],[-0.378828,0.00257605,-0.925463],[0.000979421,0.999997,0.0023826],[],[]],
@@ -434,7 +434,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V3_F",[0],[]],
     ["Land_Rug_01_Traditional_F",[0.642578,-0.0910339,-1.21875],[0.999715,0,0.0238897],[0,1,0],["a3\props_f_orange\furniture\data\rug_01_traditional_co.paa"],[""]],
     ["Land_ChairWood_F",[-0.0214844,-0.102997,0.349609],[0.00361186,0,-0.999994],[0,1,0],[],[]],
@@ -489,7 +489,7 @@
 
 
 [
-    ["civilian","Kart Garage","Nathan MacDade",""],
+    ["1.0.2","civilian","Kart Garage","Nathan MacDade",""],
     ["Land_u_Addon_01_V1_F",[0.119647],[]],
     ["Land_OfficeCabinet_02_F",[1.73242,-0.223074,2.19141],[-0.000273074,1,0.000532032],[0.0518519,-0.000517157,0.998655],[],[]],
     ["Land_OfficeCabinet_02_F",[0.916016,-0.22376,2.25781],[-0.000273074,1,0.000532032],[0.0518502,-0.000517157,0.998655],[],[]],
@@ -551,7 +551,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Garage_V1_F",[0],[]],
     ["Land_FloodLight_F",[0.244141,-0.0230379,0.5],[0.999982,9.94792e-006,-0.00605825],[-0.00592812,0.207762,-0.978161],[],[]],
     ["Land_Device_assembled_F",[0.240234,-0.550576,1.04492],[-0.00790926,-0.0102873,-0.999916],[-8.50754e-005,0.999947,-0.0102869],[],[]],
@@ -594,7 +594,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Big_02_V1_F",[0,0,0,0,0,0,0,0,0,0,0],[]],
     ["Land_TableSmall_01_F",[0.0158538,-2.40408,0.0422824],[-0.0330657,-5.52973e-010,-0.999453],[-1.16415e-010,1,-5.52973e-010],[],[]],
     ["Land_Tablet_01_F",[0.070701,-2.18139,0.0286738],[0.369779,-4.65661e-010,-0.92912],[5.82077e-011,1,-4.65661e-010],["a3\structures_f_heli\items\electronics\data\tablet_screen_co.paa"],["a3\data_f\lights\lamp_lcd2.rvmat"]],
@@ -693,7 +693,7 @@
 
 
 [
-    ["civilian","Hunter","Nathan MacDade",""],
+    ["1.0.2","civilian","Hunter","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0],[]],
     ["Weapon_srifle_DMR_06_olive_F",[1.16992,0.332703,-0.113281],[0.918007,9.48459e-006,-0.396564],[-0.387899,-0.207882,-0.897953],[],[]],
     ["Headgear_H_Hat_tan",[1.14063,1.36005,-0.369141],[0.027357,-0.925296,0.378258],[0.0667456,0.379246,0.922885],[],[]],
@@ -714,7 +714,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V1_F",[0,0],[]],
     ["Land_Garbage_square3_F",[1.24414,-1.59828,0.933594],[0.997301,0,0.07342],[0.000189619,0.999997,-0.00257569],[],[]],
     ["Land_FoodSack_01_empty_brown_F",[0.421875,-1.6237,2.32031],[-0.186857,0.000485077,0.982387],[3.58488e-005,1,-0.000486955],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -736,7 +736,7 @@
 
 
 [
-    ["civilian","Garage","Nathan MacDade",""],
+    ["1.0.2","civilian","Garage","Nathan MacDade",""],
     ["Land_i_House_Big_01_b_whiteblue_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[]],
     ["Land_File1_F",[-0.126952,-1.77692,1.26563],[-0.969351,0,-0.24568],[0,1,0],["#(argb,8,8,3)color(0.835294,0,0,0.0,ca)"],[""]],
     ["Land_PencilBlue_F",[-0.318358,-1.77982,1.36523],[-0.683618,0,-0.72984],[0,1,0],[],[]],
@@ -835,7 +835,7 @@
 
 
 [
-    ["civilian","The One That Has No Life","Nathan MacDade",""],
+    ["1.0.2","civilian","The One That Has No Life","Nathan MacDade",""],
     ["Land_i_House_Small_02_V1_F",[0,0,0,0,0],[]],
     ["Land_Can_Dented_F",[0.119141,-0.742584,2.56641],[0.753738,0,0.657175],[0,1,0],[],[]],
     ["Land_GamingSet_01_console_F",[-1.11133,-0.539551,1.26758],[0.00164138,-0.000237804,-0.999999],[-0.00584158,0.999983,-0.000247388],[],[]],
@@ -932,7 +932,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_02_V1_F",[0,0,0,0,0],[]],
     ["Land_Rug_01_F",[-0.280999,-0.727386,3.31062],[-0.999973,-2.91038e-011,0.00741745],[-2.91038e-011,1,0],["a3\props_f_orange\furniture\data\rug_01_brown_co.paa"],[""]],
     ["Land_TableSmall_01_F",[-2.67951,-0.518676,1.83013],[-0.72351,0.00123477,0.690313],[0.000417623,0.999999,-0.001351],[],[]],
@@ -992,7 +992,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V1_F",[0],[]],
     ["Land_CratesPlastic_F",[-0.0390243,-0.110322,-2.52924],[0.781479,-2.91038e-011,-0.623931],[-2.32831e-010,1,-4.65661e-010],[],[]],
     ["Land_CratesWooden_F",[3.777,0.637084,-1.24453],[-0.99974,-6.40284e-010,0.0228137],[-6.40284e-010,1,-5.82077e-011],[],[]],
@@ -1010,7 +1010,7 @@
 
 
 [
-    ["civilian","Restaurant Addon","Nathan MacDade",""],
+    ["1.0.2","civilian","Restaurant Addon","Nathan MacDade",""],
     ["Land_i_Addon_03_V1_F",[],[]],
     ["Land_Bench_02_F",[-0.455078,0.341614,-1.94141],[-0.0105765,0,0.999944],[0,1,0],[],[]],
     ["Land_Bench_02_F",[-0.349609,0.40451,2.01563],[0.0197729,0,-0.999804],[0,1,0],[],[]],
@@ -1034,7 +1034,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V1_F",[0],[]],
     ["Land_Wired_Fence_4m_F",[1.19727,0.260915,-0.337891],[-0.0335836,0,-0.999436],[-0.000597683,1,2.00837e-005],[],[]],
     ["Land_HumanSkeleton_F",[1.40234,-0.430401,-1.75],[-0.0336037,-6.45043e-006,-0.999435],[-0.814695,-0.579242,0.027396],[],[]],
@@ -1067,7 +1067,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_02_V1_F",[0,0,0,0,0],[]],
     ["Land_TableDesk_F",[-0.769529,-0.458588,0.375005],[-0.000226661,0,1],[0,1,0],[],[]],
     ["Land_Microwave_01_F",[-0.332028,0.0458069,0.451174],[-0.0775546,0,0.996988],[0,1,0],[],[]],
@@ -1105,7 +1105,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Big_01_V1_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[]],
     ["Land_ShelvesWooden_F",[0.888001,-2.86493,1.93994],[-0.00695159,-2.56114e-009,0.999976],[-6.98492e-010,1,2.67755e-009],[],[]],
     ["Land_Rug_01_Traditional_F",[-2.13384,-2.58372,0.551707],[0.992907,-0.000184296,0.118896],[-8.10623e-006,0.999999,0.00161776],["a3\props_f_orange\furniture\data\rug_01_traditional_co.paa"],[""]],
@@ -1219,7 +1219,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0],[]],
     ["Land_Garbage_line_F",[2.55859,-0.0521555,-2.25781],[-0.992381,-5.2384e-007,0.12321],[-5.92177e-007,1,-5.18019e-007],[],[]],
     ["Land_Tyre_F",[0.162109,0.180872,-3.01563],[-0.658395,0,0.752672],[0.699328,0.369763,0.611732],[],[]],
@@ -1232,7 +1232,7 @@
 
 
 [
-    ["civilian","Farm","Nathan MacDade",""],
+    ["1.0.2","civilian","Farm","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V1_F",[0,0],[]],
     ["Land_FoodSack_01_dmg_brown_F",[0.0957031,-0.535797,0.0214844],[-0.0625966,0.00822041,0.998005],[2.64862e-005,0.999966,-0.0082349],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
     ["Land_FoodSack_01_empty_brown_F",[3.35742,-0.615295,0.109375],[-0.0625287,-0.0472982,0.996922],[-0.014457,0.998815,0.0464812],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -1301,7 +1301,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V2_F",[0,0],[]],
     ["Land_Bench_05_F",[2.12695,-1.51111,1.25586],[0.999988,0,-0.00480899],[0,1,0],[],[]],
     ["TyreBarrier_01_black_F",[2.22266,-1.54739,1.99414],[-0.999922,-0.0115189,0.00486102],[0.0115313,-0.99993,0.0025279],[],[]],
@@ -1327,7 +1327,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_Metal_Shed_F",[],[]],
     ["Land_CratesShabby_F",[-3.48633,-0.591668,0.544922],[0.0947895,0,0.995497],[0,1,0],[],[]],
     ["Land_CratesPlastic_F",[-3.66016,-1.11413,-0.455078],[-0.987349,0,0.15856],[0,1,0],[],[]],
@@ -1348,7 +1348,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V2_F",[0,0],[]],
     ["Land_FoodSacks_01_small_brown_F",[0.0605469,-0.451507,0.158203],[-0.993515,-0.0610732,0.0959099],[-0.0545525,0.99611,0.0691996],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_full_brown_co.paa"],[""]],
     ["Land_CratesWooden_F",[-0.298828,-0.637603,-0.242188],[0.997633,0,0.068759],[0,1,0],[],[]],
@@ -1394,7 +1394,7 @@
 
 
 [
-    ["civilian","Restaurant Addon","Nathan MacDade",""],
+    ["1.0.2","civilian","Restaurant Addon","Nathan MacDade",""],
     ["Land_i_Addon_04_V1_F",[],[]],
     ["Land_RattanChair_01_F",[0.816406,0.651385,0.429688],[1,2.23343e-007,0.000127056],[-2.23358e-007,1,1.21276e-007],[],[]],
     ["Land_RattanTable_01_F",[-0.369141,0.470405,0.410156],[0.000127098,1.21305e-007,-1],[-2.23459e-007,1,1.21277e-007],[],[]],
@@ -1419,7 +1419,7 @@
 
 
 [
-    ["civilian","Restaurant","Nathan MacDade",""],
+    ["1.0.2","civilian","Restaurant","Nathan MacDade",""],
     ["Land_i_House_Big_02_b_blue_F",[0,0,0,0,0,0,0,0,0],[]],
     ["Land_CashDesk_F",[1.10156,-2.83276,0.341797],[-0.999999,-0.000535224,-0.000942469],[-0.000535502,1,0.00029448],[],[]],
     ["Land_MetalCase_01_small_F",[0.962891,-2.16345,-0.113281],[-0.000942231,-0.000337104,1],[-0.000611964,1,0.000336528],[],[]],
@@ -1489,7 +1489,7 @@
 
 
 [
-    ["civilian","Kouris' House","Nathan MacDade",""],
+    ["1.0.2","civilian","Kouris' House","Nathan MacDade",""],
     ["Land_i_House_Big_01_V1_F",[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[]],
     ["UserTexture1m_F",[-0.574517,-2.59308,-0.869385],[-0.00828063,-0.999906,-0.0109149],[-0.604347,0.0137005,-0.796604],["a3\missions_f_orange\data\img\orange_compositions\shared\wood_shaves_01_ca.paa"],["a3\missions_f_orange\data\img\orange_compositions\shared\wood_shaves_01_super.rvmat"]],
     ["Land_Bench_05_F",[0.14632,-2.42554,1.50746],[-0.000728874,-1,2.81832e-005],[-0.999557,0.00072939,0.029771],[],[]],
@@ -1641,7 +1641,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_u_Addon_02_V1_F",[],[]],
     ["Land_PlasticBucket_01_open_F",[0.435547,0.294307,-0.0332031],[0.117904,-0.000953292,0.993025],[0.00064096,0.999999,0.000883885],[],[]],
     ["Land_BarrelWater_grey_F",[3.75195,0.471349,0.416016],[-0.977342,0.000813524,-0.211663],[0.00064096,0.999999,0.000883886],[],[]],
@@ -1663,7 +1663,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_01_V1_F",[0,0,0,0,0],[]],
     ["Land_Bench_F",[-1.50196,-0.801696,2.18749],[0.99881,0,-0.0487626],[0,1,0],[],[]],
     ["Land_Bucket_painted_F",[-2.00196,-0.400665,2.30273],[0.829301,0,-0.558802],[0,1,0],[],[]],
@@ -1702,7 +1702,7 @@
 
 
 [
-    ["civilian","School","Nathan MacDade",""],
+    ["1.0.2","civilian","School","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0],[]],
     ["Land_Football_01_F",[1.45117,-0.0180039,0.152344],[0.696269,7.85198e-006,0.717781],[-8.05758e-006,1,-3.12314e-006],[],[]],
     ["Land_Volleyball_01_F",[0.0898438,-0.0108478,-0.796875],[0.696269,7.85198e-006,0.717781],[-8.05758e-006,1,-3.12314e-006],[],[]],
@@ -1745,7 +1745,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V1_F",[0],[]],
     ["Land_CratesWooden_F",[1.17969,-0.130341,-0.644531],[0.562894,0,0.826529],[0,1,0],[],[]],
     ["Land_Gloves_F",[1.67969,0.586395,-0.650391],[0.966912,0,-0.255112],[0,1,0],[],[]],
@@ -1781,7 +1781,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_u_Addon_01_V1_F",[0],[]],
     ["Land_WoodenPlanks_01_messy_pine_F",[1.92188,-0.109303,3.24414],[-0.999984,0.000568924,-0.00561291],[0.000569949,1,-0.000181066],[],[]],
     ["Land_Hammer_F",[2.00586,0.368516,1.34766],[0.302447,0.0485011,0.951931],[0.953062,-0.000598056,-0.302776],[],[]],
@@ -1790,7 +1790,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Addon_02_V1_F",[0,0,0],[]],
     ["Land_WoodenCrate_01_stack_x5_F",[0.828125,1.082,1.11719],[-0.0256534,0,0.999671],[0,1,0],[],[]],
     ["Land_WoodenCounter_01_F",[3.99023,0.54834,0.457031],[-0.999905,0,0.0138053],[0,1,0],[],[]],
@@ -1803,7 +1803,7 @@
 
 
 [
-    ["civilian","Farm","Nathan MacDade",""],
+    ["1.0.2","civilian","Farm","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V1_F",[0],[]],
     ["Land_CratesPlastic_F",[0.683589,0.123718,-0.644537],[0.0531552,0,0.998586],[0,1,0],[],[]],
     ["Land_Wired_Fence_4m_F",[1.34959,0.0422361,-2.37501],[-0.9972,0,-0.0747873],[0,1,0],[],[]],
@@ -1819,7 +1819,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V1_F",[0,0],[]],
     ["Land_WoodenTable_small_F",[1.18164,-1.23328,0.826172],[0.00776389,-0.00165834,-0.999969],[-0.00200063,0.999997,-0.00167392],[],[]],
     ["Land_PaperBox_01_small_open_brown_F",[1.98242,-1.45071,0.603516],[-0.638313,-0.00146592,-0.769775],[0.00221235,-0.999998,6.982e-005],["a3\props_f_orange\humanitarian\supplies\data\paperbox_01_small_open_brown_co.paa"],[""]],
@@ -1836,7 +1836,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_02_V1_F",[0,0,0,0,0],[]],
     ["OfficeTable_01_new_F",[-0.255859,-0.0890503,1.23828],[0.999979,2.06472e-008,0.00642288],[-0.00642288,-2.91504e-008,0.999979],["a3\structures_f_heli\furniture\data\officetable_01_new_co.paa"],[""]],
     ["OfficeTable_01_new_F",[-0.914063,-0.0883789,1.23242],[-0.999976,1.11556e-008,-0.00698146],[-0.00698146,-2.91686e-008,0.999976],["a3\structures_f_heli\furniture\data\officetable_01_new_co.paa"],[""]],
@@ -1873,7 +1873,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V3_F",[0,0],[]],
     ["Mosquito",[0.658203,-0.492897,1.91602],[0.97904,0.0455241,-0.198516],[-0.188704,0.569474,-0.800056],[],[]],
     ["Land_Sacks_goods_F",[-0.15625,-0.111904,1.75195],[-0.684246,-0.00323889,-0.729244],[-1.29784e-006,0.99999,-0.00444017],[],[]],
@@ -1921,7 +1921,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V2_F",[0,0],[]],
     ["Land_WoodenTable_small_F",[1.88086,-1.21686,1.92578],[-0.00310408,-0.000963284,-0.999995],[-0.00224219,0.999997,-0.000956326],[],[]],
     ["Land_Map_Tanoa_F",[1.95313,-0.789905,1.61914],[-0.990732,0.00926195,-0.135517],[0.00926932,0.999957,0.000576593],["a3\props_f_argo\items\documents\data\map_tanoa_co.paa"],[""]],
@@ -1975,7 +1975,7 @@
 
 
 [
-    ["civilian","","Nathan MacDade",""],
+    ["1.0.2","civilian","","Nathan MacDade",""],
     ["Land_i_House_Small_02_V1_F",[0,0,0,0,0],[]],
     ["OfficeTable_01_new_F",[-0.25781,-0.0890508,1.23633],[0.999979,2.06472e-008,0.00642288],[-0.00642288,-2.91504e-008,0.999979],["a3\structures_f_heli\furniture\data\officetable_01_new_co.paa"],[""]],
     ["OfficeTable_01_new_F",[-0.916013,-0.0883789,1.23242],[-0.999976,1.11556e-008,-0.00698146],[-0.00698146,-2.91686e-008,0.999976],["a3\structures_f_heli\furniture\data\officetable_01_new_co.paa"],[""]],
@@ -2012,7 +2012,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_Addon_02_V1_F",[],[]],
     ["Land_WoodenCrate_01_stack_x3_F",[0.826172,0.762786,1.13672],[-0.0785019,0,-0.996914],[0,1,0],[],[]],
     ["Land_WoodenCounter_01_F",[3.99023,0.53659,0.429688],[-0.999905,0,0.0138129],[0,1,0],[],[]],
@@ -2026,7 +2026,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V1_F",[0.5,0.5],[]],
     ["Land_Stretcher_01_sand_F",[3.92578,-0.39405,-0.0625],[-0.999368,-0.0114945,0.0336333],[0.0126428,-0.999337,0.0341321],["a3\props_f_orange\humanitarian\camps\data\stretcher_sand_f_co.paa"],[""]],
     ["Land_Garbage_square3_F",[3.77344,-0.594443,-2.01758],[-0.999826,0.0152137,0.0107821],[0.0152061,0.999884,-0.000787295],[],[]],
@@ -2064,7 +2064,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_Chapel_V2_F",[],[]],
     ["Land_WaterBottle_01_cap_F",[-0.0214844,-2.8584,3.44141],[1,0,0],[0,1,0],[],[]],
     ["Land_WaterBottle_01_compressed_F",[-0.449219,-2.83936,0.714844],[1,0,0],[0,1,0],[],[]],
@@ -2115,7 +2115,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V3_F",[0.5,0.5],[]],
     ["Land_CinderBlock_01_F",[1.11523,-1.54404,1.14648],[-0.0584501,0.00258333,0.998287],[0.000150996,0.999997,-0.00257891],[],[]],
     ["Land_CinderBlock_01_F",[2.25391,-1.53958,1.5918],[-0.378828,0.00257605,-0.925463],[0.000979421,0.999997,0.0023826],[],[]],
@@ -2152,7 +2152,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_d_House_Small_01_V1_F",[],[]],
     ["Land_WoodenTable_large_F",[1.04494,-0.333648,3.62695],[0.806616,0.0367323,-0.589933],[0.586706,0.071383,0.806648],[],[]],
     ["Land_CerealsBox_F",[-0.191386,-0.818204,5.0957],[0.0129523,-0.997215,0.073453],[-0.107217,-0.0744207,-0.991447],[],[]],
@@ -2170,7 +2170,7 @@
 
 
 [
-    ["abandoned","Garage","Nathan MacDade",""],
+    ["1.0.2","abandoned","Garage","Nathan MacDade",""],
     ["Land_u_House_Big_01_V1_F",[0.5,0.5],[]],
     ["Land_Bucket_F",[-0.574219,-2.47882,0.535156],[-0.581209,-1.23605e-005,0.813754],[-0.801422,0.173444,-0.572398],[],[]],
     ["Land_PlasticBucket_01_closed_F",[0.798828,-2.79504,-0.583984],[-0.969351,0,-0.245681],[0,1,0],[],[]],
@@ -2228,7 +2228,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_d_House_Small_02_V1_F",[],[]],
     ["Land_HDMICable_01_F",[-1.47656,-0.987924,3.25],[0.0423022,0.00342112,-0.999099],[0.00153675,0.999993,0.00348925],[],[]],
     ["Land_Garbage_square3_F",[1.01953,-0.940416,4.60156],[0.0423022,0.00343829,-0.999099],[0.00153602,0.999993,0.0035064],[],[]],
@@ -2245,7 +2245,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_d_House_Small_01_V1_F",[],[]],
     ["Land_WoodenTable_large_F",[1.04492,-0.333649,3.62695],[0.806616,0.0367323,-0.589933],[0.586706,0.071383,0.806648],[],[]],
     ["Land_CerealsBox_F",[-0.191406,-0.818207,5.0957],[0.0129523,-0.997215,0.0734531],[-0.107217,-0.0744208,-0.991446],[],[]],
@@ -2264,7 +2264,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_House_Small_01_V1_F",[0.5,0.5,0.5,0.5,0.5],[]],
     ["Land_WaterBottle_01_empty_F",[-1.8457,-1.01639,-0.835938],[-0.403337,2.41253e-009,-0.915052],[-0.915052,7.19153e-009,0.403337],[],[]],
     ["Land_WaterCooler_01_old_F",[-1.23828,-0.914855,-1.39648],[0.230103,0,-0.973166],[-0.972989,0.0190764,-0.230061],["a3\structures_f_bootcamp\items\electronics\data\watercooler_01_old_co.paa"],[""]],
@@ -2292,7 +2292,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0.5],[]],
     ["Land_RattanChair_01_F",[1.5293,0.201324,-0.205078],[0.777842,0.454965,0.433554],[0.397403,-0.890509,0.221504],[],[]],
     ["Land_Garbage_square3_F",[1.72461,-0.0689392,0.314453],[0.665247,0,-0.746623],[0,1,0],[],[]],
@@ -2311,7 +2311,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V3_F",[0.5],[]],
     ["UserTexture10m_F",[1.66602,-0.102386,-0.404297],[7.92214e-008,-1,-1.07348e-008],[-0.0235087,8.86944e-009,-0.999724],["a3\missions_f_orange\data\img\orange_compositions\c4\c4_01_ground_dirty_01_ca.paa"],[""]],
     ["Land_FlowerPot_01_F",[0.664063,-0.00927734,0.490234],[0.68573,0,0.727856],[0,1,0],[],[]],
@@ -2331,7 +2331,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V2_F",[0.5,0.5],[]],
     ["EmptyDetector",[2.08984,-1.64667,1.45898],[0.999988,0,-0.00480899],[0,1,0],[],[]],
     ["Land_Bench_05_F",[2.12695,-1.51111,1.25586],[0.999988,0,-0.00480899],[0,1,0],[],[]],
@@ -2348,7 +2348,7 @@
 
 
 [
-    ["abandoned","Restaurant","Nathan MacDade",""],
+    ["1.0.2","abandoned","Restaurant","Nathan MacDade",""],
     ["Land_u_House_Big_02_V1_F",[0.5,0.5],[]],
     ["Land_CashDesk_F",[1.10156,-2.60689,0.400391],[-1,6.9546e-005,-0.000937553],[6.95819e-005,1,-3.82645e-005],[],[]],
     ["Land_Ketchup_01_F",[-0.876953,-2.38611,-0.046875],[-0.000605103,-1,0.000332709],[-0.0718057,0.0003753,0.997419],[],[]],
@@ -2385,7 +2385,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_d_House_Small_02_V1_F",[],[]],
     ["Land_Garbage_square3_F",[-0.00390625,-0.955231,3.44727],[-0.749431,0.000838105,0.662082],[-1.89767e-005,0.999999,-0.00128734],[],[]],
     ["Land_FirePlace_F",[-0.603516,-0.957031,3.45313],[-0.749431,0.000838105,0.662082],[-1.89767e-005,0.999999,-0.00128734],[],[]],
@@ -2405,7 +2405,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_Addon_02_V1_F",[],[]],
     ["Land_BarrelEmpty_grey_F",[1.91406,0.336397,0.0957031],[-0.000640925,-0.999999,-0.000883912],[-0.809548,-4.53994e-008,0.587054],[],[]],
     ["Land_BarrelEmpty_grey_F",[3.95313,0.500317,-0.0839844],[-0.809548,0,0.587054],[0.000640961,0.999999,0.000883886],[],[]],
@@ -2421,7 +2421,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_House_Small_01_V1_F",[0.5,0.5],[]],
     ["Land_Bench_F",[-1.5,-0.675964,2.11914],[0.99881,0,-0.0487671],[0,1,0],[],[]],
     ["Land_Bucket_painted_F",[-2,-0.274933,2.23438],[0.829298,0,-0.558806],[0,1,0],[],[]],
@@ -2436,7 +2436,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V2_F",[0.5,0.5],[]],
     ["Land_WoodenTable_small_F",[1.88086,-1.21686,1.92578],[-0.00310408,-0.000963284,-0.999995],[-0.00224219,0.999997,-0.000956326],[],[]],
     ["Land_Photoframe_01_F",[2.97656,-0.557706,0.542969],[0.449492,-0.0220832,0.893011],[0.893203,-0.00235434,-0.449647],["a3\props_f_orange\items\decorative\data\photos_camo_co.paa","a3\props_f_orange\items\decorative\data\photoframe_01_f_co.paa"],["",""]],
@@ -2454,7 +2454,7 @@
 
 
 [
-    ["abandoned","Restaurant Addon","Nathan MacDade",""],
+    ["1.0.2","abandoned","Restaurant Addon","Nathan MacDade",""],
     ["Land_i_Addon_04_V1_F",[],[]],
     ["Land_Tableware_01_napkin_F",[1.01367,0.080894,0.6875],[-0.477124,0,-0.878836],[6.90061e-006,1,-3.74637e-006],[],[]],
     ["Land_Garbage_square5_F",[0.191406,0.0978141,-0.867188],[0.0984213,0.00038231,-0.995145],[8.24917e-005,1,0.000392334],[],[]],
@@ -2464,7 +2464,7 @@
 
 
 [
-    ["abandoned","Land_d_House_Big_01_V1_F",[]],
+    ["1.0.2","abandoned","Land_d_House_Big_01_V1_F",[]],
     ["Land_WoodenPlanks_01_messy_pine_F",[1.21289,-2.45566,-0.25],[-0.299544,-0.0273872,-0.953689],[0.0643839,0.996729,-0.0488456],[],[]],
     ["Land_WoodenPlanks_01_messy_pine_F",[4.02148,-2.70963,-0.205078],[-0.916605,-0.00106112,0.399793],[-0.00086983,0.999999,0.000659909],[],[]],
     ["Land_WoodenPlanks_01_messy_pine_F",[4.02148,-2.70963,-0.205078],[-0.916605,-0.00106112,0.399793],[-0.00086983,0.999999,0.000659909],[],[]],
@@ -2538,7 +2538,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V3_dam_F",[1,0.929589],[]],
     ["Land_WoodenCounter_01_F",[1.50586,-0.0997119,-2.23242],[-0.838952,-0.00939031,0.544125],[-0.0115114,0.999934,-0.000492188],[],[]],
     ["Land_Garbage_square5_F",[0.308594,-0.558633,-4.29297],[0.00195914,-0.000469661,-0.999998],[-0.0115114,0.999934,-0.000492183],[],[]],
@@ -2561,7 +2561,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V1_F",[0.5,0.5],[]],
     ["Land_Garbage_square3_F",[1.3418,-1.61374,1.80469],[-0.638407,-0.00200713,-0.769697],[-5.00295e-006,0.999997,-0.00260353],[],[]],
     ["Land_WoodenTable_small_F",[1.18164,-1.23328,0.826172],[0.00776389,-0.00165834,-0.999969],[-0.00200063,0.999997,-0.00167392],[],[]],
@@ -2584,7 +2584,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_House_Small_02_V1_F",[0.5],[]],
     ["Land_RattanChair_01_F",[-0.851563,-0.190946,0.0664063],[-0.271661,0.0012396,0.962392],[-3.0999e-006,0.999999,-0.00128891],[],[]],
     ["Land_Garbage_square3_F",[-0.525391,-0.706398,4.2207],[-0.271661,0.0012396,0.962392],[-3.0999e-006,0.999999,-0.00128891],[],[]],
@@ -2617,7 +2617,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseBig_V1_F",[0.5,0.5],[]],
     ["Land_Garbage_square3_F",[1.24414,-1.59828,0.933594],[0.997301,0,0.07342],[0.000189619,0.999997,-0.00257569],[],[]],
     ["Land_FoodSack_01_empty_brown_F",[0.421875,-1.6237,2.32031],[-0.186857,0.000485077,0.982387],[3.58488e-005,1,-0.000486955],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -2633,7 +2633,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0.5],[]],
     ["UserTexture10m_F",[1.61523,-0.107084,-0.333984],[-0.000367415,-1,-0.000321485],[0.00765485,0.000318663,-0.999971],["a3\missions_f_orange\data\img\orange_compositions\c4\c4_01_ground_dirty_01_ca.paa"],[""]],
     ["Land_Barricade_01_4m_F",[2.38672,-0.101048,-1.19727],[-0.122384,-0.000274083,0.992483],[0.00036751,1,0.000321477],[],[]],
@@ -2648,7 +2648,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_HouseSmall_V2_F",[0.5,0.5],[]],
     ["Land_Slums02_pole",[0.849609,-0.59555,-0.333984],[-0.927603,0.0420385,0.371194],[-0.367997,0.0681055,-0.927329],[],[]],
     ["Land_FoodSack_01_dmg_brown_F",[0.337891,-0.553405,0.230469],[-0.595166,0.00357753,0.803595],[-2.67427e-006,0.99999,-0.00445384],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -2679,7 +2679,7 @@
 
 
 [
-    ["abandoned","Farm","Nathan MacDade",""],
+    ["1.0.2","abandoned","Farm","Nathan MacDade",""],
     ["Land_d_Stone_HouseSmall_V1_F",[],[]],
     ["Land_FoodSack_01_dmg_brown_F",[-1.60546,-0.50531,2.29297],[-0.0625942,0.00822041,0.998005],[2.64666e-005,0.999966,-0.0082349],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
     ["Land_FoodSack_01_dmg_brown_F",[1.25977,-0.491638,1.39843],[0.774295,0.00821995,0.632771],[-0.00667317,0.999966,-0.00482428],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -2711,12 +2711,12 @@
     ["Land_Pillow_old_F",[1.28909,-0.562744,9.93164],[-0.0625963,0,0.998039],[0,1,0],[],[]],
     ["Land_WoodenBox_F",[2.4219,-0.583374,11.0664],[-0.0172105,0,-0.999852],[0,1,0],[],[]],
     ["Land_Slum_House01_ruins_F",[3.29881,-2.07397,-6.39649],[0.070517,0.456037,0.887163],[0.11276,0.880032,-0.461334],[],[]]
-]
+];
 
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0.5],[]],
     ["Land_Garbage_square3_F",[1.94531,-0.0667114,-0.179688],[0.727013,0,0.686624],[0,1,0],[],[]],
     ["Land_FoodSack_01_dmg_brown_F",[-0.277344,0.769379,-1.53906],[0.958633,0,-0.284644],[0,1,0],["a3\props_f_orange\humanitarian\supplies\data\foodsack_01_dmg_brown_co.paa"],[""]],
@@ -2727,7 +2727,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_dam_F",[1],[]],
     ["Land_Garbage_square5_F",[0.849609,0.0966291,0.146484],[0.00177318,0,0.999998],[0,1,0],[],[]],
     ["Land_MetalBarrel_F",[-1.77344,0.462512,-0.224609],[-1,0,-1.50996e-007],[1.50922e-007,-0.0311637,-0.999514],[],[]],
@@ -2745,7 +2745,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_House_Small_02_V1_dam_F",[1],[]],
     ["Land_TableDesk_F",[-0.34375,-0.696503,0.707031],[-0.00023289,0,1],[0,1,0],[],[]],
     ["Fridge_01_open_F",[0.908203,-0.427521,0.53125],[-0.080988,0,0.996715],[0,1,0],[],[]],
@@ -2772,7 +2772,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Addon_04_V1_F",[],[]],
     ["Land_WaterBottle_01_compressed_F",[0.431641,0.107908,-0.515625],[-0.134914,0,0.990857],[0.000342104,1,4.65805e-005],[],[]],
     ["Land_CampingTable_small_F",[0.466797,0.485241,0.261719],[-0.980312,0.000322906,0.197457],[-0.000340741,-1,-5.63483e-005],["a3\structures_f\civ\camping\data\campingtable_co.paa"],[""]],
@@ -2786,7 +2786,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_House_Small_02_V1_dam_F",[0],[]],
     ["Land_TableDesk_F",[-0.343754,-0.696503,0.707029],[-0.000232905,0,1],[0,1,0],[],[]],
     ["Fridge_01_open_F",[0.910153,-0.427521,0.529303],[-0.080988,0,0.996715],[0,1,0],[],[]],
@@ -2813,7 +2813,7 @@
 
 
 [
-    ["abandoned","Oreokastro Outpost","Nathan MacDade",""],
+    ["1.0.2","abandoned","Oreokastro Outpost","Nathan MacDade",""],
     ["Land_i_House_Big_02_V1_F",[0.5,0.5,1,1,1,1,1,1,1,1,1],[]],
     ["BloodSplatter_01_Large_Old_F",[1.77148,-2.6441,-0.505859],[0.134612,0,-0.990898],[-0.000342118,1,-4.64763e-005],["a3\props_f_orange\humanitarian\garbage\data\bloodsplatter_large_old_ca.paa"],["a3\props_f_orange\humanitarian\garbage\data\bloodsplatter_large_old.rvmat"]],
     ["Land_PaperBox_01_small_ransacked_brown_F",[-1.51758,-2.42884,0.457031],[-0.546731,0.0309713,0.836735],[-0.00502387,-0.999419,0.0337102],["a3\props_f_orange\humanitarian\supplies\data\paperbox_01_small_brown_dmg_co.paa"],[""]],
@@ -2879,7 +2879,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_u_House_Big_02_V1_dam_F",[0.685796,1],[]],
     ["Land_Garbage_square5_F",[2.46289,-2.37789,1.4082],[0.369783,0,-0.929118],[-7.59602e-005,1,-3.02317e-005],[],[]],
     ["Land_CratesPlastic_F",[-1.03906,-2.18628,2.36719],[0.996977,0.000692969,-0.0776896],[-0.000717317,1,-0.000285487],[],[]],
@@ -2914,7 +2914,7 @@
 
 
 [
-    ["abandoned","Kart Garage","Nathan MacDade",""],
+    ["1.0.2","abandoned","Kart Garage","Nathan MacDade",""],
     ["Land_u_Addon_01_V1_F",[0.5],[]],
     ["Land_Garbage_square3_F",[1.66406,0.030261,1.50781],[-0.889665,0,-0.456613],[-4.97524e-005,1,9.69376e-005],[],[]],
     ["Land_Bucket_clean_F",[2.59766,0.112314,1.94727],[-0.416499,-0.0160738,-0.908994],[-0.903277,0.120646,0.411746],[],[]],
@@ -2937,7 +2937,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_d_House_Big_01_V1_F",[],[]],
     ["Land_Garbage_square3_F",[4.41797,-2.18014,-1.25],[0.968688,-0.00459353,0.24824],[0.00388445,0.999987,0.0033462],[],[]],
     ["Land_PaperBox_01_small_destroyed_brown_IDAP_F",[4.06836,-1.99833,-0.5625],[0.730079,0,0.683363],[-1.38347e-007,1,1.47804e-007],["a3\props_f_orange\humanitarian\supplies\data\paperbox_01_small_brown_destroyed_idap_co.paa"],[""]],
@@ -2989,7 +2989,7 @@
 
 
 [
-    ["abandoned","","Nathan MacDade",""],
+    ["1.0.2","abandoned","","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V1_dam_F",[1],[]],
     ["Land_CratesWooden_F",[-0.255859,0.0288491,0.556641],[0.562894,0,0.826529],[0,1,0],[],[]],
     ["MedicalGarbage_01_FirstAidKit_F",[-0.15625,0.755076,0.162109],[-0.40992,0,0.912122],[0,1,0],[],[]],
@@ -3003,7 +3003,7 @@
 
 
 [
-    ["abandoned","School","Nathan MacDade",""],
+    ["1.0.2","abandoned","School","Nathan MacDade",""],
     ["Land_i_Stone_Shed_V2_F",[0.5],[]],
     ["Leaflet_05_Old_F",[1.17383,1.01161,-0.279297],[-0.999975,-0.00365942,-0.00602649],[-0.00593974,-0.0232704,0.999712],["a3\weapons_f_orange\ammo\data\leaflet_default_co.paa"],[""]],
     ["Leaflet_05_Old_F",[0.505859,-0.0999184,-1.78516],[-0.997195,-0.0173295,-0.0728086],[-0.0176845,0.999835,0.00423364],["a3\weapons_f_orange\ammo\data\leaflet_default_co.paa"],[""]],
