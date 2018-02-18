@@ -59,7 +59,7 @@ switch _mode do
 		};
 
 		// mission designer can disallow usage of code execution, but it will still be available for logged-in admins
-		private _enableCodeExecution = ((missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) or (serverCommandAvailable "#kick"));
+		private _enableCodeExecution = ((missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) or ((call BIS_fnc_admin) > 0));
 		
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
