@@ -446,7 +446,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 // implement careless option for groups and waypoints
 class RscAttributeBehaviour: RscControlsGroupNoScrollbars 
 {
-	onSetFocus = "[_this,""RscAttributeBehaviour"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeBehaviour"",'AresDisplays'] call (uiNamespace getVariable ""Achilles_fnc_initCuratorAttribute"")";
 	class controls 
 	{
 		class Title: RscText 
@@ -469,15 +469,24 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 
 class RscAttributeOwners : RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeOwners"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeOwners"",'AresDisplays'] call (uiNamespace getVariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeOwners2 : RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeOwners2"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeOwners2"",'AresDisplays'] call (uiNamespace getVariable ""Achilles_fnc_initCuratorAttribute"")";
 };
 
 class RscAttributeExec : RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,""RscAttributeExec"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
+	onSetFocus = "[_this,""RscAttributeExec"",'AresDisplays'] call (uiNamespace getVariable ""Achilles_fnc_initCuratorAttribute"")";
+	adminOnly = 0;
+	codeExecution = 1;
+	class controls
+	{
+		class Title : RscText
+		{
+			text = "$STR_3DEN_Object_AttributeCategory_Init";
+		};
+	};
 };	
