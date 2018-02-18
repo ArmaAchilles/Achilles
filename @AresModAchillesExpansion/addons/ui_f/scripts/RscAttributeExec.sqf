@@ -1,13 +1,11 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
 
-_mode = _this select 0;
-_params = _this select 1;
-_entity = _this select 2;
+params ["_mode","_params","_entity"];
 
 if (isnil "RscAttributeExec_templatesVar") then {RscAttributeExec_templatesVar = "RscAttributeExec";};
 _templates = profilenamespace getvariable [RscAttributeExec_templatesVar,[]];
 
-_display = _params select 0;
+_params params ["_display"];
 _ctrlValue = _display displayctrl IDC_RSCATTRIBUTEEXEC_VALUE;
 _ctrlTemplate = _display displayctrl IDC_RSCATTRIBUTEEXEC_VALUETEMPLATE;
 
