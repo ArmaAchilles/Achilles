@@ -16,7 +16,7 @@
 //	Example:		[[_message], {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, grpNull]], ["_jip", false, [false, "", objNull]]];
+params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jip", false, [false, "", objNull]]];
 
 private _jipId = false;
 

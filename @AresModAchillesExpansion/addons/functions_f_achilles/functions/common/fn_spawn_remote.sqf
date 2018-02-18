@@ -5,7 +5,7 @@
 // DESCRIPTION:		Remote helper function for Achilles_fnc_spawn
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown]], ["_jipId", false, [false, ""]]];
+params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jipId", false, [false, ""]]];
 
 private _rc_owner = remoteExecutedOwner;
 // execute code if rc owner is server
