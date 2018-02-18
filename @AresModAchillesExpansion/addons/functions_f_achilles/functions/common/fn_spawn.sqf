@@ -16,9 +16,33 @@
 //	Example:		[[_message], {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, grpNull]], ["_jip", false, [false, "", objNull]]];
+params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jip", false, [false, "", objNull]]];
 
-private _jip_id = "";
+private _jipId = false;
+
+if (isMultiplayer) then
+{
+	switch (typeName _jip) do
+	{
+		case (typeName true):
+		{
+			if (_jip) then
+			{
+				private _counter = missionNamespace getVariable ["Achilles_var_jipCounter", 1];
+				_jipId = ["ares", clientOwner, _counter] joinString "_";
+				missionNamespace setVariable ["Achilles_var_jipCounter", _counter + 1];
+			};
+		};
+		case (typeName objNull):
+		{
+			_jipId = netId _jip;
+		};
+		case (typeName ""):
+		{
+			_jipId = _jip;
+		};
+	};
+};
 
 if((_target isEqualType 0 and {_target == clientOwner}) or {_target isEqualTypeAny [grpNull, objNull] and {local _target}}) then
 {
@@ -27,6 +51,6 @@ if((_target isEqualType 0 and {_target == clientOwner}) or {_target isEqualTypeA
 } else
 {
 	// send code to the server for remote execution
-	_jip_id = [_args, _code, _target, _jip] remoteExec ["Achilles_fnc_spawn_remote", 2];
+	[_args, _code, _target, _jipId] remoteExec ["Achilles_fnc_spawn_remote", 2];
 };
-_jip_id
+_jipId
