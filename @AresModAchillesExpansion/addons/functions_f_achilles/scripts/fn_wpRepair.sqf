@@ -24,7 +24,7 @@ _engineer commandMove position _vehicle;
 waitUntil
 {
 	sleep 1;
-	(not alive _engineer) or {not alive _vehicle} or {unitReady _engineer}
+	(not alive _engineer) or {not alive _vehicle} or {unitReady _engineer};
 };
 if ((alive _engineer) and {alive _vehicle} and {_engineer distance _vehicle <= 10}) then
 {
