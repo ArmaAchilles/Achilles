@@ -3,6 +3,18 @@ private _password = "12345678";
 private _nchar = count _password;
 createDialog "RscDisplayEmpty";
 private _dialog = findDisplay -1;
+_dialog ctrlCreate ["RscPicture", 2001];
+private _ctrlLock = _dialog displayCtrl 2001;
+_ctrlLock ctrlSetText "\a3\Modules_f\data\iconLock_ca.paa";
+_ctrlLock ctrlSetTextColor [0,0,0,1];
+_ctrlLock ctrlSetPosition [0.4225,0.1975,0.155,0.155];
+_ctrlLock ctrlCommit 0;
+_dialog ctrlCreate ["RscPicture", 2002];
+private _ctrlLock = _dialog displayCtrl 2002;
+_ctrlLock ctrlSetText "\a3\Modules_f\data\iconLock_ca.paa";
+_ctrlLock ctrlSetTextColor [0,0,0,1];
+_ctrlLock ctrlSetPosition [0.4275,0.2025,0.145,0.145];
+_ctrlLock ctrlCommit 0;
 _dialog ctrlCreate ["RscPicture", 2000];
 private _ctrlLock = _dialog displayCtrl 2000;
 _ctrlLock ctrlSetText "\a3\Modules_f\data\iconLock_ca.paa";
@@ -18,6 +30,7 @@ _ctrlEdit ctrlSetText "*";
 private _ctrlWidth = 0.018 + ctrlTextWidth _ctrlEdit * _nchar;
 _ctrlEdit ctrlSetPosition [0.5 - _ctrlWidth/2, 0.4, _ctrlWidth,0.1];
 _ctrlEdit ctrlSetText "";
+_ctrlEdit ctrlSetBackgroundColor [0.4,0.4,0.4,0.6];
 _ctrlEdit ctrlCommit 0;
 _ctrlEdit ctrlAddEventHandler ["KeyDown", 
 ["
@@ -72,8 +85,10 @@ for "_i" from 0 to 2 do
 				private _dialog = ctrlParent param[0];
 				private _ctrlEdit = _dialog displayCtrl 1000;
 				private _ctrlLock = _dialog displayCtrl 2000;
+				private _ctrlLockShadows = [_dialog displayCtrl 2001, _dialog displayCtrl 2002];
 				if (ctrlText _ctrlEdit == """, _password, """) then
 				{
+					{_x ctrlSetText ""\a3\Modules_f\data\iconUnlock_ca.paa""} forEach _ctrlLockShadows;
 					_ctrlLock ctrlSetText ""\a3\Modules_f\data\iconUnlock_ca.paa"";
 					_ctrlLock ctrlSetTextColor [0,1,0,1];
 					uiSleep 1;
@@ -81,7 +96,7 @@ for "_i" from 0 to 2 do
 				}
 				else
 				{
-					private _ctrlLock = _dialog displayCtrl 2000;
+					{_x ctrlShow false} forEach _ctrlLockShadows;
 					_ctrlLock ctrlSetTextColor [1,0,0,1];
 					for ""_"" from 0 to 2 do
 					{
@@ -96,6 +111,7 @@ for "_i" from 0 to 2 do
 						 uiSleep 0.03;
 					};
 					_ctrlLock ctrlSetTextColor [1,1,1,1];
+					{_x ctrlShow true} forEach _ctrlLockShadows;
 				};
 			};
 		"] joinString ""
@@ -137,6 +153,7 @@ private _vecUp = vectorUp _intelObject;
 curatorCamera setPosWorld (_pos vectorAdd (_vecUp vectorMultiply 0.15));
 curatorCamera setVectorDirAndUp [_vecUp vectorMultiply -1, _vecDir vectorMultiply -1];
 
-
+// set screen texture
 params ["_","_intelObject"];
 _intelObject setObjectTexture [0, "#(rgb,8,8,3)color(0,0,0,0)"];
+_intelObject setObjectTexture [0, "\a3\ui_f_curator\Data\CfgDiaryImages\Altis\Zaros_ca.paa"];
