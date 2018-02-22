@@ -7,15 +7,15 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private _objects = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
-_objects = [_objects];
+private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
+private _objects = [_object];
 
 private _dialogResult =
 [
 	localize "STR_AMAE_MAKE_INVINCIBLE",
 	[
-		[localize "STR_AMAE_MAKE_INVINCIBLE", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]],
-		[localize "STR_AMAE_INCLUDE_CREW", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
+		[localize "STR_AMAE_MAKE_INVINCIBLE", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"]],
+		[localize "STR_AMAE_INCLUDE_CREW", [localize "STR_AMAE_YES",localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_ShowChooseDialog;
 
@@ -30,7 +30,7 @@ if (isNull (_objects select 0)) then
 	_objects = [localize "STR_AMAE_OBJECTS"] call Achilles_fnc_SelectUnits;
 };
 if (isNil "_objects") exitWith {};
-if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};;
+if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 {
 	private _object = _x;

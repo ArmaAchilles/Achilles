@@ -38,7 +38,6 @@ class RscDisplayMain: RscStandardDisplay
 };
 */
 // load external attributes
-class RscAttributeExec : RscControlsGroupNoScrollbars {};
 class RscAttributeGroupID: RscControlsGroupNoScrollbars {};
 
 // include modified attributes

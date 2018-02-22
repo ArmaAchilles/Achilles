@@ -32,6 +32,9 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * Grezvany13
     - Several contributions and support.
 * MaliceGFS
+    - Change abilities fixes.
+    - Code refactoring.
+    - Different types of hints.
     - Spelling fixes.
 * MikeCzer
 	- Design of Achilles logo.
@@ -43,6 +46,8 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * S.Crowe
     - ACE healing;
     - Eden compatability of compositions.
+* SamLex
+    - Fast rope waypoint detects if Advanced Rappeling is loaded on the server.
 * Shukari
     - Available factions bug fix.
 * Talya

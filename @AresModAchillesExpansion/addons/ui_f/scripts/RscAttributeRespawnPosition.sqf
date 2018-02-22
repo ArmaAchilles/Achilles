@@ -33,7 +33,7 @@ switch _mode do {
 				_ctrl ctrlshow false;
 			} foreach _idcs;
 			private _ctrlBackground = _display displayctrl IDC_RSCATTRIBUTERESPAWNPOSITION_BACKGROUND;
-			_ctrlBackground ctrlsettext localize "STR_AMAE_lib_info_na";
+			_ctrlBackground ctrlsettext localize "STR_lib_info_na";
 		};
 
 		//--- Add handlers to all buttons
