@@ -4470,14 +4470,14 @@
                 <German>GEBÄUDE DURCHSUCHEN</German>
                 <Japanese>建物を捜索</Japanese>
             </Key>
-        </Container>
-        <Key ID="STR_AMAE_WP_REPAIR">
+            <Key ID="STR_AMAE_WP_REPAIR">
                 <Original>REPAIR</Original>
                 <English>REPAIR</English>
                 <French>RÉPAREZ</French>
                 <German>REPARIERE</German>
                 <Japanese>修理</Japanese>
-        </Key>
+            </Key>
+        </Container>
         <Container name="cfg Hints">
             <Key ID="STR_AMAE_PLACING_MODULES">
                 <Original>Placing Modules</Original>
