@@ -114,3 +114,5 @@ All of these icons are licensed under Creative Commons Attribution license.
     - Victor9401
 * French
     - oOKexOo
+* Japanese
+    - classicarma
