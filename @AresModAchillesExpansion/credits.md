@@ -3,8 +3,8 @@ Below you can find all the authors and contributors to Ares and Achilles.
 
 ## Ares includes contributions by the following coders
 * Anton Struyk
-* TheOtherTaylor
 * JonasJurczok
+* TheOtherTaylor
 
 ## Ares integrates code from the following mods or scripts
 * Curator Presets Mod (by Chessmaster)
@@ -62,57 +62,57 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Improval of code efficency.
 
 ## Achilles integrates code from the following mods or scripts
-- AI HALO jump script (by cobra4v320)
-    - http://www.armaholic.com/page.php?id=23113
-* Kyle Kotowick's matrix transpose script
-    - http://www.armaholic.com/page.php?id=25964
-* ACE3 fast-roping waypoint (by BaerMitUmlaut)
 * ACE3 change NVG brighness (by commy2)
+* ACE3 fast-roping waypoint (by BaerMitUmlaut)
+* AI HALO jump script (by cobra4v320)
+    - http://www.armaholic.com/page.php?id=23113
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda)
 * IED and suicide bomber based on MCC (by shay_gman)
+* Kyle Kotowick's matrix transpose script
+    - http://www.armaholic.com/page.php?id=25964
+* Some curator display and module functions/configs (by BIS)
 * The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only dirctly adapted code is the breach stun function)
     - http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202
-* Some curator display and module functions/configs (by BIS)
 
 ## Achilles integrates these icons from these following authors
 All of these icons are licensed under Creative Commons Attribution license.
-* Engine icon (by Alvaro Molero)
-    - https://thenounproject.com/icon/333331/
 * Create IED module icon (by IYIKON)
     - https://thenounproject.com/icon/1242665/
-* Rotate Objects module icon (by Imron Rosyidi)
-    - https://thenounproject.com/icon/1416868/ 
-* Transfer Ownership module icon (by Setyo Ari Wibowo)
-    - https://thenounproject.com/icon/1118534/
-* Set Frequencies module icon (by Made by Made)
-    - https://thenounproject.com/icon/1120168/
-* Supply Drop module icon (by Rockicon)
-    - https://thenounproject.com/icon/848955/
+* Engine icon (by Alvaro Molero)
+    - https://thenounproject.com/icon/333331/
+* Hide Zeus module icon (by Manohara)
+    - https://thenounproject.com/icon/1235603/
+* Hint module icon (by Anton Barbarov)
+    - https://thenounproject.com/icon/1264491/
 * Mines/Explosives module icon (by Yusuf Kara)
     - https://thenounproject.com/icon/1000087/
+* Rotate Objects module icon (by Imron Rosyidi)
+    - https://thenounproject.com/icon/1416868/ 
+* Set Frequencies module icon (by Made by Made)
+    - https://thenounproject.com/icon/1120168/
 * Spawn Effect module icon (by Nancy)
     - https://thenounproject.com/icon/652786/
 * Submarine module icon (by Creaticca Creative Agency)
     - https://thenounproject.com/icon/554650/
+* Supply Drop module icon (by Rockicon)
+    - https://thenounproject.com/icon/848955/
+* Transfer Ownership module icon (by Setyo Ari Wibowo)
+    - https://thenounproject.com/icon/1118534/
 * Trawler module icon (by Symbolon)
     - https://thenounproject.com/icon/1061230/
 * USS Freedom module icon (by Salaidinovich)
     - https://thenounproject.com/icon/1201287/
-* Hint module icon (by Anton Barbarov)
-    - https://thenounproject.com/icon/1264491/
-* Hide Zeus module icon (by Manohara)
-    - https://thenounproject.com/icon/1235603/
 
 ## Translations
-* German
-    - oOKexOo
-    - KiritoKun223
-    - shukari
-* Russian
-    - Igor Nikolaev
-    - unhappytroll
-    - Victor9401
 * French
     - oOKexOo
+* German
+    - KiritoKun223
+    - oOKexOo
+    - shukari
 * Japanese
     - classicarma
+* Russian
+    - Igor Nikolaev
+    - Victor9401
+    - unhappytroll
