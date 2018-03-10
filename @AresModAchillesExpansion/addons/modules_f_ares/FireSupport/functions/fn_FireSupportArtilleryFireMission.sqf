@@ -80,7 +80,7 @@ private _numberOfGuns = [];
 
 if (_mode == 0) then
 {
-	private _allTargetsUnsorted = allMissionObjects "Ares_Create_Artillery_Target_Module";
+	private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Universal_Target_Module";
 	if (_allTargetsUnsorted isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
 	private _allTargets = [_allTargetsUnsorted, [], { _x getVariable ["SortOrder", 0]; }, "ASCEND"] call BIS_fnc_sortBy;
 	private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];

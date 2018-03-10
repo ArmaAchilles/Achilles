@@ -5,4 +5,5 @@ class Achilles_FireSupport_FunctionBase
 	class ModuleFireSupportCreateSuppressionTarget {};
 	class ModuleFireSupportCAS {};
 	class ModuleFireSupportCreateCASTarget {};
+    class ModuleFireSupportCreateUniversalTarget {};
 };

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
@@ -3356,6 +3356,17 @@
                 <Russian>Создана цель для артобстрела '%1'</Russian>
                 <German>Das Artillerieziel '%1' wurde definiert</German>
                 <Japanese>砲目標 '%1' を作成</Japanese>
+            </Key>
+            <Key ID="STR_AMAE_CREATE_TARGET">
+                <English>Create Target</English>
+                <Original>Create Target</Original>
+            </Key>
+            <Key ID="STR_AMAE_CREATED_TARGET">
+                <Original>Created Target '%1'</Original>
+                <English>Created Target '%1'</English>
+                <French>La cible '%1' a été créé</French>
+                <Russian>Создана цель '%1'</Russian>
+                <German>Das ziel '%1' wurde definiert</German>
             </Key>
             <Key ID="STR_AMAE_TARGET">
                 <Original>Target %1</Original>
