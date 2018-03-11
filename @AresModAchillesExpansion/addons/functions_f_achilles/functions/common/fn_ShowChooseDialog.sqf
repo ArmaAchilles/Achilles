@@ -82,7 +82,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 // Iterate through control info list
 {
-	_x params [["_control_type","",[""]], ["_label_data","",["",[]]], ["_data",[],[[]]], ["_default_choice",0,[0,"",[]]], ["_force_default",false,[false]], ["_event_handlers",[],[[]]]];
+	_x params [["_control_type","",[""]], ["_label_data","",["",[]]], ["_data",[],[[]]], ["_default_choice",0,[0,"",[]]], ["_force_default",false,[false]], ["_event_handlers",[],[[]]], ["_iconPaths", [], [[]]]];
 	_control_type = toUpper _control_type;
 
 	// If this dialog is named, attempt to get the default value from a previously displayed version
@@ -112,7 +112,13 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			private _use_data = false;
 			{
 				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_str_data","",[""]]];
+				
 				private _id = _ctrl_cb lbAdd _entry_text_L;
+				if !(_iconPaths isEqualTo []) then
+				{
+					_ctrl_cb lbSetPicture [_forEachIndex, _iconPaths select _forEachIndex];
+				};
+
 				_ctrl_cb lbSetTextRight [_id, [_entry_text_R, " "] joinString ""];
 				if (not (_str_data isEqualTo "")) then
 				{
