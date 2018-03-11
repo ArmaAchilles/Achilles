@@ -68,6 +68,7 @@ class CfgVehicles
 	#include "FireSupport\cfgVehiclesModulesFireSupport.hpp"
 	#include "Environment\cfgVehiclesModulesEnvironment.hpp"
 	#include "MissionFlow\cfgVehiclesModulesMissionFlow.hpp"
+    #include "Objectives\cfgVehiclesModulesObjectives.hpp"
 	#include "Objects\cfgVehiclesModulesObjects.hpp"
 	#include "Player\cfgVehiclesModulesPlayer.hpp"
 	#include "Reinforcements\cfgVehiclesModulesReinforcements.hpp"
