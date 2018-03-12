@@ -26,25 +26,25 @@ private _display_text = [localize "STR_AMAE_ZEUS_IS_NOW_VISIBLE", localize "STR_
 private _curatorLogic = getAssignedCuratorLogic player;
 if (_invisible and !(isObjectHidden player)) then
 {
-	[player, true] remoteExec ["hideObjectGlobal",2];
+	[player, true] remoteExecCall ["hideObjectGlobal",2];
 	player allowDamage false;
 	player setCaptive true;
 	_curatorLogic setVariable ["showNotification", true];
-	private _eagle = _curatorLogic getVariable "bird";
-	[_eagle, true] remoteExec ["hideObjectGlobal",2];
-	[_eagle, false] remoteExec ["enableSimulationGlobal",2];
+	private _eagle = _curatorLogic getVariable ["bird", objNull];
+	[_eagle, true] remoteExecCall ["hideObjectGlobal",2];
+	[_eagle, false] remoteExecCall ["enableSimulationGlobal",2];
 }
 else
 {
 	if (!_invisible and (isObjectHidden player)) then
 	{
-		[player, false] remoteExec ["hideObjectGlobal",2];
+		[player, false] remoteExecCall ["hideObjectGlobal",2];
 		player allowDamage true;
 		player setCaptive false;
 		_curatorLogic setVariable ["showNotification", false];
-		private _eagle = _curatorLogic getVariable "bird";
-		[_eagle, true] remoteExec ["enableSimulationGlobal",2];
-		[_eagle, false] remoteExec ["hideObjectGlobal",2];
+		private _eagle = _curatorLogic getVariable ["bird", objNull];
+		[_eagle, true] remoteExecCall ["enableSimulationGlobal",2];
+		[_eagle, false] remoteExecCall ["hideObjectGlobal",2];
 	};
 };
 
