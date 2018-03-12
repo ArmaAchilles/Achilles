@@ -24,7 +24,6 @@ class CfgPatches
 			"Ares_Module_Equipment_Flashlight_IR_ON_OFF",
 			"Ares_Module_Equipment_NVD_TACLIGHT_IR",
 			"Ares_Artillery_Fire_Mission_Module",
-			"Ares_Create_Artillery_Target_Module",
 			"Ares_Module_Player_Teleport",
 			"Ares_Module_Player_Create_Teleporter",
 			"Ares_Module_Player_Change_Player_Side",
