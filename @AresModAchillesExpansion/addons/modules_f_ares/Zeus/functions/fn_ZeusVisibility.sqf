@@ -30,9 +30,13 @@ if (_invisible and !(isObjectHidden player)) then
 	player allowDamage false;
 	player setCaptive true;
 	_curatorLogic setVariable ["showNotification", true];
+
 	private _eagle = _curatorLogic getVariable ["bird", objNull];
-	[_eagle, true] remoteExecCall ["hideObjectGlobal",2];
-	[_eagle, false] remoteExecCall ["enableSimulationGlobal",2];
+	if (!isNull _eagle) then
+	{
+		[_eagle, true] remoteExecCall ["hideObjectGlobal",2];
+		[_eagle, false] remoteExecCall ["enableSimulationGlobal",2];
+	};
 }
 else
 {
@@ -42,9 +46,13 @@ else
 		player allowDamage true;
 		player setCaptive false;
 		_curatorLogic setVariable ["showNotification", false];
+
 		private _eagle = _curatorLogic getVariable ["bird", objNull];
-		[_eagle, true] remoteExecCall ["enableSimulationGlobal",2];
-		[_eagle, false] remoteExecCall ["hideObjectGlobal",2];
+		if (!isNull _eagle) then
+		{
+			[_eagle, true] remoteExecCall ["enableSimulationGlobal",2];
+			[_eagle, false] remoteExecCall ["hideObjectGlobal",2];
+		};
 	};
 };
 
