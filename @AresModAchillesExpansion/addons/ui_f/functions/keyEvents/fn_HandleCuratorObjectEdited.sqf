@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_handled_object", objNull, [objNull]]];
+private _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
@@ -26,9 +26,11 @@ switch (true) do
 			};
 			*/
 		};
+		systemChat str [1, typeOf _handled_object, _handled_object];
 		if(!isNull (_handled_object getVariable ["slave", objNull])) then
 		{
 			private _slave = _handled_object getVariable "slave";
+			systemChat str [1, typeOf _slave, _slave, isNull _slave];
 			_slave setPosATL getPosATL _handled_object;
 			[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
 		};
