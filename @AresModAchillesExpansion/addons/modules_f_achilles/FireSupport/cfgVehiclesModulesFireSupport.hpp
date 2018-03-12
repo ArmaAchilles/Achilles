@@ -12,6 +12,7 @@ class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
 	function = "Achilles_fnc_ModuleFireSupportSuppressiveFire";
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+    curatorCanAttach = 1;
 };
 
 class Achilles_Create_Suppression_Target_Module : Achilles_FireSupport_ModuleBase
