@@ -7,7 +7,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-#define HORNS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3"]
+#define BLACKLIST_WEAPONS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3", "SmokeLauncher"]
 
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -86,7 +86,7 @@ else
 	{
 		{
 			[_x, "_x"] call Achilles_fnc_log;
-			if !(_x isEqualTo "" && _x in HORNS) then
+			if !(_x isEqualTo "" || _x in BLACKLIST_WEAPONS) then
 			{
 				private _configEntry = configFile >> "CfgWeapons" >> _x;
 				private _weaponName = getText (_configEntry >> "displayName");

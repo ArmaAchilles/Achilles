@@ -21,7 +21,7 @@
 //	[_unit,_worldPos, _weaponToFire] call Achilles_fnc_SuppressiveFire; // group goes prone and use automatic fire on target for 10 sec
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define HORNS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3"]
+#define BLACKLIST_WEAPONS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3", "SmokeLauncher"]
 
 params
 [
@@ -191,7 +191,7 @@ if (_fireModeIndex == 3) then
 			_turrets pushBack ((allTurrets _vehicle) select 0);
 			{
 				{
-					if !(_x isEqualTo "" && _x in HORNS) then
+					if !(_x isEqualTo "" || _x in BLACKLIST_WEAPONS) then
 					{
 						private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _x >> "muzzles");
 						if (count _muzzleArray > 1) then
@@ -242,6 +242,7 @@ if (_fireModeIndex == 3) then
 			sleep (random [2,3,4]);
 		};
 
+		// Object is on foot
 		if (isNull objectParent _unit) then
 		{
 			private _fireEh = if (_fireModeIndex == 3) then
@@ -277,6 +278,7 @@ if (_fireModeIndex == 3) then
 		else
 		{
 			private _vehicle = vehicle _unit;
+			private _weaponFireRateDelay = getNumber (configFile >> "CfgWeapons" >> _muzzle >> "reloadTime");
 			if (_unit == gunner _vehicle) then
 			{
 				scopeName "forLoop";
@@ -286,10 +288,11 @@ if (_fireModeIndex == 3) then
 					{
 						if (isNil "_logic" || {isNull _logic}) then {breakOut "forLoop"};
 						_unit lookAt _target;
-						sleep 0.1;
+						sleep _weaponFireRateDelay;
 						if (_unit getVariable ["Achilles_var_fireGranted", false]) then
 						{
-							_unit fireAtTarget [_vehicle, _muzzle];
+							// _unit fireAtTarget [_vehicle, _muzzle]; // Needs a _turret argument
+							[_vehicle, _muzzle] call BIS_fnc_fire;
 						};
 					};
 					sleep _ceaseFireTime;
