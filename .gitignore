@@ -3,6 +3,7 @@ Tools/AchillesTestServer.bat
 *.bikey
 *.biprivatekey
 *.pbo
+!@AresModAchillesExpansion/mpmissions/*.pbo
 *.bisign
 *.lnk
 .vscode/
