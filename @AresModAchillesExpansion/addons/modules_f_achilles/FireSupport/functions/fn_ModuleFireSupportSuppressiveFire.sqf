@@ -41,31 +41,31 @@ private _weaponsToFire = [];
 if (_unit isKindOf "Man") then
 {
 	if (count (units _unit) > 1) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
+	
+	private _weapon = primaryWeapon _unit;
+	if !(_weapon isEqualTo "") then
 	{
-		if !(_x isEqualTo "") then
+		private _configEntry = configFile >> "CfgWeapons" >> _weapon;
+		private _weaponName = getText (_configEntry >> "displayName");
+		private _muzzleArray = getArray (_configEntry >> "muzzles") select {_x != "SAFE"};
+		if (count _muzzleArray > 1) then
 		{
-			private _configEntry = configFile >> "CfgWeapons" >> _x;
-			private _weaponName = getText (_configEntry >> "displayName");
-			private _muzzleArray = getArray (_configEntry >> "muzzles") select {_x != "SAFE"};
-			if (count _muzzleArray > 1) then
 			{
+				if (getText (_configEntry >> _weapon >> "displayName") isEqualTo "") then
 				{
-					if (getText (_configEntry >> _x >> "displayName") isEqualTo "") then
-					{
-						_weaponsToFire pushBack _weaponName;
-					}
-					else
-					{
-						_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, getText (_configEntry >> _x >> "displayName")]);
-					};
-				} forEach _muzzleArray;
-			}
-			else
-			{
-				_weaponsToFire pushBack _weaponName;
-			};
+					_weaponsToFire pushBack _weaponName;
+				}
+				else
+				{
+					_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, getText (_configEntry >> _weapon >> "displayName")]);
+				};
+			} forEach _muzzleArray;
+		}
+		else
+		{
+			_weaponsToFire pushBack _weaponName;
 		};
-	} forEach [primaryWeapon _unit]; //TODO: Bug with pistol
+	};
 }
 else
 {

@@ -160,31 +160,29 @@ if (_fireModeIndex == 3) then
 		private _weapons = [];
 		if (isNull objectParent _unit) then
 		{
+			private _weapon  = primaryWeapon _unit;
+			if !(_weapon isEqualTo "") then
 			{
-				private _weapon  = _x;
-				if !(_weapon isEqualTo "") then
+				private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles") select {_x != "SAFE"};
+				if (count _muzzleArray > 1) then
 				{
-					private _muzzleArray = getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles") select {_x != "SAFE"};
-					if (count _muzzleArray > 1) then
 					{
+						private _muzzle = _x;
+						if (_muzzle == "this") then
 						{
-							private _muzzle = _x;
-							if (_muzzle == "this") then
-							{
-								_weapons pushBack _weapon;
-							}
-							else
-							{
-								_weapons pushBack _muzzle;
-							};
-						} forEach _muzzleArray;
-					}
-					else
-					{
-						_weapons pushBack _weapon;
-					};
+							_weapons pushBack _weapon;
+						}
+						else
+						{
+							_weapons pushBack _muzzle;
+						};
+					} forEach _muzzleArray;
+				}
+				else
+				{
+					_weapons pushBack _weapon;
 				};
-			} forEach [primaryWeapon _unit]; //TODO: Bug with pistol
+			};
 		}
 		else
 		{
