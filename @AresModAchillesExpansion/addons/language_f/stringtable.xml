@@ -2804,6 +2804,22 @@
                 <Russian>РАДАР</Russian>
                 <Japanese>センサー</Japanese>
             </Key>
+            <Key ID="STR_AMAE_FLAG">
+                <Original>FLAG</Original>
+                <English>FLAG</English>
+            </Key>
+            <Key ID="STR_AMAE_FLAG_SC">
+                <Original>Flag</Original>
+                <English>Flag</English>
+            </Key>
+            <Key ID="STR_AMAE_SET_FLAG">
+                <Original>Set Flag for %1</Original>
+                <English>Set Flag for %1</English>
+            </Key>
+            <Key ID="STR_AMAE_NO_FLAG">
+                <Original>No Flag</Original>
+                <English>No Flag</English>
+            </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>
                 <English>LOADOUT</English>
