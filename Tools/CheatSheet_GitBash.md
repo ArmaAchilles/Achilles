@@ -34,13 +34,27 @@ git reset <files>
 
 ```bash
 git commit -m "<message>"
-git push
 ```
 
 ## Discard all untracked changes
 
 ```bash
 git checkout -- .
+```
+
+## Update remote branch
+```bash
+git push
+```
+
+## Merge new commits from remote branch
+```bash
+git pull
+```
+
+## Rebase new commits from remote branch
+```bash
+git pull -r
 ```
 
 ## Fork a new branch B from branch A
@@ -54,7 +68,6 @@ git push --set-upstream origin <branch B>`
 
 ```bash
 git checkout <branch>
-git pull`
 ```
 
 ## Delete branch A
