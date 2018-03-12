@@ -12,6 +12,12 @@ git log --follow <file>
 git diff <previous branch> <current branch> -- <file>
 ```
 
+## Show changes that a particular commit did to a file
+
+```bash
+git diff <commit id>^ <commit id> -- <file>
+```
+
 ## Show all changes that have been staged for the next commit
 
 ```bash
