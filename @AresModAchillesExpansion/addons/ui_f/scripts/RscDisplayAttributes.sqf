@@ -69,7 +69,7 @@ switch _mode do
 
 				//--- Admin specific attribute
 				private _show1 = [true, _enableAdmin] select (getnumber (_cfgControl >> "adminOnly") > 0);
-				private _show2 = [true, _enableAdmin] select (getnumber (_cfgControl >> "codeExecution") == 1);
+				private _show2 = [true, _enableCodeExecution] select (getnumber (_cfgControl >> "codeExecution") == 1);
 
 				if ((_allAttributes || {_x == configname _cfgControl} count _attributes > 0) && _show1 && _show2) then {
 					private _controlPos = ctrlposition _control;
