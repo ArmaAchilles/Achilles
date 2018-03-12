@@ -31,6 +31,10 @@ if (_typeName == "OBJECT") then
 				};
 			};
 		};
+		case !( getText (configFile >> "CfgVehicles" >> typeOf _clickedObject >> "achillesDialog") isEqualTo "" ):
+		{
+			
+		};
 	};
 };
 

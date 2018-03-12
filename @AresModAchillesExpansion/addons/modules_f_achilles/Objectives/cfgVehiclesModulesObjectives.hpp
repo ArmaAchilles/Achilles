@@ -11,4 +11,5 @@ class Achilles_Objectives_Custom_Objective_Module : Achilles_Objectives_Module_B
 	icon = "\achilles\data_f_achilles\icons\icon_default_object.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_default_object.paa";
     curatorCanAttach = 1;
+    achillesDialog = "Achilles_fnc_customObjectivesEdit";
 };
