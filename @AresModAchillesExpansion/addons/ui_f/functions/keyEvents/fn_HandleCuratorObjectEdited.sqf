@@ -5,7 +5,7 @@
 //  DESCRIPTION: Executes when curator editable object is moved or rotated
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params [["_handled_object", objNull, [objNull]]];
+private _handled_object = param [1,objNull,[objNull]];
 
 if (isNull _handled_object) exitWith {};
 
