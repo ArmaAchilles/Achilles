@@ -66,7 +66,7 @@ else
 
 		if (_dialogResult select 3 == 0) then
 		{
-			if (_friend_value == 0) then
+			if (_friend_value == 1) then
 			{
 				[_firstSelectedSide, format ["SentGenBaseSideFriendly%1", _x], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
 				[_x, format ["SentGenBaseSideFriendly%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
