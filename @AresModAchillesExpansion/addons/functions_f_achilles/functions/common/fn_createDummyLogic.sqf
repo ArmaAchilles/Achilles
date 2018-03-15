@@ -17,9 +17,7 @@ if (isNull _logic) exitWith {};
 
 private _dummyObject = (createGroup sideLogic) createUnit ["Module_f", (getPos _logic), [], 0, "CAN_COLLIDE"];
 
-_logic setVariable ["Achilles_var_createDummyLogic_isAttached", true];
-_logic setVariable ["Achilles_var_createDummyLogic_dummyObject", _dummyObject];
-
-_dummyObject setVariable ["Achilles_var_createDummyLogic_module", _logic];
+_logic setVariable ["slave", _dummyObject];
+_dummyObject setVariable ["master", _logic];
 
 _dummyObject;
