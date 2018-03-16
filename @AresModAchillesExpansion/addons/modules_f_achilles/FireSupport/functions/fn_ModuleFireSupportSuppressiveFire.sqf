@@ -79,7 +79,7 @@ else
 	private _turrets = [[-1]] + (allTurrets _unit);
 	[_turrets, "_turrets"] call Achilles_fnc_log;
 	{
-		if (not isNull turretUnit _x) then
+		if (not isNull (_unit turretUnit _x)) then
 		{
 			{
 				[_x, "_x"] call Achilles_fnc_log;
