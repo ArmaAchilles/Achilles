@@ -3,7 +3,7 @@
 
 	Description:
 		Searches all position logics of a specific type.
-		Returns the name and position of the logics sorted by name.
+		Returns the name and logic sorted by name.
 
 	Parameters:
     	STRING - (Default: "All" ) Type of the logic (e.g. "Ares_Module_Reinforcements_Create_Lz").
@@ -12,7 +12,7 @@
     	ARRAY - Multidimensional:
 		[
 			_this select 0: - ARRAY - Array of the name of all logics
-			_this select 1: - ARRAY - Array of the position of all logics
+			_this select 1: - ARRAY - Array of all logics
 		]
 */
 
@@ -31,10 +31,10 @@ if (!(_selectedLogics isEqualTo [])) then
 		{ _x getVariable ["SortOrder", 0]}
 	] call BIS_fnc_sortBy;
 	
-	_return params ["_names", "_positions"];
+	_return params ["_names", "_logics"];
 	{
 		_names pushBack (name _x);
-		_positions pushBack (position _x);
+		_logics pushBack _x;
 	} forEach _selectedLogicsSorted;
 };
 
