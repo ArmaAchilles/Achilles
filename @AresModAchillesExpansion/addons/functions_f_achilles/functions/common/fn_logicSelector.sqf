@@ -24,11 +24,11 @@ _return = switch (_choiceAlgorithm) do
 	};
 	case 1: // Nearest
 	{
-		[_refPosition, position _candidateLogics] call Ares_fnc_GetNearest;
+		[_refPosition, _candidateLogics] call Ares_fnc_GetNearest;
 	};
 	case 2: // Farthest
 	{
-		[_refPosition, position _candidateLogics] call Ares_fnc_GetFarthest;
+		[_refPosition, _candidateLogics] call Ares_fnc_GetFarthest;
 	};
 	default // Specific target
 	{
