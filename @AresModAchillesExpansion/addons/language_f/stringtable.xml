@@ -14,6 +14,7 @@
                 <Russian>Ares Mod - Achilles Expansion</Russian>
                 <Spanish>Ares Mod - Achilles Expansion</Spanish>
                 <Japanese>アレス Mod - アキレス拡張</Japanese>
+                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包</Chinesesimp>
             </Key>
         </Container>
     </Package>
@@ -31,6 +32,7 @@
                 <Russian>Машины</Russian>
                 <German>Autos</German>
                 <Japanese>車両</Japanese>
+                <Chinesesimp>车辆</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLANES">
                 <Original>Planes</Original>
@@ -44,6 +46,7 @@
                 <Russian>Самолеты</Russian>
                 <German>Flugzeuge</German>
                 <Japanese>飛行機</Japanese>
+                <Chinesesimp>飞机</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_APCS">
                 <Original>APCs</Original>
@@ -57,6 +60,7 @@
                 <Russian>БТР</Russian>
                 <German>Truppentransporter</German>
                 <Japanese>APC</Japanese>
+                <Chinesesimp>装甲运兵车</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TANKS">
                 <Original>Tanks</Original>
@@ -70,6 +74,7 @@
                 <Russian>Танки</Russian>
                 <German>Panzer</German>
                 <Japanese>戦車</Japanese>
+                <Chinesesimp>坦克</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SHIPS">
                 <Original>Boats</Original>
@@ -83,6 +88,7 @@
                 <Russian>Лодки</Russian>
                 <German>Boote</German>
                 <Japanese>船舶</Japanese>
+                <Chinesesimp>船只</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHOPPERS">
                 <Original>Helicopters</Original>
@@ -96,6 +102,7 @@
                 <Russian>Вертолеты</Russian>
                 <German>Helikopter</German>
                 <Japanese>ヘリコプター</Japanese>
+                <Chinesesimp>直升机</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_APC">
                 <Original>APC</Original>
@@ -109,6 +116,7 @@
                 <Russian>БТР</Russian>
                 <German>MTW</German>
                 <Japanese>APC</Japanese>
+                <Chinesesimp>装甲运兵车</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_IFV">
                 <Original>IFV</Original>
@@ -122,6 +130,7 @@
                 <Russian>БМП</Russian>
                 <German>SPz</German>
                 <Japanese>IFV</Japanese>
+                <Chinesesimp>步兵战斗车</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_TRUCK">
                 <Original>Truck</Original>
@@ -135,6 +144,7 @@
                 <Russian>Грузовик</Russian>
                 <German>LKW</German>
                 <Japanese>トラック</Japanese>
+                <Chinesesimp>卡车</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_CAR">
                 <Original>Car</Original>
@@ -148,6 +158,7 @@
                 <Russian>Машина</Russian>
                 <German>Auto</German>
                 <Japanese>車両</Japanese>
+                <Chinesesimp>车辆</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_TANK">
                 <Original>Tank</Original>
@@ -161,6 +172,7 @@
                 <Russian>Танк</Russian>
                 <German>Panzer</German>
                 <Japanese>戦車</Japanese>
+                <Chinesesimp>坦克</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHSUSF_VEHCLASS_MRAP">
                 <Original>MRAP</Original>
@@ -174,6 +186,7 @@
                 <Russian>Бронемашины</Russian>
                 <German>MRAP</German>
                 <Japanese>MRAP</Japanese>
+                <Chinesesimp>防雷车</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_AIRPLANE">
                 <Original>Aircraft</Original>
@@ -187,6 +200,7 @@
                 <Russian>Самолет</Russian>
                 <German>Flugzeuge</German>
                 <Japanese>飛行機</Japanese>
+                <Chinesesimp>飞机</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RHS_VEHCLASS_HELICOPTER">
                 <Original>Helicopter</Original>
@@ -200,6 +214,7 @@
                 <Russian>Вертолет</Russian>
                 <German>Hubschrauber</German>
                 <Japanese>ヘリコプター</Japanese>
+                <Chinesesimp>直升机</Chinesesimp>
             </Key>
         </Container>
         <Container name="Module Categories">
@@ -215,6 +230,7 @@
                 <Russian>Аудио</Russian>
                 <German>Audio</German>
                 <Japanese>効果音</Japanese>
+                <Chinesesimp>音效</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EFFECTS">
                 <Original>Effects</Original>
@@ -228,6 +244,7 @@
                 <Russian>Эффекты</Russian>
                 <German>Effekte</German>
                 <Japanese>効果</Japanese>
+                <Chinesesimp>特效</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECTIVES">
                 <Original>Objectives</Original>
@@ -241,6 +258,7 @@
                 <Russian>Боевые задачи</Russian>
                 <German>Einsatzziele</German>
                 <Japanese>物体</Japanese>
+                <Chinesesimp>目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_SUPPORT">
                 <Original>Fire Support</Original>
@@ -254,6 +272,7 @@
                 <Russian>Огневая поддержка</Russian>
                 <German>Feuerunterstützung</German>
                 <Japanese>火力支援</Japanese>
+                <Chinesesimp>火力支援</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FLARES">
                 <Original>Flares</Original>
@@ -267,6 +286,7 @@
                 <Russian>Сигнальные ракеты</Russian>
                 <German>Leuchtsignale</German>
                 <Japanese>照明弾</Japanese>
+                <Chinesesimp>照明弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHEM_LIGHTS">
                 <Original>Chem lights</Original>
@@ -280,6 +300,7 @@
                 <Russian>ХИС</Russian>
                 <German>Leuchtstäbe</German>
                 <Japanese>ケミライト</Japanese>
+                <Chinesesimp>荧光棒</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SMOKE_SHELLS">
                 <Original>Smoke shells</Original>
@@ -293,6 +314,7 @@
                 <Russian>Дымовые снаряды</Russian>
                 <German>Rauchgranaten</German>
                 <Japanese>煙幕弾</Japanese>
+                <Chinesesimp>烟雾弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RESPAWN">
                 <Original>Respawn</Original>
@@ -306,6 +328,7 @@
                 <Russian>Возрождение</Russian>
                 <German>Respawn</German>
                 <Japanese>リスポン</Japanese>
+                <Chinesesimp>重生</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SCENARIO_FLOW">
                 <Original>Scenario Flow</Original>
@@ -319,6 +342,7 @@
                 <Russian>Ход сценария</Russian>
                 <German>Szenario-Fluss</German>
                 <Japanese>シナリオフロー</Japanese>
+                <Chinesesimp>剧本控制</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ANIMALS">
                 <Original>Animals</Original>
@@ -332,6 +356,7 @@
                 <Russian>Животные</Russian>
                 <German>Tiere</German>
                 <Japanese>動物</Japanese>
+                <Chinesesimp>动物</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLAYERS">
                 <Original>Players</Original>
@@ -340,6 +365,7 @@
                 <Russian>Игроки</Russian>
                 <German>Spieler</German>
                 <Japanese>プレイヤー</Japanese>
+                <Chinesesimp>玩家</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNITS">
                 <Original>Units</Original>
@@ -348,6 +374,7 @@
                 <Russian>Боевые единицы</Russian>
                 <German>Einheiten</German>
                 <Japanese>ユニット</Japanese>
+                <Chinesesimp>单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STATIC_OBJECTS">
                 <Original>Static objects</Original>
@@ -356,12 +383,14 @@
                 <Russian>Неподвижные объекты</Russian>
                 <German>Statische Objekte</German>
                 <Japanese>固定物体</Japanese>
+                <Chinesesimp>静物</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GAME_LOGIC">
                 <Original>Game Logic</Original>
                 <Russian>Игровая логика</Russian>
                 <English>Game Logic</English>
                 <Japanese>ゲーム ロジック</Japanese>
+                <Chinesesimp>游戏逻辑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TRAINING">
                 <Original>Training</Original>
@@ -375,6 +404,7 @@
                 <Russian>Обучение</Russian>
                 <German>Training</German>
                 <Japanese>訓練</Japanese>
+                <Chinesesimp>训练</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENVIRONMENT">
                 <Original>Environment</Original>
@@ -388,6 +418,7 @@
                 <Russian>Окружающий мир</Russian>
                 <German>Umgebung</German>
                 <Japanese>環境</Japanese>
+                <Chinesesimp>环境</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ZEUS">
                 <Original>Zeus</Original>
@@ -401,6 +432,7 @@
                 <Russian>Зевс</Russian>
                 <German>Zeus</German>
                 <Japanese>ゼウス</Japanese>
+                <Chinesesimp>宙斯</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TELEPORT">
                 <Original>Teleport</Original>
@@ -409,6 +441,7 @@
                 <Russian>Телепортация</Russian>
                 <German>Teleport</German>
                 <Japanese>テレポート</Japanese>
+                <Chinesesimp>传送</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPAWN">
                 <Original>Spawn</Original>
@@ -417,6 +450,7 @@
                 <Russian>Создать</Russian>
                 <German>Spawn</German>
                 <Japanese>生成</Japanese>
+                <Chinesesimp>生成</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SAVE_LOAD">
                 <Original>Save/Load</Original>
@@ -425,6 +459,7 @@
                 <Russian>Сохранить/Загрузить</Russian>
                 <German>Speichern/Laden</German>
                 <Japanese>保存/読込</Japanese>
+                <Chinesesimp>保存/读取</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_REINFORCEMENTS">
                 <Original>Reinforcements</Original>
@@ -433,6 +468,7 @@
                 <Russian>Подкрепления</Russian>
                 <German>Verstärkung</German>
                 <Japanese>増援</Japanese>
+                <Chinesesimp>增援</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EQUIPMENT">
                 <Original>Equipment</Original>
@@ -441,6 +477,7 @@
                 <Russian>Снаряжение</Russian>
                 <German>Ausrüstung</German>
                 <Japanese>器機</Japanese>
+                <Chinesesimp>装备</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DEV_TOOLS">
                 <Original>Development Tools</Original>
@@ -449,6 +486,7 @@
                 <Russian>Инструменты разработчика</Russian>
                 <German>Werkzeuge für Entwicklung</German>
                 <Japanese>開発ツール</Japanese>
+                <Chinesesimp>开发工具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AI_BEHAVIOUR">
                 <Original>AI Behaviours</Original>
@@ -457,6 +495,7 @@
                 <Russian>Поведение ИИ</Russian>
                 <German>KI Verhalten</German>
                 <Japanese>AI 挙動</Japanese>
+                <Chinesesimp>AI行为</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BUILDINGS">
                 <Original>Buildings</Original>
@@ -465,6 +504,7 @@
                 <Russian>Здания</Russian>
                 <German>Gebäude</German>
                 <Japanese>建物</Japanese>
+                <Chinesesimp>建筑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECTS">
                 <Original>Objects</Original>
@@ -473,6 +513,7 @@
                 <Russian>Объекты</Russian>
                 <German>Objekte</German>
                 <Japanese>物体</Japanese>
+                <Chinesesimp>物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BASIS_OBJECT">
                 <Original>Basis Object</Original>
@@ -481,6 +522,7 @@
                 <Russian>Основной объект</Russian>
                 <German>Basisobjekt</German>
                 <Japanese>基本物体</Japanese>
+                <Chinesesimp>基础物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL">
                 <Original>Arsenal</Original>
@@ -489,6 +531,7 @@
                 <Russian>Арсенал</Russian>
                 <German>Arsenal</German>
                 <Japanese>武器庫</Japanese>
+                <Chinesesimp>军火库</Chinesesimp>
             </Key>
         </Container>
         <Container name="Ares Modules">
@@ -499,6 +542,7 @@
                 <Russian>Зачистка здания</Russian>
                 <German>Gebäude Durchsuchen</German>
                 <Japanese>建物捜索</Japanese>
+                <Chinesesimp>搜索建筑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INJURY">
                 <Original>Injury</Original>
@@ -507,6 +551,7 @@
                 <Russian>Ранить</Russian>
                 <German>Verletzungen</German>
                 <Japanese>負傷</Japanese>
+                <Chinesesimp>负伤</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HEAL">
                 <Original>Heal</Original>
@@ -515,6 +560,7 @@
                 <Russian>Вылечить</Russian>
                 <German>Heilen</German>
                 <Japanese>治療</Japanese>
+                <Chinesesimp>治疗</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AMBIENT_ANIMATION">
                 <Original>Ambient Animation</Original>
@@ -523,6 +569,7 @@
                 <Russian>Фоновые анимации</Russian>
                 <German>Ambient Animation</German>
                 <Japanese>環境アニメーション</Japanese>
+                <Chinesesimp>环境动画</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHATTER">
                 <Original>Chatter</Original>
@@ -531,6 +578,7 @@
                 <Russian>Радиопереговоры</Russian>
                 <German>Chatten</German>
                 <Japanese>背景無線音</Japanese>
+                <Chinesesimp>背景无线电杂谈</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SIT_ON_CHAIR">
                 <Original>Have a Seat</Original>
@@ -539,6 +587,7 @@
                 <Russian>Усадить на стул</Russian>
                 <German>Nimm Platz</German>
                 <Japanese>座らせる</Japanese>
+                <Chinesesimp>请坐</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ABILITIES">
                 <Original>Change Abilities</Original>
@@ -547,6 +596,7 @@
                 <Russian>Изменить способности</Russian>
                 <German>Fähigkeiten ändern</German>
                 <Japanese>能力変更</Japanese>
+                <Chinesesimp>更改能力</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_SIDE">
                 <Original>Change Side</Original>
@@ -555,6 +605,7 @@
                 <Russian>Сменить сторону</Russian>
                 <German>Seite wechseln</German>
                 <Japanese>陣営変更</Japanese>
+                <Chinesesimp>更改阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BIND_VAR">
                 <Original>Bind Variable to Object</Original>
@@ -563,6 +614,7 @@
                 <Russian>Назначить имя объекту</Russian>
                 <German>Variable an Objekt binden</German>
                 <Japanese>物体に変数を割り当て</Japanese>
+                <Chinesesimp>将变量绑定至物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADVANCED_WEATHER_CHANGE">
                 <Original>Advanced Weather Change</Original>
@@ -571,6 +623,7 @@
                 <Russian>Управление погодой</Russian>
                 <German>Erweiterte Wetter Modifikation</German>
                 <Japanese>拡張型天候変化</Japanese>
+                <Chinesesimp>高级天气控制</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EARTHQUAKE">
                 <Original>Earthquake</Original>
@@ -579,6 +632,7 @@
                 <Russian>Землетрясение</Russian>
                 <German>Erdbeben</German>
                 <Japanese>地震</Japanese>
+                <Chinesesimp>地震</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARTILLERY_FIRE_MISSION">
                 <Original>Artillery Fire Mission</Original>
@@ -587,6 +641,7 @@
                 <Russian>Артобстрел</Russian>
                 <German>Artillerie Feuerbefehl</German>
                 <Japanese>砲撃任務</Japanese>
+                <Chinesesimp>炮击任务</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_ARTILLERY_TARGET">
                 <Original>Create Artillery Target</Original>
@@ -595,6 +650,7 @@
                 <Russian>Цель для артобстрела</Russian>
                 <German>Definiere ein Artillerieziel</German>
                 <Japanese>砲目標を作成</Japanese>
+                <Chinesesimp>创建炮击目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_SUPPRESSION_TARGET">
                 <Original>Create Suppression Target</Original>
@@ -603,6 +659,7 @@
                 <Russian>Цель для подавления</Russian>
                 <German>Definiere ein Unterstützungsfeuerziel</German>
                 <Japanese>制圧目標を作成</Japanese>
+                <Chinesesimp>创建压制目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SUPPRESIVE_FIRE">
                 <Original>Suppressive Fire</Original>
@@ -611,6 +668,7 @@
                 <Russian>Подавить огнём</Russian>
                 <German>Unterstützungsfeuer</German>
                 <Japanese>制圧射撃</Japanese>
+                <Chinesesimp>火力压制</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_CAS_TARGET">
                 <Original>Create CAS Target</Original>
@@ -619,6 +677,7 @@
                 <Russian>Цель для авиаподдержки</Russian>
                 <German>Definiere ein Luftunterstützungsziel</German>
                 <Japanese>CAS 目標を作成</Japanese>
+                <Chinesesimp>创建近空支援目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADVANCED_CAS">
                 <Original>Advanced CAS</Original>
@@ -627,6 +686,7 @@
                 <Russian>Продвинутая Авиаподдержка</Russian>
                 <German>Erweiterte Luftunterstützung</German>
                 <Japanese>拡張型 CAS</Japanese>
+                <Chinesesimp>高级近空支援</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_NEW_RP">
                 <Original>Create new RP</Original>
@@ -635,6 +695,7 @@
                 <Russian>Создать пункт сбора</Russian>
                 <German>Definiere einen neuen Sammelpunkt</German>
                 <Japanese>新 RP を作成</Japanese>
+                <Chinesesimp>创建新集结点</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_NEW_LZ">
                 <Original>Create new LZ</Original>
@@ -643,6 +704,7 @@
                 <Russian>Создать зону посадки</Russian>
                 <German>Definiere eine neue LZ</German>
                 <Japanese>新 LZ を作成</Japanese>
+                <Chinesesimp>创建新着陆区</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPAWN_UNITS">
                 <Original>Spawn Units</Original>
@@ -651,6 +713,7 @@
                 <Russian>Вызвать подкрепление</Russian>
                 <German>Einheiten Spawnen</German>
                 <Japanese>ユニットを作成</Japanese>
+                <Chinesesimp>创建单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MINES_EXPLOSIVES">
                 <Original>Mines/Explosives</Original>
@@ -659,6 +722,7 @@
                 <Russian>Мины/Взрывчатка</Russian>
                 <German>Minen/Sprengladungen</German>
                 <Japanese>地雷/爆発物</Japanese>
+                <Chinesesimp>地雷/爆炸物</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_REMOVE_EDITABLE_OBJECTS">
                 <Original>Add/Remove editable Objects</Original>
@@ -667,6 +731,7 @@
                 <Russian>Объекты для изменения: добавить/убрать</Russian>
                 <German>Entferne/Füge editierbare Objekte (hinzu)</German>
                 <Japanese>編集可能な物体の追加/削除</Japanese>
+                <Chinesesimp>添加/移除可编辑物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HIDE_ZEUS">
                 <Original>Hide Zeus</Original>
@@ -675,6 +740,7 @@
                 <Russian>Спрятать Зевса</Russian>
                 <German>Verstecke Zeus</German>
                 <Japanese>ゼウスを非表示</Japanese>
+                <Chinesesimp>隐藏宙斯</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HINT">
                 <Original>Hint</Original>
@@ -683,6 +749,7 @@
                 <Russian>Совет</Russian>
                 <German>Hinweis</German>
                 <Japanese>ヒント</Japanese>
+                <Chinesesimp>提示</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
@@ -691,6 +758,7 @@
                 <Russian>Сменить сторону и канал Зевса</Russian>
                 <German>Seitenkanal von Zeus wechseln</German>
                 <Japanese>ゼウスの陣営チャンネルを切り替え</Japanese>
+                <Chinesesimp>更改宙斯频道阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_TP">
                 <Original>Create teleporter</Original>
@@ -699,6 +767,7 @@
                 <Russian>Создать телепортатор</Russian>
                 <German>Erstelle einen Teleporter</German>
                 <Japanese>テレポートを作成</Japanese>
+                <Chinesesimp>创建传送器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_SIDE_OF_PLAYER">
                 <Original>Change side of player</Original>
@@ -707,6 +776,7 @@
                 <Russian>Сменить сторону игрока</Russian>
                 <German>Seite des Spielers wechseln</German>
                 <Japanese>プレイヤーの陣営変更</Japanese>
+                <Chinesesimp>更改玩家阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TOGGLE_LAMPS">
                 <Original>Toggle lamps</Original>
@@ -715,6 +785,7 @@
                 <Russian>Ул. освещение: вкл/выкл</Russian>
                 <German>Lampen ein-/ausschalten</German>
                 <Japanese>ランプを切り替え</Japanese>
+                <Chinesesimp>路灯开关</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DAMAGE_BUILDINGS">
                 <Original>Damage Buildings</Original>
@@ -723,6 +794,7 @@
                 <Russian>Повредить здания</Russian>
                 <German>Gebäude zerstören</German>
                 <Japanese>建物ダメージ</Japanese>
+                <Chinesesimp>破坏建筑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADVANCED_COMPOSITION">
                 <Original>Advanced Composition</Original>
@@ -731,12 +803,14 @@
                 <Russian>Продвинутые композиции</Russian>
                 <German>Erweiterte Kompositionen</German>
                 <Japanese>拡張型組成</Japanese>
+                <Chinesesimp>高级布景</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EFFECTS_CUSTOM_FIRE">
                 <Original>Custom Fire</Original>
                 <Russian>Создать костёр</Russian>
                 <English>Custom Fire</English>
                 <Japanese>カスタム ファイル</Japanese>
+                <Chinesesimp>自定义火焰</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPAWN_EFFECT">
                 <Original>Spawn Effect</Original>
@@ -745,6 +819,7 @@
                 <Russian>Создать эффект</Russian>
                 <German>Effekt spawnen</German>
                 <Japanese>効果を作成</Japanese>
+                <Chinesesimp>生成特效</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LIGHT_SOURCE">
                 <Original>Light Source</Original>
@@ -753,6 +828,7 @@
                 <Russian>Источник света</Russian>
                 <German>Lichtquelle</German>
                 <Japanese>光源</Japanese>
+                <Chinesesimp>光源</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PERSISTENT_SMOKE_PILLAR">
                 <Original>Persistent Smoke Pillar</Original>
@@ -761,6 +837,7 @@
                 <Russian>Постоянный источник дыма</Russian>
                 <German>Bleibende Rauchwolke</German>
                 <Japanese>永続的な煙の柱</Japanese>
+                <Chinesesimp>持续性烟柱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_EDIT_INTEL">
                 <Original>Create/Edit Intel</Original>
@@ -769,6 +846,7 @@
                 <Russian>Разведданные: создать/изменить</Russian>
                 <German>Hinweis platzieren/bearbeiten</German>
                 <Japanese>情報の作成/編集</Japanese>
+                <Chinesesimp>创建/编辑情报</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ACE_INJURY">
                 <Original>ACE Injury</Original>
@@ -777,6 +855,7 @@
                 <Russian>ACE Ранения</Russian>
                 <German>ACE Verletzungen</German>
                 <Japanese>ACE 負傷</Japanese>
+                <Chinesesimp>ACE负伤</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INJURY_WITHOUT_ACE">
                 <Original>Injury (without ACE)</Original>
@@ -785,6 +864,7 @@
                 <Russian>Ранения (Без ACE)</Russian>
                 <German>Verletzungen (ohne ACE)</German>
                 <Japanese>負傷 (ACE 無し)</Japanese>
+                <Chinesesimp>负伤（非ACE）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_FILTERED">
                 <Original>Add filtered Arsenal</Original>
@@ -793,6 +873,7 @@
                 <Russian>Ограниченный Арсенал</Russian>
                 <German>Gefiltertes Arsenal hinzufügen</German>
                 <Japanese>選別済みの武器庫を追加</Japanese>
+                <Chinesesimp>添加受限军火库</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_FULL">
                 <Original>Add Full Arsenal</Original>
@@ -801,6 +882,7 @@
                 <Russian>Полный Арсенал</Russian>
                 <German>Komplettes Arsenal hinzufügen</German>
                 <Japanese>完全な武器庫を追加</Japanese>
+                <Chinesesimp>添加完整军火库</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPY_TO_CLIPBOARD">
                 <Original>Copy to Clipboard</Original>
@@ -809,6 +891,7 @@
                 <Russian>Скопировать в область обмена</Russian>
                 <German>In Zwischenablage kopieren</German>
                 <Japanese>クリップボードへコピー</Japanese>
+                <Chinesesimp>复制到剪切板</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PASTE_N_REPLACE">
                 <Original>Paste and Replace</Original>
@@ -817,6 +900,7 @@
                 <Russian>Вставить и заменить</Russian>
                 <German>Einfügen und Ersetzen</German>
                 <Japanese>貼りつけと置き換え</Japanese>
+                <Chinesesimp>粘贴并替换</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PASTE_N_COMBINE">
                 <Original>Paste and Combine</Original>
@@ -825,6 +909,7 @@
                 <Russian>Вставить и объединить</Russian>
                 <German>Einfügen und Kombinieren</German>
                 <Japanese>貼りつけと組みあわせ</Japanese>
+                <Chinesesimp>粘贴并组合</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_BASIC_NATO">
                 <Original>Create Basic NATO</Original>
@@ -833,6 +918,7 @@
                 <Russian>Базовый НАТО</Russian>
                 <German>Spawn NATO Grundausrüstung</German>
                 <Japanese>NATO 基本形を作成</Japanese>
+                <Chinesesimp>创建NATO基础武器箱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_BASIC_CSAT">
                 <Original>Create Basic CSAT</Original>
@@ -841,6 +927,7 @@
                 <Russian>Базовый CSAT</Russian>
                 <German>Spawn CSAT Grundausrüstung</German>
                 <Japanese>CSAT 基本形を作成</Japanese>
+                <Chinesesimp>创建CSAT基础武器箱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_BASIC_AAF">
                 <Original>Create Basic AAF</Original>
@@ -849,6 +936,7 @@
                 <Russian>Базовый AAF</Russian>
                 <German>Spawn AAF Grundausrüstung</German>
                 <Japanese>AAF 基本形を作成</Japanese>
+                <Chinesesimp>创建AAF基础武器箱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_BASIC_GUERILLA">
                 <Original>Create Basic Guerilla</Original>
@@ -857,6 +945,7 @@
                 <Russian>Базовый партизанский</Russian>
                 <German>Spawn Guerilla Grundausrüstung</German>
                 <Japanese>ゲリラ基本形を作成</Japanese>
+                <Chinesesimp>创建抵抗军基础武器箱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPY_MISSION_SQF">
                 <Original>Copy mission SQF</Original>
@@ -865,6 +954,7 @@
                 <Russian>Скопировать код SQF</Russian>
                 <German>Kopiere Missions SQF</German>
                 <Japanese>ミッションの SQF を複製</Japanese>
+                <Chinesesimp>复制任务SQF</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TOGGLE_SIMULATION">
                 <Original>Enable/Disable Simulation</Original>
@@ -873,6 +963,7 @@
                 <Russian>Симуляция физики: вкл/выкл</Russian>
                 <German>Simulation erlauben/verbieten</German>
                 <Japanese>シミュレーションの有効/無効化</Japanese>
+                <Chinesesimp>启用/禁用模拟</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ATTACH_TO">
                 <Original>Attach To</Original>
@@ -881,6 +972,7 @@
                 <Russian>Присоединить к</Russian>
                 <German>An anderem Objekt befestigen</German>
                 <Japanese>次に取り付け</Japanese>
+                <Chinesesimp>挂载到</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ALTITUDE">
                 <Original>Change Altitude</Original>
@@ -889,6 +981,7 @@
                 <Russian>Высота полёта</Russian>
                 <German>Höhe ändern</German>
                 <Japanese>属性を変更</Japanese>
+                <Chinesesimp>更改高度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_HEIGHT">
                 <Original>Change height</Original>
@@ -897,6 +990,7 @@
                 <Russian>Изменить высоту</Russian>
                 <German>Höhe ändern</German>
                 <Japanese>高度を変更</Japanese>
+                <Chinesesimp>更改高度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SURRENDER_UNIT">
                 <Original>Surrender Unit</Original>
@@ -905,6 +999,7 @@
                 <Russian>Приказать сдаться</Russian>
                 <German>Einheit ergibt sich</German>
                 <Japanese>投降ユニット</Japanese>
+                <Chinesesimp>单位投降</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GARRISON_INSTANT">
                 <Original>Garrison Building (instant)</Original>
@@ -913,6 +1008,7 @@
                 <Russian>Занять здание (мгновенно)</Russian>
                 <German>Gebäude besetzen (sofort)</German>
                 <Japanese>建物を占拠 (即時)</Japanese>
+                <Chinesesimp>驻扎建筑（立即）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UN_GARRISON">
                 <Original>Un-Garrison</Original>
@@ -921,6 +1017,7 @@
                 <Russian>Освободить здание</Russian>
                 <German>Besetzung aufheben</German>
                 <Japanese>占拠を解除</Japanese>
+                <Chinesesimp>放弃驻扎</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_AND_GARRISON_BUILDING">
                 <Original>Search and Garrison Building</Original>
@@ -929,6 +1026,7 @@
                 <Russian>Обыскать и занять здание</Russian>
                 <German>Suche und besetze ein Gebäude</German>
                 <Japanese>捜索と建物を占拠</Japanese>
+                <Chinesesimp>搜索并驻扎建筑</Chinesesimp>
             </Key>
             <!--deprecated?
 	  <Key ID="STR_AMAE_PATROL">
@@ -946,6 +1044,7 @@
                 <French>Patrouiller/Circuler</French>
                 <German>Patrouillieren/Kreisen</German>
                 <Japanese>哨戒/巡回</Japanese>
+                <Chinesesimp>巡逻/游荡</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NVD_TACLIGHT_IR">
                 <Original>NVD/Tactical Light/IR</Original>
@@ -954,6 +1053,7 @@
                 <Russian>ПНВ/ИК ЛЦУ/Фонарик</Russian>
                 <German>Nachtsichtgerät/Taktisches Licht/IR</German>
                 <Japanese>NVD/タクティカル ライト/IR</Japanese>
+                <Chinesesimp>夜视仪/战术手电/红外激光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TACLIGHT_IR_ON_OFF">
                 <Original>Tactical Light/IR Laser On/Off</Original>
@@ -962,6 +1062,7 @@
                 <Russian>Фонарик/ИК ЛЦУ Вкл/Выкл</Russian>
                 <German>Taktisches Licht/IR Laser an/aus</German>
                 <Japanese>タクティカル ライト/IR レーザの使用/停止</Japanese>
+                <Chinesesimp>战术手电/红外激光 开关</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_REMOVE_TURRET_OPTICS">
                 <Original>Add/Remove Turret Optics</Original>
@@ -970,6 +1071,7 @@
                 <Russian>Турели: Добав./Убрать оптику</Russian>
                 <German>Füge/Entferne Geschützoptik (hinzu)</German>
                 <Japanese>砲塔照準器の追加と削除</Japanese>
+                <Chinesesimp>添加/移除炮塔瞄具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPAWN_EMPTY_OBJECT">
                 <Original>Spawn Empty Object</Original>
@@ -978,6 +1080,7 @@
                 <Russian>Создать пустой объект</Russian>
                 <German>Ein leeres Objekt spawnen</German>
                 <Japanese>空の物体を作成</Japanese>
+                <Chinesesimp>生成空物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LOCK_DOORS">
                 <Original>Lock doors</Original>
@@ -986,6 +1089,7 @@
                 <Russian>Двери: запереть/отпереть</Russian>
                 <German>Tür abschließen</German>
                 <Japanese>扉を施錠</Japanese>
+                <Chinesesimp>锁门</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_DATE">
                 <Original>Set date</Original>
@@ -994,6 +1098,7 @@
                 <Russian>Изменить дату/время</Russian>
                 <German>Datum setzen</German>
                 <Japanese>日付を設定</Japanese>
+                <Chinesesimp>设定日期</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SHOW_IN_CONFIG">
                 <Original>Show in config</Original>
@@ -1002,6 +1107,7 @@
                 <Russian>Окно параметров объекта</Russian>
                 <German>Datum setzen</German>
                 <Japanese>コンフィグで参照</Japanese>
+                <Chinesesimp>于配置中显示</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FUNCTION_VIEWER">
                 <Original>Function viewer</Original>
@@ -1010,6 +1116,7 @@
                 <Russian>Исходный код функции</Russian>
                 <German>Funktionsviewer</German>
                 <Japanese>関数ビューワ</Japanese>
+                <Chinesesimp>功能浏览器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SHOW_IN_ANIM_VIEWER">
                 <Original>Show in anim viewer</Original>
@@ -1018,6 +1125,7 @@
                 <Russian>Просмотр анимаций объекта</Russian>
                 <German>In Animationsviewer öffnen</German>
                 <Japanese>アニメビューワで参照</Japanese>
+                <Chinesesimp>于动画浏览器中显示</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MAKE_INVINCIBLE">
                 <Original>Make invincible</Original>
@@ -1026,6 +1134,7 @@
                 <Russian>Сделать неуязвимым</Russian>
                 <German>Unsterblich machen</German>
                 <Japanese>無敵に</Japanese>
+                <Chinesesimp>无敌化</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CAS_BOMB_STRIKE">
                 <Original>CAS - Bomb Strike</Original>
@@ -1034,6 +1143,7 @@
                 <Russian>Авиаподдержка - Бомбовый Удар</Russian>
                 <German>CAS - Bombe</German>
                 <Japanese>CAS - 爆撃</Japanese>
+                <Chinesesimp>近空支援 - 轰炸</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_SET_SUICIDE_BOMBER">
                 <Original>Set Suicide Bomber</Original>
@@ -1042,6 +1152,7 @@
                 <Russian>Надеть "пояс шахида"</Russian>
                 <German>Selbstmordattentäter setzen</German>
                 <Japanese>自爆を設定</Japanese>
+                <Chinesesimp>设定自杀炸弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_CREATE_IED">
                 <Original>Create IED</Original>
@@ -1050,6 +1161,7 @@
                 <Russian>Создать СВУ</Russian>
                 <German>Erstelle ein Sprengfalle</German>
                 <Japanese>IED を作成</Japanese>
+                <Chinesesimp>创建IED</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ASSIGN_ZEUS">
                 <Original>Promote to Zeus</Original>
@@ -1058,6 +1170,7 @@
                 <Russian>Повысить до Зевса</Russian>
                 <German>Als Zeus befördern</German>
                 <Japanese>ゼウスにする</Japanese>
+                <Chinesesimp>晋升为宙斯</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_SIDE_RELATIONS">
                 <Original>Change Side Relations</Original>
@@ -1066,48 +1179,56 @@
                 <Russian>Изменить отношения сторон</Russian>
                 <German>Verhältnisse der Seiten ändern</German>
                 <Japanese>陣営の関係を変更</Japanese>
+                <Chinesesimp>更改阵营关系</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLAY_MESSAGE">
                 <Original>Play Radio Message</Original>
                 <English>Play Radio Message</English>
                 <Russian>Воспроизвести радиосообщение</Russian>
                 <Japanese>無線メッセージを再生</Japanese>
+                <Chinesesimp>播放无线电信息</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_FREQUENCIES">
                 <Original>Set Radio Frequencies</Original>
                 <English>Set Radio Frequencies</English>
                 <Russian>(TFAR) Назначить частоты</Russian>
                 <Japanese>無線の周波数設定</Japanese>
+                <Chinesesimp>设定无线电频率（TFAR专用）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ROTATION_MODULE">
                 <Original>Rotate Objects</Original>
                 <English>Rotate Objects</English>
                 <Russian>Повернуть объекты</Russian>
                 <Japanese>物体を回転</Japanese>
+                <Chinesesimp>旋转物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HIDE_OBJECTS">
                 <Original>Hide Objects</Original>
                 <English>Hide Objects</English>
                 <Russian>Скрыть объекты</Russian>
                 <Japanese>物体を非表示</Japanese>
+                <Chinesesimp>隐藏物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SUPPLY_DROP">
                 <Original>Supply Drop</Original>
                 <English>Supply Drop</English>
                 <Russian>Сброс предметов снабжения</Russian>
                 <Japanese>支援物資</Japanese>
+                <Chinesesimp>投放补给</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EDIT_CARGO">
                 <Original>Edit Cargo</Original>
                 <English>Edit Cargo</English>
                 <Russian>Редактировать груз</Russian>
                 <Japanese>中身を編集</Japanese>
+                <Chinesesimp>编辑货仓</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VIRTUAL_ARSENAL">
                 <Original>Virtual Arsenal</Original>
                 <English>Virtual Arsenal</English>
                 <Russian>Виртуальный Арсенал</Russian>
                 <Japanese>バーチャル武器庫</Japanese>
+                <Chinesesimp>虚拟军火库</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SWITCH_UNIT">
                 <Original>Switch unit</Original>
@@ -1116,120 +1237,140 @@
                 <Russian>Вселиться в боевую единицу</Russian>
                 <German>Einheit wechseln</German>
                 <Japanese>ユニット切り替え</Japanese>
+                <Chinesesimp>切换单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REMOVE">
                 <Original>Remove Arsenal</Original>
                 <English>Remove Arsenal</English>
                 <Russian>Удалить Арсенал</Russian>
                 <Japanese>武器庫を削除</Japanese>
+                <Chinesesimp>移除军火库</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADDED">
                 <Original>Added Arsenal to object!</Original>
                 <English>Added Arsenal to object!</English>
                 <Russian>Арсенал добавлен!</Russian>
                 <Japanese>物体に武器を追加した!</Japanese>
+                <Chinesesimp>已将军火库添加到物体上！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REMOVED">
                 <Original>Removed Arsenal from object!</Original>
                 <English>Removed Arsenal from object!</English>
                 <Russian>Арсенал удалён!</Russian>
                 <Japanese>物体から武器庫を削除した!</Japanese>
+                <Chinesesimp>已将物体上的军火库移除！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPIED_ITEMS_TO_CLIPBOARD">
                 <Original>Copied items to clipboard!</Original>
                 <English>Copied items to clipboard!</English>
                 <Russian>Снаряжение скопировано в область обмена!</Russian>
                 <Japanese>アイテムをクリップボードへ複製した!</Japanese>
+                <Chinesesimp>已将物品复制到剪切板中！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_PASTE">
                 <English>Paste Inventory</English>
                 <Original>Paste Inventory</Original>
                 <Russian>Вставить снаряжение</Russian>
                 <Japanese>インベントリを貼りつけ</Japanese>
+                <Chinesesimp>粘贴物品栏</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_REPLACE">
                 <English>Replace</English>
                 <Original>Replace</Original>
                 <Russian>Заменить</Russian>
                 <Japanese>置き換え</Japanese>
+                <Chinesesimp>替换</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE">
                 <English>Combine</English>
                 <Original>Paste</Original>
                 <Russian>Объединить</Russian>
                 <Japanese>貼りつけ</Japanese>
+                <Chinesesimp>粘贴</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_FAILED_TO_PARSE">
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
                 <Russian>Не удалось обработать!</Russian>
                 <Japanese>貼りつけに失敗した!</Japanese>
+                <Chinesesimp>解析失败！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INVENTORY_PASTED">
                 <English>Inventory pasted successfully!</English>
                 <Original>Inventory pasted successfully!</Original>
                 <Russian>Снаряжение успешно вставлено!</Russian>
                 <Japanese>インベントリの貼りつけに成功した!</Japanese>
+                <Chinesesimp>物品栏粘贴成功！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_CREATE_CUSTOM">
                 <English>Create Custom</English>
                 <Original>Create Custom</Original>
                 <Russian>Пользовательский арсенал</Russian>
                 <Japanese>独自に作成</Japanese>
+                <Chinesesimp>创建自定义</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DEFAULT_INVENTORY">
                 <English>Default Inventory</English>
                 <Original>Default Inventory</Original>
                 <Russian>Стандартное снаряжение</Russian>
                 <Japanese>標準インベントリ</Japanese>
+                <Chinesesimp>默认物品栏</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE_OR_REPLACE">
                 <English>Combine or Replace Items</English>
                 <Original>Combine or Replace Items</Original>
                 <Russian>Объединить или заменить снаряжение</Russian>
                 <Japanese>アイテムの組み合わせか置き換え</Japanese>
+                <Chinesesimp>组合或替换物品</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_SIDE_EQUIPMENT">
                 <English>Add Equipment From</English>
                 <Original>Add Equipment From</Original>
                 <Russian>Добавить снаряжение от</Russian>
                 <Japanese>次から器機を追加</Japanese>
+                <Chinesesimp>添加装备自</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_GPS">
                 <English>Add GPS</English>
                 <Original>Add GPS</Original>
                 <Russian>Добавить GPS</Russian>
                 <Japanese>GPS を追加</Japanese>
+                <Chinesesimp>添加GPS</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_NVGS">
                 <English>Add NVGs</English>
                 <Original>Add NVGs</Original>
                 <Russian>Добавить ПНВ</Russian>
                 <Japanese>暗視装置を追加</Japanese>
+                <Chinesesimp>添加夜视仪</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_THERMALS">
                 <English>Add Thermal Goggles</English>
                 <Original>Add Thermal Goggles</Original>
                 <Russian>Добавить тепловизор</Russian>
                 <Japanese>サーマル ゴーグルを追加</Japanese>
+                <Chinesesimp>添加热成像目镜</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_STATIC_WEAPONS">
                 <English>Add Static Weapons</English>
                 <Original>Add Static Weapons</Original>
                 <Russian>Добавить турели</Russian>
                 <Japanese>固定式火器を追加</Japanese>
+                <Chinesesimp>添加固定式武器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_AUTOMATED_WEAPONS">
                 <English>Add Autonomous Weapons</English>
                 <Original>Add Autonomous Weapons</Original>
                 <Russian>Добавить автоматические турели</Russian>
                 <Japanese>自律火器を追加</Japanese>
+                <Chinesesimp>添加无人式武器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_UAVS">
                 <English>Add UAVs</English>
                 <Original>Add UAVs</Original>
                 <Russian>Добавить БПА</Russian>
                 <Japanese>UAV を追加</Japanese>
+                <Chinesesimp>添加无人机</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_REINFORCEMENT_DISPATCHED">
                 <Original>Transport dispatched to LZ. Squad will head to RP.</Original>
@@ -1237,18 +1378,21 @@
                 <French>Le transport est en route. La troupe va aller au RV</French>
                 <German>Das Transportfahrzeug ist auf dem Weg zur LZ. Die Truppe wird zum Sammelpunkt gehen.</German>
                 <Japanese>輸送隊は LZ に出発。分隊は RP へ向かいます。</Japanese>
+                <Chinesesimp>运输队以派往着陆区。班组将会前往集结点。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
                 <Russian>Добавить палатки</Russian>
                 <Japanese>テントを追加</Japanese>
+                <Chinesesimp>添加帐篷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WEAPON_TO_FIRE">
                 <English>Weapon to Fire</English>
                 <Original>Weapon to Fire</Original>
                 <Russian>Вести огонь из</Russian>
                 <Japanese>武器を発射</Japanese>
+                <Chinesesimp>开火用武器</Chinesesimp>
             </Key>
         </Container>
     </Package>
@@ -1259,66 +1403,77 @@
                 <English>Error! Failed to spawn cargo vehicle</English>
                 <Russian>Ошибка! Не могу создать транспортное средство с грузом!</Russian>
                 <Japanese>エラー!カーゴ車両の作成に失敗しました!</Japanese>
+                <Chinesesimp>错误！载货载具生成失败！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AIRCRAFT_SPAWN_ERROR">
                 <Original>Error! Failed to spawn aircraft!</Original>
                 <English>Error! Failed to spawn aircraft!</English>
                 <Russian>Ошибка! Не могу создать летательный аппарат!</Russian>
                 <Japanese>エラー!航空機の作成に失敗しました!</Japanese>
+                <Chinesesimp>错误！航空器生成失败！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CODE_EXECUTION_NOT_ALLOWED">
                 <Original>This module has been disabled by the mission creator.</Original>
                 <English>This module has been disabled by the mission creator.</English>
                 <Russian>Эта возможность была отключена автором миссии!</Russian>
                 <Japanese>このモジュールはミッション製作者により無効化されています。</Japanese>
+                <Chinesesimp>该模块已被任务作者禁用。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_BUILDINGS_FOUND">
                 <Original>No buildings found!</Original>
                 <English>No buildings found!</English>
                 <Russian>В указанном месте нет зданий!</Russian>
                 <Japanese>建物を発見できません!</Japanese>
+                <Chinesesimp>未能找到建筑！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LOCKS_ALLOCATION_ERROR">
                 <Original>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</Original>
                 <English>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</English>
                 <Russian>Ошибка выделения памяти: Не могу создать модуль логики закрытия дверей! (для %1/%2 случаев)</Russian>
                 <Japanese>アロケーション エラー: 扉の施錠は作成されていません。 (%1/%2 の場合により)</Japanese>
+                <Chinesesimp>分配错误：无法建立锁门逻辑！（%1/%2的情况下会导致此错误）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FAILED_TO_ATTACH_CARGO">
                 <Original>Failed to attach the cargo!</Original>
                 <English>Failed to attach the cargo!</English>
                 <Russian>Груз не прикреплён!</Russian>
                 <Japanese>カーゴの取り付けに失敗しました!</Japanese>
+                <Chinesesimp>货物挂载失败！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CARGO_ALREADY_ATTACHED">
                 <Original>Cargo is already attached!</Original>
                 <English>Cargo is already attached!</English>
                 <Russian>Груз уже прикреплён!</Russian>
                 <Japanese>カーゴは既に取りつけられています!</Japanese>
+                <Chinesesimp>货物已挂载！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_HELICOPTER_SELECTED">
                 <Original>No helicopter selected!</Original>
                 <English>No helicopter selected!</English>
                 <Russian>Не выбран вертолёт!</Russian>
                 <Japanese>ヘリコプターが選択されていません!</Japanese>
+                <Chinesesimp>未选中直升机！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HELICOPTER_NEEDS_DRIVER">
                 <Original>The helicopter needs a driver!</Original>
                 <English>The helicopter needs a driver!</English>
                 <Russian>Вертолёту требуется пилот!</Russian>
                 <Japanese>ヘリコプターには操縦士が必要です!</Japanese>
+                <Chinesesimp>该直升机需要驾驶员！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNITS_NOT_ALLOWED">
                 <Original>Units are not allowed!</Original>
                 <English>Units are not allowed!</English>
                 <Russian>Не допускается использовать на боевых единицах!</Russian>
                 <Japanese>ユニットは許可されていません!</Japanese>
+                <Chinesesimp>非法单位！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TFAR_HAS_TO_BE_LOADED">
                 <Original>This module requires Task Force Radio!</Original>
                 <English>This module requires Task Force Radio!</English>
                 <Russian>Этот модуль требует TFAR для работы!</Russian>
                 <Japanese>このモジュールは Task Force Radio が必要です!</Japanese>
+                <Chinesesimp>该模块需要TFAR无线电模组！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CANNOT_BE_APPLIED_ON_GROUPS_WITH_PLAYERS">
                 <Original>Cannot be applied on groups with players!</Original>
@@ -1326,6 +1481,7 @@
                 <French>Il est interdit d'employer ce module aux groups avec joueurs!</French>
                 <German>Kann nicht auf Gruppen mit Spielern angewendet werden!</German>
                 <Japanese>プレイヤーが存在するグループに適応できません!</Japanese>
+                <Chinesesimp>无法在有玩家的班组中生效！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DID_NOT_FIND_SUFFICIENT_FREE_POSITIONS">
                 <Original>Did not find sufficient free positions!</Original>
@@ -1333,6 +1489,7 @@
                 <French>Il n'y a pas assez d'espace!</French>
                 <German>Es hat nicht genug freie Positionen!</German>
                 <Japanese>十分な空き空間が見つけられませんでした!</Japanese>
+                <Chinesesimp>未能找到足够的空间！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_VALID_WEAPON_AVAILABLE">
                 <Original>No valid weapon available!</Original>
@@ -1340,6 +1497,7 @@
                 <French>Il n'y a pas des armes valide!</French>
                 <German>Keine gültige Waffe verfügbar!</German>
                 <Japanese>利用可能な武器はありません!</Japanese>
+                <Chinesesimp>无可用武器！</Chinesesimp>
             </Key>
         </Container>
     </Package>
@@ -1352,6 +1510,7 @@
                 <Russian>Сначала вы должны разместить маркер цели!</Russian>
                 <German>Du musst zuerst einen Ziel Marker platzieren!</German>
                 <Japanese>あなたは最初に目標マーカーを接地する必要があります!</Japanese>
+                <Chinesesimp>请先放置目标标记！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_LZ">
                 <Original>No LZ available!</Original>
@@ -1360,6 +1519,7 @@
                 <Russian>Не назначена зона посадки!</Russian>
                 <German>Keine LZ verfügbar!</German>
                 <Japanese>利用可能な LZ はありません!</Japanese>
+                <Chinesesimp>无可用着陆区！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_RP">
                 <Original>No RP available!</Original>
@@ -1368,6 +1528,7 @@
                 <Russian>Не назначен пункт сбора!</Russian>
                 <German>Kein Sammelpunkt verfügbar!</German>
                 <Japanese>利用可能な RP はありません!</Japanese>
+                <Chinesesimp>无可用集结点！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_OBJECT_SELECTED">
                 <Original>No object selected!</Original>
@@ -1376,6 +1537,7 @@
                 <Russian>Не выбрано ни одного объекта!</Russian>
                 <German>Kein Objekt wurde ausgewählt!</German>
                 <Japanese>物体が選択されていません!</Japanese>
+                <Chinesesimp>未选中任何物体！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_UNIT_SELECTED">
                 <Original>No unit selected!</Original>
@@ -1384,6 +1546,7 @@
                 <Russian>Не выбрано ни одной боевой единицы!</Russian>
                 <German>Keine Einheit wurde ausgewählt!</German>
                 <Japanese>ユニットが選択されていません!</Japanese>
+                <Chinesesimp>未选中任何单位！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NOT_PLACED_ON_UNIT">
                 <Original>This module has to be placed on a unit!</Original>
@@ -1392,6 +1555,7 @@
                 <Russian>Этот модуль должен быть помещён на боевую единицу!</Russian>
                 <German>Dieses Modul muss auf eine Einheit platziert werden!</German>
                 <Japanese>このモジュールはユニット上に設置されている必要があります!</Japanese>
+                <Chinesesimp>该模块必须放置在单位上！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_GROUP_SELECTED">
                 <Original>No group selected!</Original>
@@ -1400,6 +1564,7 @@
                 <Russian>Не выбрано ни одной группы!</Russian>
                 <German>Keine Gruppe wurde ausgewählt!</German>
                 <Japanese>グループが選択されていません!</Japanese>
+                <Chinesesimp>未选中任何班组！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_TARGET_AVAIABLE">
                 <Original>No target available!</Original>
@@ -1408,6 +1573,7 @@
                 <Russian>Не доступно ни одной цели!</Russian>
                 <German>Kein Ziel verfügbar!</German>
                 <Japanese>利用可能な目標がありません!</Japanese>
+                <Chinesesimp>无可用目标！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_TARGET_IN_RANGE">
                 <Original>No target in range!</Original>
@@ -1416,6 +1582,7 @@
                 <Russian>Не доступно ни одной цели в радиусе!</Russian>
                 <German>Kein Ziel in Reichweite!</German>
                 <Japanese>射程内に目標がいません!</Japanese>
+                <Chinesesimp>射程内无可用目标！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_PLAYER_IN_SELECTION">
                 <Original>No player in selection!</Original>
@@ -1424,11 +1591,13 @@
                 <Russian>Игрок не выбран!</Russian>
                 <German>Keine Spieler ausgewählt!</German>
                 <Japanese>プレイヤーが選択されていません!</Japanese>
+                <Chinesesimp>选择中未包含玩家！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECT_NON_PLAYER_UNITS">
                 <Original>Select non player units only!</Original>
                 <English>Select non player units only!</English>
                 <Japanese>非プレイヤーのみ選択してください!</Japanese>
+                <Chinesesimp>仅能选择非玩家单位！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NOT_IMPLEMENTED_AT_THE_MOMENT">
                 <Original>Not implemented at the moment!</Original>
@@ -1437,6 +1606,7 @@
                 <Russian>На данный момент эта функция не реализована!</Russian>
                 <German>Im Moment nicht implementiert!</German>
                 <Japanese>現時点では実装されていません!</Japanese>
+                <Chinesesimp>该功能尚未实装！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_NEARBY_ARTILLERY_UNITS">
                 <Original>No nearby artillery units!</Original>
@@ -1445,6 +1615,7 @@
                 <Russian>Поблизости нет артилерии!</Russian>
                 <German>Keine Artillerie in der Nähe!</German>
                 <Japanese>近くに砲撃ユニットはいません!</Japanese>
+                <Chinesesimp>附近无可用炮兵单位！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENTRY_ALREADY_EXISTS">
                 <Original>Entry already exists!</Original>
@@ -1453,6 +1624,7 @@
                 <Russian>Название уже существует!</Russian>
                 <German>Der Eintrag existiert bereits!</German>
                 <Japanese>エントリは既に存在しています!</Japanese>
+                <Chinesesimp>该条目已经存在！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ERROR_UNIT_IS_UNCONSCIOUS">
                 <Original>Error: Unit is unconscious!</Original>
@@ -1461,6 +1633,7 @@
                 <Russian>Ошибка: Человек без сознания!</Russian>
                 <German>Fehler: Einheit ist nicht bei Bewusstsein</German>
                 <Japanese>エラー: ユニットは気絶しています!</Japanese>
+                <Chinesesimp>错误：单位已昏迷！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_ALREADY_PROMOTED">
                 <Original>Player has already been promoted!</Original>
@@ -1469,6 +1642,7 @@
                 <Russian>Игрок уже был повышен!</Russian>
                 <German>Einheit wurde bereits befördert!</German>
                 <Japanese>プレイヤーは既に転生しています!</Japanese>
+                <Chinesesimp>玩家已经晋升！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_PLAYER_SELECTED">
                 <Original>No player has been selected!</Original>
@@ -1477,6 +1651,7 @@
                 <Russian>Игрок не выбран!</Russian>
                 <German>Kein Spieler wurde ausgewählt!</German>
                 <Japanese>プレイヤーが選択されていません!</Japanese>
+                <Chinesesimp>未选中任何玩家！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ERROR_VEHICLE_IS_A_DRONE">
                 <Original>Error: Unit is a drone!</Original>
@@ -1485,6 +1660,7 @@
                 <Russian>Ошибка: Это беспилотник!</Russian>
                 <German>Fehler: Einheit ist eine Drohne</German>
                 <Japanese>エラー: ユニットはドローンです!</Japanese>
+                <Chinesesimp>错误：单位是个无人机！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_OBJECTS_NOT_ALLOWED">
                 <Original>Objects not allowed! Use the Create IED module instead!</Original>
@@ -1493,6 +1669,7 @@
                 <Russian>Не допускается использование на объектах! Используйте модуль "Создать СВУ"!</Russian>
                 <German>Objekte sind nicht erlaubt! Benutze ein "Erstelle ein Sprengfalle" Modul stattdessen!</German>
                 <Japanese>この物体は許可されていません! IED モジュールを代替使用してください!</Japanese>
+                <Chinesesimp>非法物体！请使用创建IED模块！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_UNITS_NOT_ALLOWED">
                 <Original>Units not allowed, use Suicide Bomber module instead!</Original>
@@ -1501,6 +1678,7 @@
                 <Russian>Не допускается использование на людях! Испоьзуйте модуль "Надеть "пояс шахида"!</Russian>
                 <German>Einheiten sind nicht erlaubt! Benutze ein "Selbstmordattentäter setzen" Modul stattdessen!</German>
                 <Japanese>ユニットは不許可のため、自爆モジュールを代わりに使用してください!</Japanese>
+                <Chinesesimp>非法单位！请使用自杀炸弹模块！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_NO_VEHICLE_SELECTED">
                 <Original>No vehicle selected!</Original>
@@ -1509,6 +1687,7 @@
                 <Russian>Не выбрано транспортное средство!</Russian>
                 <German>Kein Fahrzeug wurde ausgewählt!</German>
                 <Japanese>車両が選択されていません!</Japanese>
+                <Chinesesimp>未选中任何载具！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_SIDE_CANNOT_MATCH">
                 <Original>Activation Side cannot match the unit's side!</Original>
@@ -1517,6 +1696,7 @@
                 <Russian>Нельзя настраивать на срабатывание от боевых единиц своей стороны!</Russian>
                 <German>Aktivierungsseite kann nicht die Seite der Einheit sein!</German>
                 <Japanese>有効化された陣営はユニットの陣営と一致していません!</Japanese>
+                <Chinesesimp>激活阵营不能与单位阵营相同！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SIDES_CANT_MATCH">
                 <Original>Sides cannot be the same!</Original>
@@ -1525,30 +1705,35 @@
                 <Russian>Ошибка: сторона не может быть той же самой!</Russian>
                 <German>Die Seiten dürfen nicht dieselbe Seite sein!</German>
                 <Japanese>同じ陣営にできません!</Japanese>
+                <Chinesesimp>不能使用同阵营！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_TELEPORT_DESTINATION">
                 <Original>Destination no longer exists!</Original>
                 <English>Destination no longer exists!</English>
                 <Russian>Точка назначения больше не существует!</Russian>
                 <Japanese>目的地は存在していません!</Japanese>
+                <Chinesesimp>目的地不复存在！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECT_ALREADY_TELEPORTER">
                 <Original>Object is already a teleporter!</Original>
                 <English>Object is already a teleporter!</English>
                 <Russian>Объект уже является телепортатором!</Russian>
                 <Japanese>物体は既にテレポーターです!</Japanese>
+                <Chinesesimp>物体已是传送器！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CANNOT_ADD_PATROL_PLAYERS">
                 <Original>Cannot add patrol for player units.</Original>
                 <English>Cannot add patrol for player units.</English>
                 <Russian>Не могу назначить маршрут для боевых единиц под контролем игрока!</Russian>
                 <Japanese>プレイヤー ユニットへ巡回をさせられません!</Japanese>
+                <Chinesesimp>无法为玩家单位添加巡逻路径点。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_GROUP_UNDER_CURSOR">
                 <Original>No group under cursor.</Original>
                 <English>No group under cursor.</English>
                 <Russian>Поместите модуль на группу!</Russian>
                 <Japanese>カーソル下にグループはありません。</Japanese>
+                <Chinesesimp>指针未指向任何班组。</Chinesesimp>
             </Key>
         </Container>
         <Container name="Dialog interface strings">
@@ -1557,168 +1742,196 @@
                 <English>s</English>
                 <Russian>сек</Russian>
                 <Japanese>秒</Japanese>
+                <Chinesesimp>秒</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MINUTE">
                 <Original>m</Original>
                 <English>m</English>
                 <Russian>мин</Russian>
                 <Japanese>分</Japanese>
+                <Chinesesimp>分</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NONE">
                 <Original>None</Original>
                 <English>None</English>
                 <Russian>Нет</Russian>
                 <Japanese>無し</Japanese>
+                <Chinesesimp>无</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATED_TELEPORT">
                 <Original>Created teleporter '%1'</Original>
                 <English>Created teleporter '%1'</English>
                 <Russian>Создан телепортатор '%1'</Russian>
                 <Japanese>テレポーター '%1' を作成した</Japanese>
+                <Chinesesimp>‘%1’传送器创建完成</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TELEPORT_TO">
                 <Original>Teleport to %1</Original>
                 <English>Teleport to %1</English>
                 <Russian>Телепортация в точку %1</Russian>
                 <Japanese>%1 へテレポート</Japanese>
+                <Chinesesimp>传送至%1</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELEASE_UAV_CONTROLS">
                 <Original>Release UAV controls</Original>
                 <English>Release UAV controls</English>
                 <Russian>Бросить управление БПА</Russian>
                 <Japanese>UAV 操作を止める</Japanese>
+                <Chinesesimp>无人机遥控终止</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BLUFOR">
                 <Original>BLUFOR</Original>
                 <English>BLUFOR</English>
                 <Russian>Синие</Russian>
                 <Japanese>同盟軍</Japanese>
+                <Chinesesimp>蓝方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OPFOR">
                 <Original>OPFOR</Original>
                 <English>OPFOR</English>
                 <Russian>Красные</Russian>
                 <Japanese>仮想敵軍</Japanese>
+                <Chinesesimp>红方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BLUFOR_ONLY">
                 <Original>BLUFOR only</Original>
                 <English>BLUFOR only</English>
                 <Russian>Только Синие</Russian>
                 <Japanese>同盟軍のみ</Japanese>
+                <Chinesesimp>仅蓝方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OPFOR_ONLY">
                 <Original>OPFOR only</Original>
                 <English>OPFOR only</English>
                 <Russian>Только Красные</Russian>
                 <Japanese>仮想敵軍のみ</Japanese>
+                <Chinesesimp>仅红方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GREENFOR_ONLY">
                 <Original>Independent only</Original>
                 <English>Independent only</English>
                 <Russian> Только Зелёные</Russian>
                 <Japanese>独立陣営のみ</Japanese>
+                <Chinesesimp>仅绿方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FILTER_OBJECTS">
                 <Original>Filter Objects</Original>
                 <English>Filter Objects</English>
                 <Russian>Выбрать снаряжение</Russian>
                 <Japanese>物体を選別</Japanese>
+                <Chinesesimp>物体过滤</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COMBINE_REPLACE">
                 <Original>Combine or Replace</Original>
                 <English>Combine or Replace</English>
                 <Russian>Объединить или заменить?</Russian>
                 <Japanese>組み合わせか置き換え</Japanese>
+                <Chinesesimp>组合或替换</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COMBINE">
                 <Original>Combine with existing items</Original>
                 <English>Combine with existing items</English>
                 <Russian>Объединить с существующим снаряжением</Russian>
                 <Japanese>既存アイテムと組み合わせ</Japanese>
+                <Chinesesimp>与现有物品进行组合</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_REPLACE">
                 <Original>Replace existing items</Original>
                 <English>Replace existing items</English>
                 <Russian>Заменить существующее снаряжение</Russian>
                 <Japanese>既存アイテムを置き換え</Japanese>
+                <Chinesesimp>替换现有物品</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LIMIT_SIDE">
                 <Original>Limit side-specific equip. to</Original>
                 <English>Limit side-specific equip. to</English>
                 <Russian>Ограничить снаряжение стороной</Russian>
                 <Japanese>次の装備に陣営制限</Japanese>
+                <Chinesesimp>限制阵营装备</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_GPS">
                 <Original>Add GPS</Original>
                 <English>Add GPS</English>
                 <Russian>Добавить GPS</Russian>
                 <Japanese>GPS を追加</Japanese>
+                <Chinesesimp>添加GPS</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_THERMALS">
                 <Original>Add thermals</Original>
                 <English>Add thermals</English>
                 <Russian>Добавить тепловизор</Russian>
                 <Japanese>サーマルを追加</Japanese>
+                <Chinesesimp>添加热成像</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_NVGS">
                 <Original>Add NVG</Original>
                 <English>Add NVG</English>
                 <Russian>Добавить ПНВ</Russian>
                 <Japanese>暗視装置を追加</Japanese>
+                <Chinesesimp>添加夜视仪</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STATIC_BACKPACKS">
                 <Original>Static weapon backpacks</Original>
                 <English>Static weapon backpacks</English>
                 <Russian>Рюкзаки со стационарными турелями</Russian>
                 <Japanese>固定式火器用バックパック</Japanese>
+                <Chinesesimp>固定式武器背包</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UAV_BACKPACKS">
                 <Original>UAV items and backpacks</Original>
                 <English>UAV items and backpacks</English>
                 <Russian>Рюкзаки с беспилотниками (и терминал)</Russian>
                 <Japanese>UAV アイテムとバックパック</Japanese>
+                <Chinesesimp>无人机物品和背包</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AUTOMATED_BACKPACKS">
                 <Original>Automated weapon backpacks</Original>
                 <English>Automated weapon backpacks</English>
                 <Russian>Рюкзаки с автоматическими турелями</Russian>
                 <Japanese>自律火器バックパック</Japanese>
+                <Chinesesimp>遥控武器背包</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ONLY">
                 <Original>Only</Original>
                 <English>Only</English>
                 <Russian>Только</Russian>
                 <Japanese>のみ</Japanese>
+                <Chinesesimp>仅</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_METERS">
                 <Original>[m]</Original>
                 <English>[m]</English>
                 <Russian>(м)</Russian>
                 <Japanese>[m]</Japanese>
+                <Chinesesimp>[米]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KILOMETERS_PER_HOUR">
                 <Original>[km/h]</Original>
                 <English>[km/h]</English>
                 <Russian>(км/ч)</Russian>
                 <Japanese>[km/h]</Japanese>
+                <Chinesesimp>[公里/时]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AMMUNITION_CRATE">
                 <Original>Ammunition Crate</Original>
                 <English>Ammunition Crate</English>
                 <Russian>Ящик с боеприпасами</Russian>
                 <Japanese>弾薬箱</Japanese>
+                <Chinesesimp>弹药箱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE">
                 <Original>Ammunition Crate or Vehicle</Original>
                 <English>Ammunition Crate or Vehicle</English>
                 <Russian>Ящик или транспортное средство</Russian>
                 <Japanese>弾薬箱か車両</Japanese>
+                <Chinesesimp>弹药箱或载具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CARGO_LW">
                 <Original>Cargo</Original>
                 <English>Cargo</English>
                 <Russian>Груз</Russian>
                 <Japanese>カーゴ</Japanese>
+                <Chinesesimp>货仓</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FRIENDLY_TO">
                 <Original>friendly to</Original>
@@ -1727,6 +1940,7 @@
                 <Russian>стали союзником</Russian>
                 <German>freundlich gegenüber</German>
                 <Japanese>次に友軍として</Japanese>
+                <Chinesesimp>友军至</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HOSTILE_TO">
                 <Original>hostile to</Original>
@@ -1735,6 +1949,7 @@
                 <Russian>стали противником</Russian>
                 <German>feindlich gegenüber</German>
                 <Japanese>次に敵軍として</Japanese>
+                <Chinesesimp>敌军至</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PITCH_ANGLE">
                 <Original>Pitch Axis</Original>
@@ -1742,6 +1957,7 @@
                 <French>Angle d'inclinaison</French>
                 <German>Nickachse</German>
                 <Japanese>ピッチ軸</Japanese>
+                <Chinesesimp>俯仰轴</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ROLL_ANGLE">
                 <Original>Roll Angle</Original>
@@ -1749,6 +1965,7 @@
                 <French>Angle de roulis</French>
                 <German>Rollwinkel</German>
                 <Japanese>ロール角</Japanese>
+                <Chinesesimp>滚转角</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_YAW_ANGLE">
                 <Original>Yaw Angle</Original>
@@ -1756,6 +1973,7 @@
                 <French>Angle d'embardée</French>
                 <German>Gierwinkel</German>
                 <Japanese>ヨー角</Japanese>
+                <Chinesesimp>偏航角</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RANDOM">
                 <Original>Random</Original>
@@ -1764,6 +1982,7 @@
                 <Russian>Случайно</Russian>
                 <German>Zufall</German>
                 <Japanese>無作為</Japanese>
+                <Chinesesimp>随机</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NEAREST">
                 <Original>Nearest</Original>
@@ -1772,6 +1991,7 @@
                 <Russian>Рядом</Russian>
                 <German>Nächstgelegener</German>
                 <Japanese>近傍</Japanese>
+                <Chinesesimp>最近</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FARTHEST">
                 <Original>Farthest</Original>
@@ -1780,6 +2000,7 @@
                 <Russian>Далеко</Russian>
                 <German>Weitestes</German>
                 <Japanese>遠方</Japanese>
+                <Chinesesimp>最远</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LEAST_USED">
                 <Original>Least Used</Original>
@@ -1788,6 +2009,7 @@
                 <Russian>Реже всего использованная</Russian>
                 <German>Am wenigsten gebraucht</German>
                 <Japanese>最後に使用</Japanese>
+                <Chinesesimp>最少使用的</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SIDE">
                 <Original>Side</Original>
@@ -1796,6 +2018,7 @@
                 <Russian>Сторона</Russian>
                 <German>Seite</German>
                 <Japanese>陣営</Japanese>
+                <Chinesesimp>阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GROUP">
                 <Original>Group</Original>
@@ -1804,6 +2027,7 @@
                 <Russian>Группа</Russian>
                 <German>Gruppe</German>
                 <Japanese>グループ</Japanese>
+                <Chinesesimp>班组</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_ONE">
                 <Original>No one</Original>
@@ -1812,6 +2036,7 @@
                 <Russian>Никто</Russian>
                 <German>Niemanden</German>
                 <Japanese>誰でもない</Japanese>
+                <Chinesesimp>无人</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FACTION">
                 <Original>Faction</Original>
@@ -1820,6 +2045,7 @@
                 <Russian>Фракция</Russian>
                 <German>Fraktion</German>
                 <Japanese>勢力</Japanese>
+                <Chinesesimp>势力</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VEHICLE_CATEGORY">
                 <Original>Vehicle Category</Original>
@@ -1828,6 +2054,7 @@
                 <Russian>Тип транспортного средства</Russian>
                 <German>Fahrzeugkategorie</German>
                 <Japanese>車両カテゴリ</Japanese>
+                <Chinesesimp>载具类型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VEHICLE">
                 <Original>Vehicle</Original>
@@ -1836,6 +2063,7 @@
                 <Russian>Транспортное средство</Russian>
                 <German>Fahrzeug</German>
                 <Japanese>車両</Japanese>
+                <Chinesesimp>载具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VEHICLE_BEHAVIOUR">
                 <Original>Vehicle Behaviour</Original>
@@ -1844,6 +2072,7 @@
                 <Russian>Поведение транспортного средства</Russian>
                 <German>Verhalten des Fahrzeuges</German>
                 <Japanese>車両の挙動</Japanese>
+                <Chinesesimp>载具行为</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LZ_DZ">
                 <Original>LZ/DZ</Original>
@@ -1852,6 +2081,7 @@
                 <Russian>Зона посадки/сброса</Russian>
                 <German>LZ/DZ</German>
                 <Japanese>LZ/DZ</Japanese>
+                <Chinesesimp>着陆/投放区</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GROUP_RP">
                 <Original>Group RP</Original>
@@ -1860,6 +2090,7 @@
                 <Russian>Пункт сбора группы</Russian>
                 <German>Sammelpunkt der Gruppe</German>
                 <Japanese>グループの RP</Japanese>
+                <Chinesesimp>班组集结点</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INFANTRY_GROUP">
                 <Original>Infantry Group</Original>
@@ -1868,6 +2099,7 @@
                 <Russian>Группа пехоты</Russian>
                 <German>Infanteriegruppe</German>
                 <Japanese>歩兵グループ</Japanese>
+                <Chinesesimp>步兵班组</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GROUP_BEHAVIOUR">
                 <Original>Group Behaviour</Original>
@@ -1876,6 +2108,7 @@
                 <Russian>Поведение группы</Russian>
                 <German>Verhalten der Gruppe</German>
                 <Japanese>グループの挙動</Japanese>
+                <Chinesesimp>班组行为</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RTB_DESPAWN">
                 <Original>RTB and Despawn</Original>
@@ -1884,6 +2117,7 @@
                 <Russian>Вернуться в точку старта и исчезнуть</Russian>
                 <German>Zurück zur Basis und Despawn</German>
                 <Japanese>RTB とリスポン無効化</Japanese>
+                <Chinesesimp>返回基地并消失</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STAY_AT_LZ">
                 <Original>Stay at LZ</Original>
@@ -1892,6 +2126,7 @@
                 <Russian>Оставаться в зоне посадки</Russian>
                 <German>Bleibt bei LZ</German>
                 <Japanese>LZ に留まる</Japanese>
+                <Chinesesimp>停留在着陆区</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DEFAULT">
                 <Original>Default</Original>
@@ -1900,6 +2135,7 @@
                 <Russian>По умолчанию</Russian>
                 <German>Standardwert</German>
                 <Japanese>通常</Japanese>
+                <Chinesesimp>默认</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELAXED">
                 <Original>Relaxed</Original>
@@ -1908,6 +2144,7 @@
                 <Russian>Спокойно</Russian>
                 <German>Sicher</German>
                 <Japanese>無警戒</Japanese>
+                <Chinesesimp>放松</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CAUTIOUS">
                 <Original>Cautious</Original>
@@ -1916,6 +2153,7 @@
                 <Russian>Настороже</Russian>
                 <German>Vorsichtig</German>
                 <Japanese>警戒</Japanese>
+                <Chinesesimp>警戒</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COMBAT">
                 <Original>Combat</Original>
@@ -1924,6 +2162,7 @@
                 <Russian>Бой</Russian>
                 <German>Kampfbereit</German>
                 <Japanese>戦闘</Japanese>
+                <Chinesesimp>战斗</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ALL">
                 <Original>All</Original>
@@ -1932,6 +2171,7 @@
                 <Russian>Все</Russian>
                 <German>Alle</German>
                 <Japanese>全て</Japanese>
+                <Chinesesimp>全部</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION">
                 <Original>Selection</Original>
@@ -1940,6 +2180,7 @@
                 <Russian>Выберите вариант</Russian>
                 <German>Auswahl</German>
                 <Japanese>選択</Japanese>
+                <Chinesesimp>选择</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODE">
                 <Original>Mode</Original>
@@ -1948,6 +2189,7 @@
                 <Russian>Режим</Russian>
                 <German>Modus</German>
                 <Japanese>モード</Japanese>
+                <Chinesesimp>模式</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
@@ -1956,6 +2198,7 @@
                 <Russian>Все объекты миссии</Russian>
                 <German>Alle Objekte in der Mission</German>
                 <Japanese>ミッション内の全物体</Japanese>
+                <Chinesesimp>任务中的所有物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_WITHIN">
                 <Original>All objects within</Original>
@@ -1964,6 +2207,7 @@
                 <Russian>Все объекты в пределах</Russian>
                 <German>Alle Objekte innerhalb</German>
                 <Japanese>全物体を含む</Japanese>
+                <Chinesesimp>范围内的所有物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RANGE_NO_SI">
                 <Original>Range</Original>
@@ -1972,6 +2216,7 @@
                 <Russian>Радиус</Russian>
                 <German>Reichweite</German>
                 <Japanese>距離</Japanese>
+                <Chinesesimp>距离</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
@@ -1980,6 +2225,7 @@
                 <Russian>Радиус (м)</Russian>
                 <German>Reichweite [m]</German>
                 <Japanese>距離 [m]</Japanese>
+                <Chinesesimp>距离[米]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_REMOVE">
                 <Original>Remove</Original>
@@ -1988,6 +2234,7 @@
                 <Russian>Убрать</Russian>
                 <German>Entfernen</German>
                 <Japanese>削除</Japanese>
+                <Chinesesimp>移除</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD">
                 <Original>Add</Original>
@@ -1996,6 +2243,7 @@
                 <Russian>Добавить</Russian>
                 <German>Hinzufügen</German>
                 <Japanese>追加</Japanese>
+                <Chinesesimp>添加</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TRUE">
                 <Original>True</Original>
@@ -2004,6 +2252,7 @@
                 <Russian>Да</Russian>
                 <German>Wahr</German>
                 <Japanese>True</Japanese>
+                <Chinesesimp>真</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FALSE">
                 <Original>False</Original>
@@ -2012,6 +2261,7 @@
                 <Russian>Нет</Russian>
                 <German>Falsch</German>
                 <Japanese>False</Japanese>
+                <Chinesesimp>伪</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MESSAGE">
                 <Original>Message</Original>
@@ -2020,21 +2270,25 @@
                 <Russian>Сообщение</Russian>
                 <German>Mitteilung</German>
                 <Japanese>メッセージ</Japanese>
+                <Chinesesimp>信息</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HINT_TYPE">
                 <Original>Hint Type</Original>
                 <English>Hint Type</English>
                 <Japanese>ヒント種類</Japanese>
+                <Chinesesimp>提示类型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HINT_SILENT">
                 <Original>Hint Silent</Original>
                 <English>Hint Silent</English>
                 <Japanese>ヒント無音</Japanese>
+                <Chinesesimp>静默提示</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HINT_CADET">
                 <Original>Hint Cadet</Original>
                 <English>Hint Cadet</English>
                 <Japanese>ヒント候補</Japanese>
+                <Chinesesimp>候补提示</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AI">
                 <Original>AI</Original>
@@ -2043,6 +2297,7 @@
                 <Russian>ИИ</Russian>
                 <German>KI</German>
                 <Japanese>AI</Japanese>
+                <Chinesesimp>AI</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGE_SIDE_FOR">
                 <Original>Change side for</Original>
@@ -2051,6 +2306,7 @@
                 <Russian>Изменить сторону для</Russian>
                 <German>Seite wechseln von</German>
                 <Japanese>次の陣営に変更</Japanese>
+                <Chinesesimp>为…更改阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTED_PLAYER">
                 <Original>Selected player only</Original>
@@ -2059,6 +2315,7 @@
                 <Russian>Только выбранный игрок</Russian>
                 <German>Nur der ausgewählte Spieler</German>
                 <Japanese>選択されたプレイヤーのみ</Japanese>
+                <Chinesesimp>仅选中的玩家</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECT">
                 <Original>Object</Original>
@@ -2067,6 +2324,7 @@
                 <Russian>Объект</Russian>
                 <German>Objekt</German>
                 <Japanese>物体</Japanese>
+                <Chinesesimp>物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENTIRE_MAP">
                 <Original>Entire map</Original>
@@ -2075,6 +2333,7 @@
                 <Russian>Вся карта</Russian>
                 <German>Die gesamte Karte</German>
                 <Japanese>地図全体</Japanese>
+                <Chinesesimp>全地图</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENTIRE_GROUP">
                 <Original>Entire group</Original>
@@ -2083,6 +2342,7 @@
                 <Russian>Вся группа</Russian>
                 <German>Die gesammte Gruppe</German>
                 <Japanese>グループ全体</Japanese>
+                <Chinesesimp>全班组</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECT_PLAYERS">
                 <Original>Select players</Original>
@@ -2091,6 +2351,7 @@
                 <Russian>Выберите игроков</Russian>
                 <German>Wähle die Spieler aus</German>
                 <Japanese>プレイヤー選択</Japanese>
+                <Chinesesimp>选择玩家</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EXTEND">
                 <Original>Extend</Original>
@@ -2099,6 +2360,7 @@
                 <Russian>Расширить</Russian>
                 <German>Ausmaß</German>
                 <Japanese>拡張</Japanese>
+                <Chinesesimp>扩展</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MEAN_DAMAGE">
                 <Original>Mean damage</Original>
@@ -2107,6 +2369,7 @@
                 <Russian>Средние повреждения</Russian>
                 <German>Mittlerer Schaden</German>
                 <Japanese>損傷量</Japanese>
+                <Chinesesimp>损伤度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DISTRIBUTION">
                 <Original>Distribution</Original>
@@ -2115,6 +2378,7 @@
                 <Russian>Распределение</Russian>
                 <German>Verteilung</German>
                 <Japanese>割合</Japanese>
+                <Chinesesimp>分布</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DELTA">
                 <Original>Delta</Original>
@@ -2123,6 +2387,7 @@
                 <Russian>Дельта</Russian>
                 <German>Delta</German>
                 <Japanese>デルタ</Japanese>
+                <Chinesesimp>德尔塔函数</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNIFORM">
                 <Original>uniform</Original>
@@ -2131,6 +2396,7 @@
                 <Russian>Равномерное</Russian>
                 <German>gleichmässig</German>
                 <Japanese>ユニフォーム</Japanese>
+                <Chinesesimp>统一</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NORMAL_DISTRIBUTION">
                 <Original>Normal</Original>
@@ -2139,6 +2405,7 @@
                 <Russian>Нормальное</Russian>
                 <German>Normal</German>
                 <Japanese>通常</Japanese>
+                <Chinesesimp>常规</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CATEGORY">
                 <Original>Category</Original>
@@ -2147,6 +2414,7 @@
                 <Russian>Категория</Russian>
                 <German>Kategorie</German>
                 <Japanese>カテゴリ</Japanese>
+                <Chinesesimp>类别</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NEW_CATEGORY">
                 <Original>New category</Original>
@@ -2155,6 +2423,7 @@
                 <Russian>Новая категория</Russian>
                 <German>Neue Kategorie</German>
                 <Japanese>新カテゴリ</Japanese>
+                <Chinesesimp>新类别</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TYPE">
                 <Original>Type</Original>
@@ -2163,6 +2432,7 @@
                 <Russian>Тип</Russian>
                 <German>Typ</German>
                 <Japanese>種類</Japanese>
+                <Chinesesimp>类型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NAME">
                 <Original>Name</Original>
@@ -2171,6 +2441,7 @@
                 <Russian>Имя</Russian>
                 <German>Name</German>
                 <Japanese>名称</Japanese>
+                <Chinesesimp>名称</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LOADING_">
                 <Original>Loading...</Original>
@@ -2179,12 +2450,14 @@
                 <Russian>Загрузка...</Russian>
                 <German>Lädt...</German>
                 <Japanese>読み込み中です・・・</Japanese>
+                <Chinesesimp>读取中…</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_IS_OBJECT_HIDDEN">
                 <Original>Is Object Hidden</Original>
                 <English>Is Object Hidden</English>
                 <Russian>Объект скрыт?</Russian>
                 <Japanese>この物体を非表示に</Japanese>
+                <Chinesesimp>物体隐藏了么</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNIT_RP">
                 <Original>Unit RP</Original>
@@ -2193,6 +2466,7 @@
                 <Russian>Пункт сбора</Russian>
                 <German>Treffpunkt der Einheit</German>
                 <Japanese>ユニットの RP</Japanese>
+                <Chinesesimp>单位集结点</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNIT_BEHAVIOUR">
                 <Original>Unit behaviour</Original>
@@ -2201,6 +2475,7 @@
                 <Russian>Поведение боевой единицы</Russian>
                 <German>Verhalten der Einheit</German>
                 <Japanese>ユニットの挙動</Japanese>
+                <Chinesesimp>单位行为</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_AI">
                 <Original>Include AI</Original>
@@ -2209,6 +2484,7 @@
                 <Russian>Включая ИИ</Russian>
                 <German>Inklusive KI</German>
                 <Japanese>AI を含む</Japanese>
+                <Chinesesimp>包含AI</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_EMPTY_VEHICLES">
                 <Original>Include Empty Vehicles</Original>
@@ -2217,6 +2493,7 @@
                 <Russian>Включая пустые машины</Russian>
                 <German>Inklusive leere Fahrzeuge</German>
                 <Japanese>空の車両を含む</Japanese>
+                <Chinesesimp>包含空载具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_OBJECTS">
                 <Original>Include Objects</Original>
@@ -2225,6 +2502,7 @@
                 <Russian>Включая объекты</Russian>
                 <German>Inklusive Objekte</German>
                 <Japanese>物体を含む</Japanese>
+                <Chinesesimp>包含物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_MARKERS">
                 <Original>Include Markers</Original>
@@ -2233,6 +2511,7 @@
                 <Russian>Включая маркеры</Russian>
                 <German>Inklusive Markierungen</German>
                 <Japanese>マーカーを含む</Japanese>
+                <Chinesesimp>包含标记</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_VEHICLES">
                 <Original>Include vehicles</Original>
@@ -2241,6 +2520,7 @@
                 <Russian>Включая машины</Russian>
                 <German>inklusive Fahrzeuge</German>
                 <Japanese>車両を含む</Japanese>
+                <Chinesesimp>包含载具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_YES">
                 <Original>Yes</Original>
@@ -2249,6 +2529,7 @@
                 <Russian>Да</Russian>
                 <German>Ja</German>
                 <Japanese>はい</Japanese>
+                <Chinesesimp>是</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO">
                 <Original>No</Original>
@@ -2257,6 +2538,7 @@
                 <Russian>Нет</Russian>
                 <German>Nein</German>
                 <Japanese>いいえ</Japanese>
+                <Chinesesimp>否</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENABLE_SIMULATION">
                 <Original>Enable simulation</Original>
@@ -2265,6 +2547,7 @@
                 <Russian>Включить симуляцию физики</Russian>
                 <German>Simulation erlauben</German>
                 <Japanese>シミュレーションを有効化</Japanese>
+                <Chinesesimp>启用模拟</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TRANSFER_OWNERSHIP">
                 <Original>Transfer ownership</Original>
@@ -2273,6 +2556,7 @@
                 <Russian>Передать владение</Russian>
                 <German>Besitztum verschieben</German>
                 <Japanese>所有権を移行</Japanese>
+                <Chinesesimp>转让所有权</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TRANSFER_TO">
                 <Original>Transfer to</Original>
@@ -2281,6 +2565,7 @@
                 <Russian>Передать</Russian>
                 <German>Besitztum an</German>
                 <Japanese>次へ移行</Japanese>
+                <Chinesesimp>转让给</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SERVER">
                 <Original>Server</Original>
@@ -2289,6 +2574,7 @@
                 <Russian>Серверу</Russian>
                 <German>Server</German>
                 <Japanese>サーバー</Japanese>
+                <Chinesesimp>服务器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HEIGHT">
                 <Original>Height</Original>
@@ -2297,6 +2583,7 @@
                 <Russian>Высота</Russian>
                 <German>Höhe</German>
                 <Japanese>高さ</Japanese>
+                <Chinesesimp>高度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPY_PASTE_DIALOG">
                 <Original>Copy/Paste Dialog</Original>
@@ -2305,6 +2592,7 @@
                 <Russian>Диалог копирования/вставки</Russian>
                 <German>Kopieren/Einfügen Dialog</German>
                 <Japanese>ダイアログの複製/貼りつけ</Japanese>
+                <Chinesesimp>复制/粘贴对话窗</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPY_PASTE_CLIPBOARD_CONTENTS_USING_KEYS">
                 <Original>Copy/Paste clipboard contents using CTRL+C and CTRL+V</Original>
@@ -2313,6 +2601,7 @@
                 <Russian>Скопировать/Вставить код, используя CTRL+C и CTRL+V</Russian>
                 <German>Kopieren/Einfügen des Inhaltes der Zwischenablage mit CTRL+C und CTRL+V</German>
                 <Japanese>CTRL+C と CTRV+V を使用しクリップボードへコンテンツの複製/貼りつけ</Japanese>
+                <Chinesesimp>复制/粘贴剪切板可用CTRL+C和CTRL+V进行</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WRITE_OR_PASTE_CODE">
                 <Original>Write or paste code in the box below</Original>
@@ -2321,6 +2610,7 @@
                 <Russian>Напишите или вставьте код в строку ниже</Russian>
                 <German>Schreibe or füge Code in die untere Box ein</German>
                 <Japanese>ボックスの下にコードを記述するか貼りつけしてください</Japanese>
+                <Chinesesimp>在下方窗口中编写或粘贴代码</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AUTHOR">
                 <Original>Author</Original>
@@ -2329,6 +2619,7 @@
                 <Russian>Автор</Russian>
                 <German>Autor</German>
                 <Japanese>著者</Japanese>
+                <Chinesesimp>作者</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EMPTY">
                 <Original>Empty</Original>
@@ -2337,6 +2628,7 @@
                 <Russian>Пусто</Russian>
                 <German>Leer</German>
                 <Japanese>空</Japanese>
+                <Chinesesimp>空</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DELETE_COMPOSITION">
                 <Original>Delete Composition</Original>
@@ -2345,6 +2637,7 @@
                 <Russian>Удалить композицию</Russian>
                 <German>Komposition löschen</German>
                 <Japanese>コンポジションを削除</Japanese>
+                <Chinesesimp>删除布景</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DO_YOU_WANT_TO_DELETE_X">
                 <Original>Do you want to delete %1?</Original>
@@ -2353,6 +2646,7 @@
                 <Russian>Вы хотите удалить %1?</Russian>
                 <German>Möchtest du %1 löschen?</German>
                 <Japanese>%1 を削除しますか?</Japanese>
+                <Chinesesimp>确认删除%1？</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STANCE">
                 <Original>Stance</Original>
@@ -2366,6 +2660,7 @@
                 <Russian>Стойка</Russian>
                 <German>Haltung</German>
                 <Japanese>体勢</Japanese>
+                <Chinesesimp>姿态</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PRONE">
                 <Original>Prone</Original>
@@ -2379,6 +2674,7 @@
                 <Russian>Лёжа</Russian>
                 <German>Hinlegen</German>
                 <Japanese>伏せ</Japanese>
+                <Chinesesimp>匍匐</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CROUCH">
                 <Original>Crouch</Original>
@@ -2392,6 +2688,7 @@
                 <Russian>Пригнувшись</Russian>
                 <German>Ducken</German>
                 <Japanese>しゃがみ</Japanese>
+                <Chinesesimp>蹲伏</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STAND">
                 <Original>Stand</Original>
@@ -2405,6 +2702,7 @@
                 <Russian>Стоя</Russian>
                 <German>Aufstehen</German>
                 <Japanese>起立</Japanese>
+                <Chinesesimp>站立</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_MODE">
                 <Original>Fire mode</Original>
@@ -2413,11 +2711,13 @@
                 <Russian>Режим стрельбы</Russian>
                 <German>Feuermodus</German>
                 <Japanese>発射モード</Japanese>
+                <Chinesesimp>射击模式</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TALKING_GUNS">
                 <Original>Talking guns</Original>
                 <English>Talking guns</English>
                 <Japanese>交互持続射撃</Japanese>
+                <Chinesesimp>交替持续射击</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AUTOMATIC">
                 <Original>automatic</Original>
@@ -2426,6 +2726,7 @@
                 <Russian>Автоматический</Russian>
                 <German>automatisch</German>
                 <Japanese>連射</Japanese>
+                <Chinesesimp>连发</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BURST">
                 <Original>burst</Original>
@@ -2434,6 +2735,7 @@
                 <Russian>Очередями</Russian>
                 <German>Feuerstoß</German>
                 <Japanese>点射</Japanese>
+                <Chinesesimp>点射</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SINGLE_SHOT">
                 <Original>semi-automatic</Original>
@@ -2442,6 +2744,7 @@
                 <Russian>Одиночными</Russian>
                 <German>halbautomatisch</German>
                 <Japanese>半連射</Japanese>
+                <Chinesesimp>半自动</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DURATION">
                 <Original>Duration</Original>
@@ -2450,6 +2753,7 @@
                 <Russian>Длительность</Russian>
                 <German>Dauer</German>
                 <Japanese>持続時間</Japanese>
+                <Chinesesimp>持续时间</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TIE_UNIT">
                 <Original>Tie unit</Original>
@@ -2458,6 +2762,7 @@
                 <Russian>Связать</Russian>
                 <German>Einheit fesseln</German>
                 <Japanese>ユニットを拘束</Japanese>
+                <Chinesesimp>拘捕单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELEASE_UNIT">
                 <Original>Release unit</Original>
@@ -2466,6 +2771,7 @@
                 <Russian>Освободить</Russian>
                 <German>Einheit befreien</German>
                 <Japanese>ユニットを解放</Japanese>
+                <Chinesesimp>释放单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELEASE_N_LEAD_UNIT">
                 <Original>Release and lead</Original>
@@ -2474,6 +2780,7 @@
                 <Russian>Освободить и взять под командование</Russian>
                 <German>Befreien und kommandieren</German>
                 <Japanese>解放し指揮下に</Japanese>
+                <Chinesesimp>释放并指挥</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTERACTION">
                 <Original>Interaction</Original>
@@ -2482,6 +2789,7 @@
                 <Russian>Взаимодействие</Russian>
                 <German>Interaktion</German>
                 <Japanese>インタラクション</Japanese>
+                <Chinesesimp>交互</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HOLD_FIRE">
                 <Original>Hold fire</Original>
@@ -2490,6 +2798,7 @@
                 <Russian>Не стрелять</Russian>
                 <German>Feuer halten</German>
                 <Japanese>射撃禁止</Japanese>
+                <Chinesesimp>停火</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HOLD_FIRE_DEFEND">
                 <Original>Hold fire, defend only</Original>
@@ -2498,6 +2807,7 @@
                 <Russian>Не стрелять, разрешается ответный огонь</Russian>
                 <German>Nicht schießen, nur verteidigen</German>
                 <Japanese>射撃禁止、防衛時のみ</Japanese>
+                <Chinesesimp>停火，仅进行自卫</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HOLD_FIRE_ENGAGE">
                 <Original>Hold fire, engage at will</Original>
@@ -2506,6 +2816,7 @@
                 <Russian>Не стрелять, свободное перемещение</Russian>
                 <German>Nicht schießen, angreifen nach Belieben</German>
                 <Japanese>射撃禁止、各個射撃</Japanese>
+                <Chinesesimp>停火，自由接敌</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_AT_WILL">
                 <Original>Fire at will</Original>
@@ -2514,6 +2825,7 @@
                 <Russian>Огонь по желанию</Russian>
                 <German>Nach Belieben schießen</German>
                 <Japanese>射撃許可</Japanese>
+                <Chinesesimp>自由开火</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_ENGAGE">
                 <Original>Fire at will, engage at will</Original>
@@ -2522,6 +2834,7 @@
                 <Russian>Огонь по желанию, свободное перемещение</Russian>
                 <German>Nach Belieben schießen und angreifen</German>
                 <Japanese>射撃許可、各個射撃</Japanese>
+                <Chinesesimp>自由开火，自由接敌</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HEADLIGHT_SEARCHLIGHT">
                 <Original>Headlight/Searchlight</Original>
@@ -2530,12 +2843,14 @@
                 <Russian>Фары/Поисковый прожектор</Russian>
                 <German>Scheinwerfer</German>
                 <Japanese>ヘッドライト/サーチライト</Japanese>
+                <Chinesesimp>车头灯/搜索大灯</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENGINE">
                 <Original>Engine</Original>
                 <English>Engine</English>
                 <Russian>Двигатель</Russian>
                 <Japanese>エンジン</Japanese>
+                <Chinesesimp>引擎</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SWITCH_ON">
                 <Original>Switch on</Original>
@@ -2544,6 +2859,7 @@
                 <Russian>Включить</Russian>
                 <German>Einschalten</German>
                 <Japanese>起動</Japanese>
+                <Chinesesimp>启动</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SWITCH_OFF">
                 <Original>Switch off</Original>
@@ -2552,6 +2868,7 @@
                 <Russian>Выключить</Russian>
                 <German>Ausschalten</German>
                 <Japanese>停止</Japanese>
+                <Chinesesimp>停止</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AVAILABLE">
                 <Original>available</Original>
@@ -2560,6 +2877,7 @@
                 <Russian>доступно</Russian>
                 <German>verfügbar</German>
                 <Japanese>利用可能</Japanese>
+                <Chinesesimp>可用</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNAVAILABLE">
                 <Original>unavailable</Original>
@@ -2568,6 +2886,7 @@
                 <Russian>недоступно</Russian>
                 <German>nicht verfügbar</German>
                 <Japanese>利用不可</Japanese>
+                <Chinesesimp>不可用</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNCHANGED">
                 <Original>unchanged</Original>
@@ -2576,6 +2895,7 @@
                 <Russian>не изменилось</Russian>
                 <German>unverändert</German>
                 <Japanese>未変更</Japanese>
+                <Chinesesimp>无变更</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NVD">
                 <Original>NVD</Original>
@@ -2584,6 +2904,7 @@
                 <Russian>ПНВ</Russian>
                 <German>Nachtsichtgerät</German>
                 <Japanese>NVD</Japanese>
+                <Chinesesimp>夜视装置</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_THERMALS">
                 <Original>Thermal optics</Original>
@@ -2592,6 +2913,7 @@
                 <Russian>Тепловизор</Russian>
                 <German>Wärmebildkamera</German>
                 <Japanese>サーマル照準器</Japanese>
+                <Chinesesimp>热成像瞄具</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TAC_LIGHT">
                 <Original>Tactical light</Original>
@@ -2600,6 +2922,7 @@
                 <Russian>Тактический фонарик</Russian>
                 <German>Taktisches Licht</German>
                 <Japanese>タクティカル ライト</Japanese>
+                <Chinesesimp>战术手电</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_IR_LASER_POINTER">
                 <Original>IR Laser Pointer</Original>
@@ -2608,6 +2931,7 @@
                 <Russian>ИК ЛЦУ</Russian>
                 <German>IR Laserpointer</German>
                 <Japanese>IR レーザー ポインタ</Japanese>
+                <Chinesesimp>红外激光指示器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FORCED_ON">
                 <Original>forced on</Original>
@@ -2616,6 +2940,7 @@
                 <Russian>принудительно включить</Russian>
                 <German>zwingend angeschaltet</German>
                 <Japanese>強制する</Japanese>
+                <Chinesesimp>强制开启</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FORCED_OFF">
                 <Original>forced off</Original>
@@ -2624,6 +2949,7 @@
                 <Russian>принудительно выключить</Russian>
                 <German>zwingend ausgeschaltet</German>
                 <Japanese>強制しない</Japanese>
+                <Chinesesimp>强制关闭</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TACLIGHT_IR">
                 <Original>Tactical Light/IR</Original>
@@ -2632,6 +2958,7 @@
                 <Russian>Тактический фонарик/ЛЦУ</Russian>
                 <German>Taktisches Licht/IR</German>
                 <Japanese>タクティカル ライト/IR</Japanese>
+                <Chinesesimp>战术手电/红外激光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CIVILIANS">
                 <Original>Civilians</Original>
@@ -2640,6 +2967,7 @@
                 <Russian>Гражданское население</Russian>
                 <German>Zivilisten</German>
                 <Japanese>市民</Japanese>
+                <Chinesesimp>平民</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INDEPENDENT">
                 <Original>Independent</Original>
@@ -2648,6 +2976,7 @@
                 <Russian>Независимые</Russian>
                 <German>Unabhängig</German>
                 <Japanese>独立陣営</Japanese>
+                <Chinesesimp>绿方</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NONE_EQUIPMENT">
                 <Original>None</Original>
@@ -2656,6 +2985,7 @@
                 <Russian>Не выдавать снаряжение</Russian>
                 <German>Keine</German>
                 <Japanese>なし</Japanese>
+                <Chinesesimp>无</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CARELESS">
                 <Original>Careless</Original>
@@ -2664,6 +2994,7 @@
                 <Russian>Невнимательный</Russian>
                 <German>Unachtsam</German>
                 <Japanese>無警戒</Japanese>
+                <Chinesesimp>漠不关心</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANNEL">
                 <Original>Channel</Original>
@@ -2672,6 +3003,7 @@
                 <Russian>Канал</Russian>
                 <German>Kanal</German>
                 <Japanese>無警戒</Japanese>
+                <Chinesesimp>频道</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GLOBAL">
                 <Original>Global</Original>
@@ -2680,6 +3012,7 @@
                 <Russian>Общий</Russian>
                 <German>Global</German>
                 <Japanese>全体</Japanese>
+                <Chinesesimp>全体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COMMAND">
                 <Original>command</Original>
@@ -2688,6 +3021,7 @@
                 <Russian>Командный</Russian>
                 <German>Befehl</German>
                 <Japanese>指揮</Japanese>
+                <Chinesesimp>指挥</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SUBCATEGORY">
                 <Original>Subcategory</Original>
@@ -2696,6 +3030,7 @@
                 <Russian>Подкатегория</Russian>
                 <German>Unterkategorie</German>
                 <Japanese>副カテゴリ</Japanese>
+                <Chinesesimp>子类别</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WEAPON_SPECIFIC">
                 <Original>Weapon-specific</Original>
@@ -2704,6 +3039,7 @@
                 <Russian>Для конкретного оружия</Russian>
                 <German>Waffenspezifisch</German>
                 <Japanese>武器-特有</Japanese>
+                <Chinesesimp>特定武器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VAR">
                 <Original>Variable</Original>
@@ -2712,6 +3048,7 @@
                 <Russian>Переменная</Russian>
                 <German>Variable</German>
                 <Japanese>変数</Japanese>
+                <Chinesesimp>变量</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CLS">
                 <Original>Combat Lifesaver</Original>
@@ -2720,6 +3057,7 @@
                 <Russian>Санитар</Russian>
                 <German>Feldsanitäter</German>
                 <Japanese>コンバット ライフセーバー</Japanese>
+                <Chinesesimp>战地急救员</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DOCTOR">
                 <Original>Doctor</Original>
@@ -2728,6 +3066,7 @@
                 <Russian>Врач</Russian>
                 <German>Arzt</German>
                 <Japanese>医師</Japanese>
+                <Chinesesimp>医生</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UNBREACHABLE">
                 <Original>unbreachable</Original>
@@ -2735,6 +3074,7 @@
                 <Russian>не взламывается</Russian>
                 <German>unaufbrechbar</German>
                 <Japanese>突破不可</Japanese>
+                <Chinesesimp>无法破除</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BREACHABLE">
                 <Original>breachable</Original>
@@ -2742,6 +3082,7 @@
                 <Russian>взламывается</Russian>
                 <German>aufbrechbar</German>
                 <Japanese>突破可能</Japanese>
+                <Chinesesimp>可以破除</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OPEN">
                 <Original>open</Original>
@@ -2750,6 +3091,7 @@
                 <Russian>открыта</Russian>
                 <German>offen</German>
                 <Japanese>開く</Japanese>
+                <Chinesesimp>开启</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PREVIEW">
                 <Original>Preview</Original>
@@ -2757,6 +3099,7 @@
                 <French>Aperçu</French>
                 <Russian>Просмотр</Russian>
                 <Japanese>プレビュー</Japanese>
+                <Chinesesimp>预览</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GARAGE">
                 <Original>GARAGE</Original>
@@ -2765,6 +3108,7 @@
                 <Russian>ГАРАЖ</Russian>
                 <German>GARAGE</German>
                 <Japanese>車庫</Japanese>
+                <Chinesesimp>车库</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CARGO">
                 <Original>CARGO</Original>
@@ -2773,6 +3117,7 @@
                 <Russian>ГРУЗ</Russian>
                 <German>INVENTAR</German>
                 <Japanese>カーゴ</Japanese>
+                <Chinesesimp>货仓</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AMMO_UPPER">
                 <Original>AMMO</Original>
@@ -2781,6 +3126,7 @@
                 <Russian>БОЕПРИПАСЫ</Russian>
                 <German>MUNITION</German>
                 <Japanese>弾薬</Japanese>
+                <Chinesesimp>弹药</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AMMO">
                 <Original>Ammo</Original>
@@ -2789,6 +3135,7 @@
                 <Russian>Боеприпасы</Russian>
                 <German>Munition</German>
                 <Japanese>弾薬</Japanese>
+                <Chinesesimp>弹药</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DAMAGE">
                 <Original>DAMAGE</Original>
@@ -2797,12 +3144,14 @@
                 <Russian>ПОВРЕЖД.</Russian>
                 <German>SCHADEN</German>
                 <Japanese>損傷</Japanese>
+                <Chinesesimp>损伤</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SENSORS">
                 <Original>SENSORS</Original>
                 <English>SENSORS</English>
                 <Russian>РАДАР</Russian>
                 <Japanese>センサー</Japanese>
+                <Chinesesimp>传感器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>
@@ -2811,18 +3160,21 @@
                 <Russian>БОЕВ.НАГР</Russian>
                 <German>BEWAFFNUNG</German>
                 <Japanese>兵装</Japanese>
+                <Chinesesimp>装备</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DRIVER">
                 <Original>Driver</Original>
                 <English>Driver</English>
                 <Russian>Пилот</Russian>
                 <Japanese>運転手</Japanese>
+                <Chinesesimp>驾驶员</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GUNNER">
                 <Original>Gunner</Original>
                 <English>Gunner</English>
                 <Russian>Стрелок</Russian>
                 <Japanese>射手</Japanese>
+                <Chinesesimp>炮手</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CONST_ATTENUATION">
                 <Original>Constant attenuation</Original>
@@ -2831,6 +3183,7 @@
                 <Russian>Затухание с постоянной силой</Russian>
                 <German>konstanter Dämpfungsfaktor</German>
                 <Japanese>一定減衰</Japanese>
+                <Chinesesimp>常数衰减</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LINEAR_ATTENUATION">
                 <Original>Linear attenuation</Original>
@@ -2839,6 +3192,7 @@
                 <Russian>Затухание по линейной функции</Russian>
                 <German>linearer Dämpfungsfaktor</German>
                 <Japanese>線形減衰</Japanese>
+                <Chinesesimp>线性衰减</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_QUADRATIC_ATTENUATION">
                 <Original>Quadratic attenuation</Original>
@@ -2847,6 +3201,7 @@
                 <Russian>Затухание по закону квадратов</Russian>
                 <German>Quadratischer Dämpfungsfaktor</German>
                 <Japanese>二次減衰</Japanese>
+                <Chinesesimp>二次衰减</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INCLUDE_CREW">
                 <Original>Include crew</Original>
@@ -2855,6 +3210,7 @@
                 <Russian>Включая экипаж</Russian>
                 <German>Inlusive Besatzung</German>
                 <Japanese>乗員の有無</Japanese>
+                <Chinesesimp>包含乘员</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LINE_UP">
                 <Original>Line up</Original>
@@ -2863,12 +3219,14 @@
                 <Russian>Выстроиться в линию</Russian>
                 <German>KREISEN (HELI)</German>
                 <Japanese>整列</Japanese>
+                <Chinesesimp>列队</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ASSIGN_WEAPONS">
                 <Original>Assign Weapons To</Original>
                 <English>Assign Weapons To</English>
                 <Russian>Разрешить использовать вооружение</Russian>
                 <Japanese>次の武器へ割り当て</Japanese>
+                <Chinesesimp>将武器分配给</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BRIGHTNESS">
                 <Original>Brightness</Original>
@@ -2877,6 +3235,7 @@
                 <Russian>Яркость</Russian>
                 <German>Helligkeit</German>
                 <Japanese>明度</Japanese>
+                <Chinesesimp>亮度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DAMAGE_COMPONENTS">
                 <Original>Damage Components</Original>
@@ -2885,6 +3244,7 @@
                 <Russian>Редактор повреждений</Russian>
                 <German>Komponenten beschädigen</German>
                 <Japanese>損傷コンポーネント</Japanese>
+                <Chinesesimp>伤害模块</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_INTEL_ON_OBJECT">
                 <Original>Create an intel on the object</Original>
@@ -2893,6 +3253,7 @@
                 <Russian>Привязать разведданые к объекту</Russian>
                 <German>Hinweis am Objekt hinterlegen</German>
                 <Japanese>物体を情報として作成</Japanese>
+                <Chinesesimp>在物体上创建情报</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPAWN_INTEL">
                 <Original>Spawn Intel</Original>
@@ -2901,6 +3262,7 @@
                 <Russian>Создать разведданные</Russian>
                 <German>Hinweis spawnen</German>
                 <Japanese>情報を作成</Japanese>
+                <Chinesesimp>生成情报</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EDIT_INTEL_X">
                 <Original>Edit Intel "%1"</Original>
@@ -2909,6 +3271,7 @@
                 <Russian>Редактировать разведданные "%1"</Russian>
                 <German>Hinweis "%1" bearbeiten</German>
                 <Japanese>情報 "%1" を編集</Japanese>
+                <Chinesesimp>编辑情报“%1”</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INSIDE_ONLY">
                 <Original>Inside only</Original>
@@ -2916,6 +3279,7 @@
                 <French>Seulement à l'intérieur</French>
                 <German>Nur im Gebäude</German>
                 <Japanese>内側のみ</Japanese>
+                <Chinesesimp>仅内部</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FILL_EVENLY">
                 <Original>Fill evenly</Original>
@@ -2923,6 +3287,7 @@
                 <French>Remplissez uniformément</French>
                 <German>Gleichmäßig verteilen</German>
                 <Japanese>全て埋める</Japanese>
+                <Chinesesimp>均匀分配</Chinesesimp>
             </Key>
         </Container>
         <Container name="TFAR integration dialog">
@@ -2931,30 +3296,35 @@
                 <English>Set Short Range radio frequencies</English>
                 <Russian>Частоты для КВ рации</Russian>
                 <Japanese>短距離無線機の周波数を設定</Japanese>
+                <Chinesesimp>设定短程无线电频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_LR_FREQ">
                 <Original>Set Long Range radio frequencies</Original>
                 <English>Set Long Range radio frequencies</English>
                 <Russian>Частоты для рации ДВ рации</Russian>
                 <Japanese>長距離無線機の周波数を設定</Japanese>
+                <Chinesesimp>设定长程无线电频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANNEL_X_FREQ">
                 <Original>Channel %1 frequency</Original>
                 <English>Channel %1 frequency</English>
                 <Russian>Частота канала %1</Russian>
                 <Japanese>チャンネル %1 の周波数</Japanese>
+                <Chinesesimp>%1频道频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_SR_RADIO_FREQ">
                 <Original>Set Frequencies for SR radio</Original>
                 <English>Set Frequencies for SR radio</English>
                 <Russian>Назначьте частоты для КВ рации</Russian>
                 <Japanese>短距離無線の周波数を設定</Japanese>
+                <Chinesesimp>为短程无线电设置频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_LR_RADIO_FREQ">
                 <Original>Set Frequencies for LR radio</Original>
                 <English>Set Frequencies for LR radio</English>
                 <Russian>Назначьте частоты для  ДВ рации</Russian>
                 <Japanese>長距離無線の周波数を設定</Japanese>
+                <Chinesesimp>为长程无线电设置频率</Chinesesimp>
             </Key>
         </Container>
         <Container name="Dialog messages">
@@ -2965,6 +3335,7 @@
                 <Russian>Телепортировано %1 игроков в точку %2!</Russian>
                 <German>%1 Spieler wurden nach %2 teleportiert</German>
                 <Japanese>プレイヤー %1 名は %2 へテレポートしました</Japanese>
+                <Chinesesimp>将玩家%1传送至%2</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS">
                 <Original>%1 objects were removed from Zeus</Original>
@@ -2973,6 +3344,7 @@
                 <Russian>%1 объект(ов) убран(ы) из интерфейса Зевса!</Russian>
                 <German>%1 Objekte wurden von Zeus entfernt</German>
                 <Japanese>ゼウスにより %1 物体が削除されました</Japanese>
+                <Chinesesimp>宙斯移除了对%1个物体的控制权</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ADD_OBJEKTE_TO_ZEUS">
                 <Original>%1 objects were added to Zeus</Original>
@@ -2981,6 +3353,7 @@
                 <Russian>%1 объект(ов) добавлены в интерфейс Зевса!</Russian>
                 <German>%1 Objekte wurden zu Zeus hinzugefügt</German>
                 <Japanese>ゼウスにより %1 物体が追加されました</Japanese>
+                <Chinesesimp>宙斯添加了对%1个物体的控制权</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ZEUS_IS_NOW_VISIBLE">
                 <Original>Zeus is now visible</Original>
@@ -2989,6 +3362,7 @@
                 <Russian>Зевс теперь видим!</Russian>
                 <German>Zeus ist jetzt sichtbar</German>
                 <Japanese>ゼウスは現在見えます</Japanese>
+                <Chinesesimp>宙斯现已可见</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ZEUS_IS_NOW_HIDDEN">
                 <Original>Zeus is now hidden</Original>
@@ -2997,6 +3371,7 @@
                 <Russian>Зевс теперь невидим!</Russian>
                 <German>Zeus ist jetzt unsichtbar</German>
                 <Japanese>ゼウスは現在見えません</Japanese>
+                <Chinesesimp>宙斯现已隐形</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ZEUS_HAS_LEFT_SIDE_CHANNEL">
                 <Original>Zeus has left your side channel</Original>
@@ -3005,6 +3380,7 @@
                 <Russian>Зевс покинул канал вашей стороны!</Russian>
                 <German>Zeus hat den Kanal deiner Seite verlassen</German>
                 <Japanese>ゼウスは陣営チャンネルを離れました</Japanese>
+                <Chinesesimp>宙斯离开了你方频道</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ZEUS_HAS_ENTERED_SIDE_CHAT">
                 <Original>Zeus has entered your side channel</Original>
@@ -3013,6 +3389,7 @@
                 <Russian>Зевс вошел в канал вашей стороны!</Russian>
                 <German>Zeus hat den Kanal deiner Seite betreten</German>
                 <Japanese>ゼウスは陣営チャンネルに入りました</Japanese>
+                <Chinesesimp>宙斯进入了你方频道</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGED_SIDE_FOR_PLAYERS">
                 <Original>Changed side for %1 players</Original>
@@ -3021,6 +3398,7 @@
                 <Russian>Изменена сторона для %1 игрока(ов)</Russian>
                 <German>Sie haben die Seite für %1 Spieler gewechselt</German>
                 <Japanese>プレイヤー %1 名の陣営を変更しました</Japanese>
+                <Chinesesimp>更改了%1名玩家的阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECT_X_APPLIED_TO_MODULE">
                 <Original>Select %1 to which the module should be applied!</Original>
