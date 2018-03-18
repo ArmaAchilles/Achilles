@@ -1008,7 +1008,7 @@
                 <Russian>Занять здание (мгновенно)</Russian>
                 <German>Gebäude besetzen (sofort)</German>
                 <Japanese>建物を占拠 (即時)</Japanese>
-                <Chinesesimp>驻扎建筑（立即）</Chinesesimp>
+                <Chinesesimp>驻防建筑（立即）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_UN_GARRISON">
                 <Original>Un-Garrison</Original>
@@ -1017,7 +1017,7 @@
                 <Russian>Освободить здание</Russian>
                 <German>Besetzung aufheben</German>
                 <Japanese>占拠を解除</Japanese>
-                <Chinesesimp>放弃驻扎</Chinesesimp>
+                <Chinesesimp>停止驻防</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_AND_GARRISON_BUILDING">
                 <Original>Search and Garrison Building</Original>
@@ -1026,7 +1026,7 @@
                 <Russian>Обыскать и занять здание</Russian>
                 <German>Suche und besetze ein Gebäude</German>
                 <Japanese>捜索と建物を占拠</Japanese>
-                <Chinesesimp>搜索并驻扎建筑</Chinesesimp>
+                <Chinesesimp>搜索并驻防建筑</Chinesesimp>
             </Key>
             <!--deprecated?
 	  <Key ID="STR_AMAE_PATROL">
@@ -3536,7 +3536,7 @@
                 <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
                 <Russian>НЕ МОЖЕТ БЫТЬ ИСПОЛЬЗОВАН ВИРТУАЛЬНЫМИ КУРАТОРАМИ!</Russian>
                 <Japanese>バーチャル キュレーターとして使用できません</Japanese>
-                <Chinesesimp>虚拟控制者无法使用</Chinesesimp>
+                <Chinesesimp>虚拟创造者无法使用此物</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_DOES_NOT_SUPPORT_SP">
                 <Original>This module does not support singleplayer mode</Original>
@@ -3586,7 +3586,7 @@
                 <French>Les immeubles proches sont occupées!</French>
                 <German>Die Gebäude in der Nähe wurde besetzt!</German>
                 <Japanese>直近の建物は既に占拠されています!</Japanese>
-                <Chinesesimp>单位已驻扎到最近的建筑中！</Chinesesimp>
+                <Chinesesimp>单位已到最近的建筑中驻防！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING">
                 <Original>Units will search and then garrison the nearest building!</Original>
@@ -3594,7 +3594,7 @@
                 <French>Les unités vont chercher et occuper l'immeuble proche!</French>
                 <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen und besetzen!</German>
                 <Japanese>ユニットは直近の建物を捜索し占拠します!</Japanese>
-                <Chinesesimp>单位将会搜索并驻扎到最近的建筑中！</Chinesesimp>
+                <Chinesesimp>单位将会搜索最近的建筑并在其中驻防！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_NEAREST_BUILDING">
                 <Original>Units will search the nearest building!</Original>
@@ -3610,7 +3610,7 @@
                 <French>Les unités terminent l'occupation!</French>
                 <German>Die Einheiten beenden die Besetzung!</German>
                 <Japanese>ユニットは直近の建物から離れました!</Japanese>
-                <Chinesesimp>单位已停止驻扎！</Chinesesimp>
+                <Chinesesimp>单位已停止驻防！</Chinesesimp>
             </Key>
         </Container>
         <Container name="Create Effect dialog strings">
@@ -4851,7 +4851,7 @@
                 <Russian>На близость</Russian>
                 <German>Distanz</German>
                 <Japanese>近接</Japanese>
-                <Chinesesimp>近炸</Chinesesimp>
+                <Chinesesimp>近炸引信</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_TYPE_RADIO">
                 <Original>Radio</Original>
@@ -5110,6 +5110,15 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; これは物体または任意の位置に設置できます。使用可能なモジュールのオプションは選択によって変わります。
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; このモジュールは設置された位置にて動作します。
                 </Japanese>
+                <Chinesesimp>
+			阿基里斯模块的模块层级中带有引导性质的图标%1其中最常见为：
+			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; 该模块可放置在任何地方。
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; 该模块必须放置在单位上。
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; 该模块可以放置在单位或任何地方。模块给出的选项将视选择而定！
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; 该模块必须放置在物体上，但物体中可包含单位。
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; 该模块可以放置在物体或任何地方。模块给出的选项将视选择而定！
+			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; 该模块会在选择的位置上激活。
+		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
                 <Original>
@@ -5127,6 +5136,8 @@
                 <Japanese>
 			物体またはユニットへ適用されるモジュールでは、ユニットに配置するか、別の場所に配置して複数のユニットに適用することができます。
 		</Japanese>
+                <Chinesesimp>可应用于物体或单位的模块一般都可以直接放置在一个单位上，置于其它地方时则可将其应用到多个单位上。
+		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
                 <Original>Selection Options</Original>
@@ -5135,6 +5146,7 @@
                 <Russian>Варианты выбора</Russian>
                 <German>Auswahl Option</German>
                 <Japanese>選択肢</Japanese>
+                <Chinesesimp>选择选项</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
@@ -5167,6 +5179,11 @@
 			%1この音が聞こえるときは物体を選択して %3[ENTER]%4 を押し、選択を送信できます。
 			%1選択モードは %3[ESCAPE]%4 で中止できます。
 		</Japanese>
+                <Chinesesimp>
+			部分模块可以将特效应用到被选中的单位上。
+			%1当听到这个声音时你可以选中单位并按下%3[回车键]%4提交选择。
+			%1你可以按%3[ESC键]%4终止选择模式。
+		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
                 <Original>
@@ -5187,12 +5204,14 @@
                 <Japanese>
 			モジュールが対象とすべき物は画面上のメッセージにて表示されます。
 		</Japanese>
+                <Chinesesimp>你可以通过阅读屏幕正上方的信息了解模块功能。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT">
                 <Original>Additional Key Assignments</Original>
                 <Russian>Назначение доп. клавиш</Russian>
                 <English>Additional Key Assignments</English>
                 <Japanese>追加キー割り当て</Japanese>
+                <Chinesesimp>额外按键组合</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT_DESCRIPTION">
                 <Original>
@@ -5245,12 +5264,23 @@
 			%1%2押し %3[左 Ctrl]%4 + %3[G]%4 で物体のグループ化
 			%1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[G]%4 で物体のグループ解除。
 		</Japanese>
+                <Chinesesimp>
+			额外键位组合：
+			%1%1%2按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标左键]%4来远程遥控AI。
+			%1%2按下%3[左SHIFT]%4 + %3[G]%4强制载具内的乘客（包括玩家）紧急逃离（航空器则是弹射投放）。
+			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[C]%4来深度复制单位。
+			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[V]%4来粘贴深度复制单位。
+			%1%2当你选中一个单位并按下%11时，将视选中单位而投掷烟雾或释放反措施装置。
+			%1%2按下%3[左CTRL]%4 + %3[G]%4来为单位编组。
+			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[G]%4来取消单位编组。
+		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE">
                 <Original>Execute Code Module</Original>
                 <Russian>Выполнить код</Russian>
                 <English>Execute Code Module</English>
                 <Japanese>コード実行モジュール</Japanese>
+                <Chinesesimp>执行代码模块</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
                 <Original>
@@ -5283,6 +5313,12 @@
 			%1%2%3_this select 0%4   POSITION:   モジュールが設置された場所。
 			%1%2%3_this select 1%4   OBJECT:     ObjNull かモジュールがどのオブジェクト上に設置されたかを返します。
 		</Japanese>
+                <Chinesesimp>
+			代码执行模块仅能在服务器允许客户端使用的情况下运行！
+			%1%1模块内置了两个params：
+			%1%2%3_this select 0%4   位置：模块放置的位置。
+			%1%2%3_this select 1%4   物体：返回ObjNull或模块所属的物体。
+		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL">
                 <Original>Achilles Field Manual</Original>
@@ -5291,6 +5327,7 @@
                 <German>Handbuch des Achilles</German>
                 <Russian>Боевой устав Achilles</Russian>
                 <Japanese>アキレス フィールド マニュアル</Japanese>
+                <Chinesesimp>阿基里斯野战手册</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
                 <Original>
@@ -5311,12 +5348,14 @@
                 <Japanese>
 			参考のためにエスケープ メニューから利用できる %3フィールド マニュアル%4 を開きます。
     </Japanese>
+                <Chinesesimp>打开ESC菜单中的%3野战手册%4获取有用信息。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW">
                 <Original>Remote Control Vehicle Crew</Original>
                 <Russian>Дистанционное управление экипажем</Russian>
                 <English>Remote Control Vehicle Crew</English>
                 <Japanese>車両乗員の遠隔操作</Japanese>
+                <Chinesesimp>远程遥控载具乘员</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
                 <Original>
@@ -5343,6 +5382,12 @@
 			%1 2) 操作したいユニットが乗る該当車輌の上に新しいアイコンが通知。
 			%1 3) ユニットのアイコン上で %3[Left Ctrl]%4 + %3[RMB]%4 を 2 回押す。
 		</Japanese>
+                <Chinesesimp>
+			如何在远程遥控载具内的某一单位：
+			%1 1) 在右侧编辑列表选中单位。
+			%1 2) 载具上将会弹出对应目标单位的新图标。=
+			%1 3) 按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标右键]%4。
+		</Chinesesimp>
             </Key>
         </Container>
         <Container name="Main Menu">
@@ -5350,6 +5395,7 @@
                 <Original>Ares Mod - Achilles Expansion 1.0.0</Original>
                 <English>Ares Mod - Achilles Expansion 1.0.0</English>
                 <Japanese>アレス Mod - アキレス拡張 1.0.0</Japanese>
+                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.0.0</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
@@ -5367,6 +5413,11 @@
 			最新の機能: &lt;br /&gt;
 			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;機能 &lt;br /&gt;
 		</Japanese>
+                <Chinesesimp>
+			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+			最新功能： &lt;br /&gt;
+			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;功能 &lt;br /&gt;
+		</Chinesesimp>
             </Key>
         </Container>
         <Container name="Settings">
@@ -5377,6 +5428,7 @@
                 <Russian>Achilles - Доступные фракции</Russian>
                 <German>Achilles - Verfügbare Fraktionen</German>
                 <Japanese>アキレス - 利用可能な機能</Japanese>
+                <Chinesesimp>阿基里斯 - 可用阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_INTERFACE">
                 <Original>Achilles - Modules Interface</Original>
@@ -5385,12 +5437,14 @@
                 <Russian>Achlles - Интерфейс модулей</Russian>
                 <German>Achilles - Modul Benutzeroberfläche</German>
                 <Japanese>アキレス - モジュール インターフェイス</Japanese>
+                <Chinesesimp>阿基里斯 - 模块界面</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_ICONS">
                 <Original>Which icons should be displayed in the Module Tree</Original>
                 <Russian>Виды иконок, отображаемых в дереве модулей</Russian>
                 <English>Which icons should be displayed in the Module Tree</English>
                 <Japanese>モジュール階層でアイコンを表示します</Japanese>
+                <Chinesesimp>哪些图标将会显示在模块层级中</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_ICONS_HELMET">
                 <Original>Helmet Icons on Category level</Original>
@@ -5399,6 +5453,7 @@
                 <Russian>Пиктограммы в узлах дерева модулей</Russian>
                 <German>Helm Symbole auf Kategorie Level</German>
                 <Japanese>カテゴリの階層にヘルメット アイコン</Japanese>
+                <Chinesesimp>类别层级中的头盔图标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_ICONS_DLC">
                 <Original>DLC Icons</Original>
@@ -5407,48 +5462,56 @@
                 <Russian>Пиктограммы дополнений</Russian>
                 <German>DLC Symbole</German>
                 <Japanese>DLC アイコン</Japanese>
+                <Chinesesimp>DLC图标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SETTINGS_ICON_SELECTION">
                 <Original>Icon Selection</Original>
                 <English>Icon Selection</English>
                 <Russian>Выбор пиктограмм</Russian>
                 <Japanese>アイコン選択</Japanese>
+                <Chinesesimp>图标选择</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SETTINGS_ACHILLES_ICON_SELECTION">
                 <Original>Achilles - Icon Selection</Original>
                 <English>Achilles - Icon Selection</English>
                 <Russian>Achilles - Выбор пиктограмм</Russian>
                 <Japanese>アキレス - アイコン選択</Japanese>
+                <Chinesesimp>阿基里斯 - 图标选择</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DEBUG_OUTPUT">
                 <Original>Debug Mode</Original>
                 <English>Debug Mode</English>
                 <Russian>Режим отладки</Russian>
                 <Japanese>デバッグ モード</Japanese>
+                <Chinesesimp>除错模式</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ACHILLES_DEBUG_SETTINGS">
                 <Original>Achilles - Debug</Original>
                 <English>Achilles - Debug</English>
                 <Russian>Achilles - Отладка</Russian>
                 <Japanese>アキレス - デバッグ</Japanese>
+                <Chinesesimp>阿基里斯 - 除错</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ACHILLES_DEFAULTS">
                 <Original>Achilles - Defaults</Original>
                 <English>Achilles - Defaults</English>
                 <Russian>Achilles - Значения по умолчанию</Russian>
                 <Japanese>アキレス - 標準</Japanese>
+                <Chinesesimp>阿基里斯 - 默认</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Short Range radio default frequency</Original>
                 <English>(TFAR) Short Range radio default frequency</English>
                 <Russian>(TFAR) Частоты для КВ рации</Russian>
                 <Japanese>(TFAR) 短距離無線機の標準周波数</Japanese>
+                <Chinesesimp>（需要TFAR模组）短程无线电默认频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Long Range radio default frequency</Original>
                 <English>(TFAR) Long Range radio default frequency</English>
                 <Russian>(TFAR) Частоты для ДВ рации</Russian>
                 <Japanese>(TFAR) 長距離無線機の標準周波数</Japanese>
+                <Chinesesimp>（需要TFAR模组）长程无线电默认频率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COLLAPSE_TREE_BY_DEFAULT">
                 <Original>Collapse module tree by default</Original>
@@ -5457,6 +5520,7 @@
                 <Russian>Сворачивать дерево модулей</Russian>
                 <German>Modul-Baum standardmäßig schließen</German>
                 <Japanese>標準でモジュール階層を展開</Japanese>
+                <Chinesesimp>默认堆叠模块层级</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES">
                 <Original>Achilles - Curator Vision Modes</Original>
@@ -5464,6 +5528,7 @@
                 <German>Achilles - Zeus Sichtmodis</German>
                 <English>Achilles - Curator Vision Modes</English>
                 <Japanese>アキレス - キュレーターの視界モード</Japanese>
+                <Chinesesimp>阿基里斯 - 创造者视野模式</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_NVG">
                 <Original>Enable NVG</Original>
@@ -5471,6 +5536,7 @@
                 <German>Aktiviere Nachtsicht</German>
                 <English>Enable NVG</English>
                 <Japanese>暗視装置を有効化</Japanese>
+                <Chinesesimp>开启夜视仪</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_WHITEHOT">
                 <Original>Enable Thermal - White Hot</Original>
@@ -5478,6 +5544,7 @@
                 <German>Aktiviere Thermal - Weiß = Heiß</German>
                 <English>Enable Thermal - White Hot</English>
                 <Japanese>サーマル有効化 - ホワイト ホット</Japanese>
+                <Chinesesimp>开启热成像 - 白热</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOT">
                 <Original>Enable Thermal - Black Hot</Original>
@@ -5485,6 +5552,7 @@
                 <German>Aktiviere Thermal - Schwarz = Warm</German>
                 <English>Enable Thermal - Black Hot</English>
                 <Japanese>サーマル有効化 - ブラック ホット</Japanese>
+                <Chinesesimp>开启热成像 - 黑热</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_GREENHOTCOLD">
                 <Original>Enable Thermal - Green Hot / Green Cold</Original>
@@ -5492,6 +5560,7 @@
                 <German>Aktiviere Thermal - Grün = Heiß / Schwarz = Kalt</German>
                 <English>Enable Thermal - Green Hot / Green Cold</English>
                 <Japanese>サーマル有効化 - グリーン ホット/グリーン コールド</Japanese>
+                <Chinesesimp>开启热成像 - 绿热/绿冷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOTGREENCOLD">
                 <Original>Enable Thermal - Black Hot / Green Cold</Original>
@@ -5499,6 +5568,7 @@
                 <German>Aktiviere Thermal - Schwarz = Heiß / Grün = Kalt</German>
                 <English>Enable Thermal - Black Hot / Green Cold</English>
                 <Japanese>サーマル有効化 - ブラック ホット/グリーン コールド</Japanese>
+                <Chinesesimp>开启热成像 - 黑热/绿冷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_REDHOT">
                 <Original>Enable Thermal - Red Hot</Original>
@@ -5506,6 +5576,7 @@
                 <German>Aktiviere Thermal - Rot = Heiß</German>
                 <English>Enable Thermal - Red Hot</English>
                 <Japanese>サーマル有効化 - レッド ホット</Japanese>
+                <Chinesesimp>开启热成像 - 红热</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_BLACKHOTREDCOLD">
                 <Original>Enable Thermal - Black Hot / Red Cold</Original>
@@ -5513,6 +5584,7 @@
                 <German> Aktiviere Thermal - Schwarz = Heiß / Rot = Kalt</German>
                 <English>Enable Thermal - Black Hot / Red Cold</English>
                 <Japanese>サーマル有効化 - ブラック ホット/レッド コールド</Japanese>
+                <Chinesesimp>开启热成像 - 黑热/红冷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_WHITEHOTREDCOLD">
                 <Original>Enable Thermal - White Hot / Red Cold</Original>
@@ -5520,6 +5592,7 @@
                 <German>Aktiviere Thermal - Weiß = Heiß / Rot = Kalt</German>
                 <English>Enable Thermal - White Hot / Red Cold</English>
                 <Japanese>サーマル有効化 - ホワイト ホット/レッド コールド</Japanese>
+                <Chinesesimp>开启热成像 - 白热/红冷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES_REDGREEN">
                 <Original>Enable Thermal - Red/Green / White Hot</Original>
@@ -5527,6 +5600,7 @@
                 <German>Aktiviere Thermal - Rot/Grün / Weiß = Heiß</German>
                 <English>Enable Thermal - Red/Green / White Hot</English>
                 <Japanese>サーマル有効化 - レッド/グリーン/ホワイト ホット</Japanese>
+                <Chinesesimp>开启热成像 - 红/绿/白热</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_EJECT_PASSENGERS">
                 <Original>Eject/paradrop passengers of selected vehicle</Original>
@@ -5534,6 +5608,7 @@
                 <German>Insassen des ausgewählten Fahrzeugs auswerfen</German>
                 <English>Eject/paradrop passengers of selected vehicle</English>
                 <Japanese>選択した車両の乗客を脱出/空中投下</Japanese>
+                <Chinesesimp>选中车辆中的乘客被紧急弹出/空投</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_COPY">
                 <Original>Deep copy selected units</Original>
@@ -5541,6 +5616,7 @@
                 <German>Einheiten mit allen Eigenschaften kopieren</German>
                 <English>Deep copy selected units</English>
                 <Japanese>選択したユニットを深層コピー</Japanese>
+                <Chinesesimp>深度复制选中的单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_DEEP_PASTE">
                 <Original>Paste deep copied units</Original>
@@ -5548,6 +5624,7 @@
                 <German>Einheiten mit allen Eigenschaften einfügen</German>
                 <English>Paste deep copied units</English>
                 <Japanese>深層コピーされたユニットを貼りつけ</Japanese>
+                <Chinesesimp>粘贴深度复制的单位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_COUNTERMEASURE">
                 <Original>Selected unit throws smoke / uses countermeasure</Original>
@@ -5555,6 +5632,7 @@
                 <German>Ausgewählte Einheit wirft Rauch / nutzt Kontermaßnahmen</German>
                 <English>Selected unit throws smoke / uses countermeasure</English>
                 <Japanese>選択したユニットで煙幕の投てき/防御装置を使用</Japanese>
+                <Chinesesimp>选中的单位投掷烟雾弹/释放反措施装置</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_GROUP">
                 <Original>Group selected objects</Original>
@@ -5562,6 +5640,7 @@
                 <German>Ausgewählte Objekte gruppieren</German>
                 <English>Group selected objects</English>
                 <Japanese>選択した物体をグループ化</Japanese>
+                <Chinesesimp>为选中的单位编组</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_UNGROUP">
                 <Original>Ungroup selected objects</Original>
@@ -5569,6 +5648,7 @@
                 <German>Gruppierung von ausgewählten Objekten aufheben</German>
                 <English>Ungroup selected objects</English>
                 <Japanese>選択した物体を非グループ化</Japanese>
+                <Chinesesimp>解除选中单位的编组</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_INCREASENVGBRIGHTNESS">
                 <Original>Increase NVG brightness</Original>
@@ -5576,6 +5656,7 @@
                 <German>Nachtsicht Helligkeit erhöhen</German>
                 <English>Increase NVG brightness</English>
                 <Japanese>暗視装置の明度を増加</Japanese>
+                <Chinesesimp>提高夜视仪亮度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_KEY_DECREASEVGBRIGHTNESS">
                 <Original>Decrease NVG brightness</Original>
@@ -5583,6 +5664,7 @@
                 <German>Nachtsicht Helligkeit verringern</German>
                 <English>Decrease NVG brightness</English>
                 <Japanese>暗視装置の明度を削減</Japanese>
+                <Chinesesimp>降低夜视仪亮度</Chinesesimp>
             </Key>
         </Container>
     </Package>
