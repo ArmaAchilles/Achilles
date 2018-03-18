@@ -3407,6 +3407,7 @@
                 <Russian>Выберите %1 к которому(ым) должен быть привязан модуль!</Russian>
                 <German>Wähle %1 auf die das Modul angewendet werden soll!</German>
                 <Japanese>モジュールを適用する %1 を選択してください!</Japanese>
+                <Chinesesimp>请选择将要采用模块的%1！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_SUBMITTED">
                 <Original>Selection submitted!</Original>
@@ -3415,6 +3416,7 @@
                 <Russian>Выбор сделан!</Russian>
                 <German>Auswahl bestätigt!</German>
                 <Japanese>対象を送信しました!</Japanese>
+                <Chinesesimp>选择已提交！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_CANCLED">
                 <Original>Selection cancled!</Original>
@@ -3423,6 +3425,7 @@
                 <Russian>Выбор отменен!</Russian>
                 <German>Auswahl abgebrochen!</German>
                 <Japanese>対象へは中止されました!</Japanese>
+                <Chinesesimp>选择终止！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_YOU_ARE_BEING_TELEPORTED">
                 <Original>You are being teleported...</Original>
@@ -3431,6 +3434,7 @@
                 <Russian>Вас телепортируют...</Russian>
                 <German>Sie werden teleportiert...</German>
                 <Japanese>あなたのテレポート中です・・・</Japanese>
+                <Chinesesimp>传送进行中…</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COPIED_UNITS">
                 <Original>Copied %1 units!</Original>
@@ -3439,6 +3443,7 @@
                 <Russian>Скопировано %1 боевых(ая) единиц(а)!</Russian>
                 <German>%1 Einheiten kopiert!</German>
                 <Japanese>%1 ユニットを複製しました!</Japanese>
+                <Chinesesimp>复制了%1个单位！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_AMMO">
                 <Original>Out of ammunition!</Original>
@@ -3447,6 +3452,7 @@
                 <Russian>Закончились боеприпасы!</Russian>
                 <German>Keine Munition!</German>
                 <Japanese>弾薬がありません!</Japanese>
+                <Chinesesimp>弹药耗尽！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECT_ATTCHED">
                 <Original>Object attached!</Original>
@@ -3455,6 +3461,7 @@
                 <Russian>Объект присоединен!</Russian>
                 <German>Objekt wurde befestigt!</German>
                 <Japanese>物体が取りつけられました!</Japanese>
+                <Chinesesimp>物品已挂载！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OBJECT_DETACHED">
                 <Original>Object detached!</Original>
@@ -3463,6 +3470,7 @@
                 <Russian>Объект отсоединен!</Russian>
                 <German>Objekt wurde losgemacht!</German>
                 <Japanese>物体が外されました!</Japanese>
+                <Chinesesimp>物品已卸载！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GENERATED_SQF_FROM_MISSION_OBJECTS">
                 <Original>Generated SQF from mission objects (%1 object, %2 groups, %3 units)</Original>
@@ -3471,6 +3479,7 @@
                 <Russian>Сгенерирован SQF из объектов миссии (%1 объект(ов), %2 групп(а), %3 боевая(ых) единиц(а))</Russian>
                 <German>SQF wurde aus Missions Objekten generiert (%1 Objekte, %2 Gruppen, %3 Einheiten)</German>
                 <Japanese>ミッション内の物体からSQF が作成されました (%1 個の物体、 %2 つのグループ, %3 ユニット)</Japanese>
+                <Chinesesimp>通过任务物体生成SQF（…%1个物体、%2个班组、%3个单位）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CHANGES_SAVED">
                 <Original>CHANGES WERE SAVED!</Original>
@@ -3479,6 +3488,7 @@
                 <Russian>ИЗМЕНЕНИЯ СОХРАНЕНЫ!</Russian>
                 <German>ÄNDERUNGEN WURDEN GESPEICHERT!</German>
                 <Japanese>変更が保存されました!</Japanese>
+                <Chinesesimp>更改已保存！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_APPLIED_MODULE_TO_X_OBJECTS">
                 <Original>Applied module to %1 objects!</Original>
@@ -3487,6 +3497,7 @@
                 <Russian>Модуль применён к %1 объекту(ам)!</Russian>
                 <German>Modul wurde an %1 Objekten angewendet!</German>
                 <Japanese>%1 物体へモジュールが適用されました!</Japanese>
+                <Chinesesimp>%1个物体已采用模块！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_APPLIED_MODULE_TO_X_UNITS">
                 <Original>Applied module to %1 units!</Original>
@@ -3495,6 +3506,7 @@
                 <Russian>Модуль применён к %1 боевой(ым) единице(ам)!</Russian>
                 <German>Modul wurde an %1 Einheiten angewendet!</German>
                 <Japanese>%1 ユニットへモジュールが適用されました!</Japanese>
+                <Chinesesimp>%1个单位已采用模块！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
                 <Original>Move spawn position and press ENTER</Original>
@@ -3503,24 +3515,28 @@
                 <Russian>Переместите точку возрождения м нажмите клавишу ENTER</Russian>
                 <German>Verschiebe die Spawnposition und drücke ENTER</German>
                 <Japanese>作成位置を移動させ ENTER を押します</Japanese>
+                <Chinesesimp>移动生成位置并按Enter键确认</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DOOR_STATUS_CHANGED">
                 <Original>CHANGED STATUS OF %1 DOORS!</Original>
                 <English>CHANGED STATUS OF %1 DOORS!</English>
                 <Russian>ИЗМЕНЕНО СОСТОЯНИЕ %1 ДВЕРИ(ЕЙ)!</Russian>
                 <Japanese>%1 つの扉の状態が変更されました!</Japanese>
+                <Chinesesimp>更改了%1扇门的状态！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_X_SENSORS">
                 <Original>%1 Sensors</Original>
                 <English>%1 Sensors</English>
                 <Russian>%1 радар(а,ов)</Russian>
                 <Japanese>%1 センサー</Japanese>
+                <Chinesesimp>%1传感器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
                 <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
                 <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
                 <Russian>НЕ МОЖЕТ БЫТЬ ИСПОЛЬЗОВАН ВИРТУАЛЬНЫМИ КУРАТОРАМИ!</Russian>
                 <Japanese>バーチャル キュレーターとして使用できません</Japanese>
+                <Chinesesimp>虚拟控制者无法使用</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODULE_DOES_NOT_SUPPORT_SP">
                 <Original>This module does not support singleplayer mode</Original>
@@ -3528,6 +3544,7 @@
                 <French>Ce module n'est pas compatible avec le jeu en solo</French>
                 <Russian>Этот модуль не поддерживает одиночный режим!</Russian>
                 <Japanese>このモジュールはシングルプレイヤー モードに未対応です。</Japanese>
+                <Chinesesimp>该模块无法于单人模式中使用</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_DYNAMIC_LOADOUT">
                 <Original>no dynamic loadout available</Original>
@@ -3536,6 +3553,7 @@
                 <Russian>Изменение вооружения недоступно!</Russian>
                 <German>Keine dynamische Bewaffnung verfügbar</German>
                 <Japanese>利用可能なダイナミック兵装がありません。</Japanese>
+                <Chinesesimp>无可用动态装备</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_OBJECT_IS_IED">
                 <Original>Object is an IED already!</Original>
@@ -3544,6 +3562,7 @@
                 <Russian>Объект уже является СВУ!</Russian>
                 <German>Dies ist bereits eine Sprengfalle</German>
                 <Japanese>物体は既に IED です!</Japanese>
+                <Chinesesimp>该物体已经是IED了！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_UNIT_IS_SB">
                 <Original>Unit is an Suicide Bomber already!</Original>
@@ -3552,12 +3571,14 @@
                 <Russian>На этом человеке уже есть "пояс шахида"!</Russian>
                 <German>Dies ist bereits ein Selbstmordattentäter</German>
                 <Japanese>ユニットは既に自爆者です!</Japanese>
+                <Chinesesimp>该单位已经是自杀炸弹了！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CIRCULAR_PATROL_SETUP">
                 <Original>Circular patrol path setup for units.</Original>
                 <English>Circular patrol path setup for units.</English>
                 <Russian>Назначен круговой патрульный маршрут.</Russian>
                 <Japanese>ユニットが巡回する経路を設定します。</Japanese>
+                <Chinesesimp>单位环形巡逻路线已配置完成。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GARRISONED_NEAREST_BUILDINGS">
                 <Original>Garrisoned units in the nearest buildings!</Original>
@@ -3565,6 +3586,7 @@
                 <French>Les immeubles proches sont occupées!</French>
                 <German>Die Gebäude in der Nähe wurde besetzt!</German>
                 <Japanese>直近の建物は既に占拠されています!</Japanese>
+                <Chinesesimp>单位已驻扎到最近的建筑中！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING">
                 <Original>Units will search and then garrison the nearest building!</Original>
@@ -3572,6 +3594,7 @@
                 <French>Les unités vont chercher et occuper l'immeuble proche!</French>
                 <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen und besetzen!</German>
                 <Japanese>ユニットは直近の建物を捜索し占拠します!</Japanese>
+                <Chinesesimp>单位将会搜索并驻扎到最近的建筑中！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEARCH_NEAREST_BUILDING">
                 <Original>Units will search the nearest building!</Original>
@@ -3579,6 +3602,7 @@
                 <French>Les unités vont chercher l'immeuble le plus proche!</French>
                 <German>Die Einheiten werden das nächstgelegene Gebäude durchsuchen!</German>
                 <Japanese>ユニットは直近の建物を捜索します!</Japanese>
+                <Chinesesimp>单位将会搜索最近的建筑！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELEASE_GARRISON_UNITS">
                 <Original>Units released from garrison!</Original>
@@ -3586,6 +3610,7 @@
                 <French>Les unités terminent l'occupation!</French>
                 <German>Die Einheiten beenden die Besetzung!</German>
                 <Japanese>ユニットは直近の建物から離れました!</Japanese>
+                <Chinesesimp>单位已停止驻扎！</Chinesesimp>
             </Key>
         </Container>
         <Container name="Create Effect dialog strings">
@@ -3596,6 +3621,7 @@
                 <Russian>Синий свет</Russian>
                 <German>Blaues Licht</German>
                 <Japanese>青の明かり</Japanese>
+                <Chinesesimp>蓝光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RED_LIGHT">
                 <Original>Red Light</Original>
@@ -3604,6 +3630,7 @@
                 <Russian>Красный свет</Russian>
                 <German>Rotes Licht</German>
                 <Japanese>赤の明かり</Japanese>
+                <Chinesesimp>红光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GREEN_LIGHT">
                 <Original>Green Light</Original>
@@ -3612,6 +3639,7 @@
                 <Russian>Зеленый свет</Russian>
                 <German>Grünes Licht</German>
                 <Japanese>緑の明かり</Japanese>
+                <Chinesesimp>绿光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WHITE_LIGHT">
                 <Original>White Light</Original>
@@ -3620,6 +3648,7 @@
                 <Russian>Белый свет</Russian>
                 <German>Weißes Licht</German>
                 <Japanese>白の明かり</Japanese>
+                <Chinesesimp>白光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_YELLOW_LIGHT">
                 <Original>Yellow Light</Original>
@@ -3628,6 +3657,7 @@
                 <Russian>Желтый свет</Russian>
                 <German>Gelbes Licht</German>
                 <Japanese>黄の明かり</Japanese>
+                <Chinesesimp>黄光</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VEHICLE_FIRE">
                 <Original>Vehicle Fire</Original>
@@ -3636,6 +3666,7 @@
                 <Russian>Горящее транспортное средство</Russian>
                 <German>Fahrzeug Feuer</German>
                 <Japanese>車両火災</Japanese>
+                <Chinesesimp>载具着火</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SMALL_OILY_SMOKE">
                 <Original>Small Oily Smoke</Original>
@@ -3644,6 +3675,7 @@
                 <Russian>Небольшой дым от горящего топлива</Russian>
                 <German>Kleiner Öl-Rauch</German>
                 <Japanese>小さな油性の煙</Japanese>
+                <Chinesesimp>小规模燃油烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MEDIUM_OILY_SMOKE">
                 <Original>Medium Oily Smoke</Original>
@@ -3652,6 +3684,7 @@
                 <Russian>Средний дым от горящего топлива</Russian>
                 <German>Mittelgroßer Öl-Rauch</German>
                 <Japanese>中くらいの油性の煙</Japanese>
+                <Chinesesimp>中规模燃油烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LARGE_OILY_SMOKE">
                 <Original>Large Oily Smoke</Original>
@@ -3660,6 +3693,7 @@
                 <Russian>Большой дым от горящего топлива</Russian>
                 <German>Großer Öl-Rauch</German>
                 <Japanese>大きな油性の煙</Japanese>
+                <Chinesesimp>大规模燃油烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SMALL_WOOD_SMOKE">
                 <Original>Small Wood Smoke</Original>
@@ -3668,6 +3702,7 @@
                 <Russian>Небольшой дым от горящего дерева</Russian>
                 <German>kleiner Holzrauch</German>
                 <Japanese>小さな森林火災の煙</Japanese>
+                <Chinesesimp>小规模林火烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MEDIUM_WOOD_SMOKE">
                 <Original>Medium Wood Smoke</Original>
@@ -3676,6 +3711,7 @@
                 <Russian>Средний дым от горящего дерева</Russian>
                 <German>Mittelgroßer Holzrauch</German>
                 <Japanese>中くらいの森林火災の煙</Japanese>
+                <Chinesesimp>中规模林火烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LARGE_WOOD_SMOKE">
                 <Original>Large Wood Smoke</Original>
@@ -3684,6 +3720,7 @@
                 <Russian>Большой дым от горящего дерева</Russian>
                 <German>Großer Holzrauch</German>
                 <Japanese>大きな森林火災の煙</Japanese>
+                <Chinesesimp>大规模林火烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SMALL_MIXED_SMOKE">
                 <Original>Small Mixed Smoke</Original>
@@ -3692,6 +3729,7 @@
                 <Russian>Небольшой смешанный дым</Russian>
                 <German>Kleiner gemischter Rauch</German>
                 <Japanese>小さな混合した煙</Japanese>
+                <Chinesesimp>小规模混合烟雾</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LARGE_MIXED_SMOKE">
                 <Original>Large Mixed Smoke</Original>
@@ -3700,6 +3738,7 @@
                 <Russian>Большой смешанный дым</Russian>
                 <German>Großer gemischter Rauch</German>
                 <Japanese>大きな混合した煙</Japanese>
+                <Chinesesimp>大规模混合烟雾</Chinesesimp>
             </Key>
         </Container>
         <Container name="Fire support strings">
@@ -3710,6 +3749,7 @@
                 <Russian>Цель для авиаподдержки №%1</Russian>
                 <German>Luftunterstützungsziel %1</German>
                 <Japanese>CAS 目標 %1</Japanese>
+                <Chinesesimp>近空支援目标%1</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SUPPRESS_X">
                 <Original>Suppress %1</Original>
@@ -3718,6 +3758,7 @@
                 <Russian>Подавить огнём %1</Russian>
                 <German>Unterdrücke %1</German>
                 <Japanese>制圧目標 '%1'</Japanese>
+                <Chinesesimp>压制%1</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATED_SUPPRESSION_TARGET">
                 <Original>Created Suppression Target '%1'</Original>
@@ -3726,6 +3767,7 @@
                 <Russian>Создана цель для подавления огнём '%1'</Russian>
                 <German>Das Unterstützungsfeuerziel '%1' wurde definiert</German>
                 <Japanese>制圧目標 '%1' を作成</Japanese>
+                <Chinesesimp>创建压制目标‘%1’</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATED_ARTILLERY_TARGET">
                 <Original>Created Artillery Target '%1'</Original>
@@ -3734,10 +3776,12 @@
                 <Russian>Создана цель для артобстрела '%1'</Russian>
                 <German>Das Artillerieziel '%1' wurde definiert</German>
                 <Japanese>砲目標 '%1' を作成</Japanese>
+                <Chinesesimp>创建炮击目标‘%1’</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATE_TARGET">
                 <English>Create Target</English>
                 <Original>Create Target</Original>
+                <Chinesesimp>创建目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CREATED_TARGET">
                 <Original>Created Target '%1'</Original>
@@ -3745,6 +3789,7 @@
                 <French>La cible '%1' a été créé</French>
                 <Russian>Создана цель '%1'</Russian>
                 <German>Das ziel '%1' wurde definiert</German>
+                <Chinesesimp>创建目标‘%1’</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TARGET">
                 <Original>Target %1</Original>
@@ -3753,6 +3798,7 @@
                 <Russian>Цель %1</Russian>
                 <German>Ziel %1</German>
                 <Japanese>目標 %1</Japanese>
+                <Chinesesimp>目标%1</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECT_BATTERY_TO_FIRE">
                 <Original>Select battery to fire</Original>
@@ -3761,6 +3807,7 @@
                 <Russian>Выбрать артбатарею для открытия огня</Russian>
                 <German>Wähle eine Batterie für den Feuerbefehl aus</German>
                 <Japanese>射撃砲列を選択</Japanese>
+                <Chinesesimp>选择进行射击的炮兵</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MARKER">
                 <Original>Marker</Original>
@@ -3769,6 +3816,7 @@
                 <Russian>Маркер</Russian>
                 <German>Markierung</German>
                 <Japanese>マーカー</Japanese>
+                <Chinesesimp>标记</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GRID">
                 <Original>Grid</Original>
@@ -3777,6 +3825,7 @@
                 <Russian>Координаты</Russian>
                 <German>Koordinaten</German>
                 <Japanese>座標</Japanese>
+                <Chinesesimp>坐标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BATTERY">
                 <Original>Battery</Original>
@@ -3785,6 +3834,7 @@
                 <Russian>Артбатарея</Russian>
                 <German>Batterie</German>
                 <Japanese>砲列</Japanese>
+                <Chinesesimp>炮兵</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NUMBER_OF_UNITS_INVOLVED">
                 <Original>Number of units involved</Original>
@@ -3793,6 +3843,7 @@
                 <Russian>Число задействованных боевых единиц</Russian>
                 <German>Anzahl involvierter Einheiten</German>
                 <Japanese>関係するユニット数</Japanese>
+                <Chinesesimp>执行单位数量</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ROUNDS">
                 <Original>Rounds</Original>
@@ -3801,6 +3852,7 @@
                 <Russian>Кол-во снарядов</Russian>
                 <German>Schüsse</German>
                 <Japanese>弾数</Japanese>
+                <Chinesesimp>弹数</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FS_AMMO">
                 <Original>Ammo</Original>
@@ -3809,6 +3861,7 @@
                 <Russian>Тип боеприпаса</Russian>
                 <German>Munition</German>
                 <Japanese>弾薬</Japanese>
+                <Chinesesimp>弹药</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GRID_EAST_WEST_XXX">
                 <Original>Grid East-West (XXX)</Original>
@@ -3817,6 +3870,7 @@
                 <Russian>Координаты Восток-Запад (XXX)</Russian>
                 <German>Ost-West Koordinaten (XXX)</German>
                 <Japanese>座標 東-西 (XXX)</Japanese>
+                <Chinesesimp>坐标 东-西（XXX）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GRID_NORTH_SOUTH_XXX">
                 <Original>Grid North-South (XXX)</Original>
@@ -3825,6 +3879,7 @@
                 <Russian>Координаты Север-Юг (XXX)</Russian>
                 <German>Nord-Süd Koordinaten (XXX)</German>
                 <Japanese>座標 北-南 (XXX)</Japanese>
+                <Chinesesimp>坐标 北-南（XXX）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_ROUNDS_AND_ETA">
                 <Original>Firing %1 rounds of '%2' at target. ETA %3 s.</Original>
@@ -3833,12 +3888,14 @@
                 <Russian>Произвожу выстрел %1 снарядом(ами) от '%2' по цели. Время %3 с.</Russian>
                 <German>Feuere %1 Schüsse vom Typ '%2'. Voraussichtilche Ankunftszeit: %3 s.</German>
                 <Japanese>%1 発を '%2' に発射中。ETA %3 秒。</Japanese>
+                <Chinesesimp>发射%1发‘%2’至目标地点。预计抵达时间%3秒。</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FIRE_MISSION_ABORTED">
                 <Original>Fire mission aborted!</Original>
                 <English>Fire mission aborted!</English>
                 <Russian>Стрельба отменена!</Russian>
                 <Japanese>砲撃支援中止!</Japanese>
+                <Chinesesimp>火力支援已终止！</Chinesesimp>
             </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">
@@ -3849,6 +3906,7 @@
                 <Russian>(Разведданные отправлены вашей стороне)</Russian>
                 <German>(Der Hinweis wurde mit deiner Seite geteilt)</German>
                 <Japanese>(情報はあなたの陣営に共有されました)</Japanese>
+                <Chinesesimp>（你方共享该情报）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_WAS_SHARED_WITH_NONE">
                 <Original>(The intel was shared with no one)</Original>
@@ -3857,6 +3915,7 @@
                 <Russian>(Разведданные не отправлены никому)</Russian>
                 <German>(Der Hinweis wurde mit niemanden geteilt)</German>
                 <Japanese>(情報は誰にも共有されませんでした)</Japanese>
+                <Chinesesimp>（无人共享该情报）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_WAS_SHARED_WITH_GROUP">
                 <Original>(The intel was shared with your group)</Original>
@@ -3865,6 +3924,7 @@
                 <Russian>(Разведданные отправлены вашей группе) </Russian>
                 <German>(Der Hinweis wurde mit deiner Gruppe geteilt)</German>
                 <Japanese>(情報はあなたのグループに共有されました)</Japanese>
+                <Chinesesimp>（你的班组共享该情报）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_SHARED_WITH">
                 <Original>Intel shared with</Original>
@@ -3873,6 +3933,7 @@
                 <Russian>Разведданые будут переданы</Russian>
                 <German>Hinweis teilen mit</German>
                 <Japanese>次へ情報を共有</Japanese>
+                <Chinesesimp>分享情报至</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_TITLE">
                 <Original>Intel Title</Original>
@@ -3881,6 +3942,7 @@
                 <Russian>Заголовок</Russian>
                 <German>Titel des Hinweises</German>
                 <Japanese>情報の題名</Japanese>
+                <Chinesesimp>情报标题</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_TEXT">
                 <Original>Intel Text</Original>
@@ -3889,6 +3951,7 @@
                 <Russian>Текст</Russian>
                 <German>Text des Hinweises</German>
                 <Japanese>情報の本文</Japanese>
+                <Chinesesimp>情报内容</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTEL_FOUND">
                 <Original>%1 found intel "%2"!</Original>
@@ -3897,6 +3960,7 @@
                 <Russian>%1 нашел разведданные "%2"!</Russian>
                 <German>%1 hat den Hinweis "%2" gefunden!</German>
                 <Japanese>%1 は情報 "%2" を見つけた!</Japanese>
+                <Chinesesimp>%%1找到了情报“%2”！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PICK_UP_INTEL">
                 <Original>Pick up intel</Original>
@@ -3905,6 +3969,7 @@
                 <Russian>Подобрать разведданные</Russian>
                 <German>Hinweis sammeln</German>
                 <Japanese>情報を拾う</Japanese>
+                <Chinesesimp>拾取情报</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DELETE_OBJECT_ON_COMPLETION">
                 <Original>Delete object on completion</Original>
@@ -3913,6 +3978,7 @@
                 <Russian>Удалить объект после выполнения</Russian>
                 <German>Danach das Objekt am Ende löschen</German>
                 <Japanese>完了時に物体を削除</Japanese>
+                <Chinesesimp>完成时移除物体</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ACTION_TEXT">
                 <Original>Action text</Original>
@@ -3921,6 +3987,7 @@
                 <Russian>Название действия</Russian>
                 <German>Aktionstext</German>
                 <Japanese>動作文章</Japanese>
+                <Chinesesimp>动作文本</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ACTION_DURATION">
                 <Original>Action duration</Original>
@@ -3929,6 +3996,7 @@
                 <Russian>Длительность действия</Russian>
                 <German>Dauer der Aktion</German>
                 <Japanese>動作持続時間</Japanese>
+                <Chinesesimp>动作时长</Chinesesimp>
             </Key>
         </Container>
         <Container name="Heal and injures modules strings">
@@ -3939,6 +4007,7 @@
                 <Russian>Голова</Russian>
                 <German>Kopf</German>
                 <Japanese>頭部</Japanese>
+                <Chinesesimp>头</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TORSO">
                 <Original>Torso</Original>
@@ -3947,6 +4016,7 @@
                 <Russian>Торс</Russian>
                 <German>Torso</German>
                 <Japanese>胴体</Japanese>
+                <Chinesesimp>躯干</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ARMS">
                 <Original>Arms</Original>
@@ -3955,6 +4025,7 @@
                 <Russian>Руки</Russian>
                 <German>Arme</German>
                 <Japanese>腕</Japanese>
+                <Chinesesimp>双臂</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LEGS">
                 <Original>Legs</Original>
@@ -3963,6 +4034,7 @@
                 <Russian>Ноги</Russian>
                 <German>Beine</German>
                 <Japanese>足</Japanese>
+                <Chinesesimp>双腿</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RIGHT_ARM">
                 <Original>Right Arm</Original>
@@ -3971,6 +4043,7 @@
                 <Russian>Правая рука</Russian>
                 <German>Rechter Arm</German>
                 <Japanese>右腕</Japanese>
+                <Chinesesimp>右臂</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LEFT_ARM">
                 <Original>Left Arm</Original>
@@ -3979,6 +4052,7 @@
                 <Russian>Левая рука</Russian>
                 <German>Linker Arm</German>
                 <Japanese>左上</Japanese>
+                <Chinesesimp>左臂</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RIGHT_LEG">
                 <Original>Right Leg</Original>
@@ -3987,6 +4061,7 @@
                 <Russian>Правая нога</Russian>
                 <German>Rechtes Bein</German>
                 <Japanese>右足</Japanese>
+                <Chinesesimp>右腿</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LEFT_LEG">
                 <Original>Left Leg</Original>
@@ -3995,6 +4070,7 @@
                 <Russian>Левая нога</Russian>
                 <German>Linkes Bein</German>
                 <Japanese>左足</Japanese>
+                <Chinesesimp>左腿</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FORCE_UNCONSIOUSNESS">
                 <Original>Force unconsciousness</Original>
@@ -4003,6 +4079,7 @@
                 <Russian>Заставить потерять сознание</Russian>
                 <German>Bewusstlosigkeit erzwingen</German>
                 <Japanese>気絶状態を強制</Japanese>
+                <Chinesesimp>强制昏迷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HEALTH_CHANGED">
                 <Original>Unit's health changed!</Original>
@@ -4011,6 +4088,7 @@
                 <Russian>Здоровье человека изменено!</Russian>
                 <German>Die Gesundheit der Einheit wurde geändert!</German>
                 <Japanese>ユニットの体力は回復しました!</Japanese>
+                <Chinesesimp>单位生命值已更改！</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LIGHT_INJURY">
                 <Original>Light</Original>
@@ -4019,6 +4097,7 @@
                 <Russian>Лёгкие</Russian>
                 <German>Leicht</German>
                 <Japanese>軽度</Japanese>
+                <Chinesesimp>轻度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MODERATE_INJURY">
                 <Original>moderate</Original>
@@ -4027,6 +4106,7 @@
                 <Russian>Средней тяжести</Russian>
                 <German>mittelschwer</German>
                 <Japanese>中程度</Japanese>
+                <Chinesesimp>中度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NONE_INJURY">
                 <Original>None</Original>
@@ -4035,6 +4115,7 @@
                 <Russian>Здоров</Russian>
                 <German>Keine</German>
                 <Japanese>なし</Japanese>
+                <Chinesesimp>无</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEVERE_INJURY">
                 <Original>Severe</Original>
@@ -4043,6 +4124,7 @@
                 <Russian>Тяжёлые</Russian>
                 <German>Schwer</German>
                 <Japanese>深刻</Japanese>
+                <Chinesesimp>重度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HIGH">
                 <Original>high</Original>
@@ -4050,6 +4132,7 @@
                 <French>haute</French>
                 <German>hoch</German>
                 <Japanese>高</Japanese>
+                <Chinesesimp>高</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NORMAL">
                 <Original>normal</Original>
@@ -4058,6 +4141,7 @@
                 <Russian>нормальный(ое)</Russian>
                 <German>normal</German>
                 <Japanese>通常</Japanese>
+                <Chinesesimp>正常</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LOW">
                 <Original>low</Original>
@@ -4066,6 +4150,7 @@
                 <Russian>низкий(ое)</Russian>
                 <German>tief</German>
                 <Japanese>低い</Japanese>
+                <Chinesesimp>低</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TOO_LOW">
                 <Original>too low</Original>
@@ -4074,6 +4159,7 @@
                 <Russian>слишком низкий(ое)</Russian>
                 <German>zu tief</German>
                 <Japanese>とても低い</Japanese>
+                <Chinesesimp>过低</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PAIN_LEVEL">
                 <Original>Pain level</Original>
@@ -4082,6 +4168,7 @@
                 <Russian>Болевые ощущения</Russian>
                 <German>Schmerzlevel</German>
                 <Japanese>痛みの程度</Japanese>
+                <Chinesesimp>疼痛程度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_HEARTH_RATE">
                 <Original>Hearth rate</Original>
@@ -4090,6 +4177,7 @@
                 <Russian>Пульс</Russian>
                 <German>Herzfrequenz</German>
                 <Japanese>心拍数</Japanese>
+                <Chinesesimp>心率</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BLOOD_VOLUME">
                 <Original>Blood volume</Original>
@@ -4098,6 +4186,7 @@
                 <Russian>Объём крови</Russian>
                 <German>Blutvolumen</German>
                 <Japanese>血液量</Japanese>
+                <Chinesesimp>血量</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BLOOD_PRESSURE">
                 <Original>Blood pressure</Original>
@@ -4106,6 +4195,7 @@
                 <Russian>Кровяное давление</Russian>
                 <German>Blutdruck</German>
                 <Japanese>血圧</Japanese>
+                <Chinesesimp>血压</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_BULLET">
                 <Original>Bullet</Original>
@@ -4114,6 +4204,7 @@
                 <Russian>Пуля</Russian>
                 <German>Kugel</German>
                 <Japanese>銃弾</Japanese>
+                <Chinesesimp>子弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_GRENADE">
                 <Original>Grenade</Original>
@@ -4122,6 +4213,7 @@
                 <Russian>Граната</Russian>
                 <German>Granate</German>
                 <Japanese>手りゅう弾</Japanese>
+                <Chinesesimp>手榴弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STAB">
                 <Original>Stab</Original>
@@ -4130,6 +4222,7 @@
                 <Russian>Прокол</Russian>
                 <German>Stichwunde</German>
                 <Japanese>刺傷</Japanese>
+                <Chinesesimp>刺击</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SHRAPNEL">
                 <Original>Shrapnel</Original>
@@ -4138,6 +4231,7 @@
                 <Russian>Осколок</Russian>
                 <German>Schrapnell</German>
                 <Japanese>破片傷</Japanese>
+                <Chinesesimp>弹片</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CRASH">
                 <Original>Crash</Original>
@@ -4146,6 +4240,7 @@
                 <Russian>Удар</Russian>
                 <German>Kollision</German>
                 <Japanese>打ち身</Japanese>
+                <Chinesesimp>碾伤</Chinesesimp>
             </Key>
         </Container>
         <Container name="Building damage dialog strings">
@@ -4156,6 +4251,7 @@
                 <Russian>Небольшие</Russian>
                 <German>Leicht</German>
                 <Japanese>軽度</Japanese>
+                <Chinesesimp>轻微</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FULL_DAMAGE">
                 <Original>Full</Original>
@@ -4164,6 +4260,7 @@
                 <Russian>Полностью разрушен(ы)</Russian>
                 <German>Voll</German>
                 <Japanese>完全</Japanese>
+                <Chinesesimp>完整</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NO_DAMAGE">
                 <Original>None</Original>
@@ -4172,6 +4269,7 @@
                 <Russian>Нет</Russian>
                 <German>Kein</German>
                 <Japanese>なし</Japanese>
+                <Chinesesimp>无</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SEVERE_DAMAGE">
                 <Original>Severe</Original>
@@ -4180,6 +4278,7 @@
                 <Russian>Серьёзные</Russian>
                 <German>Schwer</German>
                 <Japanese>深刻</Japanese>
+                <Chinesesimp>严重</Chinesesimp>
             </Key>
         </Container>
         <Container name="Weather dialog strings">
@@ -4190,6 +4289,7 @@
                 <Russian>Переход</Russian>
                 <German>Übergang</German>
                 <Japanese>移行度</Japanese>
+                <Chinesesimp>过渡</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_IMMEDIATE">
                 <Original>Immediate</Original>
@@ -4198,6 +4298,7 @@
                 <Russian>Немедленно</Russian>
                 <German>Sofort</German>
                 <Japanese>即時</Japanese>
+                <Chinesesimp>即时</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SMOOTH">
                 <Original>Smooth</Original>
@@ -4206,6 +4307,7 @@
                 <Russian>Плавно</Russian>
                 <German>Fließend</German>
                 <Japanese>ゆっくりと</Japanese>
+                <Chinesesimp>平滑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_OVERCAST">
                 <Original>Overcast</Original>
@@ -4214,6 +4316,7 @@
                 <Russian>Облачность</Russian>
                 <German>Bedeckung</German>
                 <Japanese>曇り</Japanese>
+                <Chinesesimp>乌云</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RAIN_">
                 <Original>Rain (Overcast &gt; 50%)</Original>
@@ -4222,6 +4325,7 @@
                 <Russian>Дождь (Облачность &gt; 50%)</Russian>
                 <German>Regen (Bedeckung &gt; 50%)</German>
                 <Japanese>雨 (曇り ≈ 50%)</Japanese>
+                <Chinesesimp>下雨（乌云 &gt; 50%）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LIGHTNINGS_">
                 <Original>Lightnings (Overcast ≈ 100%)</Original>
@@ -4230,6 +4334,7 @@
                 <Russian>Молнии (Облачность ≈ 100%)</Russian>
                 <German>Blitze (Bedeckung ≈ 100%)</German>
                 <Japanese>雷 (曇り ≈ 50%)</Japanese>
+                <Chinesesimp>打雷（乌云 ≈ 50%）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RAINBOW_">
                 <Original>Rainbow (Overcast ≈ 50%)</Original>
@@ -4238,6 +4343,7 @@
                 <Russian>Радуга (Облачность ≈ 50%)</Russian>
                 <German>Regenbogen (Bedeckung ≈ 50%)</German>
                 <Japanese>虹 (曇り ≈ 50%)</Japanese>
+                <Chinesesimp>彩虹（乌云 ≈ 50%）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ALLOWED">
                 <Original>Allowed</Original>
@@ -4246,6 +4352,7 @@
                 <Russian>Разрешено</Russian>
                 <German>Erlaubt</German>
                 <Japanese>許可</Japanese>
+                <Chinesesimp>允许</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PROHIBITED">
                 <Original>Prohibited</Original>
@@ -4254,6 +4361,7 @@
                 <Russian>Запрещено</Russian>
                 <German>Verboten</German>
                 <Japanese>禁止</Japanese>
+                <Chinesesimp>禁止</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WIND_SPEED">
                 <Original>Wind Speed</Original>
@@ -4262,6 +4370,7 @@
                 <Russian>Скорость ветра</Russian>
                 <German>Windgeschwindigkeit</German>
                 <Japanese>風速</Japanese>
+                <Chinesesimp>风速</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WIND_DIRECTION">
                 <Original>Wind Direction</Original>
@@ -4270,6 +4379,7 @@
                 <Russian>Направление ветра</Russian>
                 <German>Windrichtung</German>
                 <Japanese>風向</Japanese>
+                <Chinesesimp>风向</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_DIRECTION">
                 <Original>Direction</Original>
@@ -4278,6 +4388,7 @@
                 <Russian>Направление</Russian>
                 <German>Richtung</German>
                 <Japanese>方位</Japanese>
+                <Chinesesimp>方位</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WAVES">
                 <Original>Waves</Original>
@@ -4286,6 +4397,7 @@
                 <Russian>Волны</Russian>
                 <German>Wellen</German>
                 <Japanese>波</Japanese>
+                <Chinesesimp>海波</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FOG_SETTING">
                 <Original>Fog Setting</Original>
@@ -4294,6 +4406,7 @@
                 <Russian>Плотность тумана</Russian>
                 <German>Nebeleinstellung</German>
                 <Japanese>霧設定</Japanese>
+                <Chinesesimp>雾设定</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FOG_DECAY">
                 <Original>Fog Decay</Original>
@@ -4302,6 +4415,7 @@
                 <Russian>Рассеивание тумана</Russian>
                 <German>Nebelabfall</German>
                 <Japanese>霧の減衰</Japanese>
+                <Chinesesimp>雾衰减</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_Fog_Altitude_ASL">
                 <Original>Fog Altitude (ASL)</Original>
@@ -4310,6 +4424,7 @@
                 <Russian>Высота тумана (от уровня моря)</Russian>
                 <German>Nebelhöhe (ü. M.)</German>
                 <Japanese>霧の高度 (ASL)</Japanese>
+                <Chinesesimp>雾高度（海拔高度）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_Altitude_ASL_ATL">
                 <Original>Altitude (ASL/ATL)</Original>
@@ -4318,6 +4433,7 @@
                 <Russian>Высота (от уровня моря или земли)</Russian>
                 <German>Höhe (ü. M./ü. Boden)</German>
                 <Japanese>高度 (ASL/ATL)</Japanese>
+                <Chinesesimp>高度（海拔高度/距地高度）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTENSITY">
                 <Original>Intensity</Original>
@@ -4326,6 +4442,7 @@
                 <Russian>Интенсивность</Russian>
                 <German>Intensität</German>
                 <Japanese>猛烈</Japanese>
+                <Chinesesimp>烈度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_VERY_WEAK">
                 <Original>very weak</Original>
@@ -4334,6 +4451,7 @@
                 <Russian>Очень слабо</Russian>
                 <German>sehr schwach</German>
                 <Japanese>とても弱い</Japanese>
+                <Chinesesimp>极弱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WEAK">
                 <Original>weak</Original>
@@ -4342,6 +4460,7 @@
                 <Russian>Слабо</Russian>
                 <German>schwach</German>
                 <Japanese>弱い</Japanese>
+                <Chinesesimp>弱</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MEDIUM">
                 <Original>medium</Original>
@@ -4350,6 +4469,7 @@
                 <Russian>Средне</Russian>
                 <German>mittelschwer</German>
                 <Japanese>中くらい</Japanese>
+                <Chinesesimp>中等</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_STRONG">
                 <Original>strong</Original>
@@ -4358,6 +4478,7 @@
                 <Russian>Сильно</Russian>
                 <German>schwer</German>
                 <Japanese>強い</Japanese>
+                <Chinesesimp>强劲</Chinesesimp>
             </Key>
         </Container>
         <Container name="Mine and Explosives strings">
@@ -4368,6 +4489,7 @@
                 <Russian>Минное поле</Russian>
                 <German>Minenfeld</German>
                 <Japanese>地雷</Japanese>
+                <Chinesesimp>雷区</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EXPLOSIVE">
                 <Original>Explosive</Original>
@@ -4376,6 +4498,7 @@
                 <Russian>Взрывчатка</Russian>
                 <German>Sprengladung</German>
                 <Japanese>爆発物</Japanese>
+                <Chinesesimp>爆炸物</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_NUMBER_OF_MINES">
                 <Original>Number of mines</Original>
@@ -4384,6 +4507,7 @@
                 <Russian>Кол-во мин</Russian>
                 <German>Anzahl der Minen</German>
                 <Japanese>地雷の数</Japanese>
+                <Chinesesimp>地雷数量</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RADIUS">
                 <Original>Radius [m]</Original>
@@ -4392,6 +4516,7 @@
                 <Russian>Радиус (м)</Russian>
                 <German>Radius [m]</German>
                 <Japanese>範囲 [m]</Japanese>
+                <Chinesesimp>半径[米]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RADIUS_NO_SI">
                 <Original>Radius</Original>
@@ -4400,6 +4525,7 @@
                 <Russian>Радиус</Russian>
                 <German>Radius</German>
                 <Japanese>範囲</Japanese>
+                <Chinesesimp>半径</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WARNING_SIGNS">
                 <Original>Warning Signs</Original>
@@ -4408,6 +4534,7 @@
                 <Russian>Предупредительные знаки</Russian>
                 <German>Warnschilder</German>
                 <Japanese>警告標識</Japanese>
+                <Chinesesimp>警告标志</Chinesesimp>
             </Key>
         </Container>
         <Container name="Skillset dialog strings">
@@ -4418,6 +4545,7 @@
                 <Russian>Hавык</Russian>
                 <German>Können</German>
                 <Japanese>練度</Japanese>
+                <Chinesesimp>熟练度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_MEDICINE">
                 <Original>Medicine</Original>
@@ -4426,6 +4554,7 @@
                 <Russian>Медик</Russian>
                 <German>Medizin</German>
                 <Japanese>衛生兵</Japanese>
+                <Chinesesimp>医护</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENGINEER">
                 <Original>Engineer</Original>
@@ -4434,6 +4563,7 @@
                 <Russian>Инженер</Russian>
                 <German>Reparateur</German>
                 <Japanese>工兵</Japanese>
+                <Chinesesimp>工程</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_EOD">
                 <Original>EOD</Original>
@@ -4442,6 +4572,7 @@
                 <Russian>Сапёр</Russian>
                 <German>Kampfmittelbeseitigung</German>
                 <Japanese>EOD</Japanese>
+                <Chinesesimp>排雷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AIMING_ACCURACY">
                 <Original>Aiming accuracy</Original>
@@ -4450,6 +4581,7 @@
                 <Russian>Точность прицеливания</Russian>
                 <German>Zielgenauigkeit</German>
                 <Japanese>照準精度</Japanese>
+                <Chinesesimp>瞄准精度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AIMING_SHAKE">
                 <Original>Aiming shake</Original>
@@ -4458,6 +4590,7 @@
                 <Russian>Дрожание прицела</Russian>
                 <German>Schwanken</German>
                 <Japanese>照準の揺れ</Japanese>
+                <Chinesesimp>瞄准晃动</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_AIMING_SPEED">
                 <Original>Aiming speed</Original>
@@ -4466,6 +4599,7 @@
                 <Russian>Скорость прицеливания</Russian>
                 <German>Zielgeschwindigkeit</German>
                 <Japanese>照準速度</Japanese>
+                <Chinesesimp>瞄准速度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENDURANCE">
                 <Original>Endurance</Original>
@@ -4474,6 +4608,7 @@
                 <Russian>Выносливость</Russian>
                 <German>Ausdauer</German>
                 <Japanese>忍耐力</Japanese>
+                <Chinesesimp>耐力</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPOT_DISTANCE">
                 <Original>Spot distance</Original>
@@ -4482,6 +4617,7 @@
                 <Russian>Дистанция обнаружения</Russian>
                 <German>Erkennungsdistanz</German>
                 <Japanese>発見距離</Japanese>
+                <Chinesesimp>察敌距离</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SPOT_TIME">
                 <Original>Spot time</Original>
@@ -4490,6 +4626,7 @@
                 <Russian>Время обнаружения</Russian>
                 <German>Erkennungsdauer</German>
                 <Japanese>発見時間</Japanese>
+                <Chinesesimp>察敌速度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COURAGE">
                 <Original>Courage</Original>
@@ -4498,6 +4635,7 @@
                 <Russian>Смелость</Russian>
                 <German>Mut</German>
                 <Japanese>士気</Japanese>
+                <Chinesesimp>勇气</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_RELOAD_SPEED">
                 <Original>Reload speed</Original>
@@ -4506,6 +4644,7 @@
                 <Russian>Скорость перезарядки</Russian>
                 <German>Nachladegeschwindigkeit</German>
                 <Japanese>再装填速度</Japanese>
+                <Chinesesimp>装填速度</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COMMANIDNG">
                 <Original>Commanding</Original>
@@ -4514,6 +4653,7 @@
                 <Russian>Командование</Russian>
                 <German>Befehlen</German>
                 <Japanese>指揮能力</Japanese>
+                <Chinesesimp>指挥能力</Chinesesimp>
             </Key>
         </Container>
         <Container name="Enyo Suicide Bomber Module Strings">
@@ -4524,6 +4664,7 @@
                 <Russian>Надеть на человека "пояс шахида"</Russian>
                 <German>Einheit als Selbstmordattentäter einsetzen</German>
                 <Japanese>ユニットを自爆者として設定</Japanese>
+                <Chinesesimp>将单位设置为自杀炸弹</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_SIZE">
                 <Original>Explosion Size</Original>
@@ -4532,6 +4673,7 @@
                 <Russian>Сила взрыва</Russian>
                 <German>Explosionsstärke</German>
                 <Japanese>爆発規模</Japanese>
+                <Chinesesimp>爆炸规模</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_SIZE_SMALL">
                 <Original>Small</Original>
@@ -4540,6 +4682,7 @@
                 <Russian>Маленькая</Russian>
                 <German>Schwach</German>
                 <Japanese>小</Japanese>
+                <Chinesesimp>小型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_SIZE_MEDIUM">
                 <Original>Medium</Original>
@@ -4548,6 +4691,7 @@
                 <Russian>Средняя</Russian>
                 <German>Mittelstark</German>
                 <Japanese>中</Japanese>
+                <Chinesesimp>中型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_SIZE_LARGE">
                 <Original>Large</Original>
@@ -4556,6 +4700,7 @@
                 <Russian>Большая</Russian>
                 <German>Stark</German>
                 <Japanese>大</Japanese>
+                <Chinesesimp>大型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_EFFECT">
                 <Original>Explosion Effect</Original>
@@ -4564,6 +4709,7 @@
                 <Russian>Эффект от взрыва</Russian>
                 <German>Explosionseffekt</German>
                 <Japanese>爆発効果</Japanese>
+                <Chinesesimp>爆炸效果</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_EFFECT_DEADLY">
                 <Original>Deadly</Original>
@@ -4572,6 +4718,7 @@
                 <Russian>Смертельный</Russian>
                 <German>Verheerend</German>
                 <Japanese>致命的</Japanese>
+                <Chinesesimp>致命</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_EFFECT_DISABLING">
                 <Original>Disabling</Original>
@@ -4580,6 +4727,7 @@
                 <Russian>Калечащий</Russian>
                 <German>Ausserbetriebssetzend</German>
                 <Japanese>無効化</Japanese>
+                <Chinesesimp>致残</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_EFFECT_FAKE">
                 <Original>Fake</Original>
@@ -4588,6 +4736,7 @@
                 <Russian>Безвредный</Russian>
                 <German>Fake</German>
                 <Japanese>偽</Japanese>
+                <Chinesesimp>假冒</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_EXPLOSION_EFFECT_NONE">
                 <Original>None</Original>
@@ -4596,6 +4745,7 @@
                 <Russian>Без эффекта</Russian>
                 <German>Kein</German>
                 <Japanese>なし</Japanese>
+                <Chinesesimp>无</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_DISTANCE">
                 <Original>Activation Distance [m]</Original>
@@ -4604,6 +4754,7 @@
                 <Russian>Дистанция срабатывания (м)</Russian>
                 <German>Aktivierungsdistanz [m]</German>
                 <Japanese>活動範囲 [m]</Japanese>
+                <Chinesesimp>起爆距离[米]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_PATROL_RADIUS">
                 <Original>Patrol Radius [m]</Original>
@@ -4612,6 +4763,7 @@
                 <Russian>Радиус патрулирования (м)</Russian>
                 <German>Radius der Patrouille [m]</German>
                 <Japanese>巡回範囲 [m]</Japanese>
+                <Chinesesimp>巡逻半径[米]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_SIDE">
                 <Original>Activation Side</Original>
@@ -4620,12 +4772,14 @@
                 <Russian>Срабатывает на сторону</Russian>
                 <German>Aktivierungsseite</German>
                 <Japanese>対象陣営</Japanese>
+                <Chinesesimp>激活阵营</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ADD_SB_VEST">
                 <Original>Add Vest</Original>
                 <English>Add Vest</English>
                 <Russian>Добавить жилет</Russian>
                 <Japanese>ベストを追加</Japanese>
+                <Chinesesimp>添加背心</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ADD_ECM_TO_VEHICLE">
                 <Original>Equip with IED jammer</Original>
@@ -4634,6 +4788,7 @@
                 <Russian>Добавить постановщик помех</Russian>
                 <German>Mit Sprengfallenstörsender ausrüsten</German>
                 <Japanese>IED ジャマー付きを装備</Japanese>
+                <Chinesesimp>装备IED干扰器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ADD_ECM">
                 <Original>Add IED jammer</Original>
@@ -4642,6 +4797,7 @@
                 <Russian>Постановщик помех установлен</Russian>
                 <German>Mit Sprengfallenstörsender ausrüsten</German>
                 <Japanese>IED ジャマーを追加</Japanese>
+                <Chinesesimp>添加IED干扰器</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_SET_OBJECT_AS_IED">
                 <Original>Set Object as IED</Original>
@@ -4650,6 +4806,7 @@
                 <Russian>Создать СВУ из объекта</Russian>
                 <German>Objekt als Sprengfalle einsetzen</German>
                 <Japanese>物体を IED として設定</Japanese>
+                <Chinesesimp>将物体设为IED</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_CAN_BE_DISARMED">
                 <Original>Can be Disarmed</Original>
@@ -4658,6 +4815,7 @@
                 <Russian>Возможность деактивации</Russian>
                 <German>Kann entschärft werden</German>
                 <Japanese>解除可能</Japanese>
+                <Chinesesimp>可被排除</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_DISARM_TIME">
                 <Original>Disarm Time [s]</Original>
@@ -4666,6 +4824,7 @@
                 <Russian>Время на декативацию (сек)</Russian>
                 <German>Entschärfungsdauer [s]</German>
                 <Japanese>解除時間 [秒]</Japanese>
+                <Chinesesimp>排除时间[秒]</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_TYPE">
                 <Original>Activation Type</Original>
@@ -4674,6 +4833,7 @@
                 <Russian>Тип срабатывания</Russian>
                 <German>Aktivierungstyp</German>
                 <Japanese>起爆方法</Japanese>
+                <Chinesesimp>起爆类型</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_TYPE_MANUAL">
                 <Original>Manual</Original>
@@ -4682,6 +4842,7 @@
                 <Russian>Вручную</Russian>
                 <German>Manuel</German>
                 <Japanese>手動</Japanese>
+                <Chinesesimp>手动</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_TYPE_PROXIMITY">
                 <Original>Proximity</Original>
@@ -4690,6 +4851,7 @@
                 <Russian>На близость</Russian>
                 <German>Distanz</German>
                 <Japanese>近接</Japanese>
+                <Chinesesimp>近炸</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_ACTIVATION_TYPE_RADIO">
                 <Original>Radio</Original>
@@ -4698,6 +4860,7 @@
                 <Russian>Радиовзрыватель</Russian>
                 <German>Radio</German>
                 <Japanese>無線</Japanese>
+                <Chinesesimp>无线电</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ENYO_IS_JAMMABLE">
                 <Original>Is Jammable</Original>
@@ -4706,6 +4869,7 @@
                 <Russian>Помехоуязвимость</Russian>
                 <German>Kann gestört werden</German>
                 <Japanese>妨害可能に</Japanese>
+                <Chinesesimp>可否被干扰</Chinesesimp>
             </Key>
         </Container>
         <Container name="Change abilities module strings">
@@ -4714,84 +4878,98 @@
                 <English>Abilities</English>
                 <Russian>Способности</Russian>
                 <Japanese>能力</Japanese>
+                <Chinesesimp>能力</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_AIMING_ERROR">
                 <Original>Aiming error</Original>
                 <English>Aiming error</English>
                 <Russian>Ошибка прицеливания</Russian>
                 <Japanese>照準失敗</Japanese>
+                <Chinesesimp>瞄准失误</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_ANIM">
                 <Original>Anim</Original>
                 <English>Anim</English>
                 <Russian>Возможно поменять анимацию</Russian>
                 <Japanese>アニメ</Japanese>
+                <Chinesesimp>动画</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_AUTO_COMBAT">
                 <Original>Auto combat</Original>
                 <English>Auto combat</English>
                 <Russian>Автоматическое начало боя</Russian>
                 <Japanese>自動戦闘</Japanese>
+                <Chinesesimp>自动战斗</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_AUTOTARGET">
                 <Original>Autotarget</Original>
                 <English>Autotarget</English>
                 <Russian>Обнаружение/выбор цели</Russian>
                 <Japanese>自動捕捉</Japanese>
+                <Chinesesimp>目标搜寻</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_CHECK_VISIBLE">
                 <Original>Check visible</Original>
                 <English>Check visible</English>
                 <Russian>Проверять на обнаружение себя</Russian>
                 <Japanese>射線検知</Japanese>
+                <Chinesesimp>检查瞄准线</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_COVER">
                 <Original>Cover</Original>
                 <English>Cover</English>
                 <Russian>Использовать укрытия</Russian>
                 <Japanese>遮蔽</Japanese>
+                <Chinesesimp>掩护</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_FSM">
                 <Original>FSM</Original>
                 <English>FSM</English>
                 <Russian>Выполнять программу действий</Russian>
                 <Japanese>FSM</Japanese>
+                <Chinesesimp>FSM</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_MINE_DETECTION">
                 <Original>Mine Detection</Original>
                 <English>Mine Detection</English>
                 <Russian>Обнаруживать мины</Russian>
                 <Japanese>地雷検知</Japanese>
+                <Chinesesimp>排查地雷</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_MOVE">
                 <Original>Move</Original>
                 <English>Move</English>
                 <Russian>Разрешить двигаться</Russian>
                 <Japanese>移動</Japanese>
+                <Chinesesimp>移动</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_SUPPRESSION">
                 <Original>Suppression</Original>
                 <English>Suppression</English>
                 <Russian>Реагировать на обстрел</Russian>
                 <Japanese>制圧射撃</Japanese>
+                <Chinesesimp>压制</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_TARGET">
                 <Original>Target</Original>
                 <English>Target</English>
                 <Russian>Отслеживать выбранную цель</Russian>
                 <Japanese>目標</Japanese>
+                <Chinesesimp>目标</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_PATH">
                 <Original>Path</Original>
                 <English>Path</English>
                 <Russian>Разрешить перемещения</Russian>
                 <Japanese>経路</Japanese>
+                <Chinesesimp>路径</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_ABIL_COWARDICE">
                 <Original>Allow fleeing</Original>
                 <English>Allow fleeing</English>
                 <Russian>Трусость</Russian>
                 <Japanese>感情を許可</Japanese>
+                <Chinesesimp>允许溃逃</Chinesesimp>
             </Key>
         </Container>
         <Container name="cfg Waypoints">
@@ -4802,6 +4980,7 @@
                 <Russian>Задержка в точке маршрута</Russian>
                 <German>Verzögerung beim Wegpunkt</German>
                 <Japanese>経由地点での遅延</Japanese>
+                <Chinesesimp>于路径点暂停</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_CLOCKWISE">
                 <Original>clockwise</Original>
@@ -4810,6 +4989,7 @@
                 <Russian>По часовой срелке</Russian>
                 <German>im Uhrzeigersinn</German>
                 <Japanese>時計回り</Japanese>
+                <Chinesesimp>顺时针</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_COUNTERCLOCKWISE">
                 <Original>counterclockwise</Original>
@@ -4818,6 +4998,7 @@
                 <Russian>Против часовой стрелки</Russian>
                 <German>gegen den Uhrzeigersinn</German>
                 <Japanese>反時計回り</Japanese>
+                <Chinesesimp>逆时针</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_LIFT_CLOSEST">
                 <Original>LIFT CLOSEST CARGO</Original>
@@ -4826,6 +5007,7 @@
                 <Russian>ПОДНЯТЬ ГРУЗ РЯДОМ</Russian>
                 <German>Nächste Ladung heben</German>
                 <Japanese>近くの貨物を吊り下げ</Japanese>
+                <Chinesesimp>吊起最近的货仓</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FASTROPING">
                 <Original>FAST-ROPING (ACE/AR)</Original>
@@ -4834,6 +5016,7 @@
                 <Russian>СПУСК ПО ТРОСУ(ACE/AR)</Russian>
                 <German>FAST-ROPING (ACE/AR)</German>
                 <Japanese>ファストロープ (ACE/AR)</Japanese>
+                <Chinesesimp>快速索降（需要ACE或AR模组）</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_FASTROPING_WP_NAME">
                 <Original>FAST-ROPING</Original>
@@ -4842,6 +5025,7 @@
                 <Russian>СПУСК ПО ТРОСУ</Russian>
                 <German>FAST-ROPING</German>
                 <Japanese>ファストロープ</Japanese>
+                <Chinesesimp>快速索降</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PARADROP">
                 <Original>PARADROP</Original>
@@ -4850,6 +5034,7 @@
                 <Russian>ДЕСАНТИРОВАНИЕ</Russian>
                 <German>FALLSCHIRMABSPRUNG</German>
                 <Japanese>空挺</Japanese>
+                <Chinesesimp>空投</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>
@@ -4858,6 +5043,7 @@
                 <Russian>ЗАЧИСТКА ЗДАНИЯ</Russian>
                 <German>GEBÄUDE DURCHSUCHEN</German>
                 <Japanese>建物を捜索</Japanese>
+                <Chinesesimp>搜索建筑</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_WP_REPAIR">
                 <Original>REPAIR</Original>
@@ -4865,6 +5051,7 @@
                 <French>RÉPAREZ</French>
                 <German>REPARIERE</German>
                 <Japanese>修理</Japanese>
+                <Chinesesimp>维修</Chinesesimp>
             </Key>
         </Container>
         <Container name="cfg Hints">
@@ -4874,6 +5061,7 @@
                 <German>Module platzieren</German>
                 <English>Placing Modules</English>
                 <Japanese>設置可能モジュール</Japanese>
+                <Chinesesimp>放置模块</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
                 <Original>
