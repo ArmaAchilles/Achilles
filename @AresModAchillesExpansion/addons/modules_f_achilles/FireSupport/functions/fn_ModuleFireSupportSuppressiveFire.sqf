@@ -77,31 +77,28 @@ else
 	if (count ((units _unit) - (crew _unit)) > 0) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
 	// get all available muzzles for all occupied turrets
 	private _turrets = [[-1]] + (allTurrets _unit);
-	[_turrets, "_turrets"] call Achilles_fnc_log;
 	{
 		if (not isNull (_unit turretUnit _x)) then
 		{
 			{
-				[_x, "_x"] call Achilles_fnc_log;
 				if !(_x isEqualTo "" || _x in BLACKLIST_WEAPONS) then
 				{
 					private _configEntry = configFile >> "CfgWeapons" >> _x;
 					private _weaponName = getText (_configEntry >> "displayName");
 					private _muzzleArray = getArray (_configEntry >> "muzzles");
-					if (count _muzzleArray > 1) then
 					{
+						if (_x == "this") then
+						{
+							_weaponsToFire pushBack _weaponName;
+						}
+						else
 						{
 							_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, _x]);
-						} forEach _muzzleArray;
-					}
-					else
-					{
-						_weaponsToFire pushBack _weaponName;
-					};
+						};
+					} forEach _muzzleArray;
 				};
 			} forEach (_unit weaponsTurret _x);
 		};
-		[_unit weaponsTurret _x, "_unit weaponsTurret _x"] call Achilles_fnc_log;
 	} forEach _turrets;
 };
 if (_weaponsToFire isEqualTo []) exitWith {[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage};
