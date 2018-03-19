@@ -947,17 +947,17 @@
                 <German>Patrouillieren/Kreisen</German>
                 <Japanese>哨戒/巡回</Japanese>
             </Key>
-            <Key ID="STR_AMAE_NVD_TACLIGHT_IR">
-                <Original>NVD/Tactical Light/IR</Original>
-                <English>NVD/Tactical Light/IR</English>
-                <French>JVN/Lampe tactique/IR</French>
+            <Key ID="STR_AMAE_ADD_NVD_TACLIGHT_IR">
+                <Original>Add NVD/Tactical Light/IR</Original>
+                <English>Add NVD/Tactical Light/IR</English>
+                <French>Ajoutez JVN/Lampe tactique/IR</French>
                 <Russian>ПНВ/ИК ЛЦУ/Фонарик</Russian>
-                <German>Nachtsichtgerät/Taktisches Licht/IR</German>
+                <German>Nachtsichtgerät/Taktisches Licht/IR hinzufügen</German>
                 <Japanese>NVD/タクティカル ライト/IR</Japanese>
             </Key>
-            <Key ID="STR_AMAE_TACLIGHT_IR_ON_OFF">
-                <Original>Tactical Light/IR Laser On/Off</Original>
-                <English>Tactical Light/IR Laser On/Off</English>
+            <Key ID="STR_AMAE_TOGGLE_TACLIGHT_IR">
+                <Original>Toggle Tactical Light/IR Laser</Original>
+                <English>Toggle Tactical Light/IR Laser</English>
                 <French>Allumez/Eteindez la Lampe/ le Laser IR </French>
                 <Russian>Фонарик/ИК ЛЦУ Вкл/Выкл</Russian>
                 <German>Taktisches Licht/IR Laser an/aus</German>
