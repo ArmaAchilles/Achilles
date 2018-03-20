@@ -53,5 +53,11 @@ class RscDisplayAttributesMan: RscDisplayAttributes
 								}";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
+        class ButtonFlag : ButtonCustomLeft2
+		{
+			text = "$STR_AMAE_FLAG";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setFlag";
+			colorBackground[] = {0.518,0.016,0,0.8};			
+		};
 	};
 };

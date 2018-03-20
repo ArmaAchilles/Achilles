@@ -1046,18 +1046,24 @@
                 <Japanese>哨戒/巡回</Japanese>
                 <Chinesesimp>巡逻/游荡</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_NVD_TACLIGHT_IR">
-                <Original>NVD/Tactical Light/IR</Original>
-                <English>NVD/Tactical Light/IR</English>
-                <French>JVN/Lampe tactique/IR</French>
+            <Key ID="STR_AMAE_ADD_NVD_TACLIGHT_IR">
+                <Original>Add NVD/Tactical Light/IR</Original>
+                <English>Add NVD/Tactical Light/IR</English>
+                <French>Ajoutez JVN/Lampe tactique/IR</French>
                 <Russian>ПНВ/ИК ЛЦУ/Фонарик</Russian>
-                <German>Nachtsichtgerät/Taktisches Licht/IR</German>
+                <German>Nachtsichtgerät/Taktisches Licht/IR hinzufügen</German>
                 <Japanese>NVD/タクティカル ライト/IR</Japanese>
                 <Chinesesimp>夜视仪/战术手电/红外激光</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_TACLIGHT_IR_ON_OFF">
-                <Original>Tactical Light/IR Laser On/Off</Original>
-                <English>Tactical Light/IR Laser On/Off</English>
+            <Key ID="STR_AMAE_ATTACH_DETACH_EFFECT">
+                <Original>Attach/Detach Effect</Original>
+                <English>Attach/Detach Effect</English>
+                <French>Attachez/Détachez un effet</French>
+                <German>Effekt anheften/entfernen</German>
+            </Key>
+            <Key ID="STR_AMAE_TOGGLE_TACLIGHT_IR">
+                <Original>Toggle Tactical Light/IR Laser</Original>
+                <English>Toggle Tactical Light/IR Laser</English>
                 <French>Allumez/Eteindez la Lampe/ le Laser IR </French>
                 <Russian>Фонарик/ИК ЛЦУ Вкл/Выкл</Russian>
                 <German>Taktisches Licht/IR Laser an/aus</German>
@@ -3149,9 +3155,35 @@
             <Key ID="STR_AMAE_SENSORS">
                 <Original>SENSORS</Original>
                 <English>SENSORS</English>
+                <French>SENSEURS</French>
+                <German>SENSOREN</German>
                 <Russian>РАДАР</Russian>
                 <Japanese>センサー</Japanese>
                 <Chinesesimp>传感器</Chinesesimp>
+            </Key>
+            <Key ID="STR_AMAE_FLAG">
+                <Original>FLAG</Original>
+                <English>FLAG</English>
+                <French>DRAPEAU</French>
+                <German>FLAGGE</German>
+            </Key>
+            <Key ID="STR_AMAE_FLAG_SC">
+                <Original>Flag</Original>
+                <English>Flag</English>
+                <French>Drapeau</French>
+                <German>Flagge</German>
+            </Key>
+            <Key ID="STR_AMAE_SET_FLAG_FOR_X">
+                <Original>Set Flag for %1</Original>
+                <English>Set Flag for %1</English>
+                <French>Mettez un drapeau pour %1</French>
+                <German>Flagge festlegen für %1</German>
+            </Key>
+            <Key ID="STR_AMAE_NO_FLAG">
+                <Original>No Flag</Original>
+                <English>No Flag</English>
+                <French>Pas de drapeau</French>
+                <German>Keine Flagge</German>
             </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>

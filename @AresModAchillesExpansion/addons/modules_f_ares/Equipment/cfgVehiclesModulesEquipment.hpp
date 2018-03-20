@@ -16,13 +16,13 @@ class Ares_Module_Equipment_Turret_Optics : Ares_Equipment_Module_Base
 class Ares_Module_Equipment_Flashlight_IR_ON_OFF : Ares_Equipment_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_AMAE_TACLIGHT_IR_ON_OFF";
+	displayName = "$STR_AMAE_TOGGLE_TACLIGHT_IR";
 	function = "Ares_fnc_EquipmentFlashlightIRLaserOnOff";
 };
 
 class Ares_Module_Equipment_NVD_TACLIGHT_IR : Ares_Equipment_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_AMAE_NVD_TACLIGHT_IR";
+	displayName = "$STR_AMAE_ADD_NVD_TACLIGHT_IR";
 	function = "Ares_fnc_EquipmentNVDRailAttachment";
 };

@@ -11,6 +11,7 @@ class CfgFunctions
 		#include "FireSupport\cfgFunctionsFireSupport.hpp"
 		#include "Buildings\cfgFunctionsBuildings.hpp"
 		#include "Effects\cfgFunctionsEffects.hpp"
+		#include "Equipment\cfgFunctionsEquipment.hpp"
 		#include "MissionFlow\cfgFunctionsMissionFlow.hpp"
 		#include "Objects\cfgFunctionsObjects.hpp"
 		#include "Player\cfgFunctionsPlayer.hpp"
