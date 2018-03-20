@@ -27,19 +27,19 @@ private _flags = [[], []]; // [["Flag Display Name"], ["Flag File Path"]]
 		{
 			(_flags select 0) pushBack _displayName; // Display Name
 
-			(_flags select 1) pushBack ((_eventHandlerInit splitString "'''") select 1); // File path
+			(_flags select 1) pushBack toLower ((_eventHandlerInit splitString "'''") select 1); // File path
 		};
 	};
 } forEach ("(str _x find 'Flag') >= 0" configClasses (configFile >> "CfgVehicles"));
 
-diag_log (_flags select 0);
-diag_log (_flags select 1);
+private _defaultIdx = (_flags select 1) find (["\", getForcedFlagTexture _vehicle] joinString "");
+if (_defaultIdx isEqualTo -1) then {_defaultIdx = 0};
 
 private _dialogResult =
 [
 	format [localize "STR_AMAE_SET_FLAG", getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName")],
 	[
-		["COMBOBOX", localize "STR_AMAE_FLAG_SC", _flags select 0, 0, false, [], _flags select 1]
+		["COMBOBOX", localize "STR_AMAE_FLAG_SC", _flags select 0, _defaultIdx, true, [], _flags select 1]
 	]
 ] call Achilles_fnc_showChooseDialog;
 
@@ -53,6 +53,5 @@ _dialogResult params ["_flag"];
 if (_flag != 0) then
 {
 	_flag = (_flags select 1) select _flag;
-
 	_vehicle forceFlagTexture _flag;
 };
