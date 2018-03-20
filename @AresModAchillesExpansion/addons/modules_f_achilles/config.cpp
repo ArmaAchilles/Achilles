@@ -30,6 +30,7 @@ class CfgPatches
 			"Achilles_Set_Weather_Module",
 			"Achilles_Set_Date_Module",
 			"Achilles_Earthquake_Module",
+			"Achilles_Module_Equipment_Attach_Dettach_Effect",
 			"Achilles_Suppressive_Fire_Module",
 			"Achilles_Module_FireSupport_CASGun",
 			"Achilles_Module_FireSupport_CASMissile",

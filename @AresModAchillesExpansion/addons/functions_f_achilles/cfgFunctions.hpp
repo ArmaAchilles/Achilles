@@ -106,6 +106,7 @@ class CfgFunctions
 			class ArsenalSetup;
 			class ArsenalSetupACE;
 			class instantBuildingGarrison;
+            class setFlag;
 		};
 	};
 
