@@ -955,6 +955,12 @@
                 <German>Nachtsichtgerät/Taktisches Licht/IR hinzufügen</German>
                 <Japanese>NVD/タクティカル ライト/IR</Japanese>
             </Key>
+            <Key ID="STR_AMAE_ATTACH_DETACH_EFFECT">
+                <Original>Attach/Detach Effect</Original>
+                <English>Attach/Detach Effect</English>
+                <French>Attachez/Détachez un effet</French>
+                <German>Effekt anheften/entfernen</German>
+            </Key>
             <Key ID="STR_AMAE_TOGGLE_TACLIGHT_IR">
                 <Original>Toggle Tactical Light/IR Laser</Original>
                 <English>Toggle Tactical Light/IR Laser</English>
@@ -2801,24 +2807,34 @@
             <Key ID="STR_AMAE_SENSORS">
                 <Original>SENSORS</Original>
                 <English>SENSORS</English>
+                <French>SENSEURS</French>
+                <German>SENSOREN</German>
                 <Russian>РАДАР</Russian>
                 <Japanese>センサー</Japanese>
             </Key>
             <Key ID="STR_AMAE_FLAG">
                 <Original>FLAG</Original>
                 <English>FLAG</English>
+                <French>DRAPEAU</French>
+                <German>FLAGGE</German>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
                 <English>Flag</English>
+                <French>Drapeau</French>
+                <German>Flagge</German>
             </Key>
-            <Key ID="STR_AMAE_SET_FLAG">
+            <Key ID="STR_AMAE_SET_FLAG_FOR_X">
                 <Original>Set Flag for %1</Original>
                 <English>Set Flag for %1</English>
+                <French>Mettez un drapeau pour %1</French>
+                <German>Flagge festlegen für %1</German>
             </Key>
             <Key ID="STR_AMAE_NO_FLAG">
                 <Original>No Flag</Original>
                 <English>No Flag</English>
+                <French>Pas de drapeau</French>
+                <German>Keine Flagge</German>
             </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>
