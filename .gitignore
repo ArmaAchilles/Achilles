@@ -1,13 +1,10 @@
-@Release/*
 Tools/AchillesTestServer.bat
 *.bikey
 *.biprivatekey
 *.pbo
 *.bisign
 *.lnk
-.vscode/
-
-.idea
-/*.iml
+*.vscode
+*.idea
+*.iml
 *.ini
-Tools/AddonBuilder/config.ini
