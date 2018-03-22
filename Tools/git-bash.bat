@@ -8,8 +8,8 @@ IF %ERRORLEVEL% NEQ 0 (
 
 WHICH tmux.exe > NUL
 IF %ERRORLEVEL% NEQ 1 (
-	start "" git-bash.exe -c "tmux new-session \"bash -c 'cd ../@AresModAchillesExpansion/addons;$SHELL'\"\; split-window -v -t 0 \"bash -c 'cd ../@AresModAchillesExpansion/addons;$SHELL'\"\; split-window -v -t 1"
+	start "" git-bash.exe -c "tmux new-session \"bash -c 'cd ../@achilles/addons;$SHELL'\"\; split-window -v -t 0 \"bash -c 'cd ../@achilles/addons;$SHELL'\"\; split-window -v -t 1"
 ) else (
-	start "" git-bash.exe -c "bash -c 'cd ../@AresModAchillesExpansion/addons;$SHELL'"
+	start "" git-bash.exe -c "bash -c 'cd ../@achilles/addons;$SHELL'"
 )
 @ECHO ON

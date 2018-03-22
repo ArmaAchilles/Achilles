@@ -6,7 +6,7 @@ before_script:
 script:
   - python3 Tools/sqf_validator.py
   - python3 Tools/config_style_checker.py
-  - sqflint -d @AresModAchillesExpansion/addons
+  - sqflint -d @achilles/addons
 notifications:
   email: false
   webhooks:
