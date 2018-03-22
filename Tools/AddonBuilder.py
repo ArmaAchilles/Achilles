@@ -22,16 +22,17 @@ class AddonBuilder:
 	
 	class Procs:
 		'''
-		Class for the running subprocesses
+		Class for the running subprocesses in parallel
 		'''
-		def __init__(self, procList=[]):
-			self.list = procList
+		def __init__(self):
+			self.list = []
 			self.outputs = []
 		def __enter__(self):
 			return self
 		def __exit__(self, *args):
 			del self
-		def add(self, proc):
+		def spawn(self, *args, **kwargs):
+			proc = subprocess.Popen(*args, **kwargs, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
 			self.list.append(proc)
 		def wait(self):
 			for proc in self.list:
@@ -94,7 +95,7 @@ class AddonBuilder:
 			exit:	True: exits script and returns 0 (default: False)
 			pause:	if exit and pause are True, then PRESS ENTER TO CONTINUE will appear (default: False)
 			'''
-			cls._stream(*text, _colprefix="\033[01;32m", _colpostfix="\033[0m", **kwargs)
+			cls._stream(*text, **kwargs, _colprefix="\033[01;32m", _colpostfix="\033[0m")
 		@classmethod
 		def stderr(cls, *text, **kwargs):
 			'''
@@ -108,7 +109,7 @@ class AddonBuilder:
 			exit:	True: exits script and returns 1 (default: False)
 			pause:	if exit and pause are True, then PRESS ENTER TO CONTINUE will appear (default: False)
 			'''
-			cls._stream(*text, _colprefix="\033[01;31m", _colpostfix="\033[0m", _stream=sys.stderr, **kwargs)
+			cls._stream(*text, **kwargs, _colprefix="\033[01;31m", _colpostfix="\033[0m", _stream=sys.stderr)
 		
 	# initialization
 	def __init__(self):
@@ -266,8 +267,7 @@ class AddonBuilder:
 			for entry in os.scandir(self.project.pboFolderPath):
 				if entry.is_dir():
 					self.Print.stdout("Packing", entry.name, "...")
-					proc = subprocess.Popen('"{}" "{}" "{}" -sign="{}" -prefix="{}\\{}" "-packonly" "-binarizeFullLogs"'.format(self.exePath, entry.path, self.project.pboFolderPath, self.project.biprivatekeyPath, self.project.pboPrefix, entry.name), shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
-					self.procs.add(proc)
+					self.procs.spawn('"{}" "{}" "{}" -sign="{}" -prefix="{}\\{}" "-packonly" "-binarizeFullLogs"'.format(self.exePath, entry.path, self.project.pboFolderPath, self.project.biprivatekeyPath, self.project.pboPrefix, entry.name), shell=True)
 			# wait for all subprocs
 			self.procs.wait()
 			# print error messages
