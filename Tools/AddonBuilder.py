@@ -11,6 +11,15 @@ class AddonBuilder:
 	# subclasses
 	class project:
 		pass
+	class procs:
+		list = []
+		outputs = []
+	class discord:
+		pass
+	class github:
+		pass
+	class workshop:
+		pass
 	# initialization
 	def __init__(self):
 		# get paths
@@ -38,19 +47,20 @@ class AddonBuilder:
 		self.config =  configparser.ConfigParser()
 		self.config.path = os.path.join(self.pyFilePath, "AddonBuilder.ini")
 		# run the builder
-		self.procs = []
+		self.procs.list = []
 		if self.args.configure:
-			# open configurations if -s flag is present
-			self.configurations()
+			# open configurations if -c flag is present
+			self.configuration()
 		else:
 			# pack the add-on otherwise
 			self.load()
 			self.pack()
 	# methods
-	def configurations(self):
+	def configuration(self):
 		'''
 		Opens the configurations interface for the project
 		'''
+		# check if a config for the rpject exist
 		try:
 			self.config.read(self.config.path)
 			self.config[self.project.name]
@@ -62,10 +72,9 @@ class AddonBuilder:
 				import winreg
 				try:
 					reg = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
-					k = winreg.OpenKey(reg, r"Software\Valve\Steam")
-					self.steamFolderPath = winreg.QueryValueEx(k, "SteamPath")[0]
+					entries = winreg.OpenKey(reg, r"Software\Valve\Steam")
+					self.steamFolderPath = winreg.QueryValueEx(entries, "SteamPath")[0]
 					self.steamFolderPath = self.steamFolderPath.replace("/", os.path.sep)
-					print(os.path.sep)
 				except FileNotFoundError:
 					pass
 			elif os.name == "posix":
@@ -83,7 +92,7 @@ class AddonBuilder:
 							print("Error: Your given path was invalid!")
 							continue
 				except KeyboardInterrupt:
-					print("Cancled!")
+					print("Canceled!")
 					sys.exit(1)
 			# generate a provisional config file
 			with open(self.config.path, "a") as configStream:
@@ -102,6 +111,7 @@ class AddonBuilder:
 				configStream.write("bikeyFolderPath = {}\n".format(os.path.join(self.steamFolderPath, "steamapps", "common", "Arma 3", "@" + self.project.name, "keys")))
 				configStream.write("# Path to the biprivatekey folder. A new key is generated if it does not exist in there.\n")
 				configStream.write("biprivatekeyFolderPath = {}\n".format(os.path.join(self.steamFolderPath, "steamapps", "common", "Arma 3 Tools", "DSSignFile", "privateKeys")))
+		# open the config file
 		print("Open configurations of", self.project.name)
 		if sys.platform.startswith("darwin"):
 			subprocess.call(["open", self.config.path])
@@ -121,7 +131,9 @@ class AddonBuilder:
 			self.config.read(self.config.path)
 			self.config[self.project.name]
 		except KeyError:
-			sys.stderr.write("Error: You have to configure your project first!\nTherefore, use the -c flag.")
+			sys.stderr.write("Error: You have to configure your project first!\n")
+			self.configuration()
+			sys.stderr.write("AddonBuilder canceled!\n")
 			sys.exit(1)
 		# read from config
 		self.toolsPath = self.config[self.project.name]["toolsPath"]
@@ -152,25 +164,30 @@ class AddonBuilder:
 		'''
 		Packs the project
 		'''
-		# get platform dependent keyword arguments for the subprocess
-		if os.name == "nt":
-			# creates a new command prompt for the subprocess
-			self.procKwargs = {"creationflags":subprocess.CREATE_NEW_CONSOLE}
-		else:
-			self.procKwargs = {"shell":True}
 		# generate a bikey if needed
 		self.genBikey()
 		# pack folders
 		print("Packing", self.project.name, self.project.version, "...")
 		for entry in os.scandir(self.project.pboFolderPath):
 			if entry.is_dir():
-				proc = subprocess.Popen('"{}" "{}" "{}" -sign="{}" -prefix="{}" "-packonly" "-binarizeFullLogs"'.format(self.exePath, entry.path, self.project.pboFolderPath, self.project.biprivatekeyPath, os.path.join(self.project.pboPrefix, entry.name)), **self.procKwargs)
-				self.procs.append(proc)
-		exitCodes = [proc.wait() for proc in self.procs]
-		if 1 in exitCodes:
-			sys.stderr.write("Error: AddonBuilder could not pack PBOs!\nEither the paths are wrong or Steam is not running.\n")
-			sys.exit(1)
-		self.procs = []
+				proc = subprocess.Popen('"{}" "{}" "{}" -sign="{}" -prefix="{}" "-packonly" "-binarizeFullLogs"'.format(self.exePath, entry.path, self.project.pboFolderPath, self.project.biprivatekeyPath, os.path.join(self.project.pboPrefix, entry.name)), shell=True, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+				self.procs.list.append(proc)
+		# wait for all subprocs
+		for proc in self.procs.list:
+			proc.wait()
+		# print error messages
+		self.procs.outputs = [proc.stdout.read().decode("UTF-8") for proc in self.procs.list]
+		for output in self.procs.outputs:
+			for line in output.split("\n"):
+				messageType = line[27:32]
+				if os.name == "posix":
+					# use ANSI red for stderr
+					line = "\033[01;31m" + line + "\033[0m"
+				if messageType == "ERROR":
+					sys.stderr.write(line + "\n")
+				elif messageType == "FATAL":
+					sys.stderr.write(line + "\n")
+					sys.exit(1)
 		print("Packing completed!")
 	
 	def genBikey(self):
