@@ -70,6 +70,11 @@ git checkout -b <branch B> <branch A>
 git push --set-upstream origin <branch B>`
 ```
 
+## Fetch a remote PR with the given ID as BRANCHNAME
+```bash
+git fetch origin pull/ID/head:BRANCHNAME
+```
+
 ## Switch branch
 
 ```bash
