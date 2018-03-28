@@ -17,6 +17,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jip", false, [false, "", objNull]]];
+// Disclaimer: Keep clientOwner as default _target!!!
 
 // for singleplayer
 if (not isMultiplayer) exitWith {_args spawn _code};
