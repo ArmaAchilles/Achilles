@@ -39,6 +39,6 @@ if(count _dialogResult > 0) then
 	_source setLightAmbient  _rgb_color;
 	_source setLightColor _rgb_color;
 	_source setLightAttenuation _attenuation;
-},0,_source] call Achilles_fnc_spawn;
+}, 0, _source] call Achilles_fnc_spawn;
 
 Achilles_var_AttributeWindowTargetObject = nil;

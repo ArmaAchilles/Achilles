@@ -8,8 +8,6 @@
 params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jipId", false, [false, ""]]];
 
 private _rc_owner = remoteExecutedOwner;
-// execute code if rc owner is server
-if (_rc_owner == 2) exitWith { _args call _code };
 
 if (isServer) then
 {
