@@ -4,10 +4,6 @@
 if (isNil "Achilles_var_surrender_init_done") then
 {
 	publicVariable "Ares_fnc_surrenderUnit";
-	STR_AMAE_RELEASE_UNIT = localize "STR_AMAE_RELEASE_UNIT";
-	publicVariable "STR_AMAE_RELEASE_UNIT";
-	STR_AMAE_TIE_UNIT = localize "STR_AMAE_TIE_UNIT";
-	publicVariable "STR_AMAE_TIE_UNIT";
 	Achilles_var_surrender_init_done = true;
 };
 //Broadcast animation function

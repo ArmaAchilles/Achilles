@@ -1574,6 +1574,7 @@
                 <Original>None</Original>
                 <English>None</English>
                 <Russian>Нет</Russian>
+                <German>Keine</German>
                 <Japanese>無し</Japanese>
             </Key>
             <Key ID="STR_AMAE_CREATED_TELEPORT">
@@ -1586,6 +1587,7 @@
                 <Original>Teleport to %1</Original>
                 <English>Teleport to %1</English>
                 <Russian>Телепортация в точку %1</Russian>
+				<German>Teleportiere nach %1</German>
                 <Japanese>%1 へテレポート</Japanese>
             </Key>
             <Key ID="STR_AMAE_RELEASE_UAV_CONTROLS">
