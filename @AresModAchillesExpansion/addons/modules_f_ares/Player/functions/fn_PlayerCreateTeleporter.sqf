@@ -52,39 +52,39 @@ if (isNil "Ares_TeleportMarkers") then
 	
 	// Create a function in the mission namespace on all players machines to add the
 	// teleport action.
-	Ares_fnc_updateTeleportMarkerActions =
-	{
+	Ares_fnc_updateTeleportMarkerActions = compile
+	("
 		private _actionCode =
 		{
 			private _teleportTarget = param[3];
 			if (not alive _teleportTarget) then
 			{
-				hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
+				hint """ + localize "STR_AMAE_NO_TELEPORT_DESTINATION" + """;
 				sleep 3;
-				hintSilent "";
+				hintSilent """";
 			}
 			else
 			{
-				titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1];  sleep 1; titleFadeOut 2;
+				titleText [""" + localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED" + """, ""BLACK"", 1];  sleep 1; titleFadeOut 2;
 				player setPosATL (getPosATL _teleportTarget);
 			};
 		};
 		
 		private _tpMarkerCounter = count Ares_TeleportMarkers;
-		for "_idx_tpMarkerA" from 0 to (_tpMarkerCounter - 1) do
+		for ""_idx_tpMarkerA"" from 0 to (_tpMarkerCounter - 1) do
 		{
 			private _tpMarkerA = Ares_TeleportMarkers select _idx_tpMarkerA;
-			private _actionNameToA = format [localize "STR_AMAE_TELEPORT_TO", _tpMarkerA getVariable ["teleportMarkerName", "??"]];
+			private _actionNameToA = format [""" + localize "STR_AMAE_TELEPORT_TO" + """, _tpMarkerA getVariable [""teleportMarkerName"", ""??""]];
 			removeAllActions _tpMarkerA;
-			for "_idx_tpMarkerB" from 0 to (_idx_tpMarkerA - 1) do
+			for ""_idx_tpMarkerB"" from 0 to (_idx_tpMarkerA - 1) do
 			{
 				private _tpMarkerB = Ares_TeleportMarkers select _idx_tpMarkerB;
-				private _actionNameToB = format [localize "STR_AMAE_TELEPORT_TO", _tpMarkerB getVariable ["teleportMarkerName", "??"]];
+				private _actionNameToB = format [""" + localize "STR_AMAE_TELEPORT_TO" + """, _tpMarkerB getVariable [""teleportMarkerName"", ""??""]];
 				_tpMarkerA addAction [_actionNameToB, _actionCode, _tpMarkerB];
 				_tpMarkerB addAction [_actionNameToA, _actionCode, _tpMarkerA];
 			};
 		};
-	};
+	");
 	publicVariable "Ares_fnc_updateTeleportMarkerActions";
 	_isFirstCallToCreateTeleporter = true;
 };
@@ -95,7 +95,7 @@ Ares_TeleportMarkers pushBack _teleportMarker;
 publicVariable "Ares_TeleportMarkers";
 
 // set teleporter name
- _dialogResult params ["_teleportMarkerName"];
+_dialogResult params ["_teleportMarkerName"];
 _teleportMarker setVariable ["teleportMarkerName", _teleportMarkerName, true];
 
 // Call this to add the teleport marker actions on all machines. Persistent for JIP people as well.
