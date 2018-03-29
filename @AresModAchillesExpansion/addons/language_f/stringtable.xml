@@ -2956,6 +2956,12 @@
                 <German>Gleichmäßig verteilen</German>
                 <Japanese>全て埋める</Japanese>
             </Key>
+            <Key ID="STR_AMAE_SET_A_BREACHING_CHARGE">
+                <Original>Set a breaching charge</Original>
+                <English>Set a breaching charge</English>
+                <French>Mettez une charge explosive</French>
+                <German>Sprengladung setzen</German>
+            </Key>
         </Container>
         <Container name="TFAR integration dialog">
             <Key ID="STR_AMAE_SET_SR_FREQ">

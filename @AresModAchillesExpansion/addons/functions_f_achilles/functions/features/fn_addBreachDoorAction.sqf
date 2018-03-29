@@ -14,9 +14,17 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 params [["_unit",objNull,[objNull]]];
 if (isNull _unit) exitWith {diag_log "Error in Achilles_fnc_addBreachDoorAction: Passed objNull!"};
+private _actionName = if (isLocalized "STR_AMAE_SET_A_BREACHING_CHARGE") then
+{
+	localize "STR_AMAE_SET_A_BREACHING_CHARGE";
+}
+else
+{
+	"Set a Breaching Charge";
+};
 private _id = [
 	_unit,
-	"Set a Breaching Charge",
+	_actionName,
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"({_this distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines _this or {""rhsusf_m112_mag"" in magazines _this}}",
