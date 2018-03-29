@@ -57,41 +57,56 @@ if (isNil "Ares_TeleportMarkers") then
 		private _actionCode =
 		{
 			private _teleportTarget = param[3];
+			private _message = "Destination no longer exists!";
 			if (not alive _teleportTarget) then
 			{
 				if (isLocalized "STR_AMAE_NO_TELEPORT_DESTINATION") then
 				{
-					hint localize "STR_AMAE_NO_TELEPORT_DESTINATION";
+					_message = localize "STR_AMAE_NO_TELEPORT_DESTINATION";
 				}
 				else
 				{
-					hint STR_AMAE_NO_TELEPORT_DESTINATION;
+					if (Achilles_var_zeusLanguage == language player) then
+					{
+						_message = STR_AMAE_NO_TELEPORT_DESTINATION;
+					};
 				};
+				hint _message;
 				sleep 3;
 				hintSilent "";
 			}
 			else
 			{
+				private _message = "You are beeing teleported..."
 				if (isLocalized "STR_AMAE_YOU_ARE_BEING_TELEPORTED") then
 				{
-					titleText [localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED", "BLACK", 1];
+					_message = localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED";
 				}
 				else
 				{
-					titleText [STR_AMAE_YOU_ARE_BEING_TELEPORTED, "BLACK", 1];
+
+					if (Achilles_var_zeusLanguage == language player) then
+					{
+						_message = STR_AMAE_YOU_ARE_BEING_TELEPORTED;
+					};
 				};
+				titleText [_message, "BLACK", 1];
 				sleep 1;
 				titleFadeOut 2;
 				player setPosATL (getPosATL _teleportTarget);
 			};
 		};
-		private _actionNameFormatString = if (isLocalized "STR_AMAE_TELEPORT_TO") then
+		private _actionNameFormatString =  "Teleport to %1";
+		if (isLocalized "STR_AMAE_TELEPORT_TO") then
 		{
-			localize "STR_AMAE_TELEPORT_TO";
+			_actionNameFormatString = localize "STR_AMAE_TELEPORT_TO";
 		}
 		else
 		{
-			STR_AMAE_TELEPORT_TO;
+			if (Achilles_var_zeusLanguage == language player) then
+			{
+				_actionNameFormatString = STR_AMAE_TELEPORT_TO;
+			};
 		};
 		private _tpMarkerCounter = count Ares_TeleportMarkers;
 		for "_idx_tpMarkerA" from 0 to (_tpMarkerCounter - 1) do
@@ -115,6 +130,8 @@ if (isNil "Ares_TeleportMarkers") then
 	publicVariable "STR_AMAE_YOU_ARE_BEING_TELEPORTED";
 	STR_AMAE_TELEPORT_TO = localize "STR_AMAE_TELEPORT_TO";
 	publicVariable "STR_AMAE_TELEPORT_TO";
+	Achilles_var_zeusLanguage = language player;
+	publicVariable Achilles_var_zeusLanguage;
 	_isFirstCallToCreateTeleporter = true;
 };
 

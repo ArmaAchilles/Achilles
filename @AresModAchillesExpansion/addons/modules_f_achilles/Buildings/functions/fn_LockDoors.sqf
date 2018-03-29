@@ -55,7 +55,9 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 	publicVariable "STR_AMAE_SET_A_BREACHING_CHARGE";
 	STR_AMAE_TOUCH_OFF_BREACH = localize "STR_AMAE_TOUCH_OFF_BREACH";
 	publicVariable "STR_AMAE_TOUCH_OFF_BREACH";
-
+	Achilles_var_zeusLanguage = language player;
+	publicVariable Achilles_var_zeusLanguage;
+	
 	[[],
 	{
 		while {isNull player} do {uiSleep 1};
