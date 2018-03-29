@@ -2962,6 +2962,12 @@
                 <French>Mettez une charge explosive</French>
                 <German>Sprengladung setzen</German>
             </Key>
+            <Key ID="STR_AMAE_TOUCH_OFF_BREACH">
+                <Original>Touch off (breach)</Original>
+                <English>Touch off (breach)</English>
+                <French>Déclencher (défoncer la porte)</French>
+                <German>Auslösen (Türe aufbrechen)</German>
+            </Key>
         </Container>
         <Container name="TFAR integration dialog">
             <Key ID="STR_AMAE_SET_SR_FREQ">

@@ -20,7 +20,7 @@ private _actionName = if (isLocalized "STR_AMAE_SET_A_BREACHING_CHARGE") then
 }
 else
 {
-	"Set a Breaching Charge";
+	STR_AMAE_SET_A_BREACHING_CHARGE;
 };
 private _id = [
 	_unit,
@@ -55,7 +55,15 @@ private _id = [
 		// set variables and event handlers
 		_caller setVariable ["breach", _charge];
 		_sourceObject setVariable ["occupied",true];
-		private _action_id = _caller addAction ["Touch off (breach)",
+		private _actionName = if (isLocalized "STR_AMAE_TOUCH_OFF_BREACH") then
+		{
+			localize "STR_AMAE_TOUCH_OFF_BREACH";
+		}
+		else
+		{
+			STR_AMAE_TOUCH_OFF_BREACH;
+		};
+		private _action_id = _caller addAction [_actionName,
 		{
 			params ["_", "_caller", "_ID", "_arguments"];
 			_caller removeAction _ID;

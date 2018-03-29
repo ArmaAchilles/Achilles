@@ -65,7 +65,7 @@ if (_animIndex == -1) then
 	}
 	else
 	{
-		["Release unit", "Release unit", "Tie unit"] select _interactionIndex;
+		[STR_AMAE_RELEASE_UNIT, STR_AMAE_RELEASE_UNIT, STR_AMAE_TIE_UNIT] select _interactionIndex;
 	};
 
 	// Set unit captive
