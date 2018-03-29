@@ -190,5 +190,5 @@ switch(_smokeType) do
 	};
 };
 
-[_particleSources + [_sourceObject],_codeblock,0,true] call Achilles_fnc_spawn;
+[_particleSources + [_sourceObject], _codeblock, 0, _sourceObject] call Achilles_fnc_spawn;
 _particleSources
