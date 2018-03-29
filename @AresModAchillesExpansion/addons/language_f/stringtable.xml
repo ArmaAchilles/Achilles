@@ -1761,6 +1761,7 @@
                 <Original>None</Original>
                 <English>None</English>
                 <Russian>Нет</Russian>
+                <German>Keine</German>
                 <Japanese>無し</Japanese>
                 <Chinesesimp>无</Chinesesimp>
             </Key>
@@ -1775,6 +1776,7 @@
                 <Original>Teleport to %1</Original>
                 <English>Teleport to %1</English>
                 <Russian>Телепортация в точку %1</Russian>
+				<German>Teleportiere nach %1</German>
                 <Japanese>%1 へテレポート</Japanese>
                 <Chinesesimp>传送至%1</Chinesesimp>
             </Key>
@@ -3320,6 +3322,18 @@
                 <German>Gleichmäßig verteilen</German>
                 <Japanese>全て埋める</Japanese>
                 <Chinesesimp>均匀分配</Chinesesimp>
+            </Key>
+            <Key ID="STR_AMAE_SET_A_BREACHING_CHARGE">
+                <Original>Set a breaching charge</Original>
+                <English>Set a breaching charge</English>
+                <French>Mettez une charge explosive</French>
+                <German>Sprengladung setzen</German>
+            </Key>
+            <Key ID="STR_AMAE_TOUCH_OFF_BREACH">
+                <Original>Touch off (breach)</Original>
+                <English>Touch off (breach)</English>
+                <French>Déclencher (défoncer la porte)</French>
+                <German>Auslösen (Türe aufbrechen)</German>
             </Key>
         </Container>
         <Container name="TFAR integration dialog">

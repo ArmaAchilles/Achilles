@@ -61,6 +61,7 @@ if (_animIndex == -1) then
 	private _anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
 	private _actionName = [localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_TIE_UNIT"] select _interactionIndex;
 
+
 	// Set unit captive
 	_unit setCaptive true;
 
@@ -68,7 +69,7 @@ if (_animIndex == -1) then
 
 	[
 		_unit,				// Object the action is attached to
-		_actionName,	// Title of the action
+		_actionName,		// Title of the action
 		UNTIE_ICON,			// Idle icon shown on screen
 		UNTIE_ICON,			// Progress icon shown on screen
 		"_this distance _target < 3",	// Condition for the action to be shown
