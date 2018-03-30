@@ -56,7 +56,11 @@ private _backpacks = [];
 if (not (_cargo isEqualTo []) and {(_cargo select 0) isEqualType []}) then
 {
 	// split the array if it is nested
-	_cargo params ["_items", "_weapons", "_magazines", "_backpacks"];
+	// don't use params here!!!
+	_items = _cargo select 0; 
+	_weapons = _cargo select 1;
+	_magazines = _cargo select 2;
+	_backpacks = _cargo select 3;
 }
 else
 {

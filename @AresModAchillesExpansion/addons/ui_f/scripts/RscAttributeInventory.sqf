@@ -567,11 +567,18 @@ switch _mode do {
 		_curatorSelected pushBackUnique (missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull]);
 		{
 			private _box = _x;
-			with missionNamespace do
-			{
-				[_box, [_items, _weapons, _magazines, _backpacks], true] call Achilles_fnc_updateStandardInventory;
-				[_box, uiNamespace getVariable ["RscAttributeInventory_cargoVirtual", []], true] call Achilles_fnc_updateVirtualArsenal;
-			};
+
+			clearitemcargoglobal _box;
+			clearweaponcargoglobal _box;
+			clearmagazinecargoglobal _box;
+			clearbackpackcargoglobal _box;
+			
+			{_box additemcargoglobal _x} forEach _items;
+			{_box addweaponcargoglobal _x} forEach _weapons;
+			{_box addmagazinecargoglobal _x} forEach _magazines;
+			{_box addbackpackcargoglobal _x} forEach _backpacks;
+			
+			with missionNamespace do {[_box, uiNamespace getVariable ["RscAttributeInventory_cargoVirtual", []], true] call Achilles_fnc_updateVirtualArsenal};
 		} forEach _curatorSelected;
 	};
 	case "onUnload": {

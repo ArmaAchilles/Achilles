@@ -30,8 +30,29 @@ if (_replace) then
 	clearmagazinecargoglobal _object;
 	clearbackpackcargoglobal _object;
 };
+
 _cargo params ["_items", "_weapons", "_magazines", "_backpacks"];
-{_object additemcargoglobal _x} forEach _items;
-{_object addweaponcargoglobal _x} forEach _weapons;
-{_object addmagazinecargoglobal _x} forEach _magazines;
-{_object addbackpackcargoglobal _x} forEach _backpacks;
+
+_items params ["_itemClassNames", "_itemCounts"];
+for "_i" from 1 to (count _itemClassNames) do
+{
+	_object additemcargoglobal [_itemClassNames select _i, _itemCounts select _i];
+};
+
+_weapons params ["_weaponClassNames", "_weaponCounts"];
+for "_i" from 1 to (count _weaponClassNames) do
+{
+	_object addweaponcargoglobal [_weaponClassNames select _i, _weaponCounts select _i];
+};
+
+_magazines params ["_magazineClassNames", "_magazineCounts"];
+for "_i" from 1 to (count _magazineClassNames) do
+{
+	_object addmagazinecargoglobal [_magazineClassNames select _i, _magazineCounts select _i];
+};
+
+_backpacks params ["_backpackClassNames", "_backpackCounts"];
+for "_i" from 1 to (count _backpackClassNames) do
+{
+	_object addbackpackcargoglobal [_backpackClassNames select _i, _backpackCounts select _i];
+};
