@@ -16,31 +16,33 @@
 //	Example:		[[_message], {systemChat _this}, -2] call Achilles_fnc_spawn;	// send system chat message to every player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jip", false, [false, "", objNull]]];
+params ["_args", ["_code", {}, [{}]], ["_target", clientOwner, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jip", false, [false, "", objNull]]];
+// Disclaimer: Keep clientOwner as default _target!!!
 
+// for singleplayer
+if (not isMultiplayer) exitWith {_args spawn _code};
+
+// generate JIP ID string (if needed)
 private _jipId = false;
-
-if (isMultiplayer) then
+switch (typeName _jip) do
 {
-	switch (typeName _jip) do
+	case (typeName true):
 	{
-		case (typeName true):
+		if (_jip) then
 		{
-			if (_jip) then
-			{
-				private _counter = missionNamespace getVariable ["Achilles_var_jipCounter", 1];
-				_jipId = ["ares", clientOwner, _counter] joinString "_";
-				missionNamespace setVariable ["Achilles_var_jipCounter", _counter + 1];
-			};
+			_jipCounterVarName = format ["Achilles_var_jipCounter%1", clientOwner];
+			private _counter = missionNamespace getVariable [_jipCounterVarName, 1];
+			_jipId = ["ares", clientOwner, _counter] joinString "_";
+			missionNamespace setVariable [_jipCounterVarName, _counter + 1];
 		};
-		case (typeName objNull):
-		{
-			_jipId = netId _jip;
-		};
-		case (typeName ""):
-		{
-			_jipId = _jip;
-		};
+	};
+	case (typeName objNull):
+	{
+		_jipId = netId _jip;
+	};
+	case (typeName ""):
+	{
+		_jipId = _jip;
 	};
 };
 
