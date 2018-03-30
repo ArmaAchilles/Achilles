@@ -46,6 +46,7 @@ class CfgFunctions
 			class isACELoaded;
 			class returnChildren;
 			class positionSelector;
+			class updateStandardInventory;
 			class updateVirtualArsenal;
 			class getVirtualArsenal;
 		};
