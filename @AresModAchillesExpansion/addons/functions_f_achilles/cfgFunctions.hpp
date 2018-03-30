@@ -104,8 +104,6 @@ class CfgFunctions
 			class setSRFrequencies;
 			class setLRFrequencies;
 			class effectFire;
-			class ArsenalSetup;
-			class ArsenalSetupACE;
 			class instantBuildingGarrison;
             class setFlag;
 		};
