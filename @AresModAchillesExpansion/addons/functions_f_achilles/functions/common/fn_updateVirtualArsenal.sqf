@@ -64,19 +64,20 @@ else
 	{
 		switch true do
 		{
-			case (getnumber (configfile >> "cfgweapons" >> _x >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _x)):
+			// weapons of the type 4096 or 131072 are assignable items (e.g. NVG)
+			case (getnumber (configfile >> "cfgWeapons" >> _x >> "type") in [4096,131072] or isClass (configfile >> "CfgGlasses" >> _x)):
 			{
 				_items pushBack _x;
 			};
-			case (isclass (configfile >> "cfgweapons" >> _x)):
+			case (isclass (configfile >> "cfgWeapons" >> _x)):
 			{
 				_weapons pushBack _x;
 			};
-			case (isclass (configfile >> "cfgmagazines" >> _x)):
+			case (isclass (configfile >> "cfgMagazines" >> _x)):
 			{
 				_magazines pushBack _x;
 			};
-			case (isclass (configfile >> "cfgvehicles" >> _x)):
+			case (isclass (configfile >> "cfgVehicles" >> _x)):
 			{
 				_backpacks pushBack _x;
 			};
