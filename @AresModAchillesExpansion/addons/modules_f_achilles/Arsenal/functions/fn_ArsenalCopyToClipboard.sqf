@@ -18,7 +18,15 @@ private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 if (isNull _object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
-private _data = [_object, true] call Achilles_fnc_getVirtualArsenal;
+private _virtualCargo = [_object, true] call Achilles_fnc_getVirtualArsenal;
+private _standardCargo = 
+[
+	getitemcargo _object,
+	getweaponcargo _object,
+	getmagazinecargo _object,
+	getbackpackcargo _object
+];
+private _data = [_virtualCargo, _standardCargo];
 
 if (isServer) then 
 {

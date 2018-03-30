@@ -47,8 +47,18 @@ createDialog "Ares_CopyPaste_Dialog";
 
 		if !(_cargo isEqualType []) exitWith {[localize "STR_AMAE_ARSENAL_FAILED_TO_PARSE"] call Achilles_fnc_ShowZeusErrorMessage};
 		
-		[_object, _cargo, _replace] call Achilles_fnc_updateVirtualArsenal; 
-
+		if (count (_cargo select 0) > 0 and {_cargo select 0 select 0 isEqualType []}) then
+		{
+			// if cargo contains virtual and standard inventory (- v0.0.9c and v1.0.2 - syntax)
+			_cargo params ["_virtualCargo","_standardCargo"];
+			[_object, _virtualCargo, _replace] call Achilles_fnc_updateVirtualArsenal;
+			[_object, _standardCargo, _replace] call Achilles_fnc_updateStandardInventory;
+		}
+		else
+		{
+			// if cargo only contains virtual inventory (v1.0.0 - v1.0.1 syntax)
+			[_object, _cargo, _replace] call Achilles_fnc_updateVirtualArsenal; 
+		};
         [localize "STR_AMAE_INVENTORY_PASTED"] call Ares_fnc_ShowZeusMessage;
     },
     [_object, _replace]
