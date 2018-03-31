@@ -104,6 +104,8 @@ All of these icons are licensed under Creative Commons Attribution license.
     - https://thenounproject.com/icon/1201287/
 
 ## Translations
+* Chinese
+	- Nercon
 * French
     - oOKexOo
 * German
