@@ -123,7 +123,7 @@ if (isNil "Ares_TeleportMarkers") then
 			};
 		};
 	};
-	publicVariable "Ares_fnc_updateTeleportMarkerActions";
+	publicVariable  "Ares_fnc_updateTeleportMarkerActions";
 	STR_AMAE_NO_TELEPORT_DESTINATION = localize "STR_AMAE_NO_TELEPORT_DESTINATION";
 	publicVariable "STR_AMAE_NO_TELEPORT_DESTINATION";
 	STR_AMAE_YOU_ARE_BEING_TELEPORTED = localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED";
@@ -131,7 +131,7 @@ if (isNil "Ares_TeleportMarkers") then
 	STR_AMAE_TELEPORT_TO = localize "STR_AMAE_TELEPORT_TO";
 	publicVariable "STR_AMAE_TELEPORT_TO";
 	Achilles_var_zeusLanguage = language player;
-	publicVariable Achilles_var_zeusLanguage;
+	publicVariable "Achilles_var_zeusLanguage";
 	_isFirstCallToCreateTeleporter = true;
 };
 

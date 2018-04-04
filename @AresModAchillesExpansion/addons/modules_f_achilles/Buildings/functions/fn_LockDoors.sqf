@@ -56,7 +56,7 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 	STR_AMAE_TOUCH_OFF_BREACH = localize "STR_AMAE_TOUCH_OFF_BREACH";
 	publicVariable "STR_AMAE_TOUCH_OFF_BREACH";
 	Achilles_var_zeusLanguage = language player;
-	publicVariable Achilles_var_zeusLanguage;
+	publicVariable "Achilles_var_zeusLanguage";
 	
 	[[],
 	{
