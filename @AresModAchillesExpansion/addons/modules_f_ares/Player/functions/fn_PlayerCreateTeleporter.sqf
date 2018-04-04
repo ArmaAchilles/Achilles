@@ -66,7 +66,7 @@ if (isNil "Ares_TeleportMarkers") then
 				}
 				else
 				{
-					if (Achilles_var_zeusLanguage == language player) then
+					if (Achilles_var_zeusLanguage == language) then
 					{
 						_message = STR_AMAE_NO_TELEPORT_DESTINATION;
 					};
@@ -85,7 +85,7 @@ if (isNil "Ares_TeleportMarkers") then
 				else
 				{
 
-					if (Achilles_var_zeusLanguage == language player) then
+					if (Achilles_var_zeusLanguage == language) then
 					{
 						_message = STR_AMAE_YOU_ARE_BEING_TELEPORTED;
 					};
@@ -103,7 +103,7 @@ if (isNil "Ares_TeleportMarkers") then
 		}
 		else
 		{
-			if (Achilles_var_zeusLanguage == language player) then
+			if (Achilles_var_zeusLanguage == language) then
 			{
 				_actionNameFormatString = STR_AMAE_TELEPORT_TO;
 			};
@@ -123,14 +123,14 @@ if (isNil "Ares_TeleportMarkers") then
 			};
 		};
 	};
-	publicVariable  "Ares_fnc_updateTeleportMarkerActions";
+	publicVariable "Ares_fnc_updateTeleportMarkerActions";
 	STR_AMAE_NO_TELEPORT_DESTINATION = localize "STR_AMAE_NO_TELEPORT_DESTINATION";
 	publicVariable "STR_AMAE_NO_TELEPORT_DESTINATION";
 	STR_AMAE_YOU_ARE_BEING_TELEPORTED = localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED";
 	publicVariable "STR_AMAE_YOU_ARE_BEING_TELEPORTED";
 	STR_AMAE_TELEPORT_TO = localize "STR_AMAE_TELEPORT_TO";
 	publicVariable "STR_AMAE_TELEPORT_TO";
-	Achilles_var_zeusLanguage = language player;
+	Achilles_var_zeusLanguage = language;
 	publicVariable "Achilles_var_zeusLanguage";
 	_isFirstCallToCreateTeleporter = true;
 };

@@ -21,7 +21,7 @@ if (isLocalized "STR_AMAE_SET_A_BREACHING_CHARGE") then
 }
 else
 {
-	if (Achilles_var_zeusLanguage == language player) then
+	if (Achilles_var_zeusLanguage == language) then
 	{
 		_actionName = STR_AMAE_SET_A_BREACHING_CHARGE;
 	};
@@ -66,7 +66,7 @@ private _id = [
 		}
 		else
 		{
-			if (Achilles_var_zeusLanguage == language player) then
+			if (Achilles_var_zeusLanguage == language) then
 			{
 				_actionName = STR_AMAE_TOUCH_OFF_BREACH;
 			};
