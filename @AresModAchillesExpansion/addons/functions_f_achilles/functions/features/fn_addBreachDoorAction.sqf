@@ -62,7 +62,7 @@ private _id = [
 		private _actionName = "Touch off (breach)";
 		if (isLocalized "STR_AMAE_TOUCH_OFF_BREACH") then
 		{
-			localize "STR_AMAE_TOUCH_OFF_BREACH";
+			_actionName = localize "STR_AMAE_TOUCH_OFF_BREACH";
 		}
 		else
 		{

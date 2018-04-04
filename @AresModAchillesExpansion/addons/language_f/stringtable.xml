@@ -1776,7 +1776,7 @@
                 <Original>Teleport to %1</Original>
                 <English>Teleport to %1</English>
                 <Russian>Телепортация в точку %1</Russian>
-				<German>Teleportiere nach %1</German>
+				<German>Teleportiere zu %1</German>
                 <Japanese>%1 へテレポート</Japanese>
                 <Chinesesimp>传送至%1</Chinesesimp>
             </Key>

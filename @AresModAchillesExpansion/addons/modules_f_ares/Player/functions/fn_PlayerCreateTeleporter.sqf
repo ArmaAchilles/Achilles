@@ -77,7 +77,7 @@ if (isNil "Ares_TeleportMarkers") then
 			}
 			else
 			{
-				private _message = "You are beeing teleported..."
+				private _message = "You are beeing teleported...";
 				if (isLocalized "STR_AMAE_YOU_ARE_BEING_TELEPORTED") then
 				{
 					_message = localize "STR_AMAE_YOU_ARE_BEING_TELEPORTED";

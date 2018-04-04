@@ -59,7 +59,19 @@ if (_animIndex == -1) then
 } else
 {
 	private _anim = ["SURRENDER","CAPTURED_SIT"] select _animIndex;
-	private _actionName = [localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_TIE_UNIT"] select _interactionIndex;
+	private _actionNames = ["Release unit", "Release unit", "Tie unit"];
+	if (isLocalized "STR_AMAE_RELEASE_UNIT") then
+	{
+		_actionNames = [localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_RELEASE_UNIT",localize "STR_AMAE_TIE_UNIT"];
+	}
+	else
+	{
+		if (Achilles_var_zeusLanguage == language) then
+		{
+			_actionNames = STR_AMAE_RELEASE_OPTIONS;
+		};
+	};
+	private _actionName = _actionNames select _interactionIndex;
 
 
 	// Set unit captive
