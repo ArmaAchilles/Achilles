@@ -7,8 +7,6 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-#define BLACKLIST_WEAPONS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3", "SmokeLauncher"]
-
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _unit) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
@@ -18,7 +16,9 @@ if (_unit isKindOf "Thing") exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] cal
 if (isNil "Achilles_var_suppressiveFire_init_done") then
 {
 	publicVariable "Achilles_fnc_checkLineOfFire2D";
-	publicVariable "Achilles_fnc_SuppressiveFire";
+	publicVariable "Achilles_fnc_getWeaponsMuzzlesMagazines";
+	publicVariable "Achilles_fnc_forceWeaponFire";
+	publicVariable "Achilles_fnc_suppressiveFire";
 	Achilles_var_suppressiveFire_init_done = true;
 };
 //Broadcast set ammo function
@@ -38,70 +38,42 @@ _targetChoices append _allTargetNames;
 // list available fire modes
 private _fireModes = [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"];
 
-private _weaponsToFire = [];
 if (_unit isKindOf "Man") then
 {
 	// talking guns is only available for more than a single unit
 	if (count (units _unit) > 1) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
-	
-	// get all available muzzles for the unit's primary weapon
-	private _weapon = primaryWeapon _unit;
-	if !(_weapon isEqualTo "") then
-	{
-		private _configEntry = configFile >> "CfgWeapons" >> _weapon;
-		private _weaponName = getText (_configEntry >> "displayName");
-		// filter the muzzle "SAFE" found in RHS weapon configs
-		private _muzzleArray = getArray (_configEntry >> "muzzles") select {_x != "SAFE"};
-		if (count _muzzleArray > 1) then
-		{
-			{
-				if (getText (_configEntry >> _weapon >> "displayName") isEqualTo "") then
-				{
-					_weaponsToFire pushBack _weaponName;
-				}
-				else
-				{
-					_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, getText (_configEntry >> _weapon >> "displayName")]);
-				};
-			} forEach _muzzleArray;
-		}
-		else
-		{
-			_weaponsToFire pushBack _weaponName;
-		};
-	};
 }
 else
 {
 	// If all of the group units are in the same vehicle then don't add the Talking Guns mode.
 	if (count ((units _unit) - (crew _unit)) > 0) then {_fireModes pushBack (localize "STR_AMAE_TALKING_GUNS")};
-	// get all available muzzles for all occupied turrets
-	private _turrets = [[-1]] + (allTurrets _unit);
-	{
-		if (not isNull (_unit turretUnit _x)) then
-		{
-			{
-				if !(_x isEqualTo "" || _x in BLACKLIST_WEAPONS) then
-				{
-					private _configEntry = configFile >> "CfgWeapons" >> _x;
-					private _weaponName = getText (_configEntry >> "displayName");
-					private _muzzleArray = getArray (_configEntry >> "muzzles");
-					{
-						if (_x == "this") then
-						{
-							_weaponsToFire pushBack _weaponName;
-						}
-						else
-						{
-							_weaponsToFire pushBack (format ["%1 (%2)", _weaponName, _x]);
-						};
-					} forEach _muzzleArray;
-				};
-			} forEach (_unit weaponsTurret _x);
-		};
-	} forEach _turrets;
 };
-if (_weaponsToFire isEqualTo []) exitWith {[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage};
+
+// get available weapons, muzzles, magazines
+private _weaponsAndMuzzlesAndMagazines = [_unit] call Achilles_fnc_getWeaponsMuzzlesMagazines;
+if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith 
+{
+	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage
+};
+private _weaponsToFire = [];
+private _weaponMuzzleMagazineIdxList = [];
+{
+	private _weapIdx = _forEachIndex;
+	_x params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
+	_weaponAndTurret params [["_weapon","",[""]]];
+	private _weaponName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
+	{
+		private _muzzleIdx = _forEachIndex;
+		_x params [["_muzzle","",[""]], ["_magazines",[""],[[]]]];
+		{
+			private _magazine = _x;
+			private _magIdx = _forEachIndex;
+			private _magName = getText (configFile >> "CfgMagazines" >> _magazine >> "displayName");
+			_weaponsToFire pushBack format ["%1 (%2)", _weaponName, _magName];
+			_weaponMuzzleMagazineIdxList pushBack [_weapIdx, _muzzleIdx, _magIdx];
+		} forEach _magazines;
+	} forEach _muzzlesAndMagazines;
+} forEach _weaponsAndMuzzlesAndMagazines;
 
 // select parameters
 private _dialogResult =
@@ -124,11 +96,12 @@ _dialogResult params
 	"_targetChooseAlgorithm",
 	"_stanceIndex",
 	"_doLineUp",
-	"_weaponToFire",
+	"_weaponsToFireIdx",
 	"_fireModeIndex",
 	"_duration"
 ];
 _doLineUp = _doLineUp == 0;
+(_weaponMuzzleMagazineIdxList select _weaponsToFireIdx) params ["_weapIdx", "_muzzleIdx", "_magIdx"];
 _duration = parseNumber _duration;
 
 // Choose a target to fire at
@@ -140,11 +113,11 @@ private _dummyTargetLogic = [_selectedTargetLogic] call Achilles_fnc_createDummy
 if (local _unit) then
 {
 	// Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
-	[_unit,_dummyTargetLogic,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] call Achilles_fnc_SuppressiveFire;
+	[_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] call Achilles_fnc_suppressiveFire;
 } else
 {
 	// Executing here with remoteExec (with suspension) because on the other machines it won't be a suspended enviornment.
-	[_unit,_dummyTargetLogic,_weaponToFire,_stanceIndex,_doLineUp,_fireModeIndex,_duration] remoteExec ["Achilles_fnc_SuppressiveFire", _unit];
+	[_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] remoteExec ["Achilles_fnc_suppressiveFire", _unit];
 };
 
 #include "\achilles\modules_f_ares\module_footer.hpp"
