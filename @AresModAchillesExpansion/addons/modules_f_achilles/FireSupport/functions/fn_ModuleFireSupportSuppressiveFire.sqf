@@ -13,6 +13,7 @@ if (isNull _unit) exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles
 if (_unit isKindOf "Thing") exitWith {[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
 
 //Broadcast suppression functions
+/*
 if (isNil "Achilles_var_suppressiveFire_init_done") then
 {
 	publicVariable "Achilles_fnc_checkLineOfFire2D";
@@ -27,6 +28,7 @@ if (isNil "Achilles_var_setammo_init_done") then {
 	publicVariableServer "Achilles_fnc_setVehicleAmmoDef";
 	Achilles_var_setammo_init_done = true;
 };
+*/
 
 // get list of possible targets
 private _allTargetsData = ["Achilles_Create_Universal_Target_Module"] call Achilles_fnc_getLogics;
@@ -110,14 +112,15 @@ private _selectedTargetLogic = [position _logic, _allTargetLogics, _targetChoose
 // Spawn our dummy logic (if executing client does not have Achilles)
 private _dummyTargetLogic = [_selectedTargetLogic] call Achilles_fnc_createDummyLogic;
 
-if (local _unit) then
+// make sure the group is local
+private _group = group _unit;
+if (not local _group) then
 {
-	// Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
-	[_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] call Achilles_fnc_suppressiveFire;
-} else
-{
-	// Executing here with remoteExec (with suspension) because on the other machines it won't be a suspended enviornment.
-	[_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] remoteExec ["Achilles_fnc_suppressiveFire", _unit];
+	[_group, clientOwner] remoteExecCall ["setGroupOwner", 2];
+	waitUntil {sleep 1; local _group or {isNull _group} or {{alive _x} count units _group == 0}};
 };
+if (isNull _group or {{alive _x} count units _group == 0}) exitWith {};
+// Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
+[_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] call Achilles_fnc_suppressiveFire;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

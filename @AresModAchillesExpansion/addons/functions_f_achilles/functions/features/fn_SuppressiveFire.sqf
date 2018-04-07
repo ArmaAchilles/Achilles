@@ -208,6 +208,7 @@ if (_fireModeIndex == 3) then
 		else
 		{
 			_vehicle selectWeaponTurret [_muzzle, _turretPath];
+			_vehicle loadMagazine [_turretPath, _muzzle, _magazine];
 			_mode = (weaponState [_vehicle, _turretPath, _weapon])select 2;
 		};
 		// get the reload time

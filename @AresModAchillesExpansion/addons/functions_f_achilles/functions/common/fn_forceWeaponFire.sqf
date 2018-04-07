@@ -16,6 +16,7 @@
 //
 // Example:			[_targetLogic, _soldier, "arifle_MX_ACO_pointer_F", "30Rnd_65x39_caseless_mag"] call Achilles_fnc_forceWeaponFire;
 //					[_targetLogic, gunner _marshall, "HE", "60Rnd_40mm_GPR_Tracer_Red_shells", _marshall, [0]] call Achilles_fnc_forceWeaponFire;
+//					[_targetLogic, gunner _marshall, "LMG_M200_body", "2000Rnd_65x39_Belt", _marshall, [0]] call Achilles_fnc_forceWeaponFire;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 params
