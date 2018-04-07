@@ -117,7 +117,7 @@ private _group = group _unit;
 if (not local _group) then
 {
 	[_group, clientOwner] remoteExecCall ["setGroupOwner", 2];
-	waitUntil {sleep 1; local _group or {isNull _group} or {{alive _x} count units _group == 0}};
+	waitUntil {sleep 1; local _group or {isNull _group or {{alive _x} count units _group == 0}}};
 };
 if (isNull _group or {{alive _x} count units _group == 0}) exitWith {};
 // Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
