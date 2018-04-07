@@ -30,7 +30,6 @@ class CfgFunctions
 			
 			class addIntel;
 			class AddUnitsToCurator;
-			class ArsenalSetup;
 			class GenerateArsenalBlacklist;
 			class GenerateArsenalDataList;
 			class SearchBuilding;

@@ -30,14 +30,13 @@ class CfgPatches
 			"Achilles_Set_Weather_Module",
 			"Achilles_Set_Date_Module",
 			"Achilles_Earthquake_Module",
+			"Achilles_Module_Equipment_Attach_Dettach_Effect",
 			"Achilles_Suppressive_Fire_Module",
-			"Achilles_Create_Suppression_Target_Module",
 			"Achilles_Module_FireSupport_CASGun",
 			"Achilles_Module_FireSupport_CASMissile",
 			"Achilles_Module_FireSupport_CASGunMissile",
 			"Achilles_Module_FireSupport_CASBomb",
 			"Achilles_CAS_Module",
-			"Achilles_Create_CAS_Target_Module",
 			"Achilles_Toggle_Simulation_Module",
 			"Achilles_Transfer_Ownership_Module",
 			"Achilles_Attach_To_Module",
@@ -62,7 +61,8 @@ class CfgPatches
 			"Achilles_Module_Arsenal_AddFull",
 			"Achilles_Module_Arsenal_CopyToClipboard",
 			"Achilles_Module_Arsenal_Paste",
-			"Achilles_Module_Arsenal_CreateCustom"
+			"Achilles_Module_Arsenal_CreateCustom",
+            "Achilles_Create_Universal_Target_Module"
 		};
 
 		requiredAddons[] =

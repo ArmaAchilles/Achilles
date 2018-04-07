@@ -5,13 +5,9 @@
 // DESCRIPTION:		Remote helper function for Achilles_fnc_spawn
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown]], ["_jip", false, [false, "", objNull]]];
+params ["_args", ["_code", {}, [{}]], ["_target", 0, [0, [], objNull, grpNull, sideUnknown, ""]], ["_jipId", false, [false, ""]]];
 
 private _rc_owner = remoteExecutedOwner;
-// execute code if rc owner is server
-if (_rc_owner == 2) exitWith { _args call _code };
-
-private _jip_id = "";
 
 if (isServer) then
 {
@@ -25,7 +21,7 @@ if (isServer) then
 		} else
 		{
 			// send code to targets => rc owner switches to server
-			_jip_id = [_args, _code] remoteExec ["Achilles_fnc_spawn", _target, _jip];
+			[_args, _code] remoteExec ["Achilles_fnc_spawn", _target, _jipId];
 		};
 	} else
 	{
@@ -37,4 +33,4 @@ if (isServer) then
 		diag_log format ["Warning: %1 (UID: %2) tried to use Achilles_fnc_spawn without permission!", name _player, getPlayerUID _player];
 	};
 };
-_jip_id
+

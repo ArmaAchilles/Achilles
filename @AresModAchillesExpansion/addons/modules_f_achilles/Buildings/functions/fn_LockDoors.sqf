@@ -51,7 +51,13 @@ if (_mode == 1 and {isNil "Achilles_var_breachableDoors"}) then
 	publicVariable "Achilles_var_breachableDoors";
 	publicVariable "Achilles_fnc_breachStun";
 	publicVariable "Achilles_fnc_addBreachDoorAction";
-
+	STR_AMAE_SET_A_BREACHING_CHARGE = localize "STR_AMAE_SET_A_BREACHING_CHARGE";
+	publicVariable "STR_AMAE_SET_A_BREACHING_CHARGE";
+	STR_AMAE_TOUCH_OFF_BREACH = localize "STR_AMAE_TOUCH_OFF_BREACH";
+	publicVariable "STR_AMAE_TOUCH_OFF_BREACH";
+	Achilles_var_zeusLanguage = language;
+	publicVariable "Achilles_var_zeusLanguage";
+	
 	[[],
 	{
 		while {isNull player} do {uiSleep 1};

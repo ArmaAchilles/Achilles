@@ -57,6 +57,10 @@ switch _mode do
 		{
 			_enableAdmin = (_enableDebugConsole == 1 && (call BIS_fnc_admin > 0 || isServer)) || !isMultiplayer || _enableDebugConsole == 2;
 		};
+
+		// mission designer can disallow usage of code execution, but it will still be available for logged-in admins
+		private _enableCodeExecution = ((missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) or ((call BIS_fnc_admin) > 0));
+		
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
 			if (isclass _cfgControl) then {
@@ -64,9 +68,10 @@ switch _mode do
 				private _control = _display displayctrl _idc;
 
 				//--- Admin specific attribute
-				private _show = [true, _enableAdmin] select (getnumber (_cfgControl >> "adminOnly") > 0);
+				private _show1 = [true, _enableAdmin] select (getnumber (_cfgControl >> "adminOnly") > 0);
+				private _show2 = [true, _enableCodeExecution] select (getnumber (_cfgControl >> "codeExecution") == 1);
 
-				if ((_allAttributes || {_x == configname _cfgControl} count _attributes > 0) && _show) then {
+				if ((_allAttributes || {_x == configname _cfgControl} count _attributes > 0) && _show1 && _show2) then {
 					private _controlPos = ctrlposition _control;
 					_controlPos set [0,0];
 					_controlPos set [1,_posY];

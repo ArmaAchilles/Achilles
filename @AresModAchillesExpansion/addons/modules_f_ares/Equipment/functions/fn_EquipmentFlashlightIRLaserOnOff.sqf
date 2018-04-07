@@ -16,7 +16,7 @@ if (isNull _unitUnderCursor) then
 {
 	// select players
 	private _dialogResult = [
-		localize "STR_AMAE_TACLIGHT_IR_ON_OFF",
+		localize "STR_AMAE_TOGGLE_TACLIGHT_IR",
 		[
 			[localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION",localize "STR_AMAE_SIDE"]],
 			[localize "STR_AMAE_SIDE","SIDE"],
@@ -57,7 +57,7 @@ else
 {
 	private _dialogResult =
 	[
-		localize "STR_AMAE_TACLIGHT_IR_ON_OFF",
+		localize "STR_AMAE_TOGGLE_TACLIGHT_IR",
 		[
 			[localize "STR_AMAE_SELECTION", [localize "STR_AMAE_ENTIRE_GROUP", localize "STR_AMAE_SELECTED_PLAYER"]],
 			[localize "STR_AMAE_TAC_LIGHT",[localize "STR_AMAE_AUTOMATIC",localize "STR_AMAE_FORCED_ON",localize "STR_AMAE_FORCED_OFF"]],

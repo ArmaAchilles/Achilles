@@ -44,20 +44,15 @@ if (_dialogResult select 2 < 3) then
 
 	if (_dialogResult select 3 == 0) then
 	{
-		private _voiceMessageFriendly1 = format ["SentGenBaseSideFriendly%1", _firstSelectedSide];
-		private _voiceMessageFriendly2 = format ["SentGenBaseSideFriendly%1", _secondSelectedSide];
-		private _voiceMessageEnemy1 = format["SentGenBaseSideEnemy%1", _firstSelectedSide];
-		private _voiceMessageEnemy2 = format["SentGenBaseSideEnemy%1", _secondSelectedSide];
-
 		if (_friend_value == 1) then
 		{
-			[_firstSelectedSide, _voiceMessageFriendly2, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
-			[_secondSelectedSide, _voiceMessageFriendly1, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			[_firstSelectedSide, format ["SentGenBaseSideFriendly%1", _secondSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			[_secondSelectedSide, format ["SentGenBaseSideFriendly%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
 		}
 		else
 		{
-			[_firstSelectedSide, _voiceMessageEnemy2, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
-			[_secondSelectedSide, _voiceMessageEnemy1, "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			[_firstSelectedSide, format["SentGenBaseSideEnemy%1", _secondSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			[_secondSelectedSide, format["SentGenBaseSideEnemy%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
 		};
 	};
 }
@@ -71,9 +66,16 @@ else
 
 		if (_dialogResult select 3 == 0) then
 		{
-			[_x, format["SentGenBaseSideEnemy%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
-			if (_x == independent) then {_x = "GUER"};
-			[_firstSelectedSide, format["SentGenBaseSideEnemy%1", _x], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			if (_friend_value == 1) then
+			{
+				[_firstSelectedSide, format ["SentGenBaseSideFriendly%1", _x], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+				[_x, format ["SentGenBaseSideFriendly%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			}
+			else
+			{
+				[_firstSelectedSide, format["SentGenBaseSideEnemy%1", _x], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+				[_x, format["SentGenBaseSideEnemy%1", _firstSelectedSide], "side"] remoteExecCall ["BIS_fnc_sayMessage", 0];
+			};
 		};
 	} forEach _other_sides;
 };

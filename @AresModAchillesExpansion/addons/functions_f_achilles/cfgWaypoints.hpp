@@ -39,5 +39,12 @@ class cfgWaypoints
 			file = "\achilles\functions_f_achilles\scripts\fn_wpSearchBuilding.sqf";
 			icon = "\achilles\data_f_achilles\icons\icon_position.paa";
 		};
+		class Repair
+		{
+			displayName = "$STR_AMAE_WP_REPAIR";
+			displayNameDebug = "Repair";
+			file = "\achilles\functions_f_achilles\scripts\fn_wpRepair.sqf";
+			icon = "\achilles\data_f_achilles\icons\icon_position.paa";
+		};
 	};
 };

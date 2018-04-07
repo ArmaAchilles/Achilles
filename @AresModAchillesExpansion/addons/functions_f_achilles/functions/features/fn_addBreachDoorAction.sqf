@@ -14,9 +14,21 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 params [["_unit",objNull,[objNull]]];
 if (isNull _unit) exitWith {diag_log "Error in Achilles_fnc_addBreachDoorAction: Passed objNull!"};
+private _actionName = "Set a breaching charge";
+if (isLocalized "STR_AMAE_SET_A_BREACHING_CHARGE") then
+{
+	_actionName = localize "STR_AMAE_SET_A_BREACHING_CHARGE";
+}
+else
+{
+	if (Achilles_var_zeusLanguage == language) then
+	{
+		_actionName = STR_AMAE_SET_A_BREACHING_CHARGE;
+	};
+};
 private _id = [
 	_unit,
-	"Set a Breaching Charge",
+	_actionName,
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca",
 	"({_this distance _x < 3 and {isNil {_x getVariable ""occupied""}}} count Achilles_var_breachableDoors > 0) and {""DemoCharge_Remote_Mag"" in magazines _this or {""rhsusf_m112_mag"" in magazines _this}}",
@@ -47,7 +59,19 @@ private _id = [
 		// set variables and event handlers
 		_caller setVariable ["breach", _charge];
 		_sourceObject setVariable ["occupied",true];
-		private _action_id = _caller addAction ["Touch off (breach)",
+		private _actionName = "Touch off (breach)";
+		if (isLocalized "STR_AMAE_TOUCH_OFF_BREACH") then
+		{
+			_actionName = localize "STR_AMAE_TOUCH_OFF_BREACH";
+		}
+		else
+		{
+			if (Achilles_var_zeusLanguage == language) then
+			{
+				_actionName = STR_AMAE_TOUCH_OFF_BREACH;
+			};
+		};
+		private _action_id = _caller addAction [_actionName,
 		{
 			params ["_", "_caller", "_ID", "_arguments"];
 			_caller removeAction _ID;
