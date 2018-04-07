@@ -53,7 +53,7 @@ else
 private _weaponsAndMuzzlesAndMagazines = [_unit] call Achilles_fnc_getWeaponsMuzzlesMagazines;
 if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith 
 {
-	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage
+	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage;
 };
 private _weaponsToFire = [];
 private _weaponMuzzleMagazineIdxList = [];

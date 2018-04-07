@@ -37,7 +37,7 @@ params
 
 // exit if objNull was passed
 if ((isNull _targetLogic) or {isNull _unit}) exitWith {};
-// exit if the unid is already suppressing
+// exit if the unit is already suppressing
 if (not (_unit getVariable ["Achilles_var_suppressiveFire_ready", true])) exitWith {};
 
 private _old_group = group _unit;
@@ -277,9 +277,9 @@ if (_fireModeIndex == 3) then
 				if ((_unit getVariable ["Achilles_var_fireGranted", false]) and {time < _startTime + _duration} and {alive _gunner} and {alive _targetLogic}) then
 				{
 					// fire the weapon and wait for the next shot
-					private _ammoRemained = [_targetLogic, _gunner, _muzzle, _magazine, _vehicle, _turretPath] call Achilles_fnc_forceWeaponFire;
-					if (_ammoRemained isEqualTo -1) exitWith {breakOut "whileLoop"};
-					if (_ammoRemained > 0) then
+					private _ammoRemaining = [_targetLogic, _gunner, _muzzle, _magazine, _vehicle, _turretPath] call Achilles_fnc_forceWeaponFire;
+					if (_ammoRemaining isEqualTo -1) exitWith {breakOut "whileLoop"};
+					if (_ammoRemaining > 0) then
 					{
 						sleep _reloadTime;
 					}

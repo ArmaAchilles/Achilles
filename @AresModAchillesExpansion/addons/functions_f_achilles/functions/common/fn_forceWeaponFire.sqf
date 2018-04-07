@@ -28,27 +28,27 @@ params
 	["_turretPath", [0], [[]]]
 ];
 private _success = 2;
-private _ammoRemained = _gunner ammo _muzzle;
+private _ammoRemaining = _gunner ammo _muzzle;
 if ((isNull _vehicle) or {_vehicle isKindOf "Man"}) then
 {
 	private _magIdx = (magazines _gunner) find _magazine;
-	if (_magIdx isEqualTo -1) exitWith {_ammoRemained = -1};
-	if (_ammoRemained == 0) exitWith {};
+	if (_magIdx isEqualTo -1) exitWith {_ammoRemaining = -1};
+	if (_ammoRemaining == 0) exitWith {};
 	((magazinesDetail _gunner select _magIdx) splitString "[]:/") params ["","","","","_id","_owner"];  
 	_logic action ["UseMagazine", _gunner, _gunner, parseNumber _owner, parseNumber _id];
 	_success = 0;
 }
 else
 {
-	if ((_vehicle currentMagazineTurret _turretPath) != _magazine) exitWith {_ammoRemained = -1};
-	if (_ammoRemained == 0) exitWith {_success = 1};
+	if ((_vehicle currentMagazineTurret _turretPath) != _magazine) exitWith {_ammoRemaining = -1};
+	if (_ammoRemaining == 0) exitWith {_success = 1};
 	((_vehicle currentMagazineDetailTurret _turretPath) splitString "[]:/") params ["","","","","_id","_owner"];
 	_logic action ["UseMagazine", _vehicle, _gunner, parseNumber _owner, parseNumber _id];
 	_success = 0;
 };
 if (_success == 0) then
 {
-	_ammoRemained = _ammoRemained - 1;
-	_gunner setAmmo [_muzzle, _ammoRemained];
+	_ammoRemaining = _ammoRemaining - 1;
+	_gunner setAmmo [_muzzle, _ammoRemaining];
 };
-_ammoRemained;
+_ammoRemaining;
