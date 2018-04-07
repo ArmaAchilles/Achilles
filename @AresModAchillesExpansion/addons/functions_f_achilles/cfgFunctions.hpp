@@ -46,6 +46,7 @@ class CfgFunctions
 			class isACELoaded;
 			class returnChildren;
 			class positionSelector;
+			class updateStandardInventory;
 			class updateVirtualArsenal;
 			class getVirtualArsenal;
 		};
@@ -103,9 +104,8 @@ class CfgFunctions
 			class setSRFrequencies;
 			class setLRFrequencies;
 			class effectFire;
-			class ArsenalSetup;
-			class ArsenalSetupACE;
 			class instantBuildingGarrison;
+            class setFlag;
 		};
 	};
 

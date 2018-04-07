@@ -26,7 +26,7 @@ if (isNil "Achilles_var_setammo_init_done") then {
 };
 
 // get list of possible targets
-private _allTargetsData = ["Achilles_Create_Suppression_Target_Module"] call Achilles_fnc_getPosLogicsData;
+private _allTargetsData = ["Achilles_Create_Universal_Target_Module"] call Achilles_fnc_getPosLogicsData;
 _allTargetsData params ["_allTargetNames","_allTargetPositions"];
 if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
 private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
