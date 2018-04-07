@@ -41,14 +41,16 @@ class CfgFunctions
 			class ShowChooseDialog;
 			class showZeusErrorMessage;
 			class log;
-			class getPosLogicsData;
+			class getLogics;
 			class createDummyLogic;
 			class isACELoaded;
 			class returnChildren;
-			class positionSelector;
+			class logicSelector;
 			class updateStandardInventory;
 			class updateVirtualArsenal;
 			class getVirtualArsenal;
+			class getWeaponsMuzzlesMagazines;
+			class forceWeaponFire;
 		};
 
 		class selectUnit
@@ -96,7 +98,7 @@ class CfgFunctions
 			class breachStun;
 			class setACEInjury;
 			class setVanillaInjury;
-			class SuppressiveFire;
+			class suppressiveFire;
 			class changeNVGBrightness;
 			class createIED;
 			class createSuicideBomber;

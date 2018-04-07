@@ -15,14 +15,14 @@ private _spawn_position = position _logic;
 private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 
 // get LZs
-private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getPosLogicsData;
-_allLzsData params ["_allLzNames","_allLzPositions"];
+private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getLogics;
+_allLzsData params ["_allLzNames","_allLzLogics"];
 if (_allLzNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
 private _lzOptions = _extraOptions + _allLzNames;
 
 // get RPs
-private _allRpsData = ["Ares_Module_Reinforcements_Create_Rp"] call Achilles_fnc_getPosLogicsData;
-_allRpsData params ["_allRpNames","_allRpPositions"];
+private _allRpsData = ["Ares_Module_Reinforcements_Create_Rp"] call Achilles_fnc_getLogics;
+_allRpsData params ["_allRpNames","_allRpLogics"];
 if (_allRpNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_RP"] call Achilles_fnc_ShowZeusErrorMessage};
 private _rpOptions = _extraOptions + _allRpNames;
 
@@ -159,7 +159,8 @@ private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_positionSelector;
+private _lzLogic = [_spawn_position, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
+private _lzPos = position _lzLogic;
 
 // create the transport vehicle
 private _vehicleInfo = [_spawn_position, _spawn_position getDir _lzPos, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
@@ -241,7 +242,8 @@ switch (_group_behaviour) do
 
 // Choose a RP for the squad to head to once unloaded and set their waypoint.
 
-private _rpPos = [_lzPos, _allRpPositions, _rp_algorithm] call Achilles_fnc_positionSelector;
+private _rpLogic = [_lzPos, _allRpLogics, _rp_algorithm] call Achilles_fnc_logicSelector;
+private _rpPos = position _rpLogic;
 _infantry_group addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.

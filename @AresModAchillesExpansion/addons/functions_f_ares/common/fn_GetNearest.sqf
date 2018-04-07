@@ -1,16 +1,16 @@
 /*
-	Gets the position from an array that is nearest to a particular point.
+	Gets the position or object from an array that is nearest to a particular point.
 
 	Parameters:
-		0 - Position - The point of reference for the search.
-		1 - Array of positions - The objects to search through.
+		0 - Position or object - The point of reference for the search.
+		1 - Array of positions or objects - The objects to search through.
 
 	Returns:
-		The position from the array that is nearest to the point of reference.
+		The object or position from the array that is nearest to the point of reference.
 		Returns an empty array if the array of positions is empty.
 */
 
-params [["_pointOfReference", [0,0,0], [[]], 3], ["_candidatePositions", [], [[]]]];
+params [["_pointOfReference", [0,0,0], [[],objNull], 3], ["_candidatePoints", [], [[]]]];
 
 private _nearest = [];
 private _nearestDistance = 0;
@@ -20,6 +20,6 @@ private _nearestDistance = 0;
 		_nearest = _x;
 		_nearestDistance = _pointOfReference distance _nearest;
 	};
-} forEach _candidatePositions;
+} forEach _candidatePoints;
 
 _nearest

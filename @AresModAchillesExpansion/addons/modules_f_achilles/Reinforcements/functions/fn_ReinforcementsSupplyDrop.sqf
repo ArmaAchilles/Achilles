@@ -28,8 +28,8 @@ private _spawn_position = position _logic;
 private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 
 // get LZs
-private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getPosLogicsData;
-_allLzsData params ["_allLzNames","_allLzPositions"];
+private _allLzsData = ["Ares_Module_Reinforcements_Create_Lz"] call Achilles_fnc_getLogics;
+_allLzsData params ["_allLzNames","_allLzLogics"];
 if (_allLzNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_LZ"] call Achilles_fnc_ShowZeusErrorMessage};
 private _lzOptions = _extraOptions + _allLzNames;
 
@@ -206,7 +206,8 @@ _dialogResult params
 
 // Choose the LZ based on what the user indicated
 
-private _lzPos = [_spawn_position, _allLzPositions, _lzdz_algorithm] call Achilles_fnc_positionSelector;
+private _lzLogic = [_spawn_position, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
+private _lzPos = position _lzLogic;
 
 private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _side_id select _faction_id select _category_id select _vehicle_id;
 if (_aircraftClassname isEqualTo "") exitWith {[localize "STR_AMAE_AIRCRAFT_SPAWN_ERROR"] call Achilles_fnc_showZeusErrorMessage};

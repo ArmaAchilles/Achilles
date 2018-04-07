@@ -2768,8 +2768,9 @@
                 <Chinesesimp>射击模式</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_TALKING_GUNS">
-                <Original>Talking guns</Original>
-                <English>Talking guns</English>
+                <Original>talking guns</Original>
+                <English>talking guns</English>
+                <German>alternierendes Feuer</German>
                 <Japanese>交互持続射撃</Japanese>
                 <Chinesesimp>交替持续射击</Chinesesimp>
             </Key>
