@@ -109,6 +109,7 @@ All of these icons are licensed under Creative Commons Attribution license.
 * French
     - oOKexOo
 * German
+	- ItsNoirLime
     - KiritoKun223
     - oOKexOo
     - shukari
