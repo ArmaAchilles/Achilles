@@ -10,6 +10,49 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
 
 ## Change log
+### v1.0.2
+#### Modules
+##### New
+* Create target (one module that unifies all target modules). #271
+* Attach/Detach Effect (allows attaching IR grenades and chem lights). #277
+##### Revised
+* Arsenal modules:
+	- Change: Vanilla as well as ACE arsenal are now available simultaneously. #285
+	- Fix: Lost feature: Copy/Paste non-Arsenal items as well. #246
+* Garrison modules:
+	- Fix: Garrisoned units can be rotated again. #240
+* Suppressive fire:
+	- Feature: You can select any ammo available for the unit's primary weapon. #241
+	- Feature: When placed on a vehicle you can select any turret you want. #241
+	- Feature: When the target logic is deleted, the units will cease their fire. #241
+	- Change: Default fire mode is automatic. #241
+	- Fix: Burst should now always be 3 rounds. #241
+* Vanilla CAS:
+	- Fix: Modules could not be rotated. #268
+* Change side relations:
+	- Fix: Corrected the radio messages for the case "Nobody".
+* Create teleporter:
+	- Fix: Did not work for players without Achilles.
+* Spawn effects:
+	- Fix: Persistent smoke pillar did not work properly when placed by a server host Zeus. #283
+	- Fix: Light source did not work properly when placed by a server host Zeus. #283
+* Hide Zeus:
+	- Fix: There was a script error message in certain cases. #248
+#### Attribute windows
+##### New
+* Set flag (adds a small flag to the unit). #275
+#### Waypoints
+##### New
+* Demine waypoint (applied to EOD specialists). #264
+* Repair waypoint (applied to engineers). #264
+##### Revised
+* Fastroping:
+	- Fix: Advanced Rappelling is now used even if it is only present on the server (by @SamLex). #249
+#### Other
+* Feature: Localization for Chinese Simplified (by @nercon).
+* Feature: Localization for Japanese (by @classicarma). #266
+* Change: Replaced "Execute Line" in object attributes by "init", which now truly behaves like the init line in Eden.
+* Fix: JIP ID was not received in Achilles_fnc_spawn. #226
 
 ### v1.0.1
 #### Modules
