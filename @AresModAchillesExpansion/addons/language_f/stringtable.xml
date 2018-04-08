@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
@@ -809,6 +809,8 @@
                 <Original>Custom Fire</Original>
                 <Russian>Создать костёр</Russian>
                 <English>Custom Fire</English>
+                <French>Séquence de tirs personalisé</French>
+                <German>Benutzerdefiniertes Feuern</German>
                 <Japanese>カスタム ファイル</Japanese>
                 <Chinesesimp>自定义火焰</Chinesesimp>
             </Key>
@@ -1233,6 +1235,8 @@
                 <Original>Virtual Arsenal</Original>
                 <English>Virtual Arsenal</English>
                 <Russian>Виртуальный Арсенал</Russian>
+                <French>Arsenal virtuel</French>
+                <German>Virtuelles Arsenal</German>
                 <Japanese>バーチャル武器庫</Japanese>
                 <Chinesesimp>虚拟军火库</Chinesesimp>
             </Key>
@@ -1249,6 +1253,8 @@
                 <Original>Remove Arsenal</Original>
                 <English>Remove Arsenal</English>
                 <Russian>Удалить Арсенал</Russian>
+                <French>Supprimez l'arsenal</French>
+                <German>Entferne Arsenal</German>
                 <Japanese>武器庫を削除</Japanese>
                 <Chinesesimp>移除军火库</Chinesesimp>
             </Key>
@@ -1256,6 +1262,8 @@
                 <Original>Added Arsenal to object!</Original>
                 <English>Added Arsenal to object!</English>
                 <Russian>Арсенал добавлен!</Russian>
+                <French>L'arsenal est adjouté à l'objet! </French>
+                <German>Arsenal wurde dem Objekt hinzugefügt!</German>
                 <Japanese>物体に武器を追加した!</Japanese>
                 <Chinesesimp>已将军火库添加到物体上！</Chinesesimp>
             </Key>
@@ -1263,6 +1271,8 @@
                 <Original>Removed Arsenal from object!</Original>
                 <English>Removed Arsenal from object!</English>
                 <Russian>Арсенал удалён!</Russian>
+                <French>L'arsenal est supprimé à l'objet! </French>
+                <German>Arsenal vom Objekt entfernet!</German>
                 <Japanese>物体から武器庫を削除した!</Japanese>
                 <Chinesesimp>已将物体上的军火库移除！</Chinesesimp>
             </Key>
@@ -1270,6 +1280,8 @@
                 <Original>Copied items to clipboard!</Original>
                 <English>Copied items to clipboard!</English>
                 <Russian>Снаряжение скопировано в область обмена!</Russian>
+                <French>Les objets sont copiés dans le presse-papier </French>
+                <German>Objekte zur Zwischenablage kopiert!</German>
                 <Japanese>アイテムをクリップボードへ複製した!</Japanese>
                 <Chinesesimp>已将物品复制到剪切板中！</Chinesesimp>
             </Key>
@@ -1277,6 +1289,8 @@
                 <English>Paste Inventory</English>
                 <Original>Paste Inventory</Original>
                 <Russian>Вставить снаряжение</Russian>
+                <French>Collez invantaire</French>
+                <German>Inventar einfügen</German>
                 <Japanese>インベントリを貼りつけ</Japanese>
                 <Chinesesimp>粘贴物品栏</Chinesesimp>
             </Key>
@@ -1284,6 +1298,8 @@
                 <English>Replace</English>
                 <Original>Replace</Original>
                 <Russian>Заменить</Russian>
+                <French>Replacez</French>
+                <German>Ersetzen</German>
                 <Japanese>置き換え</Japanese>
                 <Chinesesimp>替换</Chinesesimp>
             </Key>
@@ -1291,6 +1307,8 @@
                 <English>Combine</English>
                 <Original>Paste</Original>
                 <Russian>Объединить</Russian>
+                <French>Combinez</French>
+                <German>Kombinieren</German>
                 <Japanese>貼りつけ</Japanese>
                 <Chinesesimp>粘贴</Chinesesimp>
             </Key>
@@ -1298,6 +1316,8 @@
                 <English>Failed to parse!</English>
                 <Original>Failed to parse!</Original>
                 <Russian>Не удалось обработать!</Russian>
+                <French>Parse</French>
+                <German>Parsen fehlgeschlagen!</German>
                 <Japanese>貼りつけに失敗した!</Japanese>
                 <Chinesesimp>解析失败！</Chinesesimp>
             </Key>
@@ -1305,6 +1325,8 @@
                 <English>Inventory pasted successfully!</English>
                 <Original>Inventory pasted successfully!</Original>
                 <Russian>Снаряжение успешно вставлено!</Russian>
+                <French>Invantaire est collé avec succès!</French>
+                <German>Inventar wurde erfolgreich eingefügt!</German>
                 <Japanese>インベントリの貼りつけに成功した!</Japanese>
                 <Chinesesimp>物品栏粘贴成功！</Chinesesimp>
             </Key>
@@ -1312,6 +1334,8 @@
                 <English>Create Custom</English>
                 <Original>Create Custom</Original>
                 <Russian>Пользовательский арсенал</Russian>
+                <French>Créez personnalisé</French>
+                <German>Erstelle benutzerdefiniert</German>
                 <Japanese>独自に作成</Japanese>
                 <Chinesesimp>创建自定义</Chinesesimp>
             </Key>
@@ -1319,6 +1343,8 @@
                 <English>Default Inventory</English>
                 <Original>Default Inventory</Original>
                 <Russian>Стандартное снаряжение</Russian>
+                <French>Invantaire défault</French>
+                <German>Standardinventar</German>
                 <Japanese>標準インベントリ</Japanese>
                 <Chinesesimp>默认物品栏</Chinesesimp>
             </Key>
@@ -1326,6 +1352,8 @@
                 <English>Combine or Replace Items</English>
                 <Original>Combine or Replace Items</Original>
                 <Russian>Объединить или заменить снаряжение</Russian>
+                <French>Combinez ou replacez des objets</French>
+                <German>Hinzufügen oder Ersetzen von Objekten</German>
                 <Japanese>アイテムの組み合わせか置き換え</Japanese>
                 <Chinesesimp>组合或替换物品</Chinesesimp>
             </Key>
@@ -1333,6 +1361,8 @@
                 <English>Add Equipment From</English>
                 <Original>Add Equipment From</Original>
                 <Russian>Добавить снаряжение от</Russian>
+                <French>Ajoutez des equipment de</French>
+                <German>Füge Ausrüstung hinzu von</German>
                 <Japanese>次から器機を追加</Japanese>
                 <Chinesesimp>添加装备自</Chinesesimp>
             </Key>
@@ -1340,6 +1370,8 @@
                 <English>Add GPS</English>
                 <Original>Add GPS</Original>
                 <Russian>Добавить GPS</Russian>
+                <French>Ajoutez le GPS</French>
+                <German>GPS hinzufügen</German>
                 <Japanese>GPS を追加</Japanese>
                 <Chinesesimp>添加GPS</Chinesesimp>
             </Key>
@@ -1347,6 +1379,8 @@
                 <English>Add NVGs</English>
                 <Original>Add NVGs</Original>
                 <Russian>Добавить ПНВ</Russian>
+                <French>Ajoutez des JVN</French>
+                <German>Nachtsichtgerät hinzufügen</German>
                 <Japanese>暗視装置を追加</Japanese>
                 <Chinesesimp>添加夜视仪</Chinesesimp>
             </Key>
@@ -1354,6 +1388,8 @@
                 <English>Add Thermal Goggles</English>
                 <Original>Add Thermal Goggles</Original>
                 <Russian>Добавить тепловизор</Russian>
+                <French>Ajoutez des jumelles thermiques</French>
+                <German>Thermalgerät hinzufügen</German>
                 <Japanese>サーマル ゴーグルを追加</Japanese>
                 <Chinesesimp>添加热成像目镜</Chinesesimp>
             </Key>
@@ -1361,6 +1397,8 @@
                 <English>Add Static Weapons</English>
                 <Original>Add Static Weapons</Original>
                 <Russian>Добавить турели</Russian>
+                <French>Ajoutez des armes statics</French>
+                <German>Geschütz hinzufügen</German>
                 <Japanese>固定式火器を追加</Japanese>
                 <Chinesesimp>添加固定式武器</Chinesesimp>
             </Key>
@@ -1368,6 +1406,8 @@
                 <English>Add Autonomous Weapons</English>
                 <Original>Add Autonomous Weapons</Original>
                 <Russian>Добавить автоматические турели</Russian>
+                <French>Ajoutez des armes statiques autonome</French>
+                <German>Geschützdrohnen hinzufügen</German>
                 <Japanese>自律火器を追加</Japanese>
                 <Chinesesimp>添加无人式武器</Chinesesimp>
             </Key>
@@ -1375,6 +1415,8 @@
                 <English>Add UAVs</English>
                 <Original>Add UAVs</Original>
                 <Russian>Добавить БПА</Russian>
+                <French>Ajoutez des drones</French>
+                <German>Drohnen hinzufügen</German>
                 <Japanese>UAV を追加</Japanese>
                 <Chinesesimp>添加无人机</Chinesesimp>
             </Key>
@@ -1390,6 +1432,8 @@
                 <English>Add Tents</English>
                 <Original>Add Tents</Original>
                 <Russian>Добавить палатки</Russian>
+                <French>Ajoutez des tentes</French>
+                <German>Zelte hinzufügen</German>
                 <Japanese>テントを追加</Japanese>
                 <Chinesesimp>添加帐篷</Chinesesimp>
             </Key>
@@ -1397,6 +1441,8 @@
                 <English>Weapon to Fire</English>
                 <Original>Weapon to Fire</Original>
                 <Russian>Вести огонь из</Russian>
+                <French>L'arme pour tierer</French>
+                <German>Waffe zum Feuern</German>
                 <Japanese>武器を発射</Japanese>
                 <Chinesesimp>开火用武器</Chinesesimp>
             </Key>
@@ -5104,6 +5150,7 @@
         <Container name="cfg Hints">
             <Key ID="STR_AMAE_PLACING_MODULES">
                 <Original>Placing Modules</Original>
+				<English>Placing Modules</English>
                 <Russian>Установка модулей</Russian>
                 <German>Module platzieren</German>
                 <English>Placing Modules</English>
@@ -5111,7 +5158,7 @@
                 <Chinesesimp>放置模块</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
-                <Original>
+            <Original>
 			The Achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
@@ -5119,8 +5166,8 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
-		</Original>
-                <Russian>
+			</Original>
+            <Russian>
 			В дереве модулей отображены информационные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на боевых единицах.
@@ -5129,8 +5176,8 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
 
-		</Russian>
-                <German>
+			</Russian>
+            <German>
 			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
@@ -5138,8 +5185,8 @@
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, manchmal kann es aber auch auf Einheiten platziert werden.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
-		</German>
-                <English>
+			</German>
+            <English>
 			The Achilles modules have informative icons in the module tree.%1The most common are described here:
 			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
 			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
@@ -5168,16 +5215,16 @@
 		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
-                <Original>
+            <Original>
 			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-		</Original>
-                <Russian>
+			</Original>
+            <Russian>
 			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
-		</Russian>
-                <German>
+			</Russian>
+            <German>
 			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
-		</German>
-                <English>
+			</German>
+            <English>
 			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
 		</English>
                 <Japanese>
@@ -5196,27 +5243,27 @@
                 <Chinesesimp>选择选项</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
-                <Original>
+            <Original>
 			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancel the selection mode with %3[ESCAPE]%4.
-		</Original>
-                <English>
+			</Original>
+            <English>
 			Some modules have the option to select objects to which the effect(s) will apply to.
 			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
 			%1You can cancel the selection mode with %3[ESCAPE]%4.
-		</English>
+			</English>
                 <French>
-			Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
-			%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
-			%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
-		</French>
-                <Russian>
+	    		Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
+	    		%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
+	    		%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
+	    	</French>
+            <Russian>
 			Некоторые модули имеют возможность выбора объектов, к которым они присоединяются.
 			%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
 			%1Вы можете отменить выбор используя %3[ESCAPE]%4.
-		</Russian>
-                <German>
+			</Russian>
+			<German>
 			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
 			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
 			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
@@ -5233,19 +5280,19 @@
 		</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
-                <Original>
+            <Original>
 			You can read the message given at the top of the screen about what the module wants you to select.
-		</Original>
-                <English>
+			</Original>
+            <English>
 			You can read the message given at the top of the screen about what the module wants you to select.
-		</English>
-                <French>
-			Il est écrié au-dessus qu'est-ce que vous devez choisir.
-		</French>
-                <Russian>
+			</English>
+			<Russian>
 			Вы можете узнать тип выделения, требуемого модулем, прочитав помощь сверху.
-		</Russian>
-                <German>
+			</Russian>
+			<French>
+			Il est écrié au-dessus qu'est-ce que vous devez choisir.
+			</French>
+			<German>
 			Oben steht jeweis geschrieben, was du auswählen sollst.
 		</German>
                 <Japanese>
@@ -5384,8 +5431,8 @@
 			Open the %3Field Manual%4 available in the escape menu for useful information.
 		</English>
                 <French>
-			Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
-		</French>
+		  	    Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
+		        </French>
                 <Russian>
 			Откройте %3Боевой устав%4 в меню игры для получения полезной информации.
 		</Russian>

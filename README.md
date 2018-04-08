@@ -99,8 +99,8 @@ And then we will have a look at your work!
 ### Setting up your development enviornment
 
 1. Clone your forked repository;
-2. Open the **[AddonBuilder](https://github.com/ArmaAchilles/AddonBuilder)** repository;
-3. Follow the instructions in the [README.md](https://github.com/ArmaAchilles/AddonBuilder/blob/master/README.md).
+2. Open the **[Hephaestus](https://github.com/ArmaAchilles/Hephaestus)** repository;
+3. Follow the instructions in the [README.md](https://github.com/Hephaestus/AddonBuilder/blob/master/README.md).
 
 ## Authors
 

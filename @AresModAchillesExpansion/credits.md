@@ -64,6 +64,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 ## Achilles integrates code from the following mods or scripts
 * ACE3 change NVG brighness (by commy2)
 * ACE3 fast-roping waypoint (by BaerMitUmlaut)
+* ACE3 Tools (SQF validator and config checker) (by thojkool)
 * AI HALO jump script (by cobra4v320)
     - http://www.armaholic.com/page.php?id=23113
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda)
@@ -109,6 +110,7 @@ All of these icons are licensed under Creative Commons Attribution license.
 * French
     - oOKexOo
 * German
+	- ItsNoirLime
     - KiritoKun223
     - oOKexOo
     - shukari
