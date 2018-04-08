@@ -272,6 +272,7 @@ if (_fireModeIndex == 3) then
 		private _startTime = time;
 		while {(time < _startTime + _duration) and {alive _gunner} and {alive _targetLogic}} do
 		{
+			str [typeOf _vehicle, typeOf _gunner, _startTime + _duration, time, alive _targetLogic] remoteExecCall ["systemChat"];
 			// fire the weapon for _repeatFireCount times
 			for "_" from 1 to _repeatFireCount do
 			{
@@ -324,7 +325,8 @@ if (_fireModeIndex == 3) then
 
 //clean up
 // Wait untill all units are ready (have done their task or the module has been deleted)
-waitUntil {sleep 1; {alive _x and not (_x getVariable ["Achilles_var_suppressiveFire_ready", false])} count _filteredUnits == 0};
+private _startTime = time;
+waitUntil {sleep 1; {alive _x and not (_x getVariable ["Achilles_var_suppressiveFire_ready", false])} count _filteredUnits == 0 or {time > _startTime + _duration + 10}};
 // unset variables
 {_x setVariable ["Achilles_var_fireGranted", nil]} forEach _filteredUnits;
 {_x setVariable ["Achilles_var_suppressiveFire_ready", nil]} forEach _filteredUnits;
