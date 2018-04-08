@@ -36,6 +36,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Spawn effects:
 	- Fix: Persistent smoke pillar did not work properly when placed by a server host Zeus. #283
 	- Fix: Light source did not work properly when placed by a server host Zeus. #283
+* Transfer ownership:
+	- Fix: Units lost their loadout sometimes.
 * Hide Zeus:
 	- Fix: There was a script error message in certain cases. #248
 #### Attribute windows
