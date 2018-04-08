@@ -116,8 +116,37 @@ private _dummyTargetLogic = [_selectedTargetLogic] call Achilles_fnc_createDummy
 private _group = group _unit;
 if (not local _group) then
 {
-	[_group, clientOwner] remoteExecCall ["setGroupOwner", 2];
+	// transfer non-local groups to Zeus
+	[
+		[clientOwner,_group],
+		{
+			params ["_zeusOwnerId", "_group"];
+			// save the unit loadout
+			{
+				if (alive _x) then
+				{
+					_x setVariable ["Achilles_var_tmpLoadout", getUnitLoadout _x, true];
+					// change ownership for the vehicle
+					private _vehicle = vehicle _x;
+					if (not (_vehicle isEqualTo _x) and {_x isEqualTo effectiveCommander vehicle _x}) then
+					{
+						_vehicle setOwner _zeusOwnerId;
+					};
+				};
+			} forEach units _group;
+			// change ownership
+			_group setGroupOwner _zeusOwnerId;
+		}, 2
+	] call Achilles_fnc_spawn;
+	// reset the unit loadout as soon as they have become local
 	waitUntil {sleep 1; local _group or {isNull _group or {{alive _x} count units _group == 0}}};
+	{
+		private _loadout = _x getVariable ["Achilles_var_tmpLoadout", []];
+		if !(_loadout isEqualTo []) then
+		{
+			_x setUnitLoadout _loadout;
+		};
+	} forEach units _group;
 };
 if (isNull _group or {{alive _x} count units _group == 0}) exitWith {};
 // Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).

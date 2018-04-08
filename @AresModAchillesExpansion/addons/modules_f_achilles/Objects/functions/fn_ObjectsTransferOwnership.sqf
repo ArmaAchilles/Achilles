@@ -47,25 +47,72 @@ private _group_list = [];
 if (_owner == 0) then
 {
 	// transfer ownership to server
+	// save the unit loadout
+	{
+		{
+			if (alive _x) then
+			{
+				_x setVariable ["Achilles_var_tmpLoadout", getUnitLoadout _x, true];
+			};
+		} forEach units _x;
+	} forEach _group_list;
 	[
 		[_object_list,_group_list],
 		{
-			{_x setOwner 2} forEach (_this select 0);
-			{_x setGroupOwner 2} forEach (_this select 1)
+			params ["_object_list", "_group_list"];
+			// change ownership
+			{_x setOwner 2} forEach _object_list;
+			{_x setGroupOwner 2} forEach _group_list;
+			// reset the unit loadout as soon as they have become local
+			waitUntil {sleep 1; ({not local _x} count _group_list == 0) or {({not isNull _x} count _group_list == 0) or {{{alive _x} count units _x > 0} count _group_list == 0}}};
+			{
+				{
+					private _loadout = _x getVariable ["Achilles_var_tmpLoadout", []];
+					if !(_loadout isEqualTo []) then
+					{
+						_x setUnitLoadout _loadout;
+					};
+					_x setVariable ["Achilles_var_tmpLoadout", nil, true];
+				} forEach units _x;
+			} forEach _group_list;
+			str 2 remoteExecCall ["systemChat"];
 		}, 2
 	] call Achilles_fnc_spawn;
 }
 else
 {
-	// transfer ownership to zeus
+	// transfer ownership to Zeus
 	[
-		[player,_object_list,_group_list],
+		[clientOwner,_object_list,_group_list],
 		{
-			_owner = owner (_this select 0);
-			{_x setOwner _owner} forEach (_this select 1);
-			{_x setGroupOwner _owner} forEach (_this select 2)
+			params ["_zeusOwnerId", "_object_list", "_group_list"];
+			// save the unit loadout
+			{
+				{
+					if (alive _x) then
+					{
+						_x setVariable ["Achilles_var_tmpLoadout", getUnitLoadout _x, true];
+					};
+				} forEach units _x;
+			} forEach _group_list;
+			// change ownership
+			{_x setOwner _zeusOwnerId} forEach _object_list;
+			{_x setGroupOwner _zeusOwnerId} forEach _group_list;
 		}, 2
 	] call Achilles_fnc_spawn;
+	// reset the unit loadout as soon as they have become local
+	waitUntil {sleep 1; ({not local _x} count _group_list == 0) or {({not isNull _x} count _group_list == 0) or {{{alive _x} count units _x > 0} count _group_list == 0}}};
+	{
+		{
+			private _loadout = _x getVariable ["Achilles_var_tmpLoadout", []];
+			if !(_loadout isEqualTo []) then
+			{
+				_x setUnitLoadout _loadout;
+			};
+			_x setVariable ["Achilles_var_tmpLoadout", nil, true];
+		} forEach units _x;
+	} forEach _group_list;
+	str clientOwner remoteExecCall ["systemChat"];
 };
 [localize "STR_AMAE_TRANSFER_TO" + " " + (_options select _owner)] call Ares_fnc_ShowZeusMessage;
 
