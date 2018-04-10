@@ -32,15 +32,12 @@ if (isNil "_objects") exitWith {};
     if (["arsenal"] call Achilles_fnc_isACELoaded) then
     {
 		[_x, true] call ace_arsenal_fnc_removeBox;
-    }
-    else
-    {
-        _x call BIS_fnc_removeVirtualWeaponCargo;
-        _x call BIS_fnc_removeVirtualMagazineCargo;
-        _x call BIS_fnc_removeVirtualItemCargo;
-        _x call BIS_fnc_removeVirtualBackpackCargo;
-		["AmmoboxExit", [_x]] call BIS_fnc_arsenal;
     };
+	_x call BIS_fnc_removeVirtualWeaponCargo;
+	_x call BIS_fnc_removeVirtualMagazineCargo;
+	_x call BIS_fnc_removeVirtualItemCargo;
+	_x call BIS_fnc_removeVirtualBackpackCargo;
+	["AmmoboxExit", [_x]] call BIS_fnc_arsenal;
 } forEach _objects;
 
 // Show message
