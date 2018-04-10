@@ -34,25 +34,25 @@ if (_replace) then
 _cargo params ["_items", "_weapons", "_magazines", "_backpacks"];
 
 _items params ["_itemClassNames", "_itemCounts"];
-for "_i" from 1 to (count _itemClassNames) do
+for "_i" from 0 to (count _itemClassNames -1) do
 {
 	_object additemcargoglobal [_itemClassNames select _i, _itemCounts select _i];
 };
 
 _weapons params ["_weaponClassNames", "_weaponCounts"];
-for "_i" from 1 to (count _weaponClassNames) do
+for "_i" from 0 to (count _weaponClassNames - 1) do
 {
 	_object addweaponcargoglobal [_weaponClassNames select _i, _weaponCounts select _i];
 };
 
 _magazines params ["_magazineClassNames", "_magazineCounts"];
-for "_i" from 1 to (count _magazineClassNames) do
+for "_i" from 0 to (count _magazineClassNames - 1) do
 {
 	_object addmagazinecargoglobal [_magazineClassNames select _i, _magazineCounts select _i];
 };
 
 _backpacks params ["_backpackClassNames", "_backpackCounts"];
-for "_i" from 1 to (count _backpackClassNames) do
+for "_i" from 0 to (count _backpackClassNames - 1) do
 {
 	_object addbackpackcargoglobal [_backpackClassNames select _i, _backpackCounts select _i];
 };

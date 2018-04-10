@@ -42,7 +42,6 @@ class CfgVehicles
 			description = "Ares Module Base";
 		};
 	};
-	#include "Arsenal\cfgVehiclesModulesArsenal.hpp"
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "DevTools\cfgVehiclesModulesDevTools.hpp"
 	#include "Equipment\cfgVehiclesModulesEquipment.hpp"
