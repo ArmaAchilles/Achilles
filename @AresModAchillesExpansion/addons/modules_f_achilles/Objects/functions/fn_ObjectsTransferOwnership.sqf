@@ -75,7 +75,6 @@ if (_owner == 0) then
 					_x setVariable ["Achilles_var_tmpLoadout", nil, true];
 				} forEach units _x;
 			} forEach _group_list;
-			str 2 remoteExecCall ["systemChat"];
 		}, 2
 	] call Achilles_fnc_spawn;
 }
@@ -112,7 +111,6 @@ else
 			_x setVariable ["Achilles_var_tmpLoadout", nil, true];
 		} forEach units _x;
 	} forEach _group_list;
-	str clientOwner remoteExecCall ["systemChat"];
 };
 [localize "STR_AMAE_TRANSFER_TO" + " " + (_options select _owner)] call Ares_fnc_ShowZeusMessage;
 
