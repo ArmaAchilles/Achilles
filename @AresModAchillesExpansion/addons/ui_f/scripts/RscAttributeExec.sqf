@@ -44,6 +44,8 @@ switch _mode do {
 			saveprofilenamespace;
 		};
 	};
+	case "onUnload": {
+	};
 	case "lbSelChanged": {
 		_templateID = _ctrlTemplate lbvalue lbcursel _ctrlTemplate;
 		if (_templateID < 0) then {
