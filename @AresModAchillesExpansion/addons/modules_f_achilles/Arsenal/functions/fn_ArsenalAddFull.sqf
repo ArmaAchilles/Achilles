@@ -34,7 +34,6 @@ if (isNil "_objects") exitWith {};
 		[_x, true] call ace_arsenal_fnc_removeBox;
 		[_x, true, true] call ace_arsenal_fnc_initBox;
 	};
-	systemChat "AmmoboxInit";
 	["AmmoboxInit", [_x, true]] spawn BIS_fnc_Arsenal;
 } forEach _objects;
 
