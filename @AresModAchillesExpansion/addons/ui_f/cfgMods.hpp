@@ -18,7 +18,7 @@ class CfgMods {
     };
     class Achilles {
         dir = "@AresModAchillesExpension";
-        name = "$STR_AMAE_ARES_MOD_ACHILLES_EXPANSION";
+        name = "$STR_AMAE_ACHILLES";
 
         author = "ArmA 3 Achilles Mod Inc.";
 
