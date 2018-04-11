@@ -49,7 +49,7 @@ _this spawn
 			createDialog "RscDisplayCommonMessage";
 			private _dialog = findDisplay IDD_MESSAGE;
 			(_dialog displayCtrl IDC_TITLE) ctrlSetText "Warning: Please unload Ares Mod!";
-			(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText "Ares Mod - Achilles Expansion may not work properly!";
+			(_dialog displayCtrl IDC_TEXT_WARNING) ctrlSetText "Achilles may not work properly!";
 			(_dialog displayCtrl IDC_CONFIRM_WARNING) ctrlAddEventHandler ["ButtonClick","closeDialog 1;"];
 			(_dialog displayCtrl IDC_CANCLE_WARNING) ctrlAddEventHandler ["ButtonClick", "closeDialog 2;"];
 		};

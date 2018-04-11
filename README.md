@@ -1,6 +1,6 @@
 <p align="center">
     <img src="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/Pictures/logo/achilles_logo_whiteBackground.png" width="140" alt="AMAE Logo">
-    <h1 align="center">Ares Mod - Achilles Expansion</h1>
+    <h1 align="center">Achilles</h1>
 </p>
 
 <p align="center">
@@ -27,14 +27,14 @@
     </a>
 </p>
 
-**Ares Mod - Achilles Expansion**, better known as _Achilles_, is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
+**Achilles** is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
 
-**Ares Mod - Achilles Expansion** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod, which was created by [Anton Struyk](https://github.com/astruyk). Achilles became the _de facto_ successor to Ares at the point the latter was no longer updated. Achilles has already grown into a _splendid_ project, but new additions are still to come! 
+**Achilles** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod, which was created by [Anton Struyk](https://github.com/astruyk). Achilles became the _de facto_ successor to Ares at the point the latter was no longer updated. Achilles has already grown into a _splendid_ project, but new additions are still to come! 
 
 * * *
 
 ## Table of Contents
-- [Ares Mod - Achilles Expansion](#ares-mod---achilles-expansion)
+- [Achilles](#achilles)
     - [Table of Contents](#table-of-contents)
     - [Main features](#main-features)
     - [Getting Started](#getting-started)
@@ -59,26 +59,26 @@
 
 ## Getting Started
 
-Below is what you need to get Ares Mod - Achilles Expansion up and running.  
+Below is what you need to get Achilles up and running.  
 
 Achilles is **fully standalone** from Ares, **do not run** both at the same time!
 
 ### Required Addons
 
-Ares Mod - Achilles Expansion requires:
+Achilles requires:
 - [Arma 3](http://arma3.com/)
 - [Community Based Addons A3 (CBA)](https://github.com/CBATeam/CBA_A3/releases)
 
 ### Optional Addons
 
-These mods below expand Ares Mod - Achilles Expansion by adding extra features:
+These mods below expand Achilles by adding extra features:
 - [Advanced Combat Enviornment 3 (ACE3)](https://github.com/acemod/ACE3/)
 - [Advanced Rappeling (AR)](https://github.com/sethduda/AdvancedRappelling)
 - [Task Force Arrowhead Radio (TFAR)](https://github.com/michail-nikolaev/task-force-arma-3-radio)
 
 ### Installing
 
-To install Ares Mod - Achilles Expansion you can download it from:
+To install Achilles you can download it from:
 - [GitHub](https://github.com/ArmaAchilles/AresModAchillesExpansion/releases)
 - [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
 - [Play with Six](http://withsix.com/p/Arma-3/mods/mc1X_8GXVEG0STlO_DWjNA/Ares-Mod-Achilles-Expansion)
@@ -89,7 +89,7 @@ To install Ares Mod - Achilles Expansion you can download it from:
 We always welcome any contribution to the repository and thank you for your work!  
 
 **How to contribute**:
-1. Fork the Ares Mod - Achilles Expansion repository;
+1. Fork the Achilles repository;
 2. Set up your development enviornment;
 3. Do your stuff;
 4. Create your pull request.  
@@ -116,4 +116,4 @@ To contact us - find us on our [Discord](https://discord.gg/kN7Jnhr) server.
 
 ## License
 
-**Ares Mod - Achilles Expansion** is licensed under the **[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE)** license.
+**Achilles** is licensed under the **[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE)** license.

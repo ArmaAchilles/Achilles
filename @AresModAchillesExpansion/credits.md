@@ -18,7 +18,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * Vernei's Base Templates
     - http://www.soclan.co.uk/ (source: http://www.armaholic.com/page.php?id=27531)
 
-## Achilles Expansion includes contributions by the following coders
+## Achilles includes contributions by the following coders
 ### Main Contributors:
 * CreepPork
 * Kex

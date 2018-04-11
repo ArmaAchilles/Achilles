@@ -3,7 +3,7 @@ class CfgFunctions
 {
 	class Achilles
 	{
-		project = "Ares Mod - Achilles Expansion";
+		project = "Achilles";
 		tag = "Achilles";
 
 		class Init

@@ -4,7 +4,7 @@
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"
  
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_keyEject", 
 	localize "STR_AMAE_KEY_EJECT_PASSENGERS", 
 	{
@@ -26,7 +26,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_keyGroup", 
 	localize "STR_AMAE_KEY_GROUP", 
 	{
@@ -43,7 +43,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_keyUnGroup", 
 	localize "STR_AMAE_KEY_UNGROUP", 
 	{
@@ -60,7 +60,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_deepCopy", 
 	localize "STR_AMAE_KEY_DEEP_COPY", 
 	{
@@ -76,7 +76,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_deepPaste", 
 	localize "STR_AMAE_KEY_DEEP_PASTE", 
 	{
@@ -92,7 +92,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_countermeasure", 
 	localize "STR_AMAE_KEY_COUNTERMEASURE", 
 	{
@@ -113,7 +113,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_increaseNVGBrightness", 
 	localize "STR_AMAE_KEY_INCREASENVGBRIGHTNESS", 
 	{
@@ -129,7 +129,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_decreaseNVGBrightness", 
 	localize "STR_AMAE_KEY_DECREASEVGBRIGHTNESS", 
 	{
