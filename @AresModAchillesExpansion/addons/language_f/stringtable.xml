@@ -3,16 +3,16 @@
     <Package name="General">
         <Container name="Project Titles">
             <Key ID="STR_AMAE_ARES_MOD_ACHILLES_EXPANSION">
-                <Original>Ares Mod - Achilles Expansion</Original>
-                <English>Ares Mod - Achilles Expansion</English>
-                <Czech>Ares Mod - Achilles Expansion</Czech>
-                <French>Ares Mod - Achilles Expansion</French>
-                <German>Ares Mod - Achilles Expansion</German>
-                <Italian>Ares Mod - Achilles Expansion</Italian>
-                <Polish>Ares Mod - Achilles Expansion</Polish>
-                <Portuguese>Ares Mod - Achilles Expansion</Portuguese>
-                <Russian>Ares Mod - Achilles Expansion</Russian>
-                <Spanish>Ares Mod - Achilles Expansion</Spanish>
+                <Original>Achilles</Original>
+                <English>Achilles</English>
+                <Czech>Achilles</Czech>
+                <French>Achilles</French>
+                <German>Achilles</German>
+                <Italian>Achilles</Italian>
+                <Polish>Achilles</Polish>
+                <Portuguese>Achilles</Portuguese>
+                <Russian>Achilles</Russian>
+                <Spanish>Achilles</Spanish>
                 <Japanese>アレス Mod - アキレス拡張</Japanese>
                 <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包</Chinesesimp>
             </Key>
@@ -5486,10 +5486,10 @@
         </Container>
         <Container name="Main Menu">
             <Key ID="STR_AMAE_INTRO_TITLE">
-                <Original>Ares Mod - Achilles Expansion 1.0.0</Original>
-                <English>Ares Mod - Achilles Expansion 1.0.0</English>
-                <Japanese>アレス Mod - アキレス拡張 1.0.0</Japanese>
-                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.0.0</Chinesesimp>
+                <Original>Achilles 1.0.2</Original>
+                <English>Achilles 1.0.2</English>
+                <Japanese>アレス Mod - アキレス拡張 1.0.2</Japanese>
+                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.0.2</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>

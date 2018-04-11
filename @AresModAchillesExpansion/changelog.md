@@ -1,4 +1,4 @@
-# Change log of Ares Mod - Achilles Expansion
+# Change log of Achilles
 
 ## Versioning (introduced with 1.0.0)
 X.X.X  
@@ -286,7 +286,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Fix:		"Create/Edit Intel" did not handle newline characters (Hotkey: LSHIFT+RETURN).
 * Fix:		Create/Edit Intel: Dialog title did not describe the exact action (create, spawn or edit). 
 
-### v0.0.7d (Achilles Expansion (alpha version))
+### v0.0.7d (Achilles (alpha version))
 * Change:	Several critical modules can no longer be added to Zeus (prevents unintended deletion).
 * Change:	Specify position (spawn attribute) was improved (it is now a valuable tool for placing objects on a carrier).
 * Feature:	Dynamic loadout as a vehicle attribute (ammo button).
@@ -299,7 +299,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Fix:		CAS modules did not support planes with dynamic loadouts.
 * Fix:		Earthquake module: Missing text in dialog (by @CreepPork)
 
-### v0.0.7c (Achilles Expansion (alpha version))
+### v0.0.7c (Achilles (alpha version))
 * Change:	Removed versioning form the steam workshop title.
 * Change:	Add Simple Objects to Zeus was removed, since it is not reliable atm (will be reintroduced when ready).
 * Fix:		Lock door module: Timing issue with add lock door logics (logics ended up at [0,0,0] at low performance).
@@ -309,7 +309,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Fix:		Un-garrison module was broken.
 * Fix:		CAS modules were broken in certain cases (e.g. Achilles was loaded to the server).
 
-### v0.0.7 (Achilles Expansion (alpha version))
+### v0.0.7 (Achilles (alpha version))
 * Change:	ACE injury module: Adjusted damage levels.
 * Change:	Removed side restriction for vanilla CAS modules.
 * Change:	Radial searches are now conducted in 2D (ignoring z) instead of 3D (e.g. damage buidlings).
@@ -345,7 +345,7 @@ Went missing in previous versions: Instant occupation does distribute large grou
 * Fix:		Syntax error in dynamic dialog cfg   (fixed by @shukari)
 * Fix:		Missing error message for modules such as "Hava a seat".
 
-### v0.0.6d (Achilles Expansion (alpha version))
+### v0.0.6d (Achilles (alpha version))
 * Change:	Artillery fire support module: Removed workaround (BIS fixed it).
 * Fix:		Add/Remove objects to Zeus: Type "Unit" did not select soldiers. Moreover, it did select empty vehicles.
 * Fix:		Ares Compositions did not work properly in 1.68.
@@ -353,13 +353,13 @@ Went missing in previous versions: Instant occupation does distribute large grou
 * Fix:		Cange Skills/Traits: EOD label was missing in ACE version.
 * Fix:		Cange Skills/Traits: EOD and engineer did not work for ACE.
 
-### v0.0.6c (Achilles Expansion (alpha version))
+### v0.0.6c (Achilles (alpha version))
 * Fix:		Spawn attributes ticks were not updated after reopening zeus interface.
 * Fix:		Target/LZ/RP logics default value was always the same & wrong message.
 * Fix:		Static artillery from third-party add-ons did not fire multiple rounds.
 
 Changelists
-### v0.0.6 (Achilles Expansion (alpha version))
+### v0.0.6 (Achilles (alpha version))
 * Change:	Create Intel: Simulation of new created intel is no longer enabled.
 * Change:	Ammo box inventory is no longer opened automatically on spawn.
 * Change:	Add/Remove editable objects: Extend search pattern to static turrets for type "units" and "vehicles".
@@ -390,7 +390,7 @@ Changelists
 * Fix:		Unessecary creation of dependency on achilles_data_f_achilles when placing compositions in Eden ([BIS Forum](https://forums.bistudio.com/topic/191113-ares-mod-achilles-expansion/?do=findComment&comment=3140115)).
 * Fix:		Mines were still revealed to players (0.0.5 only removed the map markers...).
 
-### v0.0.5 (Achilles Expansion (alpha version))
+### v0.0.5 (Achilles (alpha version))
 * Change:	Garrison module: Replace searching pattern "House" by "Building" (=> more buildings are available e.g. Tanoa WW2 bunkers).
 * Change:	Moved "Create/Edit intel" module from "spawn" to "scenario flow" category (see #40)
 * Change:	"Destroy Buildings" Module was changed to "Damage Buildings" Module (=more options).
@@ -422,14 +422,14 @@ Changelists
 * Fix:		Mines were marked on map (check ACE3 solution?)
 * Fix:		Mortar only fire one shell (see #36)
 
-### v0.0.4d (Achilles Expansion (alpha version))
+### v0.0.4d (Achilles (alpha version))
 * Feature: Updated Russian Translation (by Igor Nikolaev).
 * Fix:     Single unit player teleport option was broken.
 
-### v0.0.4c (Achilles Expansion (alpha version))
+### v0.0.4c (Achilles (alpha version))
 * Fix:     Player edit menu was broken.
 
-### v0.0.4 (Achilles Expansion (alpha version))
+### v0.0.4 (Achilles (alpha version))
 * Change:  Teleport player: Teleport entire vehcile is now optional.
 * Change:  Instant occupation does distribute large group (>8 members) on different buildings (by Grezvany13)
 * Change:  Revised equipment module category.
@@ -461,7 +461,7 @@ Changelists
 
 
 
-### v0.0.3 (Achilles Expansion (alpha version))
+### v0.0.3 (Achilles (alpha version))
 * Change:  Heavily reorganized scripts and compartmentalized pbo similar to vanilla add-ons
            This might lead to unintented losses of some functionalities (please report!)
 * Change:  Optimized the way the add-on is initialized
@@ -501,7 +501,7 @@ Changelists
            - Ares modules were not avaiable in recent modules
 * Fix:     Error message was missing when fire support modules had a lack of possible targets
 
-### v0.0.2 (Achilles Expansion (alpha version))
+### v0.0.2 (Achilles (alpha version))
 * Feature: More ambient animations + combat ready option
 * Feature: Spawn Mines/Explosives module.
 * Feature: More waypoints are avaiable.
@@ -523,7 +523,7 @@ Changelists
 * Fix:     Last choices in some dialogs were not saved properly.
 * Fix:     Cancle button was to small for german translation.
 
-### v0.0.1 (Achilles Expansion (alpha version) - compared to Ares 1.8.1)
+### v0.0.1 (Achilles (alpha version) - compared to Ares 1.8.1)
 * Feature: Avaiable languages: English, French, German (not yet completed)
 * Feature: More vanilla music is aviable in the "Play Music" module.
 * Feature: Music defined in description.ext are added to "Play Music" module if a valid "musicClass" is defined (e.g. "Lead", "Action", "Stealth", "Calm")
