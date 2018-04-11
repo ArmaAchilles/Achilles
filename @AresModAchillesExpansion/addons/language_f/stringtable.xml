@@ -2,7 +2,7 @@
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
-            <Key ID="STR_AMAE_ARES_MOD_ACHILLES_EXPANSION">
+            <Key ID="STR_AMAE_ACHILLES">
                 <Original>Achilles</Original>
                 <English>Achilles</English>
                 <Czech>Achilles</Czech>

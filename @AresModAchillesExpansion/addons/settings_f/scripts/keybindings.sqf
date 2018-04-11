@@ -113,7 +113,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_increaseNVGBrightness", 
 	localize "STR_AMAE_KEY_INCREASENVGBRIGHTNESS", 
 	{
@@ -129,7 +129,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-	localize "STR_AMAE_ARES_MOD_ACHILLES_EXPANSION",
+	localize "STR_AMAE_ACHILLES",
 	"Achilles_id_decreaseNVGBrightness", 
 	localize "STR_AMAE_KEY_DECREASEVGBRIGHTNESS", 
 	{
