@@ -16,7 +16,7 @@ class Achilles_Module_Spawn_Effects : Achilles_Spawn_Module_Base
 class Achilles_Module_Spawn_Carrier : Achilles_Spawn_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "USS Freedom";
+	displayName = "$STR_AMAE_USS_FREEDOM";
 	function = "Achilles_fnc_SpawnCarrier";
 	icon = "\achilles\data_f_achilles\icons\icon_freedom.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_freedom.paa";

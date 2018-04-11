@@ -1446,6 +1446,21 @@
                 <Japanese>武器を発射</Japanese>
                 <Chinesesimp>开火用武器</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_USS_FREEDOM">
+                <Original>USS Freedom</Original>
+            </Key>
+            <Key ID="STR_AMAE_SUBMARINE">
+                <English>Submarine</English>
+                <Original>Submarine</Original>
+                <French>Sous-marin</French>
+                <German>U-Boot</German>
+            </Key>
+            <Key ID="STR_AMAE_TRAWLER">
+                <English>Trawler</English>
+                <Original>Trawler</Original>
+                <French>Chalutier</French>
+                <German>Trawler</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
