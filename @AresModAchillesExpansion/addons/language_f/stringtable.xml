@@ -3210,11 +3210,11 @@
                 <Japanese>センサー</Japanese>
                 <Chinesesimp>传感器</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_FLAG">
-                <Original>FLAG</Original>
-                <English>FLAG</English>
-                <French>DRAPEAU</French>
-                <German>FLAGGE</German>
+            <Key ID="STR_AMAE_ACCESSORIES">
+                <Original>ACCESSORIES</Original>
+                <English>ACCESSORIES</English>
+                <French>ACCESSORIES</French>
+                <German>ACCESSORIES</German>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
@@ -3222,11 +3222,11 @@
                 <French>Drapeau</French>
                 <German>Flagge</German>
             </Key>
-            <Key ID="STR_AMAE_SET_FLAG_FOR_X">
-                <Original>Set Flag for %1</Original>
-                <English>Set Flag for %1</English>
-                <French>Mettez un drapeau pour %1</French>
-                <German>Flagge festlegen für %1</German>
+            <Key ID="STR_AMAE_CHANGE_ACCESSORIES_FOR_X">
+                <Original>Change accessories for %1</Original>
+                <English>Change accessories for %1</English>
+                <French>Changez les accessories pour %1</French>
+                <German>Accessories festlegen für %1</German>
             </Key>
             <Key ID="STR_AMAE_NO_FLAG">
                 <Original>No Flag</Original>
