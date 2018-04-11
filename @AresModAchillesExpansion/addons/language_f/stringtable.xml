@@ -3210,11 +3210,11 @@
                 <Japanese>センサー</Japanese>
                 <Chinesesimp>传感器</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_ACCESSORIES">
-                <Original>ACCESSORIES</Original>
-                <English>ACCESSORIES</English>
-                <French>ACCESSORIES</French>
-                <German>ACCESSORIES</German>
+            <Key ID="STR_AMAE_ACCESSORY">
+                <Original>ACCESSORY</Original>
+                <English>ACCESSORY</English>
+                <French>ACCESSORY</French>
+                <German>ACCESSORY</German>
             </Key>
             <Key ID="STR_AMAE_NUMBER_PLATE">
                 <Original>Number plate</Original>
@@ -3235,8 +3235,8 @@
                 <German>Flagge</German>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ACCESSORIES_FOR_X">
-                <Original>Change accessories for %1</Original>
-                <English>Change accessories for %1</English>
+                <Original>Change Accessories for %1</Original>
+                <English>Change Accessories for %1</English>
                 <French>Changez les accessories pour %1</French>
                 <German>Accessories festlegen für %1</German>
             </Key>

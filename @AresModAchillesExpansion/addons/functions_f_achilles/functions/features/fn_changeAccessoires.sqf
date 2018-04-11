@@ -50,6 +50,7 @@ private _dialogResult =
 if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params ["_flag", ["_plateText", -1, ["",0]]];
+_flag = (_flags select 1) select _flag;
 
 // get all selected units of the same kind
 private _mode = if (_vehicle isKindOf "Man") then {"man"} else {"vehicle"};
@@ -57,10 +58,9 @@ private _curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
 {
 	_x forceFlagTexture "";
 	// If the flag is not set to None, then add a flag (the flag has already been removed)
-	if !(_flag isEqualTo 0) then
+	if !(_flag isEqualTo "") then
 	{
-		_flag = (_flags select 1) select _flag;
-		_vehicle forceFlagTexture _flag;
+		_x forceFlagTexture _flag;
 	};
 	// set the plate number if the vehicle has one
 	if !(_plateText isEqualTo -1) then

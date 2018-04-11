@@ -55,7 +55,7 @@ class RscDisplayAttributesMan: RscDisplayAttributes
 		};
         class ButtonFlag : ButtonCustomLeft2
 		{
-			text = "$STR_AMAE_ACCESSORIES";
+			text = "$STR_AMAE_ACCESSORY";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeAccessoires";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
