@@ -3216,6 +3216,12 @@
                 <French>ACCESSORIES</French>
                 <German>ACCESSORIES</German>
             </Key>
+            <Key ID="STR_AMAE_NUMBER_PLATE">
+                <Original>Number plate</Original>
+                <English>Number plate</English>
+                <French>Plaque d'immatriculation</French>
+                <German>Kontrollschild</German>
+            </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
                 <English>Flag</English>
