@@ -7,7 +7,7 @@
     <a href="https://github.com/ArmaAchilles/Achilles/tree/release">
         <img src="https://img.shields.io/badge/dynamic/json.svg?label=Version&colorB=007EC6&prefix=&suffix=&query=version&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE version">
     </a>
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/issues">
+    <a href="https://github.com/ArmaAchilles/Achilles/issues">
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/Achilles.svg?style=flat-square&label=Issues" alt="AMAE issues">
     </a>
     <a href="https://github.com/ArmaAchilles/Achilles/releases">
@@ -16,7 +16,7 @@
     <a href="https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/">
         <img src="https://img.shields.io/badge/BIF-Thread-lightgrey.svg?style=flat-square" alt="BIF thread">
     </a>
-    <a href="https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE">
+    <a href="https://github.com/ArmaAchilles/Achilles/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-orange.svg?style=flat-square" alt="AMAE license">
     </a>
     <a href="https://discord.gg/kN7Jnhr">
