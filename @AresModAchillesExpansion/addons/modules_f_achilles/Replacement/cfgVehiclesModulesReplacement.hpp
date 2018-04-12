@@ -3,6 +3,11 @@ class ModuleMine_F : ModuleEmpty_F
 	function = "Achilles_fnc_moduleMine";
 };
 
+class ModuleRemoteControl_F : Module_F
+{
+	function = "Achilles_fnc_moduleRemoteControl";
+};
+
 class ModuleCAS_F : Module_F {};
 class ModuleCASGun_F : ModuleCAS_F 
 {
