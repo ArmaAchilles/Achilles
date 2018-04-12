@@ -24,7 +24,6 @@ class cfgRemoteExec
 		class bis_fnc_earthquake;
 		class ares_fnc_weather_function;
 		class ares_fnc_change_weather_function;
-		class achilles_fnc_suppressivefire;
 		class bis_fnc_saymessage;
 		class ares_fnc_addintel;
 		class bis_fnc_shownotification;
@@ -36,7 +35,6 @@ class cfgRemoteExec
 		class bis_fnc_advhint;
 		class bis_fnc_curatorsaymessage;
 		class bis_fnc_carrier01init;
-		class ares_fnc_arsenalsetup;
 		class ares_fnc_searchbuilding;
 		class achilles_fnc_instantbuildinggarrison;
 		class ares_fnc_updateteleportmarkeractions;
@@ -59,9 +57,14 @@ class cfgRemoteExec
 		class setskill;
 		class setunittrait;
 		class sethitindex;
+		class setvehicleradar;
+		class setvehiclereportremotetargets;
+		class setvehiclereceiveremotetargets;
+		class setvehiclereportownposition;
 		class setdir;
 		class setvectordirandup;
 		class switchmove;
+		class setplatenumber;
 		class sidechat;
 		class globalChat;
 		class vehicleChat;
@@ -80,7 +83,6 @@ class cfgRemoteExec
 		class addcuratoreditableobjects;
 		class removecuratoreditableobjects;
 		class removeallactions;
-		class spawn;
 		class flyinheight;
 		class swimindepth;
 		class setfriend;
