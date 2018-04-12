@@ -14,6 +14,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 #### Modules
 ##### New
 * Create target (one module that unifies all target modules). #271
+	- Feature: New option: Attach a laser target (Observation: Vanilla AI jets engage them when they have a visual).
 * Attach/Detach Effect (allows attaching IR grenades and chem lights). #277
 ##### Revised
 * Arsenal modules:
@@ -42,7 +43,12 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: There was a script error message in certain cases. #248
 #### Attribute windows
 ##### New
-* Set flag (adds a small flag to the unit). #275
+* Change accessories button (). 
+	- Feature: Set flag (adds a small flag to the unit). #275
+	- Feature: Set Number Plate (change text on number plates).
+##### Revised
+* Sensors button
+	- Fix: Was not applied to all selected units.
 #### Waypoints
 ##### New
 * Demine waypoint (applied to EOD specialists). #264
