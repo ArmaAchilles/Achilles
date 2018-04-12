@@ -33,18 +33,19 @@ private _dialogResult =
 if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params ["_targetName", "_laserTargetIdx"];
+_laserTargetIdx = _laserTargetIdx - 1;
 
 _logic setName _targetName;
 _logic setVariable ["SortOrder", Achilles_TargetCount];
 
-if (_laserTargetIdx > 0) then
+if (_laserTargetIdx >= 0) then
 {
 	if (_laserTargetIdx > 1) then
 	{
 		// handle independent as they don't have their own laser target
 		_laserTargetIdx = if ([west, independent] call BIS_fnc_sideIsEnemy) then {0} else {1};
 	};
-	_laserTarget = (LASER_TARGETS select (_laserTargetIdx - 1)) createVehicle [0,0,0];
+	_laserTarget = (LASER_TARGETS select _laserTargetIdx) createVehicle [0,0,0];
 	_laserTarget attachTo [_logic, [0,0,0]];
 	// we need no deleted event handler, since laser targets already get automatically deleted 
 	// when the object they are attached to gets deleted.
