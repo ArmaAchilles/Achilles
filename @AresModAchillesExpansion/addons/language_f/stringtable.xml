@@ -3222,11 +3222,11 @@
                 <French>Plaque d'immatriculation</French>
                 <German>Kontrollschild</German>
             </Key>
-            <Key ID="STR_AMAE_ATTACH_LASER_TARGET">
-                <Original>Attach laser target</Original>
-                <English>Attach laser target</English>
-                <French>Attachez une cible de laser</French>
-                <German>Laserziel befestigen</German>
+            <Key ID="STR_AMAE_ATTACH_LASER_TARGET_FOR">
+                <Original>Attach laser target for</Original>
+                <English>Attach laser target for</English>
+                <French>Attachez une cible de laser pour</French>
+                <German>Laserziel befestigen für</German>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>

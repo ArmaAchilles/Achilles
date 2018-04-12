@@ -26,7 +26,7 @@ private _dialogResult =
 	localize "STR_AMAE_CREATE_TARGET",
 	[
 		["TEXT", localize "STR_AMAE_NAME", [], _targetName, true],
-		["COMBOBOX", localize "STR_AMAE_ATTACH_LASER_TARGET", [localize "STR_AMAE_NONE"] + SIDE_NAMES]
+		["COMBOBOX", localize "STR_AMAE_ATTACH_LASER_TARGET_FOR", [localize "STR_NOBODY"] + SIDE_NAMES]
 	]
 ] call Achilles_fnc_showChooseDialog;
 
