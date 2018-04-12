@@ -2449,7 +2449,7 @@
                 <Japanese>割合</Japanese>
                 <Chinesesimp>分布</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_DELTA">
+            <Key ID="STR_AMAE_DELTA_DISTRIBUTION">
                 <Original>Delta</Original>
                 <English>Delta</English>
                 <French>Delta</French>
