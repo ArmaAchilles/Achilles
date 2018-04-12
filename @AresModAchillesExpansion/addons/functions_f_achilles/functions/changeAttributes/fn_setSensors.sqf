@@ -26,7 +26,24 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-_vehicle setVehicleRadar (_dialogResult select 0);
-_vehicle setVehicleReportRemoteTargets ((_dialogResult select 1) == 1);
-_vehicle setVehicleReceiveRemoteTargets ((_dialogResult select 2) == 1);
-_vehicle setVehicleReportOwnPosition ((_dialogResult select 3) == 1);
+_dialogResult params ["_radar", "_reportTarget", "_receiveTarget", "_reportOwnPos"];
+_reportTarget = (_reportTarget == 1);
+_receiveTarget = (_receiveTarget == 1);
+_reportOwnPos = (_reportOwnPos == 1);
+private _curatorSelected = ["vehicle"] call Achilles_fnc_getCuratorSelected;
+{
+	if (local _x) then
+	{
+		_x setVehicleRadar _radar;
+		_x setVehicleReportRemoteTargets _reportTarget;
+		_x setVehicleReceiveRemoteTargets _receiveTarget;
+		_x setVehicleReportOwnPosition _reportOwnPos;
+	}
+	else
+	{
+		[_x, _radar] remoteExecCall ["setVehicleRadar", _x];
+		[_x, _reportTarget] remoteExecCall ["setVehicleReportRemoteTargets", _x];
+		[_x, _receiveTarget] remoteExecCall ["setVehicleReceiveRemoteTargets", _x];
+		[_x, _reportOwnPos] remoteExecCall ["setVehicleReportOwnPosition", _x];
+	};
+} forEach _curatorSelected;

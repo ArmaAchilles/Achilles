@@ -3210,11 +3210,23 @@
                 <Japanese>センサー</Japanese>
                 <Chinesesimp>传感器</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_FLAG">
-                <Original>FLAG</Original>
-                <English>FLAG</English>
-                <French>DRAPEAU</French>
-                <German>FLAGGE</German>
+            <Key ID="STR_AMAE_ACCESSORY">
+                <Original>ACCESSORY</Original>
+                <English>ACCESSORY</English>
+                <French>ACCESSORY</French>
+                <German>ACCESSORY</German>
+            </Key>
+            <Key ID="STR_AMAE_NUMBER_PLATE">
+                <Original>Number plate</Original>
+                <English>Number plate</English>
+                <French>Plaque d'immatriculation</French>
+                <German>Kontrollschild</German>
+            </Key>
+            <Key ID="STR_AMAE_ATTACH_LASER_TARGET_FOR">
+                <Original>Attach laser target for</Original>
+                <English>Attach laser target for</English>
+                <French>Attachez une cible de laser pour</French>
+                <German>Laserziel befestigen für</German>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
@@ -3222,11 +3234,11 @@
                 <French>Drapeau</French>
                 <German>Flagge</German>
             </Key>
-            <Key ID="STR_AMAE_SET_FLAG_FOR_X">
-                <Original>Set Flag for %1</Original>
-                <English>Set Flag for %1</English>
-                <French>Mettez un drapeau pour %1</French>
-                <German>Flagge festlegen für %1</German>
+            <Key ID="STR_AMAE_CHANGE_ACCESSORIES_FOR_X">
+                <Original>Change Accessories for %1</Original>
+                <English>Change Accessories for %1</English>
+                <French>Changez les accessories pour %1</French>
+                <German>Accessories festlegen für %1</German>
             </Key>
             <Key ID="STR_AMAE_NO_FLAG">
                 <Original>No Flag</Original>

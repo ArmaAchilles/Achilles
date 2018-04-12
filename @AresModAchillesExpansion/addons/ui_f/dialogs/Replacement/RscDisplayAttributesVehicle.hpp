@@ -64,8 +64,8 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		};
         class ButtonFlag : ButtonCustomLeftBelow2
 		{
-			text = "$STR_AMAE_FLAG";
-			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setFlag";
+			text = "$STR_AMAE_ACCESSORY";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeAccessoires";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 	};
@@ -133,8 +133,8 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		};
         class ButtonFlag : ButtonCustomLeftBelow2
 		{
-			text = "$STR_AMAE_FLAG";
-			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_setFlag";
+			text = "$STR_AMAE_ACCESSORY";
+			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeAccessoires";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 	};

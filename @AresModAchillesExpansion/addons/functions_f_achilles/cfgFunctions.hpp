@@ -107,7 +107,7 @@ class CfgFunctions
 			class setLRFrequencies;
 			class effectFire;
 			class instantBuildingGarrison;
-            class setFlag;
+            class changeAccessoires;
 		};
 	};
 
