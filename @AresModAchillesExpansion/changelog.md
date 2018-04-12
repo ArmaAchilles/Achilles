@@ -43,7 +43,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: There was a script error message in certain cases. #248
 #### Attribute windows
 ##### New
-* Accessory button. 
+* Accessory button. #290
 	- Feature: Set flag (adds a small flag to the unit). #275
 	- Feature: Set Number Plate (change text on number plates).
 ##### Revised
