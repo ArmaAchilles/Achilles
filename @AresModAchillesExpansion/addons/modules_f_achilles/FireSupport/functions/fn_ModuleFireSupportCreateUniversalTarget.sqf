@@ -11,7 +11,7 @@
     	Nothing
 */
 
-#define LASER_TARGETS	["LaserTargetE", "LaserTargetW", "LaserTargetC"]
+#define LASER_TARGETS	["LaserTargetE", "LaserTargetW"]
 #define SIDE_NAMES	[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT"]
 
 #include "\achilles\modules_f_ares\module_header.hpp"
@@ -39,8 +39,15 @@ _logic setVariable ["SortOrder", Achilles_TargetCount];
 
 if (_laserTargetIdx > 0) then
 {
+	if (_laserTargetIdx > 1) then
+	{
+		// handle independent as they don't have their own laser target
+		_laserTargetIdx = if ([west, independent] call BIS_fnc_sideIsEnemy) then {0} else {1};
+	};
 	_laserTarget = (LASER_TARGETS select (_laserTargetIdx - 1)) createVehicle [0,0,0];
 	_laserTarget attachTo [_logic, [0,0,0]];
+	// we need no deleted event handler, since laser targets already get automatically deleted 
+	// when the object they are attached to gets deleted.
 };
 
 [format [localize "STR_AMAE_CREATED_TARGET", _targetName]] call Ares_fnc_showZeusMessage;
