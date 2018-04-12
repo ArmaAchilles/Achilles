@@ -5,13 +5,13 @@
 
 <p align="center">
     <a href="https://github.com/ArmaAchilles/Achilles/tree/release">
-        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Version&colorB=007EC6&prefix=&suffix=&query=version&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE version">
+        <img src="https://img.shields.io/github/release/ArmaAchilles/Achilles.svg?label=Version&colorB=007EC6&style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/Achilles/issues">
         <img src="https://img.shields.io/github/issues-raw/ArmaAchilles/Achilles.svg?style=flat-square&label=Issues" alt="AMAE issues">
     </a>
     <a href="https://github.com/ArmaAchilles/Achilles/releases">
-        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Downloads&colorB=brightgreen&prefix=&suffix=&query=downloads&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE Downloads">
+        <img src="https://img.shields.io/github/downloads/ArmaAchilles/Achilles/total.svg?label=GitHub%20Downloads&colorB=brightgreen&style=flat-square" alt="AMAE Downloads">
     </a>
     <a href="https://forums.bistudio.com/forums/topic/191113-ares-mod-achilles-expansion/">
         <img src="https://img.shields.io/badge/BIF-Thread-lightgrey.svg?style=flat-square" alt="BIF thread">
@@ -20,7 +20,7 @@
         <img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-orange.svg?style=flat-square" alt="AMAE license">
     </a>
     <a href="https://discord.gg/kN7Jnhr">
-        <img src="https://img.shields.io/badge/dynamic/json.svg?label=Discord&colorB=7683D5&prefix=&suffix=&query=users&uri=https%3A%2F%2Fmechilles.herokuapp.com%2Fbadge&style=flat-square" alt="AMAE Discord">
+        <img src="https://img.shields.io/discord/364823341506363392.svg?label=Discord&style=flat-square&colorB=7683D5" alt="AMAE Discord">
     </a>
     <a href="https://www.travis-ci.org/ArmaAchilles/Achilles">
         <img src="https://img.shields.io/travis/ArmaAchilles/Achilles.svg?style=flat-square&label=Build" alt="AMAE Builds">
