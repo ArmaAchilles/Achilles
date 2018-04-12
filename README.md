@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/ArmaAchilles/Achilles/tree/release">
+    <a href="https://github.com/ArmaAchilles/Achilles/releases/latest">
         <img src="https://img.shields.io/github/release/ArmaAchilles/Achilles.svg?label=Version&colorB=007EC6&style=flat-square" alt="AMAE version">
     </a>
     <a href="https://github.com/ArmaAchilles/Achilles/issues">
