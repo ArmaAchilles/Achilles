@@ -43,7 +43,7 @@ if (_laserTargetIdx >= 0) then
 	if (_laserTargetIdx > 1) then
 	{
 		// handle independent as they don't have their own laser target
-		_laserTargetIdx = if ([west, independent] call BIS_fnc_sideIsEnemy) then {0} else {1};
+		_laserTargetIdx = [1, 0] select ([west, independent] call BIS_fnc_sideIsEnemy);
 	};
 	_laserTarget = (LASER_TARGETS select _laserTargetIdx) createVehicle [0,0,0];
 	_laserTarget attachTo [_logic, [0,0,0]];
