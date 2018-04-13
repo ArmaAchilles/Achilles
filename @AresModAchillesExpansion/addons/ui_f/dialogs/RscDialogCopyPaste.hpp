@@ -68,7 +68,7 @@ class Ares_CopyPaste_Dialog
 		};
 		class Ares_Background_Edit: IGUIBack
 		{
-			idc = 2020;
+			idc = 2040;
 
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;

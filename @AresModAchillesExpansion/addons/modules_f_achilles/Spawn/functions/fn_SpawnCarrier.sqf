@@ -2,7 +2,7 @@
 
 private _dialogResult =
 [
-	"USS Freedom",
+	localize "STR_AMAE_USS_FREEDOM",
 	[
 		[localize "STR_AMAE_DIRECTION", ["N","NE","E","SE","S","SW","W","NW"]]
 	]
