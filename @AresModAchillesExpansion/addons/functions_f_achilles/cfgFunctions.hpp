@@ -3,7 +3,7 @@ class CfgFunctions
 {
 	class Achilles
 	{
-		project = "Ares Mod - Achilles Expansion";
+		project = "Achilles";
 		tag = "Achilles";
 
 		class Init
@@ -107,7 +107,7 @@ class CfgFunctions
 			class setLRFrequencies;
 			class effectFire;
 			class instantBuildingGarrison;
-            class setFlag;
+            class changeAccessoires;
 		};
 	};
 
