@@ -101,5 +101,5 @@ class CfgVehicles
 	class ModuleIRGrenade_F : Module_F {scopeCurator = 1;};
 	class ModuleTracers_F : Module_F {scopeCurator = 1;};
 
-	class ModuleHint_F : Module_F {displayName = "$STR_AMAE_ADVANCED_HINT"};
+	class ModuleHint_F : Module_F {displayName = "$STR_AMAE_ADVANCED_HINT"; category="Curator";};
 };
