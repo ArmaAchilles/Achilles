@@ -751,6 +751,12 @@
                 <Japanese>ヒント</Japanese>
                 <Chinesesimp>提示</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_ADVANCED_HINT">
+                <Original>Advanced Hint</Original>
+                <English>Advanced Hint</English>
+                <French>Indice avancé</French>
+                <German>Erweiterter Hinweis</German>
+            </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
                 <English>Switch side channel of Zeus</English>
