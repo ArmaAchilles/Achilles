@@ -17,8 +17,8 @@ findDisplay // " "
 setTitleEffect // " "
 selectPlayer // could be used to switch the player into a seagull
 remoteControl // " "
-callExtension // could be used to
-compile // could be used to trick the blacklist
+callExtension // could be used to trick the blacklist
+compile // " "
 EventHandler // " "
 setWaypointScript // " "
 setTriggerStatements // " "
