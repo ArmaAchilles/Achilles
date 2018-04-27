@@ -5,6 +5,9 @@ Tools/AchillesTestServer.bat
 *.pbo
 *.bisign
 *.lnk
+*.exe
+*.dll
+*.o
 .vscode/
 
 .idea
