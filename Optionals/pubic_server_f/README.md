@@ -2,7 +2,7 @@
 ## Introduction
 This optional addon can be placed as a PBO in @Achilles for the server.
 In general Achilles is not required on the server, but it there are some advantages such as that old targets and LZs won't become invisible for Zeus when he reconnects to the server.
-In order to make it not a mandatory mod for the clients, it should be loaded as a server mod (`-servermod`) rather than a mod (`-mod`) ([see startup parameters for arma3server](https://community.bistudio.com/wiki/Arma_3_Startup_Parameters)). It is recommended to add it as a servermod rather than a mod.
+In order to make it not a mandatory mod for the clients, it should be loaded as a server mod (`-servermod`) rather than a mod (`-mod`) ([see startup parameters for arma3server](https://community.bistudio.com/wiki/Arma_3_Startup_Parameters)).
 ## Features
 ### Blacklist
 #### General Aspects
