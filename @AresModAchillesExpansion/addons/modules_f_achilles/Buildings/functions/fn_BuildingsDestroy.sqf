@@ -24,13 +24,6 @@ private _dialogResult =
 
 if (_dialogResult isEqualTo []) exitWith {};
 
-//Broadcast damage function to server
-if (isNil "Achilles_var_damageBuildings_init_done") then
-{
-	publicVariableServer "Achilles_fnc_damageBuildings";
-	Achilles_var_damageBuildings_init_done = true;
-};
-
 private _buildings = [];
 switch (_dialogResult select 0) do
 {
@@ -48,6 +41,6 @@ switch (_dialogResult select 0) do
 private _mean_damage_type = _dialogResult select 1;
 private _distribution_type = _dialogResult select 2;
 
-[_buildings,_mean_damage_type,_distribution_type] remoteExecCall ["Achilles_fnc_damageBuildings",2];
+[_buildings,_mean_damage_type,_distribution_type] call Achilles_fnc_damageBuildings;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

@@ -49,7 +49,7 @@ private _fnc_getDamageType = switch (_distribution_type) do
 				if (count _other > 0) then
 				{
 					{
-						_building setHitIndex [_x,1];
+						[_building, [_x,1]] remoteExecCall ["setHitIndex"];
 					} forEach _other;
 				};
 				private _counter = count _hitzones;
@@ -59,7 +59,7 @@ private _fnc_getDamageType = switch (_distribution_type) do
 					for "_i" from 1 to _extend_count do
 					{
 						private _hitzone = selectRandom _hitzones;
-						_building setHitIndex [_hitzone,1];
+						[_building,  [_hitzone,1]] remoteExecCall ["setHitIndex"];
 						_hitzones = _hitzones - [_hitzone];
 					};
 				};
