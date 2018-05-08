@@ -28,6 +28,17 @@ if (_dialogResult == 1) then
 
 	private _target = uiNamespace getVariable ["Ares_ExecuteCode_Dialog_Constraint", 0];
 	private _pastedText = profileNamespace getVariable ["Ares_ExecuteCode_Dialog_Text", "[]"];
+	// check for server-side blacklist if not admin
+	if ((call BIS_fnc_admin) == 0) then
+	{
+		private _isExecutionGranted = [missionNamespace, "Achilles_fnc_checkCodeBasedOnBlackList", {[]}] call BIS_fnc_getServerVariable;
+		private _blacklistedEntries = _pastedText call _isExecutionGranted;
+		if !(_blacklistedEntries isEqualTo []) then
+		{
+			[format [localize "STR_AMAE_THIS_SERVER_DOES_NOT_ALLOW_YOU_TO_USE_X", _blacklistedEntries select 0]] call Achilles_fnc_showZeusErrorMessage;
+			breakTo MAIN_SCOPE_NAME;
+		};
+	};
 
 	switch (_target) do
 	{

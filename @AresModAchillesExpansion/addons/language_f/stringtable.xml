@@ -1492,6 +1492,10 @@
                 <Japanese>このモジュールはミッション製作者により無効化されています。</Japanese>
                 <Chinesesimp>该模块已被任务作者禁用。</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_THIS_SERVER_DOES_NOT_ALLOW_YOU_TO_USE_X">
+                <Original>This server does not allow you to use %1.</Original>
+                <English>This server does not allow you to use %1.</English>
+            </Key>
             <Key ID="STR_AMAE_NO_BUILDINGS_FOUND">
                 <Original>No buildings found!</Original>
                 <English>No buildings found!</English>

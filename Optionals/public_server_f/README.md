@@ -7,7 +7,7 @@ In order to make it not a mandatory mod for the clients, it should be loaded as 
 ### Blacklist
 #### General Aspects
 Introduces a command/function blacklist for the execute code module.
-The blacklisted commands/functions are specified in the blacklist.txt.
+The blacklisted commands/functions are specified in the blacklist.hpp.
 Note that the blacklist also applies to substrings in expressions, e.g. `EventHandler` also matches `addEventHandler`.
 It is furthermore case-insensitive.
 #### Recommended Strategy
