@@ -76,7 +76,7 @@ class CfgVehicles
 	#include "Spawn\cfgVehiclesModulesSpawn.hpp"
 	#include "Zeus\cfgVehiclesModulesZeus.hpp"
 	
-	// config replacement: remove vanilla effect modules and training category
+	// config replacement: remove vanilla effect modules
 	class ModuleChemlight_F : Module_F {};
 	class ModuleChemlightBlue_F : ModuleChemlight_F {scopeCurator = 1;};
 	class ModuleChemlightGreen_F : ModuleChemlightBlue_F {scopeCurator = 1;};
@@ -100,6 +100,5 @@ class CfgVehicles
 
 	class ModuleIRGrenade_F : Module_F {scopeCurator = 1;};
 	class ModuleTracers_F : Module_F {scopeCurator = 1;};
-
-	class ModuleHint_F : Module_F {displayName = "$STR_AMAE_ADVANCED_HINT"; category="Curator";};
+	
 };
