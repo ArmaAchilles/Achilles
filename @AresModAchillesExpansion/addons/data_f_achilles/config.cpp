@@ -12,7 +12,11 @@ class CfgPatches
 		
 		units[] = {};
 
-		requiredAddons[] = {"A3_Structures_F"};
+		requiredAddons[] =
+		{
+			"A3_Structures_F",
+			"A3_Anims_F"
+		};
 		
 		// this prevents any patched class from requiring this addon
         addonRootClass = "A3_Structures_F";
@@ -30,3 +34,4 @@ class CfgVehicles
 };
 
 #include "cfgMusic.hpp"
+#include "cfgMoves.hpp"
