@@ -20,6 +20,7 @@ switch _mode do
 			private _curatorSelected = ["man"] call Achilles_fnc_getCuratorSelected;
 			{
 				[_x, _text] remoteExecCall ["setName", 0, _x];
+				[_x] call ace_common_fnc_setName;
 			} forEach (_curatorSelected select {alive _x});
 		};
 	};

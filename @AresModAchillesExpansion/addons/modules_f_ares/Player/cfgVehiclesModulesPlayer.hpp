@@ -41,5 +41,3 @@ class ModulePunishment_F : ModuleBootcampStage_F
 	scopeCurator = 2;
 	Category = "Achilles_fac_Player";
 };
-
-
