@@ -29,6 +29,8 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Dynamic loadout bug fix.
 * Dedmen
     - For complaining at how terribly we write code and help us out to fix it.
+* DeliciousJaffa
+	- Fixing code issues.
 * Grezvany13
     - Several contributions and support.
 * MaliceGFS
