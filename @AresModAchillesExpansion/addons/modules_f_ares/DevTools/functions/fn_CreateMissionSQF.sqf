@@ -152,7 +152,7 @@ private _totalUnitsProcessed = 0;
 		case west: { _sideString = "west"; };
 		case resistance: { _sideString = "resistance"; };
 		case civilian: { _sideString = "civilian"; };
-		default { _sideString = "?"; };
+		default { _sideString = "sideUnknown"; };
 	};
 	_output pushBack format [
 		"_newGroup = createGroup %1; ",
