@@ -14,6 +14,7 @@ switch _mode do {
 		// search for suitable CAS planes on first use
 		if (isNil "Achilles_var_CASPlaneInfoCache") then
 		{
+			publicVariableServer "Achilles_fnc_LaunchCM";
 			publicVariableServer "Achilles_fnc_moduleCAS_server";
 			Achilles_var_CASPlaneInfoCache = [[],[],[],[]];
 

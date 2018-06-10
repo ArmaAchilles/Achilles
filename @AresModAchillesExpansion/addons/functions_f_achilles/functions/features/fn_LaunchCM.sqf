@@ -59,11 +59,8 @@ else
 		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
 	] call BIS_fnc_sortBy;
 
-	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection && !_isVehicleAir) exitWith {["Smoke dispensers unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _multipleSelection && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
-
-	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection && _isVehicleAir) exitWith {["Countermeasures unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _multipleSelection && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	private _turretPath = (_allSmokeMagazines select 0) select 1;
 	private _weapons = _vehicle weaponsTurret _turretPath;

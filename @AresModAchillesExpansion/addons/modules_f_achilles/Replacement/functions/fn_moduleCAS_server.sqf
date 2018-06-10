@@ -115,7 +115,7 @@ waituntil {
 	//--- Fire!
 	if ((getposasl _plane) distance _pos < 1000 && _fireNull) then {
 		//--- Fire CM
-		[_plane, [3, 1.1]] remoteExecCall ["Achilles_fnc_LaunchCM", _curator];
+		[_plane, [5, 1.1]] call Achilles_fnc_LaunchCM;
 		//--- Create laser target
 		private _targetType = if (_planeSide getfriend west > 0.6) then {"LaserTargetW"} else {"LaserTargetE"};
 		_target = ((position _logic nearEntities [_targetType,250])) param [0,objnull];
