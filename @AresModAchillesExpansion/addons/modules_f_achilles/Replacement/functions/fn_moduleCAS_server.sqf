@@ -114,6 +114,8 @@ waituntil {
 
 	//--- Fire!
 	if ((getposasl _plane) distance _pos < 1000 && _fireNull) then {
+		//--- Fire CM
+		[_plane, [3, 1.1]] remoteExecCall ["Achilles_fnc_LaunchCM", _curator];
 		//--- Create laser target
 		private _targetType = if (_planeSide getfriend west > 0.6) then {"LaserTargetW"} else {"LaserTargetE"};
 		_target = ((position _logic nearEntities [_targetType,250])) param [0,objnull];
@@ -155,15 +157,6 @@ waituntil {
 };
 _plane setvelocity velocity _plane;
 _plane flyinheight _alt;
-
-//--- Fire CM
-if ({_x == "bomblauncher"} count _weaponTypes == 0) then {
-	for "_i" from 0 to 1 do {
-		driver _plane forceweaponfire ["CMFlareLauncher","Burst"];
-		_time = time + 1.1;
-		waituntil {time > _time || isnull _logic || isnull _plane};
-	};
-};
 
 if !(isnull _logic) then
 {

@@ -7,7 +7,7 @@
 //
 //	ARGUMENTS:
 //	_this select 0: - ARRAY of OBJECTs - Vehicles that launches the CM.
-//  _this select 1: - BOOL - Has curator selected more than one unit.
+//  _this select 1: - ARRAY of SCALARs - [number of deployments, delay]; for flares only; default [6, 0.1].
 //
 //	RETURNS:
 //	nothing (procedure)
@@ -19,7 +19,7 @@
 #define ALL_SL_WEAP_CLASSES ["SmokeLauncher","rhs_weap_smokegen","rhs_weap_902a","rhs_weap_902b","rhsusf_weap_M259"]
 #define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher","rhsusf_weap_CMFlareLauncher"]
 
-params[["_vehicle", objNull, [objNull]], ["_multipleSelection", false, [false]]];
+params[["_vehicle", objNull, [objNull]], ["_flareParams", [6, 0.1], [[]], 2]];
 
 private _isVehicleAir = _vehicle isKindOf "Air";
 private _smokeType = ["smokeshell", "magazine"] select _isVehicleAir;
@@ -41,8 +41,7 @@ if (_vehicle isKindOf "Man") then
 	] call BIS_fnc_sortBy;
 
 	// Display different messages if the unit doesn't have any smokes
-	if (_allSmokeMagazines isEqualTo [] && !_multipleSelection) exitWith {["Smoke grenades unavailable!"] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _multipleSelection) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo []) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	// Make the unit throw the smoke grenade
 	private _smokeMuzzle = (_allSmokeMagazines select 0) select 4;
@@ -80,14 +79,14 @@ else
 	// If the vehicle is an aircraft
 	if (_isVehicleAir) then
 	{
-		[_vehicle,_CMWeapon] spawn
+		([_vehicle,_CMWeapon] + _flareParams) spawn
 		{
-			params["_vehicle", "_CMWeapon"];
+			params["_vehicle", "_CMWeapon", "_flareCounts", "_delay"];
 
-			for "_i" from 0 to 5 do
+			for "_i" from 0 to _flareCounts do
 			{
 				[_vehicle, _CMWeapon] call BIS_fnc_fire;
-				sleep 0.1;
+				sleep _delay;
 			};
 		};
 	};
