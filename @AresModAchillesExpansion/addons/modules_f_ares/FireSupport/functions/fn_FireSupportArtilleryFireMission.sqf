@@ -7,7 +7,7 @@
 
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDisplayName", "_ammoSelectedDisplayName"];
+private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDisplayName", "_ammoSelectedDisplayName", "_precision"];
 
 _objects = nearestObjects [(_this select 0), ["All"], 150, true];
 
@@ -93,7 +93,8 @@ if (_mode == 0) then
 			[localize "STR_AMAE_NUMBER_OF_UNITS_INVOLVED", _numberOfGuns],
 			[localize "STR_AMAE_ROUNDS", "", "1"],
 			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
-			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1]
+			[format [localize "STR_AMAE_TARGET"," "], _targetChoices, 1],
+			[localize "STR_AMAE_PRECISION", "", "0"]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
@@ -102,6 +103,7 @@ if (_mode == 0) then
 	_rounds = parseNumber (_pickFireMissionResult select 1);
 	_ammo = (_artilleryAmmo select (_pickFireMissionResult select 2));
 	_ammoSelectedDisplayName = (_artilleryAmmoDisplayName select (_pickFireMissionResult select 2));
+	_precision = parseNumber (_pickFireMissionResult select 4);
 
 	private _targetChooseAlgorithm = _pickFireMissionResult select 3;
 
@@ -142,7 +144,8 @@ if (_mode == 0) then
 			[localize "STR_AMAE_ROUNDS", "", "1"],
 			[localize "STR_AMAE_FS_AMMO", _artilleryAmmoDisplayName],
 			[localize "STR_AMAE_GRID_EAST_WEST_XXX", "","000"],
-			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"]
+			[localize "STR_AMAE_GRID_NORTH_SOUTH_XXX", "","000"],
+			[localize "STR_AMAE_PRECISION", "", "0"]
 		]] call Ares_fnc_ShowChooseDialog;
 
 	if (_pickFireMissionResult isEqualTo []) exitWith {};
@@ -154,6 +157,7 @@ if (_mode == 0) then
 	private _targetX = _pickFireMissionResult select 3;
 	private _targetY = _pickFireMissionResult select 4;
 	_targetPos = [_targetX,_targetY] call CBA_fnc_mapGridToPos;
+	_precision = parseNumber (_pickFireMissionResult select 5);
 };
 
 if (isNil "_targetPos") exitWith {[localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
@@ -174,7 +178,9 @@ if (_roundEta == -1) exitWith { [localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ar
 
 // Fire the guns
 {
-	[_x, [_targetPos, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
+	private _theta = random 360;
+	private _deviation = [sin _theta, cos _theta, 0] vectorMultiply (random _precision);
+	[_x, [_targetPos vectorAdd _deviation, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
 } forEach _gunsToFire;
 [localize "STR_AMAE_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
 

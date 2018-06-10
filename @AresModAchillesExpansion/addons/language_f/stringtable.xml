@@ -2293,6 +2293,12 @@
                 <Japanese>距離</Japanese>
                 <Chinesesimp>距离</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_PRECISION">
+                <Original>Precision [m]</Original>
+                <English>Precision [m]</English>
+                <French>Précision [m]</French>
+                <German>Ungenauigkeit [m]</German>
+            </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
                 <English>Range [m]</English>
