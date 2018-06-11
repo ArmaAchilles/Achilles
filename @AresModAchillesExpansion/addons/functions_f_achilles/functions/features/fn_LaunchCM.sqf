@@ -76,10 +76,10 @@ else
 	// If the vehicle is an aircraft
 	if (_isVehicleAir) then
 	{
-		([_vehicle,_CMWeapon] + _flareParams) spawn
+		[_vehicle,_CMWeapon, _flareParams] spawn
 		{
-			params["_vehicle", "_CMWeapon", "_flareCounts", "_delay"];
-
+			params["_vehicle", "_CMWeapon", "_flareParams"];
+			_flareParams params ["_flareCounts", "_delay"];
 			for "_i" from 0 to _flareCounts do
 			{
 				[_vehicle, _CMWeapon] call BIS_fnc_fire;
