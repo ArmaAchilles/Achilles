@@ -62,6 +62,7 @@ class CfgFunctions
 			class RscDisplayAttributes_selectAIUnits;
 			class RscDisplayAttributes_editableObjects;
 			class RscDisplayAttributes_SupplyDrop;
+			class RscDisplayAtttributes_loadSave;
 		};
 		
 		class ui_f_replacement

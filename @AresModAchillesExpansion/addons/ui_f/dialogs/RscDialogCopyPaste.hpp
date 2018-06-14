@@ -2,7 +2,7 @@ class Ares_CopyPaste_Dialog
 {
 	idd = 123;
 	movingEnable = true;
-	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_CopyPaste_Dialog_Text', '']);";
+	onLoad = "((_this select 0) displayCtrl 1400) ctrlSetText (uiNamespace getVariable ['Ares_CopyPaste_Dialog_Text', '']); uiNamespace setVariable ['Ares_CopyPaste_Dialog_Result', -1]";
 	onUnload = "uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', ctrlText ((_this select 0) displayCtrl 1400)];";
 
 	class controls 

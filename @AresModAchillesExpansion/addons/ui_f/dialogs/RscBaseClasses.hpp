@@ -111,6 +111,7 @@ class RscFrame;
 class RscEdit;
 class RscTitle;
 class RscText;
+class RscActiveText;
 class RscStructuredText;
 class RscToolbox;
 class RscCheckbox;
