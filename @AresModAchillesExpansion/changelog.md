@@ -10,6 +10,29 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
 
 ## Change log
+### v1.0.3
+#### Modules
+##### New
+* Advanced Hint (= readded vanilla training hint module). #294
+##### Revised
+* Artillery Fire Mission
+	- Feature: Precision option. #321
+* CAS - Bomb Strike
+	- Fix: Was terribly inaccurate even for vanilla planes. #314
+* Damage Buildings
+	- Fix: Did not work on certain dedicated servers. #303
+* Copy Mission SQF
+	- Fix: Minor script error. #185
+#### Attribute windows
+##### Revised
+* Name
+	- Fix: Name was not changed for ACE3 (by @DeliciousJaffa). #300
+#### Waypoints
+##### Revised
+* Paradrop (also applies to the key-binding)
+	- Fix: Chute openning animation is smoother. #321
+	- Change: Paradroopers won't open their chute immediately at high altitude (>150 m) => HALO. #321
+
 ### v1.0.2
 #### Modules
 ##### New
