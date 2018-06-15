@@ -26,7 +26,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 #### Attribute windows
 ##### Revised
 * Name
-	- Fix: Name was not changed for ACE3 (by @DeliciousJaffa). #300
+	- Fix: Name was not changed for ACE3. #300
+	- Fix: Undefined variable error (by @DeliciousJaffa). #311
 #### Waypoints
 ##### Revised
 * Paradrop (also applies to the key-binding)
