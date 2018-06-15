@@ -36,6 +36,7 @@ if (!isPlayer _unit) then
 		private _weapon_cargo = getWeaponCargo _container;
 		private _magazine_cargo = getMagazineCargo _container;
 		private _item_cargo = getItemCargo _container;
+		
 		removeBackpack _unit;
 		waitUntil {sleep 1; !alive _unit || getPos _unit select 2 < 150};
 		private _chuteClass = ["b_parachute", _backpackClass] select (getText (configfile >> "CfgVehicles" >> _backpackClass >> "backpackSimulation") isEqualTo "ParachuteSteerable");
@@ -71,6 +72,7 @@ if (!isPlayer _unit) then
 		private _weapon_cargo = getWeaponCargo _container;
 		private _magazine_cargo = getMagazineCargo _container;
 		private _item_cargo = getItemCargo _container;
+		
 		removeBackpack _unit;
 		_unit addBackpack "b_parachute";
 		private _packHolder = createVehicle ["groundWeaponHolder", [0,0,0], [], 0, "can_collide"];
