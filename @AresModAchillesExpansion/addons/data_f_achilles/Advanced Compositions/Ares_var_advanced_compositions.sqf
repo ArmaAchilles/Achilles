@@ -15,7 +15,8 @@ Achilles_var_compositions =
 			["Land_Can_V1_F",[0.463135,-0.174805,0.449289],204.257,false],
 			["Land_BottlePlastic_V2_F",[0.92041,0.507813,0.540434],16.5591,false],
 			["Land_CampingChair_V2_F",[1.19434,1.10547,0.00299025],44.9263,false],
-			["Land_CampingChair_V2_F",[0.270508,-0.730469,0.00529814],213.011,false]]],
+			["Land_CampingChair_V2_F",[0.270508,-0.730469,0.00529814],213.011,false]]
+		],
 		["Field Kitchen",
 		[
 			["Land_CampingTable_F",[0,0,0],125.921,false],
