@@ -38,7 +38,7 @@ if (!isPlayer _unit) then
 		private _item_cargo = getItemCargo _container;
 		
 		removeBackpack _unit;
-		waitUntil {sleep 1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 150};
 		private _chuteClass = ["b_parachute", _backpackClass] select (getText (configfile >> "CfgVehicles" >> _backpackClass >> "backpackSimulation") isEqualTo "ParachuteSteerable");
 		_unit addBackpack _chuteClass;
 		_unit action ["openParachute"];
@@ -50,12 +50,12 @@ if (!isPlayer _unit) then
 		{_container addItemCargo [_x, (_item_cargo select 1) select _forEachIndex]} forEach (_item_cargo select 0);
 	} else
 	{
-		waitUntil {sleep 1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 150};
 		_unit addBackpack "b_parachute";
 		_unit action ["openParachute"];				
 	};
 	// prevent AI to be killed by fall damage
-	waitUntil {isTouchingGround _unit or (!alive _unit)};
+	waitUntil {sleep 0.1; isTouchingGround _unit or (!alive _unit)};
 	_unit removeEventHandler ["HandleDamage",_id];
 
 } else
