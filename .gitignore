@@ -1,13 +1,10 @@
+@AresModAchillesExpansion/keys/private
 @Release/*
-Tools/AchillesTestServer.bat
 *.bikey
 *.biprivatekey
 *.pbo
 *.bisign
 *.lnk
 .vscode/
-
 .idea
-/*.iml
 *.ini
-Tools/AddonBuilder/config.ini
