@@ -43,6 +43,7 @@ if (!isPlayer _unit) then
 		_unit addBackpack _chuteClass;
 		_unit action ["openParachute"];
 		_unit addBackpack _backpackClass;
+		clearAllItemsFromBackpack _unit;
 		_container = backpackContainer _unit;
 		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
 		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
@@ -87,6 +88,7 @@ if (!isPlayer _unit) then
 		waitUntil {isTouchingGround _unit or (getPos _unit select 2) < 1 or (!alive _unit)};
 		deleteVehicle _packHolder;
 		_unit addBackpack _backpack_class;
+		clearAllItemsFromBackpack _unit;
 		_container = backpackContainer _unit;
 		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
 		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
