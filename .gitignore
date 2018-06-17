@@ -1,5 +1,7 @@
 @AresModAchillesExpansion/keys/private
 @Release/*
+Tools/AchillesConnectToServer.bat
+Tools/AchillesAddonBuilder.bat
 *.bikey
 *.biprivatekey
 *.pbo
@@ -8,3 +10,4 @@
 .vscode/
 .idea
 *.ini
+*.log
