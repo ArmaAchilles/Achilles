@@ -70,7 +70,7 @@ if (_vehsType isKindOf "Helicopter") then
 } else
 {
 	_vector = [0,0,0];
-	_radius = 100;
+	_radius = 0;
 };
 private _wp_pos = _end_pos vectorAdd _vector;
 
@@ -86,7 +86,7 @@ _radius = _radius + _passengerCount/2 * _speed/3.6;
 if (getPos _firstVeh select 2 > 150) then
 {
 	// fitted function for HALO
-	_radius = _radius + 1108 * (1 - 1/(1 + (_speed/316)^1.7));
+	_radius = _radius + 4.2-4 * _speed^3 * (1 - 1/(1 + (75/_speed)^2.2));
 }
 else
 {
