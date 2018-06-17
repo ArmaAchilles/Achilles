@@ -54,7 +54,8 @@ private _vehsType = "";
 // Kex: prevent pilot from being stupid
 _group allowFleeing 0;
 
-_vehsType = typeOf (_vehsGroup select 0);
+_vehsGroup params ["_firstVeh"];
+_vehsType = typeOf _firstVeh;
 private _radius = 0;
 private _vector = [];
 // displace effective target position for flyby
@@ -65,7 +66,7 @@ if (_vehsType isKindOf "Helicopter") then
 	_vector set [2,0];
 	_vector = vectorNormalized _vector;
 	_vector = _vector vectorMultiply 1000;
-	_radius = 1200;
+	_radius = 1000;
 } else
 {
 	_vector = [0,0,0];
@@ -73,22 +74,43 @@ if (_vehsType isKindOf "Helicopter") then
 };
 private _wp_pos = _end_pos vectorAdd _vector;
 
+// adjust distance for deployment according to crew count and velocity
+private _speed = getNumber (configfile >> "CfgVehicles" >> _vehsType >> "maxSpeed");
+private _coefName = ["normalSpeedForwardCoef", "limitedSpeedCoef"] select (speedMode _group == "LIMITED");
+_speed = _speed * getNumber (configfile >> "CfgVehicles" >> _vehsType >> _coefName);
+// every second a unit ejects. We want the middle unit right above the location
+private _crew = crew _firstVeh;
+private _passengerCount = {(assignedVehicleRole _x) select 0 == "CARGO"} count _crew;
+_radius = _radius + _passengerCount/2 * _speed/3.6;
+// account for speed displacement
+if (getPos _firstVeh select 2 > 150) then
+{
+	// fitted function for HALO
+	_radius = _radius + 1108 * (1 - 1/(1 + (_speed/316)^1.7));
+}
+else
+{
+	// fitted function for HAHO
+	_radius = _radius + 0.338 * _speed;
+};
+
 [_vehsGroup,_wp_pos,_radius] spawn
 {
+	params ["_vehsGroup", "_wp_pos", "_radius"];
+	private _vehsRdy = false;
 	waituntil
 	{
-		params ["_vehsGroup","_wp_pos","_radius"];
-		private "_veh";
-		private _vehsRdy = false;
+		private _aliveCount = 0;
 		{
-			_veh = _x;
-			if ((position _veh) distance2D _wp_pos < _radius and !_vehsRdy) then
+			private _veh = _x;
+			_aliveCount = _aliveCount + 1;
+			if ((position _veh) distance2D _wp_pos < _radius) exitWith
 			{
 				[_vehsGroup] call Achilles_fnc_eject_passengers;
 				_vehsRdy = true;
 			};
 		} forEach (_vehsGroup select {alive _x});
-
+		if (_aliveCount == 0) then {_vehsRdy = true};
 		sleep 1;
 		_vehsRdy;
 	};
