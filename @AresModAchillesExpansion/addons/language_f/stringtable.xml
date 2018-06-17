@@ -5168,6 +5168,12 @@
                 <Japanese>空挺</Japanese>
                 <Chinesesimp>空投</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_HALO">
+                <Original>HALO</Original>
+                <English>HALO</English>
+                <French>HALO</French>
+                <German>HALO</German>
+            </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>
                 <English>SEARCH BUILDING</English>
