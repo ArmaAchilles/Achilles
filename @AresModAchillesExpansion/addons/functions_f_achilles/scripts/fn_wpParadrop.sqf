@@ -86,7 +86,7 @@ _radius = _radius + _passengerCount/2 * _speed/3.6;
 if (getPos _firstVeh select 2 > 150) then
 {
 	// fitted function for HALO
-	_radius = _radius + 4.2-4 * _speed^3 * (1 - 1/(1 + (75/_speed)^2.2));
+	_radius = _radius + 4.2e-4 * _speed^3 * (1 - 1/(1 + (75/_speed)^2.2));
 }
 else
 {
