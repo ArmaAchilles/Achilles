@@ -12,7 +12,7 @@
 
 #include "module_tree.sqf"
 #include "curator_vision.sqf"
-// #include "available_factions.sqf"
+#include "available_factions.sqf"
 #include "icon_selection.sqf"
 #include "keybindings.sqf"
 #include "debugMessages.sqf"
