@@ -1,4 +1,10 @@
-params[["_playersToTeleport", [objNull]], ["_teleportLocation", [0,0,0]], ["_showTeleportMessage", true], ["_additionalOption", 0]];
+params
+[
+	["_playersToTeleport", [objNull]],
+	["_teleportLocation", [0,0,0]],
+	["_showTeleportMessage", true],
+	["_additionalOption", 0]
+];
 
 // Show some text to the players that are going to be teleported.
 if (_showTeleportMessage) then
