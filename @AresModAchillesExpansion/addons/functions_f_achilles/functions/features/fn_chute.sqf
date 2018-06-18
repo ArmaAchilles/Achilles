@@ -17,7 +17,7 @@
 //	[player,3] spawn Achilles_fnc_chute;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_unit", "_delay"];
+params ["_unit", ["_delay", 0, [0]]];
 
 sleep _delay;
 
@@ -38,7 +38,7 @@ if (!isPlayer _unit) then
 		private _item_cargo = getItemCargo _container;
 		
 		removeBackpack _unit;
-		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 100};
 		private _chuteClass = ["b_parachute", _backpackClass] select (getText (configfile >> "CfgVehicles" >> _backpackClass >> "backpackSimulation") isEqualTo "ParachuteSteerable");
 		_unit addBackpack _chuteClass;
 		_unit action ["openParachute"];
@@ -50,7 +50,7 @@ if (!isPlayer _unit) then
 		{_container addItemCargo [_x, (_item_cargo select 1) select _forEachIndex]} forEach (_item_cargo select 0);
 	} else
 	{
-		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 100};
 		_unit addBackpack "b_parachute";
 		_unit action ["openParachute"];				
 	};
