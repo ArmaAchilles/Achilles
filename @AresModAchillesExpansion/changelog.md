@@ -15,13 +15,19 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ##### New
 * Advanced Hint (= readded vanilla training hint module). #294
 ##### Revised
-* Artillery Fire Mission
+* Artillery Fire Mission:
 	- Feature: Precision option. #321
 * CAS - Bomb Strike
 	- Fix: Was terribly inaccurate even for vanilla planes. #314
-* Damage Buildings
+* Damage Buildings:
 	- Fix: Did not work on certain dedicated servers. #303
-* Copy Mission SQF
+* Spawn units (reinforcement):
+	- Fix: Armed aircrafts were distracted by enemies.
+	- Feature: HALO option for planes.
+* Teleport Player:
+	- Feature: Additional Option: none, include vehicle or HALO (new). 
+	- Note: HALO will move the player 3000 m above the location, move his backpack ventral and add a chute.
+* Copy Mission SQF:
 	- Fix: Minor script error. #185
 #### Attribute windows
 ##### Revised
@@ -30,9 +36,10 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Undefined variable error (by @DeliciousJaffa). #311
 #### Waypoints
 ##### Revised
-* Paradrop (also applies to the key-binding)
+* Paradrop (also applies to the key-binding and reinforcement module)
 	- Fix: Chute openning animation is smoother. #321
-	- Change: Paradroopers won't open their chute immediately at high altitude (>150 m) => HALO. #321
+	- Feature: AI accounts to a certain extend for paradrop displacment according to https://gyazo.com/32afcfefef24ba2cdc36eaa4c0467147 .
+	- Change: Paradroopers won't open their chute immediately at high altitude (>100 m) => HALO. #321
 
 ### v1.0.2
 #### Modules
