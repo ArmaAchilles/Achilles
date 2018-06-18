@@ -234,7 +234,11 @@ private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
 if (_vehicle isKindOf "Air" and (_lzdz_type > 0)) then
 {
 	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	private _script = ["\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf", "\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"] select (_lzdz_type isEqualTo 1);
+	private _script =
+	[
+		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf",
+		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"
+	] select (_lzdz_type isEqualTo 1);
 	_vehicleUnloadWp setWaypointScript _script;
 } else
 {
