@@ -2266,6 +2266,13 @@
                 <Japanese>モード</Japanese>
                 <Chinesesimp>模式</Chinesesimp>
             </Key>
+            </Key>
+            <Key ID="STR_ADDITIONAL_OPTION">
+                <Original>Additional option</Original>
+                <English>Additional option</English>
+                <French>Option supplémentaire</French>
+                <German>Zusatzoption</German>
+            </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
                 <English>All objects in mission</English>
