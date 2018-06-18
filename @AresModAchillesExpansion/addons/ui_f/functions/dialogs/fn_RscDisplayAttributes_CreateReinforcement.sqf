@@ -103,28 +103,39 @@ switch (_mode) do
 	};
 	case "VEHICLE":
 	{
-		if ((_ctrl lbData _comboIndex) isKindOf "Air") then
+		private _vehicleClass = _ctrl lbData _comboIndex;
+		if (_vehicleClass isKindOf "Air") then
 		{
-			_ctrl = _dialog displayCtrl IDC_COMBO_WP_TYPE;
-			_ctrl ctrlSetFade 0;
-			_ctrl ctrlEnable true;
-			_ctrl ctrlCommit 0;
-
-			_ctrl = _dialog displayCtrl IDC_COMBO_WP_TYPE_LABEL;
-			_ctrl ctrlSetFade 0;
-			_ctrl ctrlCommit 0;
+			private _ctrl_wpTypeLabel = _dialog displayCtrl IDC_COMBO_WP_TYPE_LABEL;
+			_ctrl_wpTypeLabel ctrlSetFade 0;
+			_ctrl_wpTypeLabel ctrlCommit 0;
+		
+			private _ctrl_wpType = _dialog displayCtrl IDC_COMBO_WP_TYPE;
+			_ctrl_wpType ctrlSetFade 0;
+			_ctrl_wpType ctrlEnable true;
+			_ctrl_wpType ctrlCommit 0;
+			
+			// Add/remove HALO option
+			if (_vehicleClass isKindOf "Plane") then
+			{
+				if (lbSize _ctrl_wpType == 3) then {_ctrl_wpType lbAdd localize "STR_AMAE_HALO"};
+			}
+			else
+			{
+				if (lbSize _ctrl_wpType == 4) then {_ctrl_wpType lbDelete 3};
+			};
 
 			_last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_6", 0];
 			_last_choice = [0, _last_choice] select (_last_choice isEqualType 0);
-			_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
-			_ctrl lbSetCurSel _last_choice;
+			_last_choice = [(lbSize _ctrl_wpType) - 1, _last_choice] select (_last_choice < lbSize _ctrl_wpType);
+			_ctrl_wpType lbSetCurSel _last_choice;
 		} else
 		{
 			{
-				_ctrl = _dialog displayCtrl _x;
-				_ctrl ctrlSetFade 0.8;
-				_ctrl ctrlEnable false;
-				_ctrl ctrlCommit 0;
+				private _ctrl_wpType = _dialog displayCtrl _x;
+				_ctrl_wpType ctrlSetFade 0.8;
+				_ctrl_wpType ctrlEnable false;
+				_ctrl_wpType ctrlCommit 0;
 			} forEach [IDC_COMBO_WP_TYPE,IDC_COMBO_WP_TYPE_LABEL];
 		};
 	};

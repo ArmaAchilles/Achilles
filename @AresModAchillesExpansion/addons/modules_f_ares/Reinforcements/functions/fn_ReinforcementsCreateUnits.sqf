@@ -140,7 +140,7 @@ private _dialogResult =
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", [], 0, false, [["LBSelChanged","VEHICLE"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_BEHAVIOUR", [localize "STR_AMAE_RTB_DESPAWN", localize "STR_AMAE_STAY_AT_LZ"]],
 		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
-		["COMBOBOX", localize "STR_AMAE_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_AMAE_FASTROPING",localize "STR_AMAE_PARADROP",localize "STR_AMAE_HALO"]],
+		["COMBOBOX", localize "STR_AMAE_TYPE",[localize "STR_A3_CfgWaypoints_Land",localize "STR_AMAE_FASTROPING",localize "STR_AMAE_PARADROP"]],
 		["COMBOBOX", [localize "STR_AMAE_GROUP", localize "STR_AMAE_FACTION"] joinString " ", [], 0, false, [["LBSelChanged","GROUP_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_INFANTRY_GROUP", [], 0, false, [["LBSelChanged","GROUP"]]],
 		["COMBOBOX", localize "STR_AMAE_UNIT_RP", _rpOptions],
@@ -217,7 +217,7 @@ _infantry_group addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.
 {
-	_x moveInCargo (vehicle (leader _vehicleGroup));
+	_x moveInCargo _vehicle;
 } forEach _infantry_list;
 
 // Add infantry to curator
@@ -243,7 +243,7 @@ if (_vehicle isKindOf "Air" and (_lzdz_type > 0)) then
 
 // Make the driver full skill. This makes him less likely to do dumb things
 // when they take contact.
-(driver (vehicle (leader _vehicleGroup))) setSkill 1;
+(driver _vehicle) setSkill 1;
 
 if (_vehicle_type isKindOf "Air") then
 {
@@ -251,7 +251,9 @@ if (_vehicle_type isKindOf "Air") then
 	// if the LZ is hot.
 	{
 		_x allowFleeing 0; // Especially for helos... They're very cowardly.
-	} forEach (crew (vehicle (leader _vehicleGroup)));
+	} forEach (crew _vehicle);
+	// armed aircrafts are unreliable when they are not CARELESS
+	_vehicleGroup setBehaviour "CARELESS";
 	_vehicleUnloadWp setWaypointTimeout [0,0,0];
 }
 else
