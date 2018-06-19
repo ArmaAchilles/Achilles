@@ -23,6 +23,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Did not work on certain dedicated servers. #303
 * Spawn units (reinforcement):
 	- Fix: Armed aircrafts were distracted by enemies.
+	- Fix: Some CUP planes did not work (started on the floor rather than in air).
 	- Feature: HALO option for planes.
 * Teleport Player:
 	- Feature: Additional Option: none, include vehicle or HALO (new). 
