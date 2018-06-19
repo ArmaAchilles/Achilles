@@ -22,7 +22,7 @@ if [[ "$(uname -s)" == "CYGWIN"* ]]; then
 	PATH=/usr/bin:$PATH
 fi
 
-cd "../@AresModAchillesExpansion/addons"
+cd "../../@AresModAchillesExpansion/addons"
 script_list=$(find . -type f -name "*.sqf")
 for script in $script_list; do
 	echo Searching in $script...
