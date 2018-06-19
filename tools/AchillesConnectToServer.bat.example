@@ -1,0 +1,96 @@
+@echo off
+set "startDir=%CD%"
+REM switch to Achilles root folder
+cd ..
+set "AchillesRootFolderPath=%CD%"
+
+REM /******************************************************************************/
+REM AchillesConnectToServer.bat script for windows (by Kex)
+REM /******************************************************************************/
+REM
+REM Description:
+REM ------------
+REM Packs all folders in sourceDir and creates corresponding *.pbo in targetDir.
+REM The script is parallelized and will create a window for each source folder.
+REM
+REM "Installation":
+REM ---------------
+REM	1) Copy AchillesConnectToServer.bat.example and rename it to AchillesConnectToServer.bat
+REM	2) Adjust the USER CONFIGURATIONS below
+REM
+REM Usage
+REM -----
+REM Command Line Arguments:
+REM 1) (optional) mode e.g. ace, all, ... (if nothing is passed, the defaults are used)
+REM
+REM Examples:
+REM ---------
+REM 1) AchillesConnectToServer.bat
+REM 2) AddonBuilder.bat ace
+
+REM /******************************************************************************/
+REM START OF USER CONFIGURATIONS
+REM /******************************************************************************/
+
+REM PATH settings
+set "AchillesModFolderPath=%AchillesRootFolderPath%\@AresModAchillesExpansion"
+set "Arma3RootFolderPath=E:\Program Files\games\Steam\steamapps\common\Arma 3"
+
+REM Default settings
+set ip=127.0.0.1:2302
+set "password="
+set "mods=!Workshop\@CBA_A3;%AchillesModFolderPath%"
+
+REM /******************************************************************************/
+REM START OF MODE CONFIGURATIONS (NON-DEFAULT SETTINGS)
+REM /******************************************************************************/
+
+set mode=%1
+REM ACE: ACE3
+if /I "%mode%"=="ace" (
+	set "mods=%mods%;!Workshop\@ace"
+REM ALL: ACE3+RHS+CUP
+) else if /I "%mode%"=="all" (
+	set "mods=%mods%;!Workshop\@ace;!Workshop\@CUP Units;!Workshop\@CUP Vehicles;!Workshop\@CUP Weapons;!Workshop\@CUP Terrains - Core;!Workshop\@CUP Terrains - CWA;!Workshop\@CUP Terrains - Maps;!Workshop\@RHSUSAF;!Workshop\@RHSSAF;!Workshop\@RHSGREF;!Workshop\@RHSAFRF;!Workshop\@ACE Compat - RHS Armed Forces of the Russian Federation;!Workshop\@ACE Compat - RHS- GREF;!Workshop\@ACE Compat - RHS United States Armed Forces"
+) else if /I not "%mode%"=="" (
+	echo Error: %mode% is not available!
+	exit /b
+) else (
+	REM DEFAULT SETTINGS
+)
+
+REM /******************************************************************************/
+REM END OF CONFIGURATIONS
+REM /******************************************************************************/
+
+REM Check if paths are valid
+set "invalidpath="
+if not exist "%AchillesModFolderPath%" set "invalidpath=%AchillesModFolderPath%"
+if not exist "%Arma3RootFolderPath%\arma3_x64.exe" set "invalidpath=%Arma3RootFolderPath%\arma3_x64.exe"
+if not "%invalidpath%"=="" (
+	call:PERROR "%invalidpath% not found!"
+	call:PERROR "Fix your USER CONFIGURATIONS!"
+	echo HINT: Opening %0
+	start notepad %0
+	echo.
+	pause
+	goto EOS
+)
+
+
+REM Switch to ArmA 3 root directory
+cd /D "%Arma3RootFolderPath%"
+
+echo Connecting to %ip%
+start "" "arma3_x64.exe" -connect=%ip% -password=%password% -world=empty -skipIntro -noSplash -noPause -showScriptErrors "-name=Kex" "-profiles=profiles" "-mod=%mods%"
+
+goto EOS
+
+:PERROR
+%Windir%\System32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor Red "ERROR: %1"
+GOTO:EOF
+
+:EOS
+cd /d %startDir%
+echo.
+
