@@ -40,7 +40,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Paradrop (also applies to the key-binding and reinforcement module)
 	- Fix: Chute openning animation is smoother. #321
 	- Feature: AI accounts to a certain extend for paradrop displacment according to https://gyazo.com/32afcfefef24ba2cdc36eaa4c0467147 .
-	- Change: Paradroopers won't open their chute immediately at high altitude (>100 m) => HALO. #321
+	- Change: Paradroopers won't open their chute immediately at high altitude (>120 m) => HALO. #321
 
 ### v1.0.2
 #### Modules
