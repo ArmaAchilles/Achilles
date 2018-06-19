@@ -33,6 +33,10 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Paradrop (also applies to the key-binding)
 	- Fix: Chute openning animation is smoother. #321
 	- Change: Paradroopers won't open their chute immediately at high altitude (>150 m) => HALO. #321
+#### Settings
+##### Revised
+* Faction filter
+	- Change: The faction filter is available agian.
 
 ### v1.0.2
 #### Modules
