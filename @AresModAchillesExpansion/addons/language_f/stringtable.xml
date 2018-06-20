@@ -2266,6 +2266,13 @@
                 <Japanese>モード</Japanese>
                 <Chinesesimp>模式</Chinesesimp>
             </Key>
+            </Key>
+            <Key ID="STR_ADDITIONAL_OPTION">
+                <Original>Additional option</Original>
+                <English>Additional option</English>
+                <French>Option supplémentaire</French>
+                <German>Zusatzoption</German>
+            </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
                 <English>All objects in mission</English>
@@ -5167,6 +5174,12 @@
                 <German>FALLSCHIRMABSPRUNG</German>
                 <Japanese>空挺</Japanese>
                 <Chinesesimp>空投</Chinesesimp>
+            </Key>
+            <Key ID="STR_AMAE_HALO">
+                <Original>HALO</Original>
+                <English>HALO</English>
+                <French>HALO</French>
+                <German>HALO</German>
             </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>

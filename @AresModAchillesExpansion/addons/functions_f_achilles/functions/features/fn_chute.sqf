@@ -17,7 +17,7 @@
 //	[player,3] spawn Achilles_fnc_chute;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_unit", "_delay"];
+params ["_unit", ["_delay", 0, [0]]];
 
 sleep _delay;
 
@@ -38,23 +38,24 @@ if (!isPlayer _unit) then
 		private _item_cargo = getItemCargo _container;
 		
 		removeBackpack _unit;
-		waitUntil {sleep 1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 120};
 		private _chuteClass = ["b_parachute", _backpackClass] select (getText (configfile >> "CfgVehicles" >> _backpackClass >> "backpackSimulation") isEqualTo "ParachuteSteerable");
 		_unit addBackpack _chuteClass;
 		_unit action ["openParachute"];
 		_unit addBackpack _backpackClass;
+		clearAllItemsFromBackpack _unit;
 		_container = backpackContainer _unit;
 		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
 		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
 		{_container addItemCargo [_x, (_item_cargo select 1) select _forEachIndex]} forEach (_item_cargo select 0);
 	} else
 	{
-		waitUntil {sleep 1; !alive _unit || getPos _unit select 2 < 150};
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 120};
 		_unit addBackpack "b_parachute";
 		_unit action ["openParachute"];				
 	};
 	// prevent AI to be killed by fall damage
-	waitUntil {isTouchingGround _unit or (!alive _unit)};
+	waitUntil {sleep 0.1; isTouchingGround _unit or (!alive _unit)};
 	_unit removeEventHandler ["HandleDamage",_id];
 
 } else
@@ -87,6 +88,7 @@ if (!isPlayer _unit) then
 		waitUntil {isTouchingGround _unit or (getPos _unit select 2) < 1 or (!alive _unit)};
 		deleteVehicle _packHolder;
 		_unit addBackpack _backpack_class;
+		clearAllItemsFromBackpack _unit;
 		_container = backpackContainer _unit;
 		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
 		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
