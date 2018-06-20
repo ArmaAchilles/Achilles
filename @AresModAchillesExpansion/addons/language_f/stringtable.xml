@@ -5538,10 +5538,10 @@
         </Container>
         <Container name="Main Menu">
             <Key ID="STR_AMAE_INTRO_TITLE">
-                <Original>Achilles 1.0.3</Original>
-                <English>Achilles 1.0.3</English>
-                <Japanese>アレス Mod - アキレス拡張 1.0.3</Japanese>
-                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.0.3</Chinesesimp>
+                <Original>Achilles 1.1.0</Original>
+                <English>Achilles 1.1.0</English>
+                <Japanese>アレス Mod - アキレス拡張 1.1.0</Japanese>
+                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.1.0</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
