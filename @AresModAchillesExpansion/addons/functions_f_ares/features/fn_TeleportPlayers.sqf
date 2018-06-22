@@ -18,12 +18,17 @@ if (_showTeleportMessage) then
 private _includeVehicles = (_additionalOption == 1);
 private _doHALO = (_additionalOption == 2);
 
-// broadcast chute functions for HALO
-if (_doHALO && {isNil "Achilles_var_eject_init_done"}) then
+if (_doHALO) then
 {
-	publicVariable "Achilles_fnc_chute";
-	publicVariableServer "Achilles_fnc_eject_passengers";
-	Achilles_var_eject_init_done = true;
+	// broadcast chute functions for HALO
+	if (isNil "Achilles_var_eject_init_done") then
+	{
+		publicVariable "Achilles_fnc_chute";
+		publicVariableServer "Achilles_fnc_eject_passengers";
+		Achilles_var_eject_init_done = true;
+	};
+	// set the altitude
+	_teleportLocation set [2, 3000];
 };
 
 while {!(_playersToTeleport isEqualto [])} do
@@ -40,7 +45,6 @@ while {!(_playersToTeleport isEqualto [])} do
 		
 		if (_doHALO) then
 		{
-			_teleportLocation set [2, 3000];
 			_unit setPos _teleportLocation;
 			[_unit] remoteExec ["Achilles_fnc_chute", _unit]
 		}
