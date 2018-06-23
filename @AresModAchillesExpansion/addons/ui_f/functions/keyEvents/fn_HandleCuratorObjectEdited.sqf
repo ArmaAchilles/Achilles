@@ -28,9 +28,15 @@ switch (true) do
 		};
 		if(!isNull (_handled_object getVariable ["slave", objNull])) then
 		{
-			private _slave = _handled_object getVariable "slave";
-			_slave setPosATL getPosATL _handled_object;
-			[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
+			_handled_object spawn
+			{
+				params ["_handled_object"];
+				sleep 0.1;
+				private _slave = _handled_object getVariable "slave";
+				// [_slave, [getPosASL _handled_object, getPosASL _handled_object, [0,0,0], [0,0,0], vectorDir _handled_object, vectorDir _handled_object, vectorUp _handled_object, vectorUp _handled_object, 0]] remoteExecCall ["setVelocityTransformation", _slave];
+				_slave setPosATL getPosATL _handled_object;
+				[_slave, [vectorDir _handled_object, vectorUp _handled_object]] remoteExecCall ["setVectorDirAndUp", 0, _slave];
+			};
 		};
 	};
 

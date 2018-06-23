@@ -3,9 +3,9 @@
 #define IDC_RADIUS_COMBO	20002
 #define IDC_RADIUS_LABLE	10002
 #define IDC_TYPE_COMBO		20003
-#define IDC_MODE_COMBO		20004
-#define IDC_MODE_LABLE 		10004
-#define IDC_SIDE_LABLE		[10005,20005]
+#define IDC_MODE_COMBO		20005
+#define IDC_MODE_LABLE 		10005
+#define IDC_SIDE_LABLE		[10006,20006]
 #define IDC_SIDE_ICONS		[12000,12010,12020,12030,12040]
 /*
 IDD_DYNAMIC_GUI		=133798;
@@ -38,7 +38,7 @@ switch (_mode) do
 				_last_choice = [(lbSize _ctrl) - 1, _last_choice] select (_last_choice < lbSize _ctrl);
 				_ctrl lbSetCurSel _last_choice;
 			};
-		} forEach [0,1,3];
+		} forEach [0,1,3,4,5];
 	};
 	case "1":
 	{
@@ -96,7 +96,7 @@ switch (_mode) do
 
 		uiNamespace setVariable ["Ares_ChooseDialog_ReturnValue_3", _comboIndex];
 	};
-	case "4":
+	case "5":
 	{
 		if (_comboIndex == 1) then
 		{

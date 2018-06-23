@@ -6,47 +6,36 @@ private _dialogResult =
 [
 	localize "STR_AMAE_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
-		[
-			localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]
-		],
-		[
-			localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]
-		],
-		[
-			localize "STR_AMAE_RADIUS","","50"
-		],
-		[
-			localize "STR_AMAE_TYPE",[localize "STR_AMAE_ALL",localize "STR_AMAE_UNITS",localize "STR_AMAE_VEHICLE",localize "STR_AMAE_STATIC_OBJECTS",localize "STR_AMAE_GAME_LOGIC"]
-		],
-		[
-			localize "STR_AMAE_MODE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SIDE"]
-		],
-		[
-			localize "STR_AMAE_SIDE","SIDE"
-		]
+		[localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]],
+		[localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]],
+		[localize "STR_AMAE_RADIUS","","50"],
+		[localize "STR_AMAE_TYPE",[localize "STR_AMAE_ALL",localize "STR_AMAE_UNITS",localize "STR_AMAE_VEHICLE",localize "STR_AMAE_STATIC_OBJECTS",localize "STR_AMAE_GAME_LOGIC"]],
+		[localize "STR_AMAE_INCLUDE_SIMPLE_OBJECTS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
+		[localize "STR_AMAE_SIDE",[localize "STR_AMAE_ALL",localize "STR_AMAE_SELECTION"]],
+		[localize "STR_AMAE_SIDE","SIDE"]
 	],
 	"Achilles_fnc_RscDisplayAttributes_editableObjects"
 ] call Ares_fnc_ShowChooseDialog;
 
 if (_dialogResult isEqualTo []) exitWith {};
-private _addObject = (_dialogResult select 0) == 0;
-private _range_mode = _dialogResult select 1;
-private _obj_type = _dialogResult select 3;
+_dialogResult params ["_removeObjectNum", "_rangeMode", "_strRadius", "_objType", "_includeSimpleObjectsNum", "_sideMode", "_sideIdx"];
+private _addObject = (_removeObjectNum == 0);
+private _includeSimpleObjects = (_includeSimpleObjectsNum == 0);
 
 private _objectsToProcess = [];
 
-if (_range_mode == 0) then
+if (_rangeMode == 0) then
 {
-	private _radius = parseNumber (_dialogResult select 2);
-	_objectsToProcess = switch (_obj_type) do
+	private _radius = parseNumber _strRadius;
+	_objectsToProcess = switch (_objType) do
 	{
 		case 0: {nearestObjects [_center_pos, [],_radius, true]};
 		case 1:
 		{
 			private _units = nearestObjects [_center_pos, ["Man","LandVehicle","Air","Ship"], _radius, true];
-			if (_dialogResult select 4 == 1) then
+			if (_sideMode == 1) then
 			{
-				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [_sideIdx - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side and count crew _x > 0};
 			} else
 			{
@@ -60,15 +49,15 @@ if (_range_mode == 0) then
 }
 else
 {
-	_objectsToProcess = switch (_obj_type) do
+	_objectsToProcess = switch (_objType) do
 	{
 		case 0: {allMissionObjects ""};
 		case 1:
 		{
 			private _units = (allUnits + vehicles);
-			if (_dialogResult select 4 == 1) then
+			if (_sideMode == 1) then
 			{
-				private _side = [(_dialogResult select 5) - 1] call BIS_fnc_sideType;
+				private _side = [_sideIdx - 1] call BIS_fnc_sideType;
 				_units select {(side _x) isEqualTo _side};
 			} else
 			{
@@ -95,8 +84,8 @@ _objectsToProcess = _objectsToProcess select
     };
 };
 
-private _objectsModified = [_objectsToProcess, _addObject] call Ares_fnc_AddUnitsToCurator;
+private _objectsModified = [_objectsToProcess, _addObject, _includeSimpleObjects] call Ares_fnc_AddUnitsToCurator;
 
-[format [[localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0), _objectsModified]] call Ares_fnc_ShowZeusMessage;
+[format [[localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select _removeObjectNum, _objectsModified]] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.hpp"

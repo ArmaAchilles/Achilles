@@ -2592,6 +2592,12 @@
                 <Japanese>物体を含む</Japanese>
                 <Chinesesimp>包含物体</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_INCLUDE_SIMPLE_OBJECTS">
+                <Original>Include simple objects</Original>
+                <English>Include simple objects</English>
+                <French>Objets simples inclus</French>
+                <German>Inklusive simple Objekte</German>
+            </Key>
             <Key ID="STR_AMAE_INCLUDE_MARKERS">
                 <Original>Include Markers</Original>
                 <English>Include Markers</English>
