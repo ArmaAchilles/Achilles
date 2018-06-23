@@ -7,7 +7,7 @@ private _dialogResult =
 	localize "STR_AMAE_ADD_REMOVE_EDITABLE_OBJECTS",
 	[
 		[localize "STR_AMAE_MODE", [localize "STR_AMAE_ADD", localize "STR_AMAE_REMOVE"]],
-		[localize "STR_AMAE_RANGE",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]],
+		[localize "STR_AMAE_RANGE_NO_SI",[localize "STR_AMAE_RADIUS_NO_SI",localize "STR_AMAE_ALL_OBJECTS_IN_MISSION"]],
 		[localize "STR_AMAE_RADIUS","","50"],
 		[localize "STR_AMAE_TYPE",[localize "STR_AMAE_ALL",localize "STR_AMAE_UNITS",localize "STR_AMAE_VEHICLE",localize "STR_AMAE_STATIC_OBJECTS",localize "STR_AMAE_GAME_LOGIC"]],
 		[localize "STR_AMAE_INCLUDE_SIMPLE_OBJECTS", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
