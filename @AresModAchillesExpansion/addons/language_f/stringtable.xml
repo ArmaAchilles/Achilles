@@ -1137,14 +1137,14 @@
                 <Chinese>搜索並駐防建築</Chinese>
             </Key>
             <!--deprecated?
-	  <Key ID="STR_AMAE_PATROL">
-        <Original>Patrol</Original>
-        <English>Patrol</English>
-        <French>Patrouiller</French>
-        <Russian>Патруль</Russian>
-        <German>Patrouillieren</German>
-      </Key>
--->
+            <Key ID="STR_AMAE_PATROL">
+                <Original>Patrol</Original>
+                <English>Patrol</English>
+                <French>Patrouiller</French>
+                <Russian>Патруль</Russian>
+                <German>Patrouillieren</German>
+            </Key>
+            -->
             <Key ID="STR_AMAE_PATROL_LOITER">
                 <Original>Patrol/Loiter</Original>
                 <English>Patrol/Loiter</English>
@@ -5808,90 +5808,77 @@
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_DESCRIPTION">
                 <Original>
-			The Achilles modules have informative icons in the module tree.%1The most common are described here:
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
-			</Original>
+                    The Achilles modules have informative icons in the module tree.%1The most common are described here:
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
+    			</Original>
                 <Russian>
-			В дереве модулей отображены информационные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на боевых единицах.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на боевой единице или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использоваться на боевых единицах.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
-
-			</Russian>
+                    В дереве модулей отображены информационные иконки. %1Описание наиболее часто встречающихся иконок приведено ниже:
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Этот модуль можно использовать где угодно.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Этот модуль используется только на боевых единицах.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Этот модуль используется на боевой единице или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Этот модуль используется на объектах, но так же часто может использоваться на боевых единицах.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Этот модуль используется на объектах или размещается где угодно. Конфигурация модуля будет зависеть от этого выбора.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Этот модуль активируется в выбранном месте.
+    			</Russian>
                 <German>
-			Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Einheiten platziert werden. Die Modul-Optionen hängen davon ab!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, manchmal kann es aber auch auf Einheiten platziert werden.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
-			</German>
+                    Die Ares Module haben bestimmte Icons im Modul-Baum.%1Die am meisten vorkommenden sind hier beschrieben:
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; Dieses Modul kann überall platziert werden.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; Dieses Modul muss auf Einheiten platziert werden.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Einheiten platziert werden. Die Modul-Optionen hängen davon ab!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; Dieses Modul muss auf ein Objekt platziert werden, manchmal kann es aber auch auf Einheiten platziert werden.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; Dieses Modul kann irgendwo, aber auch auf Objekten platziert werden. Die Modul-Optionen hängen davon ab!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; Dieses Modul wird auf der Position angewendet, auf der es platziert wurde.
+    			</German>
                 <English>
-			The Achilles modules have informative icons in the module tree.%1The most common are described here:
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
-		</English>
+                    The Achilles modules have informative icons in the module tree.%1The most common are described here:
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; This module can be placed anywhere.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; This module has to be placed on units.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; This can be placed either on a unit or anywhere. The module options available depend on the choice!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; This module has to be placed on an object but can often also include units.
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; This can be placed either on an object or anywhere. The module options available depend on the choice!
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; The module is activated at the selected position.
+        		</English>
                 <Japanese>
-			アキレス MODはモジュールで特性を示すアイコンがあります。%1アイコンは次のとおりです:
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; このモジュールはどこでも設置できます。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; このモジュールはユニットの上に設置できます。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; これはユニットまたは任意の位置に設置できます。使用可能なモジュールのオプションは選択によって変わります。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; このモジュールは物体の上に設置しなければいけませんが、ユニットを含むこともできます。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; これは物体または任意の位置に設置できます。使用可能なモジュールのオプションは選択によって変わります。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; このモジュールは設置された位置にて動作します。
+                    アキレス MODはモジュールで特性を示すアイコンがあります。%1アイコンは次のとおりです:
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; このモジュールはどこでも設置できます。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; このモジュールはユニットの上に設置できます。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; これはユニットまたは任意の位置に設置できます。使用可能なモジュールのオプションは選択によって変わります。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; このモジュールは物体の上に設置しなければいけませんが、ユニットを含むこともできます。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; これは物体または任意の位置に設置できます。使用可能なモジュールのオプションは選択によって変わります。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; このモジュールは設置された位置にて動作します。
                 </Japanese>
                 <Chinesesimp>
-			阿基里斯模块的模块层级中带有引导性质的图标%1其中最常见为：
-			%1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; 该模块可放置在任何地方。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; 该模块必须放置在单位上。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; 该模块可以放置在单位或任何地方。模块给出的选项将视选择而定！
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; 该模块必须放置在物体上，但物体中可包含单位。
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; 该模块可以放置在物体或任何地方。模块给出的选项将视选择而定！
-			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; 该模块会在选择的位置上激活。
-		</Chinesesimp>
+                    阿基里斯模块的模块层级中带有引导性质的图标%1其中最常见为：
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; 该模块可放置在任何地方。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; 该模块必须放置在单位上。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; 该模块可以放置在单位或任何地方。模块给出的选项将视选择而定！
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; 该模块必须放置在物体上，但物体中可包含单位。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; 该模块可以放置在物体或任何地方。模块给出的选项将视选择而定！
+    			%1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; 该模块会在选择的位置上激活。
+        		</Chinesesimp>
                 <Chinese>
-   阿基裡斯模塊的模塊層級中帶有引導性質的圖標%1其中最常見為：
-   %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; 該模塊可放置在任何地方。
-   %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; 該模塊必須放置在單位上。
-   %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; 該模塊可以放置在單位或任何地方。模塊給出的選項將視選擇而定！
-   %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; 該模塊必須放置在物件上，但物件中可包含單位。
-   %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; 該模塊可以放置在物件或任何地方。模塊給出的選項將視選擇而定！
-   %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; 該模塊會在選擇的位置上激活。
-  </Chinese>
+                    阿基裡斯模塊的模塊層級中帶有引導性質的圖標%1其中最常見為：
+                    %1%1&lt;img image='\achilles\data_f_ares\icons\icon_default.paa'/&gt; 該模塊可放置在任何地方。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_unit.paa'/&gt; 該模塊必須放置在單位上。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_unit.paa'/&gt; 該模塊可以放置在單位或任何地方。模塊給出的選項將視選擇而定！
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_object.paa'/&gt; 該模塊必須放置在物件上，但物件中可包含單位。
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_default_object.paa'/&gt; 該模塊可以放置在物件或任何地方。模塊給出的選項將視選擇而定！
+                    %1&lt;img image='\achilles\data_f_achilles\icons\icon_position.paa'/&gt; 該模塊會在選擇的位置上激活。
+        		</Chinese>
             </Key>
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
-                <Original>
-			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-			</Original>
-                <Russian>
-			Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).
-			</Russian>
-                <German>
-			Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.
-			</German>
-                <English>
-			For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.
-		</English>
-                <Japanese>
-			物体またはユニットへ適用されるモジュールでは、ユニットに配置するか、別の場所に配置して複数のユニットに適用することができます。
-		</Japanese>
-                <Chinesesimp>可应用于物体或单位的模块一般都可以直接放置在一个单位上，置于其它地方时则可将其应用到多个单位上。
-		</Chinesesimp>
-                <Chinese>可應用於物件或單位的模塊一般都可以直接放置在一個單位上，置於其它地方時則可將其應用到多個單位上。
-  </Chinese>
+                <Original>For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.</Original>
+                <Russian>Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).</Russian>
+                <German>Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.</German>
+                <English>For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.</English>
+                <Japanese>物体またはユニットへ適用されるモジュールでは、ユニットに配置するか、別の場所に配置して複数のユニットに適用することができます。</Japanese>
+                <Chinesesimp>可应用于物体或单位的模块一般都可以直接放置在一个单位上，置于其它地方时则可将其应用到多个单位上。</Chinesesimp>
+                <Chinese>可應用於物件或單位的模塊一般都可以直接放置在一個單位上，置於其它地方時則可將其應用到多個單位上。</Chinese>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION">
                 <Original>Selection Options</Original>
@@ -5905,65 +5892,53 @@
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_DESCRIPTION">
                 <Original>
-			Some modules have the option to select objects to which the effect(s) will apply to.
-			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancel the selection mode with %3[ESCAPE]%4.
-			</Original>
+                    Some modules have the option to select objects to which the effect(s) will apply to.
+                    %1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+                    %1You can cancel the selection mode with %3[ESCAPE]%4.
+    			</Original>
                 <English>
-			Some modules have the option to select objects to which the effect(s) will apply to.
-			%1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
-			%1You can cancel the selection mode with %3[ESCAPE]%4.
-			</English>
+                    Some modules have the option to select objects to which the effect(s) will apply to.
+                    %1Whenever you hear this sound you can select objects and submit the selection by pressing %3[ENTER]%4.
+                    %1You can cancel the selection mode with %3[ESCAPE]%4.
+    			</English>
                 <French>
-	    		Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
-	    		%1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
-	    		%1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
-	    	</French>
+                    Il y a des modules qui avez l'option de choisir des objects à qui le module est employé.
+                    %1Chaque fois que vous écoutez ce signal, vous pouvez choisir des objects et confirmer le choix par appuyer sur la touche %3[ENTRÉE]%4.
+                    %1Vous pouvez abandonner le mode de choix par appuyer sur la touche %3[ECHAP]%4.
+    	    	</French>
                 <Russian>
-			Некоторые модули имеют возможность выбора объектов, к которым они присоединяются.
-			%1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
-			%1Вы можете отменить выбор используя %3[ESCAPE]%4.
-			</Russian>
+                    Некоторые модули имеют возможность выбора объектов, к которым они присоединяются.
+                    %1Когда вы слышите этот звук вы можете выбрать объекты и принять выбор нажатием %3[ENTER]%4.
+                    %1Вы можете отменить выбор используя %3[ESCAPE]%4.
+    			</Russian>
                 <German>
-			Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
-			%1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
-			%1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
-		</German>
+                    Einige Module haben die Option Objekte auszuwählen auf die das Modul angewendet werden soll.
+                    %1Immer wenn du dieses Signal hörst, kannst du Objekte auswählen und die Auswahl mit der %3[EINGABETASTE]%4 bestätigen.
+                    %1Du kannst den Auswahl Modus mit %3[ESC]%4 abbrechen.
+        		</German>
                 <Japanese>
-			一部のモジュールには効果を適用するオブジェクトを選択できます。
-			%1この音が聞こえるときは物体を選択して %3[ENTER]%4 を押し、選択を送信できます。
-			%1選択モードは %3[ESCAPE]%4 で中止できます。
-		</Japanese>
+                    一部のモジュールには効果を適用するオブジェクトを選択できます。
+                    %1この音が聞こえるときは物体を選択して %3[ENTER]%4 を押し、選択を送信できます。
+                    %1選択モードは %3[ESCAPE]%4 で中止できます。
+        		</Japanese>
                 <Chinesesimp>
-			部分模块可以将特效应用到被选中的单位上。
-			%1当听到这个声音时你可以选中单位并按下%3[Enter键]%4提交选择。
-			%1你可以按%3[ESC键]%4终止选择模式。
-		</Chinesesimp>
+                    部分模块可以将特效应用到被选中的单位上。
+                    %1当听到这个声音时你可以选中单位并按下%3[Enter键]%4提交选择。
+                    %1你可以按%3[ESC键]%4终止选择模式。
+        		</Chinesesimp>
                 <Chinese>
-   部分模塊可以將特效應用到被選中的單位上。
-   %1當聽到這個聲音時你可以選中單位並按下%3[Enter鍵]%4提交選擇。
-   %1你可以按%3[ESC鍵]%4終止選擇模式。
-  </Chinese>
+                    部分模塊可以將特效應用到被選中的單位上。
+                    %1當聽到這個聲音時你可以選中單位並按下%3[Enter鍵]%4提交選擇。
+                    %1你可以按%3[ESC鍵]%4終止選擇模式。
+                </Chinese>
             </Key>
             <Key ID="STR_AMAE_SELECTION_OPTION_TIP">
-                <Original>
-			You can read the message given at the top of the screen about what the module wants you to select.
-			</Original>
-                <English>
-			You can read the message given at the top of the screen about what the module wants you to select.
-			</English>
-                <Russian>
-			Вы можете узнать тип выделения, требуемого модулем, прочитав помощь сверху.
-			</Russian>
-                <French>
-			Il est écrié au-dessus qu'est-ce que vous devez choisir.
-			</French>
-                <German>
-			Oben steht jeweis geschrieben, was du auswählen sollst.
-		</German>
-                <Japanese>
-			モジュールが対象とすべき物は画面上のメッセージにて表示されます。
-		</Japanese>
+                <Original>You can read the message given at the top of the screen about what the module wants you to select.</Original>
+                <English>You can read the message given at the top of the screen about what the module wants you to select.</English>
+                <Russian>Вы можете узнать тип выделения, требуемого модулем, прочитав помощь сверху.</Russian>
+                <French>Il est écrié au-dessus qu'est-ce que vous devez choisir.</French>
+                <German>Oben steht jeweis geschrieben, was du auswählen sollst.</German>
+                <Japanese>モジュールが対象とすべき物は画面上のメッセージにて表示されます。</Japanese>
                 <Chinesesimp>你可以通过阅读屏幕正上方的信息了解模块功能。</Chinesesimp>
                 <Chinese>你可以通過閱讀螢幕正上方的訊息瞭解模塊功能。</Chinese>
             </Key>
@@ -5977,75 +5952,75 @@
             </Key>
             <Key ID="STR_AMAE_KEY_ASSIGNMENT_DESCRIPTION">
                 <Original>
-			Additional key assignments available:
-			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
-			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-			%1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
-			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
-		</Original>
+                    Additional key assignments available:
+                    %1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
+                    %1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
+                    %1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
+                    %1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
+                </Original>
                 <Russian>
-			Доступны дополнительные комбинации клавиш:
-			%1%1%2Нажмите %3[Left Ctrl]%4 + 2x %3[LMB]%4 на иконке боевой единицы чтобы удаленно управлять ею.
-			%1%2Нажмите %3[Left Shift]%4 + %3[G]%4 дла принудительной эвакуации экипажа и пассажиров (включая игроков) из транспортного средства (десантирование на парашюте из ЛА).
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 чтобы выполнить "глубокое" копирование боевых единиц.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 чтобы вставить "глубоко" скопированные боевые единицы.
-			%1%2Если вы выберете боевую единицу и нажмёте %11б то она бросит дымовую гранату или выпустит ловушки, если они у нее есть.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[G]%4 чтобы сгруппировать людей/ТС.
-			%1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 чтобы удалить людей/ТС из группы.
-		</Russian>
+                    Доступны дополнительные комбинации клавиш:
+                    %1%1%2Нажмите %3[Left Ctrl]%4 + 2x %3[LMB]%4 на иконке боевой единицы чтобы удаленно управлять ею.
+                    %1%2Нажмите %3[Left Shift]%4 + %3[G]%4 дла принудительной эвакуации экипажа и пассажиров (включая игроков) из транспортного средства (десантирование на парашюте из ЛА).
+                    %1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 чтобы выполнить "глубокое" копирование боевых единиц.
+                    %1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 чтобы вставить "глубоко" скопированные боевые единицы.
+                    %1%2Если вы выберете боевую единицу и нажмёте %11б то она бросит дымовую гранату или выпустит ловушки, если они у нее есть.
+                    %1%2Нажмите %3[Left Ctrl]%4 + %3[G]%4 чтобы сгруппировать людей/ТС.
+                    %1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 чтобы удалить людей/ТС из группы.
+                </Russian>
                 <German>
-			Weitere verfügbare Tastenzuweisungen:
-			%1%1%2Drücke %3[L Strg]%4 + 2x %3[LMB]%4 auf das Icon einer Einheit, um die Einheit fernzusteuern.
-			%1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) eines Fahrzeugs abspringen zu lassen (Fallschirmsprung bei Flugzeugen).
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten mit allen Eigenschaften zu kopieren.
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten mit allen Eigenschaften einzufügen.
-			%1%2Wenn du eine Einheit auswählst und %11 drückst, wird diese Rauch oder Kontermaßnahmen verwenden, falls verfügbar.
-			%1%2Drücke %3[L Strg]%4 + %3[G]%4 um Objekte zu gruppieren.
-			%1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
-		</German>
+                    Weitere verfügbare Tastenzuweisungen:
+                    %1%1%2Drücke %3[L Strg]%4 + 2x %3[LMB]%4 auf das Icon einer Einheit, um die Einheit fernzusteuern.
+                    %1%2Drücke %3[L Shift]%4 + %3[G]%4 um Passagiere (auch Spieler) eines Fahrzeugs abspringen zu lassen (Fallschirmsprung bei Flugzeugen).
+                    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[C]%4 um Einheiten mit allen Eigenschaften zu kopieren.
+                    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[V]%4 um Einheiten mit allen Eigenschaften einzufügen.
+                    %1%2Wenn du eine Einheit auswählst und %11 drückst, wird diese Rauch oder Kontermaßnahmen verwenden, falls verfügbar.
+                    %1%2Drücke %3[L Strg]%4 + %3[G]%4 um Objekte zu gruppieren.
+                    %1%2Drücke %3[L Strg]%4 + %3[L Shift]%4 + %3[G]%4 um die Gruppierung von Objekten aufzuheben.
+                </German>
                 <English>
-			Additional key assignments available:
-			%1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
-			%1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
-			%1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
-			%1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
-			%1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
-		</English>
+                    Additional key assignments available:
+                    %1%1%2Press %3[Left Ctrl]%4 + 2x %3[LMB]%4 on a units icon in order to remote control the AI.
+                    %1%2Press %3[Left Shift]%4 + %3[G]%4 to force passengers (including players) of a vehicle to eject (para drop for aircrafts).
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[C]%4 in order to deep copy units.
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[V]%4 in order to paste deep copied units.
+                    %1%2If you select a unit and press %11 it will either pop smoke or countermeasures depending on the unit selected.
+                    %1%2Press %3[Left Ctrl]%4 + %3[G]%4 in order to group objects.
+                    %1%2Press %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 in order to ungroup objects.
+                </English>
                 <Japanese>
-			追加キー割り当て:
-			%1%1%2押し %3[左 Ctrl]%4 + 2x %3[左クリック]%4 をユニットのアイコン上で行なうと AI を遠隔操作します。
-			%1%2押し %3[左 Shift]%4 + %3[G]%4 で車両の後部座席のユニット (プレイヤを含む) を脱出 (航空機の場合は空挺) させます。
-			%1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[C]%4 でユニットの深層コピー。
-			%1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[V]%4 深層コピーされたユニットを貼りつけ。
-			%1%2ユニットを選択し %11 を押すと、選択されたユニットに応じて煙幕かカウンターマーズを放出します。
-			%1%2押し %3[左 Ctrl]%4 + %3[G]%4 で物体のグループ化
-			%1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[G]%4 で物体のグループ解除。
-		</Japanese>
+                    追加キー割り当て:
+                    %1%1%2押し %3[左 Ctrl]%4 + 2x %3[左クリック]%4 をユニットのアイコン上で行なうと AI を遠隔操作します。
+                    %1%2押し %3[左 Shift]%4 + %3[G]%4 で車両の後部座席のユニット (プレイヤを含む) を脱出 (航空機の場合は空挺) させます。
+                    %1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[C]%4 でユニットの深層コピー。
+                    %1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[V]%4 深層コピーされたユニットを貼りつけ。
+                    %1%2ユニットを選択し %11 を押すと、選択されたユニットに応じて煙幕かカウンターマーズを放出します。
+                    %1%2押し %3[左 Ctrl]%4 + %3[G]%4 で物体のグループ化
+                    %1%2押し %3[左 Ctrl]%4 + %3[左 Shift]%4 + %3[G]%4 で物体のグループ解除。
+                </Japanese>
                 <Chinesesimp>
-			额外键位组合：
-			%1%1%2按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标左键]%4来远程遥控AI。
-			%1%2按下%3[左SHIFT]%4 + %3[G]%4强制载具内的乘客（包括玩家）紧急逃离（航空器则是弹射投放）。
-			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[C]%4来深度复制单位。
-			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[V]%4来粘贴深度复制单位。
-			%1%2当你选中一个单位并按下%11时，将视选中单位而投掷烟雾或释放反措施装置。
-			%1%2按下%3[左CTRL]%4 + %3[G]%4来为单位编组。
-			%1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[G]%4来取消单位编组。
-		</Chinesesimp>
+                    额外键位组合：
+                    %1%1%2按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标左键]%4来远程遥控AI。
+                    %1%2按下%3[左SHIFT]%4 + %3[G]%4强制载具内的乘客（包括玩家）紧急逃离（航空器则是弹射投放）。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[C]%4来深度复制单位。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[V]%4来粘贴深度复制单位。
+                    %1%2当你选中一个单位并按下%11时，将视选中单位而投掷烟雾或释放反措施装置。
+                    %1%2按下%3[左CTRL]%4 + %3[G]%4来为单位编组。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[G]%4来取消单位编组。
+                </Chinesesimp>
                 <Chinese>
-   額外鍵位組合：
-   %1%1%2按下%3[左CTRL]%4同時在單位圖標上雙擊%3[鼠標左鍵]%4來遠程遙控AI。
-   %1%2按下%3[左SHIFT]%4 + %3[G]%4強制載具內的乘客（包括玩家）緊急逃離（航空器則是緊急彈射/投放）。
-   %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[C]%4來深度複製單位。
-   %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[V]%4來貼上深度複製單位。
-   %1%2當你選中一個單位並按下%11時，將視選中單位而投擲煙霧或釋放反措施裝置。
-   %1%2按下%3[左CTRL]%4 + %3[G]%4來為單位編組。
-   %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[G]%4來取消單位編組。
-  </Chinese>
+                    額外鍵位組合：
+                    %1%1%2按下%3[左CTRL]%4同時在單位圖標上雙擊%3[鼠標左鍵]%4來遠程遙控AI。
+                    %1%2按下%3[左SHIFT]%4 + %3[G]%4強制載具內的乘客（包括玩家）緊急逃離（航空器則是緊急彈射/投放）。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[C]%4來深度複製單位。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[V]%4來貼上深度複製單位。
+                    %1%2當你選中一個單位並按下%11時，將視選中單位而投擲煙霧或釋放反措施裝置。
+                    %1%2按下%3[左CTRL]%4 + %3[G]%4來為單位編組。
+                    %1%2按下%3[左CTRL]%4 + %3[左SHIFT]%4 + %3[G]%4來取消單位編組。
+                </Chinese>
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE">
                 <Original>Execute Code Module</Original>
@@ -6057,47 +6032,47 @@
             </Key>
             <Key ID="STR_AMAE_EXECUTE_CODE_DESCRIPTION">
                 <Original>
-			The execute code module is only available if the server allows for its use by clients!
-			%1%1There are two built-in params available:
-			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
-			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
-		</Original>
+                    The execute code module is only available if the server allows for its use by clients!
+                    %1%1There are two built-in params available:
+                    %1%2%3_this select 0%4   POSITION:   position where the module was placed.
+                %1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+                </Original>
                 <Russian>
-			Модуль выполнения кода доступен только если сервер даёт разрешение клиентам!
-			%1%1Есть два доступных коду параметра:
-			%1%2%3_this select 0%4   POSITION:   координаты точки, где был расположен модуль.
-			%1%2%3_this select 1%4   OBJECT:     возвращает ObjNull или объект, на который был помещён модуль.
-		</Russian>
+                    Модуль выполнения кода доступен только если сервер даёт разрешение клиентам!
+                    %1%1Есть два доступных коду параметра:
+                    %1%2%3_this select 0%4   POSITION:   координаты точки, где был расположен модуль.
+                    %1%2%3_this select 1%4   OBJECT:     возвращает ObjNull или объект, на который был помещён модуль.
+                </Russian>
                 <German>
-			Das Execute Code Module ist nur verfügbar, wenn der Server die Nutzung erlaubt!
-			%1%1Es sind 2 eingebaute Parameter verfügbar:
-			%1%2%3_this select 0%4   POSITION:   Position auf der das Modul platziert wurde.
-			%1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
-		</German>
+                    Das Execute Code Module ist nur verfügbar, wenn der Server die Nutzung erlaubt!
+                    %1%1Es sind 2 eingebaute Parameter verfügbar:
+                    %1%2%3_this select 0%4   POSITION:   Position auf der das Modul platziert wurde.
+                    %1%2%3_this select 1%4   OBJECT:     gibt ObjNull oder das Objekt, auf dem das Modul platziert wurde, zurück.
+                </German>
                 <English>
-			The execute code module is only available if the server allows for its use by clients!
-			%1%1There are two built-in params available:
-			%1%2%3_this select 0%4   POSITION:   position where the module was placed.
-			%1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
-		</English>
+                    The execute code module is only available if the server allows for its use by clients!
+                    %1%1There are two built-in params available:
+                    %1%2%3_this select 0%4   POSITION:   position where the module was placed.
+                    %1%2%3_this select 1%4   OBJECT:     returns ObjNull or the object on which the module was placed.
+                </English>
                 <Japanese>
-			コード実行モジュールはサーバーがクライアントによる使用を許可している場合のみ利用できます!
-			%1%12 つの組み込まれたパラメータが利用できます:
-			%1%2%3_this select 0%4   POSITION:   モジュールが設置された場所。
-			%1%2%3_this select 1%4   OBJECT:     ObjNull かモジュールがどのオブジェクト上に設置されたかを返します。
-		</Japanese>
+                    コード実行モジュールはサーバーがクライアントによる使用を許可している場合のみ利用できます!
+                    %1%12 つの組み込まれたパラメータが利用できます:
+                    %1%2%3_this select 0%4   POSITION:   モジュールが設置された場所。
+                    %1%2%3_this select 1%4   OBJECT:     ObjNull かモジュールがどのオブジェクト上に設置されたかを返します。
+                </Japanese>
                 <Chinesesimp>
-			代码执行模块仅能在服务器允许客户端使用的情况下运行！
-			%1%1模块内置了两个参数：
-			%1%2%3_this select 0%4   位置：模块放置的位置。
-			%1%2%3_this select 1%4   物体：返回ObjNull或模块所属的物体。
-		</Chinesesimp>
+                    代码执行模块仅能在服务器允许客户端使用的情况下运行！
+                    %1%1模块内置了两个参数：
+                    %1%2%3_this select 0%4   位置：模块放置的位置。
+                    %1%2%3_this select 1%4   物体：返回ObjNull或模块所属的物体。
+                </Chinesesimp>
                 <Chinese>
-   代碼執行模塊僅能在伺服器允許客戶端使用的情況下運行！
-   %1%1模塊內置了兩個參數：
-   %1%2%3_this select 0%4   位置：模塊放置的位置。
-   %1%2%3_this select 1%4   物件：返回ObjNull或模塊所屬的物體。
-  </Chinese>
+                    代碼執行模塊僅能在伺服器允許客戶端使用的情況下運行！
+                    %1%1模塊內置了兩個參數：
+                    %1%2%3_this select 0%4   位置：模塊放置的位置。
+                    %1%2%3_this select 1%4   物件：返回ObjNull或模塊所屬的物體。
+                </Chinese>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL">
                 <Original>Achilles Field Manual</Original>
@@ -6110,24 +6085,12 @@
                 <Chinese>阿基裡斯野戰手冊</Chinese>
             </Key>
             <Key ID="STR_AMAE_ARES_FIELD_MANUAL_DESCRIPTION">
-                <Original>
-			Open the %3Field Manual%4 available in the escape menu for useful information.
-		</Original>
-                <English>
-			Open the %3Field Manual%4 available in the escape menu for useful information.
-		</English>
-                <French>
-		  	    Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.
-		        </French>
-                <Russian>
-			Откройте %3Боевой устав%4 в меню игры для получения полезной информации.
-		</Russian>
-                <German>
-			Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.
-		</German>
-                <Japanese>
-			参考のためにエスケープ メニューから利用できる %3フィールド マニュアル%4 を開きます。
-    </Japanese>
+                <Original>Open the %3Field Manual%4 available in the escape menu for useful information.</Original>
+                <English>Open the %3Field Manual%4 available in the escape menu for useful information.</English>
+                <French>Ouvrez le %3Manuel Pratique%4 dans la menu en pause pour des informations utile.</French>
+                <Russian>Откройте %3Боевой устав%4 в меню игры для получения полезной информации.</Russian>
+                <German>Öffne das %Feldhandbuch%4 verfügbar im Pause-Menü für nützliche Informationen.</German>
+                <Japanese>参考のためにエスケープ メニューから利用できる %3フィールド マニュアル%4 を開きます。</Japanese>
                 <Chinesesimp>打开ESC菜单中的%3野战手册%4获取有用信息。</Chinesesimp>
                 <Chinese>打開ESC選單中的%3野戰手冊%4獲取更多訊息。</Chinese>
             </Key>
@@ -6141,41 +6104,41 @@
             </Key>
             <Key ID="STR_AMAE_RC_VEHICLE_CREW_DESCRIPTION">
                 <Original>
-			How to remote control a specific unit inside a vehicle:
-			%1 1) Select the unit in the edit list on your left.
-			%1 2) A new icon pops up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
-		</Original>
+                    How to remote control a specific unit inside a vehicle:
+                    %1 1) Select the unit in the edit list on your left.
+                    %1 2) A new icon pops up on the vehicle corresponding to the target unit.
+                    %1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
+                </Original>
                 <Russian>
-			Чтобы получить удалённое управление нужным Вам членом экипажа в транспортном средстве, необходимо:
-			%1 1) Выбрать нужного члена экипажа в списке объектов на левой панели.
-			%1 2) На транспортном средстве появится новая иконка, обозначающая выбранного члена экипажа.
-			%1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
-		</Russian>
+                    Чтобы получить удалённое управление нужным Вам членом экипажа в транспортном средстве, необходимо:
+                    %1 1) Выбрать нужного члена экипажа в списке объектов на левой панели.
+                    %1 2) На транспортном средстве появится новая иконка, обозначающая выбранного члена экипажа.
+                    %1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
+                </Russian>
                 <English>
-			How to remote control a specific unit inside a vehicle:
-			%1 1) Select the unit in the edit list on your left.
-			%1 2) A new icon pops up on the vehicle corresponding to the target unit.
-			%1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
-		</English>
+                    How to remote control a specific unit inside a vehicle:
+                    %1 1) Select the unit in the edit list on your left.
+                    %1 2) A new icon pops up on the vehicle corresponding to the target unit.
+                    %1 3) Press %3[Left Ctrl]%4 + 2x %3[RMB]%4 on the units icon.
+                </English>
                 <Japanese>
-			車両内の特定ユニットを遠隔操作する方法:
-			%1 1) 左側にある編集リストからユニットを選択。
-			%1 2) 操作したいユニットが乗る該当車輌の上に新しいアイコンが通知。
-			%1 3) ユニットのアイコン上で %3[Left Ctrl]%4 + %3[RMB]%4 を 2 回押す。
-		</Japanese>
+                    車両内の特定ユニットを遠隔操作する方法:
+                    %1 1) 左側にある編集リストからユニットを選択。
+                    %1 2) 操作したいユニットが乗る該当車輌の上に新しいアイコンが通知。
+                    %1 3) ユニットのアイコン上で %3[Left Ctrl]%4 + %3[RMB]%4 を 2 回押す。
+                </Japanese>
                 <Chinesesimp>
-   如何远程遥控载具内的某一单位：
-   %1 1) 在左侧编辑列表选中单位。
-   %1 2) 载具上将会弹出对应目标单位的新图标。
-   %1 3) 按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标右键]%4。
-  </Chinesesimp>
+                    如何远程遥控载具内的某一单位：
+                    %1 1) 在左侧编辑列表选中单位。
+                    %1 2) 载具上将会弹出对应目标单位的新图标。
+                    %1 3) 按下%3[左CTRL]%4同时在单位图标上双击%3[鼠标右键]%4。
+                </Chinesesimp>
                 <Chinese>
-   如何遠程遙控載具內的某一單位：
-   %1 1) 在左側編輯列表選中單位。
-   %1 2) 載具上將會彈出對應目標單位的新圖標。
-   %1 3) 按下%3[左CTRL]%4同時在單位圖標上雙擊%3[鼠標右鍵]%4。
-  </Chinese>
+                    如何遠程遙控載具內的某一單位：
+                    %1 1) 在左側編輯列表選中單位。
+                    %1 2) 載具上將會彈出對應目標單位的新圖標。
+                    %1 3) 按下%3[左CTRL]%4同時在單位圖標上雙擊%3[鼠標右鍵]%4。
+                </Chinese>
             </Key>
         </Container>
         <Container name="Main Menu">
@@ -6188,30 +6151,30 @@
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
-			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-			Latest features: &lt;br /&gt;
-			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
-		</Original>
+                    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+                    Latest features: &lt;br /&gt;
+                    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
+                </Original>
                 <English>
-			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-			Latest features: &lt;br /&gt;
-			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
-		</English>
+                    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+                    Latest features: &lt;br /&gt;
+                    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
+                </English>
                 <Japanese>
-			&lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-			最新の機能: &lt;br /&gt;
-			&lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;機能 &lt;br /&gt;
-		</Japanese>
+                    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+                    最新の機能: &lt;br /&gt;
+                    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;機能 &lt;br /&gt;
+                </Japanese>
                 <Chinesesimp>
-   &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-   最新功能： &lt;br /&gt;
-   &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;特色 &lt;br /&gt;
-  </Chinesesimp>
+                    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+                    最新功能： &lt;br /&gt;
+                    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;特色 &lt;br /&gt;
+                </Chinesesimp>
                 <Chinese>
-   &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
-   最新功能： &lt;br /&gt;
-   &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;特色 &lt;br /&gt;
-  </Chinese>
+                    &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
+                    最新功能： &lt;br /&gt;
+                    &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;特色 &lt;br /&gt;
+                </Chinese>
             </Key>
         </Container>
         <Container name="Settings">
