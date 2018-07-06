@@ -25,7 +25,7 @@ class Ares_Module_Zeus_Visibility : Ares_Zeus_Module_Base
 class Ares_Module_Zeus_Hint : Ares_Zeus_Module_Base
 {
 	scopeCurator = 2;
-	displayName = "$STR_AMAE_Hint";
+	displayName = "$STR_AMAE_HINT";
 	function = "Ares_fnc_ZeusHint";
 	icon = "\achilles\data_f_achilles\icons\icon_hint.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_hint.paa";

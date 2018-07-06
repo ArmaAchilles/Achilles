@@ -5,7 +5,7 @@ private _dialogResult =
 	localize "STR_AMAE_HINT",
 	[
 		[
-			localize "STR_AMAE_HINTTYPE", [localize "STR_AMAE_HINT",  localize "STR_AMAE_HINT_SILENT", localize "STR_AMAE_HINT_CADET"]
+			localize "STR_AMAE_HINT_TYPE", [localize "STR_AMAE_HINT",  localize "STR_AMAE_HINT_SILENT", localize "STR_AMAE_HINT_CADET"]
 		],
 		[
 			localize "STR_AMAE_MESSAGE", "MESSAGE"

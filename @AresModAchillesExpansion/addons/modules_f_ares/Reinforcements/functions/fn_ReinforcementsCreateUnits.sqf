@@ -9,7 +9,7 @@
 
 disableSerialization;
 
-private _spawn_position = position _logic;
+private _spawnPosition = position _logic;
 
 // options for selecting positions
 private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
@@ -151,67 +151,44 @@ private _dialogResult =
 
 // Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
-_dialogResult params ["_side_id","_vehicle_faction_id","_vehicle_category_id","_vehicle_id","_vehicle_behaviour","_lzdz_algorithm","_lzdz_type","_group_faction_id","_group_id","_rp_algorithm","_group_behaviour"];
+_dialogResult params ["_side_id","_vehicle_faction_id","_vehicle_category_id","_vehicle_id","_vehicle_behaviour","_lzdz_algorithm","_lzdzType","_group_faction_id","_group_id","_rp_algorithm","_group_behaviour"];
 private _side = SIDES select _side_id;
-private _vehicle_type = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _vehicle_faction_id select _vehicle_category_id select _vehicle_id;
+private _vehicleType = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _vehicle_faction_id select _vehicle_category_id select _vehicle_id;
 private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _group_faction_id select _group_id;
 private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lzLogic = [_spawn_position, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
+private _lzLogic = [_spawnPosition, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
 private _lzPos = position _lzLogic;
 
 // create the transport vehicle
-private _vehicleInfo = [_spawn_position, _spawn_position getDir _lzPos, _vehicle_type, _side] call BIS_fnc_spawnVehicle;
-_vehicleInfo params ["_vehicle", "_", "_vehicleGroup"];
-private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
-if (_vehicle isKindOf "Air" and (_dialogResult select 6 > 0)) then
-{
-	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	private _script = ["\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf", "\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"] select (_dialogResult select 6 == 1);
-	_vehicleUnloadWp setWaypointScript _script;
-} else
-{
-	_vehicleUnloadWp setWaypointType "TR UNLOAD";
-};
+private _vehicleInfo = [_spawnPosition, _spawnPosition getDir _lzPos, _vehicleType, _side] call BIS_fnc_spawnVehicle;
+_vehicleInfo params ["_vehicle", "", "_vehicleGroup"];
 
-// Make the driver full skill. This makes him less likely to do dumb things
-// when they take contact.
-(driver (vehicle (leader _vehicleGroup))) setSkill 1;
-
-if (_vehicle_type isKindOf "Air") then
+if (_vehicle isKindOf "Plane") then
 {
-	// Special settings for helicopters. Otherwise they tend to run away instead of land
-	// if the LZ is hot.
-	{
-		_x allowFleeing 0; // Especially for helos... They're very cowardly.
-	} forEach (crew (vehicle (leader _vehicleGroup)));
-	_vehicleUnloadWp setWaypointTimeout [0,0,0];
-}
-else
-{
-	_vehicleUnloadWp setWaypointTimeout [5,10,20]; // Give the units some time to get away from truck
-};
-
-// Generate the waypoints for after the transport drops off the troops.
-if (_vehicle_behaviour == 0) then
-{
-	// RTB and despawn.
-	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawn_position, 0];
-	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
-	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+	// Adjust spawn and flight altitude
+	private _height = [80, 3000] select (_lzdzType isEqualTo 3);
+	_vehicle flyInHeight _height;
+	_vehicle setPos (_spawnPosition vectorAdd [0, 0, _height]);
+	
+	// Fix for CUP planes (somehow they don't have a start velocity despite using BIS_fnc_spawnVehicle)
+	private _speed = getNumber (configfile >> "CfgVehicles" >> _vehicleType >> "maxSpeed");
+	private _coefName = ["normalSpeedForwardCoef", "limitedSpeedCoef"] select (speedMode _vehicleGroup == "LIMITED");
+	_speed = _speed * getNumber (configfile >> "CfgVehicles" >> _vehicleType >> _coefName);
+	_vehicle setVelocityModelSpace [0, _speed/3.6, 0];
 };
 
 // Add vehicle to curator
 [[_vehicle]] call Ares_fnc_AddUnitsToCurator;
 
-private _CrewTara = [_vehicle_type,false] call BIS_fnc_crewCount;
-private _CrewBrutto =  [_vehicle_type,true] call BIS_fnc_crewCount;
+private _CrewTara = [_vehicleType,false] call BIS_fnc_crewCount;
+private _CrewBrutto =  [_vehicleType,true] call BIS_fnc_crewCount;
 private _CrewNetto = _CrewBrutto - _CrewTara;
 
 // create infantry group and resize it to the given cargo space if needed
-private _infantry_group = [_spawn_position, _side, _grp_cfg] call BIS_fnc_spawnGroup;
+private _infantry_group = [_spawnPosition, _side, _grp_cfg] call BIS_fnc_spawnGroup;
 // delete remaining units if vehicle is overcrouded
 private _infantry_list = units _infantry_group;
 if (count _infantry_list > _CrewNetto) then
@@ -248,7 +225,7 @@ _infantry_group addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.
 {
-	_x moveInCargo (vehicle (leader _vehicleGroup));
+	_x moveInCargo _vehicle;
 } forEach _infantry_list;
 
 // Add infantry to curator
@@ -258,6 +235,51 @@ if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
 	{deleteVehicle _x} forEach _infantry_list;
+};
+
+// create a waypoint for deploying the units
+private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
+if (_vehicle isKindOf "Air" and (_lzdzType > 0)) then
+{
+	_vehicleUnloadWp setWaypointType "SCRIPTED";
+	private _script =
+	[
+		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf",
+		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"
+	] select (_lzdzType isEqualTo 1);
+	_vehicleUnloadWp setWaypointScript _script;
+} else
+{
+	_vehicleUnloadWp setWaypointType "TR UNLOAD";
+};
+
+// Make the driver full skill. This makes him less likely to do dumb things
+// when they take contact.
+(driver _vehicle) setSkill 1;
+
+if (_vehicleType isKindOf "Air") then
+{
+	// Special settings for helicopters. Otherwise they tend to run away instead of land
+	// if the LZ is hot.
+	{
+		_x allowFleeing 0; // Especially for helos... They're very cowardly.
+	} forEach (crew _vehicle);
+	// armed aircrafts are unreliable when they are not CARELESS
+	_vehicleGroup setBehaviour "CARELESS";
+	_vehicleUnloadWp setWaypointTimeout [0,0,0];
+}
+else
+{
+	_vehicleUnloadWp setWaypointTimeout [5,10,20]; // Give the units some time to get away from truck
+};
+
+// Generate the waypoints for after the transport drops off the troops.
+if (_vehicle_behaviour == 0) then
+{
+	// RTB and despawn.
+	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
+	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
+	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
 };
 
 // print a confirmation

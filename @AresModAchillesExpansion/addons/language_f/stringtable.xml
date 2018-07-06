@@ -751,6 +751,12 @@
                 <Japanese>ヒント</Japanese>
                 <Chinesesimp>提示</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_ADVANCED_HINT">
+                <Original>Advanced Hint</Original>
+                <English>Advanced Hint</English>
+                <French>Indice avancé</French>
+                <German>Erweiterter Hinweis</German>
+            </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
                 <English>Switch side channel of Zeus</English>
@@ -1445,6 +1451,21 @@
                 <German>Waffe zum Feuern</German>
                 <Japanese>武器を発射</Japanese>
                 <Chinesesimp>开火用武器</Chinesesimp>
+            </Key>
+            <Key ID="STR_AMAE_USS_FREEDOM">
+                <Original>USS Freedom</Original>
+            </Key>
+            <Key ID="STR_AMAE_SUBMARINE">
+                <English>Submarine</English>
+                <Original>Submarine</Original>
+                <French>Sous-marin</French>
+                <German>U-Boot</German>
+            </Key>
+            <Key ID="STR_AMAE_TRAWLER">
+                <English>Trawler</English>
+                <Original>Trawler</Original>
+                <French>Chalutier</French>
+                <German>Trawler</German>
             </Key>
         </Container>
     </Package>
@@ -2245,6 +2266,13 @@
                 <Japanese>モード</Japanese>
                 <Chinesesimp>模式</Chinesesimp>
             </Key>
+            </Key>
+            <Key ID="STR_ADDITIONAL_OPTION">
+                <Original>Additional option</Original>
+                <English>Additional option</English>
+                <French>Option supplémentaire</French>
+                <German>Zusatzoption</German>
+            </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
                 <English>All objects in mission</English>
@@ -2271,6 +2299,12 @@
                 <German>Reichweite</German>
                 <Japanese>距離</Japanese>
                 <Chinesesimp>距离</Chinesesimp>
+            </Key>
+            <Key ID="STR_AMAE_PRECISION">
+                <Original>Precision [m]</Original>
+                <English>Precision [m]</English>
+                <French>Précision [m]</French>
+                <German>Ungenauigkeit [m]</German>
             </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
@@ -2434,7 +2468,7 @@
                 <Japanese>割合</Japanese>
                 <Chinesesimp>分布</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_DELTA">
+            <Key ID="STR_AMAE_DELTA_DISTRIBUTION">
                 <Original>Delta</Original>
                 <English>Delta</English>
                 <French>Delta</French>
@@ -5141,6 +5175,12 @@
                 <Japanese>空挺</Japanese>
                 <Chinesesimp>空投</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_HALO">
+                <Original>HALO</Original>
+                <English>HALO</English>
+                <French>HALO</French>
+                <German>HALO</German>
+            </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>
                 <English>SEARCH BUILDING</English>
@@ -5498,10 +5538,10 @@
         </Container>
         <Container name="Main Menu">
             <Key ID="STR_AMAE_INTRO_TITLE">
-                <Original>Achilles 1.0.2</Original>
-                <English>Achilles 1.0.2</English>
-                <Japanese>アレス Mod - アキレス拡張 1.0.2</Japanese>
-                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.0.2</Chinesesimp>
+                <Original>Achilles 1.1.0</Original>
+                <English>Achilles 1.1.0</English>
+                <Japanese>アレス Mod - アキレス拡張 1.1.0</Japanese>
+                <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.1.0</Chinesesimp>
             </Key>
             <Key ID="STR_AMAE_INTRO_MESSAGE">
                 <Original>
