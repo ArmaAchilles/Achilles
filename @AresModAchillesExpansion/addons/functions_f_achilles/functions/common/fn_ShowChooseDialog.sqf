@@ -38,22 +38,21 @@ private _tot_height = 0;
 		default {_tot_height = _tot_height + TOTAL_ROW_HEIGHT};
 	};
 } forEach _control_info;
-if (_tot_height > MAX_ROW_Y) then {_tot_height = MAX_ROW_Y};
+if (_tot_height > MAX_ALL_ROWS_H) then {_tot_height = MAX_ALL_ROWS_H};
 
 // adjust ctrl group accordingly
-private _yCoord = _tot_height + TOTAL_ROW_HEIGHT + GtC_H(0.4);
 private _ctrl_group = _dialog displayCtrl DYNAMIC_CTRL_GROUP;
 private _pos = ctrlPosition _ctrl_group;
-_pos set [3,_yCoord-(_pos select 1)];
+_pos set [3, _tot_height];
 _ctrl_group ctrlSetPosition _pos;
 _ctrl_group ctrlCommit 0;
 
 // adjust dialog bottom accordingly
-_yCoord = _yCoord + GtC_H(0.4);
+private _yCoord = GUI_GRID_Y + GtC_H(1.5) + GtC_H(0.4) + _tot_height + GtC_H(0.4);
 {
 	private _bottomCtrl = _dialog displayCtrl _x;
 	_pos = ctrlPosition _bottomCtrl;
-	_pos set [1,_yCoord];
+	_pos set [1, _yCoord];
 	_bottomCtrl ctrlSetPosition _pos;
 	_bottomCtrl ctrlCommit 0;
 } forEach DYNAMIC_BOTTOM_IDCs;
@@ -62,7 +61,7 @@ _yCoord = _yCoord + GtC_H(0.4);
 _yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 private _background = _dialog displayCtrl DYNAMIC_BG_IDC;
 _pos = ctrlPosition _background;
-_pos set [3,_yCoord-(_pos select 1)];
+_pos set [3, _yCoord - (_pos select 1)];
 _background ctrlSetPosition _pos;
 _background ctrlCommit 0;
 
@@ -101,6 +100,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
+			_ctrl_label ctrlSetFontHeight FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
@@ -108,7 +108,8 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 			// Create the combo box
 			private _ctrl_cb = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT];
+			_ctrl_cb ctrlSetFontHeight FONT_SIZE;
 			private _use_data = false;
 			{
 				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_str_data","",[""]]];
@@ -168,6 +169,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
+			_ctrl_label ctrlSetFontHeight FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
@@ -175,7 +177,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 			// Create the slider
 			private _ctrl_slider = _dialog ctrlCreate ["RscAchillesXSliderH", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-			_ctrl_slider ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+			_ctrl_slider ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT];
 			_data params [["_slider_range", [0,1], [[]]], ["_slider_speed", [1,3], [[]]]];
 			_ctrl_slider sliderSetRange _slider_range;
 			_ctrl_slider sliderSetSpeed _slider_speed;
@@ -227,6 +229,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
+			_ctrl_label ctrlSetFontHeight FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
@@ -234,12 +237,13 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 			// Create the edit control
 			private _ctrl_edit = _dialog ctrlCreate [_control_class, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-			_ctrl_edit ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
+			_ctrl_edit ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
 			_ctrl_edit ctrlCommit 0;
 
 			// Adjust default choice if it is invalid and select the current choice
 			if (!(_default_choice isEqualType "")) then {_default_choice = ""};
 			_ctrl_edit ctrlSetText _default_choice;
+			_ctrl_edit ctrlSetFontHeight FONT_SIZE;
 
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];

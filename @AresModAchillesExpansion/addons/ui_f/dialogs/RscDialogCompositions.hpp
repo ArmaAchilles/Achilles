@@ -19,8 +19,9 @@ class Ares_composition_Dialog
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 24 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorBackground[] = {0.518,0.016,0,0.8};
-			sizeEx = 1.2 * GUI_GRID_H;
 		};
 		class Ares_Main_Background: IGUIBack
 		{
@@ -40,6 +41,8 @@ class Ares_composition_Dialog
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 11 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorBackground[] = {0,0,0,0.6};
 		};
 		class Ares_Cancle_Button: RscButtonMenuCancel
@@ -51,6 +54,8 @@ class Ares_composition_Dialog
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
 		};
@@ -66,6 +71,8 @@ class Ares_composition_Dialog
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 7 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 		};
 		class Ares_Background_Edit: IGUIBack
 		{
@@ -86,6 +93,8 @@ class Ares_composition_Dialog
 			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 25.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 		};
 		class Ares_composition_tree: RscTree
 		{
@@ -99,6 +108,8 @@ class Ares_composition_Dialog
 			y = 4 * GUI_GRID_H + GUI_GRID_Y;
 			w = 24 * GUI_GRID_W;
 			h = 15 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorText[] = {0.5,0.5,0.5,1};
 			colorBackground[] = {0,0,0,0.5};
 		};

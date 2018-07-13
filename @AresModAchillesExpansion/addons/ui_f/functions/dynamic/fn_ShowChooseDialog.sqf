@@ -25,10 +25,10 @@ if ((count _this) == 2 && (_choicesArray select 0) isEqualType "") then
 */
 
 // Define some constants for us to use when laying things out.
-#define GUI_GRID_X		(0)
-#define GUI_GRID_Y		(0)
-#define GUI_GRID_W		(0.025)
-#define GUI_GRID_H		(0.04)
+#define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
+#define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
+#define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_H		(0.022 * safeZoneH)
 
 //converts GUI grid to GUI coordinates
 #define GtC_X(GRID)				GRID * GUI_GRID_W + GUI_GRID_X
@@ -43,23 +43,25 @@ if ((count _this) == 2 && (_choicesArray select 0) isEqualType "") then
 #define	DYNAMIC_BOTTOM_IDCs		[2010,3000,3010]
 
 #define BG_WIDTH				(40 * GUI_GRID_W)
-#define START_ROW_Y				(0 * GUI_GRID_H + GUI_GRID_Y)
-#define MAX_ROW_Y				(29.4 * GUI_GRID_H + GUI_GRID_Y)
-#define LABEL_COMBO_DELTA_Y		(0.5 * GUI_GRID_H + GUI_GRID_Y)
-#define LABEL_COLUMN_X			(0.5 * GUI_GRID_W + GUI_GRID_X)
+#define START_ROW_Y				(0)
+#define MAX_ALL_ROWS_H			(29.4 * GUI_GRID_H)
+#define LABEL_COMBO_H			(0.5 * GUI_GRID_H)
+#define LABEL_COLUMN_X			(0.5 * GUI_GRID_W)
 #define LABEL_WIDTH				(39 * GUI_GRID_W)
 #define LABEL_HEIGHT			(2 * GUI_GRID_H)
 
-#define COMBO_COLUMN_X			(16 * GUI_GRID_W + GUI_GRID_X)
+#define COMBO_COLUMN_X			(16 * GUI_GRID_W)
 #define COMBO_WIDTH				(22.5 * GUI_GRID_W)
 #define COMBO_HEIGHT			(1 * GUI_GRID_H)
-#define OK_BUTTON_X				(29.5 * GUI_GRID_W + GUI_GRID_X)
+#define OK_BUTTON_X				(29.5 * GUI_GRID_W)
 #define OK_BUTTON_WIDTH			(4 * GUI_GRID_W)
 #define OK_BUTTON_HEIGHT		(1.5 * GUI_GRID_H)
-#define CANCEL_BUTTON_X			(34 * GUI_GRID_W + GUI_GRID_X)
+#define CANCEL_BUTTON_X			(34 * GUI_GRID_W)
 #define CANCEL_BUTTON_WIDTH		(4.5 * GUI_GRID_W)
 #define CANCEL_BUTTON_HEIGHT	(1.5 * GUI_GRID_H)
 #define TOTAL_ROW_HEIGHT		(2.1 * GUI_GRID_H)
+
+#define FONT_SIZE				(1.2 * GUI_GRID_H)
 
 #define BASE_IDC_LABEL			(10000)
 #define BASE_IDC_CTRL			(20000)
@@ -82,23 +84,21 @@ private _row_heights = _choicesArray apply
 	};
 };
 private _tot_height = _row_heights call Achilles_fnc_sum;
-if (_tot_height > MAX_ROW_Y) then {_tot_height = MAX_ROW_Y};
-
-private _yCoord = _tot_height + TOTAL_ROW_HEIGHT + GtC_H(0.4);
+if (_tot_height > MAX_ALL_ROWS_H) then {_tot_height = MAX_ALL_ROWS_H};
 
 // Resize ctrl group
 private _ctrl_group = _dialog displayCtrl DYNAMIC_CTRL_GROUP;
 private _pos = ctrlPosition _ctrl_group;
-_pos set [3,_yCoord-(_pos select 1)];
+_pos set [3, _tot_height];
 _ctrl_group ctrlSetPosition _pos;
 _ctrl_group ctrlCommit 0;
 
-_yCoord = _yCoord + GtC_H(0.4);
+private _yCoord = GUI_GRID_Y + GtC_H(1.5) + GtC_H(0.4) + _tot_height + GtC_H(0.4);
 
 {
 	private _bottomCtrl = _dialog displayCtrl _x;
 	_pos = ctrlPosition _bottomCtrl;
-	_pos set [1,_yCoord];
+	_pos set [1, _yCoord];
 	_bottomCtrl ctrlSetPosition _pos;
 	_bottomCtrl ctrlCommit 0;
 } forEach DYNAMIC_BOTTOM_IDCs;
@@ -108,7 +108,7 @@ _yCoord = _yCoord + TOTAL_ROW_HEIGHT;
 // Resize the background
 private _background = _dialog displayCtrl DYNAMIC_BG_IDC;
 _pos = ctrlPosition _background;
-_pos set [3,_yCoord-(_pos select 1)];
+_pos set [3, _yCoord - (_pos select 1)];
 _background ctrlSetPosition _pos;
 _background ctrlCommit 0;
 
@@ -117,7 +117,6 @@ if (_titleText != "") then
 {
 	private _ctrlTitle = _dialog displayCtrl DYNAMIC_TITLE_IDC;
 	_ctrlTitle ctrlSetText _titleText;
-
 };
 
 // Set the start offset for the controls
@@ -141,6 +140,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 	// Create the label for this entry
 	private _choiceLabel = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 	_choiceLabel ctrlSetText _choiceName;
+	_choiceLabel ctrlSetFontHeight FONT_SIZE;
 	_choiceLabel ctrlSetBackgroundColor [0,0,0,0.6];
 
 	if (_choices isEqualType []) then
@@ -152,7 +152,8 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 
 		// Create the combo box for this entry and populate it.
 		private _choiceCombo = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-		_choiceCombo ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT];
+		_choiceCombo ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT];
+		_choiceCombo ctrlSetFontHeight FONT_SIZE;
 		_choiceLabel ctrlSetBackgroundColor [0,0,0,0.5];
 		_choiceCombo ctrlCommit 0;
 		{
@@ -189,19 +190,19 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 		if (_choices in ["ALLSIDE","SIDE"]) then
 		{
 			// set entry label position
-			_choiceLabel ctrlSetPosition [GtC_X(0.5),_yCoord,GtC_W(39),GtC_H(4)];
+			_choiceLabel ctrlSetPosition [GtC_W(0.5),_yCoord,GtC_W(39),GtC_H(4)];
 			_choiceLabel ctrlCommit 0;
 
 			// create entry background
 			private _ctrl = _dialog ctrlCreate ["RscText", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_yCoord = _yCoord + GtC_H(0.5);
 			_ctrl ctrlSetBackgroundColor [1,1,1,0.1];
-			_ctrl ctrlSetPosition [GtC_X(8),_yCoord,GtC_W(31),GtC_H(3)];
+			_ctrl ctrlSetPosition [GtC_W(8),_yCoord,GtC_W(31),GtC_H(3)];
 			_ctrl ctrlCommit 0;
 
 			// create Active Entry Pictures
 			_yCoord = _yCoord + GtC_H(0.5);
-			private _xCoord = GtC_X(12.5);
+			private _xCoord = GtC_W(12.5);
 			{
 				private _icon = _x;
 				_ctrl = _dialog ctrlCreate ["RscActivePicture", SIDE_BASE_IDC + 10*_forEachIndex, _ctrl_group];
@@ -246,7 +247,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				default {"RscAchillesEdit"};
 			};
 			private _ctrl = _dialog ctrlCreate [_ctrl_type, BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
-			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_DELTA_Y, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
+			_ctrl ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT + _add_height];
 			_ctrl ctrlCommit 0;
 			if (_choices == "SLIDER") then
 			{
@@ -265,6 +266,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				_defaultChoice = ["", _defaultChoice] select (_defaultChoice isEqualType "");
 
 				_ctrl ctrlSetText _defaultChoice;
+				_ctrl ctrlSetFontHeight FONT_SIZE;
 				_ctrl ctrlSetBackgroundColor [0, 0, 0, 0];
 				_ctrl ctrlSetEventHandler ["KeyUp", "uiNamespace setVariable [format['Ares_ChooseDialog_ReturnValue_%1'," + str (_forEachIndex) + "], ctrlText (_this select 0)];"];
 			};

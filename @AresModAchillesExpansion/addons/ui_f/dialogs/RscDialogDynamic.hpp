@@ -19,8 +19,9 @@ class Ares_Dynamic_Dialog
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 38 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorBackground[] = {0.518,0.016,0,0.8};
-			sizeEx = 1.2 * GUI_GRID_H;
 		};
 		class Ares_Main_Background: IGUIBack
 		{
@@ -58,6 +59,8 @@ class Ares_Dynamic_Dialog
 			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 4 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
 		};
@@ -69,6 +72,8 @@ class Ares_Dynamic_Dialog
 			y = 22 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			size = FONT_SIZE;
+			sizeEx = FONT_SIZE;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
 		};

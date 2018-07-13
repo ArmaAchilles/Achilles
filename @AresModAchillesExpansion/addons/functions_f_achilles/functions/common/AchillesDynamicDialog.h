@@ -1,8 +1,8 @@
 // Define some constants for us to use when laying things out.
-#define GUI_GRID_X		(0)
-#define GUI_GRID_Y		(0)
-#define GUI_GRID_W		(0.025)
-#define GUI_GRID_H		(0.04)
+#define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
+#define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
+#define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_H		(0.022 * safeZoneH)
 
 //converts GUI grid to GUI coordinates
 #define GtC_X(GRID)				(GRID) * GUI_GRID_W + GUI_GRID_X
@@ -17,24 +17,26 @@
 #define	DYNAMIC_BOTTOM_IDCs		[2010,3000,3010]
 
 #define BG_WIDTH				(40 * GUI_GRID_W)
-#define START_ROW_Y				(0 * GUI_GRID_H + GUI_GRID_Y)
-#define MAX_ROW_Y				(29.4 * GUI_GRID_H + GUI_GRID_Y)
-#define LABEL_COMBO_DELTA_Y		(0.5 * GUI_GRID_H + GUI_GRID_Y)
-#define LABEL_COLUMN_X			(0.5 * GUI_GRID_W + GUI_GRID_X)
+#define START_ROW_Y				(0)
+#define MAX_ALL_ROWS_H			(29.4 * GUI_GRID_H)
+#define LABEL_COMBO_H			(0.5 * GUI_GRID_H)
+#define LABEL_COLUMN_X			(0.5 * GUI_GRID_W)
 #define LABEL_WIDTH				(39 * GUI_GRID_W)
 #define LABEL_HEIGHT			(2 * GUI_GRID_H)
 #define LABEL_BG_COLOR			[0,0,0,0.6]
 
-#define COMBO_COLUMN_X			(16 * GUI_GRID_W + GUI_GRID_X)
+#define COMBO_COLUMN_X			(16 * GUI_GRID_W)
 #define COMBO_WIDTH				(22.5 * GUI_GRID_W)
 #define COMBO_HEIGHT			(1 * GUI_GRID_H)
-#define OK_BUTTON_X				(29.5 * GUI_GRID_W + GUI_GRID_X)
+#define OK_BUTTON_X				(29.5 * GUI_GRID_W)
 #define OK_BUTTON_WIDTH			(4 * GUI_GRID_W)
 #define OK_BUTTON_HEIGHT		(1.5 * GUI_GRID_H)
-#define CANCEL_BUTTON_X			(34 * GUI_GRID_W + GUI_GRID_X)
+#define CANCEL_BUTTON_X			(34 * GUI_GRID_W)
 #define CANCEL_BUTTON_WIDTH		(4.5 * GUI_GRID_W)
 #define CANCEL_BUTTON_HEIGHT	(1.5 * GUI_GRID_H)
 #define TOTAL_ROW_HEIGHT		(2.1 * GUI_GRID_H)
+
+#define FONT_SIZE				(1.2 * GUI_GRID_H)
 
 #define BASE_IDC_LABEL			(10000)
 #define BASE_IDC_CTRL			(20000)
