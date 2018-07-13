@@ -1455,6 +1455,9 @@
             <Key ID="STR_AMAE_USS_FREEDOM">
                 <Original>USS Freedom</Original>
             </Key>
+            <Key ID="STR_AMAE_USS_LIBERTY">
+                <Original>USS Liberty</Original>
+            </Key>
             <Key ID="STR_AMAE_SUBMARINE">
                 <English>Submarine</English>
                 <Original>Submarine</Original>
