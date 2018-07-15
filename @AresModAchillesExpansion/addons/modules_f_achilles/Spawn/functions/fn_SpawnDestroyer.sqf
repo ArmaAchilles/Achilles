@@ -19,7 +19,7 @@
 		// drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
 		// drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
 		// drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
-		drawLine3D [_pos, _pos vectorAdd (_vecDir vectorMultiply 30), LINE_RGBA];
+		drawLine3D [_pos, _pos vectorAdd (_vecDir vectorMultiply -30), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply 10), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply -10), LINE_RGBA];
 	},
