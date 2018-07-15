@@ -10,15 +10,19 @@
 	"onEachFrame",
 	{
 		params ["_logic"];
+		// model position shifted by +5 m in Z direction in order to prevent intersections with the water surface
 		private _pos = ASLToAGL getPosASL _logic vectorAdd [0,0,5];
+		// get basis vectors for the model XY plane
 		private _vecDir = vectorDir _logic;
 		_vecDir set [2, 0];
 		_vecDir = vectorNormalized _vecDir;
 		_vecPerp = [-(_vecDir select 1), _vecDir select 0, 0];
+		// draw projection of the bounding box on the model XY plane
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
+		// draw an arrow for the heading on the model XY plane
 		drawLine3D [_pos, _pos vectorAdd (_vecDir vectorMultiply -30), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply 10), LINE_RGBA];
 		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply -10), LINE_RGBA];
