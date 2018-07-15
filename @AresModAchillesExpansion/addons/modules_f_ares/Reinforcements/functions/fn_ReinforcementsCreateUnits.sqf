@@ -29,54 +29,55 @@ private _rpOptions = _extraOptions + _allRpNames;
 // cache: find all possible vehicles and groups for reinforcements 
 if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEqualTo []) then
 {
-	private _curator_interface = findDisplay IDD_RSCDISPLAYCURATOR;
+	private _curatorInterface = findDisplay IDD_RSCDISPLAYCURATOR;
 	
-	private _vehicle_factions = [];
-	private _group_factions = [];
-	private _vehicle_categories = [];
+	private _vehicleSides = SIDE_NAMES;
+	private _vehicleFactions = [];
+	private _groupFactions = [];
+	private _vehicleCategories = [];
 	private _vehicles = [];
 	private _groups = [];
 
-	for "_side_id" from 0 to (count SIDES - 1) do
+	for "_sideId" from 0 to (count SIDES - 1) do
 	{
 		// find vehicles
-		private _tree_ctrl = _curator_interface displayCtrl (CURATOR_UNITS_IDCs select _side_id);
-		_vehicle_factions pushBack [];
-		_vehicle_categories pushBack [];
+		private _treeCtrl = _curatorInterface displayCtrl (CURATOR_UNITS_IDCs select _sideId);
+		_vehicleFactions pushBack [];
+		_vehicleCategories pushBack [];
 		_vehicles pushBack [];
-		private _faction_id = -1;
-		for "_faction_tvid" from 0 to ((_tree_ctrl tvCount []) - 1) do
+		private _factionId = -1;
+		for "_factionTvId" from 0 to ((_treeCtrl tvCount []) - 1) do
 		{
-			private _faction_included = false;
-			private _faction = _tree_ctrl tvText [_faction_tvid];
-			private _category_id = -1;
-			for "_category_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid]) - 1) do
+			private _factionIncluded = false;
+			private _faction = _treeCtrl tvText [_factionTvId];
+			private _categoryId = -1;
+			for "_categoryTvId" from 0 to ((_treeCtrl tvCount [_factionTvId]) - 1) do
 			{
-				private _category_included = false;
-				private _category = _tree_ctrl tvText [_faction_tvid,_category_tvid];
+				private _categoryIncluded = false;
+				private _category = _treeCtrl tvText [_factionTvId,_categoryTvId];
 				private _first = true;
-				for "_vehicle_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid,_category_tvid]) - 1) do
+				for "_vehicleTvId" from 0 to ((_treeCtrl tvCount [_factionTvId,_categoryTvId]) - 1) do
 				{
-					private _vehicle = _tree_ctrl tvData [_faction_tvid,_category_tvid,_vehicle_tvid];
+					private _vehicle = _treeCtrl tvData [_factionTvId,_categoryTvId,_vehicleTvId];
 					if (_first and not (_vehicle isKindOf "Tank" or _vehicle isKindOf "Car" or _vehicle isKindOf "Helicopter" or _vehicle isKindOf "Plane"or _vehicle isKindOf "Ship")) exitWith {};
 					if (([_vehicle, true] call BIS_fnc_crewCount) - ([_vehicle, false] call BIS_fnc_crewCount) > 0) then
 					{
-						if (not _faction_included) then
+						if (not _factionIncluded) then
 						{
-							_faction_included = true;
-							(_vehicle_factions select _side_id) pushBack _faction;
-							_faction_id = _faction_id + 1;
-							(_vehicle_categories select _side_id) pushBack [];
-							(_vehicles select _side_id) pushBack [];
+							_factionIncluded = true;
+							(_vehicleFactions select _sideId) pushBack _faction;
+							_factionId = _factionId + 1;
+							(_vehicleCategories select _sideId) pushBack [];
+							(_vehicles select _sideId) pushBack [];
 						};
-						if (not _category_included) then
+						if (not _categoryIncluded) then
 						{
-							_category_included = true;
-							(_vehicle_categories select _side_id select _faction_id) pushBack _category;
-							_category_id = _category_id + 1;
-							(_vehicles select _side_id select _faction_id) pushBack [];
+							_categoryIncluded = true;
+							(_vehicleCategories select _sideId select _factionId) pushBack _category;
+							_categoryId = _categoryId + 1;
+							(_vehicles select _sideId select _factionId) pushBack [];
 						};
-						(_vehicles select _side_id select _faction_id select _category_id) pushBack _vehicle;
+						(_vehicles select _sideId select _factionId select _categoryId) pushBack _vehicle;
 					};
 					_first = false;
 				};
@@ -84,57 +85,75 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 		};
 		
 		// find groups
-		private _tree_ctrl = _curator_interface displayCtrl (CURATOR_GROUPS_IDCs select _side_id);
-		_group_factions pushBack [];
+		private _treeCtrl = _curatorInterface displayCtrl (CURATOR_GROUPS_IDCs select _sideId);
+		_groupFactions pushBack [];
 		_groups pushBack [];
-		private _side_class = _tree_ctrl tvData [0];
-		for "_faction_tvid" from 0 to ((_tree_ctrl tvCount [0]) - 1) do
+		private _sideClass = _treeCtrl tvData [0];
+		for "_factionTvId" from 0 to ((_treeCtrl tvCount [0]) - 1) do
 		{
-			private _faction_included = false;
-			private _faction_name = _tree_ctrl tvText [0,_faction_tvid];
-			private _faction_class = _tree_ctrl tvData [0,_faction_tvid];
-			private _groups_in_faction = [];
-			for "_category_tvid" from 0 to ((_tree_ctrl tvCount [0,_faction_tvid]) - 1) do
+			private _factionIncluded = false;
+			private _factionName = _treeCtrl tvText [0,_factionTvId];
+			private _factionClass = _treeCtrl tvData [0,_factionTvId];
+			private _groupsInFaction = [];
+			for "_categoryTvId" from 0 to ((_treeCtrl tvCount [0,_factionTvId]) - 1) do
 			{
-				private _category_class = _tree_ctrl tvData [0,_faction_tvid,_category_tvid];
+				private _categoryClass = _treeCtrl tvData [0,_factionTvId,_categoryTvId];
 				private _first = true;
-				for "_group_tvid" from 0 to ((_tree_ctrl tvCount [0,_faction_tvid,_category_tvid]) - 1) do
+				for "_groupTvId" from 0 to ((_treeCtrl tvCount [0,_factionTvId,_categoryTvId]) - 1) do
 				{
-					private _group_name = _tree_ctrl tvText [0,_faction_tvid,_category_tvid,_group_tvid];
-					private _group_class = _tree_ctrl tvData [0,_faction_tvid,_category_tvid,_group_tvid];
-					private _group_cfg = (configFile >> "CfgGroups" >> _side_class >> _faction_class >> _category_class >> _group_class);
-					if (_first and {not (getText (_x >> "vehicle") isKindOf "Man")} count (_group_cfg call Achilles_fnc_returnChildren) > 0) exitWith {};
-					if (not _faction_included) then
+					private _groupName = _treeCtrl tvText [0,_factionTvId,_categoryTvId,_groupTvId];
+					private _groupClass = _treeCtrl tvData [0,_factionTvId,_categoryTvId,_groupTvId];
+					private _groupCfg = (configFile >> "CfgGroups" >> _sideClass >> _factionClass >> _categoryClass >> _groupClass);
+					if (_first and {not (getText (_x >> "vehicle") isKindOf "Man")} count (_groupCfg call Achilles_fnc_returnChildren) > 0) exitWith {};
+					if (not _factionIncluded) then
 					{
-						_faction_included = true;
-						(_group_factions select _side_id) pushBack _faction_name;
+						_factionIncluded = true;
+						(_groupFactions select _sideId) pushBack _factionName;
 					};
-					_groups_in_faction pushBack _group_cfg;
+					_groupsInFaction pushBack _groupCfg;
 					_first = false;
 				};
 			};
-			if (_faction_included) then
+			if (_factionIncluded) then
 			{
-				_groups_in_faction = [_groups_in_faction, [], {getText (_x >> "Name")}] call BIS_fnc_sortBy;
-				(_groups select _side_id) pushBack _groups_in_faction;
+				_groupsInFaction = [_groupsInFaction, [], {getText (_x >> "Name")}] call BIS_fnc_sortBy;
+				(_groups select _sideId) pushBack _groupsInFaction;
 			};
 		};
 	};
 	
+	// remove side if it does not contain any factions
+	for "_sideId" from (count SIDES - 1) to 0 step -1 do
+	{
+		if ((_vehicleFactions select _sideId) isEqualTo [] || {(_groupFactions select _sideId) isEqualTo []}) then
+		{
+			_vehicleSides deleteAt _sideId;
+			_vehicleFactions deleteAt _sideId;
+			_vehicleCategories deleteAt _sideId;
+			_vehicles deleteAt _sideId;
+			_groupFactions deleteAt _sideId;
+			_groups deleteAt _sideId;
+		};
+	};
+	
 	// cache
-	uiNamespace setVariable ["Achilles_var_nestedList_vehicleFactions", _vehicle_factions];
-	uiNamespace setVariable ["Achilles_var_nestedList_vehicleCategories", _vehicle_categories];
+	uiNamespace setVariable ["Achilles_var_nestedList_vehicleSides", _vehicleSides];
+	uiNamespace setVariable ["Achilles_var_nestedList_vehicleFactions", _vehicleFactions];
+	uiNamespace setVariable ["Achilles_var_nestedList_vehicleCategories", _vehicleCategories];
 	uiNamespace setVariable ["Achilles_var_nestedList_vehicles", _vehicles];
-	uiNamespace setVariable ["Achilles_var_nestedList_groupFactions", _group_factions];
+	uiNamespace setVariable ["Achilles_var_nestedList_groupFactions", _groupFactions];
 	uiNamespace setVariable ["Achilles_var_nestedList_groups", _groups];
 };
+
+private _vehicleSides = uiNamespace getVariable ["Achilles_var_nestedList_vehicleSides", []];
+if (_vehicleSides isEqualTo []) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Show the user the dialog
 private _dialogResult =
 [
 	localize "STR_AMAE_SPAWN_UNITS",
 	[
-		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", _vehicleSides, 0, false, [["LBSelChanged","SIDE"]]],
 		["COMBOBOX", [localize "STR_AMAE_VEHICLE", localize "STR_AMAE_FACTION"] joinString " ", [], 0, false, [["LBSelChanged","VEHICLE_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", [], 0, false, [["LBSelChanged","VEHICLE_CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", [], 0, false, [["LBSelChanged","VEHICLE"]]],
@@ -151,15 +170,15 @@ private _dialogResult =
 
 // Get dialog results
 if (_dialogResult isEqualTo []) exitWith {};
-_dialogResult params ["_side_id","_vehicle_faction_id","_vehicle_category_id","_vehicle_id","_vehicle_behaviour","_lzdz_algorithm","_lzdzType","_group_faction_id","_group_id","_rp_algorithm","_group_behaviour"];
-private _side = SIDES select _side_id;
-private _vehicleType = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _side_id select _vehicle_faction_id select _vehicle_category_id select _vehicle_id;
-private _grp_cfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _side_id select _group_faction_id select _group_id;
+_dialogResult params ["_sideId","_vehicleFactionId","_vehicleCategoryId","_vehicleId","_vehicleBehaviour","_lzdzAlgorithm","_lzdzType","_groupFactionId","_groupId","_rpAlgorithm","_groupBehaviour"];
+private _side = SIDES select _sideId;
+private _vehicleType = (uiNamespace getVariable "Achilles_var_nestedList_vehicles") select _sideId select _vehicleFactionId select _vehicleCategoryId select _vehicleId;
+private _grpCfg = (uiNamespace getVariable "Achilles_var_nestedList_groups") select _sideId select _groupFactionId select _groupId;
 private _lzSize = 20;	// TODO make this a dialog parameter?
 private _rpSize = 20;	// TODO make this a dialog parameters?
 
 // Choose the LZ based on what the user indicated
-private _lzLogic = [_spawnPosition, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
+private _lzLogic = [_spawnPosition, _allLzLogics, _lzdzAlgorithm] call Achilles_fnc_logicSelector;
 private _lzPos = position _lzLogic;
 
 // create the transport vehicle
@@ -188,53 +207,53 @@ private _CrewBrutto =  [_vehicleType,true] call BIS_fnc_crewCount;
 private _CrewNetto = _CrewBrutto - _CrewTara;
 
 // create infantry group and resize it to the given cargo space if needed
-private _infantry_group = [_spawnPosition, _side, _grp_cfg] call BIS_fnc_spawnGroup;
+private _infantryGroup = [_spawnPosition, _side, _grpCfg] call BIS_fnc_spawnGroup;
 // delete remaining units if vehicle is overcrouded
-private _infantry_list = units _infantry_group;
-if (count _infantry_list > _CrewNetto) then
+private _infantryList = units _infantryGroup;
+if (count _infantryList > _CrewNetto) then
 {
-	_infantry_list resize _CrewNetto;
-	private _infantry_to_delete = (units _infantry_group) - _infantry_list;
-	{deleteVehicle _x} forEach _infantry_to_delete;
+	_infantryList resize _CrewNetto;
+	private _infantryToDelete = (units _infantryGroup) - _infantryList;
+	{deleteVehicle _x} forEach _infantryToDelete;
 };
 
-switch (_group_behaviour) do
+switch (_groupBehaviour) do
 {
 	case 1: // Relaxed
 	{
-		_infantry_group setBehaviour "SAFE";
-		_infantry_group setSpeedMode "LIMITED";
+		_infantryGroup setBehaviour "SAFE";
+		_infantryGroup setSpeedMode "LIMITED";
 	};
 	case 2: // Cautious
 	{
-		_infantry_group setBehaviour "AWARE";
-		_infantry_group setSpeedMode "LIMITED";
+		_infantryGroup setBehaviour "AWARE";
+		_infantryGroup setSpeedMode "LIMITED";
 	};
 	case 3: // Combat
 	{
-		_infantry_group setBehaviour "COMBAT";
-		_infantry_group setSpeedMode "NORMAL";
+		_infantryGroup setBehaviour "COMBAT";
+		_infantryGroup setSpeedMode "NORMAL";
 	};
 };
 
 // Choose a RP for the squad to head to once unloaded and set their waypoint.
 
-private _rpLogic = [_lzPos, _allRpLogics, _rp_algorithm] call Achilles_fnc_logicSelector;
+private _rpLogic = [_lzPos, _allRpLogics, _rpAlgorithm] call Achilles_fnc_logicSelector;
 private _rpPos = position _rpLogic;
-_infantry_group addWaypoint [_rpPos, _rpSize];
+_infantryGroup addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.
 {
 	_x moveInCargo _vehicle;
-} forEach _infantry_list;
+} forEach _infantryList;
 
 // Add infantry to curator
-[(units _infantry_group)] call Ares_fnc_AddUnitsToCurator;
+[(units _infantryGroup)] call Ares_fnc_AddUnitsToCurator;
 
 if (_vehicle getVariable ["Achilles_var_noFastrope", false]) exitWith
 {
 	["ACE3 or AR is not loaded!"] call Achilles_fnc_showZeusErrorMessage;
-	{deleteVehicle _x} forEach _infantry_list;
+	{deleteVehicle _x} forEach _infantryList;
 };
 
 // create a waypoint for deploying the units
@@ -274,7 +293,7 @@ else
 };
 
 // Generate the waypoints for after the transport drops off the troops.
-if (_vehicle_behaviour == 0) then
+if (_vehicleBehaviour == 0) then
 {
 	// RTB and despawn.
 	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
