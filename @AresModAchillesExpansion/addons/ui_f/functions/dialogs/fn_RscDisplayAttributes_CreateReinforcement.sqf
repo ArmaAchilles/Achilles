@@ -41,7 +41,7 @@ switch (_mode) do
 		private _ctrlVehCat = _dialog displayCtrl IDC_COMBO_VEHICLE_CATEGORY;
 		private _ctrlVehFac = _dialog displayCtrl IDC_COMBO_VEHICLE_FACTION; 
 		private _ctrlGrpFac = _dialog displayCtrl IDC_COMBO_GROUP_FACTION;
-				
+		
 		lbClear _ctrlVehCat;
 		{
 			_ctrlVehCat lbAdd _x;
