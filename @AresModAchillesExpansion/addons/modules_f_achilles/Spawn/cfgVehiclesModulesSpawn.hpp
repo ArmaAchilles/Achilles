@@ -27,8 +27,8 @@ class Achilles_Module_Spawn_Destroyer : Achilles_Spawn_Module_Base
 	scopeCurator = 2;
 	displayName = "$STR_AMAE_USS_LIBERTY";
 	function = "Achilles_fnc_SpawnDestroyer";
-	icon = "\achilles\data_f_achilles\icons\icon_freedom.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_freedom.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_liberty.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_liberty.paa";
 };
 
 class Achilles_Module_Spawn_Explosives : Achilles_Spawn_Module_Base
