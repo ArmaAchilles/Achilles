@@ -98,12 +98,12 @@
 #define MB_BUTTON_USER    4
 
 // Import from editor defines
-#define GUI_GRID_X	(0)
-#define GUI_GRID_Y	(0)
-#define GUI_GRID_W	(0.025)
-#define GUI_GRID_H	(0.04)
-#define GUI_GRID_WAbs	(1)
-#define GUI_GRID_HAbs	(1)
+#define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
+#define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
+#define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_H		(0.022 * safeZoneH)
+
+#define FONT_SIZE		(1.2 * GUI_GRID_H)
 
 // Forward declare some default base classes.
 class IGUIBack;
