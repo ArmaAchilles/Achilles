@@ -28,6 +28,7 @@ if ((count _this) == 2 && (_choicesArray select 0) isEqualType "") then
 #define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
 #define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
 #define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_W_FIX	(0.025)
 #define GUI_GRID_H		(0.022 * safeZoneH)
 #define GUI_GRID_H_FIX	(0.04)
 
@@ -35,6 +36,7 @@ if ((count _this) == 2 && (_choicesArray select 0) isEqualType "") then
 #define GtC_X(GRID)				GRID * GUI_GRID_W + GUI_GRID_X
 #define GtC_Y(GRID)				GRID * GUI_GRID_H + GUI_GRID_Y
 #define GtC_W(GRID)				GRID * GUI_GRID_W
+#define GtC_W_FIX(GRID)			GRID * GUI_GRID_W_FIX
 #define GtC_H(GRID)				GRID * GUI_GRID_H
 #define GtC_H_FIX(GRID)			GRID * GUI_GRID_H_FIX
 
@@ -213,9 +215,9 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 				private _side_name = if (_foreachindex == 0) then {"ZEUS"} else {toUpper ((_foreachindex - 1) call bis_fnc_sideName)};
 				_ctrl ctrlSetTooltip _side_name;
 				_ctrl ctrlSetText _icon;
-				_ctrl ctrlSetPosition [_xCoord,_yCoord,GtC_W(2.4),GtC_H_FIX(2)];
+				_ctrl ctrlSetPosition [_xCoord,_yCoord,GtC_W_FIX(2.4),GtC_H_FIX(2)];
 				_ctrl ctrlCommit 0;
-				_xCoord = _xCoord + 4*GUI_GRID_W;
+				_xCoord = _xCoord + GtC_W(2.4) + GtC_W_FIX(1.6);
 			} forEach ["\a3\Ui_F_Curator\Data\Logos\arma3_curator_eye_64_ca.paa","\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_east_ca.paa","\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_west_ca.paa","\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_guer_ca.paa","\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_civ_ca.paa"];
 
 			if (_choices == "SIDE") then
