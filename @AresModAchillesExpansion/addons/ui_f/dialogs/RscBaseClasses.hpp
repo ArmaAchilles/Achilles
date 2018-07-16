@@ -101,9 +101,12 @@
 #define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
 #define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
 #define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_W_FIX	(0.025)
 #define GUI_GRID_H		(0.022 * safeZoneH)
+#define GUI_GRID_H_FIX	(0.04)
 
-#define FONT_SIZE		(1.2 * GUI_GRID_H)
+#define TITLE_FONT_SIZE			(1.2 * GUI_GRID_H_FIX)
+#define DEFAULT_FONT_SIZE		(1.0 * GUI_GRID_H_FIX)
 
 // Forward declare some default base classes.
 class IGUIBack;

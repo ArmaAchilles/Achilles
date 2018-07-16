@@ -33,7 +33,7 @@ private _tot_height = 0;
 	_x params [["_control_type","",[""]]];
 	switch (_control_type) do
 	{
-		case "ALLSIDES"; case "SIDES": {_tot_height = _tot_height + GtC_H(4.1)};
+		case "ALLSIDES"; case "SIDES": {_tot_height = _tot_height + GtC_H_FIX(4.1)};
 		case "MESSAGE"; case "SCRIPT": {_tot_height = _tot_height + TOTAL_ROW_HEIGHT + 4*COMBO_HEIGHT};
 		default {_tot_height = _tot_height + TOTAL_ROW_HEIGHT};
 	};
@@ -48,7 +48,7 @@ _ctrl_group ctrlSetPosition _pos;
 _ctrl_group ctrlCommit 0;
 
 // adjust dialog bottom accordingly
-private _yCoord = GUI_GRID_Y + GtC_H(1.5) + GtC_H(0.4) + _tot_height + GtC_H(0.4);
+private _yCoord = GUI_GRID_Y + GtC_H_FIX(1.5) + GtC_H_FIX(0.4) + _tot_height + GtC_H_FIX(0.4);
 {
 	private _bottomCtrl = _dialog displayCtrl _x;
 	_pos = ctrlPosition _bottomCtrl;
@@ -58,7 +58,7 @@ private _yCoord = GUI_GRID_Y + GtC_H(1.5) + GtC_H(0.4) + _tot_height + GtC_H(0.4
 } forEach DYNAMIC_BOTTOM_IDCs;
 
 // Resize the background accordingly
-_yCoord = _yCoord + TOTAL_ROW_HEIGHT;
+_yCoord = _yCoord + GtC_H_FIX(1.5) + GtC_H_FIX(0.4);
 private _background = _dialog displayCtrl DYNAMIC_BG_IDC;
 _pos = ctrlPosition _background;
 _pos set [3, _yCoord - (_pos select 1)];
@@ -100,7 +100,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
-			_ctrl_label ctrlSetFontHeight FONT_SIZE;
+			_ctrl_label ctrlSetFontHeight DEFAULT_FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
@@ -109,7 +109,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// Create the combo box
 			private _ctrl_cb = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT];
-			_ctrl_cb ctrlSetFontHeight FONT_SIZE;
+			_ctrl_cb ctrlSetFontHeight DEFAULT_FONT_SIZE;
 			private _use_data = false;
 			{
 				_x params [["_entry_text_L","",[""]], ["_entry_text_R","",[""]], ["_str_data","",[""]]];
@@ -169,7 +169,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
-			_ctrl_label ctrlSetFontHeight FONT_SIZE;
+			_ctrl_label ctrlSetFontHeight DEFAULT_FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT];
@@ -229,7 +229,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_label_data params [["_label_text","",[""]], ["_tooltip_text","",[""]]];
 			private _ctrl_label = _dialog ctrlCreate ["RscText", BASE_IDC_LABEL + _forEachIndex, _ctrl_group];
 			_ctrl_label ctrlSetText _label_text;
-			_ctrl_label ctrlSetFontHeight FONT_SIZE;
+			_ctrl_label ctrlSetFontHeight DEFAULT_FONT_SIZE;
 			_ctrl_label ctrlSetTooltip _tooltip_text;
 			_ctrl_label ctrlSetBackgroundColor LABEL_BG_COLOR;
 			_ctrl_label ctrlSetPosition [LABEL_COLUMN_X, _yCoord, LABEL_WIDTH, LABEL_HEIGHT + _add_height];
@@ -243,7 +243,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			// Adjust default choice if it is invalid and select the current choice
 			if (!(_default_choice isEqualType "")) then {_default_choice = ""};
 			_ctrl_edit ctrlSetText _default_choice;
-			_ctrl_edit ctrlSetFontHeight FONT_SIZE;
+			_ctrl_edit ctrlSetFontHeight DEFAULT_FONT_SIZE;
 
 			// Set the current choice in a global variable and update the default value as well
 			uiNamespace setVariable [_defaultVariableId, _default_choice];
