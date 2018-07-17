@@ -97,20 +97,20 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 			for "_category_tvid" from 0 to ((_tree_ctrl tvCount [0,_faction_tvid]) - 1) do
 			{
 				private _category_class = _tree_ctrl tvData [0,_faction_tvid,_category_tvid];
-				private _first = true;
 				for "_group_tvid" from 0 to ((_tree_ctrl tvCount [0,_faction_tvid,_category_tvid]) - 1) do
 				{
 					private _group_name = _tree_ctrl tvText [0,_faction_tvid,_category_tvid,_group_tvid];
 					private _group_class = _tree_ctrl tvData [0,_faction_tvid,_category_tvid,_group_tvid];
 					private _group_cfg = (configFile >> "CfgGroups" >> _side_class >> _faction_class >> _category_class >> _group_class);
-					if (_first and {not (getText (_x >> "vehicle") isKindOf "Man")} count (_group_cfg call Achilles_fnc_returnChildren) > 0) exitWith {};
-					if (not _faction_included) then
+					if ((_group_cfg call Achilles_fnc_returnChildren) findIf {not (getText (_x >> "vehicle") isKindOf "Man")} isEqualTo -1) then
 					{
-						_faction_included = true;
-						(_group_factions select _side_id) pushBack _faction_name;
+						if (not _faction_included) then
+						{
+							_faction_included = true;
+							(_group_factions select _side_id) pushBack _faction_name;
+						};
+						_groups_in_faction pushBack _group_cfg;
 					};
-					_groups_in_faction pushBack _group_cfg;
-					_first = false;
 				};
 			};
 			if (_faction_included) then
