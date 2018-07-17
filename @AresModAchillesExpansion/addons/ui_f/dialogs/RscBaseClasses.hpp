@@ -155,6 +155,12 @@ class RscAchillesXSliderH: RscXSliderH
 {
 	colorBackground[] = {0,0,0,1};
 };
+class RscAchillesCombo : RscCombo
+{
+	h = 1 * GUI_GRID_H_FIX;
+	rowHeight = 1.1 * GUI_GRID_H_FIX;
+	wholeHeight = 6.5 * GUI_GRID_H_FIX;
+};
 class RscAchillesEdit: RscEdit
 {		
 	autocomplete = "general";
