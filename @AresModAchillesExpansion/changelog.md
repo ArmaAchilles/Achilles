@@ -10,6 +10,19 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
 
 ## Change log
+### v1.1.1
+#### Modules
+##### Revised
+* Spawn Unit (Reinforcement):
+	- Fix: Was incomptatible with the faction filter. #331
+	- Fix: Certain groups such as diver team and Viper team were available. #341
+* Switch Unit:
+	- Possible Fix: Switched units might get teleported to the curator camera's position. #330
+#### Other
+* New: Traditional Chinese translation (by @GodofMonkeys). #329
+* Fix: Dialogs were ill-scaled for lower resolution settings. #336, #340
+* Fix: The expanded list for combo box entries was cut off for certain resolutions. #340
+
 ### v1.1.0
 #### Modules
 ##### New
