@@ -15,12 +15,12 @@ class Ares_composition_Dialog
 			moving = 1;
 
 			text = "$STR_AMAE_ADVANCED_COMPOSITION"; //--- ToDo: Localize;
-			x = 9.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 7.5 * GUI_GRID_W + 2 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 24 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			w = 26 * GUI_GRID_W - 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
+			size = TITLE_FONT_SIZE;
+			sizeEx = TITLE_FONT_SIZE;
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class Ares_Main_Background: IGUIBack
@@ -28,21 +28,21 @@ class Ares_composition_Dialog
 			idc = 2000;
 
 			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			y = 0.5 * GUI_GRID_H + 1.5 * GUI_GRID_H_FIX + GUI_GRID_Y;
 			w = 26 * GUI_GRID_W;
 			h = 20.5 * GUI_GRID_H;
 			colorBackground[] = {0.2,0.2,0.2,0.8};
 		};
-		class Ares_Dialog_Bottom: IGUIBack
+		class Ares_Dialog_Bottom_Bar: IGUIBack
 		{
 			idc = 2010;
 
-			x = 14.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 8.5 * GUI_GRID_W + 6 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 11 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			w = 24 * GUI_GRID_W - 13 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
+			size = DEFAULT_FONT_SIZE;
+			sizeEx = DEFAULT_FONT_SIZE;
 			colorBackground[] = {0,0,0,0.6};
 		};
 		class Ares_Cancle_Button: RscButtonMenuCancel
@@ -52,10 +52,10 @@ class Ares_composition_Dialog
 			onButtonClick = "uiNamespace setVariable ['Ares_Dialog_Result', -1]; closeDialog 2;";
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 6 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			w = 6 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
+			size = DEFAULT_FONT_SIZE;
+			sizeEx = DEFAULT_FONT_SIZE;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,0.8};
 		};
@@ -67,21 +67,21 @@ class Ares_composition_Dialog
 			
 			text = "$STR_AMAE_SPAWN"; //--- ToDo: Localize;
 			
-			x = 26 * GUI_GRID_W + GUI_GRID_X;
+			x = 33 * GUI_GRID_W - 7 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 7 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			w = 7 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
+			size = DEFAULT_FONT_SIZE;
+			sizeEx = DEFAULT_FONT_SIZE;
 		};
 		class Ares_Background_Edit: IGUIBack
 		{
 			idc = 2020;
 
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
-			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 1 * GUI_GRID_H + 1.5 * GUI_GRID_H_FIX + GUI_GRID_Y;
 			w = 25 * GUI_GRID_W;
-			h = 17 * GUI_GRID_H;
+			h = 19 * GUI_GRID_H - 1.5 * GUI_GRID_H_FIX;
 			colorBackground[] = {0,0,0,0.6};
 		};
 		class Ares_Paragraph_edit: RscText
@@ -90,11 +90,11 @@ class Ares_composition_Dialog
 
 			text = "Select composition to edit or delete."; //--- ToDo: Localize;
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
-			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+			y = 1 * GUI_GRID_H + 1.5 * GUI_GRID_H_FIX + GUI_GRID_Y;
 			w = 25.5 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			h = 1.5 * GUI_GRID_H_FIX;
+			size = DEFAULT_FONT_SIZE;
+			sizeEx = DEFAULT_FONT_SIZE;
 		};
 		class Ares_composition_tree: RscTree
 		{
@@ -105,11 +105,11 @@ class Ares_composition_Dialog
 			colorMarkedSelected[] = {1, 1, 1, 0.700000};
 
 			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 4 * GUI_GRID_H + GUI_GRID_Y;
+			y = 1 * GUI_GRID_H + 3 * GUI_GRID_H_FIX + GUI_GRID_Y;
 			w = 24 * GUI_GRID_W;
-			h = 15 * GUI_GRID_H;
-			size = FONT_SIZE;
-			sizeEx = FONT_SIZE;
+			h = 18.5 * GUI_GRID_H - 3 * GUI_GRID_H_FIX;
+			size = DEFAULT_FONT_SIZE;
+			sizeEx = DEFAULT_FONT_SIZE;
 			colorText[] = {0.5,0.5,0.5,1};
 			colorBackground[] = {0,0,0,0.5};
 		};
@@ -119,8 +119,8 @@ class Ares_composition_Dialog
 			
 			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class Ares_Icon: RscPicture
@@ -130,8 +130,8 @@ class Ares_composition_Dialog
 			text = "\achilles\data_f_achilles\icons\icon_achilles_dialog.paa";
 			x = 7.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
 		};
 		class Ares_Delete_Button: RscActivePicture
 		{
@@ -144,10 +144,10 @@ class Ares_composition_Dialog
 			soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundPush",0.09,1};			
 			
 			text = "a3\3den\Data\Displays\Display3DEN\PanelLeft\entityList_delete_ca.paa";
-			x = 31 * GUI_GRID_W + GUI_GRID_X;
+			x = 33 * GUI_GRID_W - 2 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
 		};
 		class Ares_Edit_Button: Ares_Delete_Button
 		{
@@ -155,10 +155,10 @@ class Ares_composition_Dialog
 
 			onButtonClick = "([""EDIT_BUTTON""] + _this) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;";
 			text = "a3\3den\Data\Displays\Display3DEN\PanelRight\customcomposition_edit_ca.paa";
-			x = 28.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 33 * GUI_GRID_W - 4.5 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
 		};
 		class Ares_New_Button: Ares_Delete_Button
 		{
@@ -166,10 +166,10 @@ class Ares_composition_Dialog
 			
 			onButtonClick = "([""NEW_BUTTON""] + _this) call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;";			
 			text = "a3\3den\Data\Displays\Display3DEN\PanelRight\customcomposition_add_ca.paa";
-			x = 26 * GUI_GRID_W + GUI_GRID_X;
+			x = 33 * GUI_GRID_W - 7 * GUI_GRID_W_FIX + GUI_GRID_X;
 			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			w = 2 * GUI_GRID_W_FIX;
+			h = 1.5 * GUI_GRID_H_FIX;
 		};
 		
 		////////////////////////////////////////////////////////
