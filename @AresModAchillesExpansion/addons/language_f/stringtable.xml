@@ -1741,6 +1741,12 @@
                 <Chinesesimp>无可用武器！</Chinesesimp>
                 <Chinese>無可用武器！</Chinese>
             </Key>
+            <Key ID="STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER">
+                <Original>No vehicles available! Check your faction filter settings!</Original>
+                <English>No vehicles available! Check your faction filter settings!</English>
+                <French>Il n'y a pas des véhicules! Contrôlez votre configuration des camps!</French>
+                <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">

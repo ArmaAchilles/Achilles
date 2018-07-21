@@ -107,7 +107,7 @@ private _titleVariableIdentifier = format ["Ares_ChooseDialog_DefaultValues_%1",
 			_ctrl_label ctrlCommit 0;
 
 			// Create the combo box
-			private _ctrl_cb = _dialog ctrlCreate ["RscCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
+			private _ctrl_cb = _dialog ctrlCreate ["RscAchillesCombo", BASE_IDC_CTRL + _forEachIndex, _ctrl_group];
 			_ctrl_cb ctrlSetPosition [COMBO_COLUMN_X, _yCoord+LABEL_COMBO_H, COMBO_WIDTH, COMBO_HEIGHT];
 			_ctrl_cb ctrlSetFontHeight DEFAULT_FONT_SIZE;
 			private _use_data = false;

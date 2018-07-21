@@ -50,49 +50,49 @@ switch (_mode) do
 	};
 	case "SIDE":
 	{
-		private _ctrl_faction = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION;
+		private _ctrlFaction = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION;
 
-		lbClear _ctrl_faction;
+		lbClear _ctrlFaction;
 		{
-			_ctrl_faction lbAdd _x;
+			_ctrlFaction lbAdd _x;
 		} forEach (Achilles_var_supplyDrop_factions select _comboIndex);
 
 		// Last choice
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
-		_last_choice = [(lbSize _ctrl_faction) - 1, _last_choice] select (_last_choice < lbSize _ctrl_faction);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_faction lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_1", 0];
+		_lastChoice = [(lbSize _ctrlFaction) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlFaction);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlFaction lbSetCurSel _lastChoice;
 	};
 	case "FACTION":
 	{
-		private _side_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_SIDE);
-		private _ctrl_category = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CATEGORY;
+		private _sideId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_SIDE);
+		private _ctrlCategory = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CATEGORY;
 
-		lbClear _ctrl_category;
+		lbClear _ctrlCategory;
 		{
-			_ctrl_category lbAdd _x;
-		} forEach (Achilles_var_supplyDrop_categories select _side_id select _comboIndex);
+			_ctrlCategory lbAdd _x;
+		} forEach (Achilles_var_supplyDrop_categories select _sideId select _comboIndex);
 
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
-		_last_choice = [(lbSize _ctrl_category) - 1, _last_choice] select (_last_choice < lbSize _ctrl_category);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_category lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_2", 0];
+		_lastChoice = [(lbSize _ctrlCategory) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlCategory);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlCategory lbSetCurSel _lastChoice;
 	};
 	case "CATEGORY":
 	{
-		private _side_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_SIDE);
-		private _faction_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION);
+		private _sideId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_SIDE);
+		private _factionId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_FACTION);
 
-		private _ctrl_vehicle = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_VEHICLE;
-		lbClear _ctrl_vehicle;
+		private _ctrlVehicle = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_VEHICLE;
+		lbClear _ctrlVehicle;
 		{
-			_ctrl_vehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
-		} forEach (Achilles_var_supplyDrop_vehicles select _side_id select _faction_id select _comboIndex);
+			_ctrlVehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
+		} forEach (Achilles_var_supplyDrop_vehicles select _sideId select _factionId select _comboIndex);
 
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_3", 0];
-		_last_choice = [(lbSize _ctrl_vehicle) - 1, _last_choice] select (_last_choice < lbSize _ctrl_vehicle);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_vehicle lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_3", 0];
+		_lastChoice = [(lbSize _ctrlVehicle) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlVehicle);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlVehicle lbSetCurSel _lastChoice;
 	};
 	case "CARGO_TYPE":
 	{
@@ -102,9 +102,9 @@ switch (_mode) do
 		// Get all the cargo vehicle controls.
 		private _cargoVehicleSide = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_SIDE;
 		private _cargoVehicleFaction = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_FACTION;
-		private _ctrl_category = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_CATEGORY;
+		private _ctrlCategory = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_CATEGORY;
 		private _cargoVehicleVehicle = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_VEHICLE;
-		private _ctrl_cargoVehicleLabel = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_VEHICLE_LABEL;
+		private _ctrlCargoVehicleLabel = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_VEHICLE_LABEL;
 
 		// If Ammo Crate was selected
 		if (_comboIndex == 0) then
@@ -123,17 +123,17 @@ switch (_mode) do
 				_x ctrlCommit 0;
 			} forEach [_cargoVehicleSide, _cargoVehicleFaction];
 
-			_ctrl_cargoVehicleLabel ctrlSetText (localize "STR_AMAE_AMMUNITION_CRATE");
+			_ctrlCargoVehicleLabel ctrlSetText (localize "STR_AMAE_AMMUNITION_CRATE");
 
-			lbClear _ctrl_category;
+			lbClear _ctrlCategory;
 			{
-				_ctrl_category lbAdd _x;
+				_ctrlCategory lbAdd _x;
 			} forEach Achilles_var_supplyDrop_supplySubCategories;
 
-			private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_10", 0];
-			_last_choice = [(lbSize _ctrl_category) - 1, _last_choice] select (_last_choice < lbSize _ctrl_category);
-			_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-			_ctrl_category lbSetCurSel _last_choice;
+			private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_10", 0];
+			_lastChoice = [(lbSize _ctrlCategory) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlCategory);
+			_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+			_ctrlCategory lbSetCurSel _lastChoice;
 		};
 
 		// If cargo vehicle was selected
@@ -153,62 +153,62 @@ switch (_mode) do
 				_x ctrlCommit 0;
 			} forEach [_cargoBoxInventoryCtrl];
 
-			_ctrl_cargoVehicleLabel ctrlSetText (localize "STR_AMAE_VEHICLE");
+			_ctrlCargoVehicleLabel ctrlSetText (localize "STR_AMAE_VEHICLE");
 			_cargoVehicleSide lbSetCurSel lbCurSel _cargoVehicleSide;
 		};
 	};
 	case "CARGO_SIDE":
 	{
-		private _ctrl_faction = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_FACTION;
+		private _ctrlFaction = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_FACTION;
 
-		lbClear _ctrl_faction;
+		lbClear _ctrlFaction;
 		{
-			_ctrl_faction lbAdd _x;
+			_ctrlFaction lbAdd _x;
 		} forEach (Achilles_var_supplyDrop_cargoFactions select _comboIndex);
 
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_9", 0];
-		_last_choice = [(lbSize _ctrl_faction) - 1, _last_choice] select (_last_choice < lbSize _ctrl_faction);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_faction lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_9", 0];
+		_lastChoice = [(lbSize _ctrlFaction) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlFaction);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlFaction lbSetCurSel _lastChoice;
 	};
 	case "CARGO_FACTION":
 	{
-		private _ctrl_side = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_SIDE;
-		private _side_id = lbCurSel _ctrl_side;
-		private _ctrl_category = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_CATEGORY;
+		private _ctrlSide = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_SIDE;
+		private _sideId = lbCurSel _ctrlSide;
+		private _ctrlCategory = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_CATEGORY;
 
-		lbClear _ctrl_category;
+		lbClear _ctrlCategory;
 		{
-			_ctrl_category lbAdd _x;
-		} forEach (Achilles_var_supplyDrop_cargoCategories select _side_id select _comboIndex);
+			_ctrlCategory lbAdd _x;
+		} forEach (Achilles_var_supplyDrop_cargoCategories select _sideId select _comboIndex);
 
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_10", 0];
-		_last_choice = [(lbSize _ctrl_category) - 1, _last_choice] select (_last_choice < lbSize _ctrl_category);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_category lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_10", 0];
+		_lastChoice = [(lbSize _ctrlCategory) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlCategory);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlCategory lbSetCurSel _lastChoice;
 	};
 	case "CARGO_CATEGORY":
 	{
-		private _side_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_SIDE);
-		private _faction_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_FACTION);
-		private _type_id = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_TYPE);
+		private _sideId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_SIDE);
+		private _factionId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_FACTION);
+		private _typeId = lbCurSel (_dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_TYPE);
 
-		private _ctrl_vehicle = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_VEHICLE;
-		lbClear _ctrl_vehicle;
-		if (_type_id == 1) then
+		private _ctrlVehicle = _dialog displayCtrl IDC_SPAWN_SUPPLYDROP_CARGO_VEHICLE;
+		lbClear _ctrlVehicle;
+		if (_typeId == 1) then
 		{
 			{
-				_ctrl_vehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
-			} forEach (Achilles_var_supplyDrop_cargoVehicles select _side_id select _faction_id select _comboIndex);
+				_ctrlVehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
+			} forEach (Achilles_var_supplyDrop_cargoVehicles select _sideId select _factionId select _comboIndex);
 		} else
 		{
 			{
-				_ctrl_vehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
+				_ctrlVehicle lbAdd getText (configFile >> "CfgVehicles" >> _x >> "displayName");
 			} forEach (Achilles_var_supplyDrop_supplies select _comboIndex);
 		};
-		private _last_choice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_11", 0];
-		_last_choice = [(lbSize _ctrl_vehicle) - 1, _last_choice] select (_last_choice < lbSize _ctrl_vehicle);
-		_last_choice = [0,_last_choice] select (_last_choice isEqualType 0);
-		_ctrl_vehicle lbSetCurSel _last_choice;
+		private _lastChoice = uiNamespace getVariable ["Ares_ChooseDialog_ReturnValue_11", 0];
+		_lastChoice = [(lbSize _ctrlVehicle) - 1, _lastChoice] select (_lastChoice < lbSize _ctrlVehicle);
+		_lastChoice = [0,_lastChoice] select (_lastChoice isEqualType 0);
+		_ctrlVehicle lbSetCurSel _lastChoice;
 	};
 };
