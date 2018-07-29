@@ -34,86 +34,134 @@
 * * *
 
 ## Table of Contents
-- [Achilles](#achilles)
-    - [Table of Contents](#table-of-contents)
-    - [Main features](#main-features)
-    - [Getting Started](#getting-started)
-        - [Required Addons](#required-addons)
-        - [Optional Addons](#optional-addons)
-        - [Installing](#installing)
-    - [Contributing](#contributing)
-        - [Setting up your development enviornment](#setting-up-your-development-enviornment)
-    - [Authors](#authors)
-    - [Contact](#contact)
-    - [License](#license)
+- [Features](#features)
+- [Language Localization](#language-localization)
+- [Getting Started](#getting-started)
+- [Documentation](#documentation)
+- [Reporting Issues, Requesting Features and Changes](#reporting-issues,-requesting-features-and-changes)
+- [How to Contribute](#how-to-contribute)
+- [Authors](#authors)
+- [Contact](#contact)
+- [License](#license)
 
-## Main features
-- Visual changes to the Zeus interface;
-- Tons of new modules to play around with;
-- Advanced Compositions that allow you to create complicated custom compositions;
-- Code execution in-game using the Zeus interface;
-- Improved controllability of AI;
-- Deep copy that allows copying full loadouts of units;
-- Object attribute buttons that add lots of different options;
-- Localization of the addon.
+## Features
+- Visual changes to the Zeus interface
+- Tons of new modules:
+    - ACE Medical (_e.g._ heal, injury)
+    - AI Behaviour (_e.g._ animations, garrison buildings, surrender)
+    - Arsenal (add/modify)
+    - Buildings (_e.g._ destruction, breachable doors)
+    - Dev Tools (_e.g._ execute code, config/function viewer)
+    - Environment (_e.g._ advanced weather, earthquakes)
+    - Equipment (_e.g._ toggle tac light)
+    - Fire Support (_e.g._ suppressive fire)
+    - Objects (_e.g._ attach to, toggle simulation, IEDs)
+    - Reinforcments (spawn reinforcements on the fly)
+    - Scenario Flow (_e.g._ advanced intel, side relations)
+    - Spawn (_e.g._ custom compositions, smoke pillar, USS Freedom)
+    - Zeus (_e.g._ add/remove objects)
+- Extended attribute window:
+    - Groups (_e.g._ careless, hold fire)
+    - Vehicles (_e.g._ cargo, pylons, garage, damage wheels)
+    - _etc._
+- New waypoint types:
+    - _e.g._ seek and destroy, paradrop, slingload
+- Hotkeys:
+    - Copy/past units including the full loadouts
+    - Force unit to pop smoke
+    - _etc._
+- Customizations:
+    - Settings (e.g. faction filter)
+
+## Language Localization
+Achilles is available for the following languages:
+- English
+- French (rather poor)
+- German
+- Japanese
+- Russian
+- Simplified Chinese
+- Traditional Chinese
+
+If your language is not on the list, the english localization will be used. New translations are welcome (check out [How to Contribute](##how-to-contribute)).
 
 ## Getting Started
+Below is what you need to know to get Achilles up and running:
+- [Installing](#installing)
+- [Required Addons](#required-addons)
+- [Incompatible Addons](#incompatible-addons)
+- [Optional Addons](#optional-addons)
+- [Other Zeus Addons](#other-zeus-addons)
 
-Below is what you need to get Achilles up and running.  
+### Installing
+You can download Achilles from:
+- [GitHub](https://github.com/ArmaAchilles/AresModAchillesExpansion/releases)
+- [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
+- [Armaholic](http://www.armaholic.com/page.php?id=31235)
 
-Achilles is **fully standalone** from Ares, **do not run** both at the same time!
+If you are not familiar with installing Arma addons, check out the [Armaholic installation guide](http://www.armaholic.com/page.php?id=29755).
 
 ### Required Addons
-
 Achilles requires:
 - [Arma 3](http://arma3.com/)
-- [Community Based Addons A3 (CBA)](https://github.com/CBATeam/CBA_A3/releases)
+- [Community Based Addons A3 (CBA_A3)](https://github.com/CBATeam/CBA_A3/releases)
+
+### Incompatible Addons
+Addons that you should **not** run when you use Achilles:
+- [Ares](https://github.com/astruyk/Ares)
 
 ### Optional Addons
-
-These mods below expand Achilles by adding extra features:
+These mods below are required for certain features (e.g. fast-roping):
 - [Advanced Combat Enviornment 3 (ACE3)](https://github.com/acemod/ACE3/)
 - [Advanced Rappeling (AR)](https://github.com/sethduda/AdvancedRappelling)
 - [Task Force Arrowhead Radio (TFAR)](https://github.com/michail-nikolaev/task-force-arma-3-radio)
 
-### Installing
+### Other Zeus Addons
+A list of other Zeus mods that are not required, but nice additions:
+- [Zeus/Eden Compositions (ZEC)](https://github.com/LISTINGS09/ZEC)
+- [Zeus/Eden Compositions for CUP (ZECCUP)](https://github.com/LISTINGS09/ZECCUP)
+- [Zeus/Eden Interiors (ZEI)](https://github.com/LISTINGS09/ZEI)
 
-To install Achilles you can download it from:
-- [GitHub](https://github.com/ArmaAchilles/AresModAchillesExpansion/releases)
-- [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
-- [Play with Six](http://withsix.com/p/Arma-3/mods/mc1X_8GXVEG0STlO_DWjNA/Ares-Mod-Achilles-Expansion)
-- [Armaholic](http://www.armaholic.com/page.php?id=31235)
+## Documentation
+Check out the [Achilles Wiki](https://github.com/ArmaAchilles/Achilles/wiki) and the [Achilles Tutorial Series on Youtube](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg). The documentation is rather limited at the time and thus, you will certainly have questions. We will gladly answer them on [our Discord server](https://discord.gg/kN7Jnhr).
 
-## Contributing
+## Reporting Issues, Requesting Features and Changes
+Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achilles/issues) for these kind of purposes.
+In the case of a bug report, please only use a minimal set of mods (_i.e._ only use other mods than the required ones if they are clearly related to the issue).
 
-We always welcome any contribution to the repository and thank you for your work!  
+## How to Contribute
+We always welcome contribution to the repository and thank you for your work! We will update the list of contributors.
 
-**How to contribute**:
-1. Fork the Achilles repository;
-2. Set up your development enviornment;
-3. Do your stuff;
-4. Create your pull request.  
+What you need to know:
+- [Basic Steps](#basic-steps)
+- [Setting up Your Development Enviornment](#setting-up-your-local-development-enviornment)
+- [Add a New Module](#add-a-new-module)
+- [Add a Translation](#add-a-translation)
+
+### Basic Steps
+1. [Fork the Achilles repository](https://github.com/ArmaAchilles/Achilles/fork)
+2. [Set up your development enviornment](#setting-up-your-local-development-enviornment)
+3. Do your stuff
+4. [Create your pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 And then we will have a look at your work!
 
-### Setting up your development enviornment
+### Setting up your local development enviornment
+1. [Clone your forked repository](https://help.github.com/articles/cloning-a-repository/)
+2. Set up your addon builder (either get [Hephaestus](https://github.com/ArmaAchilles/Hephaestus) or use the [AchillesAddonBuilder.bat](https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ) in the repository)
 
-1. Clone your forked repository;
-2. Open the **[Hephaestus](https://github.com/ArmaAchilles/Hephaestus)** repository;
-3. Follow the instructions in the [README.md](https://github.com/Hephaestus/AddonBuilder/blob/master/README.md).
+### Add a New Module
+A good starting point for your new module is the [custom module framework](https://github.com/ArmaAchilles/Achilles/wiki/Custom-Modules).
+We will gladly help you to port your custom module to Achilles (message us on [our Discord server](https://discord.gg/kN7Jnhr)).
+
+### Add a Translation
+You will have to edit the [stringtable.xml](https://github.com/ArmaAchilles/Achilles/blob/master/%40AresModAchillesExpansion/addons/language_f/stringtable.xml). The basics about string tables can be found on the [Bohemia Interactive Wiki](https://community.bistudio.com/wiki/Stringtable.xml). If you don't want to edit the file with a text editor, you can use a dedicated tool such as [Tabler](http://www.armaholic.com/page.php?id=26320).
 
 ## Authors
-
-- **[Anton Struyk](https://github.com/astruyk)** - [Ares](https://github.com/astruyk/Ares)
-- **[Kex](https://github.com/oOKexOo)** - Achilles
-- **[CreepPork](https://github.com/CreepPork)** - Achilles
-
-See also the list of [contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.md) who have invested something into Achilles and Ares.
+Check out the [list of contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.md).
 
 ## Contact
-
-To contact us - find us on our [Discord](https://discord.gg/kN7Jnhr) server.
+Find us on [our Discord server](https://discord.gg/kN7Jnhr).
 
 ## License
-
 **Achilles** is licensed under the **[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/LICENSE)** license.
