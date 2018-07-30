@@ -62,7 +62,7 @@
 • Reporting Issues, Requesting Features and Changes
 • How to Contribute
 　　◦ Basic Steps
-　　◦ Setting up your local development environment
+　　◦ Setting up Your Local Development Environment
 　　◦ Add a New Module
 　　◦ Add a Translation
 • Authors
@@ -79,7 +79,7 @@
 　　◦ Development Tools ([i]e.g.[/i] execute code, config/function viewer)
 　　◦ Environment ([i]e.g.[/i] advanced weather, earthquakes)
 　　◦ Equipment ([i]e.g.[/i] toggle tac light)
-　　◦ Fire Support ([i]e.g.[/i] suppressive fire)
+　　◦ Fire Support ([i]e.g.[/i] artillery, suppressive fire)
 　　◦ Objects ([i]e.g.[/i] attach to, toggle simulation, IEDs)
 　　◦ Reinforcements ([i]e.g.[/i] spawn reinforcements on the fly)
 　　◦ Scenario Flow ([i]e.g.[/i] advanced intel, side relations)
@@ -93,7 +93,7 @@
 　　◦ [i]e.g.[/i] seek and destroy, paradrop, sling load
 • Hotkeys:
 　　◦ Copy/past units including the full loadouts
-　　◦ Force unit to pop smoke
+　　◦ Remote control
 　　◦ [i]etc.[/i]
 • Customizations:
 　　◦ Settings ([i]e.g.[/i] faction filter)
@@ -134,7 +134,7 @@ Addons that you should [b]not[/b] run when you use Achilles:
 • [url=https://steamcommunity.com/sharedfiles/filedetails/?id=421908020]Ares[/url]
 
 [u]Optional Addons[/u]
-These mods below are required for certain features (e.g. fast-roping):
+These mods below are required for certain features ([i]e.g.[/i] fast-roping):
 • [url=https://steamcommunity.com/sharedfiles/filedetails/?id=463939057]Advanced Combat Environment 3 (ACE3)[/url]
 • [url=https://steamcommunity.com/sharedfiles/filedetails/?id=713709341]Advanced Rappeling (AR)[/url]
 • [url=https://steamcommunity.com/sharedfiles/filedetails/?id=620019431]Task Force Arrowhead Radio (TFAR)[/url]
@@ -157,18 +157,18 @@ We always welcome contribution to the repository and thank you for your work! We
 
 What you need to know:
 • Basic Steps
-• Setting up Your Development Environment
+• Setting up Your Local Development Environment
 • Add a New Module
 • Add a Translation
 
 [u]Basic Steps[/u]
 1. [url=https://github.com/ArmaAchilles/Achilles/fork]Fork the Achilles repository[/url]
-2. Set up your development Environment
+2. Set up your local development environment
 3. Do your stuff
 4. [url=https://help.github.com/articles/creating-a-pull-request-from-a-fork/]Create your pull request[/url]
 And then we will have a look at your work!
 
-[u]Setting up your local development Environment[/u]
+[u]Setting up Your Local Development Environment[/u]
 1. [url=https://help.github.com/articles/cloning-a-repository/]Clone your forked repository[/url]
 2. Set up your addon builder (either get [url=https://github.com/ArmaAchilles/Hephaestus]Hephaestus[/url] or use the [url=https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ]AchillesAddonBuilder[/url] in the repository)
 

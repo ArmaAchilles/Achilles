@@ -47,7 +47,7 @@
 - [Reporting Issues, Requesting Features and Changes](#reporting-issues-requesting-features-and-changes)
 - [How to Contribute](#how-to-contribute)
 	- [Basic Steps](#basic-steps)
-	- [Setting up your local development environment](#setting-up-your-local-development-environment)
+	- [Setting up Your Local Development Environment](#setting-up-your-local-development-environment)
 	- [Add a New Module](#add-a-new-module)
 	- [Add a Translation](#add-a-translation)
 - [Authors](#authors)
@@ -64,7 +64,7 @@
     - Development Tools (_e.g._ execute code, config/function viewer)
     - Environment (_e.g._ advanced weather, earthquakes)
     - Equipment (_e.g._ toggle tac light)
-    - Fire Support (_e.g._ suppressive fire)
+    - Fire Support (_e.g._ artillery, suppressive fire)
     - Objects (_e.g._ attach to, toggle simulation, IEDs)
     - Reinforcements (_e.g._ spawn reinforcements on the fly)
     - Scenario Flow (_e.g._ advanced intel, side relations)
@@ -78,7 +78,7 @@
     - _e.g._ seek and destroy, paradrop, sling load
 - Hotkeys:
     - Copy/past units including the full loadouts
-    - Force unit to pop smoke
+    - Remote control
     - _etc._
 - Customizations:
     - Settings (_e.g._ faction filter)
@@ -121,7 +121,7 @@ Addons that you should **not** run when you use Achilles:
 - [Ares](https://github.com/astruyk/Ares)
 
 ### Optional Addons
-These mods below are required for certain features (e.g. fast-roping):
+These mods below are required for certain features (_e.g._ fast-roping):
 - [Advanced Combat Environment 3 (ACE3)](https://github.com/acemod/ACE3/)
 - [Advanced Rappeling (AR)](https://github.com/sethduda/AdvancedRappelling)
 - [Task Force Arrowhead Radio (TFAR)](https://github.com/michail-nikolaev/task-force-arma-3-radio)
@@ -144,19 +144,19 @@ We always welcome contribution to the repository and thank you for your work! We
 
 What you need to know:
 - [Basic Steps](#basic-steps)
-- [Setting up Your Development Environment](#setting-up-your-local-development-environment)
+- [Setting up Your Local Development Environment](#setting-up-your-local-development-environment)
 - [Add a New Module](#add-a-new-module)
 - [Add a Translation](#add-a-translation)
 
 ### Basic Steps
 1. [Fork the Achilles repository](https://github.com/ArmaAchilles/Achilles/fork)
-2. [Set up your development environment](#setting-up-your-local-development-environment)
+2. [Set up your local development environment](#setting-up-your-local-development-environment)
 3. Do your stuff
 4. [Create your pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 And then we will have a look at your work!
 
-### Setting up your local development environment
+### Setting up Your Local Development Environment
 1. [Clone your forked repository](https://help.github.com/articles/cloning-a-repository/)
 2. Set up your addon builder (either get [Hephaestus](https://github.com/ArmaAchilles/Hephaestus) or use the [AchillesAddonBuilder.bat](https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ) in the repository)
 
