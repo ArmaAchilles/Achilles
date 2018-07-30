@@ -34,12 +34,22 @@
 * * *
 
 ## Table of Contents
+- [Table of Contents](#table-of-contents)
 - [Features](#features)
 - [Language Localization](#language-localization)
 - [Getting Started](#getting-started)
+	- [Installing](#installing)
+	- [Required Addons](#required-addons)
+	- [Incompatible Addons](#incompatible-addons)
+	- [Optional Addons](#optional-addons)
+	- [Other Zeus Addons](#other-zeus-addons)
 - [Documentation](#documentation)
-- [Reporting Issues, Requesting Features and Changes](#reporting-issues,-requesting-features-and-changes)
+- [Reporting Issues, Requesting Features and Changes](#reporting-issues-requesting-features-and-changes)
 - [How to Contribute](#how-to-contribute)
+	- [Basic Steps](#basic-steps)
+	- [Setting up your local development environment](#setting-up-your-local-development-environment)
+	- [Add a New Module](#add-a-new-module)
+	- [Add a Translation](#add-a-translation)
 - [Authors](#authors)
 - [Contact](#contact)
 - [License](#license)
@@ -56,7 +66,7 @@
     - Equipment (_e.g._ toggle tac light)
     - Fire Support (_e.g._ suppressive fire)
     - Objects (_e.g._ attach to, toggle simulation, IEDs)
-    - Reinforcments (spawn reinforcements on the fly)
+    - Reinforcements (spawn reinforcements on the fly)
     - Scenario Flow (_e.g._ advanced intel, side relations)
     - Spawn (_e.g._ custom compositions, smoke pillar, USS Freedom)
     - Zeus (_e.g._ add/remove objects)
@@ -65,7 +75,7 @@
     - Vehicles (_e.g._ cargo, pylons, garage, damage wheels)
     - _etc._
 - New waypoint types:
-    - _e.g._ seek and destroy, paradrop, slingload
+    - _e.g._ seek and destroy, paradrop, sling load
 - Hotkeys:
     - Copy/past units including the full loadouts
     - Force unit to pop smoke
@@ -83,7 +93,7 @@ Achilles is available for the following languages:
 - Simplified Chinese
 - Traditional Chinese
 
-If your language is not on the list, the english localization will be used. New translations are welcome (check out [How to Contribute](##how-to-contribute)).
+If your language is not on the list, the English localization will be used. New translations are welcome (check out [How to Contribute](##how-to-contribute)).
 
 ## Getting Started
 Below is what you need to know to get Achilles up and running:
@@ -99,7 +109,7 @@ You can download Achilles from:
 - [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
 - [Armaholic](http://www.armaholic.com/page.php?id=31235)
 
-If you are not familiar with installing Arma addons, check out the [Armaholic installation guide](http://www.armaholic.com/page.php?id=29755).
+If you are not familiar with installing ArmA 3 addons, check out the [Armaholic installation guide](http://www.armaholic.com/page.php?id=29755).
 
 ### Required Addons
 Achilles requires:
@@ -112,7 +122,7 @@ Addons that you should **not** run when you use Achilles:
 
 ### Optional Addons
 These mods below are required for certain features (e.g. fast-roping):
-- [Advanced Combat Enviornment 3 (ACE3)](https://github.com/acemod/ACE3/)
+- [Advanced Combat Environment 3 (ACE3)](https://github.com/acemod/ACE3/)
 - [Advanced Rappeling (AR)](https://github.com/sethduda/AdvancedRappelling)
 - [Task Force Arrowhead Radio (TFAR)](https://github.com/michail-nikolaev/task-force-arma-3-radio)
 
@@ -126,7 +136,7 @@ A list of other Zeus mods that are not required, but nice additions:
 Check out the [Achilles Wiki](https://github.com/ArmaAchilles/Achilles/wiki) and the [Achilles Tutorial Series on Youtube](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg). The documentation is rather limited at the time and thus, you will certainly have questions. We will gladly answer them on [our Discord server](https://discord.gg/kN7Jnhr).
 
 ## Reporting Issues, Requesting Features and Changes
-Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achilles/issues) for these kind of purposes.
+Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achilles/issues) for these kinds of purposes.
 In the case of a bug report, please only use a minimal set of mods (_i.e._ only use other mods than the required ones if they are clearly related to the issue).
 
 ## How to Contribute
@@ -134,19 +144,19 @@ We always welcome contribution to the repository and thank you for your work! We
 
 What you need to know:
 - [Basic Steps](#basic-steps)
-- [Setting up Your Development Enviornment](#setting-up-your-local-development-enviornment)
+- [Setting up Your Development Environment](#setting-up-your-local-development-environment)
 - [Add a New Module](#add-a-new-module)
 - [Add a Translation](#add-a-translation)
 
 ### Basic Steps
 1. [Fork the Achilles repository](https://github.com/ArmaAchilles/Achilles/fork)
-2. [Set up your development enviornment](#setting-up-your-local-development-enviornment)
+2. [Set up your development environment](#setting-up-your-local-development-environment)
 3. Do your stuff
 4. [Create your pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 And then we will have a look at your work!
 
-### Setting up your local development enviornment
+### Setting up your local development environment
 1. [Clone your forked repository](https://help.github.com/articles/cloning-a-repository/)
 2. Set up your addon builder (either get [Hephaestus](https://github.com/ArmaAchilles/Hephaestus) or use the [AchillesAddonBuilder.bat](https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ) in the repository)
 
