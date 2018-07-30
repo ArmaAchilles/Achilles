@@ -57,11 +57,11 @@
 ## Features
 - Visual changes to the Zeus interface
 - Tons of new modules:
-    - ACE Medical (_e.g._ heal, injury)
+    - ACE Medical (_e.g._ heal, injury; also work in vanilla!)
     - AI Behaviour (_e.g._ animations, garrison buildings, surrender)
-    - Arsenal (add/modify)
+    - Arsenal (_e.g._ add/modify)
     - Buildings (_e.g._ destruction, breachable doors)
-    - Dev Tools (_e.g._ execute code, config/function viewer)
+    - Development Tools (_e.g._ execute code, config/function viewer)
     - Environment (_e.g._ advanced weather, earthquakes)
     - Equipment (_e.g._ toggle tac light)
     - Fire Support (_e.g._ suppressive fire)
@@ -81,12 +81,12 @@
     - Force unit to pop smoke
     - _etc._
 - Customizations:
-    - Settings (e.g. faction filter)
+    - Settings (_e.g._ faction filter)
 
 ## Language Localization
 Achilles is available for the following languages:
 - English
-- French (rather poor)
+- French
 - German
 - Japanese
 - Russian
@@ -133,7 +133,7 @@ A list of other Zeus mods that are not required, but nice additions:
 - [Zeus/Eden Interiors (ZEI)](https://github.com/LISTINGS09/ZEI)
 
 ## Documentation
-Check out the [Achilles Wiki](https://github.com/ArmaAchilles/Achilles/wiki) and the [Achilles Tutorial Series on Youtube](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg). The documentation is rather limited at the time and thus, you will certainly have questions. We will gladly answer them on [our Discord server](https://discord.gg/kN7Jnhr).
+Check out the [Achilles Wiki](https://github.com/ArmaAchilles/Achilles/wiki) and the [Achilles Tutorial Series on YouTube](https://www.youtube.com/watch?v=qjD2GX9rCA4&list=PL7del_lBYPTTNEmfPfzKVHxRx8Vx8DxHg). The documentation is rather limited at the time and thus, you will certainly have questions. We will gladly answer them on [our Discord server](https://discord.gg/kN7Jnhr).
 
 ## Reporting Issues, Requesting Features and Changes
 Please use our [Issue Tracker](https://github.com/ArmaAchilles/Achilles/issues) for these kinds of purposes.
@@ -165,7 +165,7 @@ A good starting point for your new module is the [custom module framework](https
 We will gladly help you to port your custom module to Achilles (message us on [our Discord server](https://discord.gg/kN7Jnhr)).
 
 ### Add a Translation
-You will have to edit the [stringtable.xml](https://github.com/ArmaAchilles/Achilles/blob/master/%40AresModAchillesExpansion/addons/language_f/stringtable.xml). The basics about string tables can be found on the [Bohemia Interactive Wiki](https://community.bistudio.com/wiki/Stringtable.xml). If you don't want to edit the file with a text editor, you can use a dedicated tool such as [Tabler](http://www.armaholic.com/page.php?id=26320).
+You have to edit the [stringtable.xml](https://github.com/ArmaAchilles/Achilles/blob/master/%40AresModAchillesExpansion/addons/language_f/stringtable.xml). The basics about string tables can be found on the [Bohemia Interactive Wiki](https://community.bistudio.com/wiki/Stringtable.xml). If you don't want to edit the file with a text editor, you can use a dedicated tool such as [Tabler](http://www.armaholic.com/page.php?id=26320).
 
 ## Authors
 Check out the [list of contributors](https://github.com/ArmaAchilles/AresModAchillesExpansion/blob/master/%40AresModAchillesExpansion/credits.md).
