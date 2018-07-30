@@ -34,7 +34,6 @@
 * * *
 
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
 - [Features](#features)
 - [Language Localization](#language-localization)
 - [Getting Started](#getting-started)
