@@ -66,7 +66,7 @@
     - Equipment (_e.g._ toggle tac light)
     - Fire Support (_e.g._ suppressive fire)
     - Objects (_e.g._ attach to, toggle simulation, IEDs)
-    - Reinforcements (spawn reinforcements on the fly)
+    - Reinforcements (_e.g._ spawn reinforcements on the fly)
     - Scenario Flow (_e.g._ advanced intel, side relations)
     - Spawn (_e.g._ custom compositions, smoke pillar, USS Freedom)
     - Zeus (_e.g._ add/remove objects)

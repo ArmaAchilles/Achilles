@@ -81,7 +81,7 @@
 　　◦ Equipment ([i]e.g.[/i] toggle tac light)
 　　◦ Fire Support ([i]e.g.[/i] suppressive fire)
 　　◦ Objects ([i]e.g.[/i] attach to, toggle simulation, IEDs)
-　　◦ Reinforcements (spawn reinforcements on the fly)
+　　◦ Reinforcements ([i]e.g.[/i] spawn reinforcements on the fly)
 　　◦ Scenario Flow ([i]e.g.[/i] advanced intel, side relations)
 　　◦ Spawn ([i]e.g.[/i] custom compositions, smoke pillar, USS Freedom)
 　　◦ Zeus ([i]e.g.[/i] add/remove objects)
@@ -107,7 +107,7 @@ Achilles is available for the following languages:
 • Russian
 • Simplified Chinese
 • Traditional Chinese
-If your language is not on the list, the English localization will be used. New translations are welcome (check out **How to Contribute**).
+If your language is not on the list, the English localization will be used. New translations are welcome (check out [b]How to Contribute[/b]).
 
 [h1][b][u]Getting Started[/u][/b][/h1]
 Below is what you need to know to get Achilles up and running:
