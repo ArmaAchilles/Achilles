@@ -92,7 +92,7 @@ Achilles is available for the following languages:
 - Simplified Chinese
 - Traditional Chinese
 
-If your language is not on the list, the English localization will be used. New translations are welcome (check out [How to Contribute](#how-to-contribute)).
+If your language is not on the list, the English localization will be used. We welcome any new translations (check out [How to Contribute](#how-to-contribute)).
 
 ## Getting Started
 Below is what you need to know to get Achilles up and running:
