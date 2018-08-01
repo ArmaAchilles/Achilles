@@ -10,6 +10,13 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
 
 ## Change log
+### v1.1.2
+#### Modules
+##### New
+* Spawn USS Liberty
+#### Other
+* Change: Extended the content of the README.md, which is now used across all webpages.
+
 ### v1.1.1
 #### Modules
 ##### Revised
