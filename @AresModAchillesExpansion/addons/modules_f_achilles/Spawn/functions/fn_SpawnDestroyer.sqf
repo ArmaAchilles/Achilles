@@ -1,8 +1,7 @@
 #include "\achilles\modules_f_ares\module_header.hpp"
 
-#define HALF_BOUNDING_BOX_LENGTH	111.11
-#define HALF_BOUNDING_BOX_WIDTH		22.2219
-#define LINE_RGBA					[1,1,0,1]
+#define BOUNDING_BOX_LENGTH		222.22
+#define BOUNDING_BOX_WIDTH		44.4438
 
 // draw the location for the preplace mode
 [
@@ -16,16 +15,10 @@
 		private _vecDir = vectorDir _logic;
 		_vecDir set [2, 0];
 		_vecDir = vectorNormalized _vecDir;
-		_vecPerp = [-(_vecDir select 1), _vecDir select 0, 0];
 		// draw projection of the bounding box on the model XY plane
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), _pos vectorAdd (_vecDir vectorMultiply -HALF_BOUNDING_BOX_LENGTH) vectorAdd (_vecPerp vectorMultiply -HALF_BOUNDING_BOX_WIDTH), LINE_RGBA];
+		[_pos, _vecDir, [0,0,1], BOUNDING_BOX_LENGTH, BOUNDING_BOX_WIDTH] call Achilles_fnc_drawRectangle3D;
 		// draw an arrow for the heading on the model XY plane
-		drawLine3D [_pos, _pos vectorAdd (_vecDir vectorMultiply -30), LINE_RGBA];
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply 10), LINE_RGBA];
-		drawLine3D [_pos vectorAdd (_vecDir vectorMultiply -30), _pos vectorAdd (_vecDir vectorMultiply -20) vectorAdd (_vecPerp vectorMultiply -10), LINE_RGBA];
+		[_pos, _vecDir vectorMultiply -1, [0,0,1]] call Achilles_fnc_drawArrow3D;
 	},
 	[_logic]
 ] call BIS_fnc_addStackedEventHandler;
