@@ -1606,6 +1606,9 @@
                 <Chinese>美國海軍自由號</Chinese>
                 <Chinesesimp>美国海军自由号</Chinesesimp>
             </Key>
+            <Key ID="STR_AMAE_USS_LIBERTY">
+                <Original>USS Liberty</Original>
+            </Key>
             <Key ID="STR_AMAE_SUBMARINE">
                 <English>Submarine</English>
                 <Original>Submarine</Original>
