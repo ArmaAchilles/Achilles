@@ -77,7 +77,7 @@
     - _e.g._ seek and destroy, paradrop, sling load
 - Hotkeys:
     - Copy/past units including the full loadouts
-    - Remote control
+    - Remote Control
     - _etc._
 - Customizations:
     - Settings (_e.g._ faction filter)
