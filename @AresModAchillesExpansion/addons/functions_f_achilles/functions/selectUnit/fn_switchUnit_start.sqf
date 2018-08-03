@@ -31,6 +31,10 @@ private _goggles = goggles _unit;
 _unit setVariable ["Achilles_var_switchUnit_data",[name _unit, _playerUnit, _damage_allowed, _face, _speaker, _goggles], true];
 bis_fnc_moduleRemoteControl_unit = _unit;
 
+// fix teleportation bug: for some unkown reason the unit may get teleported to the camera position
+curatorCamera setDir getDir _unit;
+curatorCamera setPosWorld getPosWorld _unit;
+
 selectPlayer _unit;
 [_unit, _face] remoteExecCall ["setFace", 0];
 [_unit, _speaker] remoteExecCall ["setSpeaker", 0];

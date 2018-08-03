@@ -86,7 +86,7 @@ switch _mode do
 				};
 			};
 		};
-		private _posH = ((_posY + _ctrlContentOffsetY) min 1.5) * 0.5;
+		private _posH = ((_posY + _ctrlContentOffsetY) min (0.646 * safeZoneH)) * 0.5;
 
 		private _target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 		private _name = switch (typename _target) do {

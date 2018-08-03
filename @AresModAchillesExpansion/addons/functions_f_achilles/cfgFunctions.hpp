@@ -51,6 +51,8 @@ class CfgFunctions
 			class getVirtualArsenal;
 			class getWeaponsMuzzlesMagazines;
 			class forceWeaponFire;
+			class drawArrow3D;
+			class drawRectangle3D;
 		};
 
 		class selectUnit

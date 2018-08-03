@@ -43,4 +43,11 @@ switch (true) do
 			deleteVehicle (_x param [0,objNull]);
 		} foreach _carrierPartsArray;
 	};
+	case (_handled_object isKindOf "Land_Destroyer_01_base_F"):
+	{
+		private _destroyerPartsArray = _handled_object getVariable ["bis_carrierParts", []];
+		{
+			deleteVehicle (_x param [0,objNull]);
+		} foreach _destroyerPartsArray;
+	};
 };
