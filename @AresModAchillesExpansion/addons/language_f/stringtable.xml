@@ -826,12 +826,6 @@
                 <Chinese>進階提示</Chinese>
                 <Chinesesimp>进阶提示</Chinesesimp>
             </Key>
-            <Key ID="STR_AMAE_ADVANCED_HINT">
-                <Original>Advanced Hint</Original>
-                <English>Advanced Hint</English>
-                <French>Indice avancé</French>
-                <German>Erweiterter Hinweis</German>
-            </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
                 <English>Switch side channel of Zeus</English>
@@ -1630,21 +1624,6 @@
                 <German>Trawler</German>
                 <Chinese>拖網漁船</Chinese>
                 <Chinesesimp>拖网渔船</Chinesesimp>
-            </Key>
-            <Key ID="STR_AMAE_USS_FREEDOM">
-                <Original>USS Freedom</Original>
-            </Key>
-            <Key ID="STR_AMAE_SUBMARINE">
-                <English>Submarine</English>
-                <Original>Submarine</Original>
-                <French>Sous-marin</French>
-                <German>U-Boot</German>
-            </Key>
-            <Key ID="STR_AMAE_TRAWLER">
-                <English>Trawler</English>
-                <Original>Trawler</Original>
-                <French>Chalutier</French>
-                <German>Trawler</German>
             </Key>
         </Container>
     </Package>
@@ -2557,13 +2536,6 @@
                 <Chinese>額外選項</Chinese>
                 <Chinesesimp>额外选项</Chinesesimp>
             </Key>
-            </Key>
-            <Key ID="STR_ADDITIONAL_OPTION">
-                <Original>Additional option</Original>
-                <English>Additional option</English>
-                <French>Option supplémentaire</French>
-                <German>Zusatzoption</German>
-            </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
                 <English>All objects in mission</English>
@@ -2601,12 +2573,6 @@
                 <German>Ungenauigkeit [m]</German>
                 <Chinese>精度[公尺]</Chinese>
                 <Chinesesimp>精度[米]</Chinesesimp>
-            </Key>
-            <Key ID="STR_AMAE_PRECISION">
-                <Original>Precision [m]</Original>
-                <English>Precision [m]</English>
-                <French>Précision [m]</French>
-                <German>Ungenauigkeit [m]</German>
             </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
@@ -5818,12 +5784,6 @@
                 <German>HALO</German>
                 <Chinese>高跳低開跳傘</Chinese>
                 <Chinesesimp>高跳低开跳伞</Chinesesimp>
-            </Key>
-            <Key ID="STR_AMAE_HALO">
-                <Original>HALO</Original>
-                <English>HALO</English>
-                <French>HALO</French>
-                <German>HALO</German>
             </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>
