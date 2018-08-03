@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
@@ -1317,7 +1317,7 @@
             <Key ID="STR_AMAE_PLAY_MESSAGE">
                 <Original>Play Radio Message</Original>
                 <English>Play Radio Message</English>
-				  <French>Jouer un message radio</French>
+				<French>Jouer un message radio</French>
                 <Russian>Воспроизвести радиосообщение</Russian>
                 <Japanese>無線メッセージを再生</Japanese>
                 <Chinesesimp>播放无线电信息</Chinesesimp>
@@ -1326,7 +1326,7 @@
             <Key ID="STR_AMAE_SET_FREQUENCIES">
                 <Original>Set Radio Frequencies</Original>
                 <English>Set Radio Frequencies</English>
-				  <French>(TFAR)Ajuster fréquences radio</French>
+				<French>(TFAR)Ajuster fréquences radio</French>
                 <Russian>(TFAR) Назначить частоты</Russian>
                 <Japanese>無線の周波数設定</Japanese>
                 <Chinesesimp>设定无线电频率（TFAR专用）</Chinesesimp>
@@ -1335,7 +1335,7 @@
             <Key ID="STR_AMAE_ROTATION_MODULE">
                 <Original>Rotate Objects</Original>
                 <English>Rotate Objects</English>
-				  <French>Tourner des Objets</French>
+				<French>Tourner des Objets</French>
                 <Russian>Повернуть объекты</Russian>
                 <Japanese>物体を回転</Japanese>
                 <Chinesesimp>旋转物体</Chinesesimp>
@@ -1344,7 +1344,7 @@
             <Key ID="STR_AMAE_HIDE_OBJECTS">
                 <Original>Hide Objects</Original>
                 <English>Hide Objects</English>
-				  <French>Cacher des Objets</French>
+				<French>Cacher des Objets</French>
                 <Russian>Скрыть объекты</Russian>
                 <Japanese>物体を非表示</Japanese>
                 <Chinesesimp>隐藏物体</Chinesesimp>
@@ -1353,7 +1353,7 @@
             <Key ID="STR_AMAE_SUPPLY_DROP">
                 <Original>Supply Drop</Original>
                 <English>Supply Drop</English>
-				  <French>Largage de ravitaillement</French>
+				<French>Largage de ravitaillement</French>
                 <Russian>Сброс предметов снабжения</Russian>
                 <Japanese>支援物資</Japanese>
                 <Chinesesimp>空投补给</Chinesesimp>
@@ -1362,7 +1362,7 @@
             <Key ID="STR_AMAE_EDIT_CARGO">
                 <Original>Edit Cargo</Original>
                 <English>Edit Cargo</English>
-				  <French>Editer la cargaison</French>
+				<French>Editer la cargaison</French>
                 <Russian>Редактировать груз</Russian>
                 <Japanese>中身を編集</Japanese>
                 <Chinesesimp>编辑货仓</Chinesesimp>
@@ -1639,7 +1639,7 @@
             <Key ID="STR_AMAE_CARGO_VEHICLE_SPAWN_ERROR">
                 <Original>Error! Failed to spawn cargo vehicle</Original>
                 <English>Error! Failed to spawn cargo vehicle</English>
-				  <French>Erreur! Échec de l'apparition du vehicule dans le cargaison.</French>
+				<French>Erreur! Échec de l'apparition du vehicule dans le cargaison.</French>
                 <Russian>Ошибка! Не могу создать транспортное средство с грузом!</Russian>
                 <Japanese>エラー!カーゴ車両の作成に失敗しました!</Japanese>
                 <Chinesesimp>错误！载货载具生成失败！</Chinesesimp>
@@ -1648,7 +1648,7 @@
             <Key ID="STR_AMAE_AIRCRAFT_SPAWN_ERROR">
                 <Original>Error! Failed to spawn aircraft!</Original>
                 <English>Error! Failed to spawn aircraft!</English>
-				  <French>Erreur! Échec de l'apparition du vehicule aéronautique.</French>
+				<French>Erreur! Échec de l'apparition du vehicule aéronautique.</French>
                 <Russian>Ошибка! Не могу создать летательный аппарат!</Russian>
                 <Japanese>エラー!航空機の作成に失敗しました!</Japanese>
                 <Chinesesimp>错误！航空器生成失败！</Chinesesimp>
@@ -1657,7 +1657,7 @@
             <Key ID="STR_AMAE_CODE_EXECUTION_NOT_ALLOWED">
                 <Original>This module has been disabled by the mission creator.</Original>
                 <English>This module has been disabled by the mission creator.</English>
-				  <French>Ce module à été désactivée par le createur de la mission.</French>
+				<French>Ce module à été désactivée par le createur de la mission.</French>
                 <Russian>Эта возможность была отключена автором миссии!</Russian>
                 <Japanese>このモジュールはミッション製作者により無効化されています。</Japanese>
                 <Chinesesimp>该模块已被任务作者禁用。</Chinesesimp>
@@ -1666,7 +1666,7 @@
             <Key ID="STR_AMAE_NO_BUILDINGS_FOUND">
                 <Original>No buildings found!</Original>
                 <English>No buildings found!</English>
-				  <French>Aucun bâtiments trouvées.</French>
+				<French>Aucun bâtiments trouvées.</French>
                 <Russian>В указанном месте нет зданий!</Russian>
                 <Japanese>建物を発見できません!</Japanese>
                 <Chinesesimp>未能找到建筑！</Chinesesimp>
@@ -1676,7 +1676,7 @@
                 <Original>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</Original>
                 <English>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</English>
                 <Russian>Ошибка выделения памяти: Не могу создать модуль логики закрытия дверей! (для %1/%2 случаев)</Russian>
-				  <French>Erreur d'allocation: Échec de la creation d'une logique de verrouillage de porte! (S'est produit dans %1/%2 des cas)</French>
+				<French>Erreur d'allocation: Échec de la creation d'une logique de verrouillage de porte! (S'est produit dans %1/%2 des cas)</French>
                 <Japanese>アロケーション エラー: 扉の施錠は作成されていません。 (%1/%2 の場合により)</Japanese>
                 <Chinesesimp>分配错误：无法建立锁门逻辑！（%1/%2的情况下会导致此错误）</Chinesesimp>
                 <Chinese>分配錯誤:無法建立鎖門邏輯!(%1/%2的情況下會導致此錯誤)</Chinese>
@@ -1684,7 +1684,7 @@
             <Key ID="STR_AMAE_FAILED_TO_ATTACH_CARGO">
                 <Original>Failed to attach the cargo!</Original>
                 <English>Failed to attach the cargo!</English>
-				  <French>Échec de l'attachement de la cargaison.</French>
+				<French>Échec de l'attachement de la cargaison.</French>
                 <Russian>Груз не прикреплён!</Russian>
                 <Japanese>カーゴの取り付けに失敗しました!</Japanese>
                 <Chinesesimp>货物挂载失败！</Chinesesimp>
@@ -1693,7 +1693,7 @@
             <Key ID="STR_AMAE_CARGO_ALREADY_ATTACHED">
                 <Original>Cargo is already attached!</Original>
                 <English>Cargo is already attached!</English>
-				  <French>La cargaison est déja attachée!</French>
+				<French>La cargaison est déja attachée!</French>
                 <Russian>Груз уже прикреплён!</Russian>
                 <Japanese>カーゴは既に取りつけられています!</Japanese>
                 <Chinesesimp>货物已挂载！</Chinesesimp>
@@ -1702,7 +1702,7 @@
             <Key ID="STR_AMAE_NO_HELICOPTER_SELECTED">
                 <Original>No helicopter selected!</Original>
                 <English>No helicopter selected!</English>
-				  <French>Aucun hélicoptère sélectionée!</French>
+				<French>Aucun hélicoptère sélectionée!</French>
                 <Russian>Не выбран вертолёт!</Russian>
                 <Japanese>ヘリコプターが選択されていません!</Japanese>
                 <Chinesesimp>未选中直升机！</Chinesesimp>
@@ -1711,7 +1711,7 @@
             <Key ID="STR_AMAE_HELICOPTER_NEEDS_DRIVER">
                 <Original>The helicopter needs a driver!</Original>
                 <English>The helicopter needs a driver!</English>
-				  <French>Cet hélicoptère à besoin d'un pilote!</French>
+				<French>Cet hélicoptère à besoin d'un pilote!</French>
                 <Russian>Вертолёту требуется пилот!</Russian>
                 <Japanese>ヘリコプターには操縦士が必要です!</Japanese>
                 <Chinesesimp>该直升机需要驾驶员！</Chinesesimp>
@@ -1720,7 +1720,7 @@
             <Key ID="STR_AMAE_UNITS_NOT_ALLOWED">
                 <Original>Units are not allowed!</Original>
                 <English>Units are not allowed!</English>
-				  <French>Les unités ne sont pas admises!</French>
+				<French>Les unités ne sont pas admises!</French>
                 <Russian>Не допускается использовать на боевых единицах!</Russian>
                 <Japanese>ユニットは許可されていません!</Japanese>
                 <Chinesesimp>非法单位！</Chinesesimp>
@@ -1729,7 +1729,7 @@
             <Key ID="STR_AMAE_TFAR_HAS_TO_BE_LOADED">
                 <Original>This module requires Task Force Radio!</Original>
                 <English>This module requires Task Force Radio!</English>
-				  <French>Ce module requiert Task Force Radio!</French>
+				<French>Ce module requiert Task Force Radio!</French>
                 <Russian>Этот модуль требует TFAR для работы!</Russian>
                 <Japanese>このモジュールは Task Force Radio が必要です!</Japanese>
                 <Chinesesimp>该模块需要TFAR无线电模组！</Chinesesimp>
@@ -1875,7 +1875,7 @@
             <Key ID="STR_AMAE_SELECT_NON_PLAYER_UNITS">
                 <Original>Select non player units only!</Original>
                 <English>Select non player units only!</English>
-				  <French>Sélectionner seulement les unités non joueur!</French>
+				<French>Sélectionner seulement les unités non joueur!</French>
                 <Japanese>非プレイヤーのみ選択してください!</Japanese>
                 <Chinesesimp>仅能选择非玩家单位！</Chinesesimp>
                 <Chinese>僅能選擇非玩家單位！</Chinese>
@@ -2003,7 +2003,7 @@
             <Key ID="STR_AMAE_NO_TELEPORT_DESTINATION">
                 <Original>Destination no longer exists!</Original>
                 <English>Destination no longer exists!</English>
-				  <French>La déstination n'existe plus!</French>
+				<French>La déstination n'existe plus!</French>
                 <Russian>Точка назначения больше не существует!</Russian>
                 <Japanese>目的地は存在していません!</Japanese>
                 <Chinesesimp>目的地不复存在！</Chinesesimp>
@@ -2012,7 +2012,7 @@
             <Key ID="STR_AMAE_OBJECT_ALREADY_TELEPORTER">
                 <Original>Object is already a teleporter!</Original>
                 <English>Object is already a teleporter!</English>
-				  <French>L'objet est deja un téleporteur!</French>
+				<French>L'objet est deja un téleporteur!</French>
                 <Russian>Объект уже является телепортатором!</Russian>
                 <Japanese>物体は既にテレポーターです!</Japanese>
                 <Chinesesimp>物体已是传送器！</Chinesesimp>
@@ -2055,7 +2055,7 @@
             <Key ID="STR_AMAE_NONE">
                 <Original>None</Original>
                 <English>None</English>
-				  <French>Aucun</French>
+				<French>Aucun</French>
                 <Russian>Нет</Russian>
                 <German>Keine</German>
                 <Japanese>無し</Japanese>
@@ -2065,7 +2065,7 @@
             <Key ID="STR_AMAE_CREATED_TELEPORT">
                 <Original>Created teleporter '%1'</Original>
                 <English>Created teleporter '%1'</English>
-				  <French>Téléporteur crée '%1'</French>
+				<French>Téléporteur crée '%1'</French>
                 <Russian>Создан телепортатор '%1'</Russian>
                 <Japanese>テレポーター '%1' を作成した</Japanese>
                 <Chinesesimp>‘%1’传送器创建完成</Chinesesimp>
@@ -2074,7 +2074,7 @@
             <Key ID="STR_AMAE_TELEPORT_TO">
                 <Original>Teleport to %1</Original>
                 <English>Teleport to %1</English>
-				  <French>Téléporter vers %1</French>
+				<French>Téléporter vers %1</French>
                 <Russian>Телепортация в точку %1</Russian>
                 <German>Teleportiere zu %1</German>
                 <Japanese>%1 へテレポート</Japanese>
@@ -2084,7 +2084,7 @@
             <Key ID="STR_AMAE_RELEASE_UAV_CONTROLS">
                 <Original>Release UAV controls</Original>
                 <English>Release UAV controls</English>
-				  <French>Relacher les commandes du drone.</French>
+				<French>Relacher les commandes du drone.</French>
                 <Russian>Бросить управление БПА</Russian>
                 <Japanese>UAV 操作を止める</Japanese>
                 <Chinesesimp>无人机遥控终止</Chinesesimp>
@@ -2109,7 +2109,7 @@
             <Key ID="STR_AMAE_BLUFOR_ONLY">
                 <Original>BLUFOR only</Original>
                 <English>BLUFOR only</English>
-				  <French>BLUFOR seulement</French>
+				<French>BLUFOR seulement</French>
                 <Russian>Только Синие</Russian>
                 <Japanese>同盟軍のみ</Japanese>
                 <Chinesesimp>仅蓝方</Chinesesimp>
@@ -2118,7 +2118,7 @@
             <Key ID="STR_AMAE_OPFOR_ONLY">
                 <Original>OPFOR only</Original>
                 <English>OPFOR only</English>
-				  <French>OPFOR seulement</French>
+				<French>OPFOR seulement</French>
                 <Russian>Только Красные</Russian>
                 <Japanese>仮想敵軍のみ</Japanese>
                 <Chinesesimp>仅红方</Chinesesimp>
@@ -2127,7 +2127,7 @@
             <Key ID="STR_AMAE_GREENFOR_ONLY">
                 <Original>Independent only</Original>
                 <English>Independent only</English>
-				  <French>Indépendant seulement</French>
+				<French>Indépendant seulement</French>
                 <Russian> Только Зелёные</Russian>
                 <Japanese>独立陣営のみ</Japanese>
                 <Chinesesimp>仅绿方</Chinesesimp>
@@ -2136,7 +2136,7 @@
             <Key ID="STR_AMAE_FILTER_OBJECTS">
                 <Original>Filter Objects</Original>
                 <English>Filter Objects</English>
-				  <French>Filtrer les objets</French>
+				<French>Filtrer les objets</French>
                 <Russian>Выбрать снаряжение</Russian>
                 <Japanese>物体を選別</Japanese>
                 <Chinesesimp>物体过滤</Chinesesimp>
@@ -2145,7 +2145,7 @@
             <Key ID="STR_AMAE_COMBINE_REPLACE">
                 <Original>Combine or Replace</Original>
                 <English>Combine or Replace</English>
-				  <French>Combiner ou remplaçer</French>
+				<French>Combiner ou remplaçer</French>
                 <Russian>Объединить или заменить?</Russian>
                 <Japanese>組み合わせか置き換え</Japanese>
                 <Chinesesimp>组合或替换</Chinesesimp>
@@ -2154,7 +2154,7 @@
             <Key ID="STR_AMAE_COMBINE">
                 <Original>Combine with existing items</Original>
                 <English>Combine with existing items</English>
-				  <French>Combiner avec des objets existants</French>
+				<French>Combiner avec des objets existants</French>
                 <Russian>Объединить с существующим снаряжением</Russian>
                 <Japanese>既存アイテムと組み合わせ</Japanese>
                 <Chinesesimp>与现有物品进行组合</Chinesesimp>
@@ -2163,7 +2163,7 @@
             <Key ID="STR_AMAE_REPLACE">
                 <Original>Replace existing items</Original>
                 <English>Replace existing items</English>
-				  <French>Remplaçer des objets existants</French>
+				<French>Remplaçer des objets existants</French>
                 <Russian>Заменить существующее снаряжение</Russian>
                 <Japanese>既存アイテムを置き換え</Japanese>
                 <Chinesesimp>替换现有物品</Chinesesimp>
@@ -2172,7 +2172,7 @@
             <Key ID="STR_AMAE_LIMIT_SIDE">
                 <Original>Limit side-specific equip. to</Original>
                 <English>Limit side-specific equip. to</English>
-				  <French>Limiter l'equipement spécifique du camp à</French>
+				<French>Limiter l'equipement spécifique du camp à</French>
                 <Russian>Ограничить снаряжение стороной</Russian>
                 <Japanese>次の装備に陣営制限</Japanese>
                 <Chinesesimp>限制阵营装备</Chinesesimp>
@@ -2182,7 +2182,7 @@
                 <Original>Add GPS</Original>
                 <English>Add GPS</English>
                 <Russian>Добавить GPS</Russian>
-				  <French>Ajouter GPS</French>
+				<French>Ajouter GPS</French>
                 <Japanese>GPS を追加</Japanese>
                 <Chinesesimp>添加GPS</Chinesesimp>
                 <Chinese>添加GPS</Chinese>
@@ -2190,7 +2190,7 @@
             <Key ID="STR_AMAE_ADD_THERMALS">
                 <Original>Add thermals</Original>
                 <English>Add thermals</English>
-				  <French>Ajouter jumelles thermique</French>
+				<French>Ajouter jumelles thermique</French>
                 <Russian>Добавить тепловизор</Russian>
                 <Japanese>サーマルを追加</Japanese>
                 <Chinesesimp>添加热成像</Chinesesimp>
@@ -2199,7 +2199,7 @@
             <Key ID="STR_AMAE_ADD_NVGS">
                 <Original>Add NVG</Original>
                 <English>Add NVG</English>
-				  <French>Ajouter JVN</French>
+				<French>Ajouter JVN</French>
                 <Russian>Добавить ПНВ</Russian>
                 <Japanese>暗視装置を追加</Japanese>
                 <Chinesesimp>添加夜视仪</Chinesesimp>
@@ -2208,7 +2208,7 @@
             <Key ID="STR_AMAE_STATIC_BACKPACKS">
                 <Original>Static weapon backpacks</Original>
                 <English>Static weapon backpacks</English>
-				  <French>Sac à dos d'armes statiques</French>
+				<French>Sac à dos d'armes statiques</French>
                 <Russian>Рюкзаки со стационарными турелями</Russian>
                 <Japanese>固定式火器用バックパック</Japanese>
                 <Chinesesimp>固定式武器背包</Chinesesimp>
@@ -2217,7 +2217,7 @@
             <Key ID="STR_AMAE_UAV_BACKPACKS">
                 <Original>UAV items and backpacks</Original>
                 <English>UAV items and backpacks</English>
-				  <French>Objets et sac à dos des drones</French>
+				<French>Objets et sac à dos des drones</French>
                 <Russian>Рюкзаки с беспилотниками (и терминал)</Russian>
                 <Japanese>UAV アイテムとバックパック</Japanese>
                 <Chinesesimp>无人机物品和背包</Chinesesimp>
@@ -2226,7 +2226,7 @@
             <Key ID="STR_AMAE_AUTOMATED_BACKPACKS">
                 <Original>Automated weapon backpacks</Original>
                 <English>Automated weapon backpacks</English>
-				  <French>Sac à dos d'armes statiques automatisés</French>
+				<French>Sac à dos d'armes statiques automatisés</French>
                 <Russian>Рюкзаки с автоматическими турелями</Russian>
                 <Japanese>自律火器バックパック</Japanese>
                 <Chinesesimp>遥控武器背包</Chinesesimp>
@@ -2235,7 +2235,7 @@
             <Key ID="STR_AMAE_ONLY">
                 <Original>Only</Original>
                 <English>Only</English>
-				  <French>Seulement</French>
+				<French>Seulement</French>
                 <Russian>Только</Russian>
                 <Japanese>のみ</Japanese>
                 <Chinesesimp>仅</Chinesesimp>
@@ -2260,7 +2260,7 @@
             <Key ID="STR_AMAE_AMMUNITION_CRATE">
                 <Original>Ammunition Crate</Original>
                 <English>Ammunition Crate</English>
-				  <French>Caisse à munitions</French>
+				<French>Caisse à munitions</French>
                 <Russian>Ящик с боеприпасами</Russian>
                 <Japanese>弾薬箱</Japanese>
                 <Chinesesimp>弹药箱</Chinesesimp>
@@ -2269,7 +2269,7 @@
             <Key ID="STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE">
                 <Original>Ammunition Crate or Vehicle</Original>
                 <English>Ammunition Crate or Vehicle</English>
-				  <French>Caisse à munitions ou Vehicule</French>
+				<French>Caisse à munitions ou Vehicule</French>
                 <Russian>Ящик или транспортное средство</Russian>
                 <Japanese>弾薬箱か車両</Japanese>
                 <Chinesesimp>弹药箱或载具</Chinesesimp>
@@ -2278,7 +2278,7 @@
             <Key ID="STR_AMAE_CARGO_LW">
                 <Original>Cargo</Original>
                 <English>Cargo</English>
-				  <French>Cargaison</French>
+				<French>Cargaison</French>
                 <Russian>Груз</Russian>
                 <Japanese>カーゴ</Japanese>
                 <Chinesesimp>货仓</Chinesesimp>
@@ -2680,7 +2680,7 @@
             <Key ID="STR_AMAE_HINT_TYPE">
                 <Original>Hint Type</Original>
                 <English>Hint Type</English>
-				  <French>Type d'Indice</French>
+				<French>Type d'Indice</French>
                 <Japanese>ヒント種類</Japanese>
                 <Chinesesimp>提示类型</Chinesesimp>
                 <Chinese>提示類型</Chinese>
@@ -2688,7 +2688,7 @@
             <Key ID="STR_AMAE_HINT_SILENT">
                 <Original>Hint Silent</Original>
                 <English>Hint Silent</English>
-				  <French>Indice Silencieux</French>
+				<French>Indice Silencieux</French>
                 <Japanese>ヒント無音</Japanese>
                 <Chinesesimp>静默提示</Chinesesimp>
                 <Chinese>靜默提示</Chinese>
@@ -2696,7 +2696,7 @@
             <Key ID="STR_AMAE_HINT_CADET">
                 <Original>Hint Cadet</Original>
                 <English>Hint Cadet</English>
-				  <French>Indice èleve</French>
+				<French>Indice èleve</French>
                 <Japanese>ヒント候補</Japanese>
                 <Chinesesimp>候补提示</Chinesesimp>
                 <Chinese>候補提示</Chinese>
@@ -2884,7 +2884,7 @@
             <Key ID="STR_AMAE_IS_OBJECT_HIDDEN">
                 <Original>Is Object Hidden</Original>
                 <English>Is Object Hidden</English>
-				  <French>L'objet est-il cachée ?</French>
+				<French>L'objet est-il cachée ?</French>
                 <Russian>Объект скрыт?</Russian>
                 <Japanese>この物体を非表示に</Japanese>
                 <Chinesesimp>物体隐藏了么</Chinesesimp>
@@ -3321,7 +3321,7 @@
             <Key ID="STR_AMAE_ENGINE">
                 <Original>Engine</Original>
                 <English>Engine</English>
-				  <French>Moteur</French>
+				<French>Moteur</French>
                 <Russian>Двигатель</Russian>
                 <Japanese>エンジン</Japanese>
                 <Chinesesimp>引擎</Chinesesimp>
@@ -3570,7 +3570,7 @@
             <Key ID="STR_AMAE_UNBREACHABLE">
                 <Original>unbreachable</Original>
                 <English>unbreachable</English>
-				  <French>sans faille</French>
+				<French>sans faille</French>
                 <Russian>не взламывается</Russian>
                 <German>unaufbrechbar</German>
                 <Japanese>突破不可</Japanese>
@@ -3580,7 +3580,7 @@
             <Key ID="STR_AMAE_BREACHABLE">
                 <Original>breachable</Original>
                 <English>breachable</English>
-				  <French>avec faille</French>
+				<French>avec faille</French>
                 <Russian>взламывается</Russian>
                 <German>aufbrechbar</German>
                 <Japanese>突破可能</Japanese>
@@ -3727,7 +3727,7 @@
             <Key ID="STR_AMAE_DRIVER">
                 <Original>Driver</Original>
                 <English>Driver</English>
-				  <French>Conducteur</French>
+				<French>Conducteur</French>
                 <Russian>Пилот</Russian>
                 <Japanese>運転手</Japanese>
                 <Chinesesimp>驾驶</Chinesesimp>
@@ -3736,7 +3736,7 @@
             <Key ID="STR_AMAE_GUNNER">
                 <Original>Gunner</Original>
                 <English>Gunner</English>
-				  <French>Tireur</French>
+				<French>Tireur</French>
                 <Russian>Стрелок</Russian>
                 <Japanese>射手</Japanese>
                 <Chinesesimp>射手</Chinesesimp>
@@ -3795,7 +3795,7 @@
             <Key ID="STR_AMAE_ASSIGN_WEAPONS">
                 <Original>Assign Weapons To</Original>
                 <English>Assign Weapons To</English>
-				  <French>Assigner les armes à</French>
+				<French>Assigner les armes à</French>
                 <Russian>Разрешить использовать вооружение</Russian>
                 <Japanese>次の武器へ割り当て</Japanese>
                 <Chinesesimp>将武器分配给</Chinesesimp>
@@ -3890,7 +3890,7 @@
             <Key ID="STR_AMAE_SET_SR_FREQ">
                 <Original>Set Short Range radio frequencies</Original>
                 <English>Set Short Range radio frequencies</English>
-				  <French>Assigner les fréquences radio courte portée</French>
+				<French>Assigner les fréquences radio courte portée</French>
                 <Russian>Частоты для КВ рации</Russian>
                 <Japanese>短距離無線機の周波数を設定</Japanese>
                 <Chinesesimp>设定短程无线电频率</Chinesesimp>
@@ -3899,7 +3899,7 @@
             <Key ID="STR_AMAE_SET_LR_FREQ">
                 <Original>Set Long Range radio frequencies</Original>
                 <English>Set Long Range radio frequencies</English>
-				  <French>Assigner les fréquences radio longue portée</French>
+				<French>Assigner les fréquences radio longue portée</French>
                 <Russian>Частоты для рации ДВ рации</Russian>
                 <Japanese>長距離無線機の周波数を設定</Japanese>
                 <Chinesesimp>设定长程无线电频率</Chinesesimp>
@@ -3908,7 +3908,7 @@
             <Key ID="STR_AMAE_CHANNEL_X_FREQ">
                 <Original>Channel %1 frequency</Original>
                 <English>Channel %1 frequency</English>
-				  <French>Fréquence canal %1</French>
+				<French>Fréquence canal %1</French>
                 <Russian>Частота канала %1</Russian>
                 <Japanese>チャンネル %1 の周波数</Japanese>
                 <Chinesesimp>%1频道频率</Chinesesimp>
@@ -3917,7 +3917,7 @@
             <Key ID="STR_AMAE_SET_SR_RADIO_FREQ">
                 <Original>Set Frequencies for SR radio</Original>
                 <English>Set Frequencies for SR radio</English>
-				  <French>Assigner les fréquences pour les radios SR</French>
+				<French>Assigner les fréquences pour les radios SR</French>
                 <Russian>Назначьте частоты для КВ рации</Russian>
                 <Japanese>短距離無線の周波数を設定</Japanese>
                 <Chinesesimp>为短程无线电设置频率</Chinesesimp>
@@ -3926,7 +3926,7 @@
             <Key ID="STR_AMAE_SET_LR_RADIO_FREQ">
                 <Original>Set Frequencies for LR radio</Original>
                 <English>Set Frequencies for LR radio</English>
-				  <French>Assigner les fréquences pour les radios LR</French>
+				<French>Assigner les fréquences pour les radios LR</French>
                 <Russian>Назначьте частоты для  ДВ рации</Russian>
                 <Japanese>長距離無線の周波数を設定</Japanese>
                 <Chinesesimp>为长程无线电设置频率</Chinesesimp>
@@ -4147,7 +4147,7 @@
             <Key ID="STR_AMAE_DOOR_STATUS_CHANGED">
                 <Original>CHANGED STATUS OF %1 DOORS!</Original>
                 <English>CHANGED STATUS OF %1 DOORS!</English>
-				  <French>STATUT CHANGÉE DE %1 PORTES</French>
+				<French>STATUT CHANGÉE DE %1 PORTES</French>
                 <Russian>ИЗМЕНЕНО СОСТОЯНИЕ %1 ДВЕРИ(ЕЙ)!</Russian>
                 <Japanese>%1 つの扉の状態が変更されました!</Japanese>
                 <Chinesesimp>更改了%1扇门的状态！</Chinesesimp>
@@ -4156,7 +4156,7 @@
             <Key ID="STR_AMAE_X_SENSORS">
                 <Original>%1 Sensors</Original>
                 <English>%1 Sensors</English>
-				  <French>%1 Senseurs</French>
+				<French>%1 Senseurs</French>
                 <Russian>%1 радар(а,ов)</Russian>
                 <Japanese>%1 センサー</Japanese>
                 <Chinesesimp>%1传感器</Chinesesimp>
@@ -4165,7 +4165,7 @@
             <Key ID="STR_AMAE_CANNOT_BE_USED_BY_VIRTUAL_CURATORS">
                 <Original>CANNOT BE USED BY VIRTUAL CURATORS</Original>
                 <English>CANNOT BE USED BY VIRTUAL CURATORS</English>
-				  <French>NE PEUT ETRE UTILISÉE PAR LES CURATEURS VIRTUELS</French>
+				<French>NE PEUT ETRE UTILISÉE PAR LES CURATEURS VIRTUELS</French>
                 <Russian>НЕ МОЖЕТ БЫТЬ ИСПОЛЬЗОВАН ВИРТУАЛЬНЫМИ КУРАТОРАМИ!</Russian>
                 <Japanese>バーチャル キュレーターとして使用できません</Japanese>
                 <Chinesesimp>虚拟创造者无法使用此物</Chinesesimp>
@@ -4213,7 +4213,7 @@
             <Key ID="STR_AMAE_CIRCULAR_PATROL_SETUP">
                 <Original>Circular patrol path setup for units.</Original>
                 <English>Circular patrol path setup for units.</English>
-				  <French>Configuration d'un chemin de patrouille circulaire pour les unités</French>
+				<French>Configuration d'un chemin de patrouille circulaire pour les unités</French>
                 <Russian>Назначен круговой патрульный маршрут.</Russian>
                 <Japanese>ユニットが巡回する経路を設定します。</Japanese>
                 <Chinesesimp>单位环形巡逻路线已配置完成。</Chinesesimp>
@@ -4442,7 +4442,7 @@
             <Key ID="STR_AMAE_CREATE_TARGET">
                 <English>Create Target</English>
                 <Original>Create Target</Original>
-				  <French>Créer cible</French>
+				<French>Créer cible</French>
                 <Chinesesimp>创建目标</Chinesesimp>
                 <Chinese>創建目標</Chinese>
             </Key>
@@ -4568,7 +4568,7 @@
             <Key ID="STR_AMAE_FIRE_MISSION_ABORTED">
                 <Original>Fire mission aborted!</Original>
                 <English>Fire mission aborted!</English>
-				  <French>Mission de tir annulée!</French>
+				<French>Mission de tir annulée!</French>
                 <Russian>Стрельба отменена!</Russian>
                 <Japanese>砲撃支援中止!</Japanese>
                 <Chinesesimp>火力支援已终止！</Chinesesimp>
@@ -5550,7 +5550,7 @@
             <Key ID="STR_AMAE_ENYO_ADD_SB_VEST">
                 <Original>Add Vest</Original>
                 <English>Add Vest</English>
-				  <French>Ajouter Veste</French>
+				<French>Ajouter Veste</French>
                 <Russian>Добавить жилет</Russian>
                 <Japanese>ベストを追加</Japanese>
                 <Chinesesimp>添加背心</Chinesesimp>
@@ -5661,7 +5661,7 @@
             <Key ID="STR_AMAE_ABIL_TITLE">
                 <Original>Abilities</Original>
                 <English>Abilities</English>
-				  <French>Capacités</French>
+				<French>Capacités</French>
                 <Russian>Способности</Russian>
                 <Japanese>能力</Japanese>
                 <Chinesesimp>能力</Chinesesimp>
@@ -5670,7 +5670,7 @@
             <Key ID="STR_AMAE_ABIL_AIMING_ERROR">
                 <Original>Aiming error</Original>
                 <English>Aiming error</English>
-				  <French>Erreur de visée</French>
+				<French>Erreur de visée</French>
                 <Russian>Ошибка прицеливания</Russian>
                 <Japanese>照準失敗</Japanese>
                 <Chinesesimp>瞄准失误</Chinesesimp>
@@ -5679,7 +5679,7 @@
             <Key ID="STR_AMAE_ABIL_ANIM">
                 <Original>Anim</Original>
                 <English>Anim</English>
-				  <French>Anim</French>
+				<French>Anim</French>
                 <Russian>Возможно поменять анимацию</Russian>
                 <Japanese>アニメ</Japanese>
                 <Chinesesimp>动画</Chinesesimp>
@@ -5688,7 +5688,7 @@
             <Key ID="STR_AMAE_ABIL_AUTO_COMBAT">
                 <Original>Auto combat</Original>
                 <English>Auto combat</English>
-				  <French>Combat Auto</French>
+				<French>Combat Auto</French>
                 <Russian>Автоматическое начало боя</Russian>
                 <Japanese>自動戦闘</Japanese>
                 <Chinesesimp>自动战斗</Chinesesimp>
@@ -5697,7 +5697,7 @@
             <Key ID="STR_AMAE_ABIL_AUTOTARGET">
                 <Original>Autotarget</Original>
                 <English>Autotarget</English>
-				  <French>Cible Auto</French>
+				<French>Cible Auto</French>
                 <Russian>Обнаружение/выбор цели</Russian>
                 <Japanese>自動捕捉</Japanese>
                 <Chinesesimp>目标搜寻</Chinesesimp>
@@ -5706,7 +5706,7 @@
             <Key ID="STR_AMAE_ABIL_CHECK_VISIBLE">
                 <Original>Check visible</Original>
                 <English>Check visible</English>
-				  <French>Vérification de visibilité</French>
+				<French>Vérification de visibilité</French>
                 <Russian>Проверять на обнаружение себя</Russian>
                 <Japanese>射線検知</Japanese>
                 <Chinesesimp>检查瞄准线</Chinesesimp>
@@ -5715,7 +5715,7 @@
             <Key ID="STR_AMAE_ABIL_COVER">
                 <Original>Cover</Original>
                 <English>Cover</English>
-				  <French>Couverture</French>
+				<French>Couverture</French>
                 <Russian>Использовать укрытия</Russian>
                 <Japanese>遮蔽</Japanese>
                 <Chinesesimp>掩护</Chinesesimp>
@@ -5724,7 +5724,7 @@
             <Key ID="STR_AMAE_ABIL_FSM">
                 <Original>FSM</Original>
                 <English>FSM</English>
-				  <French>FSM</French>
+				<French>FSM</French>
                 <Russian>Выполнять программу действий</Russian>
                 <Japanese>FSM</Japanese>
                 <Chinesesimp>FSM</Chinesesimp>
@@ -5733,7 +5733,7 @@
             <Key ID="STR_AMAE_ABIL_MINE_DETECTION">
                 <Original>Mine Detection</Original>
                 <English>Mine Detection</English>
-				  <French>Détection Mine</French>
+				<French>Détection Mine</French>
                 <Russian>Обнаруживать мины</Russian>
                 <Japanese>地雷検知</Japanese>
                 <Chinesesimp>排查地雷</Chinesesimp>
@@ -5742,7 +5742,7 @@
             <Key ID="STR_AMAE_ABIL_MOVE">
                 <Original>Move</Original>
                 <English>Move</English>
-				  <French>Mouvement</French>
+				<French>Mouvement</French>
                 <Russian>Разрешить двигаться</Russian>
                 <Japanese>移動</Japanese>
                 <Chinesesimp>移动</Chinesesimp>
@@ -5751,7 +5751,7 @@
             <Key ID="STR_AMAE_ABIL_SUPPRESSION">
                 <Original>Suppression</Original>
                 <English>Suppression</English>
-				  <French>Suppression</French>
+				<French>Suppression</French>
                 <Russian>Реагировать на обстрел</Russian>
                 <Japanese>制圧射撃</Japanese>
                 <Chinesesimp>压制</Chinesesimp>
@@ -5760,7 +5760,7 @@
             <Key ID="STR_AMAE_ABIL_TARGET">
                 <Original>Target</Original>
                 <English>Target</English>
-				  <French>Cible</French>
+				<French>Cible</French>
                 <Russian>Отслеживать выбранную цель</Russian>
                 <Japanese>目標</Japanese>
                 <Chinesesimp>目标</Chinesesimp>
@@ -5769,7 +5769,7 @@
             <Key ID="STR_AMAE_ABIL_PATH">
                 <Original>Path</Original>
                 <English>Path</English>
-				  <French>Chemin</French>
+				<French>Chemin</French>
                 <Russian>Разрешить перемещения</Russian>
                 <Japanese>経路</Japanese>
                 <Chinesesimp>路径</Chinesesimp>
@@ -5778,7 +5778,7 @@
             <Key ID="STR_AMAE_ABIL_COWARDICE">
                 <Original>Allow fleeing</Original>
                 <English>Allow fleeing</English>
-				  <French>Autoriser fuite</French>
+				<French>Autoriser fuite</French>
                 <Russian>Трусость</Russian>
                 <Japanese>感情を許可</Japanese>
                 <Chinesesimp>允许溃逃</Chinesesimp>
@@ -5888,7 +5888,7 @@
             <Key ID="STR_AMAE_PLACING_MODULES">
                 <Original>Placing Modules</Original>
                 <English>Placing Modules</English>
-				  <French>Placement de modules</French>
+				<French>Placement de modules</French>
                 <Russian>Установка модулей</Russian>
                 <German>Module platzieren</German>
                 <Japanese>設置可能モジュール</Japanese>
@@ -5972,7 +5972,7 @@
             <Key ID="STR_AMAE_PLACING_MODULES_TIP">
                 <Original>For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.</Original>
                 <Russian>Модули, применяемые на боевых единицах (объектах), чаще всего могут быть либо помещены на боевую единицу (объект), либо на землю, чтобы применить модуль для нескольких боевых единиц (объектов).</Russian>
-				  <French>Pour les modules qui s'appliquent aux objets ou unités, ll est souvent le cas que vous pouvez le placer sur une unité ou autre part pour l'appliquer à de multiples unités.</French>
+				<French>Pour les modules qui s'appliquent aux objets ou unités, ll est souvent le cas que vous pouvez le placer sur une unité ou autre part pour l'appliquer à de multiples unités.</French>
                 <German>Du kannst Module auf mehrere Objekte oder Einheiten anwenden, indem du die Module auf eine Einheit platzierst oder in der Nähe, um sie auf mehrere Einheiten anzuwenden.</German>
                 <English>For modules that apply to objects or units, it is often the case that you can either place it on one unit or place it elsewhere to apply it to multiple units.</English>
                 <Japanese>物体またはユニットへ適用されるモジュールでは、ユニットに配置するか、別の場所に配置して複数のユニットに適用することができます。</Japanese>
@@ -6045,7 +6045,7 @@
                 <Original>Additional Key Assignments</Original>
                 <Russian>Назначение доп. клавиш</Russian>
                 <English>Additional Key Assignments</English>
-				  <French>Assignation des touches additionnels</French>
+				<French>Assignation des touches additionnels</French>
                 <Japanese>追加キー割り当て</Japanese>
                 <Chinesesimp>额外按键组合</Chinesesimp>
                 <Chinese>額外按鍵組合</Chinese>
@@ -6071,7 +6071,7 @@
                     %1%2Нажмите %3[Left Ctrl]%4 + %3[G]%4 чтобы сгруппировать людей/ТС.
                     %1%2Нажмите %3[Left Ctrl]%4 + %3[Left Shift]%4 + %3[G]%4 чтобы удалить людей/ТС из группы.
                 </Russian>
-				  <French>
+				<French>
                     Assignation des touches additionnels disponible:
                     %1%1%2Pressez %3[Ctrl Gauche]%4 + 2x %3[BGS]%4 sur l'icone de l'unité pour contrôler a distance l'IA.
                     %1%2Pressez %3[Shift Gauche]%4 + %3[G]%4 pour forcer les unités (incluant les joueurs) a éjecter du vehicule (parachutage pour les avions).
@@ -6136,7 +6136,7 @@
                 <Original>Execute Code Module</Original>
                 <Russian>Выполнить код</Russian>
                 <English>Execute Code Module</English>
-				  <French>Module d'éxecution de code</French>
+				<French>Module d'éxecution de code</French>
                 <Japanese>コード実行モジュール</Japanese>
                 <Chinesesimp>执行代码模块</Chinesesimp>
                 <Chinese>執行代碼模塊</Chinese>
@@ -6154,7 +6154,7 @@
                     %1%2%3_this select 0%4   POSITION:   координаты точки, где был расположен модуль.
                     %1%2%3_this select 1%4   OBJECT:     возвращает ObjNull или объект, на который был помещён модуль.
                 </Russian>
-				  <French>
+				<French>
                     The execute code module is only available if the server allows for its use by clients!
                     %1%1There are two built-in params available:
                     %1%2%3_this select 0%4   POSITION:   position where the module was placed.
@@ -6215,7 +6215,7 @@
                 <Original>Remote Control Vehicle Crew</Original>
                 <Russian>Дистанционное управление экипажем</Russian>
                 <English>Remote Control Vehicle Crew</English>
-				  <French>Contrôle à distance de l'équipage du vehicule</French>
+				<French>Contrôle à distance de l'équipage du vehicule</French>
                 <Japanese>車両乗員の遠隔操作</Japanese>
                 <Chinesesimp>远程遥控载具组员</Chinesesimp>
                 <Chinese>遠程遙控載具組員</Chinese>
@@ -6233,7 +6233,7 @@
                     %1 2) На транспортном средстве появится новая иконка, обозначающая выбранного члена экипажа.
                     %1 3) Нажать %3[Left Ctrl]%4 + 2x %3[RMB]%4 на иконке экипажа.
                 </Russian>
-				  <French>
+				<French>
                     Comment contrôler à distance une unité specifique a l'intérieur d'un vehicule:
                     %1 1) Selectionnez l'unité dans la liste d'édition à votre gauche.
                     %1 2) Une nouvelle icône apparaît sur le vehicule correspondant à l'unité ciblée.
@@ -6285,7 +6285,7 @@
                     Latest features: &lt;br /&gt;
                     &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Feature A &lt;br /&gt;
                 </English>
-              <French>
+                <French>
                     &lt;t size='6' shadow='0'&gt;&lt;img image='\achilles\data_f_achilles\icons\icon_achilles_hint.paa' /&gt;&lt;/t&gt; &lt;br /&gt;
                     Dernières nouveautés: &lt;br /&gt;
                     &lt;t size='0.5' &gt;&lt;img image='A3\Ui_f\data\IGUI\RscIngameUI\RscHint\indent_square' /&gt;&lt;/t&gt;Nouveauté A &lt;br /&gt;
@@ -6332,7 +6332,7 @@
                 <Original>Which icons should be displayed in the Module Tree</Original>
                 <Russian>Виды иконок, отображаемых в дереве модулей</Russian>
                 <English>Which icons should be displayed in the Module Tree</English>
-				  <French>Which icons should be displayed in the Module Tree</French>
+				<French>Which icons should be displayed in the Module Tree</French>
                 <Japanese>モジュール階層でアイコンを表示します</Japanese>
                 <Chinesesimp>哪些图标将会显示在模块层级中</Chinesesimp>
                 <Chinese>哪些圖示將會顯示在模塊層級中</Chinese>
@@ -6360,7 +6360,7 @@
             <Key ID="STR_AMAE_SETTINGS_ICON_SELECTION">
                 <Original>Icon Selection</Original>
                 <English>Icon Selection</English>
-				  <French>Sélection de l'icône</French>
+				<French>Sélection de l'icône</French>
                 <Russian>Выбор пиктограмм</Russian>
                 <Japanese>アイコン選択</Japanese>
                 <Chinesesimp>图标选择</Chinesesimp>
@@ -6369,7 +6369,7 @@
             <Key ID="STR_AMAE_SETTINGS_ACHILLES_ICON_SELECTION">
                 <Original>Achilles - Icon Selection</Original>
                 <English>Achilles - Icon Selection</English>
-				  <French>Achilles - Sélection de l'icône</French>
+				<French>Achilles - Sélection de l'icône</French>
                 <Russian>Achilles - Выбор пиктограмм</Russian>
                 <Japanese>アキレス - アイコン選択</Japanese>
                 <Chinesesimp>阿基里斯 - 图标选择</Chinesesimp>
@@ -6378,6 +6378,7 @@
             <Key ID="STR_AMAE_DEBUG_OUTPUT">
                 <Original>Debug Mode</Original>
                 <English>Debug Mode</English>
+                <French>Mode de Débogage</French>
                 <Russian>Режим отладки</Russian>
                 <Japanese>デバッグ モード</Japanese>
                 <Chinesesimp>除错模式</Chinesesimp>
@@ -6386,6 +6387,7 @@
             <Key ID="STR_AMAE_ACHILLES_DEBUG_SETTINGS">
                 <Original>Achilles - Debug</Original>
                 <English>Achilles - Debug</English>
+                <French>Achilles - Débogage</French>
                 <Russian>Achilles - Отладка</Russian>
                 <Japanese>アキレス - デバッグ</Japanese>
                 <Chinesesimp>阿基里斯 - 除错</Chinesesimp>
@@ -6402,7 +6404,7 @@
             <Key ID="STR_AMAE_SET_SR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Short Range radio default frequency</Original>
                 <English>(TFAR) Short Range radio default frequency</English>
-				  <French>(TFAR) Fréquence par défaut de la radio longue distance</French>
+				<French>(TFAR) Fréquence par défaut de la radio longue distance</French>
                 <Russian>(TFAR) Частоты для КВ рации</Russian>
                 <Japanese>(TFAR) 短距離無線機の標準周波数</Japanese>
                 <Chinesesimp>（需要TFAR模组）短程无线电默认频率</Chinesesimp>
@@ -6411,7 +6413,7 @@
             <Key ID="STR_AMAE_SET_LR_RADIO_DEFAULT_FREQ">
                 <Original>(TFAR) Long Range radio default frequency</Original>
                 <English>(TFAR) Long Range radio default frequency</English>
-				  <French>(TFAR) Fréquence par défaut de la radio longue distance</French>
+				<French>(TFAR) Fréquence par défaut de la radio longue distance</French>
                 <Russian>(TFAR) Частоты для ДВ рации</Russian>
                 <Japanese>(TFAR) 長距離無線機の標準周波数</Japanese>
                 <Chinesesimp>（需要TFAR模组）长程无线电默认频率</Chinesesimp>
@@ -6432,7 +6434,7 @@
                 <Russian>Achilles - Доступные куратору режимы зрения</Russian>
                 <German>Achilles - Zeus Sichtmodis</German>
                 <English>Achilles - Curator Vision Modes</English>
-				  <French>Achilles - Modes de Vision du Curateur</French>
+				<French>Achilles - Modes de Vision du Curateur</French>
                 <Japanese>アキレス - キュレーターの視界モード</Japanese>
                 <Chinesesimp>阿基里斯 - 创造者视野模式</Chinesesimp>
                 <Chinese>阿基裡斯 - 創造者視野模式</Chinese>
@@ -6442,7 +6444,7 @@
                 <Russian>ПНВ</Russian>
                 <German>Aktiviere Nachtsicht</German>
                 <English>Enable NVG</English>
-				  <French>Activer JVN</French>
+				<French>Activer JVN</French>
                 <Japanese>暗視装置を有効化</Japanese>
                 <Chinesesimp>开启夜视仪</Chinesesimp>
                 <Chinese>開啟夜視鏡</Chinese>
@@ -6452,7 +6454,7 @@
                 <Russian>Тепловизор - Белый горячий</Russian>
                 <German>Aktiviere Thermal - Weiß = Heiß</German>
                 <English>Enable Thermal - White Hot</English>
-				  <French>Activer Thermique - Blanc Chaud</French>
+				<French>Activer Thermique - Blanc Chaud</French>
                 <Japanese>サーマル有効化 - ホワイト ホット</Japanese>
                 <Chinesesimp>开启热成像 - 白热</Chinesesimp>
                 <Chinese>開啟熱成像 - 白熱</Chinese>
@@ -6462,7 +6464,7 @@
                 <Russian>Тепловизор - Чёрный горячий</Russian>
                 <German>Aktiviere Thermal - Schwarz = Warm</German>
                 <English>Enable Thermal - Black Hot</English>
-				  <French>Activer Thermique - Noir Chaud</French>
+				<French>Activer Thermique - Noir Chaud</French>
                 <Japanese>サーマル有効化 - ブラック ホット</Japanese>
                 <Chinesesimp>开启热成像 - 黑热</Chinesesimp>
                 <Chinese>開啟熱成像 - 黑熱</Chinese>
@@ -6472,7 +6474,7 @@
                 <Russian>Тепловизор - Зелёный на зелёном фоне</Russian>
                 <German>Aktiviere Thermal - Grün = Heiß / Schwarz = Kalt</German>
                 <English>Enable Thermal - Green Hot / Green Cold</English>
-				  <French>Activer Thermique - Vert Chaud / Vert Froid</French>
+				<French>Activer Thermique - Vert Chaud / Vert Froid</French>
                 <Japanese>サーマル有効化 - グリーン ホット/グリーン コールド</Japanese>
                 <Chinesesimp>开启热成像 - 绿热/绿冷</Chinesesimp>
                 <Chinese>開啟熱成像 - 綠熱/綠冷</Chinese>
@@ -6482,7 +6484,7 @@
                 <Russian>Тепловизор - Чёрный на зелёном фоне</Russian>
                 <German>Aktiviere Thermal - Schwarz = Heiß / Grün = Kalt</German>
                 <English>Enable Thermal - Black Hot / Green Cold</English>
-				  <French>Activer Thermique - Noir Chaud / Vert Froid</French>
+				<French>Activer Thermique - Noir Chaud / Vert Froid</French>
                 <Japanese>サーマル有効化 - ブラック ホット/グリーン コールド</Japanese>
                 <Chinesesimp>开启热成像 - 黑热/绿冷</Chinesesimp>
                 <Chinese>開啟熱成像 - 黑熱/綠冷</Chinese>
@@ -6492,7 +6494,7 @@
                 <Russian>Тепловизор - Красный горячий</Russian>
                 <German>Aktiviere Thermal - Rot = Heiß</German>
                 <English>Enable Thermal - Red Hot</English>
-				  <French>Activer Thermique - Rouge Chaud</French>
+				<French>Activer Thermique - Rouge Chaud</French>
                 <Japanese>サーマル有効化 - レッド ホット</Japanese>
                 <Chinesesimp>开启热成像 - 红热</Chinesesimp>
                 <Chinese>開啟熱成像 - 紅熱</Chinese>
@@ -6502,7 +6504,7 @@
                 <Russian>Тепловизор - Красный на красном фоне</Russian>
                 <German> Aktiviere Thermal - Schwarz = Heiß / Rot = Kalt</German>
                 <English>Enable Thermal - Black Hot / Red Cold</English>
-				  <French>Activer Thermique - Noir Chaud / Rouge Froid</French>
+				<French>Activer Thermique - Noir Chaud / Rouge Froid</French>
                 <Japanese>サーマル有効化 - ブラック ホット/レッド コールド</Japanese>
                 <Chinesesimp>开启热成像 - 黑热/红冷</Chinesesimp>
                 <Chinese>開啟熱成像 - 黑熱/紅冷</Chinese>
@@ -6512,7 +6514,7 @@
                 <Russian>Тепловизор - Белый на красном фоне</Russian>
                 <German>Aktiviere Thermal - Weiß = Heiß / Rot = Kalt</German>
                 <English>Enable Thermal - White Hot / Red Cold</English>
-				  <French>Activer Thermique - Blanc Chaud / Rouge Chaud</French>
+				<French>Activer Thermique - Blanc Chaud / Rouge Chaud</French>
                 <Japanese>サーマル有効化 - ホワイト ホット/レッド コールド</Japanese>
                 <Chinesesimp>开启热成像 - 白热/红冷</Chinesesimp>
                 <Chinese>開啟熱成像 - 白熱/紅冷</Chinese>
@@ -6522,7 +6524,7 @@
                 <Russian>Тепловизор - Белый на красном/зелёном фоне</Russian>
                 <German>Aktiviere Thermal - Rot/Grün / Weiß = Heiß</German>
                 <English>Enable Thermal - Red/Green / White Hot</English>
-				  <French>Activer Thermique - Rouge/Vert / Blanc Chaud</French>
+				<French>Activer Thermique - Rouge/Vert / Blanc Chaud</French>
                 <Japanese>サーマル有効化 - レッド/グリーン/ホワイト ホット</Japanese>
                 <Chinesesimp>开启热成像 - 红/绿/白热</Chinesesimp>
                 <Chinese>開啟熱成像 - 紅/綠/白熱</Chinese>
@@ -6532,7 +6534,7 @@
                 <Russian>Эвакуировать/десантировать пассажиров выбранного транспортного средства</Russian>
                 <German>Insassen des ausgewählten Fahrzeugs auswerfen</German>
                 <English>Eject/paradrop passengers of selected vehicle</English>
-				  <French>Éjecter/parachuter les passager du vehicule sélectioné</French>
+				<French>Éjecter/parachuter les passager du vehicule sélectioné</French>
                 <Japanese>選択した車両の乗客を脱出/空中投下</Japanese>
                 <Chinesesimp>选中载具中的乘客被紧急弹出/空投</Chinesesimp>
                 <Chinese>選中載具中的乘客被緊急彈出/空投</Chinese>
@@ -6542,7 +6544,7 @@
                 <Russian>"Глубокая" копия выбранных боевых единиц</Russian>
                 <German>Einheiten mit allen Eigenschaften kopieren</German>
                 <English>Deep copy selected units</English>
-				  <French>Copier en pronfondeur les unités</French>
+				<French>Copier en pronfondeur les unités</French>
                 <Japanese>選択したユニットを深層コピー</Japanese>
                 <Chinesesimp>深度复制选中的单位</Chinesesimp>
                 <Chinese>深度複製選中的單位</Chinese>
@@ -6552,7 +6554,7 @@
                 <Russian>Вставка "глубоко" скопированных боевых единиц</Russian>
                 <German>Einheiten mit allen Eigenschaften einfügen</German>
                 <English>Paste deep copied units</English>
-				  <French>Coller les unités profondement copiées</French>
+				<French>Coller les unités profondement copiées</French>
                 <Japanese>深層コピーされたユニットを貼りつけ</Japanese>
                 <Chinesesimp>粘贴深度复制的单位</Chinesesimp>
                 <Chinese>貼上深度複製的單位</Chinese>
@@ -6562,7 +6564,7 @@
                 <Russian>Выбранная боевая единиа бросает дымовую гранату / использует ловушки</Russian>
                 <German>Ausgewählte Einheit wirft Rauch / nutzt Kontermaßnahmen</German>
                 <English>Selected unit throws smoke / uses countermeasure</English>
-				  <French>L'unité sélectionné jette une fumigène / utilise ses contremesures</French>
+				<French>L'unité sélectionné jette une fumigène / utilise ses contremesures</French>
                 <Japanese>選択したユニットで煙幕の投てき/防御装置を使用</Japanese>
                 <Chinesesimp>选中的单位投掷烟雾弹/释放反措施装置</Chinesesimp>
                 <Chinese>選中的單位投擲煙霧彈/釋放反措施裝置</Chinese>
@@ -6572,7 +6574,7 @@
                 <Russian>Сгруппировать выделенные объекты</Russian>
                 <German>Ausgewählte Objekte gruppieren</German>
                 <English>Group selected objects</English>
-				  <French>Grouper les objets sélectionés</French>
+				<French>Grouper les objets sélectionés</French>
                 <Japanese>選択した物体をグループ化</Japanese>
                 <Chinesesimp>为选中的单位编组</Chinesesimp>
                 <Chinese>為群組選中的單位</Chinese>
@@ -6582,7 +6584,7 @@
                 <Russian>Удалить выделенные объекты из группы</Russian>
                 <German>Gruppierung von ausgewählten Objekten aufheben</German>
                 <English>Ungroup selected objects</English>
-				  <French>Dégrouper les objets sélectionnés</French>
+				<French>Dégrouper les objets sélectionnés</French>
                 <Japanese>選択した物体を非グループ化</Japanese>
                 <Chinesesimp>解除选中单位的编组</Chinesesimp>
                 <Chinese>解除選中單位的群組</Chinese>
@@ -6592,7 +6594,7 @@
                 <Russian>Увеличить яркость ПНВ</Russian>
                 <German>Nachtsicht Helligkeit erhöhen</German>
                 <English>Increase NVG brightness</English>
-				  <French>Augmenter la luminosité des JVN</French>
+				<French>Augmenter la luminosité des JVN</French>
                 <Japanese>暗視装置の明度を増加</Japanese>
                 <Chinesesimp>提高夜视仪亮度</Chinesesimp>
                 <Chinese>提高夜視鏡亮度</Chinese>
@@ -6602,7 +6604,7 @@
                 <Russian>Уменьшить яроксть ПНВ</Russian>
                 <German>Nachtsicht Helligkeit verringern</German>
                 <English>Decrease NVG brightness</English>
-				  <French>Réduire la luminosité des JVN</French>
+				<French>Réduire la luminosité des JVN</French>
                 <Japanese>暗視装置の明度を削減</Japanese>
                 <Chinesesimp>降低夜视仪亮度</Chinesesimp>
                 <Chinese>降低夜視鏡亮度</Chinese>
