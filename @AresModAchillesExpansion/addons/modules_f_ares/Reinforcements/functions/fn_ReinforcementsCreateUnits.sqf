@@ -301,51 +301,6 @@ if (_vehicleBehaviour == 0) then
 	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
 };
 
-// create a waypoint for deploying the units
-private _vehicleUnloadWp = _vehicleGroup addWaypoint [_lzPos, _lzSize];
-if (_vehicle isKindOf "Air" and (_lzdzType > 0)) then
-{
-	_vehicleUnloadWp setWaypointType "SCRIPTED";
-	private _script =
-	[
-		"\achilles\functions_f_achilles\scripts\fn_wpParadrop.sqf",
-		"\achilles\functions_f_achilles\scripts\fn_wpFastrope.sqf"
-	] select (_lzdzType isEqualTo 1);
-	_vehicleUnloadWp setWaypointScript _script;
-} else
-{
-	_vehicleUnloadWp setWaypointType "TR UNLOAD";
-};
-
-// Make the driver full skill. This makes him less likely to do dumb things
-// when they take contact.
-(driver _vehicle) setSkill 1;
-
-if (_vehicleType isKindOf "Air") then
-{
-	// Special settings for helicopters. Otherwise they tend to run away instead of land
-	// if the LZ is hot.
-	{
-		_x allowFleeing 0; // Especially for helos... They're very cowardly.
-	} forEach (crew _vehicle);
-	// armed aircrafts are unreliable when they are not CARELESS
-	_vehicleGroup setBehaviour "CARELESS";
-	_vehicleUnloadWp setWaypointTimeout [0,0,0];
-}
-else
-{
-	_vehicleUnloadWp setWaypointTimeout [5,10,20]; // Give the units some time to get away from truck
-};
-
-// Generate the waypoints for after the transport drops off the troops.
-if (_vehicle_behaviour == 0) then
-{
-	// RTB and despawn.
-	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
-	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
-	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
-};
-
 // print a confirmation
 [localize "STR_AMAE_REINFORCEMENT_DISPATCHED"] call Ares_fnc_showZeusMessage;
 
