@@ -22,7 +22,7 @@
 
 disableSerialization;
 
-private _spawn_position = position _logic;
+private _spawnPosition = position _logic;
 
 // options for selecting positions
 private _extraOptions = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
@@ -36,128 +36,148 @@ private _lzOptions = _extraOptions + _allLzNames;
 // cache: find all possible vehicles and groups for reinforcements 
 if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo []) then
 {
-	private _curator_interface = findDisplay IDD_RSCDISPLAYCURATOR;
+	private _curatorInterface = findDisplay IDD_RSCDISPLAYCURATOR;
 	
+	private _sides = SIDE_NAMES;
 	private _factions = [];
 	private _categories = [];
 	private _vehicles = [];
+	private _cargoSides = SIDE_NAMES;
 	private _cargoFactions = [];
 	private _cargoCategories = [];
 	private _cargoVehicles = [];
 	
-	for "_side_id" from 0 to (count SIDES - 1) do
+	for "_sideId" from 0 to (count SIDES - 1) do
 	{
 		// find vehicles
-		private _tree_ctrl = _curator_interface displayCtrl (CURATOR_UNITS_IDCs select _side_id);
+		private _treeCtrl = _curatorInterface displayCtrl (CURATOR_UNITS_IDCs select _sideId);
 		_factions pushBack [];
 		_categories pushBack [];
 		_vehicles pushBack [];
 		_cargoFactions pushBack [];
 		_cargoCategories pushBack [];
 		_cargoVehicles pushBack [];
-		private _faction_id = -1;
-		private _cargoFaction_id = -1;
-		for "_faction_tvid" from 0 to ((_tree_ctrl tvCount []) - 1) do
+		private _factionId = -1;
+		private _cargoFactionId = -1;
+		for "_factionTvId" from 0 to ((_treeCtrl tvCount []) - 1) do
 		{
 			private _factionIncludedInTransport = false;
 			private _factionIncludedInCargo = false;
-			private _faction = _tree_ctrl tvText [_faction_tvid];
-			private _category_id = -1;
-			private _cargoCategory_id = -1;
-			for "_category_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid]) - 1) do
+			private _faction = _treeCtrl tvText [_factionTvId];
+			private _categoryId = -1;
+			private _cargoCategoryId = -1;
+			for "_categoryTvId" from 0 to ((_treeCtrl tvCount [_factionTvId]) - 1) do
 			{
 				private _categoryIncludedInTransport = false;
 				private _categoryIncludedInCargo = false;
-				private _category = _tree_ctrl tvText [_faction_tvid,_category_tvid];
-				for "_vehicle_tvid" from 0 to ((_tree_ctrl tvCount [_faction_tvid,_category_tvid]) - 1) do
+				private _category = _treeCtrl tvText [_factionTvId,_categoryTvId];
+				for "_vehicleTvId" from 0 to ((_treeCtrl tvCount [_factionTvId,_categoryTvId]) - 1) do
 				{
-					private _vehicle = _tree_ctrl tvData [_faction_tvid,_category_tvid,_vehicle_tvid];
+					private _vehicle = _treeCtrl tvData [_factionTvId,_categoryTvId,_vehicleTvId];
 					if (not (_vehicle isKindOf "UAV_06_base_F") and {getNumber (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadMaxCargoMass") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Carrier")}}) then
 					{
 						if (not _factionIncludedInTransport) then
 						{
 							_factionIncludedInTransport = true;
-							(_factions select _side_id) pushBack _faction;
-							_faction_id = _faction_id + 1;
-							(_categories select _side_id) pushBack [];
-							(_vehicles select _side_id) pushBack [];
+							(_factions select _sideId) pushBack _faction;
+							_factionId = _factionId + 1;
+							(_categories select _sideId) pushBack [];
+							(_vehicles select _sideId) pushBack [];
 						};
 						if (not _categoryIncludedInTransport) then
 						{
 							_categoryIncludedInTransport = true;
-							(_categories select _side_id select _faction_id) pushBack _category;
-							_category_id = _category_id + 1;
-							(_vehicles select _side_id select _faction_id) pushBack [];
+							(_categories select _sideId select _factionId) pushBack _category;
+							_categoryId = _categoryId + 1;
+							(_vehicles select _sideId select _factionId) pushBack [];
 						};
-						(_vehicles select _side_id select _faction_id select _category_id) pushBack _vehicle;
+						(_vehicles select _sideId select _factionId select _categoryId) pushBack _vehicle;
 					};
 					if (count getArray (configFile >> "CfgVehicles" >> _vehicle >> "slingLoadCargoMemoryPoints") > 0 or {isClass (configFile >> "CfgVehicles" >> _vehicle >> "VehicleTransport" >> "Cargo")}) then
 					{
 						if (not _factionIncludedInCargo) then
 						{
 							_factionIncludedInCargo = true;
-							(_cargoFactions select _side_id) pushBack _faction;
-							_cargoFaction_id = _cargoFaction_id + 1;
-							(_cargoCategories select _side_id) pushBack [];
-							(_cargoVehicles select _side_id) pushBack [];
+							(_cargoFactions select _sideId) pushBack _faction;
+							_cargoFactionId = _cargoFactionId + 1;
+							(_cargoCategories select _sideId) pushBack [];
+							(_cargoVehicles select _sideId) pushBack [];
 						};
 						if (not _categoryIncludedInCargo) then
 						{
 							_categoryIncludedInCargo = true;
-							(_cargoCategories select _side_id select _cargoFaction_id) pushBack _category;
-							_cargoCategory_id = _cargoCategory_id + 1;
-							(_cargoVehicles select _side_id select _cargoFaction_id) pushBack [];
+							(_cargoCategories select _sideId select _cargoFactionId) pushBack _category;
+							_cargoCategoryId = _cargoCategoryId + 1;
+							(_cargoVehicles select _sideId select _cargoFactionId) pushBack [];
 						};
-						(_cargoVehicles select _side_id select _cargoFaction_id select _cargoCategory_id) pushBack _vehicle;
+						(_cargoVehicles select _sideId select _cargoFactionId select _cargoCategoryId) pushBack _vehicle;
 					};
 				};
 			};
+		};
+	};
+	
+	// remove side if it does not contain any factions
+	for "_sideId" from (count SIDES - 1) to 0 step -1 do
+	{
+		if ((_factions select _sideId) isEqualTo [] || {(_cargoFactions select _sideId) isEqualTo []}) then
+		{
+			_sides deleteAt _sideId;
+			_factions deleteAt _sideId;
+			_categories deleteAt _sideId;
+			_vehicles deleteAt _sideId;
+			_cargoSides deleteAt _sideId;
+			_cargoFactions deleteAt _sideId;
+			_cargoCategories deleteAt _sideId;
+			_cargoVehicles deleteAt _sideId;
 		};
 	};
 	
 	// get ammo boxes
 	private _supplySubCategories = [];
 	private _supplies = [];
-	private _tree_ctrl = _curator_interface displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
-	private _supplySubCategory_id = 0;
-	private _n_supplySubCategories = 0;
-	for "_supplyCategory_tvid" from 0 to ((_tree_ctrl tvCount []) - 1) do
+	private _treeCtrl = _curatorInterface displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY;
+	private _supplySubCategoryId = 0;
+	private _nSupplySubCategories = 0;
+	for "_supplyCategoryTvId" from 0 to ((_treeCtrl tvCount []) - 1) do
 	{
-		for "_supplySubCategory_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid]) - 1) do
+		for "_supplySubCategoryTvId" from 0 to ((_treeCtrl tvCount [_supplyCategoryTvId]) - 1) do
 		{
 			private _subCategoryIncluded = false;
-			for "_supply_tvid" from 0 to ((_tree_ctrl tvCount [_supplyCategory_tvid,_supplySubCategory_tvid]) - 1) do
+			for "_supplyTvId" from 0 to ((_treeCtrl tvCount [_supplyCategoryTvId,_supplySubCategoryTvId]) - 1) do
 			{
-				private _supply = _tree_ctrl tvData [_supplyCategory_tvid,_supplySubCategory_tvid,_supply_tvid];
+				private _supply = _treeCtrl tvData [_supplyCategoryTvId,_supplySubCategoryTvId,_supplyTvId];
 				if (not (_supply isKindOf "AllVehicles" or {_supply isKindOf "Cargo10_base_F"}) and {count getArray (configFile >> "CfgVehicles" >> _supply >> "slingLoadCargoMemoryPoints") > 0}) then
 				{
 					if (not _subCategoryIncluded) then
 					{
 						_subCategoryIncluded = true;
-						private _supplySubCategory = _tree_ctrl tvText [_supplyCategory_tvid,_supplySubCategory_tvid];
-						_supplySubCategory_id = _supplySubCategories find _supplySubCategory;
-						if (_supplySubCategory_id == -1) then 
+						private _supplySubCategory = _treeCtrl tvText [_supplyCategoryTvId,_supplySubCategoryTvId];
+						_supplySubCategoryId = _supplySubCategories find _supplySubCategory;
+						if (_supplySubCategoryId == -1) then 
 						{
 							_supplySubCategories pushBack _supplySubCategory;
-							_supplySubCategory_id = _n_supplySubCategories;
-							_n_supplySubCategories = _n_supplySubCategories + 1;
+							_supplySubCategoryId = _nSupplySubCategories;
+							_nSupplySubCategories = _nSupplySubCategories + 1;
 							_supplies pushBack [];
 						};
 					};
-					(_supplies select _supplySubCategory_id) pushBack _supply;
+					(_supplies select _supplySubCategoryId) pushBack _supply;
 				};
 			};
 		};
 	};
-	for "_supplySubCategory_id" from 0 to (_n_supplySubCategories - 1) do
+	for "_supplySubCategoryId" from 0 to (_nSupplySubCategories - 1) do
 	{
-		_supplies set [_supplySubCategory_id, [_supplies select _supplySubCategory_id, [], {getText (configFile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy]; 
+		_supplies set [_supplySubCategoryId, [_supplies select _supplySubCategoryId, [], {getText (configFile >> "CfgVehicles" >> _x >> "displayName")}] call BIS_fnc_sortBy]; 
 	};
 	
 	// cache
+	uiNamespace setVariable ["Achilles_var_supplyDrop_sides", _sides];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_factions", _factions];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_categories", _categories];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_vehicles", _vehicles];
+	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoSides", _cargoSides];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoFactions", _cargoFactions];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoCategories", _cargoCategories];
 	uiNamespace setVariable ["Achilles_var_supplyDrop_cargoVehicles", _cargoVehicles];
@@ -165,12 +185,16 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 	uiNamespace setVariable ["Achilles_var_supplyDrop_supplies", _supplies];
 };
 
+private _sides = uiNamespace getVariable ["Achilles_var_supplyDrop_sides", []];
+private _cargoSides = uiNamespace getVariable ["Achilles_var_supplyDrop_sides", []];
+if (_sides isEqualTo [] || {_cargoSides isEqualTo []}) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
+
 // Show the user the dialog
 private _dialogResult =
 [
 	localize "STR_AMAE_SUPPLY_DROP",
 	[
-		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", _sides, 0, false, [["LBSelChanged","SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE_CATEGORY", [], 0, false, [["LBSelChanged","CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", []],
@@ -178,7 +202,7 @@ private _dialogResult =
 		["COMBOBOX", localize "STR_AMAE_LZ_DZ", _lzOptions],
 		["COMBOBOX", localize "STR_AMAE_AMMUNITION_CRATE_OR_VEHICLE", [localize "STR_AMAE_AMMUNITION_CRATE", localize "STR_AMAE_VEHICLE"], 0, false, [["LBSelChanged","CARGO_TYPE"]]],
 		["COMBOBOX", localize "STR_AMAE_CARGO_LW", [localize "STR_AMAE_DEFAULT", localize "STR_AMAE_EDIT_CARGO", localize "STR_AMAE_ADD_FULL", localize "STR_AMAE_EMPTY"]],
-		["COMBOBOX", localize "STR_AMAE_SIDE", SIDE_NAMES, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
+		["COMBOBOX", localize "STR_AMAE_SIDE", _cargoSides, 0, false, [["LBSelChanged","CARGO_SIDE"]]],
 		["COMBOBOX", localize "STR_AMAE_FACTION", [], 0, false, [["LBSelChanged","CARGO_FACTION"]]],
 		["COMBOBOX", localize "STR_AMAE_CATEGORY", [], 0, false, [["LBSelChanged","CARGO_CATEGORY"]]],
 		["COMBOBOX", localize "STR_AMAE_VEHICLE", []]
@@ -190,31 +214,31 @@ if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params
 [
-	"_side_id",
-	"_faction_id",
-	"_category_id",
-	"_vehicle_id",
+	"_sideId",
+	"_factionId",
+	"_categoryId",
+	"_vehicleId",
 	"_aircraftBehaviour",
-	"_lzdz_algorithm",
+	"_lzdzAlgorithm",
 	"_cargoType",
 	"_cargoInventory",
-	"_cargoSide_id",
-	"_cargoFaction_id",
-	"_cargoCategory_id",
-	"_cargoVehicle_id"
+	"_cargoSideId",
+	"_cargoFactionId",
+	"_cargoCategoryId",
+	"_cargoVehicleId"
 ];
 
 // Choose the LZ based on what the user indicated
 
-private _lzLogic = [_spawn_position, _allLzLogics, _lzdz_algorithm] call Achilles_fnc_logicSelector;
+private _lzLogic = [_spawnPosition, _allLzLogics, _lzdzAlgorithm] call Achilles_fnc_logicSelector;
 private _lzPos = position _lzLogic;
 
-private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _side_id select _faction_id select _category_id select _vehicle_id;
+private _aircraftClassname = (uiNamespace getVariable "Achilles_var_supplyDrop_vehicles") select _sideId select _factionId select _categoryId select _vehicleId;
 if (_aircraftClassname isEqualTo "") exitWith {[localize "STR_AMAE_AIRCRAFT_SPAWN_ERROR"] call Achilles_fnc_showZeusErrorMessage};
 
-_aircraftSide = _side_id call BIS_fnc_sideType;
+_aircraftSide = _sideId call BIS_fnc_sideType;
 
-private _spawnedAircraftArray = [_spawn_position, _spawn_position getDir _lzPos, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
+private _spawnedAircraftArray = [_spawnPosition, _spawnPosition getDir _lzPos, _aircraftClassname, _aircraftSide] call BIS_fnc_spawnVehicle;
 
 _spawnedAircraftArray params ["_aircraft", "_aircraftCrew", "_aircraftGroup"];
 
@@ -228,12 +252,12 @@ _aircraftGroup allowFleeing 0;
 // spawn the cargo
 private _cargoClassname = if (_cargoType == 0) then
 {
-	(uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategory_id select _cargoVehicle_id;
+	(uiNamespace getVariable "Achilles_var_supplyDrop_supplies") select _cargoCategoryId select _cargoVehicleId;
 } else
 {
-	(uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSide_id select _cargoFaction_id select _cargoCategory_id select _cargoVehicle_id;
+	(uiNamespace getVariable "Achilles_var_supplyDrop_cargoVehicles") select _cargoSideId select _cargoFactionId select _cargoCategoryId select _cargoVehicleId;
 };
-private _cargo = _cargoClassname createVehicle _spawn_position;
+private _cargo = _cargoClassname createVehicle _spawnPosition;
 [[_cargo]] call Ares_fnc_AddUnitsToCurator;
 
 // attach the cargo to the transport vehicle

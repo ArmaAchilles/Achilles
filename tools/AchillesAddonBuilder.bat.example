@@ -1,0 +1,106 @@
+@echo off
+set "startDir=%CD%"
+REM switch to Achilles root folder
+cd ..
+set "AchillesRootFolderPath=%CD%"
+
+REM /******************************************************************************/
+REM Addon Builder script for windows (by Kex)
+REM /******************************************************************************/
+REM
+REM Description:
+REM ------------
+REM Packs all folders in sourceDir and creates corresponding *.pbo in targetDir.
+REM The script is parallelized and will create a window for each source folder.
+REM
+REM "Installation":
+REM ---------------
+REM	1) Copy AchillesAddonBuilder.bat.example and rename it to AchillesAddonBuilder.bat
+REM	2) Adjust the USER CONFIGURATIONS below
+REM 3) Make sure that the AchillesAddonBuilder from Arma 3 Tools is in the PATH env variable
+REM
+REM Usage
+REM -----
+REM Command Line Arguments:
+REM 1) (optional) version for bikey e.g. "0.0.1" ("dev" by default)
+REM
+REM Examples:
+REM ---------
+REM 1) AchillesAddonBuilder.bat 0.0.1
+REM 2) AchillesAddonBuilder.bat
+
+REM /******************************************************************************/
+REM START OF USER CONFIGURATIONS
+REM /******************************************************************************/
+
+REM optional argument: version of bikey: <prefix>_<version>.biprivatekey
+set keyVersion=%1
+
+REM Path for the folder where the source folders are located
+set "sourceDir=%AchillesRootFolderPath%\@AresModAchillesExpansion\addons"
+REM Path for the folder where the *.pbo's shall be moved
+set "targetDir=%AchillesRootFolderPath%\@AresModAchillesExpansion\addons"
+REM Prefix: you can access your addon files via \<prefix>\<pbo name>\<file>
+REM Prefix: if projPrefix is "" then \<pbo name>\<file>
+set projPrefix=achilles
+REM Prefix for your bikey: <prefix>_<version>.biprivatekey
+set privKeyPrefix=achilles
+REM Default version (if you don't specify the version as an argument): <prefix>_dev.biprivatekey
+REM if no argument is passed and keyVersionDefault="", then the addon doesn't get signed
+set "keyVersionDefault="
+REM Folder where the biprivatekey is located
+set "privKeyDir=%AchillesRootFolderPath%\@AresModAchillesExpansion\keys\private"
+REM Temporary folder
+set "tmpDir=%TEMP%"
+
+REM /******************************************************************************/
+REM END OF USER CONFIGURATIONS
+REM /******************************************************************************/
+
+REM get biprivatekey file name
+set "privKey="
+if "%keyVersion%"=="" (
+	if not "%keyVersionDefault%"=="" (
+		set privKey=%privKeyPrefix%_%keyVersion%.biprivatekey
+	)
+) else (
+	set privKey=%privKeyPrefix%_%keyVersion%.biprivatekey
+)
+
+REM Check if paths are valid
+set "invalidpath="
+if not exist "%sourceDir%" set "invalidpath=%sourceDir%"
+if not exist "%targetDir%" set "invalidpath=%targetDir%"
+if not "%privKey%"=="" (
+	if not exist "%privKeyDir%\%privKey%" set "invalidpath=%privKeyDir%\%privKey%"
+)
+if not exist "%tmpDir%" set "invalidpath=%tmpDir%"
+if not "%invalidpath%"=="" (
+	call:PERROR "%invalidpath% not found!"
+	call:PERROR "Fix your USER CONFIGURATIONS!"
+	echo HINT: Opening %0
+	start notepad %0
+	echo.
+	pause
+	goto EOS
+)
+
+cd /d %sourceDir%
+for /d %%D in (*) do (
+	if "%privKey%"=="" (
+		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
+	) else (
+		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
+	)
+)
+
+goto EOS
+
+:PERROR
+%Windir%\System32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor Red "ERROR: %1"
+GOTO:EOF
+
+:EOS
+cd /d %startDir%
+echo.
+

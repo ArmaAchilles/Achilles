@@ -114,10 +114,13 @@ waituntil {
 
 	//--- Fire!
 	if ((getposasl _plane) distance _pos < 1000 && _fireNull) then {
+		//--- Fire CM
+		[_plane, [5, 1.1]] call Achilles_fnc_LaunchCM;
 		//--- Create laser target
-		private _target = ((position _logic nearEntities ["LaserTarget",250])) param [0,objnull];
+		private _targetType = if (_planeSide getfriend west > 0.6) then {"LaserTargetW"} else {"LaserTargetE"};
+		_target = ((position _logic nearEntities [_targetType,250])) param [0,objnull];
 		if (isnull _target) then {
-			_target = createvehicle ["LaserTargetC",position _logic,[],0,"none"];
+			_target = createvehicle [_targetType,position _logic,[],0,"none"];
 		};
 		_plane reveal lasertarget _target;
 		_plane dowatch lasertarget _target;

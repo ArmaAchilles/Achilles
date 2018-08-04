@@ -25,7 +25,7 @@ class Add: RscControlsGroupNoScrollbars
 			w = "19 * (((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			colorBackground[] = {0.518,0.016,0,0.8};
-			sizeEx = 1.2 * GUI_GRID_H;
+			sizeEx = 1.2 * GUI_GRID_H_FIX;
 		};
 		class Ares_Icon_Background_Attr: IGUIBack
 		{

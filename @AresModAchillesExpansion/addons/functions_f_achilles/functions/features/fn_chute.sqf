@@ -17,7 +17,7 @@
 //	[player,3] spawn Achilles_fnc_chute;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-params ["_unit", "_delay"];
+params ["_unit", ["_delay", 0, [0]]];
 
 sleep _delay;
 
@@ -28,22 +28,34 @@ if (!isPlayer _unit) then
 	moveOut _unit;
 	unassignVehicle _unit;
 	[_unit] orderGetIn false;
-	sleep 1;
 
-	// if the unit already has a chute
-	if (backpack _unit != "" and {getText (configfile >> "CfgVehicles" >> backpack _unit >> "backpackSimulation") isEqualTo "ParachuteSteerable"}) then
+	private _backpackClass = backpack _unit;
+	if (_backpackClass != "") then
 	{
+		private _container = backpackContainer _unit;
+		private _weapon_cargo = getWeaponCargo _container;
+		private _magazine_cargo = getMagazineCargo _container;
+		private _item_cargo = getItemCargo _container;
+		
+		removeBackpack _unit;
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 120};
+		private _chuteClass = ["b_parachute", _backpackClass] select (getText (configfile >> "CfgVehicles" >> _backpackClass >> "backpackSimulation") isEqualTo "ParachuteSteerable");
+		_unit addBackpack _chuteClass;
 		_unit action ["openParachute"];
+		_unit addBackpack _backpackClass;
+		clearAllItemsFromBackpack _unit;
+		_container = backpackContainer _unit;
+		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
+		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
+		{_container addItemCargo [_x, (_item_cargo select 1) select _forEachIndex]} forEach (_item_cargo select 0);
 	} else
 	{
-		private _chute = "Steerable_Parachute_F" createVehicle [0,0,0];
-		_chute setPos (getPos _unit);
-		_chute setDir (getDir _unit);
-		_chute setVelocity (velocity _unit);
-		_unit moveInDriver _chute;
+		waitUntil {sleep 0.1; !alive _unit || getPos _unit select 2 < 120};
+		_unit addBackpack "b_parachute";
+		_unit action ["openParachute"];				
 	};
 	// prevent AI to be killed by fall damage
-	waitUntil {isTouchingGround _unit or (!alive _unit)};
+	waitUntil {sleep 0.1; isTouchingGround _unit or (!alive _unit)};
 	_unit removeEventHandler ["HandleDamage",_id];
 
 } else
@@ -61,6 +73,7 @@ if (!isPlayer _unit) then
 		private _weapon_cargo = getWeaponCargo _container;
 		private _magazine_cargo = getMagazineCargo _container;
 		private _item_cargo = getItemCargo _container;
+		
 		removeBackpack _unit;
 		_unit addBackpack "b_parachute";
 		private _packHolder = createVehicle ["groundWeaponHolder", [0,0,0], [], 0, "can_collide"];
@@ -75,6 +88,7 @@ if (!isPlayer _unit) then
 		waitUntil {isTouchingGround _unit or (getPos _unit select 2) < 1 or (!alive _unit)};
 		deleteVehicle _packHolder;
 		_unit addBackpack _backpack_class;
+		clearAllItemsFromBackpack _unit;
 		_container = backpackContainer _unit;
 		{_container addWeaponCargo [_x, (_weapon_cargo select 1) select _forEachIndex]} forEach (_weapon_cargo select 0);
 		{_container addMagazineCargo [_x, (_magazine_cargo select 1) select _forEachIndex]} forEach (_magazine_cargo select 0);
