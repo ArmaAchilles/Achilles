@@ -111,6 +111,15 @@ class CfgFunctions
 			class instantBuildingGarrison;
             class changeAccessoires;
 		};
+		class setAttribute
+		{
+			class setAttribute_group_behaviour {file = "\achilles\functions_f_achilles\functions\setAttribute\group\fn_behaviour.sqf"};
+
+			class setAttribute_unit_ability {file = "\achilles\functions_f_achilles\functions\setAttribute\unit\fn_ability.sqf"};
+			class setAttribute_unit_animation {file = "\achilles\functions_f_achilles\functions\setAttribute\unit\fn_animation.sqf"};
+			class setAttribute_unit_loadout {file = "\achilles\functions_f_achilles\functions\setAttribute\unit\fn_loadout.sqf"};
+			
+		};
 	};
 
 	class A3_Mark
