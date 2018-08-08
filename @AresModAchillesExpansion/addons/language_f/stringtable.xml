@@ -609,6 +609,11 @@
                 <Chinesesimp>治疗</Chinesesimp>
                 <Chinese>治療</Chinese>
             </Key>
+            <Key ID="STR_AMAE_IMMERSIVE_HEAL">
+                <Original>Immersive Heal</Original>
+                <English>Immersive Heal</English>
+                <German>Immersiv heilen</German>
+            </Key>
             <Key ID="STR_AMAE_AMBIENT_ANIMATION">
                 <Original>Ambient Animation</Original>
                 <English>Ambient Animation</English>
@@ -5079,6 +5084,21 @@
                 <Original>Player will be revived in a few seconds.</Original>
                 <English>Player will be revived in a few seconds.</English>
                 <German>Der Spieler wird in einigen Sekunden wiederbelebt.</German>
+            </Key>
+            <Key ID="STR_AMAE_REVIVE_PLAYER">
+                <Original>Player '%1' will be revived.</Original>
+                <English>Player '%1' will be revived.</English>
+                <German>Der Spieler '%1' wird wiederbelebt.</German>
+            </Key>
+            <Key ID="STR_AMAE_NO_PLAYER_UNCONSIOUS">
+                <Original>No player is unconsious.</Original>
+                <English>No player is unconsious.</English>
+                <German>Kein Spieler ist bewusstlos.</German>
+            </Key>
+            <Key ID="STR_AMAE_REVIE_INVALID_SELECTION">
+                <Original>Neither an unconscious player nor an AI was selected.</Original>
+                <English>Neither an unconscious player nor an AI was selected.</English>
+                <German>Weder ein Spieler noch eine AI wurde ausgewählt!</German>
             </Key>
         </Container>
         <Container name="Building damage dialog strings">
