@@ -15,9 +15,8 @@ private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 private _mode = ["single", "multiple"] select (isNull _unit);
 
-private _options = [localize "STR_AMAE_RANDOM",localize "STR_AMAE_NONE_INJURY",localize "STR_AMAE_LIGHT_INJURY", localize "STR_AMAE_SEVERE"];
-
-if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
+// ACE Medical System
+if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 {
 	if (_mode == "single") then
 	{
@@ -33,27 +32,68 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	if (_selected_units isEqualTo []) exitWith {};
 
 	{
-        if (local _x) then {[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal} else	{[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]};
-	} forEach _selected_units;
-} else
-{
-	if (_mode == "single") then
-	{
-		["Healed"] call Ares_fnc_ShowZeusMessage;
-		_selected_units = [_unit];
-	} else
-	{
-		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
-	};
-
-	// handle the case the selection was cancled
-	if (isNil "_selected_units") exitWith {};
-	if (_selected_units isEqualTo []) exitWith {};
-
-	// Vanilla Injury System
-	{
-		_x setDamage 0;
+		if (local _x) then
+		{
+			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
+		} else
+		{
+			[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]
+		};
 	} forEach _selected_units;
 };
+
+
+// Farooq's Revive System
+if (!isNil "FAR_ReviveMode") exitWith
+{
+	if (_mode == "single") then
+	{
+		_selected_units = [_unit];
+	} else
+	{
+		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
+	};
+
+	// handle the case the selection was cancled
+	if (isNil "_selected_units") exitWith {};
+	if (_selected_units isEqualTo []) exitWith {};
+
+	// check if any unit is unconscious
+	if ({  _x getVariable ["FAR_isUnconscious", 0] == 1 } count _selected_units > 0) then {
+		[localize "STR_AMAE_REVIVE_FEW_SECONDS"] call Ares_fnc_ShowZeusMessage;
+	} else
+	{
+		["Healed"] call Ares_fnc_ShowZeusMessage;
+	};
+
+	{
+		if (_x getVariable ["FAR_isUnconscious", 0] == 1) then {
+			_x setVariable ["FAR_isUnconscious", 0, true];
+			_x setVariable ["FAR_isDragged", 0, true];
+		} else
+		{
+			_x setDamage 0;
+		};
+	} forEach _selected_units;
+};
+
+// Vanilla Injury System
+
+if (_mode == "single") then
+{
+	["Healed"] call Ares_fnc_ShowZeusMessage;
+	_selected_units = [_unit];
+} else
+{
+	_selected_units = ["units"] call Achilles_fnc_SelectUnits;
+};
+
+// handle the case the selection was cancled
+if (isNil "_selected_units") exitWith {};
+if (_selected_units isEqualTo []) exitWith {};
+
+{
+	_x setDamage 0;
+} forEach _selected_units;
 
 #include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -5075,6 +5075,11 @@
                 <Chinesesimp>碾伤</Chinesesimp>
                 <Chinese>碾傷</Chinese>
             </Key>
+            <Key ID="STR_AMAE_REVIVE_FEW_SECONDS">
+                <Original>Player will be revived in a few seconds.</Original>
+                <English>Player will be revived in a few seconds.</English>
+                <German>Der Spieler wird in einigen Sekunden wiederbelebt.</German>
+            </Key>
         </Container>
         <Container name="Building damage dialog strings">
             <Key ID="STR_AMAE_LIGHT_DAMAGE">
