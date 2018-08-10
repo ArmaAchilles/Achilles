@@ -12,7 +12,7 @@
         Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 #include "\achilles\data_f_achilles\Arsenal\arsenalItems.sqf"
 
@@ -186,4 +186,4 @@ clearbackpackcargoglobal _object;
 
 [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

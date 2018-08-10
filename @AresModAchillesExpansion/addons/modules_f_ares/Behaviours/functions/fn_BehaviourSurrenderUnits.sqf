@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 //Broadcast surrender function
 if (isNil "Achilles_var_surrender_init_done") then
@@ -55,4 +55,4 @@ private _nextCaptureStateDialogResult = nil;
 	};
 } forEach (_unitsToSurrender select {alive _x});
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

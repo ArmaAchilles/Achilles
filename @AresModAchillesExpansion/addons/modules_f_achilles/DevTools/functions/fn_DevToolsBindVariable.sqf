@@ -6,7 +6,7 @@
 //  DESCRIPTION: Module for binding variables to objects
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (isNull _object) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage};
@@ -27,4 +27,4 @@ if (count _dialogResult > 0) then
     if (_dialogResult select 1 == 0) then {_object call compile format["%1 = _this;",_var]} else {[_object, compile format["%1 = _this;",_var], 0]  call Achilles_fnc_spawn};
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"
