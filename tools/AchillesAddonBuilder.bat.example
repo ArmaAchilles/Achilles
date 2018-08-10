@@ -53,6 +53,9 @@ set "privKeyDir=%AchillesRootFolderPath%\@AresModAchillesExpansion\keys\private"
 REM Temporary folder
 set "tmpDir=%TEMP%"
 
+REM Additional configurations:
+REM - AchillesAddonBuilder.include.txt contains the file types that are directly copied to the PBO
+
 REM /******************************************************************************/
 REM END OF USER CONFIGURATIONS
 REM /******************************************************************************/
@@ -88,9 +91,9 @@ if not "%invalidpath%"=="" (
 cd /d %sourceDir%
 for /d %%D in (*) do (
 	if "%privKey%"=="" (
-		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
+		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -include="%startDir%\AchillesAddonBuilder.include.txt" -temp="%tmpDir%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
 	) else (
-		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -packonly -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
+		start "AddonBuilder: %%D" cmd /c "AddonBuilder "%sourceDir%\%%D" "%targetDir%" -include="%startDir%\AchillesAddonBuilder.include.txt" -temp="%tmpDir%" -sign="%privKeyDir%\%privKey%" -prefix="%projPrefix%\%%D" -binarizeFullLogs"
 	)
 )
 
