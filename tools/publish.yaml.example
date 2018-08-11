@@ -9,17 +9,15 @@ Projects:
             source: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion"
             target: ".../ArmA3/projects/Achilles/Release/@Achilles"
             zip: ".../ArmA3/projects/Achilles/Release/{name}_{tag}.zip"
-            privateKeys: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/keys/private"
+            # privateKeys: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/keys/private"
             sourceBikey: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/keys/private/{name}_{tag}.bikey"
             targetBikey: ".../ArmA3/projects/Achilles/Release/@Achilles/keys/{name}_{tag}.bikey"
-            ignore:
-                - "*/private/"
-                - "*/Addons/*/"
+            changelogFile: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/changelog.md"
+            changelogPattern: "[#]{{3}}[\\S\\s]+?(\n[\\S\\s]+?)\n[#]{{3}}[^#]"
         GitHubRepository:
             user: ""
             project: "{name}"
             token: ""
-            changelog: "changelog.md"
         SteamPublisher:
             id: -1
             message: "{tag}\n[url=https://github.com/{GitHubRepository[user]}/{GitHubRepository[project]}/releases/tag/{tag}]Change log[/url]"

@@ -4,7 +4,10 @@ import argparse
 import discord
 import requests
 import yaml
-import subprocess, os, sys, shutil
+import os, sys, shutil
+import platform
+import subprocess
+import re
 
 if "CYGWIN" in platform.system():
 	def cygpath(path, type="u"):
@@ -34,9 +37,12 @@ class Project:
 	def publish(self, tag):
 		if not self.localRepository:
 			raise ValueError("No local repository was not yet set.\nCall <project>.setLocalRepository first.")
-		folder, zip_file = self.localRepository.pack()
+		folder, zip_file = self.localRepository.archive()
+		
 		if self.gitHubRepository:
-			release = self.gitHubRepository.createRelease(tag)
+			changelog = "### Change log" + self.localRepository.updateChanglog()
+			release = self.gitHubRepository.createRelease(tag, changelog=changelog)
+			release.publish()
 			release.uploadAsset(zip_file)
 		if self.discordWebhook:
 			self.discordWebhook.run()
@@ -46,17 +52,26 @@ class Project:
 			self.steamPublisher.run(folder)
 
 class LocalRepository:
-	def __init__(self, source="", target="", zip="", sourceBikey="", targetBikey="", ignore=()):
+	def __init__(self, source="", target="", zip="", sourceBikey="", targetBikey="", changelogFile="", changelogPattern=""):
 		self.source = source
 		self.target = target
 		self.zip = zip
 		self.sourceBikey = sourceBikey
 		self.targetBikey = targetBikey
-		self.ignore = ignore
-	def pack():
+		self.changelogFile = changelogFile
+		self.changelogPattern = changelogPattern
+		self.changelog = ""
+	
+	def updateChanglog(self):
+		with open(self.changelogFile, "r") as changelogStream:
+			match = re.search(self.changelogPattern, changelogStream.read())
+			self.changelog = match.group(1)
+			return(self.changelog)
+	
+	def archive(self):
 		# Clear target folder
-		if os.path.exists(target):
-			shutil.rmtree(target)
+		if os.path.exists(self.target):
+			shutil.rmtree(self.target)
 		# Copy project to release folder
 		# filter for ignored files/folders
 		def ignore(path, contents):
@@ -78,19 +93,17 @@ class LocalRepository:
 		return (self.target, self.zip)
 
 class GitHubRepository:
-	def __init__(self, user="", project="", token="", changelog=""):
+	def __init__(self, user="", project="", token=""):
 		self.token = token
 		self.user = user
 		self.project = project
 		self.base_api_url = "https://api.github.com/repos/{}/{}".format(user, project)
 		self.base_upload_url = "https://uploads.github.com/repos/{}/{}".format(user, project)
-		self.changelog = changelog
 		self.releases = {}
-	
 	def createRelease(self, tag, title="", **kwargs):
 		if not title:
 			title = "{} {}".format(self.project, tag)
-		release = Release(tag=tag, title=title, _repo=self, **kwargs)
+		release = self.Release(tag=tag, title=title, _repo=self, **kwargs)
 		self.releases[tag] = release
 		return(release)
 		
@@ -129,21 +142,23 @@ class GitHubRepository:
 			return(response)
 
 class SteamPublisher:
-	def __init__(self, id=-1, message="", **kwargs):
+	def __init__(self, id=-1, message="", cmd="", **kwargs):
 		self.id = id
 		self.message = message
+		self.cmd = cmd
 	def run(self, folder, message=""):
 		if not message:
 			message = self.message
-		cmd_line = [SteamPublisherCMD, "update"]
+		cmd_line = [self.cmd, "update"]
 		cmd_line.append("/id:{}".format(self.id))
 		cmd_line.append("/changeNote:{}".format(message))
 		cmd_line.append("/path:{}".format(folder))
-		subprocess.check_output(cmd_line, stdout=sys.stdout, stderr=sys.stderr)
+		subprocess.check_output(cmd_line)
 
 class DiscordWebhook:
-	def __init__(self, message="", **kwargs):
+	def __init__(self, url="", message="", **kwargs):
 		self.url = url
+		self.message = message
 	def run(self, message=""):
 		if not message:
 			message = self.message
@@ -155,23 +170,42 @@ class DiscordWebhook:
 		return(response)
 
 if __name__ == "__main__":
-	project_name, release_tag = ("Achilles", "v1.1.2")
+	if len(sys.argv)==1:
+		raise ValueError("You have to pass at least one argument.")
+	elif len(sys.argv)==2:
+		project_name = ""
+		release_tag = sys.argv[1]
+	else:
+		project_name, release_tag = sys.argv[1:3]
 	config = yaml.load(open(__file__[:-2] + "yaml", "r"))
 	common_config = config["Common"]
 	if not project_name:
 		project_name = common_config["DefaultProject"]
 	project_config = config["Projects"][project_name]
 	# Format all string config values 
-	for category, dict in project_config.items():
-		for key, value in dict.items():
-			if isinstance(str, value): 
-				project_config[category][key] = value.format(tag=release_tag, **project_config)
+	for category, value in project_config.items():
+		if isinstance(value, str):
+			project_config[category] = value.format(tag=release_tag, **project_config)
+		elif isinstance(value, dict):
+			for key, value in value.items():
+				if isinstance(value, str): 
+					project_config[category][key] = value.format(tag=release_tag, **project_config)
+	'''
+	for category, value in project_config.items():
+		if isinstance(value, str):
+			print(category, value, sep=": ")
+		elif isinstance(value, dict):
+			print(category)
+			for key, value in value.items():
+				if isinstance(value, str): 
+					print("\t" + key, value, sep=": ")
+	'''
 	# Create the project
 	project = Project(project_name)
 	# Initialize the different interfaces
-	project.setLocalRepository(**project_config["LocalRepository"])
-	project.setGitHubRepository(**project_config["GitHubRepository"])
-	project.setSteamPublisher(**project_config["SteamPublisher"])
-	project.setDiscordWebhook(**project_config["DiscordWebhook"])
+	project.localRepository = LocalRepository(**project_config["LocalRepository"])
+	project.gitHubRepository = GitHubRepository(**project_config["GitHubRepository"])
+	project.steamPublisher = SteamPublisher(**project_config["SteamPublisher"], cmd=common_config["SteamPublisherCMD"])
+	project.discordWebhook = DiscordWebhook(**project_config["DiscordWebhook"])
 	# Publish
 	project.publish(release_tag)
