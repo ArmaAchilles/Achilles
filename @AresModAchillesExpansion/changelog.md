@@ -10,6 +10,11 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
 
 ## Change log
+### v1.1.3
+#### Other
+* Feature: Automated publishing
+* Fix: Binarize files
+
 ### v1.1.2
 #### Modules
 ##### New
