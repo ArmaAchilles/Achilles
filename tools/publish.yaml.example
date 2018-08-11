@@ -1,0 +1,28 @@
+Common:
+    DefaultProject: "Achilles"
+    AddonBuilder: "AddonBuilder.exe"
+    SteamPublisherCMD: "PublisherCmd.exe"
+Projects:
+    Achilles:
+        name: "Achilles"
+        LocalRepository:
+            source: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion"
+            target: ".../ArmA3/projects/Achilles/Release/@Achilles"
+            zip: ".../ArmA3/projects/Achilles/Release/{name}_{tag}.zip"
+            privateKeys: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/keys/private"
+            sourceBikey: ".../ArmA3/projects/Achilles/@AresModAchillesExpansion/keys/private/{name}_{tag}.bikey"
+            targetBikey: ".../ArmA3/projects/Achilles/Release/@Achilles/keys/{name}_{tag}.bikey"
+            ignore:
+                - "*/private/"
+                - "*/Addons/*/"
+        GitHubRepository:
+            user: ""
+            project: "{name}"
+            token: ""
+            changelog: "changelog.md"
+        SteamPublisher:
+            id: -1
+            message: "{tag}\n[url=https://github.com/{GitHubRepository[user]}/{GitHubRepository[project]}/releases/tag/{tag}]Change log[/url]"
+        DiscordWebhook:
+            url: "https://discordapp.com/api/webhooks/..."
+            message: "{tag}\nhttps://github.com/{GitHubRepository[user]}/{GitHubRepository[project]}/releases/tag/{tag}"
