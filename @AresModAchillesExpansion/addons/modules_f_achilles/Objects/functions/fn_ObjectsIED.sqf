@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 if(isNil "Achilles_var_ied_init_done") then
 {
@@ -81,4 +81,4 @@ else
   [_object, _explosionSize, _explosionEffect, _activationDistance, _activationSide, _activationType, _isJammable, _disarmTime, _canBeDefused] remoteExec ["Achilles_fnc_createIED", 2, false];
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

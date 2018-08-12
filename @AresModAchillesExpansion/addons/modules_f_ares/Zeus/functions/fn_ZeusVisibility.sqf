@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private _dialogResult =
 [
@@ -58,4 +58,4 @@ else
 
 [_display_text] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

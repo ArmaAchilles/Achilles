@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for lock door module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private ["_buildings","_group_logic"];
 
@@ -160,4 +160,4 @@ if (_mode < 2) then
 
 [objNull, format [localize "STR_AMAE_DOOR_STATUS_CHANGED", count _logic_list]] call bis_fnc_showCuratorFeedbackMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

@@ -1,7 +1,8 @@
 @AresModAchillesExpansion/keys/private
-@Release/*
-Tools/AchillesConnectToServer.bat
-Tools/AchillesAddonBuilder.bat
+Release/*
+tools/AchillesConnectToServer.bat
+tools/AchillesAddonBuilder.bat
+tools/*.yaml
 *.bikey
 *.biprivatekey
 *.pbo
