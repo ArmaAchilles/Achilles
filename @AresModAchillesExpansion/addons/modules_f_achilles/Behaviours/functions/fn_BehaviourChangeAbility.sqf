@@ -7,10 +7,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 [_unit] call Achilles_fnc_changeAbility;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private ["_injury","_selected_units"];
 
@@ -56,4 +56,4 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	} forEach _selected_units;
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

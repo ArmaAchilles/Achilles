@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for the module "change altitude"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
@@ -42,4 +42,4 @@ if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] ca
 } forEach _objects;
 
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"

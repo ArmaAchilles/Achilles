@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.h"
 
 private _player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -48,4 +48,4 @@ private _eh_id = _player addEventHandler ["killed",
 }];
 _player setVariable ["Achilles_var_promoZeusModuleEHID", _eh_id];
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.h"
