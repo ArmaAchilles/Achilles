@@ -480,7 +480,7 @@
             <Key ID="STR_AMAE_SPAWN">
                 <Original>Spawn</Original>
                 <English>Spawn</English>
-                <French>Apparaître</French>
+                <French>Création</French>
                 <Russian>Создать</Russian>
                 <German>Spawn</German>
                 <Japanese>生成</Japanese>
@@ -712,7 +712,7 @@
             <Key ID="STR_AMAE_CREATE_SUPPRESSION_TARGET">
                 <Original>Create Suppression Target</Original>
                 <English>Create Suppression Target</English>
-                <French>Créez une cible de suppression</French>
+                <French>Créer une cible de suppression</French>
                 <Russian>Цель для подавления</Russian>
                 <German>Definiere ein Unterstützungsfeuerziel</German>
                 <Japanese>制圧目標を作成</Japanese>
@@ -772,7 +772,7 @@
             <Key ID="STR_AMAE_SPAWN_UNITS">
                 <Original>Spawn Units</Original>
                 <English>Spawn Units</English>
-                <French>Apparaître une Unité</French>
+                <French>Créer des Unités</French>
                 <Russian>Вызвать подкрепление</Russian>
                 <German>Einheiten Spawnen</German>
                 <Japanese>ユニットを作成</Japanese>
@@ -900,7 +900,7 @@
             <Key ID="STR_AMAE_SPAWN_EFFECT">
                 <Original>Spawn Effect</Original>
                 <English>Spawn Effect</English>
-                <French>Apparaître un effet</French>
+                <French>Créer un effet</French>
                 <Russian>Создать эффект</Russian>
                 <German>Effekt spawnen</German>
                 <Japanese>効果を作成</Japanese>
@@ -1070,7 +1070,7 @@
             <Key ID="STR_AMAE_ATTACH_TO">
                 <Original>Attach To</Original>
                 <English>Attach To</English>
-                <French>Attchez l'objet à</French>
+                <French>Attacher l'objet à</French>
                 <Russian>Присоединить к</Russian>
                 <German>An anderem Objekt befestigen</German>
                 <Japanese>次に取り付け</Japanese>
@@ -1159,7 +1159,7 @@
             <Key ID="STR_AMAE_ADD_NVD_TACLIGHT_IR">
                 <Original>Add NVD/Tactical Light/IR</Original>
                 <English>Add NVD/Tactical Light/IR</English>
-                <French>Ajoutez JVN/Lampe tactique/IR</French>
+                <French>Ajouter JVN/Lampe tactique/IR</French>
                 <Russian>ПНВ/ИК ЛЦУ/Фонарик</Russian>
                 <German>Nachtsichtgerät/Taktisches Licht/IR hinzufügen</German>
                 <Japanese>NVD/タクティカル ライト/IR</Japanese>
@@ -1287,7 +1287,7 @@
             <Key ID="STR_AMAE_ENYO_CREATE_IED">
                 <Original>Create IED</Original>
                 <English>Create IED</English>
-                <French>Créez un EEI</French>
+                <French>Créer un EEI</French>
                 <Russian>Создать СВУ</Russian>
                 <German>Erstelle ein Sprengfalle</German>
                 <Japanese>IED を作成</Japanese>
