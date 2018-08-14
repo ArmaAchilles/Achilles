@@ -1381,7 +1381,7 @@
             <Key ID="STR_AMAE_SWITCH_UNIT">
                 <Original>Switch unit</Original>
                 <English>Switch unit</English>
-                <French>Intervertissez l'unité</French>
+                <French>Intervertisser l'unité</French>
                 <Russian>Вселиться в боевую единицу</Russian>
                 <German>Einheit wechseln</German>
                 <Japanese>ユニット切り替え</Japanese>
@@ -2494,7 +2494,7 @@
             <Key ID="STR_AMAE_STAY_AT_LZ">
                 <Original>Stay at LZ</Original>
                 <English>Stay at LZ</English>
-                <French>Restez à la ZA</French>
+                <French>Rester à la ZA</French>
                 <Russian>Оставаться в зоне посадки</Russian>
                 <German>Bleibt bei LZ</German>
                 <Japanese>LZ に留まる</Japanese>
@@ -2714,7 +2714,7 @@
             <Key ID="STR_AMAE_CHANGE_SIDE_FOR">
                 <Original>Change side for</Original>
                 <English>Change side for</English>
-                <French>Changez le camp à</French>
+                <French>Changer le camp à</French>
                 <Russian>Изменить сторону для</Russian>
                 <German>Seite wechseln von</German>
                 <Japanese>次の陣営に変更</Japanese>
@@ -3053,7 +3053,7 @@
             <Key ID="STR_AMAE_WRITE_OR_PASTE_CODE">
                 <Original>Write or paste code in the box below</Original>
                 <English>Write or paste code in the box below</English>
-                <French>Ecrivez ou collez le code dans la boîte ci-dessous</French>
+                <French>Ecrivez ou coller le code dans la boîte ci-dessous</French>
                 <Russian>Напишите или вставьте код в строку ниже</Russian>
                 <German>Schreibe or füge Code in die untere Box ein</German>
                 <Japanese>ボックスの下にコードを記述するか貼りつけしてください</Japanese>
@@ -3420,7 +3420,7 @@
             <Key ID="STR_AMAE_FORCED_ON">
                 <Original>forced on</Original>
                 <English>forced on</English>
-                <French>allumez forcément</French>
+                <French>allumage forcé</French>
                 <Russian>принудительно включить</Russian>
                 <German>zwingend angeschaltet</German>
                 <Japanese>強制する</Japanese>
@@ -3863,7 +3863,7 @@
             <Key ID="STR_AMAE_FILL_EVENLY">
                 <Original>Fill evenly</Original>
                 <English>Fill evenly</English>
-                <French>Remplissez uniformément</French>
+                <French>Remplir uniformément</French>
                 <German>Gleichmäßig verteilen</German>
                 <Japanese>全て埋める</Japanese>
                 <Chinesesimp>均匀分配</Chinesesimp>
@@ -3872,7 +3872,7 @@
             <Key ID="STR_AMAE_SET_A_BREACHING_CHARGE">
                 <Original>Set a breaching charge</Original>
                 <English>Set a breaching charge</English>
-                <French>Mettez une charge explosive</French>
+                <French>Placer une charge explosive</French>
                 <German>Sprengladung setzen</German>
                 <Chinese>設置突破炸藥</Chinese>
                 <Chinesesimp>设置突破炸药</Chinesesimp>
@@ -4137,7 +4137,7 @@
             <Key ID="STR_AMAE_MOVE_SPAWN_POSITION_AND_PRESS_ENTER">
                 <Original>Move spawn position and press ENTER</Original>
                 <English>Move spawn position and press ENTER</English>
-                <French>Déplacez la position d'apparition et appuiez sur la touche ENTRÉE</French>
+                <French>Déplacez la position d'apparition et appuyez sur la touche ENTRÉE</French>
                 <Russian>Переместите точку возрождения м нажмите клавишу ENTER</Russian>
                 <German>Verschiebe die Spawnposition und drücke ENTER</German>
                 <Japanese>作成位置を移動させ ENTER を押します</Japanese>
@@ -4609,7 +4609,7 @@
             <Key ID="STR_AMAE_INTEL_SHARED_WITH">
                 <Original>Intel shared with</Original>
                 <English>Intel shared with</English>
-                <French>Transmettez le renseignement à</French>
+                <French>Transmettre le renseignement à</French>
                 <Russian>Разведданые будут переданы</Russian>
                 <German>Hinweis teilen mit</German>
                 <Japanese>次へ情報を共有</Japanese>
@@ -5559,7 +5559,7 @@
             <Key ID="STR_AMAE_ENYO_ADD_ECM_TO_VEHICLE">
                 <Original>Equip with IED jammer</Original>
                 <English>Equip with IED jammer</English>
-                <French>Équipez d'un brouilleur d'EEI</French>
+                <French>Équiper d'un brouilleur d'EEI</French>
                 <Russian>Добавить постановщик помех</Russian>
                 <German>Mit Sprengfallenstörsender ausrüsten</German>
                 <Japanese>IED ジャマー付きを装備</Japanese>
