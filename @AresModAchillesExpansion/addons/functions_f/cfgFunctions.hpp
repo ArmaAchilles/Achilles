@@ -8,4 +8,5 @@ class CfgFunctions
 			class module_init;
 			class module_openDialog;
 		};
+	};
 };
