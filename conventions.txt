@@ -1,0 +1,175 @@
+Modules:
+	className: Achilles_mod_${category}_${name}
+	function: Achilles_fnc_${category}_module${Name}
+		docCommentBlock:
+			/*
+				Function:
+					Achilles_fnc_${category}_module${Name}
+				Authors:
+					${Authors}
+			*/
+	
+Functions:
+	docCommentBlock:
+	/*
+		Function:
+			Achilles_fnc_${category}_${name}
+		
+		Authors:
+			${Authors}
+		
+		Description:
+			${Description}
+		
+		Parameters:
+			${paramName0}	- <${PARAMTYPE0}> ${paramDescription0} [${paramDefault0}]
+			${paramName1}	- <${PARAMTYPE1}> ${paramDescription1} [${paramDefault1}]
+		
+		Returns:
+			${returnName}	- <${RETURNTYPE}> ${returnDescription}
+		
+		Exampes:
+			(begin example)
+			$(examples)
+			(end)
+	*/
+	
+	/*
+		Function:
+			Achilles_fnc_attribute_getVirtualArsenal
+		
+		Authors:
+			Kex
+		
+		Description:
+			Returns the virtual arsenal of an object.
+			Supports vanilla as well as ACE arsenal.
+		
+		Parameters:
+			_crate				- <OBJECT> The object of which the virtual arsenal is inspected.
+			_returnNested 		- <BOOLEAN> [true] True if the function should return a nested instead of a flat array
+		
+		Returns:
+			if _returnNested:
+				_virtualCargo	- <ARRAY> of <ARRAY>
+					_virtualItems		- <ARRAY> of <STRING> List of item classes
+					_virtualWeapons		- <ARRAY> of <STRING> List of weapon classes
+					_virtualMagazines	- <ARRAY> of <STRING> List of magazine classes
+					_virtualBackpacks	- <ARRAY> of <STRING> List of backpack classes
+			else:
+				_virtualCargo	- <ARRAY> of <STRING> All item/weapon/magazine/backpack classes
+		
+		Exampes:
+			(begin example)
+			_cargo = [_ammoBox, true] call Achilles_fnc_attribute_getVirtualArsenal;
+			_cargo params ["_items","_weapons","_magazines","_backpacks"];
+			(end)
+	*/
+
+/*
+	Function:
+		Modifier Module
+	Authors:
+		Kex
+*/
+
+params
+[
+	["_mode", "", [""]],
+	["_moduleParams", [], [[]]]
+];
+_moduleParams params
+[
+	["_logic", objNull, [objNull]],
+	["_isActivated", true, [true]],
+	["_isCuratorPlaced", true, [true]],
+	["_params", [], []]
+];
+
+switch (_mode) do
+{
+	case "init":
+	{
+		[] call Achilles_fnc_module_init;
+		private _selectedUnits = ["OBJECT", "Man"] call Achilles_fnc_module_getSelectedEntities;
+		[
+			localize "STR_AMAE_ACE_INJURY",
+			[
+				...
+			]
+		] call Achilles_fnc_module_openDialog;
+	};
+	case "confirmed":
+	{
+		deleteVehicle _logic;
+		["Confirmed"] call Achilles_fnc_module_printMessage;
+		["Confirmed"] call Achilles_fnc_module_printError;
+	};
+	case "canceled":
+	{
+		deleteVehicle _logic;
+	};
+};
+
+
+
+
+/*
+	Function:
+		Persistent Module (editable)
+	Authors:
+		Kex
+*/
+
+params
+[
+	["_mode", "", [""]],
+	["_moduleParams", [], [[]]]
+];
+_moduleParams params
+[
+	["_logic", objNull, [objNull]],
+	["_isActivated", true, [true]],
+	["_isCuratorPlaced", true, [true]],
+	["_params", [], []]
+];
+
+// Only executed on the curator's machine
+if !(local _logic) exitWith {};
+
+switch (_mode) do
+{
+	case "init":
+	{
+		[] call Achilles_fnc_module_init;
+		["edit", _moduleParams] call _fnc_scriptName;
+	};
+	case "confirmed":
+	{
+	};
+	case "canceled":
+	{
+	};
+	case "edit":
+	{
+		[
+			localize "STR_AMAE_ACE_INJURY",
+			[
+				...
+			]
+		] call Achilles_fnc_module_openDialog;
+	};
+	case "onModuleDoubleClicked":
+	{
+		["edit", _moduleParams] call _fnc_scriptName;
+	};
+	case "onModuleEdited":
+	{
+	};
+	case "onModuleSelected":
+	{
+	};
+	case "onModuleDeleted":
+	{
+	};
+};
