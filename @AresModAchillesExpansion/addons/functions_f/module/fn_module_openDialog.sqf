@@ -23,7 +23,7 @@
 
 private _dialog = findDisplay ACHILLES_IDD_SHOW_CHOOSE;
 _dialog setVariable ["logic", _logic];
-_buttonOk = _dialog displayCtrl ACHILLES_IDC_BUTTON_OK;
+private _buttonOk = _dialog displayCtrl ACHILLES_IDC_BUTTON_OK;
 _buttonOk ctrlAddEventHandler ["ButtonClick",
 {
 	params ["_ctrl"];
@@ -34,7 +34,7 @@ _buttonOk ctrlAddEventHandler ["ButtonClick",
 	["confirmed", [_logic, true, true, _return]] call _handle;
 	closeDialog 1;
 }];
-_buttonCancel = _dialog displayCtrl ACHILLES_IDC_BUTTON_CANCEL;
+private _buttonCancel = _dialog displayCtrl ACHILLES_IDC_BUTTON_CANCEL;
 _buttonCancel ctrlAddEventHandler ["ButtonClick",
 {
 	params ["_ctrl"];
