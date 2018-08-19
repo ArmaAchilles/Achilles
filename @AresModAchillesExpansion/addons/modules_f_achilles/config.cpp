@@ -12,8 +12,6 @@ class CfgPatches
 
 		units[] =
 		{
-			"Achilles_ACE_Injury_Module",
-			"Achilles_ACE_Heal_Module",
 			"Achilles_Animation_Module",
 			"Achilles_Chatter_Module",
 			"Achilles_Sit_On_Chair_Module",

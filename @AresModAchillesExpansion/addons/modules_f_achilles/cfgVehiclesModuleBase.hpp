@@ -59,7 +59,6 @@ class CfgVehicles
 	class Thing : All {};
 	class ModuleEmpty_F : Thing {};
 
-	#include "ACE\cfgVehiclesModulesACE.hpp"
 	#include "Arsenal\cfgVehiclesModulesArsenal.hpp"
 	#include "Behaviours\cfgVehiclesModulesBehaviours.hpp"
 	#include "Buildings\cfgVehiclesModulesBuildings.hpp"
