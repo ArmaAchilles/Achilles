@@ -7,7 +7,7 @@
 	
 	Description:
 		Opens a scripted module dialog
-		_logic must be defined in the upper scope!
+		The local variable _logic must be defined in the caller scope!
 	
 	Parameters:
 		none
