@@ -25,7 +25,7 @@
 
 params
 [
-	[_message, "ERROR", ["",[]]]
+	["_message", "ERROR", ["",[]]]
 ];
 
 [objNull, _message] call BIS_fnc_showCuratorFeedbackMessage;
