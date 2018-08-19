@@ -22,8 +22,8 @@ Functions:
 			${Description}
 		
 		Parameters:
-			${paramName0}	- <${PARAMTYPE0}> ${paramDescription0} [${paramDefault0}]
-			${paramName1}	- <${PARAMTYPE1}> ${paramDescription1} [${paramDefault1}]
+			${paramName0}	- <${PARAMTYPE0}> ${paramDescription0}
+			${paramName1}	- <${PARAMTYPE1}> [${paramDefault1}] ${paramDescription1} 
 		
 		Returns:
 			${returnName}	- <${RETURNTYPE}> ${returnDescription}
@@ -90,8 +90,11 @@ switch (_mode) do
 {
 	case "init":
 	{
-		[] call Achilles_fnc_module_init;
-		private _selectedUnits = ["OBJECT", "Man"] call Achilles_fnc_module_getSelectedEntities;
+		["selection", ["OBJECT", "MAN"]] call Achilles_fnc_module_init;
+	};
+	case "postinit":
+	{
+		private _selectedUnits = _logic getVariable ["#selection", []];
 		[
 			localize "STR_AMAE_ACE_INJURY",
 			[
@@ -102,8 +105,8 @@ switch (_mode) do
 	case "confirmed":
 	{
 		deleteVehicle _logic;
-		["Confirmed"] call Achilles_fnc_module_printMessage;
-		["Confirmed"] call Achilles_fnc_module_printError;
+		["Confirmed"] call Achilles_fnc_printZeusMessage;
+		["Error"] call Achilles_fnc_printZeusError;
 	};
 	case "canceled":
 	{
@@ -141,7 +144,10 @@ switch (_mode) do
 {
 	case "init":
 	{
-		[] call Achilles_fnc_module_init;
+		["base"] call Achilles_fnc_module_init;
+	};
+	case "postinit":
+	{
 		["edit", _moduleParams] call _fnc_scriptName;
 	};
 	case "confirmed":

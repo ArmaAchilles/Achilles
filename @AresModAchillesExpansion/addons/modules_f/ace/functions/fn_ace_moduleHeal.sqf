@@ -25,8 +25,11 @@ switch (_mode) do
 {
 	case "init":
 	{
-		[_logic] call Achilles_fnc_moduleInit;
-		private _selectedUnits = [_logic, objNull, "man"] call Achilles_fnc_getSelectedEntities;
+		["selection", ["OBJECT", "Man"]] call Achilles_fnc_module_init;
+	};
+	case "postinit":
+	{
+		private _selectedUnits = _logic getVariable ["#selection", []];
 		deleteVehicle _logic;
 		if (_selectedUnits isEqualTo []) exitWith {};
 		

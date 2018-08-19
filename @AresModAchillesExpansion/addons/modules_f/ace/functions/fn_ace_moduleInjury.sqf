@@ -5,6 +5,10 @@
 		Kex
 */
 
+#define INJURY_TYPES	["bullet", "grenade", "explosive", "shell", "stab", "vehiclecrash"]
+#define HEARTH_RATES	[160, 80, 40, 19]
+#define BLOOD_PRESSURES	[100, 70, 40]
+
 params
 [
 	["_mode", "", [""]],
@@ -24,55 +28,19 @@ switch (_mode) do
 {
 	case "init":
 	{
-		switch (_caller) do
-		{
-			case "":
-			{
-				[_logic] call Achilles_fnc_common_moduleInit;
-				["dialog", _params] call _fnc_scriptName;
-			};
-			case "dialog":
-			{
-			};
-		};
+		["selection", ["OBJECT", "Man"]] call Achilles_fnc_module_init;
 	};
-	case "dialog":
+	case "postinit":
 	{
-		[
-			localize "STR_AMAE_ACE_INJURY",
-			[
-				["COMBOBOX", localize "STR_AMAE_TYPE",[localize "STR_AMAE_BULLET", localize "STR_AMAE_GRENADE", localize "STR_AMAE_EXPLOSIVE", localize "STR_AMAE_SHRAPNEL", localize "STR_AMAE_STAB", localize "STR_AMAE_CRASH"]],
-				["COMBOBOX", localize "STR_AMAE_HEAD",_severity_options],
-				["COMBOBOX", localize "STR_AMAE_TORSO",_severity_options],
-				["COMBOBOX", localize "STR_AMAE_RIGHT_ARM",_severity_options],
-				["COMBOBOX", localize "STR_AMAE_LEFT_ARM",_severity_options],
-				["COMBOBOX", localize "STR_AMAE_RIGHT_LEG",_severity_options],
-				["COMBOBOX", localize "STR_AMAE_LEFT_LEG",_severity_options],
-				["SLIDER", localize "STR_AMAE_PAIN_LEVEL"],
-				["COMBOBOX", localize "STR_AMAE_HEARTH_RATE", [[localize "STR_AMAE_HIGH", format ["(%1 BPM)", (HEARTH_RATES select 0)]], [localize "STR_AMAE_NORMAL", format ["(%1 BPM)", (HEARTH_RATES select 1)]], [localize "STR_AMAE_LOW", format ["(%1 BPM)", (HEARTH_RATES select 2)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 BPM)", (HEARTH_RATES select 3)]]], 1],
-				["COMBOBOX", localize "STR_AMAE_BLOOD_PRESSURE",[[localize "STR_AMAE_NORMAL", format ["(%1 systolic)", (BLOOD_PRESSURES select 0)]], [localize "STR_AMAE_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 1)]], [localize "STR_AMAE_TOO_LOW", format ["(%1 systolic)", (BLOOD_PRESSURES select 2)]]]],
-				["COMBOBOX", localize "STR_AMAE_FORCE_UNCONSIOUSNESS",[localize "STR_AMAE_NO",localize "STR_AMAE_YES"]]
-			]
-		] call Achilles_fnc_openScriptedDialog;
+		private _selectedUnits = _logic getVariable ["#selection", []];
 	};
-	case "onModuleDoubleClicked":
+	case "confirmed":
 	{
 	};
-	case "onModuleEdited":
-	{
-	};
-	case "onModuleSelected":
-	{
-	};
-	case "onModuleDeleted":
+	case "canceled":
 	{
 	};
 };
-#include "\achilles\modules_f_ares\module_header.h"
-
-#define INJURY_TYPES	["bullet", "grenade", "explosive", "shell", "stab", "vehiclecrash"]
-#define HEARTH_RATES	[160, 80, 40, 19]
-#define BLOOD_PRESSURES	[100, 70, 40]
 
 private ["_injury_value_list","_selected_units","_value"];
 
@@ -224,5 +192,3 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 		};
 	} forEach _selected_units;
 };
-
-#include "\achilles\modules_f_ares\module_footer.h"
