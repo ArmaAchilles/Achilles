@@ -1772,6 +1772,10 @@
                 <Original>Smoke grenades unavailable for %1!</Original>
                 <English>Smoke grenades unavailable for %1!</English>
             </Key>
+			<Key ID="STR_AMAE_FRAG_GRENADES_UNAVAILABLE">
+                <Original>Frag grenades unavailable for %1!</Original>
+                <English>Frag grenades unavailable for %1!</English>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -6572,6 +6576,10 @@
                 <Japanese>選択したユニットで煙幕の投てき/防御装置を使用</Japanese>
                 <Chinesesimp>选中的单位投掷烟雾弹/释放反措施装置</Chinesesimp>
                 <Chinese>選中的單位投擲煙霧彈/釋放反措施裝置</Chinese>
+            </Key>
+			<Key ID="STR_AMAE_KEY_THROW_FRAG_GRENADE">
+                <Original>Selected unit throws a frag grenade</Original>
+                <English>Selected unit throws a frag grenade</English>
             </Key>
             <Key ID="STR_AMAE_KEY_GROUP">
                 <Original>Group selected objects</Original>

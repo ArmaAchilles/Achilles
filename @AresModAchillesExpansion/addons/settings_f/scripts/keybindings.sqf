@@ -107,7 +107,7 @@
 				}
 				else
 				{
-				[vehicle _x] call Achilles_fnc_LaunchCM;
+					[vehicle _x] call Achilles_fnc_LaunchCM;
 				};
 			} forEach _vehicles;
 			true;
@@ -116,6 +116,29 @@
 	}, 
 	"", 
 	[DIK_C, [false, false, false]]
+] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_AMAE_ACHILLES",
+	"Achilles_id_throwFragGrenade", 
+	localize "STR_AMAE_KEY_THROW_FRAG_GRENADE", 
+	{
+		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
+		{
+			private _units = curatorSelected select 0;
+			if (isNil "_units") exitWith {};
+			{
+				if (_x isKindOf "Man") then
+				{
+					[_x] call Achilles_fnc_throwFragGrenade;
+				};
+			} forEach _units;
+			true;
+		};
+		false;
+	}, 
+	"", 
+	[DIK_C, [false, false, true]]
 ] call CBA_fnc_addKeybind;
 
 [

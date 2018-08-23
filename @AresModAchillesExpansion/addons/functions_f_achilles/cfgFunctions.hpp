@@ -111,6 +111,7 @@ class CfgFunctions
 			class instantBuildingGarrison;
             class changeAccessoires;
 			class throwSmokeGrenade;
+			class throwFragGrenade;
 		};
 	};
 
