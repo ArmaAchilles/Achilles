@@ -1762,7 +1762,7 @@
                 <Chinesesimp>无可用武器！</Chinesesimp>
                 <Chinese>無可用武器！</Chinese>
             </Key>
-            <Key ID="STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER">
+            <Key ID="STR_AMAE_NO_VEHICLES_AVAILABLE_CHECK_FACTION_FILTER">
                 <Original>No vehicles available! Check your faction filter settings!</Original>
                 <English>No vehicles available! Check your faction filter settings!</English>
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>

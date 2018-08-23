@@ -187,7 +187,7 @@ if (uiNamespace getVariable ["Achilles_var_supplyDrop_factions", []] isEqualTo [
 
 private _sides = uiNamespace getVariable ["Achilles_var_supplyDrop_sides", []];
 private _cargoSides = uiNamespace getVariable ["Achilles_var_supplyDrop_sides", []];
-if (_sides isEqualTo [] || {_cargoSides isEqualTo []}) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_sides isEqualTo [] || {_cargoSides isEqualTo []}) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE_CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Show the user the dialog
 private _dialogResult =

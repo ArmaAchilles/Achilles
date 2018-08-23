@@ -146,7 +146,7 @@ if (uiNamespace getVariable ["Achilles_var_nestedList_vehicleFactions", []] isEq
 };
 
 private _vehicleSides = uiNamespace getVariable ["Achilles_var_nestedList_vehicleSides", []];
-if (_vehicleSides isEqualTo []) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_vehicleSides isEqualTo []) exitWith {[localize "STR_AMAE_NO_VEHICLES_AVAILABLE_CHECK_FACTION_FILTER"] call Achilles_fnc_ShowZeusErrorMessage};
 
 // Show the user the dialog
 private _dialogResult =
