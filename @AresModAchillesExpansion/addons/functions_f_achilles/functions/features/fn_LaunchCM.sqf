@@ -25,66 +25,41 @@ private _isVehicleAir = _vehicle isKindOf "Air";
 private _smokeType = ["smokeshell", "magazine"] select _isVehicleAir;
 private _weaponClasses = [ALL_SL_WEAP_CLASSES, ALL_CM_WEAP_CLASSES] select _isVehicleAir;
 
-private _allSmokeMagazines = [];
+// Get all smokes and countermeasures from a vehicle's inventory
+private _allSmokeMagazines =
+[
+	magazinesAllTurrets _vehicle,
+	[],
+	{_x select 0},
+	"ASCEND",
+	{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
+] call BIS_fnc_sortBy;
 
-// If the object is a man
-if (_vehicle isKindOf "Man") then
+if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+
+private _turretPath = (_allSmokeMagazines select 0) select 1;
+private _weapons = _vehicle weaponsTurret _turretPath;
+private _CMWeapons = _weapons arrayIntersect _weaponClasses;
+private _CMWeapon = _CMWeapons select 0;
+
+// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)
+if (_vehicle isKindOf "LandVehicle" || _vehicle isKindOf "Ship") then
 {
-	// Get all of our smokes in the inventory
-	_allSmokeMagazines =
-	[
-		magazinesAmmoFull _vehicle,
-		[],
-		{_x select 0},
-		"ASCEND",
-		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && (_x select 2)}
-	] call BIS_fnc_sortBy;
+	[_vehicle, _CMWeapon] call BIS_fnc_fire;
+};
 
-	// Display different messages if the unit doesn't have any smokes
-	if (_allSmokeMagazines isEqualTo []) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
-
-	// Make the unit throw the smoke grenade
-	private _smokeMuzzle = (_allSmokeMagazines select 0) select 4;
-	[_vehicle, _smokeMuzzle] call BIS_fnc_fire;
-}
-else
+// If the vehicle is an aircraft
+if (_isVehicleAir) then
 {
-	// Get all smokes and countermeasures from a vehicle's inventory
-	_allSmokeMagazines =
-	[
-		magazinesAllTurrets _vehicle,
-		[],
-		{_x select 0},
-		"ASCEND",
-		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
-	] call BIS_fnc_sortBy;
-
-	if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
-
-	private _turretPath = (_allSmokeMagazines select 0) select 1;
-	private _weapons = _vehicle weaponsTurret _turretPath;
-	private _CMWeapons = _weapons arrayIntersect _weaponClasses;
-	private _CMWeapon = _CMWeapons select 0;
-
-	// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)
-	if (_vehicle isKindOf "LandVehicle" || _vehicle isKindOf "Ship") then
+	[_vehicle,_CMWeapon, _flareParams] spawn
 	{
-		[_vehicle, _CMWeapon] call BIS_fnc_fire;
-	};
-
-	// If the vehicle is an aircraft
-	if (_isVehicleAir) then
-	{
-		[_vehicle,_CMWeapon, _flareParams] spawn
+		params["_vehicle", "_CMWeapon", "_flareParams"];
+		_flareParams params ["_flareCounts", "_delay"];
+		for "_i" from 0 to _flareCounts do
 		{
-			params["_vehicle", "_CMWeapon", "_flareParams"];
-			_flareParams params ["_flareCounts", "_delay"];
-			for "_i" from 0 to _flareCounts do
-			{
-				[_vehicle, _CMWeapon] call BIS_fnc_fire;
-				sleep _delay;
-			};
+			[_vehicle, _CMWeapon] call BIS_fnc_fire;
+			sleep _delay;
 		};
 	};
 };

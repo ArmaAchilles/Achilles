@@ -101,7 +101,14 @@
 			private _vehicles = curatorSelected select 0;
 			if (isNil "_vehicles") exitWith {};
 			{
+				if (_x isKindOf "Man") then
+				{
+					[_x] call Achilles_fnc_throwSmokeGrenade;
+				}
+				else
+				{
 				[vehicle _x] call Achilles_fnc_LaunchCM;
+				};
 			} forEach _vehicles;
 			true;
 		};
