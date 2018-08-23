@@ -1768,6 +1768,10 @@
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
             </Key>
+			<Key ID="STR_AMAE_SMOKE_GRENADES_UNAVAILABLE">
+                <Original>Smoke grenades unavailable for %1!</Original>
+                <English>Smoke grenades unavailable for %1!</English>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
