@@ -6609,6 +6609,10 @@
                 <Chinesesimp>降低夜视仪亮度</Chinesesimp>
                 <Chinese>降低夜視鏡亮度</Chinese>
             </Key>
+			<Key ID="STR_AMAE_KEY_TOGGLEINCLUDECREW">
+				<Original>Toggle include crew</Original>
+				<English>Toggle include crew</English>
+			</Key>
         </Container>
     </Package>
 </Project>

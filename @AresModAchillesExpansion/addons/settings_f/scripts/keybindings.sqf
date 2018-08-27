@@ -142,3 +142,23 @@
 	"", 
 	[DIK_PGDN, [false, false, true]]
 ] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_AMAE_ACHILLES",
+	"Achilles_id_toggleIncludeCrew", 
+	localize "STR_AMAE_KEY_TOGGLEINCLUDECREW", 
+	{
+		if (isNil "Achilles_var_deleteCrewOnSpawn") then
+		{
+			Achilles_var_deleteCrewOnSpawn = true;
+			((findDisplay 312) displayCtrl 2801) cbSetChecked false;
+		}
+		else
+		{
+			Achilles_var_deleteCrewOnSpawn = nil;
+			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
+		};
+	},
+	"",
+	[DIK_LMENU, [false, false, false]]
+] call CBA_fnc_addKeybind;
