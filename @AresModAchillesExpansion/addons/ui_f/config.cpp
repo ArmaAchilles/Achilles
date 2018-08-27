@@ -34,3 +34,4 @@ class CfgPatches
 #include "cfgResources.hpp"
 #include "cfgHints.hpp"
 #include "cfgMods.hpp"
+#include "ACE_ZeusActions.hpp"
