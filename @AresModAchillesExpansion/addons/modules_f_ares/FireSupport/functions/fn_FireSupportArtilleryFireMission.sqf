@@ -11,15 +11,6 @@ private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDispl
 
 _objects = nearestObjects [(_this select 0), ["All"], 150, true];
 
-// Filter for artillery
-private _filteredObjects = [];
-{
-	_ammo = getArtilleryAmmo [_x];
-	if (count _ammo > 0) then {	_filteredObjects pushBack _x; };
-
-} forEach _objects;
-
-
 /**
  * Group by type. The structure of batteries is
  * [
@@ -29,27 +20,37 @@ private _filteredObjects = [];
  */
 private _batteries = [];
 {
-	private _type = getText(configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
-	private _alreadyContained = count (_batteries select {_x find _type > -1}) > 0;
-
-	if (!_alreadyContained) then
+	if (_x isKindOf "B_Ship_MRLS_01_base_F") then
 	{
-		_ammo = getArtilleryAmmo [_x];
-		_batteries pushBack [_type, [_x], _ammo];
+		// handle VLS
+		_ammo = magazines _x;
 	}
 	else
 	{
-		private _unit = _x;
-		{
-			private _battery = _x;
-			private _units = _battery select 1;
-			private _unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
-
-			if (_unitType == (_battery select 0)) then { _units pushBack _unit };
-		} forEach _batteries;
+		_ammo = getArtilleryAmmo [_x];
 	};
+	if (count _ammo > 0) then
+	{
+		private _type = getText(configfile >> "CfgVehicles" >> (typeOf _x) >> "displayName");
+		private _alreadyContained = count (_batteries select {_x find _type > -1}) > 0;
 
-} forEach _filteredObjects;
+		if (!_alreadyContained) then
+		{
+			_batteries pushBack [_type, [_x], _ammo];
+		}
+		else
+		{
+			private _unit = _x;
+			{
+				private _battery = _x;
+				private _units = _battery select 1;
+				private _unitType = getText (configfile >> "CfgVehicles" >> (typeOf _unit) >> "displayName");
+
+				if (_unitType == (_battery select 0)) then { _units pushBack _unit };
+			} forEach _batteries;
+		};
+	};
+} forEach _objects;
 
 // pick battery
 if (_batteries isEqualTo []) exitWith { [localize "STR_AMAE_NO_NEARBY_ARTILLERY_UNITS"] call Ares_fnc_ShowZeusMessage; };
@@ -68,16 +69,17 @@ private _mode = _pickBatteryResult select 1;
 
 // Pick fire mission details
 private _fireMission = nil;
-private _units = _battery select 1;
-private _artilleryAmmo = _battery select 2;
-
-_artilleryAmmoDisplayName = (_battery select 2) apply {getText (configFile >> "CfgMagazines" >> _x >> "displayName")};
+_battery params ["", "_units", "_artilleryAmmo"];
+private _firstUnit = _units param [0, objNull];
+private _isVLS = _firstUnit isKindOf "B_Ship_MRLS_01_base_F";
+private _artilleryAmmoDisplayName = _artilleryAmmo apply {getText (configFile >> "CfgMagazines" >> _x >> "displayName")};
 
 private _numberOfGuns = [];
 {
 	_numberOfGuns pushBack (str (_forEachIndex + 1));
 } forEach _units;
 
+private _selectedTarget = objNull;
 if (_mode == 0) then
 {
 	private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Universal_Target_Module";
@@ -108,12 +110,19 @@ if (_mode == 0) then
 	private _targetChooseAlgorithm = _pickFireMissionResult select 3;
 
 	// Make sure we only consider targets that are in range.
-	private _targetsInRange = _allTargets select {(position _x) inRangeOfArtillery [[_units select 0], _ammo]};
-
+	private _targetsInRange = if (_isVLS) then
+	{
+		_allTargets
+	}
+	else
+	{
+		_allTargets select {(position _x) inRangeOfArtillery [[_units select 0], _ammo]}
+	};
+	
 	if (count _targetsInRange > 0) then
 	{
 		// Choose a target to fire at
-		private _selectedTarget = switch (_targetChooseAlgorithm) do
+		_selectedTarget = switch (_targetChooseAlgorithm) do
 		{
 			case 0: // Random
 			{
@@ -162,26 +171,69 @@ if (_mode == 0) then
 
 if (isNil "_targetPos") exitWith {[localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F"};
 
-// Generate a list of the actual units to fire.
-private _gunsToFire = [];
-for "_i" from 1 to _guns do
-{
-	_gunsToFire pushBack (_units select (_i - 1));
-};
-
-// Get the ETA and exit if any one of the guns can't reach the target.
 private _roundEta = 99999;
+// Generate a list of the actual units to fire.
+private _gunsToFire = _units select [0, _guns];
+if (_isVLS) then
 {
-	_roundEta = _roundEta min (_x getArtilleryETA [_targetPos, _ammo]);
-} forEach _gunsToFire;
-if (_roundEta == -1) exitWith { [localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; };
+	// handle VLS
+	private _weaponClass = (weapons _firstUnit) param [0,""];
+	private _missileClass = getText (configfile >> "CfgMagazines" >> _ammo >> "ammo");
+	private _missileMaxSpeed = getNumber (configfile >> "CfgAmmo" >> _missileClass >> "maxSpeed");
+	private _reloadTime = getNumber (configFile >> "cfgWeapons" >> _weaponClass >> "reloadTime");
+	private _magazineReloadTime = (1.3*getNumber (configfile >> "CfgWeapons" >> _weaponClass >> "magazineReloadTime"));
+	systemChat str [_reloadTime, _magazineReloadTime];
+	_roundEta = _roundEta min ((_targetPos distance _firstUnit) / _missileMaxSpeed);
+	{
+		[_x, _weaponClass, _ammo, _rounds, _roundEta, _reloadTime, _magazineReloadTime, _targetPos, _selectedTarget, _precision] spawn
+		{
+			params ["_unit", "_weaponClass", "_ammo", "_rounds", "_roundEta", "_reloadTime", "_magazineReloadTime", "_targetPos", "_selectedTarget", "_precision"];
+			// switch the magazine if needed
+			if (_unit currentMagazineTurret [0] != _ammo) then
+			{
+				[_unit, [[0], _weaponClass, _ammo]] remoteExecCall ["loadMagazine", _unit];
+				sleep _magazineReloadTime;
+			};
+			// create and reveal the target
+			private _theta = random 360;
+			private _deviation = [sin _theta, cos _theta, 0] vectorMultiply (random _precision);
+			private _target = (createGroup sideLogic) createUnit ["module_f", _targetPos vectorAdd _deviation, [], 0, "CAN_COLLIDE"];
+			systemChat str [_target, position _target];
+			if !(isNull _selectedTarget) then
+			{
+				_target attachTo [_selectedTarget, _deviation];
+			};
+			[side _unit, [_target, (1.3*_roundEta max 10) + _reloadTime*_rounds]] remoteExecCall ["reportRemoteTarget", _unit];
+			// fire the rounds
+			for "_i" from 1 to _rounds do
+			{
+				[_unit, [gunner _unit, _weaponClass, 0]] remoteExecCall ["setWeaponReloadingTime", _unit];
+				[_unit, [_target]] remoteExecCall ["fireAtTarget", _unit];
+				sleep _reloadTime;
+			};
+			sleep (1.3*_roundEta max 10);
+			detach _target;
+			deleteVehicle _target;
+		};
+	} forEach _gunsToFire;
+}
+else
+{
+	// handle artillery
 
-// Fire the guns
-{
-	private _theta = random 360;
-	private _deviation = [sin _theta, cos _theta, 0] vectorMultiply (random _precision);
-	[_x, [_targetPos vectorAdd _deviation, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
-} forEach _gunsToFire;
+	// Get the ETA and exit if any one of the guns can't reach the target.
+	{
+		_roundEta = _roundEta min (_x getArtilleryETA [_targetPos, _ammo]);
+	} forEach _gunsToFire;
+	if (_roundEta == -1) exitWith { [localize "STR_AMAE_NO_TARGET_IN_RANGE"] call Ares_fnc_ShowZeusMessage; };
+
+	// Fire the guns
+	{
+		private _theta = random 360;
+		private _deviation = [sin _theta, cos _theta, 0] vectorMultiply (random _precision);
+		[_x, [_targetPos vectorAdd _deviation, _ammo, _rounds]] remoteExecCall ["commandArtilleryFire", _x];
+	} forEach _gunsToFire;
+};
 [localize "STR_AMAE_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
 
 
