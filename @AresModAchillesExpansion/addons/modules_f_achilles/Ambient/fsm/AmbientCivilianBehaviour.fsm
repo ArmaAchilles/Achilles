@@ -1,0 +1,570 @@
+/*%FSM<COMPILE "E:\Program Files\games\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AmbientCivilianBehaviour">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-260.000000,-160.000000,-160.000000,-100.000000,0.000000,"init"};
+item1[] = {"always",8,218,-260.000000,-80.000000,-160.000000,-20.000000,0.000000,"always"};
+item2[] = {"in_low_threat",2,250,-260.000000,220.000000,-160.000000,280.000000,0.000000,"in low threat"};
+item3[] = {"no_threat",4,218,-120.000000,120.000000,-20.000000,180.000000,0.000000,"no threat"};
+item4[] = {"in_idle",2,250,-260.000000,20.000000,-160.000000,80.000000,0.000000,"in idle"};
+item5[] = {"low_threat",4,218,-260.000000,120.000000,-160.000000,180.000000,10.000000,"low threat"};
+item6[] = {"low_threat",4,218,-120.000000,320.000000,-20.000000,380.000000,0.000000,"low threat"};
+item7[] = {"med_threat",4,218,-260.000000,320.000000,-160.000000,380.000000,20.000000,"med threat"};
+item8[] = {"in_med_threat",2,250,-260.000000,420.000000,-160.000000,480.000000,0.000000,"in med threat"};
+item9[] = {"high_threat",4,218,-260.000000,520.000000,-160.000000,580.000000,30.000000,"high threat"};
+item10[] = {"in_high_threat",2,250,-260.000000,640.000000,-160.000000,700.000000,0.000000,"in high threat"};
+item11[] = {"med_threat",4,218,-120.000000,520.000000,-20.000000,580.000000,0.000000,"med threat"};
+item12[] = {"threat_changed",4,218,-120.000000,420.000000,-20.000000,480.000000,0.000000,"threat" \n "changed"};
+item13[] = {"threat_changed",4,218,-120.000000,640.000000,-20.000000,700.000000,0.000000,"threat" \n "changed"};
+item14[] = {"at_safespot",4,218,-120.000000,220.000000,-20.000000,280.000000,0.000000,"at safespot"};
+item15[] = {"hide_at_safespot",2,250,40.000000,220.000000,140.000000,280.000000,0.000000,"hide at" \n "safespot"};
+item16[] = {"at_safespot",4,218,-120.000000,20.000000,-20.000000,80.000000,0.000000,"at safespot"};
+item17[] = {"wait_at_safespot",2,250,40.000000,20.000000,140.000000,80.000000,0.000000,"wait at" \n "safespot"};
+item18[] = {"time_to__taxi",4,218,-122.173279,-55.653580,-22.173279,4.346420,0.000000,"time to " \n "taxi"};
+item19[] = {"",7,210,-374.000000,46.000000,-366.000000,54.000000,0.000000,""};
+item20[] = {"",7,210,-373.999969,346.000000,-366.000000,354.000000,0.000000,""};
+item21[] = {"",7,210,-374.000000,546.000061,-366.000000,554.000000,0.000000,""};
+item22[] = {"not_valid",4,218,-561.483704,148.197113,-471.484375,198.197067,1000.000000,"not valid"};
+item23[] = {"end",1,250,-697.034180,150.687241,-607.034119,200.687225,0.000000,"end"};
+link0[] = {0,1};
+link1[] = {1,4};
+link2[] = {2,7};
+link3[] = {2,14};
+link4[] = {2,22};
+link5[] = {3,4};
+link6[] = {4,5};
+link7[] = {4,16};
+link8[] = {4,19};
+link9[] = {4,22};
+link10[] = {5,2};
+link11[] = {6,2};
+link12[] = {7,8};
+link13[] = {8,6};
+link14[] = {8,9};
+link15[] = {8,12};
+link16[] = {8,22};
+link17[] = {9,10};
+link18[] = {10,11};
+link19[] = {10,13};
+link20[] = {10,22};
+link21[] = {11,8};
+link22[] = {12,8};
+link23[] = {13,10};
+link24[] = {14,15};
+link25[] = {15,3};
+link26[] = {15,9};
+link27[] = {15,22};
+link28[] = {16,17};
+link29[] = {17,5};
+link30[] = {17,18};
+link31[] = {17,22};
+link32[] = {18,4};
+link33[] = {19,20};
+link34[] = {20,7};
+link35[] = {20,21};
+link36[] = {21,9};
+link37[] = {22,23};
+globals[] = {0.000000,0,0,0,0,640,480,1,170,6316128,1,-725.810059,520.223755,703.835205,-200.511200,1218,884,1};
+window[] = {2,-1,-1,-1,-1,912,26,1437,26,3,1236};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "AmbientCivilianBehaviour";
+        class States
+        {
+                /*%FSM<STATE "init">*/
+                class init
+                {
+                        name = "init";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//[""[ ] Behavior FSM: %1"",_this] call bis_fnc_logFormat;" \n
+                         "" \n
+                         "private _treatLowIn = 0.1;" \n
+                         "private _treatLowOut = 0.05;" \n
+                         "" \n
+                         "private _treatMedIn = 0.2;" \n
+                         "private _treatMedOut = 0.1;" \n
+                         "" \n
+                         "private _treatHighIn = 0.4;" \n
+                         "private _treatHighOut = 0.2;" \n
+                         "" \n
+                         "private _core = _this getVariable [""#core"",objNull];" \n
+                         "private _usePanicMode = _core getVariable [""#usePanicMode"",false];" \n
+                         "private _debug = _core getVariable [""#debug"",false];" \n
+                         "" \n
+                         "_this setUnitPosWeak ""UP"";" \n
+                         "" \n
+                         "private _destination = getPos _this;" \n
+                         "private _threatValue = 0;" \n
+                         "private _threatVector = [1,0,0];" \n
+                         "private _timer = time;" \n
+                         "" \n
+                         "private _planningMode = ""LEADER PLANNED"";" \n
+                         "private _isAgent = _core getVariable [""#useAgents"",false];" \n
+                         "" \n
+                         "private _fnc_sendToDestination = " \n
+                         "{" \n
+                         "	params [""_unit"",""_safespot""];	" \n
+                         "" \n
+                         "	private _destination = if (_safespot isEqualType []) then" \n
+                         "	{" \n
+                         "		_safespot" \n
+                         "	}" \n
+                         "	else" \n
+                         "	{" \n
+                         "		selectRandom (_safespot getVariable [""#positions"",[getPos _safespot]]);" \n
+                         "	};" \n
+                         "" \n
+                         "	if (_isAgent) then" \n
+                         "	{" \n
+                         "		_unit setDestination [_destination,_planningMode,true];" \n
+                         "	}" \n
+                         "	else" \n
+                         "	{" \n
+                         "		(group _unit) move _destination;" \n
+                         "	};" \n
+                         "" \n
+                         "	_unit setVariable [""#destination"",_destination];" \n
+                         "	_destination" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "always">*/
+                                class always
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="in_idle";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "in_low_threat">*/
+                class in_low_threat
+                {
+                        name = "in_low_threat";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//make unit run to cover" \n
+                         "_this forceWalk false;" \n
+                         "_this setUnitPosWeak ""UP"";" \n
+                         "if (_usePanicMode) then {_this playAction ""Default""};" \n
+                         "" \n
+                         "//walk to safe spot" \n
+                         "private _safespot = [_this,0] call bis_fnc_cp_getSafespot;" \n
+                         "_this setVariable [""#safespot"",_safespot];" \n
+                         "private _destination = [_this,_safespot] call _fnc_sendToDestination;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""low threat""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "med_threat">*/
+                                class med_threat
+                                {
+                                        itemno = 7;
+                                        priority = 20.000000;
+                                        to="in_med_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatMedIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "at_safespot">*/
+                                class at_safespot
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="hide_at_safespot";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this distance2D _destination < 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "in_idle">*/
+                class in_idle
+                {
+                        name = "in_idle";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"//make unit walk" \n
+                         "_this forceWalk true;" \n
+                         "_this setUnitPosWeak ""UP"";" \n
+                         "if (_usePanicMode) then {_this playAction ""Default""};" \n
+                         "" \n
+                         "//move randomly between safespots" \n
+                         "private _safespot = [_this,1] call bis_fnc_cp_getSafespot;" \n
+                         "_this setVariable [""#safespot"",_safespot];" \n
+                         "private _destination = [_this,_safespot] call _fnc_sendToDestination;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""idle""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "high_threat">*/
+                                class high_threat
+                                {
+                                        itemno = 9;
+                                        priority = 30.000000;
+                                        to="in_high_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatHighIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "med_threat">*/
+                                class med_threat
+                                {
+                                        itemno = 7;
+                                        priority = 20.000000;
+                                        to="in_med_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatMedIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "low_threat">*/
+                                class low_threat
+                                {
+                                        itemno = 5;
+                                        priority = 10.000000;
+                                        to="in_low_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatLowIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "at_safespot">*/
+                                class at_safespot
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="wait_at_safespot";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this distance2D _destination < 10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "in_med_threat">*/
+                class in_med_threat
+                {
+                        name = "in_med_threat";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"//reset safespot reference" \n
+                         "_this setVariable [""#safespot"",objNull];" \n
+                         "" \n
+                         "//store threat value and vector to local variables" \n
+                         "_threatValue = _this getVariable [""#threatValue"",0];" \n
+                         "_threatVector = _this getVariable [""#threatVector"",[1,0,0]];" \n
+                         "" \n
+                         "//make unit run" \n
+                         "_this forceWalk false;" \n
+                         "_this setUnitPosWeak ""UP"";" \n
+                         "if (_usePanicMode) then {_this playAction ""Default""};" \n
+                         "" \n
+                         "//run away from danger" \n
+                         "_destination = _this getVariable [""#fleeDestination"",getPos _this];" \n
+                         "_destination set [2,0];" \n
+                         "[_this,_destination] call _fnc_sendToDestination;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""medium threat""];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "high_threat">*/
+                                class high_threat
+                                {
+                                        itemno = 9;
+                                        priority = 30.000000;
+                                        to="in_high_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatHighIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "threat_changed">*/
+                                class threat_changed
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="in_med_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"/*" \n
+                                         "private _txtThreatValue = format[""[%3] threat value: %1 -> %2"",0.01 * round(_threatValue * 100),0.01 * round(_this getVariable [""#threatValue"",0]),_this];" \n
+                                         "private _txtThreatAngleDelta = format[""[%2] threat angle: %1"",round acos (_threatVector vectorCos (_this getVariable [""#threatVector"",[1,0,0]])),_this];" \n
+                                         "private _txtDistance = format[""[%2] distance: %1m"",round(_destination distance2D _this),_this];" \n
+                                         "" \n
+                                         "profilingWatch [""threatValue"",_txtThreatValue];" \n
+                                         "profilingWatch [""threatAngleDelta"",_txtThreatAngleDelta];" \n
+                                         "profilingWatch [""distance"",_txtDistance];" \n
+                                         "" \n
+                                         "hintSilent parsetext format[""%1<br/>%2<br/>%3"",_txtThreatValue,_txtThreatAngleDelta,_txtDistance];" \n
+                                         "*/" \n
+                                         "" \n
+                                         "(_threatValue != _this getVariable [""#threatValue"",0]" \n
+                                         "&& {acos (_threatVector vectorCos (_this getVariable [""#threatVector"",[1,0,0]])) > 30})" \n
+                                         "||" \n
+                                         "(_destination distance2D _this < 25)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "low_threat">*/
+                                class low_threat
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="in_low_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timer && {_this getVariable [""#threatValue"",0] < _treatMedOut}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "in_high_threat">*/
+                class in_high_threat
+                {
+                        name = "in_high_threat";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"//reset safespot reference" \n
+                         "_this setVariable [""#safespot"",objNull];" \n
+                         "" \n
+                         "//store threat value and vector to local variables" \n
+                         "_threatValue = _this getVariable [""#threatValue"",0];" \n
+                         "_threatVector = _this getVariable [""#threatVector"",[1,0,0]];" \n
+                         "" \n
+                         "//make unit run" \n
+                         "_this forceWalk false;" \n
+                         "_this setUnitPosWeak ""UP"";" \n
+                         "if (_usePanicMode) then {_this playAction ""Panic""};" \n
+                         "" \n
+                         "//rush away from danger" \n
+                         "_destination = _this getVariable [""#fleeDestination"",getPos _this];" \n
+                         "_destination set [2,0];" \n
+                         "[_this,_destination] call _fnc_sendToDestination;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""high threat""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "threat_changed">*/
+                                class threat_changed
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="in_high_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"/*" \n
+                                         "private _txtThreatValue = format[""[%3] threat value: %1 -> %2"",0.01 * round(_threatValue * 100),0.01 * round(_this getVariable [""#threatValue"",0]),_this];" \n
+                                         "private _txtThreatAngleDelta = format[""[%2] threat angle: %1"",round acos (_threatVector vectorCos (_this getVariable [""#threatVector"",[1,0,0]])),_this];" \n
+                                         "private _txtDistance = format[""[%2] distance: %1m"",round(_destination distance2D _this),_this];" \n
+                                         "" \n
+                                         "profilingWatch [""threatValue"",_txtThreatValue];" \n
+                                         "profilingWatch [""threatAngleDelta"",_txtThreatAngleDelta];" \n
+                                         "profilingWatch [""distance"",_txtDistance];" \n
+                                         "" \n
+                                         "hintSilent parsetext format[""%1<br/>%2<br/>%3"",_txtThreatValue,_txtThreatAngleDelta,_txtDistance];" \n
+                                         "*/" \n
+                                         "" \n
+                                         "(_threatValue != _this getVariable [""#threatValue"",0]" \n
+                                         "&& {acos (_threatVector vectorCos (_this getVariable [""#threatVector"",[1,0,0]])) > 30})" \n
+                                         "||" \n
+                                         "(_destination distance2D _this < 25)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "med_threat">*/
+                                class med_threat
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="in_med_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timer && {_this getVariable [""#threatValue"",0] < _treatHighOut}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "hide_at_safespot">*/
+                class hide_at_safespot
+                {
+                        name = "hide_at_safespot";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"//[""[ ][%1] Low threat & at cover %2"",_this,_safespot] call bis_fnc_logFormat;" \n
+                         "" \n
+                         "_timer = time + (random 10) + 5;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""hiding at safespot""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "high_threat">*/
+                                class high_threat
+                                {
+                                        itemno = 9;
+                                        priority = 30.000000;
+                                        to="in_high_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatHighIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "no_threat">*/
+                                class no_threat
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="in_idle";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timer && {_this getVariable [""#threatValue"",0] < _treatLowOut}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_at_safespot">*/
+                class wait_at_safespot
+                {
+                        name = "wait_at_safespot";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"//[""[ ][%1] Idle & at cover %2"",_this,_safespot] call bis_fnc_logFormat;" \n
+                         "" \n
+                         "_timer = time + (random 10) + 3;" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""wait at safespot""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_valid">*/
+                                class not_valid
+                                {
+                                        itemno = 22;
+                                        priority = 1000.000000;
+                                        to="end";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _this || {!alive _this}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "low_threat">*/
+                                class low_threat
+                                {
+                                        itemno = 5;
+                                        priority = 10.000000;
+                                        to="in_low_threat";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_this getVariable [""#threatValue"",0] > _treatLowIn"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"_timer = time + 5;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "time_to__taxi">*/
+                                class time_to__taxi
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="in_idle";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "end">*/
+                class end
+                {
+                        name = "end";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"_this setVariable [""#safespot"",objNull];" \n
+                         "" \n
+                         "//update unit state" \n
+                         "_this setVariable [""#state"",""invalid""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="init";
+        finalStates[] =
+        {
+                "end",
+        };
+};
+/*%FSM</COMPILE>*/
