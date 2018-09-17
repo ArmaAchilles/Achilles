@@ -119,6 +119,7 @@ class CfgFunctions
 			class effectFire;
 			class instantBuildingGarrison;
             class changeAccessoires;
+            class advancedPlaneCAS;
 		};
 	};
 

@@ -1768,6 +1768,18 @@
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
             </Key>
+            <Key ID="STR_AMAE_GIMBAL_LOCK_ERROR">
+                <Original>Error: Gimbal Lock</Original>
+                <English>Error: Gimbal Lock</English>
+                <French>Erreur: Blocage de Cardan</French>
+                <German>Fehler: Kardanische Blockade</German>
+            </Key>
+            <Key ID="STR_AMAE_ARCRAFT_IS_TOUCHING_GROUND_ERROR">
+                <Original>Error: Aircraft is touching ground</Original>
+                <English>Error: Aircraft is touching ground</English>
+                <French>Erreur: L'aéronef est en contact avec le sol</French>
+                <German>Fehler: Das Luftfahrzeug ist am Boden</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -2240,6 +2252,10 @@
                 <Japanese>のみ</Japanese>
                 <Chinesesimp>仅</Chinesesimp>
                 <Chinese>僅</Chinese>
+            </Key>
+            <Key ID="STR_AMAE_OFFSET">
+                <Original>Offset</Original>
+                <English>Offset</English>
             </Key>
             <Key ID="STR_AMAE_METERS">
                 <Original>[m]</Original>
