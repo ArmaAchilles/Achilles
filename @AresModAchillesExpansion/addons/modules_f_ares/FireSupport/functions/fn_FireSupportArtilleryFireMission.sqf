@@ -182,7 +182,6 @@ if (_isVLS) then
 	private _missileMaxSpeed = getNumber (configfile >> "CfgAmmo" >> _missileClass >> "maxSpeed");
 	private _reloadTime = getNumber (configFile >> "cfgWeapons" >> _weaponClass >> "reloadTime");
 	private _magazineReloadTime = (1.3*getNumber (configfile >> "CfgWeapons" >> _weaponClass >> "magazineReloadTime"));
-	systemChat str [_reloadTime, _magazineReloadTime];
 	_roundEta = _roundEta min ((_targetPos distance _firstUnit) / _missileMaxSpeed);
 	{
 		[_x, _weaponClass, _ammo, _rounds, _roundEta, _reloadTime, _magazineReloadTime, _targetPos, _selectedTarget, _precision] spawn
@@ -198,7 +197,6 @@ if (_isVLS) then
 			private _theta = random 360;
 			private _deviation = [sin _theta, cos _theta, 0] vectorMultiply (random _precision);
 			private _target = (createGroup sideLogic) createUnit ["module_f", _targetPos vectorAdd _deviation, [], 0, "CAN_COLLIDE"];
-			systemChat str [_target, position _target];
 			if !(isNull _selectedTarget) then
 			{
 				_target attachTo [_selectedTarget, _deviation];
