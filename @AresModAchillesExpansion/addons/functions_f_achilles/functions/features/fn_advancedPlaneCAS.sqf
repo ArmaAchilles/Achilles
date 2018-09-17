@@ -123,7 +123,7 @@ private _distXY_pitchedTurn = abs(_dz_pitchedTurn)/tan(MAX_CLIMBING_ANGLE);
 _distXY_pitchedTurn = [MIN_DIST_2D_PITCHED_TURN, _distXY_pitchedTurn] select (_distXY_pitchedTurn > MIN_DIST_2D_PITCHED_TURN);
 // Determine the start position for the banked turn
 private _pos_bankedTurn_start = _pos_start vectorAdd [_distXY_pitchedTurn*cos(_dir_start),_distXY_pitchedTurn*sin(_dir_start),_dz_pitchedTurn];
-if (_pos_target distance2D _pos_bankedTurn_start < (RADIUS_AO + 2*RADIUS_BANKED_TURN)) then
+if (_pos_target distance2D _pos_bankedTurn_start < (RADIUS_AO + _offset_weapon + 2*RADIUS_BANKED_TURN)) then
 {
 	comment "The aircraft is too close to the target. The quadratic equation below gives us the signed magnitude of the displacement vector that will move the plane sufficiently far away";
 	private _a = _vectDir_start#0^2 + _vectDir_start#1^2;
