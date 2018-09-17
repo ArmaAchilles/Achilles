@@ -53,6 +53,15 @@ class CfgFunctions
 			class forceWeaponFire;
 			class drawArrow3D;
 			class drawRectangle3D;
+			class vectAngleXY;
+			class getDirPitchBank;
+			class vectDirUpFromDirPitchBank;
+		};
+		class interpolation
+		{
+			file =  "\achilles\functions_f_achilles\functions\interpolation";
+			class interpolation_cubicBezier1D;
+			class interpolation_cubicBezier1D_slope;
 		};
 
 		class selectUnit
