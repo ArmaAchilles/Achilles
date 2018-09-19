@@ -79,6 +79,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 
 ## Achilles integrates these icons from these following authors
 All of these icons are licensed under Creative Commons Attribution license.
+* Advanced CAS (by MikeCzer)
 * Create IED module icon (by IYIKON)
     - https://thenounproject.com/icon/1242665/
 * Engine icon (by Alvaro Molero)
