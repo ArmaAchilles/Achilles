@@ -1780,6 +1780,18 @@
                 <French>Erreur: L'aéronef est en contact avec le sol</French>
                 <German>Fehler: Das Luftfahrzeug ist am Boden</German>
             </Key>
+            <Key ID="STR_AMAE_NOT_AN_ARCRAFT_ERROR">
+                <Original>Error: Object is not an aircraft</Original>
+                <English>Error: Object is not an aircraft</English>
+                <French>Erreur: L'objet n'est pas un aéronef</French>
+                <German>Fehler: Das Objekt is kein Luftfahrzeug</German>
+            </Key>
+            <Key ID="STR_AMAE_UNIT_IS_CURRENTLY_BUSY_ERROR">
+                <Original>Error: Unit is currently busy</Original>
+                <English>Error: Unit is currently busy</English>
+                <French>Erreur: L'unité est déjà utilisée</French>
+                <German>Fehler: Die Einheit ist bereits im Einsatz</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -4589,6 +4601,12 @@
                 <Japanese>砲撃支援中止!</Japanese>
                 <Chinesesimp>火力支援已终止！</Chinesesimp>
                 <Chinese>火力支援已終止！</Chinese>
+            </Key>
+            <Key ID="STR_NUMBER_OF_STRIKES">
+                <Original>Number of strikes</Original>
+                <English>Number of strikes</English>
+                <French>Nombre de raid</French>
+                <German>Anzahl Angriffe</German>
             </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">

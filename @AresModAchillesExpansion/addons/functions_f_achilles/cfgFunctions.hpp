@@ -56,6 +56,8 @@ class CfgFunctions
 			class vectAngleXY;
 			class getDirPitchBank;
 			class vectDirUpFromDirPitchBank;
+			class arrayStdDev;
+			class transferOwnership;
 		};
 		class interpolation
 		{
@@ -120,6 +122,8 @@ class CfgFunctions
 			class instantBuildingGarrison;
             class changeAccessoires;
             class advancedPlaneCAS;
+            class advancedHeliCAS;
+            class advancedBlackfishCAS;
 		};
 	};
 
