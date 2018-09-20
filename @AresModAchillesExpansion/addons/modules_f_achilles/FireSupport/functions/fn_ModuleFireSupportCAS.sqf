@@ -130,23 +130,25 @@ if (!local group effectiveCommander _aircraft || !local _aircraft) then
 
 for "_" from 1 to _numberOfStrikes do
 {
+	private _success = false;
 	switch (true) do
 	{
 		case (_aircraft isKindOf "B_T_VTOL_01_armed_F"):
 		{
-			[_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedBlackfishCAS;
+			_success = [_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedBlackfishCAS;
 		};
 		case (_aircraft isKindOf "Plane"):
 		{
-			[_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedPlaneCAS;
+			_success = [_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedPlaneCAS;
 			sleep 5;
 		};
 		case (_aircraft isKindOf "Helicopter"):
 		{
-			[_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedHeliCAS;
+			_success = [_aircraft, _selectedTarget, _weaponMuzzleMagazineIdxList select _weaponsToFireIdx, _customOffset] call Achilles_fnc_advancedHeliCAS;
 			sleep 15;
 		};
 	};
+	if (!_success) exitWith {};
 };
 _aircraft setVariable ["Achilles_var_performsAdvancedCAS", nil, true];
 #include "\achilles\modules_f_ares\module_footer.h"

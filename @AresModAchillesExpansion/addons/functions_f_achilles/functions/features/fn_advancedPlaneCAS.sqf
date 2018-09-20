@@ -22,7 +22,7 @@
 											E.g. -25 means the plane will target 25 m in front of the target.
 	
 	Returns:
-		nothing
+		_success						- <BOOLEAN> True if the CAS run was completed without occurring exception
 	
 	Exampes:
 		(begin example)
@@ -60,8 +60,7 @@ params
 	"_weaponMuzzleMagazineIdx",
 	["_offset_custom", 0, [0]]
 ];
-if (not (_aircraft isKindOf "Plane")) exitWith {};
-if (not alive _aircraft) exitWith {};
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 private _className_aircraft = typeOf _aircraft;
 private _speed_max = getNumber (configfile >> "CfgVehicles" >> _className_aircraft >> "maxSpeed");
 private _acc_max = (14.5*(selectMax getArray (configfile >> "CfgVehicles" >> _className_aircraft >> "thrustCoef")) - 11.5) max MIN_MAX_ACC_AIRCRAFT;
@@ -80,6 +79,7 @@ private _speedZ_start = _vel_start#2;
 // get weapon, muzzle, magazine info and unpack it
 _weaponMuzzleMagazineIdx params ["_weapIdx", "_muzzleIdx", "_magIdx"];
 private _weaponsAndMuzzlesAndMagazines = [_aircraft] call Achilles_fnc_getWeaponsMuzzlesMagazines;
+if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith {false};
 if (count _weaponsAndMuzzlesAndMagazines <= _weapIdx) then {_weapIdx = 0};
 (_weaponsAndMuzzlesAndMagazines select _weapIdx) params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
 // get the weapon and gunner
@@ -338,7 +338,7 @@ waitUntil
 	sleep 0.01;
 	(_t > _t_start_preCAS + _dt_preCAS) || !alive _aircraft || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };
-if (!alive _aircraft || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {};
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 
 // Start firing
 
@@ -381,6 +381,8 @@ waitUntil
 	_aircraft setVelocityTransformation [_pos_cas_start,_pos_cas_end,_vel_cas,_vel_cas,_vectDir_cas,_vectDir_cas,_vectUp_cas,_vectUp_cas,(time - _time)/_dt_cas];
 	_aircraft setVelocity _vel_cas;
 	sleep 0.01;
-	scriptDone _fireHandle || !alive _aircraft || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0;
+	scriptDone _fireHandle || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0;
 };
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 _aircraft enableAI "MOVE";
+true

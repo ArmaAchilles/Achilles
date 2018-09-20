@@ -22,7 +22,7 @@
 											E.g. -25 means the helicopter will target 25 m in front of the target.
 	
 	Returns:
-		nothing
+		_success						- <BOOLEAN> True if the CAS run was completed without occurring exception
 	
 	Exampes:
 		(begin example)
@@ -35,7 +35,7 @@ params
 	"_weaponMuzzleMagazineIdx",
 	["_offset_custom", 0, [0]]
 ];
-
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 private _targetPos = getPos _target;
 private _aircraftGroup = group effectiveCommander _aircraft;
 private _wpHeli01 = [_aircraftGroup, currentWaypoint _aircraftGroup];
@@ -64,6 +64,7 @@ _aircraft disableAI "AUTOTARGET";
 // get weapon, muzzle, magazine info and unpack it
 _weaponMuzzleMagazineIdx params ["_weapIdx", "_muzzleIdx", "_magIdx"];
 private _weaponsAndMuzzlesAndMagazines = [_aircraft] call Achilles_fnc_getWeaponsMuzzlesMagazines;
+if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith {false};
 if (count _weaponsAndMuzzlesAndMagazines <= _weapIdx) then {_weapIdx = 0};
 (_weaponsAndMuzzlesAndMagazines select _weapIdx) params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
 // get the weapon and gunner
@@ -122,8 +123,9 @@ waitUntil
 	_data set [_i, _distXY_cur];
 	_i = (_i+1)%5;
 	sleep 1;
-	(_distXY_cur < 1000 && ([_data] call Achilles_fnc_arrayStdDev < 5)) || !canMove _aircraft || !alive driver _aircraft
+	(_distXY_cur < 1000 && ([_data] call Achilles_fnc_arrayStdDev < 5)) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 // Start firing
 private _time = time;
 private _endTime = _time + 3;
@@ -139,9 +141,10 @@ waitUntil {
 	[_target, _gunner, _muzzle, _magazine, _aircraft, _turretPath] call Achilles_fnc_forceWeaponFire;
 	_i_fire = _i_fire + 1;
 	sleep _reloadTime;
-	_endTime  < time || !canMove _aircraft || !alive driver _aircraft
+	_endTime  < time || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };
-if !(alive _aircraft) exitWith {};
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 _aircraft setBehaviour _prevBehaviour;
 _aircraft enableAI "TARGET";
 _aircraft enableAI "AUTOTARGET";
+true

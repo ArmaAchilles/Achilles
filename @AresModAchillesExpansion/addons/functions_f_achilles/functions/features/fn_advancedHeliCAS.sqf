@@ -22,7 +22,7 @@
 											E.g. -25 means the helicopter will target 25 m in front of the target.
 	
 	Returns:
-		nothing
+		success							- <BOOLEAN> True if the CAS run was completed without occurring exception
 	
 	Exampes:
 		(begin example)
@@ -40,7 +40,7 @@ params
 	"_weaponMuzzleMagazineIdx",
 	["_offset_custom", 0, [0]]
 ];
-
+if (!canMove _aircraft || !alive driver _aircraft) exitWith {false};
 private _target_pos = getPosWorld _target;
 private _direction = 180 - ([_aircraft, _target_pos] call BIS_fnc_dirTo);
 
@@ -60,16 +60,16 @@ _end_data params ["", "_end_pos", "_end_vecDir", "_end_vecUp"];
 
 _aircraft flyInHeight 80;
 
-private _pilot = driver _aircraft;
 private _group = group effectiveCommander _aircraft;
 private _wp_index = currentwaypoint _group;
 _group addWaypoint [_target_pos, 100, _wp_index];
-waitUntil {sleep 1; (not alive driver _aircraft or not canMove _aircraft or (_end_pos distance2D _aircraft < 200))};
-if (not alive driver _aircraft or not canMove _aircraft) exitWith {};
+waitUntil {sleep 1; !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0 || (_end_pos distance2D _aircraft < 200)};
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 
 // get weapon, muzzle, magazine info and unpack it
 _weaponMuzzleMagazineIdx params ["_weapIdx", "_muzzleIdx", "_magIdx"];
 private _weaponsAndMuzzlesAndMagazines = [_aircraft] call Achilles_fnc_getWeaponsMuzzlesMagazines;
+if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith {false};
 if (count _weaponsAndMuzzlesAndMagazines <= _weapIdx) then {_weapIdx = 0};
 (_weaponsAndMuzzlesAndMagazines select _weapIdx) params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
 // get the weapon and gunner
@@ -120,9 +120,9 @@ waitUntil
 	];
 	_aircraft setVelocity [0,0,0];
 	sleep 0.01;
-	((_delta_time >= _duration) or (!canMove _aircraft) or (!alive _pilot))
+	((_delta_time >= _duration) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0)
 };
-if (!alive driver _aircraft or !canMove _aircraft) exitWith {};
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 [_aircraft, _unit_capture_trajectory] spawn BIS_fnc_UnitPlay;
 
 // handle firing
@@ -142,6 +142,8 @@ private _prev_time = 0;
 	[_target, _gunner, _muzzle, _magazine, _aircraft, _turretPath] call Achilles_fnc_forceWeaponFire;
 	_prev_time = _curr_time;
 } forEach UNIT_CAPTURE_FIRING;
+if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 _aircraft enableAI "TARGET";
 _aircraft enableAI "AUTOTARGET";
 _aircraft enableAI "MOVE";
+true
