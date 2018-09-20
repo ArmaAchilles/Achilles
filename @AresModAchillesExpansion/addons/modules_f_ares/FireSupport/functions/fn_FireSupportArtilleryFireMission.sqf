@@ -201,7 +201,7 @@ if (_isVLS) then
 			{
 				_target attachTo [_selectedTarget, _deviation];
 			};
-			[side _unit, [_target, (1.3*_roundEta max 10) + _reloadTime*_rounds]] remoteExecCall ["reportRemoteTarget", _unit];
+			[side _unit, [_target, ((1.3 * _roundEta) max 10) + _reloadTime*_rounds]] remoteExecCall ["reportRemoteTarget", _unit];
 			// fire the rounds
 			for "_i" from 1 to _rounds do
 			{
@@ -209,7 +209,7 @@ if (_isVLS) then
 				[_unit, [_target]] remoteExecCall ["fireAtTarget", _unit];
 				sleep _reloadTime;
 			};
-			sleep (1.3*_roundEta max 10);
+			sleep ((1.3 * _roundEta) max 10);
 			detach _target;
 			deleteVehicle _target;
 		};
