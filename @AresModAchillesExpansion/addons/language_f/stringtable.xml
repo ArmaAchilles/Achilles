@@ -1768,6 +1768,18 @@
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
             </Key>
+            <Key ID="STR_AMAE_HAS_NO_SMOKES_ERROR">
+                <Original>Error: Unit has no smokes</Original>
+                <English>Error: Unit has no smokes</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+            </Key>
+            <Key ID="STR_AMAE_HAS_NO_CM_ERROR">
+                <Original>Error: Unit has no countermeasures</Original>
+                <English>Error: Unit has no countermeasures</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
