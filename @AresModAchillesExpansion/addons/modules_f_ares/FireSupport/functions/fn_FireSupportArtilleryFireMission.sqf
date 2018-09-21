@@ -69,7 +69,7 @@ private _mode = _pickBatteryResult select 1;
 
 // Pick fire mission details
 private _fireMission = nil;
-_battery params ["", "_units", "_artilleryAmmo"];
+_battery params ["_", "_units", "_artilleryAmmo"];
 private _firstUnit = _units param [0, objNull];
 private _isVLS = _firstUnit isKindOf "B_Ship_MRLS_01_base_F";
 private _artilleryAmmoDisplayName = _artilleryAmmo apply {getText (configFile >> "CfgMagazines" >> _x >> "displayName")};
