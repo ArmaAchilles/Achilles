@@ -23,7 +23,7 @@
 params ["_array", ["_ddof", 0, [0]]];
 private _N = (count _array) - _ddof;
 if (_N <= 0) exitWith {0};
-private _mean = _array call Achilles_fnc_arrayMean;
+private _mean = _array call BIS_fnc_arithmeticMean;
 private _array = _array apply {(_x - _mean)^2};
 private _sum = _array call Achilles_fnc_sum;
 sqrt (_sum / _N)
