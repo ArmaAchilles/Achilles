@@ -26,6 +26,8 @@
 	
 	Exampes:
 		(begin example)
+		// Perform CAS with _blackfish on _target with the first weapon returned by Achilles_fnc_getWeaponsMuzzlesMagazines.
+		[_blackfish, _target, [0,0,0]] call Achilles_fnc_advancedBlackfishCAS;
 		(end)
 */
 params

@@ -1,6 +1,6 @@
 /*
 	Function:
-		Achilles_arrayStdDev
+		Achilles_fnc_arrayStdDev
 	
 	Authors:
 		Kex
@@ -18,6 +18,10 @@
 	
 	Exampes:
 		(begin example)
+		// returns roughly 5.564...
+		[[1,4,16,4,1]] call Achilles_fnc_arrayStdDev;
+		// returns roughly 6.221...
+		[[1,4,16,4,1], 1] call Achilles_fnc_arrayStdDev;
 		(end)
 */
 params ["_array", ["_ddof", 0, [0]]];

@@ -22,10 +22,12 @@
 											E.g. -25 means the helicopter will target 25 m in front of the target.
 	
 	Returns:
-		success							- <BOOLEAN> True if the CAS run was completed without occurring exception
+		_success							- <BOOLEAN> True if the CAS run was completed without occurring exception
 	
 	Exampes:
 		(begin example)
+		// Perform CAS with _heli on _target with the first weapon returned by Achilles_fnc_getWeaponsMuzzlesMagazines.
+		[_heli, _target, [0,0,0]] call Achilles_fnc_advancedBlackfishCAS;
 		(end)
 */
 
