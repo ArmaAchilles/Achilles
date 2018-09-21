@@ -65,7 +65,7 @@ else
 	private _turretPath = (_allSmokeMagazines select 0) select 1;
 	private _weapons = _vehicle weaponsTurret _turretPath;
 	private _CMWeapons = _weapons arrayIntersect _weaponClasses;
-	if (_CMWeapons isEqualTo []) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_CMWeapons isEqualTo []) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
 	private _CMWeapon = _CMWeapons select 0;
 
 	// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)
