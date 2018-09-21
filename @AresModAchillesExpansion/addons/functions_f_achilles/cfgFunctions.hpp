@@ -11,7 +11,7 @@ class CfgFunctions
 			file = "\achilles\functions_f_achilles\functions\init";
 
 			class onCuratorStart;
-		}
+		};
 		class functions_f_common
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
@@ -59,6 +59,7 @@ class CfgFunctions
 			class arrayStdDev;
 			class transferOwnership;
 		};
+		
 		class interpolation
 		{
 			file =  "\achilles\functions_f_achilles\functions\interpolation";
@@ -120,10 +121,10 @@ class CfgFunctions
 			class setLRFrequencies;
 			class effectFire;
 			class instantBuildingGarrison;
-            class changeAccessoires;
-            class advancedPlaneCAS;
-            class advancedHeliCAS;
-            class advancedBlackfishCAS;
+			class changeAccessoires;
+			class advancedPlaneCAS;
+			class advancedHeliCAS;
+			class advancedBlackfishCAS;
 		};
 	};
 
