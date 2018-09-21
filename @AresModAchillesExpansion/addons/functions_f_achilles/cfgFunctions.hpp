@@ -17,7 +17,6 @@ class CfgFunctions
 			file = "\achilles\functions_f_achilles\functions\common";
 
 			class sum;
-			class arrayMean;
 			class pushBack;
 			class TextToVariableName;
 			class HigherConfigHierarchyLevel;
@@ -29,8 +28,6 @@ class CfgFunctions
 			class setUnitAmmoDef;
 			class setVehicleAmmoDef;
 			class checkLineOfFire2D;
-			class matrixTranspose;
-			class vectorMap;
 			class dikToLetter;
 			class getCuratorSelected;
 			class deadlyExplosion;
