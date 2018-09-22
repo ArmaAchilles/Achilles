@@ -48,7 +48,6 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 			private _objects = (nearestObjects [_center, [], _destructionRadius]);
 			private _numberOfObjects = count _objects;
 			private _n = ceil (_numberOfObjects/_destructionRate);
-			str _n remoteExecCall ["systemChat"]; 
 			for "_i" from 1 to _n do
 			{
 				private _idxStart = (_i-1)*_destructionRate;
