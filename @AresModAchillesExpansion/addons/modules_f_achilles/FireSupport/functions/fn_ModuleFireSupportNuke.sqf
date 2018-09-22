@@ -51,16 +51,16 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 			str _n remoteExecCall ["systemChat"]; 
 			for "_i" from 1 to _n do
 			{
-				private _idx_start = (_i-1)*_destructionRate;
-				private _len_cur = _numberOfObjects - _idx_start - 1; 
-				_len_cur = [_len_cur, _destructionRate] select (_len_cur > _destructionRate);
+				private _idxStart = (_i-1)*_destructionRate;
+				private _lenCur = _numberOfObjects - _idxStart - 1; 
+				_lenCur = [_lenCur, _destructionRate] select (_lenCur > _destructionRate);
 				{
 					// Do not kill HCs and curators.
 					if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
 					{
 						_x setDamage 1;
 					};
-				} forEach (_objects  select [_idx_start , _len_cur]);
+				} forEach (_objects  select [_idxStart , _lenCur]);
 				sleep 1;
 			};
 			
