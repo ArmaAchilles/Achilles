@@ -1775,6 +1775,18 @@
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
                 <Japanese>利用可能車両はありません! 陣営フィルタ設定を確認して下さい!</Japanese>
             </Key>
+            <Key ID="STR_AMAE_HAS_NO_SMOKES_ERROR">
+                <Original>Error: Unit has no smokes</Original>
+                <English>Error: Unit has no smokes</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+            </Key>
+            <Key ID="STR_AMAE_HAS_NO_CM_ERROR">
+                <Original>Error: Unit has no countermeasures</Original>
+                <English>Error: Unit has no countermeasures</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
