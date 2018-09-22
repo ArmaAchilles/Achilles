@@ -4586,6 +4586,12 @@
                 <French>Correction des couleurs</French>
                 <German>Farbkorrektur</German>
             </Key>
+            <Key ID="STR_AMAE_DESTROYED_OBJECTS_PER_SECOND">
+                <Original>Destroyed objects per second</Original>
+                <English>Destroyed objects per second</English>
+                <French>Des Objets detruit par seconde</French>
+                <German>Zerstörte Objekte pro Sekunde</German>
+            </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">
             <Key ID="STR_AMAE_INTEL_WAS_SHARED_WITH_SIDE">

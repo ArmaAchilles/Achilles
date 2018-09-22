@@ -8,37 +8,64 @@
 
 
 private _center = getPos _logic;
-
-_dialogResults =
+private _dialogResults =
 [
 	localize "STR_AMAE_ATOMIC_BOMB",
 	[
-		[[localize "STR_AMAE_RADIUS", localize "STR_AMAE_METER"] joinString "", "", "1000"],
-		[localize "STR_AMAE_COLOR_CORRECTION", ["STR_YES", "STR_NO"]]
+		[[localize "STR_AMAE_RADIUS", localize "STR_AMAE_METER"] joinString "", "", "300"],
+		[localize "STR_AMAE_DESTROYED_OBJECTS_PER_SECOND", "", "200"],
+		[localize "STR_AMAE_COLOR_CORRECTION", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_showChooseDialog;
 
 if (count _dialogResults == 0) exitWith {};
 
-_dialogResults params ["_destructionRadius", "_doCollorCorrection"];
+_dialogResults params
+[
+	"_destructionRadius",
+	"_destructionRate",
+	"_doCollorCorrection"
+];
 private _destructionRadius = parseNumber _destructionRadius;
+private _destructionRate = round parseNumber _destructionRate;
 _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 
-[[_center, _destructionRadius, _doCollorCorrection],
+[[_center, _destructionRadius, _destructionRate, _doCollorCorrection],
 {
 	params
 	[
 		"_center",
 		"_destructionRadius",
+		"_destructionRate",
 		"_doCollorCorrection"
 	];
 	if (isServer) exitWith
 	{
-		sleep 14.5;
+		sleep 5;
 		// big destruction
 		if (_destructionRadius > 0) then
 		{
-			{_x setDamage 1} forEach (nearestObjects [_center, [], _destructionRadius]);
+			private _objects = (nearestObjects [_center, [], _destructionRadius]);
+			private _numberOfObjects = count _objects;
+			private _n = ceil (_numberOfObjects/_destructionRate);
+			str _n remoteExecCall ["systemChat"]; 
+			for "_i" from 1 to _n do
+			{
+				private _idx_start = (_i-1)*_destructionRate;
+				private _len_cur = _numberOfObjects - _idx_start - 1; 
+				_len_cur = [_len_cur, _destructionRate] select (_len_cur > _destructionRate);
+				{_x setDamage 1} forEach (_objects  select [_idx_start , _len_cur]);
+				private _selectionDistance = _center distance2D (_objects select (_idx_start + _len_cur));
+				{
+					// Kill all units that are too close, but not HCs and curators.
+					if (_center distance2D _x  < _selectionDistance && !(_x isKindOf "HeadlessClient_F") && isNull getAssignedCuratorLogic _x && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+					{
+						_x setDamage 1;
+					};
+				} forEach allUnits;
+				sleep 1;
+			};
+			
 		};
 	};
 	if !(hasInterface) exitWith {};
@@ -59,7 +86,7 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 	_top setParticleRandom [0, [75, 75, 15], [17, 17, 10], 0, 0, [0, 0, 0, 0], 0, 0, 360];
 	_top setDropInterval 0.002;
 
-	_top2 = "#particlesource" createVehicleLocal _center;
+	private _top2 = "#particlesource" createVehicleLocal _center;
 	_top2 setParticleParams [["A3\Data_F\ParticleEffects\Universal\universal.p3d", 16, 3, 112, 0], "", "Billboard", 1, 20, [0, 0, 0],
 					[0, 0, 60], 0, 1.7, 1, 0, [60,80,100], [[1, 1, 1, 0.5],[1, 1, 1, 0]], [0.07], 1, 1, "", "", _nukeSource];
 	_top2 setParticleRandom [0, [75, 75, 15], [17, 17, 10], 0, 0, [0, 0, 0, 0], 0, 0, 360];
@@ -195,7 +222,6 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 	};
 	deleteVehicle _light;
 	enableCamShake false;
-	if (player distance _pos < _destructionRadius) then {};
 
 	sleep 2;
 
