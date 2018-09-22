@@ -67,7 +67,8 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 		};
 	};
 	if !(hasInterface) exitWith {};
-
+	
+	// Mushroom cloud
 	private _nukeSource = "Land_HelipadEmpty_F" createVehicleLocal _center;
 
 	private _cone = "#particlesource" createVehicleLocal _center;
@@ -116,7 +117,7 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 
 	if (_doCollorCorrection) then
 	{
-		// COLORCORRECTION
+		// Color Correction
 		"colorCorrections" ppEffectAdjust [2, 30, 0, [0.0, 0.0, 0.0, 0.0], [0.8*2, 0.5*2, 0.0, 0.7], [0.9, 0.9, 0.9, 0.0]];
 		"colorCorrections" ppEffectCommit 0;
 		"colorCorrections" ppEffectAdjust [1, 0.8, -0.001, [0.0, 0.0, 0.0, 0.0], [0.8*2, 0.5*2, 0.0, 0.7], [0.9, 0.9, 0.9, 0.0]];  
@@ -167,7 +168,7 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 	// EARTHQUAKE
 	[3] spawn BIS_fnc_earthquake;
 	
-	// ASH
+	// Ash
 	[] spawn {
 		sleep 20;
 		private _pos = position player;
