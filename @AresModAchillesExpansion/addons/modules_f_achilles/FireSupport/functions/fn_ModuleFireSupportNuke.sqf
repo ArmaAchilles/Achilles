@@ -24,20 +24,20 @@ _dialogResults params
 [
 	"_destructionRadius",
 	"_destructionRate",
-	"_doCollorCorrection"
+	"_doColorCorrection"
 ];
 private _destructionRadius = parseNumber _destructionRadius;
 private _destructionRate = round parseNumber _destructionRate;
-_doCollorCorrection = (_doCollorCorrection isEqualTo 0);
+_doColorCorrection = (_doColorCorrection isEqualTo 0);
 
-[[_center, _destructionRadius, _destructionRate, _doCollorCorrection],
+[[_center, _destructionRadius, _destructionRate, _doColorCorrection],
 {
 	params
 	[
 		"_center",
 		"_destructionRadius",
 		"_destructionRate",
-		"_doCollorCorrection"
+		"_doColorCorrection"
 	];
 	if (isServer) exitWith
 	{
@@ -51,15 +51,15 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 			for "_i" from 1 to _n do
 			{
 				private _idxStart = (_i-1)*_destructionRate;
-				private _lenCur = _numberOfObjects - _idxStart - 1; 
-				_lenCur = [_lenCur, _destructionRate] select (_lenCur > _destructionRate);
+				private _currentArrayLength = _numberOfObjects - _idxStart - 1; 
+				_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
 				{
 					// Do not kill HCs and curators.
 					if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
 					{
 						_x setDamage 1;
 					};
-				} forEach (_objects  select [_idxStart , _lenCur]);
+				} forEach (_objects  select [_idxStart , _currentArrayLength]);
 				sleep 1;
 			};
 			
@@ -114,7 +114,7 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 
 	//*******************************************************************
 
-	if (_doCollorCorrection) then
+	if (_doColorCorrection) then
 	{
 		// Color Correction
 		"colorCorrections" ppEffectAdjust [2, 30, 0, [0.0, 0.0, 0.0, 0.0], [0.8*2, 0.5*2, 0.0, 0.7], [0.9, 0.9, 0.9, 0.0]];
