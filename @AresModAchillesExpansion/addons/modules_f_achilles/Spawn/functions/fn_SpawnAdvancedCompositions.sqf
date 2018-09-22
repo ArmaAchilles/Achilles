@@ -31,10 +31,9 @@ private _center_object_info = _objects_info select 0;
 _objects_info = _objects_info - [_center_object_info];
 _center_object_info params ["_type", "_", "_center_dir", "_allow_sim"];
 
-private _center_object = _type createVehicle [0,0,0];
+private _center_object = createVehicle [_type, _spawn_pos, [], 0, "CAN_COLLIDE"];
 
 [_center_object,false] remoteExec ["enableSimulationGlobal",2];
-_center_object setPosATL [-500,-500,0];
 _center_object setDir _center_dir;
 
 [[_center_object], true] call Ares_fnc_AddUnitsToCurator;
