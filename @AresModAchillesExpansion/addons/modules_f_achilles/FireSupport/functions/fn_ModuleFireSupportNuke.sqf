@@ -43,7 +43,7 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 	{
 		sleep 5;
 		// big destruction
-		if (_destructionRadius > 0) then
+		if (_destructionRadius > 0 && _destructionRate > 0) then
 		{
 			private _objects = (nearestObjects [_center, [], _destructionRadius]);
 			private _numberOfObjects = count _objects;
