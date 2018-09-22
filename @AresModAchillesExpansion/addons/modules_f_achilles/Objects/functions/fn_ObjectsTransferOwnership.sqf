@@ -46,6 +46,6 @@ private _group_list = [];
 } forEach _objects;
 
 [_object_list, _group_list, _ownerID] call Achilles_fnc_transferOwnership;
-[localize "STR_AMAE_TRANSFER_TO" + " " + (_options select _selection)] call Ares_fnc_ShowZeusMessage;
+[[localize "STR_AMAE_TRANSFER_TO", _options select _selection] joinString " "] call Ares_fnc_ShowZeusMessage;
 
 #include "\achilles\modules_f_ares\module_footer.h"
