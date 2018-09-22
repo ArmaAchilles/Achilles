@@ -139,9 +139,6 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 		"dynamicBlur" ppEffectAdjust [0.5];
 		"dynamicBlur" ppEffectCommit 3;
 
-		0 setOvercast 0;
-		sleep 0.1;
-
 		[] spawn
 		{
 			Sleep 1;
