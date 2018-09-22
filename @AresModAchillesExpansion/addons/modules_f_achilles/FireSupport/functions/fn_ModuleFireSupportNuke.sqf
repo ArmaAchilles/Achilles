@@ -54,15 +54,13 @@ _doCollorCorrection = (_doCollorCorrection isEqualTo 0);
 				private _idx_start = (_i-1)*_destructionRate;
 				private _len_cur = _numberOfObjects - _idx_start - 1; 
 				_len_cur = [_len_cur, _destructionRate] select (_len_cur > _destructionRate);
-				{_x setDamage 1} forEach (_objects  select [_idx_start , _len_cur]);
-				private _selectionDistance = _center distance2D (_objects select (_idx_start + _len_cur));
 				{
-					// Kill all units that are too close, but not HCs and curators.
-					if (_center distance2D _x  < _selectionDistance && !(_x isKindOf "HeadlessClient_F") && isNull getAssignedCuratorLogic _x && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+					// Do not kill HCs and curators.
+					if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
 					{
 						_x setDamage 1;
 					};
-				} forEach allUnits;
+				} forEach (_objects  select [_idx_start , _len_cur]);
 				sleep 1;
 			};
 			
