@@ -30,65 +30,61 @@ for "_i" from 0 to ((_moduleTreeCtrl tvCount []) - 1) do
 	_categoryList pushBack (_moduleTreeCtrl tvText [_i]);
 };
 
-if !(missionNamespace getVariable ["Achilles_var_missionIsLoadedFromSafe", false]) then
+// Add achilles modules
 {
-	// Add achilles modules
+	private _moduleClass = _x;
+	private _moduleCfg = configFile >> "cfgVehicles" >> _moduleClass;
+	private _moduleName = getText (_moduleCfg >> "displayName");
+	private _moduleIcon = getText (_moduleCfg >> "portrait");
+	private _categoryClass = getText (_moduleCfg >> "category");
+	private _categoryName = getText (configFile >> "CfgFactionClasses" >> _categoryClass >> "displayName");
+	private _dlc = getText (_moduleCfg >> "dlc");
+	private _addonIcon = getText (configFile >> "CfgMods" >> _dlc >> "logoSmall");
+	_categoryList =
+	[
+		_moduleTreeCtrl,
+		_categoryList,
+		_categoryName,
+		_moduleName,
+		_moduleClass,
+		0,
+		_moduleIcon,
+		_addonIcon
+	] call Achilles_fnc_appendToModuleTree;
+} forEach Achilles_var_availableModuleClasses;
+
+// Add custom modules
+if (!isNil "Ares_Custom_Modules") then
+{
 	{
-		private _moduleClass = _x;
-		private _moduleCfg = configFile >> "cfgVehicles" >> _moduleClass;
-		private _moduleName = getText (_moduleCfg >> "displayName");
-		private _moduleIcon = getText (_moduleCfg >> "portrait");
-		private _categoryClass = getText (_moduleCfg >> "category");
-		private _categoryName = getText (configFile >> "CfgFactionClasses" >> _categoryClass >> "displayName");
-		private _dlc = getText (_moduleCfg >> "dlc");
-		private _addonIcon = getText (configFile >> "CfgMods" >> _dlc >> "logoSmall");
+		_x params
+		[
+			"_categoryName",
+			"_moduleDisplayName"
+		];
+		private _moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
+
 		_categoryList =
 		[
 			_moduleTreeCtrl,
 			_categoryList,
 			_categoryName,
-			_moduleName,
-			_moduleClass,
-			0,
-			_moduleIcon,
-			_addonIcon
+			_moduleDisplayName,
+			_moduleClassName
 		] call Achilles_fnc_appendToModuleTree;
-	} forEach Achilles_var_availableModuleClasses;
-	systemChat str [Achilles_var_availableModuleClasses, "Achilles_var_availableModuleClasses"];
+	} forEach Ares_Custom_Modules;
+};
 
-	// Add custom modules
-	if (!isNil "Ares_Custom_Modules") then
-	{
-		{
-			_x params
-			[
-				"_categoryName",
-				"_moduleDisplayName"
-			];
-			private _moduleClassName = format ["Ares_Module_User_Defined_%1", _forEachIndex];
-
-			_categoryList =
-			[
-				_moduleTreeCtrl,
-				_categoryList,
-				_categoryName,
-				_moduleDisplayName,
-				_moduleClassName
-			] call Achilles_fnc_appendToModuleTree;
-		} forEach Ares_Custom_Modules;
-	};
-
-	//Sort category and module list
-	_moduleTreeCtrl tvSort [[], false];
-	for "_i" from 0 to ((_moduleTreeCtrl tvCount []) - 1) do
-	{
-		_moduleTreeCtrl tvSort [[_i], false];
-	};
+//Sort category and module list
+_moduleTreeCtrl tvSort [[], false];
+for "_i" from 0 to ((_moduleTreeCtrl tvCount []) - 1) do
+{
+	_moduleTreeCtrl tvSort [[_i], false];
 };
 
 // Set module category list for 
-_category_list sort true;
-Ares_category_list = _category_list;
+_categoryList sort true;
+Ares_category_list = _categoryList;
 
 // Create unit trees: Filter and collapse
 if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) then

@@ -34,7 +34,7 @@ _achillesModuleClasses =
 			params [""_value""]; 
 			if (_value) then 
 			{
-				Achilles_var_availableModuleClasses pushBack """ + _moduleClass + """;
+				Achilles_var_availableModuleClasses pushBackUnique """ + _moduleClass + """;
 			} else
 			{
 				Achilles_var_availableModuleClasses = Achilles_var_availableModuleClasses - [""" + _moduleClass + """];

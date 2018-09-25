@@ -26,10 +26,6 @@ class Extended_PreInit_EventHandlers
     {
         init = "call compile preProcessFileLineNumbers '\achilles\settings_f\scripts\XEH_preInit.sqf'";
     };
-	class achilles_fnc_missionIsloadedFromSafeEH
-	{
-		init = "addMissionEventHandler ['Loaded', {missionNamespace setVariable ['Achilles_var_missionIsLoadedFromSafe', true]}]";
-	};
 };
 
 #include "cfgFunctions.hpp"

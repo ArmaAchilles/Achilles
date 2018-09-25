@@ -40,7 +40,7 @@ _factions =
 					Achilles_var_excludedFactions = Achilles_var_excludedFactions - [""" + _factionName + """]
 				} else
 				{
-					Achilles_var_excludedFactions pushBack """ + _factionName + """;
+					Achilles_var_excludedFactions pushBackUnique """ + _factionName + """;
 				};
 				Achilles_var_reloadDisplay = true;
 				uiNamespace setVariable [""Achilles_var_nestedList_vehicleFactions"", []];
