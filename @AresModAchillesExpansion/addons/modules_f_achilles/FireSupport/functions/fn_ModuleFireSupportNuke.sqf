@@ -6,7 +6,6 @@
 */
 #include "\achilles\modules_f_ares\module_header.h"
 
-
 private _center = getPos _logic;
 private _dialogResults =
 [
@@ -28,7 +27,7 @@ _dialogResults params
 ];
 private _destructionRadius = parseNumber _destructionRadius;
 private _destructionRate = round parseNumber _destructionRate;
-_doColorCorrection = (_doColorCorrection isEqualTo 0);
+_doColorCorrection = _doColorCorrection isEqualTo 0;
 
 [[_center, _destructionRadius, _destructionRate, _doColorCorrection],
 {
@@ -141,7 +140,7 @@ _doColorCorrection = (_doColorCorrection isEqualTo 0);
 
 		[] spawn
 		{
-			Sleep 1;
+			sleep 1;
 			"colorCorrections" ppEffectAdjust [1.0, 0.5, 0, [0.5, 0.5, 0.5, 0], [1.0, 1.0, 0.8, 0.4],[0.3, 0.3, 0.3, 0.1]];
 			"colorCorrections" ppEffectCommit 2;
 		};
@@ -164,33 +163,34 @@ _doColorCorrection = (_doColorCorrection isEqualTo 0);
 	0 fadeMusic 1;
 	15 fadeMusic 0;
 
-	// EARTHQUAKE
+	// Earthquake
 	[3] spawn BIS_fnc_earthquake;
 	
 	// Ash
 	[] spawn {
 		sleep 20;
 		private _pos = position player;
-		private _parray = [
-		/* 00 */		["A3\Data_F\ParticleEffects\Universal\Universal", 16, 12, 8, 1],//"A3\Data_F\cl_water",
-		/* 01 */		"",
-		/* 02 */		"Billboard",
-		/* 03 */		1,
-		/* 04 */		4,
-		/* 05 */		[0,0,0],
-		/* 06 */		[0,0,0],
-		/* 07 */		1,
-		/* 08 */		0.000001,
-		/* 09 */		0,
-		/* 10 */		1.4,
-		/* 11 */		[0.05,0.05],
-		/* 12 */		[[0.1,0.1,0.1,1]],
-		/* 13 */		[0,1],
-		/* 14 */		0.2,
-		/* 15 */		1.2,
-		/* 16 */		"",
-		/* 17 */		"",
-		/* 18 */		vehicle player
+		private _parray =
+		[
+			["A3\Data_F\ParticleEffects\Universal\Universal", 16, 12, 8, 1],//"A3\Data_F\cl_water",
+			"",
+			"Billboard",
+			1,
+			4,
+			[0,0,0],
+			[0,0,0],
+			1,
+			0.000001,
+			0,
+			1.4,
+			[0.05,0.05],
+			[[0.1,0.1,0.1,1]],
+			[0,1],
+			0.2,
+			1.2,
+			"",
+			"",
+			vehicle player
 		];
 		private _snow = "#particlesource" createVehicleLocal _pos;  
 		_snow setParticleParams _parray;
