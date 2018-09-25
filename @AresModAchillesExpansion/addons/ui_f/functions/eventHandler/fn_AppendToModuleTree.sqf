@@ -55,7 +55,6 @@ if (_categoryIndex == -1) then
 
 private _moduleIndex = _ctrl tvAdd [[_categoryIndex], _moduleDisplayName];
 private _newPath = [_categoryIndex, _moduleIndex];
-systemChat str [_categoryName, _categoryIndex, _moduleDisplayName, _moduleIndex];
 _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
