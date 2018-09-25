@@ -6640,6 +6640,12 @@
                 <Chinesesimp>降低夜视仪亮度</Chinesesimp>
                 <Chinese>降低夜視鏡亮度</Chinese>
             </Key>
+			<Key ID="STR_AMAE_KEY_TOGGLEINCLUDECREW">
+				<Original>Toggle spawn vehicles with and without crew</Original>
+				<German>Wechseln zwischen Fahrzeuge mit und ohne Besatzung spawnen</German>
+				<English>Toggle spawn vehicles with and without crew</English>
+				<French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
+			</Key>
         </Container>
     </Package>
 </Project>

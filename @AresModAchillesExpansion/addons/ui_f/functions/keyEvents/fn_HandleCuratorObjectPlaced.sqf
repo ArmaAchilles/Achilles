@@ -13,7 +13,7 @@ else
 	[format ["NON-LOCAL Placed Object %1 with %2 under mouse at position %3", _placedObject, str(Ares_CuratorObjectPlaced_UnitUnderCursor), str(Ares_CuratorObjectPlaces_LastPlacedObjectPosition)]] call Achilles_fnc_log;
 };
 
-if (!isNil "Achilles_var_deleteCrewOnSpawn") then
+if (({missionNamespace getVariable [_x, false]} count ["Achilles_var_deleteCrewOnSpawn", "Achilles_var_toggleCrewOnSpawn"]) isEqualTo 1) then
 {
 	private _curatorDisplay = findDisplay IDD_RSCDISPLAYCURATOR;
 	private _ctrlModeGroups = _curatorDisplay displayCtrl IDC_RSCDISPLAYCURATOR_MODEGROUPS;
