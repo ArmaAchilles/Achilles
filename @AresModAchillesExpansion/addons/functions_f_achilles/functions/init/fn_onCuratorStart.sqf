@@ -8,48 +8,14 @@
 
 params [["_tree_ctrl", controlNull, [controlNull]]];
 
-private _display_reload = false;
-
 // broadcast safe spawn
 publicVariable "Achilles_fnc_spawn";
 publicVariable "Achilles_fnc_spawn_remote";
 
-// trick to unlock ares/achilles modules for Zeus if mission was not set up properly
-if (!("achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player))) then
-{
-	private _logic = (createGroup sideLogic) createUnit ["Achilles_Module_Base", [0,0,0], [], 0, "NONE"];
-	_logic = (createGroup sideLogic) createUnit ["Ares_Module_Base", [0,0,0], [], 0, "NONE"];
-
-	// wait until zeus has truly entered the interface
-	waitUntil {sleep 1; !isNull (findDisplay 312)};
-
-	// Wait until Zeus modules are avaiable (e.g. respawns have to be placed before)
-	if (count allMissionObjects "ModuleMPTypeGameMaster_F" > 0) then
-	{
-		waitUntil {sleep 1; missionnamespace getvariable ["BIS_moduleMPTypeGameMaster_init", false]};
-	};
-
-	[[getAssignedCuratorLogic player],
-	{
-		private _curatorModule = _this select 0;
-		_curatorModule addCuratorAddons ["achilles_modules_f_achilles","achilles_modules_f_ares"];
-	}, 2] call Achilles_fnc_spawn;
-
-	// reload interface
-	waitUntil {sleep 1; "achilles_modules_f_achilles" in (curatorAddons getAssignedCuratorLogic player)};
-	cutText ["","BLACK OUT", 0.1,true];
-	uiSleep 0.1;
-	(findDisplay 312) closeDisplay 0;
-	uiSleep 0.1;
-	openCuratorInterface;
-	cutText ["","BLACK IN", 0.1, true];
-	_display_reload = true;
-};
-
 //prevent drawing mines
 if (!(missionnamespace getvariable ["bis_fnc_drawMinefields_active",false])) then
 {
-	missionnamespace setvariable ["bis_fnc_drawMinefields_active",true,true];
+	missionnamespace setvariable ["bis_fnc_drawMinefields_active", true, true];
 };
 
 // Initialize settings variables
@@ -101,5 +67,3 @@ _curatorModule setVariable ["BIS_fnc_curatorAttributesobject",["%ALL"]];
 _curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
 _curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
 _curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];
-
-_display_reload;
