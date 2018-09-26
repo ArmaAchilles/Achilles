@@ -114,6 +114,7 @@ All of these icons are licensed under Creative Commons Attribution license.
 ## Translations
 * French
     - oOKexOo
+    - Revo78
 * German
 	- ItsNoirLime
     - KiritoKun223
