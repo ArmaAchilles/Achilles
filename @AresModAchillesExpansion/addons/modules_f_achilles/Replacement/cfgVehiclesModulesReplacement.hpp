@@ -22,7 +22,7 @@ class Achilles_Module_FireSupport_CASGun : ModuleCASGun_F
 {
 	_generalMacro = "Achilles_Module_FireSupport_CASGun";
 	scope = 1;
-	scopeCurator = 2;
+	scopeCurator = 1;
 	displayName = "$STR_A3_CfgVehicles_ModuleCAS_F_Arguments_Type_values_Gun";
 	function = "";
 	functionPriority = 1;	// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined

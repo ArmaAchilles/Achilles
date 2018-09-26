@@ -4,9 +4,19 @@ class Achilles_FireSupport_ModuleBase : Achilles_Module_Base
 	category = "Ordnance";
 };
 
-class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
+class Achilles_Nuke_Module : Achilles_FireSupport_ModuleBase
 {
 	scopeCurator = 2;
+	_generalMacro = "Achilles_Nuke_Module";
+	displayName = "$STR_AMAE_ATOMIC_BOMB";
+	function = "Achilles_fnc_ModuleFireSupportNuke";
+	icon = "\achilles\data_f_achilles\icons\icon_nuclear.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_nuclear.paa";
+};
+
+class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
+{
+	scopeCurator = 1;
 	_generalMacro = "Achilles_Suppressive_Fire_Module";
 	displayName = "$STR_AMAE_SUPPRESIVE_FIRE";
 	function = "Achilles_fnc_ModuleFireSupportSuppressiveFire";
@@ -17,7 +27,7 @@ class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
 
 class Achilles_CAS_Module : Achilles_FireSupport_ModuleBase
 {
-	scopeCurator = 2;
+	scopeCurator = 1;
 	_generalMacro = "Achilles_CAS_Module";
 	displayName = "$STR_AMAE_ADVANCED_CAS";
 	function = "Achilles_fnc_ModuleFireSupportCAS";
@@ -28,7 +38,7 @@ class Achilles_CAS_Module : Achilles_FireSupport_ModuleBase
 
 class Achilles_Create_Universal_Target_Module : Achilles_FireSupport_ModuleBase
 {
-    scopeCurator = 2;
+    scopeCurator = 1;
     _generalMacro = "Achilles_Create_Universal_Target_Module";
     displayName = "$STR_AMAE_CREATE_TARGET";
     function = "Achilles_fnc_ModuleFireSupportCreateUniversalTarget";

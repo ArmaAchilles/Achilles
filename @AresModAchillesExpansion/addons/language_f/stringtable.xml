@@ -826,6 +826,7 @@
                 <German>Erweiterter Hinweis</German>
                 <Chinese>進階提示</Chinese>
                 <Chinesesimp>进阶提示</Chinesesimp>
+                <Japanese>アドバンスド ヒント</Japanese>
             </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
@@ -1173,6 +1174,7 @@
                 <German>Effekt anheften/entfernen</German>
                 <Chinese>掛載/卸載特效</Chinese>
                 <Chinesesimp>挂载/卸载特效</Chinesesimp>
+                <Japanese>エフェクトの取り外し</Japanese>
             </Key>
             <Key ID="STR_AMAE_TOGGLE_TACLIGHT_IR">
                 <Original>Toggle Tactical Light/IR Laser</Original>
@@ -1612,9 +1614,11 @@
                 <English>USS Freedom</English>
                 <Chinese>美國海軍自由號</Chinese>
                 <Chinesesimp>美国海军自由号</Chinesesimp>
+                <Japanese>USS フリーダム</Japanese>
             </Key>
             <Key ID="STR_AMAE_USS_LIBERTY">
                 <Original>USS Liberty</Original>
+                <Japanese>USS リバティ</Japanese>
             </Key>
             <Key ID="STR_AMAE_SUBMARINE">
                 <English>Submarine</English>
@@ -1623,6 +1627,7 @@
                 <German>U-Boot</German>
                 <Chinese>潛水艇</Chinese>
                 <Chinesesimp>潜水艇</Chinesesimp>
+                <Japanese>潜水艦</Japanese>
             </Key>
             <Key ID="STR_AMAE_TRAWLER">
                 <English>Trawler</English>
@@ -1631,6 +1636,13 @@
                 <German>Trawler</German>
                 <Chinese>拖網漁船</Chinese>
                 <Chinesesimp>拖网渔船</Chinesesimp>
+                <Japanese>トロール船</Japanese>
+            </Key>
+            <Key ID="STR_AMAE_ATOMIC_BOMB">
+                <Original>Atomic Bomb</Original>
+                <English>Atomic Bomb</English>
+                <French>Bombe Atomique</French>
+                <German>Atombombe</German>
             </Key>
         </Container>
     </Package>
@@ -1767,6 +1779,19 @@
                 <English>No vehicles available! Check your faction filter settings!</English>
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
+                <Japanese>利用可能車両はありません! 陣営フィルタ設定を確認して下さい!</Japanese>
+            </Key>
+            <Key ID="STR_AMAE_HAS_NO_SMOKES_ERROR">
+                <Original>Error: Unit has no smokes</Original>
+                <English>Error: Unit has no smokes</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+            </Key>
+            <Key ID="STR_AMAE_HAS_NO_CM_ERROR">
+                <Original>Error: Unit has no countermeasures</Original>
+                <English>Error: Unit has no countermeasures</English>
+                <French>Erreur: L'unité n'as pas de fumigène</French>
+                <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
             </Key>
             <Key ID="STR_AMAE_GIMBAL_LOCK_ERROR">
                 <Original>Error: Gimbal Lock</Original>
@@ -2606,6 +2631,7 @@
                 <German>Zusatzoption</German>
                 <Chinese>額外選項</Chinese>
                 <Chinesesimp>额外选项</Chinesesimp>
+                <Japanese>追加オプション</Japanese>
             </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
@@ -2644,6 +2670,7 @@
                 <German>Ungenauigkeit [m]</German>
                 <Chinese>精度[公尺]</Chinese>
                 <Chinesesimp>精度[米]</Chinesesimp>
+                <Japanese>精度 [m]</Japanese>
             </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
@@ -3401,7 +3428,7 @@
                 <French>inchangé</French>
                 <Russian>не изменилось</Russian>
                 <German>unverändert</German>
-                <Japanese>未変更</Japanese>
+                <Japanese>変更なし</Japanese>
                 <Chinesesimp>无变更</Chinesesimp>
                 <Chinese>無變更</Chinese>
             </Key>
@@ -3441,7 +3468,7 @@
                 <French>Pointeur laser IR</French>
                 <Russian>ИК ЛЦУ</Russian>
                 <German>IR Laserpointer</German>
-                <Japanese>IR レーザー ポインタ</Japanese>
+                <Japanese>IR レーザ ポインタ</Japanese>
                 <Chinesesimp>红外激光指示器</Chinesesimp>
                 <Chinese>紅外線雷射指示器</Chinese>
             </Key>
@@ -3561,7 +3588,7 @@
                 <French>Spécifique à l'arme</French>
                 <Russian>Для конкретного оружия</Russian>
                 <German>Waffenspezifisch</German>
-                <Japanese>武器-特有</Japanese>
+                <Japanese>武器 - 特有</Japanese>
                 <Chinesesimp>特定武器</Chinesesimp>
                 <Chinese>特定武器</Chinese>
             </Key>
@@ -3701,6 +3728,7 @@
                 <German>ACCESSORY</German>
                 <Chinese>附件</Chinese>
                 <Chinesesimp>附件</Chinesesimp>
+                <Japanese>アクセサリー</Japanese>
             </Key>
             <Key ID="STR_AMAE_NUMBER_PLATE">
                 <Original>Number plate</Original>
@@ -3709,6 +3737,7 @@
                 <German>Kontrollschild</German>
                 <Chinese>車牌號碼</Chinese>
                 <Chinesesimp>车牌号码</Chinesesimp>
+                <Japanese>ナンバー プレート</Japanese>
             </Key>
             <Key ID="STR_AMAE_ATTACH_LASER_TARGET_FOR">
                 <Original>Attach laser target for</Original>
@@ -3717,6 +3746,7 @@
                 <German>Laserziel befestigen für</German>
                 <Chinese>掛載雷射目標至</Chinese>
                 <Chinesesimp>挂载激光目标至</Chinesesimp>
+                <Japanese>次の目標にレーザー目標を取り付け</Japanese>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
@@ -3725,6 +3755,7 @@
                 <German>Flagge</German>
                 <Chinese>旗幟</Chinese>
                 <Chinesesimp>旗帜</Chinesesimp>
+                <Japanese>旗</Japanese>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ACCESSORIES_FOR_X">
                 <Original>Change Accessories for %1</Original>
@@ -3733,6 +3764,7 @@
                 <German>Accessories festlegen für %1</German>
                 <Chinese>改變%1的附件</Chinese>
                 <Chinesesimp>改变%1的附件</Chinesesimp>
+                <Japanese>%1 のアクセサリーを変更</Japanese>
             </Key>
             <Key ID="STR_AMAE_NO_FLAG">
                 <Original>No Flag</Original>
@@ -3741,6 +3773,7 @@
                 <German>Keine Flagge</German>
                 <Chinese>無旗幟</Chinese>
                 <Chinesesimp>无旗帜</Chinesesimp>
+                <Japanese>旗なし</Japanese>
             </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>
@@ -3904,6 +3937,7 @@
                 <German>Sprengladung setzen</German>
                 <Chinese>設置突破炸藥</Chinese>
                 <Chinesesimp>设置突破炸药</Chinesesimp>
+                <Japanese>ブリーチング チャージを設置</Japanese>
             </Key>
             <Key ID="STR_AMAE_TOUCH_OFF_BREACH">
                 <Original>Touch off (breach)</Original>
@@ -3912,6 +3946,7 @@
                 <German>Auslösen (Türe aufbrechen)</German>
                 <Chinese>引爆(突破)</Chinese>
                 <Chinesesimp>引爆(突破)</Chinesesimp>
+                <Japanese>発破 (ブリーチング)</Japanese>
             </Key>
         </Container>
         <Container name="TFAR integration dialog">
@@ -4473,6 +4508,7 @@
                 <French>Créer cible</French>
                 <Chinesesimp>创建目标</Chinesesimp>
                 <Chinese>創建目標</Chinese>
+                <Japanese>目標を作成</Japanese>
             </Key>
             <Key ID="STR_AMAE_CREATED_TARGET">
                 <Original>Created Target '%1'</Original>
@@ -4482,6 +4518,7 @@
                 <German>Das ziel '%1' wurde definiert</German>
                 <Chinesesimp>创建目标‘%1’</Chinesesimp>
                 <Chinese>創建目標'%1'</Chinese>
+                <Japanese>目標 '%1' が生成された</Japanese>
             </Key>
             <Key ID="STR_AMAE_TARGET">
                 <Original>Target %1</Original>
@@ -4607,6 +4644,18 @@
                 <English>Number of strikes</English>
                 <French>Nombre de raid</French>
                 <German>Anzahl Angriffe</German>
+            </Key>
+            <Key ID="STR_AMAE_COLOR_CORRECTION">
+                <Original>Color correction</Original>
+                <English>Color correction</English>
+                <French>Correction des couleurs</French>
+                <German>Farbkorrektur</German>
+            </Key>
+            <Key ID="STR_AMAE_DESTROYED_OBJECTS_PER_SECOND">
+                <Original>Destroyed objects per second</Original>
+                <English>Destroyed objects per second</English>
+                <French>Des Objets detruit par seconde</French>
+                <German>Zerstörte Objekte pro Sekunde</German>
             </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">
@@ -5897,6 +5946,7 @@
                 <German>HALO</German>
                 <Chinese>高跳低開跳傘</Chinese>
                 <Chinesesimp>高跳低开跳伞</Chinesesimp>
+                <Japanese>HALO</Japanese>
             </Key>
             <Key ID="STR_AMAE_WP_SEARCH_BUILDING">
                 <Original>SEARCH BUILDING</Original>
@@ -6304,7 +6354,6 @@
                 <Original>Achilles 1.1.2</Original>
                 <English>Achilles 1.1.2</English>
                 <Japanese>アレス Mod - アキレス拡張 1.1.2</Japanese>
-                <Japanese>アレス Mod - アキレス拡張 1.1.2</Japanese>
                 <Chinesesimp>阿瑞斯模组 - 阿基里斯扩展包 1.1.2</Chinesesimp>
                 <Chinese>阿基裡斯 1.1.2</Chinese>
             </Key>
@@ -6342,6 +6391,12 @@
             </Key>
         </Container>
         <Container name="Settings">
+            <Key ID="STR_AMAE_AVAILABLE_MODULES">
+                <Original>Achilles - Available Modules</Original>
+                <English>Achilles - Available Modules</English>
+                <French>Achilles - Modules disponibles</French>
+                <German>Achilles - Verfügbare Module</German>
+            </Key>
             <Key ID="STR_AMAE_AVAILABLE_FACTIONS">
                 <Original>Achilles - Available Factions</Original>
                 <English>Achilles - Available Factions</English>
@@ -6643,6 +6698,12 @@
                 <Chinesesimp>降低夜视仪亮度</Chinesesimp>
                 <Chinese>降低夜視鏡亮度</Chinese>
             </Key>
+			<Key ID="STR_AMAE_KEY_TOGGLEINCLUDECREW">
+				<Original>Toggle spawn vehicles with and without crew</Original>
+				<German>Wechseln zwischen Fahrzeuge mit und ohne Besatzung spawnen</German>
+				<English>Toggle spawn vehicles with and without crew</English>
+				<French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
+			</Key>
         </Container>
     </Package>
 </Project>
