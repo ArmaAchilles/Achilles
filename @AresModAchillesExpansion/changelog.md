@@ -17,11 +17,11 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 ##### Revised
 * Advanced CAS:
 	- Feature: Supports jets. #367
-	- Feature: Supports V-44X Blackfish (armed). #367
+	- Feature: Supports V-44X Blackfish (Armed). #367
 	- Change: New module icon. #367
 	- Fix: Did not Support non-local units. #367
 * Artillery Fire Support:
-	- Feature: Now supports Mk 41 VLS from Encore update. #365
+	- Feature: Now supports Mk 41 VLS from the Encore update. #365
 * Suppressive Fire:
 	- Change: New module icon. #367
 * Advanced Compositions:
