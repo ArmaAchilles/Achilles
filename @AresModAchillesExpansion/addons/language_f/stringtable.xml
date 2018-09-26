@@ -1793,6 +1793,30 @@
                 <French>Erreur: L'unité n'as pas de fumigène</French>
                 <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
             </Key>
+            <Key ID="STR_AMAE_GIMBAL_LOCK_ERROR">
+                <Original>Error: Gimbal Lock</Original>
+                <English>Error: Gimbal Lock</English>
+                <French>Erreur: Blocage de Cardan</French>
+                <German>Fehler: Kardanische Blockade</German>
+            </Key>
+            <Key ID="STR_AMAE_ARCRAFT_IS_TOUCHING_GROUND_ERROR">
+                <Original>Error: Aircraft is touching ground</Original>
+                <English>Error: Aircraft is touching ground</English>
+                <French>Erreur: L'aéronef est en contact avec le sol</French>
+                <German>Fehler: Das Luftfahrzeug ist am Boden</German>
+            </Key>
+            <Key ID="STR_AMAE_NOT_AN_ARCRAFT_ERROR">
+                <Original>Error: Object is not an aircraft</Original>
+                <English>Error: Object is not an aircraft</English>
+                <French>Erreur: L'objet n'est pas un aéronef</French>
+                <German>Fehler: Das Objekt is kein Luftfahrzeug</German>
+            </Key>
+            <Key ID="STR_AMAE_UNIT_IS_CURRENTLY_BUSY_ERROR">
+                <Original>Error: Unit is currently busy</Original>
+                <English>Error: Unit is currently busy</English>
+                <French>Erreur: L'unité est déjà utilisée</French>
+                <German>Fehler: Die Einheit ist bereits im Einsatz</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -2265,6 +2289,10 @@
                 <Japanese>のみ</Japanese>
                 <Chinesesimp>仅</Chinesesimp>
                 <Chinese>僅</Chinese>
+            </Key>
+            <Key ID="STR_AMAE_OFFSET">
+                <Original>Offset</Original>
+                <English>Offset</English>
             </Key>
             <Key ID="STR_AMAE_METERS">
                 <Original>[m]</Original>
@@ -4610,6 +4638,12 @@
                 <Japanese>砲撃支援中止!</Japanese>
                 <Chinesesimp>火力支援已终止！</Chinesesimp>
                 <Chinese>火力支援已終止！</Chinese>
+            </Key>
+            <Key ID="STR_NUMBER_OF_STRIKES">
+                <Original>Number of strikes</Original>
+                <English>Number of strikes</English>
+                <French>Nombre de raid</French>
+                <German>Anzahl Angriffe</German>
             </Key>
             <Key ID="STR_AMAE_COLOR_CORRECTION">
                 <Original>Color correction</Original>

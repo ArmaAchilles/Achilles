@@ -20,8 +20,8 @@ class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
 	_generalMacro = "Achilles_Suppressive_Fire_Module";
 	displayName = "$STR_AMAE_SUPPRESIVE_FIRE";
 	function = "Achilles_fnc_ModuleFireSupportSuppressiveFire";
-	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_suppress.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_suppress.paa";
     curatorCanAttach = 1;
 };
 
@@ -31,8 +31,8 @@ class Achilles_CAS_Module : Achilles_FireSupport_ModuleBase
 	_generalMacro = "Achilles_CAS_Module";
 	displayName = "$STR_AMAE_ADVANCED_CAS";
 	function = "Achilles_fnc_ModuleFireSupportCAS";
-	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
-	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
+	icon = "\achilles\data_f_achilles\icons\icon_cas.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_cas.paa";
 	curatorCanAttach = 1;
 };
 

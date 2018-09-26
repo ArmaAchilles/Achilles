@@ -79,6 +79,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 
 ## Achilles integrates these icons from these following authors
 All of these icons are licensed under Creative Commons Attribution license.
+* Advanced CAS (by MikeCzer)
 * Atomic Bomb (by Bluetip Design)
 	- https://thenounproject.com/search/?q=nuke&i=344485
 * Create IED module icon (by IYIKON)
