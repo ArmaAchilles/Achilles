@@ -17,7 +17,7 @@
 											_weapIdx	- <INTEGER> Weapon index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_muzzleIdx	- <INTEGER> Muzzle index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_magIdx		- <INTEGER> Magazine index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
-		_offset_custom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
+		_offsetCustom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
 											Can be used for fine-tuning the targeting
 											E.g. -25 means the plane will target 25 m in front of the target.
 	
@@ -60,23 +60,23 @@ params
 	"_aircraft",
 	"_target",
 	"_weaponMuzzleMagazineIdx",
-	["_offset_custom", 0, [0]]
+	["_offsetCustom", 0, [0]]
 ];
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
-private _className_aircraft = typeOf _aircraft;
-private _speed_max = getNumber (configfile >> "CfgVehicles" >> _className_aircraft >> "maxSpeed");
-private _acc_max = (14.5*(selectMax getArray (configfile >> "CfgVehicles" >> _className_aircraft >> "thrustCoef")) - 11.5) max MIN_MAX_ACC_AIRCRAFT;
+private _classNameAircraft = typeOf _aircraft;
+private _speedMax = getNumber (configfile >> "CfgVehicles" >> _classNameAircraft >> "maxSpeed");
+private _accMax = (14.5*(selectMax getArray (configfile >> "CfgVehicles" >> _classNameAircraft >> "thrustCoef")) - 11.5) max MIN_MAX_ACC_AIRCRAFT;
 
 // Get the initial state of the aircraft
-private _pos_start = _aircraft modelToWorldVisualWorld [0,0,0];
+private _posStart = _aircraft modelToWorldVisualWorld [0,0,0];
 // The usage of angles instead of vectors is more suitable for trajectories
-([_aircraft] call Achilles_fnc_getDirPitchBank) params ["_dir_start", "_pitch_start", "_bank_start"];
-private _vectDir_start = vectorDirVisual _aircraft;
+([_aircraft] call Achilles_fnc_getDirPitchBank) params ["_dirStart", "_pitchStart", "_bankStart"];
+private _vectDirStart = vectorDirVisual _aircraft;
 // Estimate velocity vector in rendered time, as there is not velocityVisual command
-private _vel_start = _vectDir_start vectorMultiply (vectorMagnitude velocity _aircraft);
-private _speed_start = vectorMagnitude _vel_start;
-private _speedXY_start = vectorMagnitude [_vel_start#0, _vel_start#1, 0];
-private _speedZ_start = _vel_start#2;
+private _velStart = _vectDirStart vectorMultiply (vectorMagnitude velocity _aircraft);
+private _speedStart = vectorMagnitude _velStart;
+private _speedXYStart = vectorMagnitude [_velStart#0, _velStart#1, 0];
+private _speedZStart = _velStart#2;
 
 // get weapon, muzzle, magazine info and unpack it
 _weaponMuzzleMagazineIdx params ["_weapIdx", "_muzzleIdx", "_magIdx"];
@@ -121,7 +121,7 @@ else
 };
 // Get max rounds and offset
 private _weaponType = getText (configFile >> "cfgWeapons" >> _weapon >> "nameSound");
-private _offset_weapon = _offset_custom;
+private _offsetWeapon = _offsetCustom;
 private _maxRounds = -1;
 switch (_weaponType) do
 {
@@ -135,210 +135,210 @@ switch (_weaponType) do
 	};
 	case "MissileLauncher":
 	{
-		_offset_weapon = _offset_weapon + 40;
+		_offsetWeapon = _offsetWeapon + 40;
 		_maxRounds = MISSILES_PER_STRIKE;
 	};
 	default 
 	{
 		// for bomb runs
-		_offset_weapon = _offset_weapon + 170;
+		_offsetWeapon = _offsetWeapon + 170;
 		_maxRounds = 1;
 	};
 };
 
 // Target location
-private _pos_target = _target modelToWorldVisualWorld [0,0,0];
+private _posTarget = _target modelToWorldVisualWorld [0,0,0];
 
 // Pitched turn trajectory
-private _dz_start = _pos_start#2 - (_pos_target#2);
-private _dz_pitchedTurn = DELTA_Z_TRAVEL - _dz_start;
-private _distXY_pitchedTurn = abs(_dz_pitchedTurn)/tan(MAX_CLIMBING_ANGLE);
-_distXY_pitchedTurn = [MIN_DIST_2D_PITCHED_TURN, _distXY_pitchedTurn] select (_distXY_pitchedTurn > MIN_DIST_2D_PITCHED_TURN);
+private _dzStart = _posStart#2 - (_posTarget#2);
+private _dzPitchedTurn = DELTA_Z_TRAVEL - _dzStart;
+private _distXYPitchedTurn = abs(_dzPitchedTurn)/tan(MAX_CLIMBING_ANGLE);
+_distXYPitchedTurn = [MIN_DIST_2D_PITCHED_TURN, _distXYPitchedTurn] select (_distXYPitchedTurn > MIN_DIST_2D_PITCHED_TURN);
 // Determine the start position for the banked turn
-private _pos_bankedTurn_start = _pos_start vectorAdd [_distXY_pitchedTurn*cos(_dir_start),_distXY_pitchedTurn*sin(_dir_start),_dz_pitchedTurn];
-if (_pos_target distance2D _pos_bankedTurn_start < (RADIUS_AO - _offset_weapon + 2*RADIUS_BANKED_TURN)) then
+private _posBankedTurnStart = _posStart vectorAdd [_distXYPitchedTurn*cos(_dirStart),_distXYPitchedTurn*sin(_dirStart),_dzPitchedTurn];
+if (_posTarget distance2D _posBankedTurnStart < (RADIUS_AO - _offsetWeapon + 2*RADIUS_BANKED_TURN)) then
 {
 	// The aircraft is too close to the target. The quadratic equation below gives us the signed magnitude of the displacement vector that will move the plane sufficiently far away
-	private _a = _vectDir_start#0^2 + _vectDir_start#1^2;
-	private _b = 2*(_vectDir_start#0*_pos_bankedTurn_start#0 - _vectDir_start#0*_pos_target#0 + _vectDir_start#1*_pos_bankedTurn_start#1 - _vectDir_start#1*_pos_target#1);
-	private _c = _pos_bankedTurn_start#0^2 - 2*_pos_bankedTurn_start#0*_pos_target#0 + _pos_bankedTurn_start#1^2 - 2*_pos_bankedTurn_start#1*_pos_target#1 + _pos_target#0^2 + _pos_target#1^2 - (RADIUS_AO - _offset_weapon + 2*RADIUS_BANKED_TURN)^2;
+	private _a = _vectDirStart#0^2 + _vectDirStart#1^2;
+	private _b = 2*(_vectDirStart#0*_posBankedTurnStart#0 - _vectDirStart#0*_posTarget#0 + _vectDirStart#1*_posBankedTurnStart#1 - _vectDirStart#1*_posTarget#1);
+	private _c = _posBankedTurnStart#0^2 - 2*_posBankedTurnStart#0*_posTarget#0 + _posBankedTurnStart#1^2 - 2*_posBankedTurnStart#1*_posTarget#1 + _posTarget#0^2 + _posTarget#1^2 - (RADIUS_AO - _offsetWeapon + 2*RADIUS_BANKED_TURN)^2;
 	// The displacement has to be in the direction of travel, hence we are only interested in the positive solution
 	private _lambda = (sqrt (_b^2 - 4*_a*_c) - _b) / 2 / _a;
-	_pos_bankedTurn_start = ([cos(_dir_start),sin(_dir_start),0] vectorMultiply _lambda) vectorAdd _pos_bankedTurn_start;
+	_posBankedTurnStart = ([cos(_dirStart),sin(_dirStart),0] vectorMultiply _lambda) vectorAdd _posBankedTurnStart;
 	// Update the distance
-	_distXY_pitchedTurn = _distXY_pitchedTurn + vectorMagnitude (_vectDir_start vectorMultiply _lambda);
+	_distXYPitchedTurn = _distXYPitchedTurn + vectorMagnitude (_vectDirStart vectorMultiply _lambda);
 };
 // Duration and acceleration in xy-plane
-private _dt_pitchedTurn = 2*_distXY_pitchedTurn/(_speedXY_start + SPEED_CAS);
-private _g_d2dt2_pitchedTurn = (SPEED_CAS - _speedXY_start)/_dt_pitchedTurn;
-private _fnc_traj_pitchedTurn =
+private _dtPitchedTurn = 2*_distXYPitchedTurn/(_speedXYStart + SPEED_CAS);
+private _gd2dt2PitchedTurn = (SPEED_CAS - _speedXYStart)/_dtPitchedTurn;
+private _fncTrajPitchedTurn =
 {
 	params ["_t"];
 	// _g is the traveled distance on the xy-plane
-	private _g = 1/2*_g_d2dt2_pitchedTurn*_t^2 + _speedXY_start*_t;
-	private _g_ddt = _g_d2dt2_pitchedTurn*_t + _speedXY_start;
-	private _z = [_t, 0, _dz_pitchedTurn, _speedZ_start, 0, 0, _dt_pitchedTurn] call Achilles_fnc_interpolation_cubicBezier1D;
-	private _z_ddt = [_t, 0, _dz_pitchedTurn, _speedZ_start, 0, 0, _dt_pitchedTurn] call Achilles_fnc_interpolation_cubicBezier1D_slope;
-	private _pos = [_g*cos(_dir_start),_g*sin(_dir_start),_z] vectorAdd _pos_start;
-	private _vel = [_g_ddt*cos(_dir_start),_g_ddt*sin(_dir_start),_z_ddt];
-	private _pitch = atan(_z_ddt/_g_ddt);
+	private _g = 1/2*_gd2dt2PitchedTurn*_t^2 + _speedXYStart*_t;
+	private _gddt = _gd2dt2PitchedTurn*_t + _speedXYStart;
+	private _z = [_t, 0, _dzPitchedTurn, _speedZStart, 0, 0, _dtPitchedTurn] call Achilles_fnc_interpolation_cubicBezier1D;
+	private _zddt = [_t, 0, _dzPitchedTurn, _speedZStart, 0, 0, _dtPitchedTurn] call Achilles_fnc_interpolation_cubicBezier1D_slope;
+	private _pos = [_g*cos(_dirStart),_g*sin(_dirStart),_z] vectorAdd _posStart;
+	private _vel = [_gddt*cos(_dirStart),_gddt*sin(_dirStart),_zddt];
+	private _pitch = atan(_zddt/_gddt);
 	// Bank angle based on linear interpolation
-	private _sign_bank = [-1,1] select (_bank_start >=0);
-	private _bank_restorer = _bank_start - _sign_bank * 360/BANK_PERIOD * _t;
-	private _bank = [0, _bank_restorer] select (_sign_bank * _bank_restorer > 0);
-	([_dir_start, _pitch, _bank] call Achilles_fnc_vectDirUpFromDirPitchBank) params ["_vectDir", "_vectUp"];
+	private _signBank = [-1,1] select (_bankStart >=0);
+	private _bankRestorer = _bankStart - _signBank * 360/BANK_PERIOD * _t;
+	private _bank = [0, _bankRestorer] select (_signBank * _bankRestorer > 0);
+	([_dirStart, _pitch, _bank] call Achilles_fnc_vectDirUpFromDirPitchBank) params ["_vectDir", "_vectUp"];
 	// Return
-	[_pos,_vel,_vectDir,_vectUp,_dir_start,_pitch,_bank]
+	[_pos,_vel,_vectDir,_vectUp,_dirStart,_pitch,_bank]
 };
 
 // Banked turn trajectory
 // Get the circle
-private _rotSign_bankedTurn = 1;
-private _vectR_bankedTurn_start = ([cos(_dir_start),sin(_dir_start),0] vectorCrossProduct [0,0,1]) vectorMultiply RADIUS_BANKED_TURN;
-if (_vectR_bankedTurn_start vectorDotProduct (_pos_target vectorDiff _pos_bankedTurn_start) > 0) then
+private _rotSignBankedTurn = 1;
+private _vectRBankedTurnStart = ([cos(_dirStart),sin(_dirStart),0] vectorCrossProduct [0,0,1]) vectorMultiply RADIUS_BANKED_TURN;
+if (_vectRBankedTurnStart vectorDotProduct (_posTarget vectorDiff _posBankedTurnStart) > 0) then
 {
 	// Rotate in clockwise sense as it is shorter
-	_rotSign_bankedTurn = -1;
-	_vectR_bankedTurn_start = _vectR_bankedTurn_start vectorMultiply _rotSign_bankedTurn;
+	_rotSignBankedTurn = -1;
+	_vectRBankedTurnStart = _vectRBankedTurnStart vectorMultiply _rotSignBankedTurn;
 };
-private _pos_bankedTurn_center = _pos_bankedTurn_start vectorDiff _vectR_bankedTurn_start;
-private _angle_bankedTurn_start = _dir_start - _rotSign_bankedTurn*90;
+private _posBankedTurnCenter = _posBankedTurnStart vectorDiff _vectRBankedTurnStart;
+private _angleBankedTurnStart = _dirStart - _rotSignBankedTurn*90;
 // Get end position
-private _alpha = _rotSign_bankedTurn * acos (RADIUS_BANKED_TURN / (_pos_target distance2D _pos_bankedTurn_center));
-private _angle_bankedTurn_end = ([[1,0,0], _pos_target vectorDiff _pos_bankedTurn_center] call Achilles_fnc_vectAngleXY) - _alpha;
-if (_rotSign_bankedTurn > 0) then
+private _alpha = _rotSignBankedTurn * acos (RADIUS_BANKED_TURN / (_posTarget distance2D _posBankedTurnCenter));
+private _angleBankedTurnEnd = ([[1,0,0], _posTarget vectorDiff _posBankedTurnCenter] call Achilles_fnc_vectAngleXY) - _alpha;
+if (_rotSignBankedTurn > 0) then
 {
-	if (_angle_bankedTurn_start > _angle_bankedTurn_end) then {_angle_bankedTurn_start = _angle_bankedTurn_start - 360};
+	if (_angleBankedTurnStart > _angleBankedTurnEnd) then {_angleBankedTurnStart = _angleBankedTurnStart - 360};
 }
 else
 {
-	if (_angle_bankedTurn_start < _angle_bankedTurn_end) then {_angle_bankedTurn_start = _angle_bankedTurn_start + 360}	;
+	if (_angleBankedTurnStart < _angleBankedTurnEnd) then {_angleBankedTurnStart = _angleBankedTurnStart + 360}	;
 };
-private _pos_bankedTurn_end = _pos_bankedTurn_center vectorAdd ([cos(_angle_bankedTurn_end), sin(_angle_bankedTurn_end), 0] vectorMultiply RADIUS_BANKED_TURN);
+private _posBankedTurnEnd = _posBankedTurnCenter vectorAdd ([cos(_angleBankedTurnEnd), sin(_angleBankedTurnEnd), 0] vectorMultiply RADIUS_BANKED_TURN);
 // Timing
-private _t_start_bankedTurn = _dt_pitchedTurn;
-private _dt_bankedTurn = abs (2*pi*RADIUS_BANKED_TURN * (_angle_bankedTurn_end - _angle_bankedTurn_start)/360) / _speed_start;
-private _fnc_traj_bankedTurn =
+private _tStartBankedTurn = _dtPitchedTurn;
+private _dtBankedTurn = abs (2*pi*RADIUS_BANKED_TURN * (_angleBankedTurnEnd - _angleBankedTurnStart)/360) / _speedStart;
+private _fncTrajBankedTurn =
 {
 	params["_t"];
-	private _lambda = (_t - _t_start_bankedTurn) / _dt_bankedTurn;
-	private _angle = (_angle_bankedTurn_end - _angle_bankedTurn_start)*_lambda + _angle_bankedTurn_start;
+	private _lambda = (_t - _tStartBankedTurn) / _dtBankedTurn;
+	private _angle = (_angleBankedTurnEnd - _angleBankedTurnStart)*_lambda + _angleBankedTurnStart;
 	private _vectR = [cos _angle, sin _angle, 0] vectorMultiply RADIUS_BANKED_TURN;
-	private _pos = _vectR vectorAdd _pos_bankedTurn_center;
-	private _dir = _angle + _rotSign_bankedTurn*90;
+	private _pos = _vectR vectorAdd _posBankedTurnCenter;
+	private _dir = _angle + _rotSignBankedTurn*90;
 	private _pitch = 0;
 	// Bank angle based on linear interpolation
-	private _bank_starter = 360/BANK_PERIOD * (_t - _t_start_bankedTurn);
-	private _bank_restorer = 360/BANK_PERIOD * (_t_start_approachAO - _t);
+	private _bankStarter = 360/BANK_PERIOD * (_t - _tStartBankedTurn);
+	private _bankRestorer = 360/BANK_PERIOD * (_tStartApproachAO - _t);
 	private _bank = switch (true) do
 	{
-		case (_bank_starter > ANGLE_BANKED_TURN and _bank_restorer > ANGLE_BANKED_TURN): {ANGLE_BANKED_TURN};
-		case (_bank_starter > _bank_restorer): {_bank_restorer};
-		default {_bank_starter};
+		case (_bankStarter > ANGLE_BANKED_TURN and _bankRestorer > ANGLE_BANKED_TURN): {ANGLE_BANKED_TURN};
+		case (_bankStarter > _bankRestorer): {_bankRestorer};
+		default {_bankStarter};
 	};
-	_bank = -_rotSign_bankedTurn*_bank;
+	_bank = -_rotSignBankedTurn*_bank;
 	([_dir, _pitch, _bank] call Achilles_fnc_vectDirUpFromDirPitchBank) params ["_vectDir", "_vectUp"];
 	private _vel = _vectDir vectorMultiply SPEED_CAS;
 	// Return
-	[_pos,_vel,_vectDir,_vectUp,_dir_start,_pitch,_bank]
+	[_pos,_vel,_vectDir,_vectUp,_dirStart,_pitch,_bank]
 };
 
 // Approach AO trajectory
-private _dir_bankedTurn_end = _angle_bankedTurn_end + _rotSign_bankedTurn*90;
-private _vectDir_bankedTurn_end = [cos(_dir_bankedTurn_end),sin(_dir_bankedTurn_end),0];
-private _distXY_approachAO = (_pos_bankedTurn_end distance2D _pos_target) - RADIUS_AO + _offset_weapon;
-private _pos_AO_start = _pos_bankedTurn_end vectorAdd (_vectDir_bankedTurn_end vectorMultiply _distXY_approachAO);
-private _t_start_approachAO = _t_start_bankedTurn + _dt_bankedTurn;
-private _g_d2dt2_max_approachAO = _acc_max;
-private _dt_approachAO = 3*(sqrt(SPEED_CAS^2 + 2/3*_distXY_approachAO*_g_d2dt2_max_approachAO) - SPEED_CAS)/_g_d2dt2_max_approachAO;
-private _g_ddt_max_approachAO = 1/4*_g_d2dt2_max_approachAO*_dt_approachAO + SPEED_CAS;
-if(_g_ddt_max_approachAO > _speed_max) then
+private _dirBankedTurnEnd = _angleBankedTurnEnd + _rotSignBankedTurn*90;
+private _vectDirBankedTurnEnd = [cos(_dirBankedTurnEnd),sin(_dirBankedTurnEnd),0];
+private _distXYApproachAO = (_posBankedTurnEnd distance2D _posTarget) - RADIUS_AO + _offsetWeapon;
+private _posAOStart = _posBankedTurnEnd vectorAdd (_vectDirBankedTurnEnd vectorMultiply _distXYApproachAO);
+private _tStartApproachAO = _tStartBankedTurn + _dtBankedTurn;
+private _gd2dt2MaxApproachAO = _accMax;
+private _dtApproachAO = 3*(sqrt(SPEED_CAS^2 + 2/3*_distXYApproachAO*_gd2dt2MaxApproachAO) - SPEED_CAS)/_gd2dt2MaxApproachAO;
+private _gddtMaxApproachAO = 1/4*_gd2dt2MaxApproachAO*_dtApproachAO + SPEED_CAS;
+if(_gddtMaxApproachAO > _speedMax) then
 {
-	_g_ddt_max_approachAO = _speed_max;
-	_g_d2dt2_max_approachAO = 4/3*(2*_g_ddt_max_approachAO^2-_g_ddt_max_approachAO*SPEED_CAS-SPEED_CAS^2)/_distXY_approachAO;
-	_dt_approachAO = 3*(sqrt(SPEED_CAS^2 + 2/3*_distXY_approachAO*_g_d2dt2_max_approachAO) - SPEED_CAS)/_g_d2dt2_max_approachAO;
+	_gddtMaxApproachAO = _speedMax;
+	_gd2dt2MaxApproachAO = 4/3*(2*_gddtMaxApproachAO^2-_gddtMaxApproachAO*SPEED_CAS-SPEED_CAS^2)/_distXYApproachAO;
+	_dtApproachAO = 3*(sqrt(SPEED_CAS^2 + 2/3*_distXYApproachAO*_gd2dt2MaxApproachAO) - SPEED_CAS)/_gd2dt2MaxApproachAO;
 };
-_fnc_traj_approachAO =
+_fncTrajApproachAO =
 {
 	params ["_t"];
-	private _t = _t - _t_start_approachAO;
-	private _g = -1/3*_g_d2dt2_max_approachAO/_dt_approachAO*_t^3 + 0.5*_g_d2dt2_max_approachAO*_t^2 + SPEED_CAS*_t;
-	private _g_ddt = -_g_d2dt2_max_approachAO/_dt_approachAO*_t^2 + _g_d2dt2_max_approachAO*_t + SPEED_CAS;
-	private _pos = _pos_bankedTurn_end vectorAdd (_vectDir_bankedTurn_end vectorMultiply _g);
-	private _vel = _vectDir_bankedTurn_end vectorMultiply _g_ddt;
-	[_pos,_vel,_vectDir_bankedTurn_end,[0,0,1],_dir_bankedTurn_end,0,0]
+	private _t = _t - _tStartApproachAO;
+	private _g = -1/3*_gd2dt2MaxApproachAO/_dtApproachAO*_t^3 + 0.5*_gd2dt2MaxApproachAO*_t^2 + SPEED_CAS*_t;
+	private _gddt = -_gd2dt2MaxApproachAO/_dtApproachAO*_t^2 + _gd2dt2MaxApproachAO*_t + SPEED_CAS;
+	private _pos = _posBankedTurnEnd vectorAdd (_vectDirBankedTurnEnd vectorMultiply _g);
+	private _vel = _vectDirBankedTurnEnd vectorMultiply _gddt;
+	[_pos,_vel,_vectDirBankedTurnEnd,[0,0,1],_dirBankedTurnEnd,0,0]
 };
 
 // Pre-CAS trajectory
-private _speedXY_cas = SPEED_CAS*cos(PITCH_CAS);
-private _speedZ_cas = SPEED_CAS*sin(PITCH_CAS);
-private _dz_cas_start = DIST_CAS_START * sin(PITCH_CAS);
-private _dz_preCAS = - DELTA_Z_TRAVEL - _dz_cas_start;
-private _distXY_preCAS = RADIUS_AO - RADIUS_CAS_START + _offset_weapon;
+private _speedXYCas = SPEED_CAS*cos(PITCH_CAS);
+private _speedZCas = SPEED_CAS*sin(PITCH_CAS);
+private _dzCasStart = DIST_CAS_START * sin(PITCH_CAS);
+private _dzPreCAS = - DELTA_Z_TRAVEL - _dzCasStart;
+private _distXYPreCAS = RADIUS_AO - RADIUS_CAS_START + _offsetWeapon;
 // Duration and acceleration in xy-plane
-private _t_start_preCAS = _t_start_approachAO + _dt_approachAO;
-private _dt_preCAS = 2*_distXY_preCAS/(_speedXY_cas + SPEED_CAS);
-private _g_d2dt2_preCAS = (_speedXY_cas - SPEED_CAS)/_dt_preCAS;
-private _fnc_traj_preCAS =
+private _tStartPreCAS = _tStartApproachAO + _dtApproachAO;
+private _dtPreCAS = 2*_distXYPreCAS/(_speedXYCas + SPEED_CAS);
+private _gd2dt2PreCAS = (_speedXYCas - SPEED_CAS)/_dtPreCAS;
+private _fncTrajPreCAS =
 {
 	params ["_t"];
-	private _t = _t - _t_start_preCAS;
+	private _t = _t - _tStartPreCAS;
 	// _g is the traveled distance on the xy-plane
-	private _g = 1/2*_g_d2dt2_preCAS*_t^2 + SPEED_CAS*_t;
-	private _g_ddt = _g_d2dt2_preCAS*_t + SPEED_CAS;
-	private _z = [_t, 0, _dz_preCAS, 0, _speedZ_cas, 0, _dt_preCAS] call Achilles_fnc_interpolation_cubicBezier1D;
-	private _z_ddt = [_t, 0, _dz_preCAS, 0, _speedZ_cas, 0, _dt_preCAS] call Achilles_fnc_interpolation_cubicBezier1D_slope;
-	private _pos = [_g*cos(_dir_bankedTurn_end),_g*sin(_dir_bankedTurn_end),_z] vectorAdd _pos_AO_start;
-	private _vel = [_g_ddt*cos(_dir_bankedTurn_end),_g_ddt*sin(_dir_bankedTurn_end),_z_ddt];
-	private _pitch = atan(_z_ddt/_g_ddt);
+	private _g = 1/2*_gd2dt2PreCAS*_t^2 + SPEED_CAS*_t;
+	private _gddt = _gd2dt2PreCAS*_t + SPEED_CAS;
+	private _z = [_t, 0, _dzPreCAS, 0, _speedZCas, 0, _dtPreCAS] call Achilles_fnc_interpolation_cubicBezier1D;
+	private _zddt = [_t, 0, _dzPreCAS, 0, _speedZCas, 0, _dtPreCAS] call Achilles_fnc_interpolation_cubicBezier1D_slope;
+	private _pos = [_g*cos(_dirBankedTurnEnd),_g*sin(_dirBankedTurnEnd),_z] vectorAdd _posAOStart;
+	private _vel = [_gddt*cos(_dirBankedTurnEnd),_gddt*sin(_dirBankedTurnEnd),_zddt];
+	private _pitch = atan(_zddt/_gddt);
 	private _bank = 0;
-	([_dir_bankedTurn_end, _pitch, _bank] call Achilles_fnc_vectDirUpFromDirPitchBank) params ["_vectDir", "_vectUp"];
+	([_dirBankedTurnEnd, _pitch, _bank] call Achilles_fnc_vectDirUpFromDirPitchBank) params ["_vectDir", "_vectUp"];
 	// Return
-	[_pos,_vel,_vectDir,_vectUp,_dir_bankedTurn_end,_pitch,_bank]
+	[_pos,_vel,_vectDir,_vectUp,_dirBankedTurnEnd,_pitch,_bank]
 };
 
 // CAS trajectory (just the params for setVelocityTransformation)
-private _t_start_cas = _t_start_preCAS + _dt_preCAS;
-([_t_start_cas] call _fnc_traj_preCAS) params ["_pos_cas_start", "_vel_cas", "_vectDir_cas", "_vectUp_cas"];
-private _pos_cas_end = _pos_cas_start vectorAdd (_vectDir_cas vectorMultiply DIST_CAS_START);
-private _dt_cas = DIST_CAS_START/SPEED_CAS;
+private _tStartCas = _tStartPreCAS + _dtPreCAS;
+([_tStartCas] call _fncTrajPreCAS) params ["_posCasStart", "_velCas", "_vectDirCas", "_vectUpCas"];
+private _posCasEnd = _posCasStart vectorAdd (_vectDirCas vectorMultiply DIST_CAS_START);
+private _dtCas = DIST_CAS_START/SPEED_CAS;
 
 // Start the simulation
-private _t_start = time;
+private _tStart = time;
 _aircraft disableAI "MOVE";
 waitUntil
 {
-	private _t = time - _t_start;
-	private _fnc_curTraj = {};
+	private _t = time - _tStart;
+	private _fncCurTraj = {};
 	switch (true) do
 	{
-		case (_t > _t_start_preCAS):
+		case (_t > _tStartPreCAS):
 		{
-			(_t call _fnc_traj_preCAS) params ["_pos","_vel","_vectDir","_vectUp"];
+			(_t call _fncTrajPreCAS) params ["_pos","_vel","_vectDir","_vectUp"];
 			_aircraft setVelocityTransformation [_pos, _pos, _vel, _vel, _vectDir, _vectDir, _vectUp, _vectUp, 1];
 			_aircraft setVelocity _vel;
 		};
-		case (_t > _t_start_approachAO):
+		case (_t > _tStartApproachAO):
 		{
-			(_t call _fnc_traj_approachAO) params ["_pos","_vel","_vectDir","_vectUp"];
+			(_t call _fncTrajApproachAO) params ["_pos","_vel","_vectDir","_vectUp"];
 			_aircraft setVelocityTransformation [_pos, _pos, _vel, _vel, _vectDir, _vectDir, _vectUp, _vectUp, 1];
 			_aircraft setVelocity _vel;
 		};
-		case (_t > _t_start_bankedTurn): 
+		case (_t > _tStartBankedTurn): 
 		{
-			(_t call _fnc_traj_bankedTurn) params ["_pos","_vel","_vectDir","_vectUp"];
+			(_t call _fncTrajBankedTurn) params ["_pos","_vel","_vectDir","_vectUp"];
 			_aircraft setVelocityTransformation [_pos, _pos, _vel, _vel, _vectDir, _vectDir, _vectUp, _vectUp, 1];
 			_aircraft setVelocity _vel;
 		};
 		default
 		{
-			(_t call _fnc_traj_pitchedTurn) params ["_pos","_vel","_vectDir","_vectUp"];
+			(_t call _fncTrajPitchedTurn) params ["_pos","_vel","_vectDir","_vectUp"];
 			_aircraft setVelocityTransformation [_pos, _pos, _vel, _vel, _vectDir, _vectDir, _vectUp, _vectUp, 1];
 			_aircraft setVelocity _vel;
 		};
 	};
 	sleep 0.01;
-	(_t > _t_start_preCAS + _dt_preCAS) || !alive _aircraft || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
+	(_t > _tStartPreCAS + _dtPreCAS) || !alive _aircraft || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 
@@ -363,25 +363,25 @@ private _fireHandle = [_aircraft, _gunner, _muzzle, _magazine, _turretPath, _rel
 	_aircraft doTarget laserTarget _laserTarget;
 	// Start firing
 	private _time = time;
-	private _i_fire = 1;
+	private _iFire = 1;
 	waitUntil {
 		_aircraft selectWeaponTurret [_muzzle, _turretPath];
 		_aircraft setWeaponReloadingTime [_gunner, _muzzle, 0];
 		[_target, _gunner, _muzzle, _magazine, _aircraft, _turretPath] call Achilles_fnc_forceWeaponFire;
 		sleep _reloadTime;
-		_i_fire = _i_fire + 1;
-		_time + 3 < time || _i_fire > _maxRounds || !alive _aircraft || !alive driver _aircraft
+		_iFire = _iFire + 1;
+		_time + 3 < time || _iFire > _maxRounds || !alive _aircraft || !alive driver _aircraft
 	};
 	_aircraft enableAI "TARGET";
 	_aircraft enableAI "AUTOTARGET";
 };
 // Approach the target while firing
-// Would have been _fnc_traj_CAS, but we use setVelocityTransformation directly
+// Would have been _fncTrajCAS, but we use setVelocityTransformation directly
 private _time = time;
 waitUntil
 {
-	_aircraft setVelocityTransformation [_pos_cas_start,_pos_cas_end,_vel_cas,_vel_cas,_vectDir_cas,_vectDir_cas,_vectUp_cas,_vectUp_cas,(time - _time)/_dt_cas];
-	_aircraft setVelocity _vel_cas;
+	_aircraft setVelocityTransformation [_posCasStart,_posCasEnd,_velCas,_velCas,_vectDirCas,_vectDirCas,_vectUpCas,_vectUpCas,(time - _time)/_dtCas];
+	_aircraft setVelocity _velCas;
 	sleep 0.01;
 	scriptDone _fireHandle || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0;
 };

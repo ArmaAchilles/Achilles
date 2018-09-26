@@ -17,7 +17,7 @@
 											_weapIdx	- <INTEGER> Weapon index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_muzzleIdx	- <INTEGER> Muzzle index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_magIdx		- <INTEGER> Magazine index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
-		_offset_custom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
+		_offsetCustom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
 											Can be used for fine-tuning the targeting
 											E.g. -25 means the helicopter will target 25 m in front of the target.
 	
@@ -35,7 +35,7 @@ params
 	"_aircraft",
 	"_target",
 	"_weaponMuzzleMagazineIdx",
-	["_offset_custom", 0, [0]]
+	["_offsetCustom", 0, [0]]
 ];
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 private _targetPos = getPos _target;
@@ -106,11 +106,11 @@ else
 };
 _reloadTime = _reloadTime min 1;
 // Get offset
-private _offset_weapon = switch (_muzzle) do
+private _offsetWeapon = switch (_muzzle) do
 {
-	case "cannon_105mm_VTOL_01": {[0 + _offset_custom, -65, 0]};
-	case "AP": {[5 + _offset_custom, -55, 0]};
-	default {[15 + _offset_custom, -85, 0]}
+	case "cannon_105mm_VTOL_01": {[0 + _offsetCustom, -65, 0]};
+	case "AP": {[5 + _offsetCustom, -55, 0]};
+	default {[15 + _offsetCustom, -85, 0]}
 };
 
 private _data = [0,0,0,0,1e6];
@@ -118,30 +118,30 @@ private _i = 0;
 waitUntil
 {
 	private _dir = _aircraft getDir _target;
-	private _pos = ASLToAGL ((getPosASL _target) vectorAdd ([[[sin(_dir),cos(_dir),0],[cos(_dir),-sin(_dir),0],[0,0,1]], _offset_weapon] call CBA_fnc_vectMap3D));
+	private _pos = ASLToAGL ((getPosASL _target) vectorAdd ([[[sin(_dir),cos(_dir),0],[cos(_dir),-sin(_dir),0],[0,0,1]], _offsetWeapon] call CBA_fnc_vectMap3D));
 	_gunner doWatch _pos;
 	_gunner lookAt _pos;
-	private _distXY_cur = _aircraft distance2D _targetPos;
-	_data set [_i, _distXY_cur];
+	private _distXYCur = _aircraft distance2D _targetPos;
+	_data set [_i, _distXYCur];
 	_i = (_i+1)%5;
 	sleep 1;
-	(_distXY_cur < 1000 && ([_data] call Achilles_fnc_arrayStdDev < 5)) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
+	(_distXYCur < 1000 && ([_data] call Achilles_fnc_arrayStdDev < 5)) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 // Start firing
 private _time = time;
 private _endTime = _time + 3;
-private _i_fire = 1;
+private _iFire = 1;
 waitUntil {
 	private _dir = _aircraft getDir _target;
-	private _pos = ASLToAGL ((getPosASL _target) vectorAdd ([[[sin(_dir),cos(_dir),0],[cos(_dir),-sin(_dir),0],[0,0,1]], _offset_weapon] call CBA_fnc_vectMap3D));
+	private _pos = ASLToAGL ((getPosASL _target) vectorAdd ([[[sin(_dir),cos(_dir),0],[cos(_dir),-sin(_dir),0],[0,0,1]], _offsetWeapon] call CBA_fnc_vectMap3D));
 	_gunner doWatch _pos;
 	_gunner lookAt _pos;
 	_gunner lookAt _pos;
 	_aircraft selectWeaponTurret [_muzzle, _turretPath];
 	_aircraft setWeaponReloadingTime [_gunner, _muzzle, 0];
 	[_target, _gunner, _muzzle, _magazine, _aircraft, _turretPath] call Achilles_fnc_forceWeaponFire;
-	_i_fire = _i_fire + 1;
+	_iFire = _iFire + 1;
 	sleep _reloadTime;
 	_endTime  < time || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0
 };

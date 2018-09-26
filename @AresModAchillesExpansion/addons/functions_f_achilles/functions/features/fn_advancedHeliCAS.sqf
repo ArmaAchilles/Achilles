@@ -17,7 +17,7 @@
 											_weapIdx	- <INTEGER> Weapon index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_muzzleIdx	- <INTEGER> Muzzle index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
 											_magIdx		- <INTEGER> Magazine index (derived from Achilles_fnc_getWeaponsMuzzlesMagazines)
-		_offset_custom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
+		_offsetCustom					- <ARRAY> [0] Target offset in meters that will be added to the weapon's offset
 											Can be used for fine-tuning the targeting
 											E.g. -25 means the helicopter will target 25 m in front of the target.
 	
@@ -40,32 +40,32 @@ params
 	"_aircraft",
 	"_target",
 	"_weaponMuzzleMagazineIdx",
-	["_offset_custom", 0, [0]]
+	["_offsetCustom", 0, [0]]
 ];
 if (!canMove _aircraft || !alive driver _aircraft) exitWith {false};
-private _target_pos = getPosWorld _target;
-private _direction = 180 - ([_aircraft, _target_pos] call BIS_fnc_dirTo);
+private _targetPos = getPosWorld _target;
+private _direction = 180 - ([_aircraft, _targetPos] call BIS_fnc_dirTo);
 
-private _unit_capture_trajectory = UNIT_CAPTURE_TRAJECTORY apply
+private _unitCaptureTrajectory = UNIT_CAPTURE_TRAJECTORY apply
 {
 	[
 		_x#0,
-		([_x#1, _direction] call BIS_fnc_rotateVector2D) vectorAdd _target_pos vectorAdd ([[0,-_offset_custom,0], _direction] call BIS_fnc_rotateVector2D),
+		([_x#1, _direction] call BIS_fnc_rotateVector2D) vectorAdd _targetPos vectorAdd ([[0,-_offsetCustom,0], _direction] call BIS_fnc_rotateVector2D),
 		[_x#2, _direction] call BIS_fnc_rotateVector2D,
 		[_x#3, _direction] call BIS_fnc_rotateVector2D,
 		[_x#4, _direction] call BIS_fnc_rotateVector2D
 	]
 };
 
-_unit_capture_trajectory params ["_end_data"];
-_end_data params ["", "_end_pos", "_end_vecDir", "_end_vecUp"];
+_unitCaptureTrajectory params ["_endData"];
+_endData params ["", "_endPos", "_endVecDir", "_endVecUp"];
 
 _aircraft flyInHeight 80;
 
 private _group = group effectiveCommander _aircraft;
-private _wp_index = currentwaypoint _group;
-_group addWaypoint [_target_pos, 100, _wp_index];
-waitUntil {sleep 1; !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0 || (_end_pos distance2D _aircraft < 200)};
+private _wpIndex = currentwaypoint _group;
+_group addWaypoint [_targetPos, 100, _wpIndex];
+waitUntil {sleep 1; !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0 || (_endPos distance2D _aircraft < 200)};
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 
 // get weapon, muzzle, magazine info and unpack it
@@ -93,39 +93,39 @@ _aircraft selectWeaponTurret [_muzzle, _turretPath];
 _aircraft loadMagazine [_turretPath, _muzzle, _magazine];
 
 // Start the simulation
-private _start_pos = getPosASL _aircraft;
-private _start_velocity = velocity _aircraft;
-private _start_vecDir = vectorDir _aircraft;
-private _start_vecUp = vectorUp _aircraft;
+private _startPos = getPosASL _aircraft;
+private _startVelocity = velocity _aircraft;
+private _startVecDir = vectorDir _aircraft;
+private _startVecUp = vectorUp _aircraft;
 
 private _speed = 60 /3.6;
 _aircraft forceSpeed _speed * 3.6;
-private _duration = (_end_pos distance _start_pos)/_speed;
+private _duration = (_endPos distance _startPos)/_speed;
 
 // start the simulation
 _aircraft disableAI "MOVE";
 private _time = time;
 waitUntil
 {
-	private _delta_time = time - _time;
+	private _deltaTime = time - _time;
 	_aircraft setVelocityTransformation
 	[
-		_start_pos,
-		_end_pos,
-		_start_velocity,
-		_end_pos,
-		_start_vecDir,
-		_end_vecDir,
-		_start_vecUp,
-		_end_vecUp,
-		_delta_time / _duration
+		_startPos,
+		_endPos,
+		_startVelocity,
+		_endPos,
+		_startVecDir,
+		_endVecDir,
+		_startVecUp,
+		_endVecUp,
+		_deltaTime / _duration
 	];
 	_aircraft setVelocity [0,0,0];
 	sleep 0.01;
-	((_delta_time >= _duration) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0)
+	((_deltaTime >= _duration) || !canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0)
 };
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
-[_aircraft, _unit_capture_trajectory] spawn BIS_fnc_UnitPlay;
+[_aircraft, _unitCaptureTrajectory] spawn BIS_fnc_UnitPlay;
 
 // handle firing
 _aircraft disableAI "TARGET";
@@ -134,15 +134,15 @@ _gunner reveal _target;
 _gunner doWatch _target;
 _gunner lookAt _target;
 _gunner doTarget _target;
-private _prev_time = 0;
+private _prevTime = 0;
 {
-	private _curr_time = _x;
-	private _dt = _curr_time - _prev_time;
+	private _currTime = _x;
+	private _dt = _currTime - _prevTime;
 	sleep _dt;
 	_aircraft selectWeaponTurret [_muzzle, _turretPath];
 	_aircraft setWeaponReloadingTime [_gunner, _muzzle, 0];
 	[_target, _gunner, _muzzle, _magazine, _aircraft, _turretPath] call Achilles_fnc_forceWeaponFire;
-	_prev_time = _curr_time;
+	_prevTime = _currTime;
 } forEach UNIT_CAPTURE_FIRING;
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 _aircraft enableAI "TARGET";
