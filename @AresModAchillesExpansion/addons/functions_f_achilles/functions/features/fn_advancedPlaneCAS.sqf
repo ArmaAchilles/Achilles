@@ -387,4 +387,4 @@ waitUntil
 };
 if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWith {false};
 _aircraft enableAI "MOVE";
-true
+true;

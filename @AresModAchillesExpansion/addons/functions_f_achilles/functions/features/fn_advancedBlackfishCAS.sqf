@@ -149,4 +149,4 @@ if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWi
 _aircraft setBehaviour _prevBehaviour;
 _aircraft enableAI "TARGET";
 _aircraft enableAI "AUTOTARGET";
-true
+true;

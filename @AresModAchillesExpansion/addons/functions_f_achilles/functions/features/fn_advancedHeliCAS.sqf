@@ -148,4 +148,4 @@ if (!canMove _aircraft || !alive driver _aircraft || fuel _aircraft == 0) exitWi
 _aircraft enableAI "TARGET";
 _aircraft enableAI "AUTOTARGET";
 _aircraft enableAI "MOVE";
-true
+true;
