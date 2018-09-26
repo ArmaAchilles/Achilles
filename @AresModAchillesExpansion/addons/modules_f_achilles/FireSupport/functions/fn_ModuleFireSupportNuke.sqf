@@ -172,7 +172,7 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 		private _pos = position player;
 		private _parray =
 		[
-			["A3\Data_F\ParticleEffects\Universal\Universal", 16, 12, 8, 1],//"A3\Data_F\cl_water",
+			["A3\Data_F\ParticleEffects\Universal\Universal", 16, 12, 8, 1],
 			"",
 			"Billboard",
 			1,
