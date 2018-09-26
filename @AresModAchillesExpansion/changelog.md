@@ -7,9 +7,50 @@ X.X.X
 │ └─── minor  
 └───── major  
 
-Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/).  
+Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/). 
 
 ## Change log
+### v1.2.0
+#### Modules
+##### New
+* Atomic Bomb. #370
+##### Revised
+* Advanced CAS:
+	- Feature: Supports jets. #367
+	- Feature: Supports V-44X Blackfish (Armed). #367
+	- Change: New module icon. #367
+	- Fix: Did not Support non-local units. #367
+* Artillery Fire Support:
+	- Feature: Now supports Mk 41 VLS from the Encore update. #365
+* Suppressive Fire:
+	- Change: New module icon. #367
+* Advanced Compositions:
+	- Fix: Vehicle compositions were not drivable in certain cases. #356
+#### Key-bindings/mouse
+##### New
+* Toggle include crew keybinding (same as in Eden). #362
+##### Revised
+* ACE Zeus self-interaction menu:
+	- Feature: Added Switch Unit as option. #298
+* Use countermeasure/smoke:
+	- Fix: Script error for RHS Little Bird. #369
+#### Settings
+##### New
+* Module filter (Allows restricting features on a server via CBA settings). #372
+##### Revised
+* Faction filter:
+	- Change: Entries are now sorted alphabetically. #372
+	- Change: The side of the faction is shown. #372
+#### Translations
+##### Revised
+* French (by @Revo78). #355
+* Japanese (by @classicarma). #363
+#### Other
+* Change: Revised the way the Achilles modules are initialized. #372
+* Fix: Achilles modules were not available when a mission was loaded from a save. #372
+* Fix: The Zeus interface was loaded twice in the beginning of a session. #372
+* Change: Replaced Achilles linear algebra functions with the CBA ones. #368
+
 ### v1.1.3
 #### Other
 * Feature: Automated publishing
