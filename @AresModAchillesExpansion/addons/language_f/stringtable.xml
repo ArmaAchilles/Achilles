@@ -6339,6 +6339,12 @@
             </Key>
         </Container>
         <Container name="Settings">
+            <Key ID="STR_AMAE_AVAILABLE_MODULES">
+                <Original>Achilles - Available Modules</Original>
+                <English>Achilles - Available Modules</English>
+                <French>Achilles - Modules disponibles</French>
+                <German>Achilles - Verfügbare Module</German>
+            </Key>
             <Key ID="STR_AMAE_AVAILABLE_FACTIONS">
                 <Original>Achilles - Available Factions</Original>
                 <English>Achilles - Available Factions</English>
