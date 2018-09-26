@@ -47,7 +47,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Japanese (by @classicarma). #363
 #### Other
 * Change: Revised the way the Achilles modules are initialized. #372
-* Fix: Achilles modules were not available when a mission was loaded from a safe. #372
+* Fix: Achilles modules were not available when a mission was loaded from a save. #372
 * Fix: The Zeus interface was loaded twice in the beginning of a session. #372
 * Change: Replaced Achilles linear algebra functions with the CBA ones. #368
 
