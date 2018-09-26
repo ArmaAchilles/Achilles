@@ -1638,6 +1638,12 @@
                 <Chinesesimp>拖网渔船</Chinesesimp>
                 <Japanese>トロール船</Japanese>
             </Key>
+            <Key ID="STR_AMAE_ATOMIC_BOMB">
+                <Original>Atomic Bomb</Original>
+                <English>Atomic Bomb</English>
+                <French>Bombe Atomique</French>
+                <German>Atombombe</German>
+            </Key>
         </Container>
     </Package>
     <Package name="Ares Curator Dialogs">
@@ -4604,6 +4610,18 @@
                 <Japanese>砲撃支援中止!</Japanese>
                 <Chinesesimp>火力支援已终止！</Chinesesimp>
                 <Chinese>火力支援已終止！</Chinese>
+            </Key>
+            <Key ID="STR_AMAE_COLOR_CORRECTION">
+                <Original>Color correction</Original>
+                <English>Color correction</English>
+                <French>Correction des couleurs</French>
+                <German>Farbkorrektur</German>
+            </Key>
+            <Key ID="STR_AMAE_DESTROYED_OBJECTS_PER_SECOND">
+                <Original>Destroyed objects per second</Original>
+                <English>Destroyed objects per second</English>
+                <French>Des Objets detruit par seconde</French>
+                <German>Zerstörte Objekte pro Sekunde</German>
             </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">

@@ -4,6 +4,16 @@ class Achilles_FireSupport_ModuleBase : Achilles_Module_Base
 	category = "Ordnance";
 };
 
+class Achilles_Nuke_Module : Achilles_FireSupport_ModuleBase
+{
+	scopeCurator = 2;
+	_generalMacro = "Achilles_Nuke_Module";
+	displayName = "$STR_AMAE_ATOMIC_BOMB";
+	function = "Achilles_fnc_ModuleFireSupportNuke";
+	icon = "\achilles\data_f_achilles\icons\icon_nuclear.paa";
+	portrait = "\achilles\data_f_achilles\icons\icon_nuclear.paa";
+};
+
 class Achilles_Suppressive_Fire_Module : Achilles_FireSupport_ModuleBase
 {
 	scopeCurator = 1;
