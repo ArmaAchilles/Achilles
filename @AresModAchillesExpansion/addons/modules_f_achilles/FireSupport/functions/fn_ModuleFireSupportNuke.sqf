@@ -49,6 +49,7 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 				"_destructionRate"
 			];
 			sleep 5;
+			private _curatorPlayers = [] call BIS_fnc_listCuratorPlayers;
 			// big destruction
 			if (_destructionRadius > 0 && _destructionRate > 0) then
 			{
@@ -61,8 +62,8 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 					private _currentArrayLength = _numberOfObjects - _idxStart - 1; 
 					_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
 					{
-						// Do not kill HCs and curators.
-						if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+						// Do not kill logics, HCs and curators.
+						if (!(_x isKindOf "Logic") && !(_x in _curatorPlayers) && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
 						{
 							_x setDamage 1;
 						};
