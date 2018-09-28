@@ -38,30 +38,39 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 		"_destructionRate",
 		"_doColorCorrection"
 	];
-	if (isServer) exitWith
+	if (isServer) then
 	{
-		sleep 5;
-		// big destruction
-		if (_destructionRadius > 0 && _destructionRate > 0) then
+		[_center, _destructionRadius, _destructionRate] spawn
 		{
-			private _objects = (nearestObjects [_center, [], _destructionRadius]);
-			private _numberOfObjects = count _objects;
-			private _n = ceil (_numberOfObjects/_destructionRate);
-			for "_i" from 1 to _n do
+			params
+			[
+				"_center",
+				"_destructionRadius",
+				"_destructionRate"
+			];
+			sleep 5;
+			// big destruction
+			if (_destructionRadius > 0 && _destructionRate > 0) then
 			{
-				private _idxStart = (_i-1)*_destructionRate;
-				private _currentArrayLength = _numberOfObjects - _idxStart - 1; 
-				_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
+				private _objects = (nearestObjects [_center, [], _destructionRadius]);
+				private _numberOfObjects = count _objects;
+				private _n = ceil (_numberOfObjects/_destructionRate);
+				for "_i" from 1 to _n do
 				{
-					// Do not kill HCs and curators.
-					if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+					private _idxStart = (_i-1)*_destructionRate;
+					private _currentArrayLength = _numberOfObjects - _idxStart - 1; 
+					_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
 					{
-						_x setDamage 1;
-					};
-				} forEach (_objects  select [_idxStart , _currentArrayLength]);
-				sleep 1;
+						// Do not kill HCs and curators.
+						if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+						{
+							_x setDamage 1;
+						};
+					} forEach (_objects  select [_idxStart , _currentArrayLength]);
+					sleep 1;
+				};
+				
 			};
-			
 		};
 	};
 	if !(hasInterface) exitWith {};
