@@ -16,40 +16,40 @@ class RscDisplayAttributes
 		class ButtonCustomLeft : RscButtonMenu 
 		{
 			idc = 30005;
-			x = 18.3 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-			y = 16.1 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 16.1 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeftBelow : RscButtonMenu 
 		{
 			idc = 30006;
-			x = 18.3 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-			y = 17.2 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomBelow : RscButtonMenu 
 		{
 			idc = 30007;
-			x = 23.4 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-			y = 17.2 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+			x = 23.4 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeft2 : RscButtonMenu 
 		{
 			idc = 30008;
-			x = 13.2 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-			y = 16.1 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 16.1 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeftBelow2 : RscButtonMenu 
 		{
 			idc = 30009;
-			x = 13.2 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-			y = 17.2 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
@@ -67,7 +67,7 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 	onSetFocus = "[_this,""RscAttributeAmmo"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 14775;
 	x = 7 * BIGUI_GRID_W_FIX + (safezoneX);
-	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 25 * BIGUI_GRID_H_FIX);
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX);
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 1 * BIGUI_GRID_H_FIX;
 
@@ -171,7 +171,7 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 	onSetFocus = "[_this,""RscAttributeName"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 119279;
 	x = 7 * BIGUI_GRID_W_FIX + (safezoneX);
-	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 25 * BIGUI_GRID_H_FIX;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX);
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 1 * BIGUI_GRID_H_FIX;
 
@@ -207,8 +207,8 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeHeadlight"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 114725;
-	x = 7 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 2.5 * BIGUI_GRID_H_FIX;
 
@@ -277,8 +277,8 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeEngine"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 114726;
-	x = 7 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 2.5 * BIGUI_GRID_H_FIX;
 
@@ -348,8 +348,8 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeCombatMode"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 124569;
-	x = 7 * BIGUI_GRID_W_FIX + (safezoneX + safezoneW - 20 * BIGUI_GRID_W_FIX);
-	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 12.5 * BIGUI_GRID_H_FIX);
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 2.5 * BIGUI_GRID_H_FIX;
 

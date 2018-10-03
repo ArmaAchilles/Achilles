@@ -125,7 +125,7 @@ switch _mode do
 		_ctrlButtonCustom ctrlsetposition _ctrlButtonCustomPos;
 		_ctrlButtonCustom ctrlcommit 0;
 
-		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) -	(safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
+		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * BIGUI_GRID_H_FIX - safezoneY - (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 		{
 			private _idc = _x;
 			private _ctrlButtonCustomPlus = _display displayctrl _idc;
