@@ -1,5 +1,5 @@
 private ["_logic", "_units", "_activated"];
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 private ["_groupUnderCursor"];
 ["BehaviourPatrol: Getting group under cursor"] call Achilles_fnc_log;
@@ -152,4 +152,4 @@ else
 	[objnull, localize "STR_AMAE_NO_GROUP_UNDER_CURSOR"] call bis_fnc_showCuratorFeedbackMessage;
 };
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 private ["_vehicles","_NVG","_thermals"];
 private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -78,4 +78,4 @@ if (isNil "_vehicles") exitWith {};
 
 [localize "STR_AMAE_APPLIED_MODULE_TO_X_OBJECTS", count _vehicles] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

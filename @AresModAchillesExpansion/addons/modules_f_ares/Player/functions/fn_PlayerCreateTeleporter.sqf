@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 // Set the name of the marker (used in the action)
 private _teleportMarkerName = if (isNil "Ares_TeleportMarkers") then
@@ -152,4 +152,4 @@ remoteExecCall ["Ares_fnc_updateTeleportMarkerActions", 0, _isFirstCallToCreateT
 
 [objNull, format[localize "STR_AMAE_CREATED_TELEPORT", _teleportMarkerName]] call bis_fnc_showCuratorFeedbackMessage;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

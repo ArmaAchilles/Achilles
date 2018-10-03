@@ -5,7 +5,7 @@
 //  DESCRIPTION: 	Function for "artillery fire mission" module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 private ["_objects","_guns","_rounds","_ammo","_targetPos", "_artilleryAmmoDisplayName", "_ammoSelectedDisplayName", "_precision"];
 
@@ -235,4 +235,4 @@ else
 [localize "STR_AMAE_FIRE_ROUNDS_AND_ETA", _rounds, _ammoSelectedDisplayName, _roundEta] call Ares_fnc_ShowZeusMessage;
 
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

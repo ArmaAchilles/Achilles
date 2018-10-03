@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 if(isNil "Achilles_var_ied_init_done") then
 {
@@ -88,4 +88,4 @@ else
   [localize "STR_AMAE_ENYO_OBJECTS_NOT_ALLOWED"] call Achilles_fnc_ShowZeusErrorMessage;
 };
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

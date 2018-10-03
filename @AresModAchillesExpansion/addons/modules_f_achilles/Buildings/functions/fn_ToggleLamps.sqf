@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 private _dialogResult =
 [
@@ -37,4 +37,4 @@ private _JIP_id = [[_center_pos,_radius,_lightOn],
 _logic setName format ["Toggle Lamp: JIP queue %1", _JIP_id];
 _deleteModuleOnExit = false;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

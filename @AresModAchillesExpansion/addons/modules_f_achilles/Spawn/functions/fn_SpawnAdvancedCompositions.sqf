@@ -9,7 +9,7 @@
 #define CHAIRS_CLASS_NAMES 		["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"]
 #define IDD_COMPOSITIONS 		133799
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
@@ -59,4 +59,4 @@ _center_object setVariable ["ACS_attached_objects",_attached_objects];
 _center_object setVariable ["ACS_center_dir", _center_dir];
 _center_object addEventHandler ["Deleted", {_attached_objects = (_this select 0) getVariable ["ACS_attached_objects", []]; {deleteVehicle _x} forEach _attached_objects}];
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"

@@ -5,7 +5,7 @@
 //  DESCRIPTION: 	Function for module "advanced composition"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc"
 
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
@@ -17,4 +17,4 @@ if (isNil "Achilles_var_acs_init_done") then
 createDialog "Ares_composition_Dialog";
 ["LOADED"] call Achilles_fnc_RscDisplayAttributes_manageAdvancedComposition;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc"
