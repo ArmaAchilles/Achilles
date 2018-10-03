@@ -63,9 +63,16 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 					_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
 					{
 						// Do not kill logics, HCs and curators.
-						if (!(_x isKindOf "Logic") && !(_x in _curatorPlayers) && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+						if (!(_x isKindOf "Logic") && !(_x in _curatorPlayers) && !(_x isKindOf "HeadlessClient_F")) then
 						{
-							_x setDamage 1;
+							if (isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+							{
+								_x setDamage 1;
+							}
+							else
+							{
+								[true] remoteExecCall ["Achilles_fnc_switchUnit_end", owner _x];
+							};
 						};
 					} forEach (_objects  select [_idxStart , _currentArrayLength]);
 					sleep 1;
