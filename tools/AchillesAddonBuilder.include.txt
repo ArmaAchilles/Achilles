@@ -2,5 +2,5 @@
 *.paa;
 *.fsm;
 *.sqf;
-*.h;
+*.inc;
 *.xml;
