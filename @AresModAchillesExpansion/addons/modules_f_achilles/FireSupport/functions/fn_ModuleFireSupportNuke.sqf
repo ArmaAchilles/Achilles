@@ -71,7 +71,7 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 							}
 							else
 							{
-								[true] remoteExecCall ["Achilles_fnc_switchUnit_end", owner _x];
+								[true] remoteExecCall ["Achilles_fnc_switchUnit_exit", owner _x];
 							};
 						};
 					} forEach (_objects  select [_idxStart , _currentArrayLength]);

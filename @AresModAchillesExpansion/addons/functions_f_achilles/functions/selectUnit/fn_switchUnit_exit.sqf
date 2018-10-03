@@ -16,7 +16,7 @@
 	
 	Exampes:
 		(begin example)
-		[] call Achilles_fnc_switchUnit_end;
+		[] call Achilles_fnc_switchUnit_exit;
 		(end)
 */
 
