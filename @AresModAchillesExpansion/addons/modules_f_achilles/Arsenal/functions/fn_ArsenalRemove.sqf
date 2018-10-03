@@ -12,7 +12,7 @@
         Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -43,4 +43,4 @@ if (isNil "_objects") exitWith {};
 // Show message
 [localize "STR_AMAE_ARSENAL_REMOVED"] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

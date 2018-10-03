@@ -1,4 +1,4 @@
-#include "defineResGrids.inc"
+#include "defineResGrids.inc.sqf"
 
 // close dialog values
 #define IDC_OK				1

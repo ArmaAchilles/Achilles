@@ -6,7 +6,7 @@
 //  DESCRIPTION: Function for the module "Attach To"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object_to_attach = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -45,4 +45,4 @@ if (isNull (_object_to_attach getVariable ['attached', objNull])) then
 	[localize "STR_AMAE_OBJECT_DETACHED"] call Ares_fnc_ShowZeusMessage;
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

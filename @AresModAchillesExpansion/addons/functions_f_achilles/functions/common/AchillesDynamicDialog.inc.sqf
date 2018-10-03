@@ -1,5 +1,5 @@
 // Define some constants for us to use when laying things out.
-#include "\achilles\ui_f\dialogs\defineResGrids.inc"
+#include "\achilles\ui_f\dialogs\defineResGrids.inc.sqf"
 
 #define DYNAMIC_GUI_IDD			133798
 #define DYNAMIC_TITLE_IDC		1000

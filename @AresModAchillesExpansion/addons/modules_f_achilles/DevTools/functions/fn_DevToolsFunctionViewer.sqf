@@ -5,8 +5,8 @@
 //  DESCRIPTION: Open function viewer
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 [] call BIS_fnc_help;
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

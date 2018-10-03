@@ -6,7 +6,7 @@
 //  DESCRIPTION: Teleport Module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _tp_pos = position _logic;
 
@@ -70,4 +70,4 @@ if (_playersToTeleport isEqualTo []) exitWith
 
 [objNull, format["Teleported %1 players to %2", (count _playersToTeleport), _tp_pos]] call bis_fnc_showCuratorFeedbackMessage;
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

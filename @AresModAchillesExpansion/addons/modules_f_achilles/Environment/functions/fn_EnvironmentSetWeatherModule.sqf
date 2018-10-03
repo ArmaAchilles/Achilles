@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 #define SHARP_DECAY_VALUE 1
 #define SMOOTH_DECAY_VALUE 0.01
 
@@ -68,4 +68,4 @@ if (isNil "Ares_fnc_Weather_Function") then
 
 remoteExec ["Ares_fnc_Change_Weather_Function",0];
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

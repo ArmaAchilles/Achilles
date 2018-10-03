@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private ['_radius','_dialogResult','_epicenter','_units'];
 _epicenter = position _logic;
@@ -39,4 +39,4 @@ if (_dialogResult select 2 == 0) then
 	};
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -6,7 +6,7 @@
 //  DESCRIPTION: Function for the module "transfer ownership"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 private _options = [localize "STR_AMAE_SERVER", localize "STR_AMAE_ZEUS"];
@@ -48,4 +48,4 @@ private _group_list = [];
 [_object_list, _group_list, _ownerID] call Achilles_fnc_transferOwnership;
 [format ["%1 %2", localize "STR_AMAE_TRANSFER_TO", _options select _selection]] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

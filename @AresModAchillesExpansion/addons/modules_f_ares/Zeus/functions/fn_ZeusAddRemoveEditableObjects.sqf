@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _center_pos = position _logic;
 
@@ -99,4 +99,4 @@ private _objectsModified = [_objectsToProcess, _addObject] call Ares_fnc_AddUnit
 
 [format [[localize "STR_AMAE_ADD_OBJEKTE_TO_ZEUS", localize "STR_AMAE_REMOVED_OBJEKTE_FROM_ZEUS"] select (_dialogResult select 0), _objectsModified]] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

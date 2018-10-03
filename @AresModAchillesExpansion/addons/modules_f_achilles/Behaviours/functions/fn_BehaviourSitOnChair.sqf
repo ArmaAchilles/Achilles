@@ -6,7 +6,7 @@
 //  DESCRIPTION: Function for the module "sit on chair"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _chair = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -53,4 +53,4 @@ if (isNull (_chair getVariable ['occupier', ObjNull])) then
 	_chair setVariable ['occupier', ObjNull];
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"
