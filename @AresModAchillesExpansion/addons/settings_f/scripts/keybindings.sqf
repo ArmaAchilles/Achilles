@@ -142,3 +142,16 @@
 	"", 
 	[DIK_PGDN, [false, false, true]]
 ] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_AMAE_ACHILLES",
+	"Achilles_id_toggleIncludeCrew",
+	localize "STR_AMAE_KEY_TOGGLEINCLUDECREW",
+	{
+		missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
+	},
+	{
+		missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
+	},
+	[DIK_LMENU, [false, false, false]]
+] call CBA_fnc_addKeybind;

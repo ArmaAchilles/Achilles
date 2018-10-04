@@ -11,13 +11,12 @@ class CfgFunctions
 			file = "\achilles\functions_f_achilles\functions\init";
 
 			class onCuratorStart;
-		}
+		};
 		class functions_f_common
 		{
 			file = "\achilles\functions_f_achilles\functions\common";
 
 			class sum;
-			class arrayMean;
 			class pushBack;
 			class TextToVariableName;
 			class HigherConfigHierarchyLevel;
@@ -29,8 +28,6 @@ class CfgFunctions
 			class setUnitAmmoDef;
 			class setVehicleAmmoDef;
 			class checkLineOfFire2D;
-			class matrixTranspose;
-			class vectorMap;
 			class dikToLetter;
 			class getCuratorSelected;
 			class deadlyExplosion;
@@ -53,6 +50,18 @@ class CfgFunctions
 			class forceWeaponFire;
 			class drawArrow3D;
 			class drawRectangle3D;
+			class vectAngleXY;
+			class getDirPitchBank;
+			class vectDirUpFromDirPitchBank;
+			class arrayStdDev;
+			class transferOwnership;
+		};
+		
+		class interpolation
+		{
+			file =  "\achilles\functions_f_achilles\functions\interpolation";
+			class interpolation_cubicBezier1D;
+			class interpolation_cubicBezier1D_slope;
 		};
 
 		class selectUnit
@@ -109,7 +118,10 @@ class CfgFunctions
 			class setLRFrequencies;
 			class effectFire;
 			class instantBuildingGarrison;
-            class changeAccessoires;
+			class changeAccessoires;
+			class advancedPlaneCAS;
+			class advancedHeliCAS;
+			class advancedBlackfishCAS;
 		};
 	};
 

@@ -71,14 +71,17 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - http://www.armaholic.com/page.php?id=23113
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda)
 * IED and suicide bomber based on MCC (by shay_gman)
-* Kyle Kotowick's matrix transpose script
-    - http://www.armaholic.com/page.php?id=25964
+* Nuke script ported from Arma 2 (by Moerderhoschi)
+	- http://www.armaholic.com/page.php?id=23963
 * Some curator display and module functions/configs (by BIS)
 * The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only dirctly adapted code is the breach stun function)
     - http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202
 
 ## Achilles integrates these icons from these following authors
 All of these icons are licensed under Creative Commons Attribution license.
+* Advanced CAS (by MikeCzer)
+* Atomic Bomb (by Bluetip Design)
+	- https://thenounproject.com/search/?q=nuke&i=344485
 * Create IED module icon (by IYIKON)
     - https://thenounproject.com/icon/1242665/
 * Engine icon (by Alvaro Molero)
@@ -111,6 +114,7 @@ All of these icons are licensed under Creative Commons Attribution license.
 ## Translations
 * French
     - oOKexOo
+    - Revo78
 * German
 	- ItsNoirLime
     - KiritoKun223
