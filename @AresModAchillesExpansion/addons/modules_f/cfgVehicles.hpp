@@ -2,7 +2,7 @@ class CfgVehicles
 {
 	#include "cfgVehiclesBase"
 	
-	class Achilles_mod_base_f : Module_f
+	class MODULE_BASE_ACHIL : Module_f
 	{
 		author = "Achilles Dev Team";
 		category = "Achilles";
@@ -15,7 +15,6 @@ class CfgVehicles
 		
 		// module function attributes
 		function = "";
-		is3DEN = 1; // enables the alternative module function parameter format
 		isGlobal = 1; // execute on all machines (we will have to check for Zeus)
 		isTriggerActivated = 0; // the modules ignores synced triggers
 		isDisposable = 0;
@@ -24,5 +23,5 @@ class CfgVehicles
 		portrait = "\achilles\data_f_ares\icons\icon_default.paa";	
 	};
 	
-	#include "ace\cfgVehicles.hpp";
+	#include "medical\cfgVehicles.hpp";
 };

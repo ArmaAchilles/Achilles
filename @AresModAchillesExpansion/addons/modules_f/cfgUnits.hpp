@@ -1,4 +1,5 @@
 units[] =
 {
-	"Achilles_ACE_Injury_Module"
+	MODULE_ACHIL(medical,injury),
+	MODULE_ACHIL(medical,heal)
 };
