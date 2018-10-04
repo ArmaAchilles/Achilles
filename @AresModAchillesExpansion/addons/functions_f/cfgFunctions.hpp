@@ -1,19 +1,18 @@
-class CfgFunctions
+#include "macros.hpp"
+
+class cfgFunctions
 {
 	class Achilles
 	{
-		class Common
+		class common
 		{
-			file = "\achilles\functions_f\common";
-			class printZeusError;
-			class printZeusMessage;
+			DEF_FUNC_ACHIL_1(common,printZeusError);
+			DEF_FUNC_ACHIL_1(common,printZeusMessage);
 		};
-		class Module
+		class module
 		{
-			file = "\achilles\functions_f\module";
-			class module_getSelectedEntities;
-			class module_init;
-			class module_openDialog;
+			DEF_FUNC_ACHIL_1(module,init);
+			DEF_FUNC_ACHIL_1(module,openDialog);
 		};
 	};
 };
