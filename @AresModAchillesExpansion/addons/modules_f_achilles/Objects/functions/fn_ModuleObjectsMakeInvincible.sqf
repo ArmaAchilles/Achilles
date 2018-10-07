@@ -34,20 +34,10 @@ if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] ca
 
 {
 	private _object = _x;
-	if (local _object) then
+	[_object, _allowDamage] remoteExecCall ["allowDamage"];
+	if (_includeCrew) then
 	{
-		_object allowDamage _allowDamage;
-		if (_includeCrew) then
-		{
-			{_x allowDamage _allowDamage} forEach crew _object;
-		};
-	} else
-	{
-		[_object,_allowDamage] remoteExecCall ["allowDamage",_object];
-		if (_includeCrew) then
-		{
-			[_x,_allowDamage] remoteExecCall ["allowDamage",crew _object];
-		};
+		{[_x, _allowDamage] remoteExecCall ["allowDamage"]} forEach crew _object;
 	};
 } forEach _objects;
 

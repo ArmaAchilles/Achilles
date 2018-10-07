@@ -61,10 +61,17 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 					private _currentArrayLength = _numberOfObjects - _idxStart - 1; 
 					_currentArrayLength = [_currentArrayLength, _destructionRate] select (_currentArrayLength > _destructionRate);
 					{
-						// Do not kill HCs and curators.
-						if (isNull getAssignedCuratorLogic _x && !(_x isKindOf "HeadlessClient_F") && isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+						// Do not kill "invincible" units, logics, HCs and virtual curators.
+						if ((isDamageAllowed _x) && !(_x isKindOf "Logic") && !(_x isKindOf "VirtualMan_F")) then
 						{
-							_x setDamage 1;
+							if (isNil {_x getVariable ["Achilles_var_switchUnit_data", nil]}) then
+							{
+								_x setDamage 1;
+							}
+							else
+							{
+								[true] remoteExecCall ["Achilles_fnc_switchUnit_exit", owner _x];
+							};
 						};
 					} forEach (_objects  select [_idxStart , _currentArrayLength]);
 					sleep 1;

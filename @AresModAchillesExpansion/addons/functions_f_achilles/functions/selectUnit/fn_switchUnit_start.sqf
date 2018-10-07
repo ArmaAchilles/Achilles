@@ -1,15 +1,26 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// AUTHOR: 			Kex
-// DATE: 			6/19/17
-// VERSION: 		AMAE003
-// DESCRIPTION:		application of "selectPlayer" script command.
-//
-// ARGUMENTS:		0: OBJECT - Unit to switch to.
-//
-// RETURNS:			nothing
-//
-// Example:			[_unit] call Achilles_fnc_switchUnit_start;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+	Function:
+		Achilles_fnc_switchUnit_start
+	
+	Authors:
+		Kex
+	
+	Description:
+		Switches the player's unit via the "selectPlayer" script command
+		The player will switch back to his old unit when Achilles_fnc_switchUnit_end is executed
+		Achilles_fnc_switchUnit_end is executed automatically when the unit dies or is unconscious
+	
+	Parameters:
+		_unit	- <OBJECT> The unit to be switched to.
+	
+	Returns:
+		nothing
+	
+	Exampes:
+		(begin example)
+		[_unit] call Achilles_fnc_switchUnit_start;
+		(end)
+*/
 
 private _error = "";
 private _unit = effectiveCommander (param [0]);
@@ -62,7 +73,9 @@ private _eh_id = _unit addEventHandler ["HandleDamage",
 	{
 		if (_selection in ["","body","head"]) then
 		{
-			[] call Achilles_fnc_switchUnit_exit;
+			// Handle Achilles revive from ZGM Achilles missions
+			private _unitDies = [true, false] select (_unit getVariable ["Achilles_var_revive_initialized", false]);
+			[_unitDies] call Achilles_fnc_switchUnit_exit;
 		};
 		_handler = 0.999;
 	};
