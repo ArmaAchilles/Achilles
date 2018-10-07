@@ -49,42 +49,45 @@ if (_vehicle isKindOf "Man") then
 }
 else
 {
-	// Get all smokes and countermeasures from a vehicle's inventory
-	_allSmokeMagazines =
-	[
-		magazinesAllTurrets _vehicle,
-		[],
-		{_x select 0},
-		"ASCEND",
-		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
-	] call BIS_fnc_sortBy;
-
-	if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_CM_ERROR"] call Achilles_fnc_showZeusErrorMessage};
-
-	private _turretPath = (_allSmokeMagazines select 0) select 1;
-	private _weapons = _vehicle weaponsTurret _turretPath;
-	private _CMWeapons = _weapons arrayIntersect _weaponClasses;
-	if (_CMWeapons isEqualTo []) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
-	private _CMWeapon = _CMWeapons select 0;
-
-	// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)
-	if (_vehicle isKindOf "LandVehicle" || _vehicle isKindOf "Ship") then
+	if !(_vehicle isKindOf "Building") then
 	{
-		[_vehicle, _CMWeapon] call BIS_fnc_fire;
-	};
+		// Get all smokes and countermeasures from a vehicle's inventory
+		_allSmokeMagazines =
+		[
+			magazinesAllTurrets _vehicle,
+			[],
+			{_x select 0},
+			"ASCEND",
+			{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
+		] call BIS_fnc_sortBy;
 
-	// If the vehicle is an aircraft
-	if (_isVehicleAir) then
-	{
-		[_vehicle,_CMWeapon, _flareParams] spawn
+		if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
+		if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_CM_ERROR"] call Achilles_fnc_showZeusErrorMessage};
+
+		private _turretPath = (_allSmokeMagazines select 0) select 1;
+		private _weapons = _vehicle weaponsTurret _turretPath;
+		private _CMWeapons = _weapons arrayIntersect _weaponClasses;
+		if (_CMWeapons isEqualTo []) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
+		private _CMWeapon = _CMWeapons select 0;
+
+		// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)
+		if (_vehicle isKindOf "LandVehicle" || _vehicle isKindOf "Ship") then
 		{
-			params["_vehicle", "_CMWeapon", "_flareParams"];
-			_flareParams params ["_flareCounts", "_delay"];
-			for "_i" from 0 to _flareCounts do
+			[_vehicle, _CMWeapon] call BIS_fnc_fire;
+		};
+
+		// If the vehicle is an aircraft
+		if (_isVehicleAir) then
+		{
+			[_vehicle,_CMWeapon, _flareParams] spawn
 			{
-				[_vehicle, _CMWeapon] call BIS_fnc_fire;
-				sleep _delay;
+				params["_vehicle", "_CMWeapon", "_flareParams"];
+				_flareParams params ["_flareCounts", "_delay"];
+				for "_i" from 0 to _flareCounts do
+				{
+					[_vehicle, _CMWeapon] call BIS_fnc_fire;
+					sleep _delay;
+				};
 			};
 		};
 	};
