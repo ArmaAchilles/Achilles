@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for suppressive fire module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _aircraft = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if !(_aircraft isKindOf "Air") exitWith
@@ -151,4 +151,4 @@ for "_" from 1 to _numberOfStrikes do
 	if (!_success) exitWith {};
 };
 _aircraft setVariable ["Achilles_var_performsAdvancedCAS", nil, true];
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

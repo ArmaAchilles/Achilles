@@ -2,45 +2,45 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeDate"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 122438;
-	x = "7 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-	y = "10 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
-	w = "26 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "12 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + (safezoneX);
+	y = 10 * BIGUI_GRID_H_FIX + (safezoneY + safezoneH - 25* BIGUI_GRID_H_FIX);
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 12 * BIGUI_GRID_H_FIX;
 	class controls
 	{
 		class Title1 : RscText {
 			idc = 121138;
 			text = "$STR_3DEN_Environment_Attribute_Date_displayName";
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "26 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 26 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.5};
 		};
 		
 		class Background1 : RscText {
 			idc = 121140;
 			tooltip = $STR_3DEN_Environment_Attribute_Date_tooltip;
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "26 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "4.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 1 * BIGUI_GRID_H_FIX;
+			w = 26 * BIGUI_GRID_W_FIX;
+			h = 4.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {1, 1, 1, 0.1};
 		};	
 
 		class ValueYear: ctrlCombo
 		{
 			idc = 101;
-			x = "0.5 * 						(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "1.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/3 * 0.99 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0.5 * BIGUI_GRID_W_FIX;
+			y = 1.5 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/3 * 0.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorTextRight[] = {1,1,1,0.6};
 		};
 		class ValueMonth: ValueYear
 		{
 			idc = 102;
-			x = "(0.5 + 25 * 1/3) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			x = (0.5 + 25 * 1/3) * BIGUI_GRID_W_FIX;
 			class Items
 			{
 				class Month1
@@ -109,35 +109,35 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 		class ValueDay: ValueYear
 		{
 			idc = 103;
-			x = "(0.5 + 25 * 2/3) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
 		};
 		
 		class Title2 : RscText {
 			idc = 121139;
 			text = "$STR_3DEN_Environment_Attribute_Daytime_displayName";
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "5.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "26 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 5.5 * BIGUI_GRID_H_FIX;
+			w = 26 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.5};
 		};
 		class Background2 : RscText {
 			idc = 121141;
 			tooltip = $STR_3DEN_Environment_Attribute_Daytime_tooltip;
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "6.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "26 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "4.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 6.5 * BIGUI_GRID_H_FIX;
+			w = 26 * BIGUI_GRID_W_FIX;
+			h = 4.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {1, 1, 1, 0.1};
 		};
 		
 		class Preview: ctrlControlsGroupNoScrollbars
 		{
 			idc = 110;
-			x = "(0.5 + 1.11) *	(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "(25 * 2/3 - 2.22) *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 1.11) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = (25 * 2/3 - 2.22) * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			onLoad = "uinamespace setvariable ['AttributeSliderTimeDay_group',_this select 0];";
 			class Controls
 			{
@@ -146,9 +146,9 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 					idc = 111;
 					text = "\a3\3DEN\Data\Attributes\SliderTimeDay\night_ca.paa";
 					colorText[] = {1,1,1,0.6};
-					x = "0 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					w = "0.5 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					x = 0 * BIGUI_GRID_W_FIX;
+					w = 0.5 * BIGUI_GRID_W_FIX;
+					h = 1 * BIGUI_GRID_H_FIX;
 				};
 				class PreviewNight2: PreviewNight1
 				{
@@ -174,9 +174,9 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 					idc = 116;
 					text = "\a3\3DEN\Data\Attributes\SliderTimeDay\sun_ca.paa";
 					colorText[] = {1,1,1,0.6};
-					x = "(25 * 1/3 - 1.11 - 0.5) *	(			((safezoneW / safezoneH) min 1.2) / 40)";
-					w = "1 *			(			((safezoneW / safezoneH) min 1.2) / 40)";
-					h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+					x = (25 * 1/3 - 1.11 - 0.5) * BIGUI_GRID_W_FIX;
+					w = 1 * BIGUI_GRID_W_FIX;
+					h = 1 * BIGUI_GRID_H_FIX;
 				};
 			};
 		};
@@ -185,10 +185,10 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 		class Value: ctrlXSliderH
 		{
 			idc = 104;
-			x = "0.5 * 						(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/3 * 1.99 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0.5 * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/3 * 1.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 
 			sliderRange[] = {0,1439};
 			sliderPosition = 0;
@@ -203,18 +203,18 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 		
 		class Frame: ctrlStaticFrame
 		{
-			x = "(0.5 + 25 * 2/3) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/9 * 2.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/9 * 2.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class Separator: ctrlStatic
 		{
 			style = ST_CENTER;
-			x = "(0.5 + 25 * 2/3) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/9 * 2.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/9 * 2.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			font = "EtelkaMonospacePro";
 			colorBackground[] = {0,0,0,0.5};
 			text = ":      :";
@@ -225,10 +225,10 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			text = "00";
 			tooltip = $STR_3DEN_Attributes_SliderTime_Hour_tooltip;
 			style = ST_CENTER + ST_NO_RECT;
-			x = "(0.5 + 25 * 2/3) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/9 * 0.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/9 * 0.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0,0,0,0};
 			font = "EtelkaMonospacePro";
 		};
@@ -236,19 +236,19 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 		{
 			idc = 106;
 			tooltip = $STR_3DEN_Attributes_SliderTime_Minute_tooltip;
-			x = "(0.5 + 25 * 7/9) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/9 * 0.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 25 * 7/9) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/9 * 0.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class Second: Hour
 		{
 			idc = 107;
 			tooltip = $STR_3DEN_Attributes_SliderTime_Second_tooltip;
-			x = "(0.5 + 25 * 8/9) * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "7 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "25 * 1/9 * 0.99 *				(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = (0.5 + 25 * 8/9) * BIGUI_GRID_W_FIX;
+			y = 7 * BIGUI_GRID_H_FIX;
+			w = 25 * 1/9 * 0.99 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 	};
 };

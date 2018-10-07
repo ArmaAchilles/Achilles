@@ -11,7 +11,7 @@
     	Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 #define SIDES [east, west, independent]
 
 private _bluforSelectNumber = 4;
@@ -80,4 +80,4 @@ else
 	} forEach _other_sides;
 };
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

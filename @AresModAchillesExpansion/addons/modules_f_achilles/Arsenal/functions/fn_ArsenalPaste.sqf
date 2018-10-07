@@ -12,7 +12,7 @@
         Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -64,4 +64,4 @@ createDialog "Ares_CopyPaste_Dialog";
     [_object, _replace]
 ] call CBA_fnc_waitUntilAndExecute;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -4,7 +4,7 @@
 	Authors:
 		Moerderhoschi, Kex, BI (Arma 2)
 */
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _center = getPos _logic;
 private _dialogResults =
@@ -255,4 +255,4 @@ _doColorCorrection = _doColorCorrection isEqualTo 0;
 	deleteVehicle _nukeSource;
 }, 0] call Achilles_fnc_spawn;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

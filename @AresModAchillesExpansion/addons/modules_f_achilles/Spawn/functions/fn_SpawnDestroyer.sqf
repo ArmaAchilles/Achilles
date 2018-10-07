@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 #define BOUNDING_BOX_LENGTH		222.22
 #define BOUNDING_BOX_WIDTH		44.4438
@@ -44,4 +44,4 @@ if (isNull _logic) exitWith {};
 	{deleteVehicle _x} forEach (nearestObjects [[-300,-300,0], ["Land_Destroyer_01_Boat_Rack_01_Base_F","Land_Destroyer_01_hull_base_F","ShipFlag_US_F"], 300, true]);
 }, 2] call Achilles_fnc_spawn;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

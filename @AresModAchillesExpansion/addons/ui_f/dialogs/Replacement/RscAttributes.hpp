@@ -16,42 +16,42 @@ class RscDisplayAttributes
 		class ButtonCustomLeft : RscButtonMenu 
 		{
 			idc = 30005;
-			x = "18.3 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-			y = "16.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 16.1 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+			w = 5 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeftBelow : RscButtonMenu 
 		{
 			idc = 30006;
-			x = "18.3 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-			y = "17.2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+			w = 5 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomBelow : RscButtonMenu 
 		{
 			idc = 30007;
-			x = "23.4 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-			y = "17.2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 23.4 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+			w = 5 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeft2 : RscButtonMenu 
 		{
 			idc = 30008;
-			x = "13.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-			y = "16.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 16.1 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+			w = 5 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class ButtonCustomLeftBelow2 : RscButtonMenu 
 		{
 			idc = 30009;
-			x = "13.2 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-			y = "17.2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-			w = "5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+			y = 17.2 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+			w = 5 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 		class Content: RscControlsGroup 
 		{
@@ -66,10 +66,10 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeAmmo"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 14775;
-	x = "7 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-	y = "10 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
-	w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + (safezoneX);
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX);
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 1 * BIGUI_GRID_H_FIX;
 
 	class controls 
 	{
@@ -78,20 +78,20 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 		{
 			idc = 13475;
 			text = "$STR_AMAE_AMMO";
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 10 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
 		class Value: RscXSliderH 
 		{
 			idc = 14375;
-			x = "10.1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "15.9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 10.1 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 15.9 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 	};
 };
@@ -170,10 +170,10 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeName"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 119279;
-	x = "7 * 			(			((safezoneW / safezoneH) min 1.2) / 40) + 			(safezoneX)";
-	y = "10 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 			(safezoneY + safezoneH - 			(			((safezoneW / safezoneH) min 1.2) / 1.2))";
-	w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + (safezoneX);
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX);
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 1 * BIGUI_GRID_H_FIX;
 
 	class controls 
 	{
@@ -182,20 +182,20 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 		{
 			idc = 117979;
 			text = "$STR_AMAE_NAME";
-			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "10 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 10 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
 		class Value: RscEdit 
 		{
 			idc = 118379;
-			x = "10.1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "15.9 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 10.1 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 15.9 * BIGUI_GRID_W_FIX;
+			h = 1 * BIGUI_GRID_H_FIX;
 		};
 	};
 };
@@ -207,10 +207,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeHeadlight"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 114725;
-	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-	w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 2.5 * BIGUI_GRID_H_FIX;
 
 	class controls 
 	{
@@ -219,10 +219,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		{
 			idc = 113427;
 			text = "$STR_AMAE_HEADLIGHT_SEARCHLIGHT";
-			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 10 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
@@ -230,10 +230,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		{
 			style = 2;
 			idc = 113425;
-			x = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 10 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 16 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorText[] = {1, 1, 1, 0.500000};
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
@@ -242,10 +242,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		{
 			idc = 113627;
 			text = "achilles\data_f_achilles\icons\icon_headlightOn.paa";
-			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 16 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_ON";
 		};
 
@@ -253,10 +253,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		{
 			idc = 113630;
 			text = "achilles\data_f_achilles\icons\icon_headlightOff.paa";
-			x = "19.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 19.5 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
 		
@@ -264,10 +264,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 		{
 			idc = 123470;
 			text = "\a3\ui_f_curator\Data\default_ca.paa";
-			x = "24 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 24 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_A3_RscAttributeUnitPos_Auto_tooltip";
 		};
 	};
@@ -277,10 +277,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeEngine"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 114726;
-	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-	w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 2.5 * BIGUI_GRID_H_FIX;
 
 	class controls 
 	{
@@ -289,10 +289,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		{
 			idc = 113427;
 			text = "$STR_AMAE_ENGINE";
-			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 10 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
@@ -300,10 +300,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		{
 			style = 2;
 			idc = 113426;
-			x = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 10 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 16 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorText[] = {1, 1, 1, 0.500000};
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
@@ -312,10 +312,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		{
 			idc = 113628;
 			text = "achilles\data_f_achilles\icons\icon_engineOn.paa";
-			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 16 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_ON";
 		};
 
@@ -323,10 +323,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		{
 			idc = 113631;
 			text = "achilles\data_f_achilles\icons\icon_engineOff.paa";
-			x = "19.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 19.5 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
 		
@@ -334,10 +334,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 		{
 			idc = 123471;
 			text = "\a3\ui_f_curator\Data\default_ca.paa";
-			x = "24 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 24 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_A3_RscAttributeUnitPos_Auto_tooltip";
 		};
 	};
@@ -348,10 +348,10 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeCombatMode"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 	idc = 124569;
-	x = "7 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
-	y = "10 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
-	w = "26 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-	h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	x = 7 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
+	y = 10 * BIGUI_GRID_H_FIX + safezoneY + (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
+	w = 26 * BIGUI_GRID_W_FIX;
+	h = 2.5 * BIGUI_GRID_H_FIX;
 
 	class controls {
 
@@ -359,20 +359,20 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123271;
 			text = "$STR_disp_arcwp_semaphore";
-			x = "0 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 0 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 10 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
 		class Background: RscText 
 		{
 			idc = 123269;
-			x = "10 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 10 * BIGUI_GRID_W_FIX;
+			y = 0 * BIGUI_GRID_H_FIX;
+			w = 16 * BIGUI_GRID_W_FIX;
+			h = 2.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
 
@@ -380,20 +380,20 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123472;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire.paa";
-			x = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 11 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_HOLD_FIRE";
 		};
 		class HoldFireDefend : HoldFire
 		{
 			idc = 123471;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire_defend.paa";
-			x = "13.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 13.5 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_HOLD_FIRE_DEFEND";
 		};
 
@@ -401,10 +401,10 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123474;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire_engage.paa";
-			x = "16 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 16 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_HOLD_FIRE_ENGAGE";
 		};
 
@@ -412,10 +412,10 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123475;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire.paa";
-			x = "18.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 18.5 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_FIRE_AT_WILL";
 		};
 
@@ -423,10 +423,10 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123469;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire_engage.paa";
-			x = "21 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 21 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_FIRE_ENGAGE";
 		};
 
@@ -434,10 +434,10 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 		{
 			idc = 123470;
 			text = "\a3\ui_f_curator\Data\default_ca.paa";
-			x = "24 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 24 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_combat_unchanged";
 		};
 	};
@@ -458,10 +458,10 @@ class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 		{
 			idc = 23472;
 			text = "achilles\data_f_achilles\icons\icon_careless.paa";
-			x = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			y = "0.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			w = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
-			h = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			x = 11 * BIGUI_GRID_W_FIX;
+			y = 0.5 * BIGUI_GRID_H_FIX;
+			w = 1.5 * BIGUI_GRID_W_FIX;
+			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_CARELESS";
 		};
 	};

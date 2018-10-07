@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
@@ -26,4 +26,4 @@ if (local _groupUnderCursor) then {[_groupUnderCursor] spawn _codeBlock} else {[
 
 [localize "STR_AMAE_RELEASE_GARRISON_UNITS"] call Ares_fnc_showZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

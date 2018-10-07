@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for suppressive fire module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -119,7 +119,7 @@ if (not local _group) then
 	[[], [_group], clientOwner] call Achilles_fnc_transferOwnership;
 };
 if (isNull _group or {{alive _x} count units _group == 0}) exitWith {};
-// Executing with call because we are in a suspension-enabled enviornment (see module_header.h).
+// Executing with call because we are in a suspension-enabled enviornment (see module_header.inc).
 [_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] call Achilles_fnc_suppressiveFire;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 if (isNil "Ares_ReinforcementRpCount") then { Ares_ReinforcementRpCount = 0 };
 
@@ -21,4 +21,4 @@ _logic setVariable ["SortOrder", Ares_ReinforcementRpCount];
 Ares_ReinforcementRpCount = Ares_ReinforcementRpCount + 1;
 publicVariable "Ares_ReinforcementRpCount";
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

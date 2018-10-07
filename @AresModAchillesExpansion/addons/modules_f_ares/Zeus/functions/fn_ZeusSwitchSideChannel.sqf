@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 #define SIDES [sideLogic,east,west,independent,civilian]
 
@@ -23,4 +23,4 @@ private _new_side = SIDES select _side_index;
 
 localize "STR_AMAE_ZEUS_HAS_ENTERED_SIDE_CHAT" remoteExec ['hint', _new_side];
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"
