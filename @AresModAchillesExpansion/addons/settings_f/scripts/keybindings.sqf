@@ -171,5 +171,5 @@
 			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
 		};
 	},
-	[DIK_LMENU, [false, false, false]]
+	[0x0, [false, false, false]]
 ] call CBA_fnc_addKeybind;
