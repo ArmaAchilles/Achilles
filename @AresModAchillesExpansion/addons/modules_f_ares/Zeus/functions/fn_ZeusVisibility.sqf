@@ -27,7 +27,7 @@ private _curatorLogic = getAssignedCuratorLogic player;
 if (_invisible and !(isObjectHidden player)) then
 {
 	[player, true] remoteExecCall ["hideObjectGlobal",2];
-	player allowDamage false;
+	[player, false] remoteExecCall ["allowDamage"];
 	player setCaptive true;
 	_curatorLogic setVariable ["showNotification", true];
 
@@ -43,7 +43,7 @@ else
 	if (!_invisible and (isObjectHidden player)) then
 	{
 		[player, false] remoteExecCall ["hideObjectGlobal",2];
-		player allowDamage true;
+		[player, true] remoteExecCall ["allowDamage"];
 		player setCaptive false;
 		_curatorLogic setVariable ["showNotification", false];
 
