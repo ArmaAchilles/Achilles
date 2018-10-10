@@ -31,6 +31,15 @@ class Achilles_Chatter_Module : Achilles_Behaviours_Module_Base
 	function = "Achilles_fnc_BehaviourChatter";
 };
 
+class Achilles_Patrol_Module : Achilles_Behaviours_Module_Base
+{
+	scopeCurator = 2;
+	curatorCanAttach = 1;
+	_generalMacro = "Achilles_Patrol_Module";
+	displayName = "$STR_AMAE_PATROL_LOITER";
+	function = "Achilles_fnc_BehaviourPatrol";
+};
+
 class Achilles_Sit_On_Chair_Module : Achilles_Behaviours_Module_Base
 {
 	scopeCurator = 2;
