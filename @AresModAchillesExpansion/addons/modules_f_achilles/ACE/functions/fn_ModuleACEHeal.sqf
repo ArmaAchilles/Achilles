@@ -9,6 +9,8 @@
 
 #include "\achilles\modules_f_ares\module_header.inc.sqf"
 
+#include "\a3\functions_f_mp_mark\revive\defines.inc"
+
 private ["_injury","_selected_units"];
 
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -93,7 +95,12 @@ if (isNil "_selected_units") exitWith {};
 if (_selected_units isEqualTo []) exitWith {};
 
 {
-	_x setDamage 0;
+	if (REVIVE_ENABLED(_x) && lifeState _unit == "INCAPACITATED" && IS_DISABLED(_unit)) then {
+		SET_STATE(_x, STATE_REVIVED);
+	} else
+	{
+		_x setDamage 0;
+	};
 } forEach _selected_units;
 
 #include "\achilles\modules_f_ares\module_footer.inc.sqf"
