@@ -2,7 +2,7 @@ class Achilles_Dev_Tools_Module_Base : Achilles_Module_Base
 {
 	//subCategory = "$STR_AMAE_DEV_TOOLS";
 	Category = "Achilles_fac_DevTools";
-}
+};
 
 class Achilles_Bind_Variable_Module : Achilles_Dev_Tools_Module_Base
 {
