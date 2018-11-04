@@ -9,7 +9,7 @@
 //  define script path for script replacement
 class CfgScriptPaths
 {
-	AresDisplays = "\achilles\ui_f\scripts\";
+	AresDisplays = \achilles\ui_f\scripts\;
 };
 
 class RscDisplayCurator 
