@@ -10,10 +10,7 @@ _factions =
 	{
 		private _faction = _x;
 		private _factionCfg = (configfile >> "CfgFactionClasses" >> _faction);
-		private _factionName = getText (_factionCfg >> "displayName");
-		private _sideId = [_factionCfg, "side", -1] call BIS_fnc_returnConfigEntry;
-		private _sideName = [_sideId] call BIS_fnc_sideName;
-		format ["%1%2", _sideName, _factionName]
+		getText (_factionCfg >> "displayName");
 	}
 ] call BIS_fnc_sortBy;
 
@@ -28,8 +25,8 @@ _factions =
 		[
 			format ["Achilles_var_%1", _faction],
 			"CHECKBOX",
-			format ["%1: %2", _sideName, _factionName],
-			localize "STR_AMAE_AVAILABLE_FACTIONS",
+			_factionName,
+			[localize "STR_AMAE_AVAILABLE_FACTIONS", _sideName],
 			true,
 			false,
 			compile 
