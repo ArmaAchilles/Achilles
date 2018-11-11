@@ -1,4 +1,3 @@
-#define TEST "test"
 
 class Add: RscControlsGroupNoScrollbars
 {	
@@ -24,8 +23,8 @@ class Add: RscControlsGroupNoScrollbars
 				true; \
 			";
 			// Makes sure that display key event handlers are disabled when searching
-			onSetfocus = "missionNamespace setVariable ['RscDisplayCurator_search', true];";
-			onKillfocus = "missionNamespace setVariable ['RscDisplayCurator_search', false];";
+			onSetFocus = "missionNamespace setVariable ['RscDisplayCurator_search', true];";
+			onKillFocus = "missionNamespace setVariable ['RscDisplayCurator_search', false];";
 		};
 		class CreateSearchButton : RscButtonSearch
 		{
