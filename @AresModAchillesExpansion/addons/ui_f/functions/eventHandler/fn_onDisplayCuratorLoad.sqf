@@ -92,6 +92,14 @@ _display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_handleCurato
 	(_display displayCtrl _x) ctrlShow true;
 } forEach (ADD_MODE_TO_SIDE_IDCS select _curMode);
 
+// Handle DZN search patch
+(_display displayCtrl 283) ctrlShow !Achilles_var_moduleTreeSearchPatch;
+(_display displayCtrl 284) ctrlShow Achilles_var_moduleTreeSearchPatch;
+if (Achilles_var_moduleTreeSearchPatch) then
+{
+	(_display displayCtrl 285) ctrlAddEventHandler ["ButtonClick", {(((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl 283) ctrlSetText (ctrlText ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl 284)))}];
+};
+
 // Add custom Zeus logo when pressing backspace
 private _zeusLogo = _display displayCtrl 15717;
 private _addLogo = true;

@@ -1,17 +1,36 @@
+#define TEST "test"
+
 class Add: RscControlsGroupNoScrollbars
 {	
 	class controls 
 	{
-		class CreateUnitsWest: RscTree 
+		class CreateUnitsWest: RscTree
 		{
 			//h = safezoneH - 15.4 * BIGUI_GRID_H_FIX;
 			h = safezoneH - 11.7 * BIGUI_GRID_H_FIX;
 		};
 		
-		
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by Kex, v1.063, #Lekizy)
-		////////////////////////////////////////////////////////
+		class CreateSearch : RscEdit {};
+		class CreateSearchMaster: CreateSearch
+		{
+			idc = 284;
+			// transfer result of master to slave when enter is pressed
+			onKeyUp = "params ['_ctrlMaster', '_key']; \
+				private _display =  ctrlParent _ctrlMaster; \
+				if (_key in [0x1C, 0x9C]) then \
+				{ \
+					(_display displayCtrl 283) ctrlSetText (ctrlText _ctrlMaster); \
+				}; \
+				true; \
+			";
+			// Makes sure that display key event handlers are disabled when searching
+			onSetfocus = "missionNamespace setVariable ['RscDisplayCurator_search', true];";
+			onKillfocus = "missionNamespace setVariable ['RscDisplayCurator_search', false];";
+		};
+		class CreateSearchButton : RscButtonSearch
+		{
+			idc = 285;
+		};
 		
 		class Ares_Title_Attr: RscText
 		{
@@ -136,8 +155,5 @@ class Add: RscControlsGroupNoScrollbars
 			w = 1.0 * BIGUI_GRID_W_FIX;
 			h = 1.0 * BIGUI_GRID_H_FIX;
 		};
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT END
-		////////////////////////////////////////////////////////
 	};
 };

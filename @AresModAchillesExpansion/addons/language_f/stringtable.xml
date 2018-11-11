@@ -6511,6 +6511,13 @@
                 <Chinesesimp>默认摺叠模块层级</Chinesesimp>
                 <Chinese>默認摺疊模塊層級</Chinese>
             </Key>
+            <Key ID="STR_AMAE_ENABLE_DZN_SEARCH_PATCH">
+                <Original>Enable search on enter patch</Original>
+                <English>Enable search on enter patch</English>
+				<Russian>Включить Поиск только по Enter</Russian>
+                <French>Activer le patch des recherches via la touche entrée</French>
+                <German>Aktiviere Suche mit Enter Patch</German>
+            </Key>
             <Key ID="STR_AMAE_VISION_MODES">
                 <Original>Achilles - Curator Vision Modes</Original>
                 <Russian>Achilles - Доступные куратору режимы зрения</Russian>
