@@ -13,7 +13,7 @@ class Add: RscControlsGroupNoScrollbars
 		class CreateSearchMaster: CreateSearch
 		{
 			idc = 284;
-			// transfer result of master to slave when enter is pressed
+			// transfer result of master to slave when enter or numpad enter is pressed
 			onKeyUp = "params ['_ctrlMaster', '_key']; \
 				private _display =  ctrlParent _ctrlMaster; \
 				if (_key in [0x1C, 0x9C]) then \
