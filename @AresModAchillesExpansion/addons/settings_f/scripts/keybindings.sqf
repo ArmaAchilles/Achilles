@@ -99,7 +99,7 @@
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
 			private _vehicles = curatorSelected select 0;
-			if (isNil "_vehicles") exitWith {};
+			if (isNil "_vehicles" || missionNamespace getVariable ['RscDisplayCurator_search', false]) exitWith {};
 			{
 				[vehicle _x] call Achilles_fnc_LaunchCM;
 			} forEach _vehicles;
