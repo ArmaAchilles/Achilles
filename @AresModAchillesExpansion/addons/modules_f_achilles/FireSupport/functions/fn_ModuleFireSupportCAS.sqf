@@ -7,6 +7,9 @@
 
 #include "\achilles\modules_f_ares\module_header.inc.sqf"
 
+#define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher", "rhsusf_weap_CMFlareLauncher", "rhsusf_weap_LWIRCM", "rhsusf_weap_ANAAQ24", "rhsusf_weap_ANALQ144", "rhsusf_weap_ANALQ157", "rhsusf_weap_ANALQ212"]
+#define ALL_LD_WEAP_CLASSES ["Laserdesignator", "Laserdesignator_mounted", "Laserdesignator_pilotCamera", "Laserdesignator_vehicle"]
+
 private _aircraft = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if !(_aircraft isKindOf "Air") exitWith
 {
@@ -20,6 +23,10 @@ if ((_vectDir#0 toFixed 1) in ["0.0","-0.0"] and ((_vectDir#1 toFixed 1) in ["0.
 if (isTouchingGround _aircraft) exitWith
 {
 	[localize "STR_AMAE_ARCRAFT_IS_TOUCHING_GROUND_ERROR"] call Achilles_fnc_showZeusErrorMessage;
+};
+if (isPlayer driver _aircraft) exitWith
+{
+	[localize "STR_AMAE_SELECT_NON_PLAYER_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;
 };
 if (_aircraft getVariable ["Achilles_var_performsAdvancedCAS", false]) exitWith
 {
@@ -46,22 +53,38 @@ private _weaponMuzzleMagazineIdxList = [];
 	private _weapIdx = _forEachIndex;
 	_x params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
 	_weaponAndTurret params [["_weapon","",[""]]];
-	private _weaponName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
+	if (ALL_CM_WEAP_CLASSES findIf {_weapon == _x} < 0 && ALL_LD_WEAP_CLASSES findIf {_weapon == _x} < 0) then
 	{
-		private _muzzleIdx = _forEachIndex;
-		_x params ["", ["_magazines",[""],[[]]]];
+		private _weaponName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
 		{
-			private _magazine = _x;
-			if (_magazine in _availableMagazines) then
+			private _muzzleIdx = _forEachIndex;
+			_x params ["", ["_magazines",[""],[[]]]];
 			{
-				private _magIdx = _forEachIndex;
-				private _magName = getText (configFile >> "CfgMagazines" >> _magazine >> "displayName");
-				_weaponsToFire pushBack format ["%1 (%2)", _weaponName, _magName];
-				_weaponMuzzleMagazineIdxList pushBack [_weapIdx, _muzzleIdx, _magIdx];
-			};
-		} forEach _magazines;
-	} forEach _muzzlesAndMagazines;
+				private _magazine = _x;
+				if (_magazine in _availableMagazines) then
+				{
+					private _magIdx = _forEachIndex;
+					private _magName = getText (configFile >> "CfgMagazines" >> _magazine >> "displayName");
+					if !(_magName isEqualTo "") then
+					{
+						_weaponsToFire pushBack format ["%1 (%2)", _weaponName, _magName];
+					}
+					else
+					{
+						_weaponsToFire pushBack format ["%1", _weaponName];
+					};
+					_weaponMuzzleMagazineIdxList pushBack [_weapIdx, _muzzleIdx, _magIdx];
+				};
+			} forEach _magazines;
+		} forEach _muzzlesAndMagazines;
+	};
 } forEach ([_aircraft] call Achilles_fnc_getWeaponsMuzzlesMagazines);
+
+if (_weaponsToFire isEqualTo []) exitWith 
+{
+	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage;
+	_aircraft setVariable ["Achilles_var_performsAdvancedCAS", nil, true];
+};
 
 // find targets
 private _allTargetsUnsorted = allMissionObjects "Achilles_Create_Universal_Target_Module";
