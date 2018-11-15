@@ -21,6 +21,8 @@
 
 params[["_vehicle", objNull, [objNull]], ["_flareParams", [6, 0.1], [[]], 2]];
 
+if !(_vehicle isKindOf "AllVehicles" || _vehicle isKindOf "Man") exitWith {};
+
 private _isVehicleAir = _vehicle isKindOf "Air";
 private _smokeType = ["smokeshell", "magazine"] select _isVehicleAir;
 private _weaponClasses = [ALL_SL_WEAP_CLASSES, ALL_CM_WEAP_CLASSES] select _isVehicleAir;
