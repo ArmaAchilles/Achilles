@@ -8,7 +8,7 @@
     localize "STR_AMAE_MODULE_INTERFACE",
     false,
 	false,
-	{Achilles_var_reloadDisplay = true}	
+	{Achilles_var_reloadDisplay = true}
 ] call cba_settings_fnc_init;
 
 [
@@ -18,7 +18,7 @@
     localize "STR_AMAE_MODULE_INTERFACE",
     true,
 	false,
-	{Achilles_var_reloadDisplay = true}	
+	{Achilles_var_reloadDisplay = true}
 ] call cba_settings_fnc_init;
 
 [
@@ -28,5 +28,15 @@
     localize "STR_AMAE_MODULE_INTERFACE",
     true,
 	false,
-	{Achilles_var_reloadDisplay = true}	
+	{Achilles_var_reloadDisplay = true}
+] call cba_settings_fnc_init;
+
+[
+    "Achilles_var_moduleTreeSearchPatch",
+    "CHECKBOX",
+    localize "STR_AMAE_ENABLE_DZN_SEARCH_PATCH",
+    localize "STR_AMAE_MODULE_INTERFACE",
+    true,
+	false,
+	{Achilles_var_reloadDisplay = true}
 ] call cba_settings_fnc_init;

@@ -115,6 +115,7 @@ class RscButtonMenu;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscButtonImages;
+class RscButtonSearch;
 class RscSlider;
 class RscXSliderH;
 class ScrollBar;

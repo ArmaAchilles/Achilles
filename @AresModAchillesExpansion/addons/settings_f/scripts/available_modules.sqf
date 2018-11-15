@@ -9,10 +9,7 @@ _achillesModuleClasses =
 	{
 		private _moduleClass = _x;
 		private _moduleCfg = configFile >> "cfgVehicles" >> _moduleClass;
-		private _moduleName = getText (_moduleCfg >> "displayName");
-		private _categoryClass = getText (_moduleCfg >> "category");
-		private _categoryName = getText (configFile >> "CfgFactionClasses" >> _categoryClass >> "displayName");
-		format ["%1%2", _categoryName, _moduleName]
+		getText (_moduleCfg >> "displayName");
 	}
 ] call BIS_fnc_sortBy;
 
@@ -25,13 +22,13 @@ _achillesModuleClasses =
 	[
 		format ["Achilles_var_%1", _moduleClass],
 		"CHECKBOX",
-		format ["%1: %2", _categoryName, _moduleName],
-		localize "STR_AMAE_AVAILABLE_MODULES",
+		_moduleName,
+		[localize "STR_AMAE_AVAILABLE_MODULES", _categoryName],
 		true,
 		false,
 		compile 
 		("
-			params [""_value""]; 
+			params [""_value""];
 			if (_value) then 
 			{
 				Achilles_var_availableModuleClasses pushBackUnique """ + _moduleClass + """;

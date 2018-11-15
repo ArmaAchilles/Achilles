@@ -24,6 +24,8 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * Kex
 
 ### Other Contributors:
+* 10Dozen
+	- For improving and fixing the search bar for the creation tree (dzn Zeus Search Patch).
 * CoxLedere
     - Available factions fix;
     - Dynamic loadout bug fix.

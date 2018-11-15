@@ -10,10 +10,7 @@ _factions =
 	{
 		private _faction = _x;
 		private _factionCfg = (configfile >> "CfgFactionClasses" >> _faction);
-		private _factionName = getText (_factionCfg >> "displayName");
-		private _sideId = [_factionCfg, "side", -1] call BIS_fnc_returnConfigEntry;
-		private _sideName = [_sideId] call BIS_fnc_sideName;
-		format ["%1%2", _sideName, _factionName]
+		getText (_factionCfg >> "displayName");
 	}
 ] call BIS_fnc_sortBy;
 
@@ -28,24 +25,24 @@ _factions =
 		[
 			format ["Achilles_var_%1", _faction],
 			"CHECKBOX",
-			format ["%1: %2", _sideName, _factionName],
-			localize "STR_AMAE_AVAILABLE_FACTIONS",
+			_factionName,
+			[localize "STR_AMAE_AVAILABLE_FACTIONS", _sideName],
 			true,
 			false,
-			compile 
-			("
+			compile format
+			["
 				params [""_value""]; 
 				if (_value) then 
 				{
-					Achilles_var_excludedFactions = Achilles_var_excludedFactions - [""" + _factionName + """]
+					Achilles_var_excludedFactions = Achilles_var_excludedFactions - [""%1%2""]
 				} else
 				{
-					Achilles_var_excludedFactions pushBackUnique """ + _factionName + """;
+					Achilles_var_excludedFactions pushBackUnique ""%1%2"";
 				};
 				Achilles_var_reloadDisplay = true;
 				uiNamespace setVariable [""Achilles_var_nestedList_vehicleFactions"", []];
 				uiNamespace setVariable [""Achilles_var_supplyDrop_factions"", []];
-			")
+			", _factionName, ([1,0,2,3] select _sideId)]
 		] call cba_settings_fnc_init;
 	};
 } forEach _factions;

@@ -95,7 +95,7 @@ if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) 
 		{
 			private _path = [_i];
 			private _factionName = _treeCtrl tvText _path;
-			if (_factionName in Achilles_var_excludedFactions) then
+			if (format ["%1%2", _factionName, _forEachIndex] in Achilles_var_excludedFactions) then
 			{
 				_treeCtrl tvDelete _path;
 			} else
@@ -137,7 +137,7 @@ if (Achilles_var_moduleTreeCollapse) then
 	{
 		private _path = [0,_i];
 		private _factionName = _treeCtrl tvText _path;
-		if (_factionName in Achilles_var_excludedFactions) then
+		if (format ["%1%2", _factionName, _forEachIndex] in Achilles_var_excludedFactions) then
 		{
 			_treeCtrl tvDelete _path;
 		} else

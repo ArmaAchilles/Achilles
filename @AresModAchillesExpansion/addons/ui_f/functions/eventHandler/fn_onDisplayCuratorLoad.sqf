@@ -20,8 +20,8 @@
 #define IDC_TEXT_WARNING		235102
 #define IDC_CONFIRM_WARNING		235106
 #define IDC_CANCLE_WARNING		235107
-#define ALL_ADD_CREATE_IDCS		[IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV, IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EAST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_WEST, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_GUER, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_CIV, IDC_RSCDISPLAYCURATOR_CREATE_GROUPS_EMPTY]
 #define ALL_ADD_MODE_IDCS		[IDC_RSCDISPLAYCURATOR_MODEUNITS, IDC_RSCDISPLAYCURATOR_MODEGROUPS, IDC_RSCDISPLAYCURATOR_MODEMODULES, IDC_RSCDISPLAYCURATOR_MODEMARKERS, IDC_RSCDISPLAYCURATOR_MODERECENT]
+#define ADD_MODE_TO_SIDE_IDCS	[[IDC_RSCDISPLAYCURATOR_SIDEOPFOR, IDC_RSCDISPLAYCURATOR_SIDEBLUFOR, IDC_RSCDISPLAYCURATOR_SIDEINDEPENDENT, IDC_RSCDISPLAYCURATOR_SIDECIVILIAN, IDC_RSCDISPLAYCURATOR_SIDEEMPTY], [IDC_RSCDISPLAYCURATOR_SIDEOPFOR, IDC_RSCDISPLAYCURATOR_SIDEBLUFOR, IDC_RSCDISPLAYCURATOR_SIDEINDEPENDENT, IDC_RSCDISPLAYCURATOR_SIDEEMPTY], [IDC_RSCDISPLAYCURATOR_SIDEEMPTY], [IDC_RSCDISPLAYCURATOR_SIDEEMPTY], []]
 #define ALL_ADD_SIDE_IDCS		[IDC_RSCDISPLAYCURATOR_SIDEOPFOR, IDC_RSCDISPLAYCURATOR_SIDEBLUFOR, IDC_RSCDISPLAYCURATOR_SIDEINDEPENDENT, IDC_RSCDISPLAYCURATOR_SIDECIVILIAN, IDC_RSCDISPLAYCURATOR_SIDEEMPTY]
 
 // execute vanilla display curator function
@@ -74,66 +74,31 @@ _display displayAddEventHandler ["KeyDown",{_this call Achilles_fnc_handleCurato
 	private _ctrl = _display displayCtrl _x;
 	_ctrl ctrlAddEventHandler ["ButtonClick",
 	{
-		params ["_ctrlMode"];
-		private _display = ctrlParent _ctrlMode;
-		private	_ctrlSearch = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_SEARCH;
-		private _searchText = ctrlText _ctrlSearch;
-		(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_","_curSide"];
-		private _curMode = ALL_ADD_MODE_IDCS find ctrlIDC _ctrlMode;
-		if (_searchText != "") then
+		_this spawn
 		{
-			private _ctrlCreateList = ALL_ADD_CREATE_IDCS apply {_display displayCtrl _x};
-			if (_curMode <= 1) then
+			disableSerialization;
+			params ["_ctrl"];
+			private _display = ctrlParent _ctrl;
+			(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_curMode"];
+			uiSleep 0.001;
 			{
-				_ctrlCreateList deleteAt (5 * _curMode + _curSide);
-			};
-			[_ctrlCreateList,_ctrlSearch,_searchText] spawn
-			{
-				disableSerialization;
-				params ["_ctrlCreateList","_ctrlSearch","_searchText"];
-				{_x ctrlSetFade 0.99; _x ctrlShow true; _x ctrlCommit 0} forEach _ctrlCreateList;
-				waitUntil {{not ctrlShown _x} count _ctrlCreateList == 0};
-				_ctrlSearch ctrlSetText "";
-				uiSleep 0.05;
-				{_x ctrlShow false; _x ctrlSetFade 0; _x ctrlCommit 0} forEach _ctrlCreateList;
-				waitUntil {{ctrlShown _x} count _ctrlCreateList == 0};
-				_ctrlSearch ctrlSetText _searchText;
-			};
+				(_display displayCtrl _x) ctrlShow true;
+			} forEach (ADD_MODE_TO_SIDE_IDCS select _curMode);
 		};
 	}];
-} forEach ALL_ADD_MODE_IDCS;
+} forEach (ALL_ADD_MODE_IDCS + ALL_ADD_SIDE_IDCS);
+(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_curMode"];
 {
-	private _ctrl = _display displayCtrl _x;
-	_ctrl ctrlAddEventHandler ["ButtonClick",
-	{
-		params ["_ctrlSide"];
-		private _display = ctrlParent _ctrlSide;
-		private	_ctrlSearch = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_SEARCH;
-		private _searchText = ctrlText _ctrlSearch;
-		(missionNamespace getVariable ["RscDisplayCurator_sections", [0,0]]) params ["_curMode"];
-		private _curSide = ALL_ADD_SIDE_IDCS find ctrlIDC _ctrlSide;
-		if (_searchText != "") then
-		{
-			private _ctrlCreateList = ALL_ADD_CREATE_IDCS apply {_display displayCtrl _x};
-			if (_curMode <= 1) then
-			{
-				_ctrlCreateList deleteAt (5 * _curMode + _curSide);
-			};
-			[_ctrlCreateList,_ctrlSearch,_searchText] spawn
-			{
-				disableSerialization;
-				params ["_ctrlCreateList","_ctrlSearch","_searchText"];
-				{_x ctrlSetFade 0.99; _x ctrlShow true; _x ctrlCommit 0} forEach _ctrlCreateList;
-				waitUntil {{not ctrlShown _x} count _ctrlCreateList == 0};
-				_ctrlSearch ctrlSetText "";
-				uiSleep 0.05;
-				{_x ctrlShow false; _x ctrlSetFade 0; _x ctrlCommit 0} forEach _ctrlCreateList;
-				waitUntil {{ctrlShown _x} count _ctrlCreateList == 0};
-				_ctrlSearch ctrlSetText _searchText;
-			};
-		};
-	}];
-} forEach ALL_ADD_SIDE_IDCS;
+	(_display displayCtrl _x) ctrlShow true;
+} forEach (ADD_MODE_TO_SIDE_IDCS select _curMode);
+
+// Handle DZN search patch
+(_display displayCtrl 283) ctrlShow !Achilles_var_moduleTreeSearchPatch;
+(_display displayCtrl 284) ctrlShow Achilles_var_moduleTreeSearchPatch;
+if (Achilles_var_moduleTreeSearchPatch) then
+{
+	(_display displayCtrl 285) ctrlAddEventHandler ["ButtonClick", {(((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl 283) ctrlSetText (ctrlText ((findDisplay IDD_RSCDISPLAYCURATOR) displayCtrl 284)))}];
+};
 
 // Add custom Zeus logo when pressing backspace
 private _zeusLogo = _display displayCtrl 15717;
