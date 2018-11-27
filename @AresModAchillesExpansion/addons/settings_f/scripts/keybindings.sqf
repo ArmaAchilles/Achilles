@@ -148,10 +148,28 @@
 	"Achilles_id_toggleIncludeCrew",
 	localize "STR_AMAE_KEY_TOGGLEINCLUDECREW",
 	{
-		missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
+		if (isNil "Achilles_var_toggleCrewOnSpawn") then
+		{
+			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
+			((findDisplay 312) displayCtrl 2801) cbSetChecked false;
+		}
+		else
+		{
+			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
+			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
+		};
 	},
 	{
-		missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
+		if (isNil "Achilles_var_toggleCrewOnSpawn") then
+		{
+			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
+			((findDisplay 312) displayCtrl 2801) cbSetChecked false;
+		}
+		else
+		{
+			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
+			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
+		};
 	},
-	[DIK_LMENU, [false, false, false]]
+	[0x0, [false, false, false]]
 ] call CBA_fnc_addKeybind;
