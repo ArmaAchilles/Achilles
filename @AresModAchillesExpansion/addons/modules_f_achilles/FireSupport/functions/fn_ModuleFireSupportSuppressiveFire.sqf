@@ -33,9 +33,18 @@ if (isNil "Achilles_var_setammo_init_done") then {
 // get list of possible targets
 private _allTargetsData = ["Achilles_Create_Universal_Target_Module"] call Achilles_fnc_getLogics;
 _allTargetsData params ["_allTargetNames","_allTargetLogics"];
-if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_allTargetNames isEqualTo []) exitWith
+{
+	[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage;
+};
 private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 _targetChoices append _allTargetNames;
+
+private _group = group _unit;
+if ((units _group) findIf {isPlayer _x} >= 0) exitWith
+{
+	[localize "STR_AMAE_CANNOT_BE_APPLIED_ON_GROUPS_WITH_PLAYERS"] call Achilles_fnc_ShowZeusErrorMessage;
+};
 
 // list available fire modes
 private _fireModes = [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"];
@@ -113,7 +122,6 @@ private _selectedTargetLogic = [position _logic, _allTargetLogics, _targetChoose
 private _dummyTargetLogic = [_selectedTargetLogic] call Achilles_fnc_createDummyLogic;
 
 // make sure the group is local
-private _group = group _unit;
 if (not local _group) then
 {
 	[[], [_group], clientOwner] call Achilles_fnc_transferOwnership;

@@ -25,6 +25,9 @@
 */
 params ["_object_list", "_group_list", ["_ownerID", clientOwner, [0]]];
 
+// filter groups with players
+_group_list = _group_list select {(units _x) findIf {isPlayer _x} < 0};
+
 if (_ownerID > 0 && (_ownerID != clientOwner)) then
 {
 	// transfer ownership to server

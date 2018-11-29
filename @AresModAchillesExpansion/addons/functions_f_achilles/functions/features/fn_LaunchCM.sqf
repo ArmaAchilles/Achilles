@@ -16,8 +16,8 @@
 //	[_vehicle] call Achilles_fnc_LaunchCM;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define ALL_SL_WEAP_CLASSES ["SmokeLauncher","rhs_weap_smokegen","rhs_weap_902a","rhs_weap_902b","rhsusf_weap_M259"]
-#define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher","rhsusf_weap_CMFlareLauncher","rhsusf_weap_LWIRCM"]
+#define ALL_SL_WEAP_CLASSES ["SmokeLauncher", "rhs_weap_smokegen", "rhs_weap_902a","rhs_weap_902b", "rhsusf_weap_M259"]
+#define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher", "rhsusf_weap_CMFlareLauncher", "rhsusf_weap_LWIRCM", "rhsusf_weap_ANAAQ24", "rhsusf_weap_ANALQ144", "rhsusf_weap_ANALQ157", "rhsusf_weap_ANALQ212"]
 
 params[["_vehicle", objNull, [objNull]], ["_flareParams", [6, 0.1], [[]], 2]];
 
