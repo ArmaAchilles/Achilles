@@ -143,10 +143,10 @@ switch (_mode) do
 {
 	case "init":
 	{
-		[[localize "STR_AMAE_UNIT", "OBJECT", ["Man"]], ["edit", "failed"], true] call Achilles_fnc_module_init;
+		[[localize "STR_AMAE_UNIT", "OBJECT", ["Man"]], ["edit", "failed", "canceled"], true] call Achilles_fnc_module_init;
 		// other examples:
-		// [[localize "STR_AMAE_VEHICLE", "OBJECT", ["Car", "Tank"]], ["edit", "failed"], true] call Achilles_fnc_module_init;
-		// [[localize "STR_AMAE_GROUP", "GROUP"], ["edit", "failed"], true] call Achilles_fnc_module_init;
+		// [[localize "STR_AMAE_VEHICLE", "OBJECT", ["Car", "Tank"]], ["edit", "failed", "canceled"], true] call Achilles_fnc_module_init;
+		// [[localize "STR_AMAE_GROUP", "GROUP"], ["edit", "failed", "canceled"], true] call Achilles_fnc_module_init;
 	};
 	case "edit":
 	{
