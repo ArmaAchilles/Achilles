@@ -154,7 +154,8 @@ switch (_mode) do
 			localize "STR_AMAE_ACE_INJURY",
 			[
 				...
-			]
+			],
+			["confirmed", "canceled"]
 		] call Achilles_fnc_module_openDialog;
 	};
 	case "confirmed":
