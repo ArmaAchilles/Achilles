@@ -127,14 +127,13 @@ switch (_mode) do
 params
 [
 	["_mode", "", [""]],
-	["_moduleParams", [], [[]]]
+	["_params", [], [[]]]
 ];
-_moduleParams params
+_params params
 [
 	["_logic", objNull, [objNull]],
 	["_isActivated", true, [true]],
-	["_isCuratorPlaced", true, [true]],
-	["_params", [], []]
+	["_isCuratorPlaced", true, [true]]
 ];
 
 // Only executed on the curator's machine
@@ -144,17 +143,10 @@ switch (_mode) do
 {
 	case "init":
 	{
-		["base"] call Achilles_fnc_module_init;
-	};
-	case "postinit":
-	{
-		["edit", _moduleParams] call _fnc_scriptName;
-	};
-	case "confirmed":
-	{
-	};
-	case "canceled":
-	{
+		[[localize "STR_AMAE_UNIT", "OBJECT", ["Man"]], ["edit", "failed"], true] call Achilles_fnc_module_init;
+		// other examples:
+		// [[localize "STR_AMAE_VEHICLE", "OBJECT", ["Car", "Tank"]], ["edit", "failed"], true] call Achilles_fnc_module_init;
+		// [[localize "STR_AMAE_GROUP", "GROUP"], ["edit", "failed"], true] call Achilles_fnc_module_init;
 	};
 	case "edit":
 	{
@@ -165,17 +157,20 @@ switch (_mode) do
 			]
 		] call Achilles_fnc_module_openDialog;
 	};
-	case "onModuleDoubleClicked":
+	case "confirmed":
+	{
+	};
+	case "canceled":
+	{
+	};
+	case "onDoubleClicked":
 	{
 		["edit", _moduleParams] call _fnc_scriptName;
 	};
-	case "onModuleEdited":
+	case "onMoved":
 	{
 	};
-	case "onModuleSelected":
-	{
-	};
-	case "onModuleDeleted":
+	case "onDeleted":
 	{
 	};
 };
