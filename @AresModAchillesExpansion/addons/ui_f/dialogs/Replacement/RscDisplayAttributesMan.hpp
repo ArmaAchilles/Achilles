@@ -5,8 +5,8 @@ class RscDisplayAttributesMan: RscDisplayAttributes
 {
 	scriptName = "RscDisplayAttributesMan";
 	scriptPath = "AresDisplays";
-	onLoad = "[""onLoad"",_this,""RscDisplayAttributesMan"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
-	onUnload = "[""onUnload"",_this,""RscDisplayAttributesMan"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onLoad = "['onLoad',_this,'RscDisplayAttributesMan','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "['onUnload',_this,'RscDisplayAttributesMan','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 	
 	class Controls: Controls 
 	{
@@ -43,12 +43,12 @@ class RscDisplayAttributesMan: RscDisplayAttributes
 		{
 			text = "$STR_AMAE_ARSENAL";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
-								[""Open"",[true,nil,BIS_fnc_initCuratorAttributes_target]] call bis_fnc_arsenal; \
+								['Open',[true,nil,BIS_fnc_initCuratorAttributes_target]] call bis_fnc_arsenal; \
 								[BIS_fnc_initCuratorAttributes_target] spawn { \
-									waitUntil { sleep 1; isnull ( uinamespace getvariable ""RSCDisplayArsenal"" ) }; \
-									params [""_template_unit""]; \
+									waitUntil { sleep 1; isnull ( uinamespace getvariable 'RSCDisplayArsenal' ) }; \
+									params ['_template_unit']; \
 									_loadout = getUnitLoadout _template_unit; \
-									_curatorSelected = [""man""] call Achilles_fnc_getCuratorSelected; \
+									_curatorSelected = ['man'] call Achilles_fnc_getCuratorSelected; \
 									{_x setUnitLoadout _loadout} forEach _curatorSelected; \
 								}";
 			colorBackground[] = {0.518,0.016,0,0.8};			
