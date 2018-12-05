@@ -71,7 +71,7 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Change: Replaced Achilles linear algebra functions with the ones moved to CBA. #368
 * Fix: Achilles modules were not available when a mission was loaded from a save. #372
 * Fix: The Zeus interface was loaded twice in the beginning of a session. #372
-* Fix: Achilles could not be build with Armake. #412
+* Fix: Achilles could not be built with Armake. #412
 
 ### v1.1.3
 #### Other
