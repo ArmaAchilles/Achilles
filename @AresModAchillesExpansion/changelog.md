@@ -19,13 +19,26 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Feature: Supports jets. #367
 	- Feature: Supports V-44X Blackfish (Armed). #367
 	- Change: New module icon. #367
+	- Fix: Can no longer be applied to players. #408
 	- Fix: Did not Support non-local units. #367
-* Artillery Fire Support:
-	- Feature: Now supports Mk 41 VLS from the Encore update. #365
-* Suppressive Fire:
-	- Change: New module icon. #367
 * Advanced Compositions:
 	- Fix: Vehicle compositions were not drivable in certain cases. #356
+* Ambient Animation:
+	- Fix: Spelling. #391
+* Artillery Fire Support:
+	- Feature: Now supports Mk 41 VLS from the Encore update. #365
+* Custom Arsenal:
+	- Fix: Was broken, but apparently nobody cared. #381
+* Make Invincible:
+	- Fix: Invincibility was lost when the object changed ownership (e.g. player enters vehicle). #384
+	- Fix: Non-local crew was not invincible when crew was included (e.g. players). #384
+* Promote to Zeus:
+	- Fix: Achilles modules were lost after using the module. #408
+* Suppressive Fire:
+	- Change: New module icon. #367
+	- Fix: Can no longer be applied to groups with players. #408
+* Switch Unit:
+	- Fix: If the unit had suffered sufficient damage to be killed, it would not have been killed immediately. #384
 #### Key-bindings/mouse
 ##### New
 * Toggle include crew keybinding (same as in Eden). #362
@@ -34,6 +47,8 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Feature: Added Switch Unit as option. #298
 * Use countermeasure/smoke:
 	- Fix: Script error for RHS Little Bird. #369
+	- Fix: No longer gets triggered in search box.
+	- Fix: Added exception handling for static objects. #382
 #### Settings
 ##### New
 * Module filter (Allows restricting features on a server via CBA settings). #372
@@ -41,15 +56,22 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 * Faction filter:
 	- Change: Entries are now sorted alphabetically. #372
 	- Change: The side of the faction is shown. #372
+	- Change: Grouped entries. #407
+	- Fix: Multi-side factions like FIA could not be configured individually. #407
 #### Translations
 ##### Revised
 * French (by @Revo78). #355
 * Japanese (by @classicarma). #363
 #### Other
+* Creation tree search box:
+	- Change: Revised creation tree search box based on @10Dozen's Zeus search patch add-on (can be deactivated in the add-on settings). #407
+	- Fix: Searches were wrong when switching between tabs. #407
+* Change: Changed rules for grid size for different GUI sizes. #379
 * Change: Revised the way the Achilles modules are initialized. #372
+* Change: Replaced Achilles linear algebra functions with the ones moved to CBA. #368
 * Fix: Achilles modules were not available when a mission was loaded from a save. #372
 * Fix: The Zeus interface was loaded twice in the beginning of a session. #372
-* Change: Replaced Achilles linear algebra functions with the CBA ones. #368
+* Fix: Achilles could not be build with Armake. #412
 
 ### v1.1.3
 #### Other
