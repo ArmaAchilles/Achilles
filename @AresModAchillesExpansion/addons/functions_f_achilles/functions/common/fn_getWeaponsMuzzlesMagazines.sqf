@@ -13,7 +13,7 @@
 // Example:			_weaponsToFire = [_unit] call Achilles_fnc_getWeaponsMuzzlesMagazines;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define BLACKLIST_WEAPONS ["fakehorn", "ambulancehorn", "truckhorn", "carhorn", "sportcarhorn", "bikehorn", "truckhorn2", "truckhorn3", "smokelauncher"]
+#define BLACKLIST_WEAPONS ["FakeHorn", "AmbulanceHorn", "TruckHorn", "CarHorn", "SportCarHorn", "BikeHorn", "TruckHorn2", "TruckHorn3", "SmokeLauncher"]
 
 params [["_unit", objNull, [objNull]]];
 
@@ -22,26 +22,26 @@ if (_unit isKindOf "Man") then
 {
 	// if unit is a soldier
 	// get all available muzzles for the unit's primary weapon
-	private _weapon = toLower primaryWeapon _unit;
+	private _weapon = primaryWeapon _unit;
 	private _availableMagazines = (magazines _unit) apply {toLower _x};
 	if !(_weapon isEqualTo "") then
 	{
 		// get all muzzles for the weapon
 		private _muzzleArray = [];
 		{
-			private _muzzle = toLower _x;
+			private _muzzle = _x;
 			// filter the muzzle "SAFE" found in RHS weapon configs
-			if (_muzzle != "safe") then
+			if (_muzzle != "SAFE") then
 			{
 				// get the available magazines
 				private _magazines = [];
 				if (_muzzle == "this") then
 				{
-					_magazines = (getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") apply {toLower _x}) arrayIntersect _availableMagazines;
+					_magazines = ((getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")) apply {toLower _x}) arrayIntersect _availableMagazines;
 				}
 				else
 				{
-					_magazines = (getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines") apply {toLower _x}) arrayIntersect _availableMagazines;
+					_magazines = ((getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines")) apply {toLower _x}) arrayIntersect _availableMagazines;
 				};
 				// filter smoke shells
 				_magazines = _magazines select {(toLower getText (configFile >> "CfgMagazines" >> _x >> "displayName") find "smoke") isEqualTo -1};
@@ -70,7 +70,7 @@ else
 			// for available weapons
 			private _weaponArray = [];
 			{
-				private _weapon = toLower _x;
+				private _weapon = _x;
 				// don't consider blacklisted weapons
 				if !(_weapon isEqualTo "" || _weapon in BLACKLIST_WEAPONS) then
 				{
@@ -78,15 +78,15 @@ else
 					private _muzzleArray = [];
 					{
 						// get the available magazines
-						private _muzzle = toLower _x;
+						private _muzzle = _x;
 						private _magazines = [];
 						if (_muzzle == "this") then
 						{
-							_magazines = (getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") apply {toLower _x}) arrayIntersect _availableMagazines;
+							_magazines = ((getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines")) apply {toLower _x}) arrayIntersect _availableMagazines;
 						}
 						else
 						{
-							_magazines = (getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines") apply {toLower _x}) arrayIntersect _availableMagazines;
+							_magazines = ((getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines")) apply {toLower _x}) arrayIntersect _availableMagazines;
 						};
 						if !(_magazines isEqualTo []) then
 						{
