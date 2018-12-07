@@ -2,6 +2,13 @@
 
 disableSerialization;
 params ["_curator","_placedObject"];
+
+// fix module activation bug for copy/paste
+if (_placedObject isKindOf "Logic") then
+{
+	_placedObject setVariable ["BIS_fnc_initModules_disableAutoActivation", false, true];
+};
+
 if (local _placedObject) then
 {
 	Ares_CuratorObjectPlaced_UnitUnderCursor = curatorMouseOver;
