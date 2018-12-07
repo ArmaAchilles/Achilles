@@ -35,6 +35,7 @@ private _module_type = if (_module_category in NO_CHOICE_MODULES) then
 
 private _group = group _logic;
 private _effect_logic = _group createUnit [_module_type, _spawnPos, [], 0, "NONE"];
+_effect_logic setvariable ['BIS_fnc_initModules_disableAutoActivation', false, true];
 _effect_logic setPos _spawnPos;
 [[_effect_logic]] call Ares_fnc_AddUnitsToCurator;
 
