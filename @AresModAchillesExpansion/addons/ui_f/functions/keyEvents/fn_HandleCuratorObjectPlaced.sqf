@@ -4,9 +4,9 @@ disableSerialization;
 params ["_curator","_placedObject"];
 
 // fix module activation bug for copy/paste
-if (_placedObject isKindOf "Logic") then
+if (_placedObject isKindOf "Module_f") then
 {
-	_placedObject setVariable ["BIS_fnc_initModules_disableAutoActivation", false, true];
+	_placedObject setVariable ["BIS_fnc_initModules_activate", true, true];
 };
 
 if (local _placedObject) then
