@@ -116,7 +116,9 @@ if (_addLogo) then {_zeusLogo ctrlCommit 0};
 // handle module tree loading
 [_moduleTreeCtrl] spawn
 {
+	disableSerialization;
 	params ["_moduleTreeCtrl"];
+	sleep 0.001;
 	// For Zeus Game Master missions: Wait until respawn was placed
 	if (!(missionNamespace getVariable ["BIS_moduleMPTypeGameMaster_init", false]) && {count allMissionObjects "ModuleMPTypeGameMaster_F" > 0}) then
 	{
