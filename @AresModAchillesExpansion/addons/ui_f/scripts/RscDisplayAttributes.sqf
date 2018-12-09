@@ -1,5 +1,5 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-#include "\achilles\ui_f\dialogs\defineResGrids.inc.sqf"
+#include "\achilles\ui_f\includes\defineResGrids.inc.sqf"
 
 params["_mode", "_params", "_class"];
 

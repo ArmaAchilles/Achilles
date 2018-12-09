@@ -14,7 +14,7 @@
 	Note: Check Achilles Wiki for more details on params and returns: https://github.com/oOKexOo/AresModAchillesExpansion/wiki/Custom-Modules
 */
 
-#include "AchillesDynamicDialog.inc.sqf"
+#include "\achilles\functions_f_achilles\includes\AchillesDynamicDialog.inc.sqf"
 
 disableSerialization;
 
