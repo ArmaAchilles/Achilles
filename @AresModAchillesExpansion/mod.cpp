@@ -1,6 +1,6 @@
 name = "Achilles (1.2.0)";
 picture = "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa";
-author = "ArmA 3 Achilles Mod Inc.";
+author = "Achilles Dev Team";
 description = "Achilles (1.2.0)";
 logo = "\achilles\data_f_achilles\pictures\Achilles_Icon_005.paa";
 logoSmall = "\achilles\data_f_achilles\icons\icon_achilles_small.paa";

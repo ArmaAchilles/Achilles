@@ -4,7 +4,7 @@ class CfgPatches
 	{
 		weapons[] = {};
 		requiredVersion = 1.88;
-		author = "ArmA 3 Achilles Mod Inc.";
+		author = "Achilles Dev Team";
 		authorUrl = "https://github.com/ArmaAchilles/Achilles";
 		version = 1.0.0;
 		versionStr = "1.0.0";
