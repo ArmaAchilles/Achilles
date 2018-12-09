@@ -1,5 +1,21 @@
+/*
+	Authors:
+		Kex
+	
+	Description:
+		Defines and macros for module dialogs
+*/
+
 // Define some constants for us to use when laying things out.
-#include "\achilles\ui_f\includes\defineResGrids.inc.sqf"
+#ifdef ACHILLES_CONFIG_ENV
+	#include "..\..\ui_f\includes\defineResGrids.inc.sqf"
+#else
+	#include "\achilles\ui_f\includes\defineResGrids.inc.sqf"
+#endif
+
+// Inclusion guard
+#ifdef ACHILLES_MODULE_DIALOG_MACROS
+#define ACHILLES_MODULE_DIALOG_MACROS
 
 #define DYNAMIC_GUI_IDD			133798
 #define DYNAMIC_TITLE_IDC		1000
@@ -33,3 +49,5 @@
 #define BASE_IDC_CTRL			(20000)
 #define BASE_IDC_ADDITONAL		(30000)
 #define SIDE_BASE_IDC			(12000)
+
+#endif

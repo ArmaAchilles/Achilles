@@ -1,3 +1,6 @@
+#define ACHILLES_CONFIG_ENV
+#include "includes\macros.inc.sqf"
+
 class CfgPatches
 {
 	class Achilles_Modules_F
@@ -23,9 +26,9 @@ class CfgPatches
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
 			"A3_Modules_F_Bootcamp_Misc",
-			"Achilles_language_F",
-			"Achilles_modules_F_ares",
-			"Achilles_Functions_F_ares",
+			"Achilles_Language_F",
+			"Achilles_Modules_F_Ares",
+			"Achilles_Functions_F_Ares",
 			"Achilles_Functions_F_Achilles",
 			"Achilles_Data_F_Achilles",
 			"Achilles_Data_F_Ares"
@@ -34,5 +37,4 @@ class CfgPatches
 };
 
 #include "cfgFunctions.hpp"
-#include "cfgFactionClasses.hpp"
-#include "cfgVehiclesModuleBase.hpp"
+#include "cfgVehicles.hpp"

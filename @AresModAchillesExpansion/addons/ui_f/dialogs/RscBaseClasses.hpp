@@ -1,4 +1,4 @@
-#include "\achilles\ui_f\includes\defineResGrids.inc.sqf"
+#include "..\includes\defineResGrids.inc.sqf"
 
 // close dialog values
 #define IDC_OK				1

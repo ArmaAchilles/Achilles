@@ -1,3 +1,6 @@
+#define ACHILLES_CONFIG_ENV
+#include "includes\macros.inc.sqf"
+
 class CfgPatches
 {
 	class Achilles_Functions_F
@@ -11,7 +14,7 @@ class CfgPatches
 		versionAr[] = {1,0,0};
 		
 		units[] = {};
-
+		
 		requiredAddons[] = 
 		{
 			"A3_UI_F",

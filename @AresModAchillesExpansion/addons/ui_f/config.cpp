@@ -1,3 +1,5 @@
+#define ACHILLES_CONFIG_ENV
+
 class CfgPatches
 {
 	class Achilles_UI_F
