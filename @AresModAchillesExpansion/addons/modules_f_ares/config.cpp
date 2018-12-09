@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class achilles_modules_f_ares
+	class Achilles_Modules_F_Ares
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -48,11 +48,11 @@ class CfgPatches
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
             "A3_Modules_F_Orange",
-			"achilles_language_f",
-			"achilles_functions_f_ares",
-			"achilles_functions_f_achilles",
-			"achilles_data_f_achilles",
-			"achilles_data_f_ares",
+			"Achilles_Language_F",
+			"Achilles_Functions_F_Ares",
+			"Achilles_Functions_F_Achilles",
+			"Achilles_Data_F_Achilles",
+			"Achilles_Data_F_Ares",
 			"cba_main"
 		};
 	};

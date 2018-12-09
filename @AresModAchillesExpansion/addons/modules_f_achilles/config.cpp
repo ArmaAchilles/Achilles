@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class achilles_modules_f_achilles
+	class Achilles_Modules_F_Achilles
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -76,12 +76,12 @@ class CfgPatches
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
 			"A3_Modules_F_Bootcamp_Misc",
-			"achilles_language_f",
-			"achilles_modules_f_ares",
-			"achilles_functions_f_ares",
-			"achilles_functions_f_achilles",
-			"achilles_data_f_achilles",
-			"achilles_data_f_ares"
+			"Achilles_language_F",
+			"Achilles_modules_F_ares",
+			"Achilles_Functions_F_ares",
+			"Achilles_Functions_F_Achilles",
+			"Achilles_Data_F_Achilles",
+			"Achilles_Data_F_Ares"
 		};
 	};
 	class AchillesEffects
@@ -122,11 +122,11 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
-			"achilles_language_f",
-			"achilles_functions_f_ares",
-			"achilles_functions_f_achilles",
-			"achilles_data_f_achilles",
-			"achilles_data_f_ares"
+			"achilles_Language_F",
+			"achilles_Functions_F_Ares",
+			"achilles_Functions_F_achilles",
+			"achilles_Data_F_achilles",
+			"achilles_Data_F_Ares"
 		};
 	};
 };

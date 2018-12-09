@@ -1,14 +1,14 @@
 class CfgPatches
 {
-	class Achilles_Functions_F_Achilles
+	class Achilles_Functions_F
 	{
 		weapons[] = {};
-		requiredVersion = 0.1;
+		requiredVersion = 1.88;
 		author = "ArmA 3 Achilles Mod Inc.";
-		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
+		authorUrl = "https://github.com/ArmaAchilles/Achilles";
 		version = 1.0.0;
 		versionStr = "1.0.0";
-		versionAr[] = {0,1,0};
+		versionAr[] = {1,0,0};
 		
 		units[] = {};
 
@@ -22,10 +22,8 @@ class CfgPatches
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
 			"Achilles_Language_F",
-			"Achilles_Functions_F_Ares"
 		};
 	};
 };
 
 #include "cfgFunctions.hpp"
-#include "cfgWaypoints.hpp"

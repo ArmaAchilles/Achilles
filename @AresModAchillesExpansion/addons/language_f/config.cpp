@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class achilles_language_f
+	class Achilles_Language_F
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;

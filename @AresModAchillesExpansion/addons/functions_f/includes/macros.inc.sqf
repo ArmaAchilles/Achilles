@@ -3,7 +3,7 @@
 		Kex
 	
 	Description:
-		Macros for function and variable names and definition
+		Macros for function and variable names and definitions
 */
 
 
@@ -18,7 +18,7 @@
 #define QCAT_PATH_2(PATH1, PATH2)						QUOTE(PATH1\PATH2)
 
 // Define root path
-#define FUNCTIONS_ROOT_PATH								\achilles\functions_f
+#define FUNCTIONS_ROOT_PATH								\achilles\functions_f\functions
 
 // Functions in Achilles convention with 0 category levels
 // Function name:	<ADDON>_fnc_<NAME>

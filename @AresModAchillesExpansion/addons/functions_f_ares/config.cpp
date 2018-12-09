@@ -1,6 +1,6 @@
 class CfgPatches
 {
-	class achilles_functions_f_ares
+	class Achilles_Functions_F_Ares
 	{
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -20,7 +20,7 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
-			"achilles_language_f"
+			"Achilles_Language_F"
 		};
 	};
 };
