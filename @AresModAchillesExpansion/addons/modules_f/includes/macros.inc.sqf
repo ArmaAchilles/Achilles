@@ -43,7 +43,7 @@
 // Achilles module functions
 // Function name:   Achilles_fnc_<CATEGORY>_module<NAME>
 // Function source: "\achilles\modules_f\<CATEGORY>\functions\fnc_<NAME>.sqf"
-#define DEF_MODULE_FUNC_ACHIL(CATEGORY, NAME)   class CATEGORY##_##NAME {file = QCAT_PATH_2(MODULES_ROOT_PATH,CATEGORY\functions\DOUBLES(fnc,NAME).sqf)}
+#define DEF_MODULE_FUNC_ACHIL(CATEGORY, NAME)   class CATEGORY##_##NAME {file = QCAT_PATH_2(MODULES_ROOT_PATH,CATEGORY\functions\CAT_NAME_2(fnc,NAME).sqf)}
 #define MODULE_FUNC_ACHIL(CATEGORY, NAME)       FUNC_ACHIL_1(CATEGORY,module##NAME)
 
 #endif
