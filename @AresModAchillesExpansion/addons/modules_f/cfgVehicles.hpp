@@ -5,7 +5,7 @@ class CfgVehicles
 	{
 		class ModuleDescription;
 	};
-	class Achilles_Module_Base_F : Module_F
+	class MODULE_BASE_ACHIL : Module_F
 	{
 		mapSize = 1;
 		author = "Achilles Dev Team";
