@@ -17,4 +17,14 @@ class CfgFunctions
 			DEF_FUNC_ACHIL_1(module,selectionOption);
 		};
 	};
+	class Ares
+	{
+		project = "Ares";
+		tag = "Ares";
+		
+		// Legacy functions kept for backward compatibility of custom modules.
+		class Legacy
+		{
+		};
+	};
 };
