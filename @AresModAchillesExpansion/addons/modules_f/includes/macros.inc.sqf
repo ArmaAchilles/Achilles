@@ -8,9 +8,9 @@
 
 // Get function macros
 #ifdef ACHILLES_CONFIG_ENV
-	#include "..\..\functions_f\includes\macros.inc.sqf"
+    #include "..\..\functions_f\includes\macros.inc.sqf"
 #else
-	#include "\achilles\functions_f\includes\macros.inc.sqf"
+    #include "\achilles\functions_f\includes\macros.inc.sqf"
 #endif
 
 // Inclusion guard
@@ -38,12 +38,12 @@
 #define MODULE_CATEGORY_BASE_ACHIL(CATEGORY)    MODULE_CATEGORY_BASE(Achilles,CATEGORY)
 
 // Module name:                 Achilles_module_<CATEGORY>_<NAME>_f
-#define MODULE_ACHIL(CATEGORY, NAME)            MODULE(Achilles, CATEGORY,NAME)
+#define MODULE_ACHIL(CATEGORY, NAME)            MODULE(Achilles,CATEGORY,NAME)
 
 // Achilles module functions
 // Function name:   Achilles_fnc_<CATEGORY>_module<NAME>
 // Function source: "\achilles\modules_f\<CATEGORY>\functions\fnc_<NAME>.sqf"
-#define DEF_MODULE_FUNC_ACHIL(CATEGORY, NAME)           class CATEGORY##_##NAME {file = QCAT_PATH_1(MODULES_ROOT_PATH,CATEGORY\functions\DOUBLES(fnc,NAME).sqf)}
-#define MODULE_FUNC_ACHIL(CATEGORY, NAME)               FUNC_ACHIL_1(CATEGORY,module##NAME)
+#define DEF_MODULE_FUNC_ACHIL(CATEGORY, NAME)   class CATEGORY##_##NAME {file = QCAT_PATH_2(MODULES_ROOT_PATH,CATEGORY\functions\DOUBLES(fnc,NAME).sqf)}
+#define MODULE_FUNC_ACHIL(CATEGORY, NAME)       FUNC_ACHIL_1(CATEGORY,module##NAME)
 
 #endif

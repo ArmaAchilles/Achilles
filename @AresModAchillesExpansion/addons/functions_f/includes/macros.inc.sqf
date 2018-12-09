@@ -15,13 +15,13 @@
 #define QUOTE(INP)                                      #INP
 #define DBLQUOTE(INP)                                   QUOTE(QUOTE(INP))
 
-// We normally write these explicitly, unless it doesn't work
+// We normally write these explicitly, unless they don't work otherwise
 #define DOUBLES(INP1, INP2)                             ##INP1##_##INP2
 #define TRIPLES(INP1, INP2, INP3)                       ##INP1##_##INP2##_##INP3
 
 // Concatenate paths
-#define QCAT_PATH_1(PATH1, PATH2)                       QUOTE(PATH1\PATH2)
-#define QCAT_PATH_2(PATH1, PATH2, PATH3)                QUOTE(PATH1\PATH2\PATH3)
+#define QCAT_PATH_2(PATH1, PATH2)                       QUOTE(PATH1\PATH2)
+#define QCAT_PATH_3(PATH1, PATH2, PATH3)                QUOTE(PATH1\PATH2\PATH3)
 
 // Define root path
 #define FUNCTIONS_ROOT_PATH                             \achilles\functions_f\functions
@@ -62,13 +62,21 @@
 #define QGVAR_2(ADDON, CATEGORY, SUBCATEGORY, NAME)     QUOTE(GVAR_2(ADDON,CATEGORY,SUBCATEGORY,NAME))
 #define QQGVAR_2(ADDON, CATEGORY, SUBCATEGORY, NAME)    DBLQUOTE(GVAR_2(ADDON,CATEGORY,SUBCATEGORY,NAME))
 
+// Achilles functions with 0 category levels
+// Function name:   Achilles_fnc_<NAME>
+// Function source: "\achilles\functions_f\common\fnc_<NAME>.sqf"
+#define DEF_FUNC_ACHIL_0(NAME)                          class NAME {file = QCAT_PATH_2(FUNCTIONS_ROOT_PATH,common\DOUBLES(fnc,NAME).sqf)}
+#define FUNC_ACHIL_0(NAME)                              FUNC_0(Achilles,NAME)
+#define QFUNC_ACHIL_0(NAME)                             QFUNC_0(Achilles,NAME)
+#define QQFUNC_ACHIL_0(NAME)                            QQFUNC_0(Achilles,NAME)
+
 // Achilles functions with 1 category level
 // Function name:   Achilles_fnc_<CATEGORY>_<NAME>
 // Function source: "\achilles\functions_f\<CATEGORY>\fnc_<NAME>.sqf"
-#define DEF_FUNC_ACHIL_1(CATEGORY, NAME)                class DOUBLES(CATEGORY,NAME) {file = QCAT_PATH_1(FUNCTIONS_ROOT_PATH,CATEGORY\DOUBLES(fnc,NAME).sqf)}
-#define FUNC_ACHIL_1(CATEGORY, NAME)                    FUNC_1(Achilles,CATEGORY,NAME)
-#define QFUNC_ACHIL_1(CATEGORY, NAME)                   QFUNC_1(Achilles,CATEGORY,NAME)
-#define QQFUNC_ACHIL_1(CATEGORY, NAME)                  QQFUNC_1(Achilles,CATEGORY,NAME)
+#define DEF_FUNC_ACHIL_1(NAME)                          class DOUBLES(CATEGORY,NAME) {file = QCAT_PATH_2(FUNCTIONS_ROOT_PATH,CATEGORY\DOUBLES(fnc,NAME).sqf)}
+#define FUNC_ACHIL_1(NAME)                              FUNC_1(Achilles,CATEGORY,NAME)
+#define QFUNC_ACHIL_1(NAME)                             QFUNC_1(Achilles,CATEGORY,NAME)
+#define QQFUNC_ACHIL_1(NAME)                            QQFUNC_1(Achilles,CATEGORY,NAME)
 
 // Achilles variables with 1 category level
 // Variable name:   Achilles_var_<CATEGORY>_<NAME>
@@ -79,7 +87,7 @@
 // Achilles functions with 2 category levels
 // Function name:   Achilles_fnc_<CATEGORY>_<SUBCATEGORY>_<NAME>
 // Function source: "\achilles\functions_f\<CATEGORY>\<SUBCATEGORY>\fnc_<NAME>.sqf"
-#define DEF_FUNC_ACHIL_2(CATEGORY, SUBCATEGORY, NAME)   class CATEGORY##_##SUBCATEGORY##_##NAME {file = QCAT_PATH_1(FUNCTIONS_ROOT_PATH,CATEGORY\SUBCATEGORY\DOUBLES(fnc,NAME).sqf)}
+#define DEF_FUNC_ACHIL_2(CATEGORY, SUBCATEGORY, NAME)   class CATEGORY##_##SUBCATEGORY##_##NAME {file = QCAT_PATH_2(FUNCTIONS_ROOT_PATH,CATEGORY\SUBCATEGORY\DOUBLES(fnc,NAME).sqf)}
 #define FUNC_ACHIL_2(CATEGORY, SUBCATEGORY, NAME)       FUNC_2(Achilles,CATEGORY,SUBCATEGORY,NAME)
 #define QFUNC_ACHIL_2(CATEGORY, SUBCATEGORY, NAME)      QFUNC_2(Achilles,CATEGORY,SUBCATEGORY,NAME)
 #define QQFUNC_ACHIL_2(CATEGORY, SUBCATEGORY, NAME)     QQFUNC_2(Achilles,CATEGORY,SUBCATEGORY,NAME)
@@ -93,7 +101,7 @@
 // Ares functions with 1 category level
 // Function name:   Ares_fnc_<NAME>
 // Function source: "\achilles\functions_f\ares\fnc_<NAME>.sqf"
-#define DEF_FUNC_ARES_0(NAME)                           class NAME {file = QCAT_PATH_1(FUNCTIONS_ROOT_PATH,ares\DOUBLES(fnc,NAME).sqf)}
+#define DEF_FUNC_ARES_0(NAME)                           class NAME {file = QCAT_PATH_2(FUNCTIONS_ROOT_PATH,ares\DOUBLES(fnc,NAME).sqf)}
 #define FUNC_ARES_0(NAME)                               FUNC_0(Ares,NAME)
 #define QFUNC_ARES_0(NAME)                              QFUNC_0(Ares,NAME)
 #define QQFUNC_ARES_0(NAME)                             QQFUNC_0(Ares,NAME)
@@ -123,5 +131,17 @@
 #define GVAR_ACE_1(CATEGORY, NAME)                      ACE_##CATEGORY##_##NAME
 #define QGVAR_ACE_1(CATEGORY, NAME)                     QUOTE(GVAR_ACE_1(CATEGORY,NAME))
 #define QQGVAR_ACE_1(CATEGORY, NAME)                    DBLQUOTE(GVAR_ACE_1(CATEGORY,NAME))
+
+// BIS functions with 0 category levels
+// Function name:   BIS_fnc_<NAME>
+#define FUNC_BIS_0(NAME)                                GVAR_0(BIS,NAME)
+#define QFUNC_BIS_0(NAME)                               QGVAR_0(BIS,NAME)
+#define QQFUNC_BIS_0(NAME)                              QQGVAR_0(BIS,NAME)
+
+// BIS functions with 1 category level
+// Function name:   BIS_fnc_<CATEGORY>_<NAME>
+#define FUNC_BIS_1(CATEGORY, NAME)                    FUNC_1(BIS,CATEGORY,NAME)
+#define QFUNC_BIS_1(CATEGORY, NAME)                   QFUNC_1(BIS,CATEGORY,NAME)
+#define QQFUNC_BIS_1(CATEGORY, NAME)                  QQFUNC_1(BIS,CATEGORY,NAME)
 
 #endif
