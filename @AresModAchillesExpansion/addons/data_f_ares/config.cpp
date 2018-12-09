@@ -3,7 +3,7 @@ class CfgPatches
 	class Achilles_Data_F_Ares
 	{
 		weapons[] = {};
-		requiredVersion = 0.1;
+		requiredVersion = 1.88;
 		author = "Anton Struyk";
 		authorUrl = "https://github.com/astruyk/";
 		version = 1.8.1;

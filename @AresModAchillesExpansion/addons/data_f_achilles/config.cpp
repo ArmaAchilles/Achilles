@@ -3,7 +3,7 @@ class CfgPatches
 	class Achilles_Data_F_Achilles
 	{
 		weapons[] = {};
-		requiredVersion = 0.1;
+		requiredVersion = 1.88;
 		author = "Achilles Dev Team";
 		authorUrl = "https://github.com/ArmaAchilles/AresModAchillesExpansion";
 		version = 1.0.0;
