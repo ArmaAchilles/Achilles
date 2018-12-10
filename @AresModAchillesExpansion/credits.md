@@ -49,7 +49,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Spelling fixes.
 * S.Crowe
     - ACE healing;
-    - Eden comparability of compositions.
+    - Eden compatibility of compositions.
 * SamLex
     - Fast rope waypoint detects if Advanced Rappelling is loaded on the server.
 * Shukari
