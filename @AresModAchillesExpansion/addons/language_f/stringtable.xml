@@ -1685,8 +1685,8 @@
                 <Chinese>未能找到建築!</Chinese>
             </Key>
             <Key ID="STR_AMAE_LOCKS_ALLOCATION_ERROR">
-                <Original>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</Original>
-                <English>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</English>
+                <Original>Allocation error: Could not create a door lock logic! (occurred in %1/%2 cases)</Original>
+                <English>Allocation error: Could not create a door lock logic! (occurred in %1/%2 cases)</English>
                 <Russian>Ошибка выделения памяти: Не могу создать модуль логики закрытия дверей! (для %1/%2 случаев)</Russian>
                 <French>Erreur d'allocation: Échec de la creation d'une logique de verrouillage de porte! (S'est produit dans %1/%2 des cas)</French>
                 <Japanese>アロケーション エラー: 扉の施錠は作成されていません。 (%1/%2 の場合により)</Japanese>
@@ -4098,8 +4098,8 @@
                 <Chinese>選擇已提交！</Chinese>
             </Key>
             <Key ID="STR_AMAE_SELECTION_CANCLED">
-                <Original>Selection cancled!</Original>
-                <English>Selection cancled!</English>
+                <Original>Selection cancelled!</Original>
+                <English>Selection cancelled!</English>
                 <French>Vous avez abandonné votre sélection!</French>
                 <Russian>Выбор отменен!</Russian>
                 <German>Auswahl abgebrochen!</German>
@@ -4645,9 +4645,9 @@
                 <French>Nombre de raid</French>
                 <German>Anzahl Angriffe</German>
             </Key>
-            <Key ID="STR_AMAE_COLOR_CORRECTION">
-                <Original>Color correction</Original>
-                <English>Color correction</English>
+            <Key ID="STR_AMAE_COLOUR_CORRECTION">
+                <Original>Colour correction</Original>
+                <English>Colour correction</English>
                 <French>Correction des couleurs</French>
                 <German>Farbkorrektur</German>
             </Key>

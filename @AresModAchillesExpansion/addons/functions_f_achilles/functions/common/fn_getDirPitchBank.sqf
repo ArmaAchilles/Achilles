@@ -16,7 +16,7 @@
 	Returns:
 		_dirPitchBank	- <ARRAY> List with dir, pitch and bank angle.
 	
-	Exampes:
+	Examples:
 		(begin example)
 		[_object] call Achilles_fnc_getDirPitchBank;
 		(end)

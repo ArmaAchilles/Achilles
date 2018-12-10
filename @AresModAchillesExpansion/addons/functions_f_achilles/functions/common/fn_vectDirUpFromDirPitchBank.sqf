@@ -18,7 +18,7 @@
 	Returns:
 		_dirPitchBank	- <ARRAY> List with dir, pitch and bank angle.
 	
-	Exampes:
+	Examples:
 		(begin example)
 		// returns [[0,sqrt(0.5),sqrt(0.5)],[sqrt(0.5),-0.5,0.5]]
 		[90,45,45] call Achilles_fnc_vectDirUpFromDirPitchBank;

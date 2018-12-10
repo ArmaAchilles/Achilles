@@ -78,14 +78,14 @@ private _scriptHandle = [_objects_list] spawn
 	// if objects were deleted
 	if ({!isNull _x} count _objects_list == 0) exitWith
 	{
-		[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_SELECTION_CANCLLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		missionNamespace setVariable ["Achilles_var_preplaceModeObjects", []];
 	};
 
 	// if escape was pressed
 	if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith
 	{
-		[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_SELECTION_CANCLLED"] call Achilles_fnc_ShowZeusErrorMessage;
 		{
 			{deleteVehicle _x} forEach (crew _x);
 			deleteVehicle _x;

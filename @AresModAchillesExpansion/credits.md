@@ -49,9 +49,9 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Spelling fixes.
 * S.Crowe
     - ACE healing;
-    - Eden compatability of compositions.
+    - Eden comparability of compositions.
 * SamLex
-    - Fast rope waypoint detects if Advanced Rappeling is loaded on the server.
+    - Fast rope waypoint detects if Advanced Rappelling is loaded on the server.
 * Shukari
     - Available factions bug fix.
 * Talya
@@ -63,10 +63,10 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Support and suggestions.
 * Zakant
     - Bug fixes;
-    - Improval of code efficency.
+    - Improvement of code efficiency.
 
 ## Achilles integrates code from the following mods or scripts
-* ACE3 change NVG brighness (by commy2)
+* ACE3 change NVG brightness (by commy2)
 * ACE3 fast-roping waypoint (by BaerMitUmlaut)
 * ACE3 Tools (SQF validator and config checker) (by thojkool)
 * AI HALO jump script (by cobra4v320)
@@ -76,7 +76,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * Nuke script ported from Arma 2 (by Moerderhoschi)
 	- http://www.armaholic.com/page.php?id=23963
 * Some curator display and module functions/configs (by BIS)
-* The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only dirctly adapted code is the breach stun function)
+* The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only directly adapted code is the breach stun function)
     - http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202
 
 ## Achilles integrates these icons from these following authors
