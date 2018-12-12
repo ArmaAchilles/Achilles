@@ -17,6 +17,10 @@ Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://s
 	- Fix: Could not be applied to units with inconsistently capitalized magazine class names, e.g. static GMG. #419
 * Spawn Effect:
 	- Fix: A spawned effect was sometimes not visible since the 1.86 update (e.g. as a server host). #417
+#### Settings
+##### Revised
+* Change: Restructured user interface settings
+* Change: Creation tree search box triggered by enter key only is now disabled by default.
 #### Other
 * Fix: Race condition in Achilles init, which could lead to loss of Achilles modules in ZGM game mode. #418
 * Fix: Copying/Pasting of modules was broken after 1.86 update. #417
