@@ -1,5 +1,5 @@
 # Targets
-.PHONY: all install uninstall clean _dll _move _remove
+.PHONY: all install check uninstall clean _dll _move _remove
 .DEFAULT_GOAL := all
 
 # Params
@@ -16,12 +16,13 @@ DLL_NAME = achilles_sqe_api
 DLL = $(BIN_DIR)$(DLL_NAME)$(POSTFIX).dll
 SOURCES = $(wildcard $(SRC_DIR)*.cpp)
 OBJECTS = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCES))
+TESTER = test/tester
 
 # Commands
 FINECHO = @echo; echo
 
 # Flags
-CXXFLAGS = -O3
+CXXFLAGS = -O3 -static
 
 ifeq ($(DEBUG),1)
 	CXXFLAGS += -Wall -Wextra -g
@@ -45,6 +46,15 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 clean:
 	$(RM) -r bin/
 	$(FINECHO) "SQE API cleaned!"
+
+check:
+	$(MAKE) _test CXX=i686-w64-mingw32-g++
+	$(MAKE) _test CXX=x86_64-w64-mingw32-g++ POSTFIX=_x64
+	$(FINECHO) "SQE API checked!"
+
+_test:
+	@$(CXX) $(CXXFLAGS) $(TESTER).cpp -o $(TESTER) -lboost_system -lboost_filesystem
+	$(TESTER) $(DLL)
 
 install:
 	$(MAKE) _move CXX=i686-w64-mingw32-g++
