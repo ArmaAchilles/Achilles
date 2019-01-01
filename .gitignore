@@ -12,3 +12,6 @@ tools/*.yaml
 .idea
 *.ini
 *.log
+*.o
+*.dll
+*.so
