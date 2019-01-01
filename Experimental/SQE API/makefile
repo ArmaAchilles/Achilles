@@ -19,7 +19,7 @@ OBJECTS = $(patsubst $(SRC_DIR)%.cpp, $(OBJ_DIR)%.o, $(SOURCES))
 TESTER = test/tester
 
 # Commands
-FINECHO = @echo; echo
+ECHO = @echo "[ log ]:"
 
 # Flags
 CXXFLAGS = -O3 -static
@@ -29,9 +29,10 @@ ifeq ($(DEBUG),1)
 endif
 
 all:
+	$(ECHO) "Buidling..."
 	$(MAKE) _dll CXX=i686-w64-mingw32-g++
 	$(MAKE) _dll CXX=x86_64-w64-mingw32-g++ POSTFIX=_x64
-	$(FINECHO) "SQE API built!"
+	$(ECHO) "SQE API built!"
 
 _dll: $(DLL)
 
@@ -44,30 +45,37 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 clean:
+	$(ECHO) "Cleaning..."
 	$(RM) -r bin/
-	$(FINECHO) "SQE API cleaned!"
+	$(ECHO) "SQE API cleaned!"
 
 check:
+	$(ECHO) "Checking..."
 	$(MAKE) _test CXX=i686-w64-mingw32-g++
 	$(MAKE) _test CXX=x86_64-w64-mingw32-g++ POSTFIX=_x64
-	$(FINECHO) "SQE API checked!"
+	$(ECHO) "SQE API checked!"
 
 _test:
-	@$(CXX) $(CXXFLAGS) $(TESTER).cpp -o $(TESTER) -lboost_system -lboost_filesystem
+	$(ECHO) "Build $(TESTER)..."
+	$(CXX) $(CXXFLAGS) $(TESTER).cpp -o $(TESTER) -lboost_system -lboost_filesystem
+	$(ECHO) "Checking $(DLL)..."
 	$(TESTER) $(DLL)
+	$(RM) $(TESTER)
 
 install:
+	$(ECHO) "Installing..."
 	$(MAKE) _move CXX=i686-w64-mingw32-g++
 	$(MAKE) _move CXX=x86_64-w64-mingw32-g++ POSTFIX=_x64
-	$(FINECHO) "SQE API installed!"
+	$(ECHO) "SQE API installed!"
 
 _move:
 	cp $(DLL) ../../@AresModAchillesExpansion/.
 
 uninstall:
+	$(ECHO) "Uninstall..."
 	$(MAKE) _remove CXX=i686-w64-mingw32-g++
 	$(MAKE) _remove CXX=x86_64-w64-mingw32-g++ POSTFIX=_x64
-	$(FINECHO) "SQE API uninstalled!"
+	$(ECHO) "SQE API uninstalled!"
 
 _remove:
 	rm ../../@AresModAchillesExpansion/$(DLL_NAME)$(POSTFIX).dll
