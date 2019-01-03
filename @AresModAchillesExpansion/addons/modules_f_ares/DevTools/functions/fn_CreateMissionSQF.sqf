@@ -220,17 +220,18 @@ if (_includeMarkers) then
 	{
 		private _markerName = "Ares_Imported_Marker_" + str(_forEachIndex);
 		_output pushBack format [
-			"_newMarker = createMarker ['%1', %2]; _newMarker setMarkerShape '%3'; _newMarker setMarkerType '%4'; _newMarker setMarkerDir %5; _newMarker setMarkerColor '%6'; _newMarker setMarkerAlpha %7; %8 %9",
+			"_newMarker = createMarker ['%1', %2]; _newMarker setMarkerShape '%3'; _newMarker setMarkerType '%4'; _newMarker setMarkerText '%5'; _newMarker setMarkerDir %6; _newMarker setMarkerColor '%7'; _newMarker setMarkerAlpha %8; %9 %10",
 			_markerName,
 			(getMarkerPos _x),
 			(markerShape _x),
 			(markerType _x),
+			(markerText _x),
 			(markerDir _x),
 			(getMarkerColor _x),
 			(markerAlpha _x),
 			if ((markerShape _x) == "RECTANGLE" ||(markerShape _x) == "ELLIPSE") then { "_newMarker setMarkerSize " + str(markerSize _x) + ";"; } else { ""; },
 			if ((markerShape _x) == "RECTANGLE" || (markerShape _x) == "ELLIPSE") then { "_newMarker setMarkerBrush " + str(markerBrush _x) + ";"; } else { ""; }
-			];
+		];
 	} forEach allMapMarkers;
 };
 
