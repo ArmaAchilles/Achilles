@@ -22,7 +22,8 @@ TESTER = test/tester
 ECHO = @echo "[ log ]:"
 
 # Flags
-CXXFLAGS = -O3 -static
+CXXFLAGS = -O3 -std=c++17 -static
+CXXLIBS =
 
 ifeq ($(DEBUG),1)
 	CXXFLAGS += -Wall -Wextra -g
@@ -38,11 +39,11 @@ _dll: $(DLL)
 
 $(DLL): $(OBJECTS)
 	mkdir -p $(BIN_DIR)
-	$(CXX) -shared $(CXXFLAGS) $^ -o $@
+	$(CXX) -shared $(CXXFLAGS) $^ -o $@ $(CXXLIBS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	mkdir -p $(OBJ_DIR)
-	$(CXX) -c $(CXXFLAGS) $< -o $@
+	$(CXX) -c $(CXXFLAGS) $< -o $@ $(CXXLIBS)
 
 clean:
 	$(ECHO) "Cleaning..."
@@ -57,7 +58,7 @@ check:
 
 _test:
 	$(ECHO) "Build $(TESTER)..."
-	$(CXX) $(CXXFLAGS) $(TESTER).cpp -o $(TESTER) -lboost_system -lboost_filesystem
+	$(CXX) $(CXXFLAGS) $(TESTER).cpp -o $(TESTER) $(CXXLIBS) -lboost_system -lboost_filesystem
 	$(ECHO) "Checking $(DLL)..."
 	$(TESTER) $(DLL)
 	$(RM) $(TESTER)
