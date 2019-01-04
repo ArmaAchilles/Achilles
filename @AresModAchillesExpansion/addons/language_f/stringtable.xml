@@ -5870,11 +5870,11 @@
         </Container>
         <Container name="cfg Waypoints">
             <Key ID="STR_AMAE_DELAY_AT_WP">
-                <Original>Delay at waypoint</Original>
-                <English>Delay at waypoint</English>
-                <French>Retardement au point de cheminement</French>
-                <Russian>Задержка в точке маршрута</Russian>
-                <German>Verzögerung beim Wegpunkt</German>
+                <Original>Delay at waypoint [s]</Original>
+                <English>Delay at waypoint [s]</English>
+                <French>Retardement au point de cheminement [s]</French>
+                <Russian>Задержка в точке маршрута [сек]</Russian>
+                <German>Verzögerung beim Wegpunkt [s]</German>
                 <Japanese>経由地点での遅延</Japanese>
                 <Chinesesimp>于路径点暂停</Chinesesimp>
                 <Chinese>於路徑點暫停</Chinese>
