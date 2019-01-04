@@ -1,40 +1,23 @@
-trigger:
-- master
+pool:
+	vmImage: 'ubuntu-16.04'
 
-jobs:
+steps:
+- task: UsePythonVersion@0
+	inputs:
+		versionSpec: '3.5'
+		architecture: 'x64'
 
-- job: 'Test'
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  strategy:
-    matrix:
-      Python37:
-        python.version: '3.7'
-    maxParallel: 1
+- script: python -m pip install --upgrade pip setuptools wheel
+	displayName: 'Install pip'
 
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-      architecture: 'x64'
+- script: pip install sqflint
+	displayName: 'Install SQFLint'
 
-  - script: python -m pip install --upgrade pip && pip install sqflint
-    displayName: 'Install dependencies'
+- script: python tools/travis/sqf_validator.py
+	displayName: 'SQF validator'
 
-  - script: |
-      python tools/travis/sqf_validator.py
-    displayName: 'SQF validator'
+- script: python tools/travis/config_style_checker.py
+	displayName: 'Config style checker'
 
-  - script: |
-	  python tools/travis/config_style_checker.py
-    displayName: 'Config style checker'
-	
-  - script: |
-	  sqflint -d @AresModAchillesExpansion/addons
-    displayName: 'SQFLint'
-	
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: '**/test-results.xml'
-      testRunTitle: 'Python $(python.version)'
-    condition: succeededOrFailed()
+- script: sqflint -d @AresModAchillesExpansion/addons
+	displayName: 'SQFLint'
