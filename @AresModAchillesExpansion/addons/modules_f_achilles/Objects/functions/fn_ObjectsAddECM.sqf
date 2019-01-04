@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -41,4 +41,4 @@ else
   [localize "STR_AMAE_ENYO_NO_VEHICLE_SELECTED"] call Ares_fnc_ShowZeusMessage; playSound "FD_Start_F";
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -2,7 +2,9 @@
 //	AUTHOR: Kex, CreepPork_LV
 //	DATE: 22/12/17
 //	VERSION: 1.1
-//  DESCRIPTION: Forces the group of the given unit to suppress the given target
+//  DESCRIPTION: 	Forces the group of the given unit to suppress the given target
+//					This function has to be executed in the scheduled environment on the machine the unit is local.
+//					It seems that the function doesn't work on machines without an interface (e.g. sever or HC)
 //
 //	ARGUMENTS:
 //	_this select 0:		OBJECT	- Unit that is injured

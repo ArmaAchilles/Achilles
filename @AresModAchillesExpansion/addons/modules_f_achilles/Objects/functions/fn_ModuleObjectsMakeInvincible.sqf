@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for the module "make invincible"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 private _objects = [_object];
@@ -34,21 +34,11 @@ if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] ca
 
 {
 	private _object = _x;
-	if (local _object) then
+	[_object, _allowDamage] remoteExecCall ["allowDamage"];
+	if (_includeCrew) then
 	{
-		_object allowDamage _allowDamage;
-		if (_includeCrew) then
-		{
-			{_x allowDamage _allowDamage} forEach crew _object;
-		};
-	} else
-	{
-		[_object,_allowDamage] remoteExecCall ["allowDamage",_object];
-		if (_includeCrew) then
-		{
-			[_x,_allowDamage] remoteExecCall ["allowDamage",crew _object];
-		};
+		{[_x, _allowDamage] remoteExecCall ["allowDamage"]} forEach crew _object;
 	};
 } forEach _objects;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

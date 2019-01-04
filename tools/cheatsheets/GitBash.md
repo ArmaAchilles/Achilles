@@ -70,9 +70,24 @@ git checkout -b <branch B> <branch A>
 git push --set-upstream origin <branch B>`
 ```
 
-## Fetch a remote PR with the given ID as BRANCHNAME
+## Fetch a remote PR with the given ID as BRANCHNAME (READ ONLY!)
 ```bash
 git fetch origin pull/ID/head:BRANCHNAME
+```
+
+## Add, edit and remove a fork of your repo locally (_i.e._ edit a PR)
+```bash
+# note that the PR author has to allow modifications by maintainers
+# <remote name> can be anything, but "origin"
+git remote add <remote name> <repo URL>
+# <remote branch name> is the name of the branch that the PR refers to
+git fetch <remote name> <remote branch name>
+# <local branch name> can be anything
+git branch -b <local branch name> <remote name>/<remote branch name>
+<... add changes ...>
+# clean up after the merge
+git remote remove <remote name>
+git branch -D <local branch name>
 ```
 
 ## Switch branch
