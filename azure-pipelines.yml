@@ -1,23 +1,23 @@
 pool:
-	vmImage: 'ubuntu-16.04'
+    vmImage: 'ubuntu-16.04'
 
 steps:
 - task: UsePythonVersion@0
-	inputs:
-		versionSpec: '3.5'
-		architecture: 'x64'
+    inputs:
+        versionSpec: '3.5'
+        architecture: 'x64'
 
 - script: python -m pip install --upgrade pip setuptools wheel
-	displayName: 'Install pip'
+    displayName: 'Install pip'
 
 - script: pip install sqflint
-	displayName: 'Install SQFLint'
+    displayName: 'Install SQFLint'
 
 - script: python tools/travis/sqf_validator.py
-	displayName: 'SQF validator'
+    displayName: 'SQF validator'
 
 - script: python tools/travis/config_style_checker.py
-	displayName: 'Config style checker'
+    displayName: 'Config style checker'
 
 - script: sqflint -d @AresModAchillesExpansion/addons
-	displayName: 'SQFLint'
+    displayName: 'SQFLint'
