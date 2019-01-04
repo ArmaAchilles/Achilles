@@ -11,7 +11,7 @@
 		Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 // Get a single unit that was selected
 private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -135,7 +135,7 @@ private _moveClockwise = _direction == 0;
 	// Ground units
 	else
 	{
-		private _degreesPerWaypoint = 360 / 6 // (6 = waypoint count)
+		private _degreesPerWaypoint = 360 / 6; // (6 = waypoint count)
 
 		if (! _moveClockwise) then
 		{
@@ -161,4 +161,4 @@ private _moveClockwise = _direction == 0;
 
 [localize "STR_AMAE_CIRCULAR_PATROL_SETUP"] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

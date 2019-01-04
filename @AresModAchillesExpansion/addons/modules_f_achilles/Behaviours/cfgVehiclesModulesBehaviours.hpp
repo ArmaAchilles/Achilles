@@ -33,7 +33,7 @@ class Achilles_Chatter_Module : Achilles_Behaviours_Module_Base
 
 class Achilles_Patrol_Module : Achilles_Behaviours_Module_Base
 {
-	scopeCurator = 2;
+	scopeCurator = 1;
 	curatorCanAttach = 1;
 	_generalMacro = "Achilles_Patrol_Module";
 	displayName = "$STR_AMAE_PATROL_LOITER";
