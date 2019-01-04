@@ -53,7 +53,7 @@ private _includeEmptyVehicles = (_dialogResult select 2 == 0);
 private _includeEmptyObjects = (_dialogResult select 3 == 0);
 private _includeMarkers = (_dialogResult select 4 == 0);
 
-private _objectsToFilter = curatorEditableObjects (getAssignedCuratorLogic player);
+private _objectsToFilter = (curatorEditableObjects (getAssignedCuratorLogic player)) - [objNull];
 private _emptyObjects = [];
 private _emptyVehicles = [];
 private _groups = [];
