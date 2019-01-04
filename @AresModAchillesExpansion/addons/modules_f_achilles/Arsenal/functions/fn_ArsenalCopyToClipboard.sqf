@@ -12,7 +12,7 @@
         Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -37,4 +37,4 @@ if (isServer) then
 uiNamespace setVariable ["Ares_CopyPaste_Dialog_Text", str _data];
 createDialog "Ares_CopyPaste_Dialog";
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

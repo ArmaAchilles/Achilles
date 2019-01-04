@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _dialogResult =
 [
@@ -27,7 +27,7 @@ private _curatorLogic = getAssignedCuratorLogic player;
 if (_invisible and !(isObjectHidden player)) then
 {
 	[player, true] remoteExecCall ["hideObjectGlobal",2];
-	player allowDamage false;
+	[player, false] remoteExecCall ["allowDamage"];
 	player setCaptive true;
 	_curatorLogic setVariable ["showNotification", true];
 
@@ -43,7 +43,7 @@ else
 	if (!_invisible and (isObjectHidden player)) then
 	{
 		[player, false] remoteExecCall ["hideObjectGlobal",2];
-		player allowDamage true;
+		[player, true] remoteExecCall ["allowDamage"];
 		player setCaptive false;
 		_curatorLogic setVariable ["showNotification", false];
 
@@ -58,4 +58,4 @@ else
 
 [_display_text] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

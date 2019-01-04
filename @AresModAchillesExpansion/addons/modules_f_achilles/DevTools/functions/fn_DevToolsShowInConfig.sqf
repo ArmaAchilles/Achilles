@@ -5,7 +5,7 @@
 //  DESCRIPTION: Module for showing config of an object
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 if (!isNull _object) then
@@ -15,4 +15,4 @@ if (!isNull _object) then
 };
 [] call BIS_fnc_configviewer;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

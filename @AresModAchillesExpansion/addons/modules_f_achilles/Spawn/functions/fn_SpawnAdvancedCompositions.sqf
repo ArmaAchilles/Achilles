@@ -9,7 +9,7 @@
 #define CHAIRS_CLASS_NAMES 		["Land_CampingChair_V2_F", "Land_CampingChair_V1_F", "Land_Chair_EP1", "Land_RattanChair_01_F", "Land_Bench_F", "Land_ChairWood_F", "Land_OfficeChair_01_F"]
 #define IDD_COMPOSITIONS 		133799
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 // load basic advanced compositions
 if (isNil "Achilles_var_acs_init_done") then
@@ -31,10 +31,9 @@ private _center_object_info = _objects_info select 0;
 _objects_info = _objects_info - [_center_object_info];
 _center_object_info params ["_type", "_", "_center_dir", "_allow_sim"];
 
-private _center_object = _type createVehicle [0,0,0];
+private _center_object = createVehicle [_type, _spawn_pos, [], 0, "CAN_COLLIDE"];
 
 [_center_object,false] remoteExec ["enableSimulationGlobal",2];
-_center_object setPosATL [-500,-500,0];
 _center_object setDir _center_dir;
 
 [[_center_object], true] call Ares_fnc_AddUnitsToCurator;
@@ -60,4 +59,4 @@ _center_object setVariable ["ACS_attached_objects",_attached_objects];
 _center_object setVariable ["ACS_center_dir", _center_dir];
 _center_object addEventHandler ["Deleted", {_attached_objects = (_this select 0) getVariable ["ACS_attached_objects", []]; {deleteVehicle _x} forEach _attached_objects}];
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

@@ -6,7 +6,7 @@
 //  DESCRIPTION: Module for changing the side of player
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -120,4 +120,4 @@ while {count _units > 0} do
 };
 [localize "STR_AMAE_CHANGED_SIDE_FOR_PLAYERS", count _units] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

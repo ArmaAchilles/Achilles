@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 #define INJURY_TYPES	["bullet", "grenade", "explosive", "shell", "stab", "vehiclecrash"]
 #define HEARTH_RATES	[160, 80, 40, 19]
@@ -164,4 +164,4 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	} forEach _selected_units;
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

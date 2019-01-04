@@ -1,4 +1,5 @@
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#include "\achilles\ui_f\dialogs\defineResGrids.inc.sqf"
 
 params["_mode", "_params", "_class"];
 
@@ -86,7 +87,7 @@ switch _mode do
 				};
 			};
 		};
-		private _posH = ((_posY + _ctrlContentOffsetY) min (0.646 * safeZoneH)) * 0.5;
+		private _posH = ((_posY + _ctrlContentOffsetY) min (0.746 * safeZoneH)) * 0.5;
 
 		private _target = missionnamespace getvariable ["BIS_fnc_initCuratorAttributes_target",objnull];
 		private _name = switch (typename _target) do {
@@ -124,7 +125,7 @@ switch _mode do
 		_ctrlButtonCustom ctrlsetposition _ctrlButtonCustomPos;
 		_ctrlButtonCustom ctrlcommit 0;
 
-		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) -	(safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2);
+		private _y_offset = ((ctrlposition _ctrlButtonCustom) select 1) - 16.1 * BIGUI_GRID_H_FIX - safezoneY - (safezoneH - 25 * BIGUI_GRID_H_FIX) / 2;
 		{
 			private _idc = _x;
 			private _ctrlButtonCustomPlus = _display displayctrl _idc;
