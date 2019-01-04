@@ -5,7 +5,7 @@
 //  DESCRIPTION: Function for suppressive fire module
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 // find unit to perform suppressiove fire
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -33,9 +33,18 @@ if (isNil "Achilles_var_setammo_init_done") then {
 // get list of possible targets
 private _allTargetsData = ["Achilles_Create_Universal_Target_Module"] call Achilles_fnc_getLogics;
 _allTargetsData params ["_allTargetNames","_allTargetLogics"];
-if (_allTargetNames isEqualTo []) exitWith {[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage};
+if (_allTargetNames isEqualTo []) exitWith
+{
+	[localize "STR_AMAE_NO_TARGET_MARKER"] call Achilles_fnc_ShowZeusErrorMessage;
+};
 private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST", localize "STR_AMAE_FARTHEST"];
 _targetChoices append _allTargetNames;
+
+private _group = group _unit;
+if ((units _group) findIf {isPlayer _x} >= 0) exitWith
+{
+	[localize "STR_AMAE_CANNOT_BE_APPLIED_ON_GROUPS_WITH_PLAYERS"] call Achilles_fnc_ShowZeusErrorMessage;
+};
 
 // list available fire modes
 private _fireModes = [localize "STR_AMAE_AUTOMATIC", localize "STR_AMAE_BURST", localize "STR_AMAE_SINGLE_SHOT"];
@@ -113,43 +122,12 @@ private _selectedTargetLogic = [position _logic, _allTargetLogics, _targetChoose
 private _dummyTargetLogic = [_selectedTargetLogic] call Achilles_fnc_createDummyLogic;
 
 // make sure the group is local
-private _group = group _unit;
 if (not local _group) then
 {
-	// transfer non-local groups to Zeus
-	[
-		[clientOwner,_group],
-		{
-			params ["_zeusOwnerId", "_group"];
-			// save the unit loadout
-			{
-				if (alive _x) then
-				{
-					_x setVariable ["Achilles_var_tmpLoadout", getUnitLoadout _x, true];
-					// change ownership for the vehicle
-					private _vehicle = vehicle _x;
-					if (not (_vehicle isEqualTo _x) and {_x isEqualTo effectiveCommander vehicle _x}) then
-					{
-						_vehicle setOwner _zeusOwnerId;
-					};
-				};
-			} forEach units _group;
-			// change ownership
-			_group setGroupOwner _zeusOwnerId;
-		}, 2
-	] call Achilles_fnc_spawn;
-	// reset the unit loadout as soon as they have become local
-	waitUntil {sleep 1; local _group or {isNull _group or {{alive _x} count units _group == 0}}};
-	{
-		private _loadout = _x getVariable ["Achilles_var_tmpLoadout", []];
-		if !(_loadout isEqualTo []) then
-		{
-			_x setUnitLoadout _loadout;
-		};
-	} forEach units _group;
+	[[], [_group], clientOwner] call Achilles_fnc_transferOwnership;
 };
 if (isNull _group or {{alive _x} count units _group == 0}) exitWith {};
-// Executing with call because we are in a suspension-enabled enviornment (see module_header.hpp).
+// Executing with call because we are in a suspension-enabled enviornment (see module_header.inc).
 [_unit,_dummyTargetLogic, _weapIdx, _muzzleIdx, _magIdx, _fireModeIndex, _stanceIndex, _doLineUp, _duration] call Achilles_fnc_suppressiveFire;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

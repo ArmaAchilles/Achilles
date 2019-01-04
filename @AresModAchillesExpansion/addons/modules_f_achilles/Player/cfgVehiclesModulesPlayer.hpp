@@ -6,7 +6,7 @@ class Achilles_Player_Module_Base : Achilles_Module_Base
 
 class Achilles_Module_Player_Set_Frequencies : Achilles_Player_Module_Base
 {
-	scopeCurator = 2;
+	scopeCurator = 1;
 	displayName = "$STR_AMAE_SET_FREQUENCIES";
 	function = "Achilles_fnc_PlayerSetFrequencies";
 	icon = "\achilles\data_f_achilles\icons\icon_TFARFreqs.paa";

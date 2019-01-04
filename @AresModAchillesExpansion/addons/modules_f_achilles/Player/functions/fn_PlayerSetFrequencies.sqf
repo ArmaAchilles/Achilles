@@ -11,7 +11,7 @@
     	Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 if (!isClass (configFile >> "CfgPatches" >> "task_force_radio")) exitWith {[localize "STR_AMAE_TFAR_HAS_TO_BE_LOADED"] call Achilles_fnc_ShowZeusErrorMessage};
 
@@ -107,4 +107,4 @@ if (_setSR == 0 && _setLR == 0) then
 	} forEach _thirdDialogResult;
 };
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

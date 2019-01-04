@@ -1,5 +1,5 @@
 
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 // get the unit
 private _unitUnderCursor = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
@@ -95,4 +95,4 @@ if (isNil "_units") exitWith {};
 } forEach _units;
 
 [localize "STR_AMAE_APPLIED_MODULE_TO_X_UNITS", count _units] call Ares_fnc_ShowZeusMessage;
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"

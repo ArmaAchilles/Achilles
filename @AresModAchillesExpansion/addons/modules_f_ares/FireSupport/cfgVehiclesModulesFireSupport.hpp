@@ -6,7 +6,7 @@ class Ares_Fire_Support_Module_Base : Ares_Module_Base
 
 class Ares_Artillery_Fire_Mission_Module : Ares_Fire_Support_Module_Base
 {
-	scopeCurator = 2;
+	scopeCurator = 1;
 	_generalMacro = "Ares_Artillery_Fire_Mission_Module";
 	displayName = "$STR_AMAE_ARTILLERY_FIRE_MISSION";
 	function = "Ares_fnc_FireSupportArtilleryFireMission";

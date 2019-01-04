@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.hpp"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 Ares_EditableObjectBlacklist =
 [
@@ -243,4 +243,4 @@ uiNamespace setVariable ['Ares_CopyPaste_Dialog_Text', _text];
 private _dialog = createDialog "Ares_CopyPaste_Dialog";
 [localize "STR_AMAE_GENERATED_SQF_FROM_MISSION_OBJECTS", count _emptyObjects, count _groups, _totalUnitsProcessed] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.hpp"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"
