@@ -18,7 +18,7 @@
 	Returns:
 		_dirPitchBank	- <ARRAY> List with dir, pitch and bank angle.
 	
-	Exampes:
+	Examples:
 		(begin example)
 		// returns [[0,sqrt(0.5),sqrt(0.5)],[sqrt(0.5),-0.5,0.5]]
 		[90,45,45] call Achilles_fnc_vectDirUpFromDirPitchBank;
@@ -26,20 +26,20 @@
 */
 
 params ["_dir", "_pitch", "_bank"];
-// Generate leveled vector dir and up
-private _vectDir = [cos(_dir), sin(_dir), 0];
-private _vectUp = [0,0,1];
-// Get the pitch rotation matrix
-private _world_to_model = [_vectDir, _vectUp, _vectDir vectorCrossProduct _vectUp];
-private _model_to_world = [_world_to_model] call CBA_fnc_matrixTranspose;
-private _rotMatrix_pitch = [_model_to_world, [[[cos(_pitch),-sin(_pitch),0],[sin(_pitch),cos(_pitch),0],[0,0,1]], _world_to_model] call CBA_fnc_matrixProduct3D] call CBA_fnc_matrixProduct3D;
-// Get the bank rotation matrix
-private _model_to_world = [_rotMatrix_pitch, _model_to_world] call CBA_fnc_matrixProduct3D;
-private _world_to_model = [_model_to_world] call CBA_fnc_matrixTranspose;
-private _rotMatrix_bank = [_model_to_world, [[[1,0,0],[0,cos(_bank),-sin(_bank)],[0,sin(_bank),cos(_bank)]], _world_to_model] call CBA_fnc_matrixProduct3D] call CBA_fnc_matrixProduct3D;
-// Rotate vector dir and up
-_vectDir = [_rotMatrix_pitch, _vectDir] call CBA_fnc_vectMap3D;
-_vectUp = [_rotMatrix_pitch, _vectUp] call CBA_fnc_vectMap3D;
-_vectUp = [_rotMatrix_bank, _vectUp] call CBA_fnc_vectMap3D;
+// _vectDir is just the conversion from spherical to Cartesian coordinates when the radius is 1.
+private _vectDir = [cos(_dir)*cos(_pitch), sin(_dir)*cos(_pitch), sin(_pitch)];
+// _phi is the pitch angle when _vectUp is treated as _vectDir 
+private _phi = 90 + _pitch;
+private _vectUp = [cos(_dir)*cos(_phi), sin(_dir)*cos(_phi), sin(_phi)];
+// Skip bank if not needed
+if !(_bank isEqualTo 0) then
+{
+	// Get the bank rotation matrix
+	private _world_to_model = [_vectUp, _vectDir vectorCrossProduct _vectUp, _vectDir];
+	private _model_to_world = [_world_to_model] call CBA_fnc_matrixTranspose;
+	private _rotMatrix_bank = [_model_to_world, [[[cos(_bank),-sin(_bank),0],[sin(_bank),cos(_bank),0],[0,0,1]], _world_to_model] call CBA_fnc_matrixProduct3D] call CBA_fnc_matrixProduct3D;
+	// Adjust the up vector
+	_vectUp = [_rotMatrix_bank, _vectUp] call CBA_fnc_vectMap3D;
+};
 // return
 [_vectDir, _vectUp]
