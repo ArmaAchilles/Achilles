@@ -6,7 +6,7 @@ class Achilles_Environment_Module_Base : Achilles_Module_Base
 
 class Achilles_Set_Weather_Module : Achilles_Environment_Module_Base
 {
-	scopeCurator = 1;
+	scopeCurator = 2;
 	_generalMacro = "Achilles_Set_Weather_Module";
 	displayName = "$STR_AMAE_ADVANCED_WEATHER_CHANGE";
 	function = "Achilles_fnc_EnvironmentSetWeatherModule";
@@ -16,7 +16,7 @@ class Achilles_Set_Weather_Module : Achilles_Environment_Module_Base
 
 class Achilles_Set_Date_Module : Achilles_Environment_Module_Base
 {
-	scopeCurator = 1;
+	scopeCurator = 2;
 	_generalMacro = "Achilles_Set_Date_Module";
 	displayName = "$STR_AMAE_SET_DATE";
 	function = "Achilles_fnc_EnvironmentSetDate";
@@ -26,7 +26,7 @@ class Achilles_Set_Date_Module : Achilles_Environment_Module_Base
 
 class Achilles_Earthquake_Module : Achilles_Environment_Module_Base
 {
-	scopeCurator = 1;
+	scopeCurator = 2;
 	_generalMacro = "Achilles_Earthquake_Module";
 	displayName = "$STR_AMAE_EARTHQUAKE";
 	function = "Achilles_fnc_EnvironmentEarthquake";

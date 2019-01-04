@@ -1,5 +1,16 @@
 // Define some constants for us to use when laying things out.
-#include "\achilles\ui_f\dialogs\defineResGrids.inc.sqf"
+#define GUI_GRID_X		(0.294 * safeZoneW + safeZoneX)
+#define GUI_GRID_Y		(0.177 * safeZoneH + safeZoneY)
+#define GUI_GRID_W		(0.010 * safeZoneW)
+#define GUI_GRID_H		(0.022 * safeZoneH)
+#define GUI_GRID_H_FIX	(0.04)
+
+//converts GUI grid to GUI coordinates
+#define GtC_X(GRID)				(GRID) * GUI_GRID_W + GUI_GRID_X
+#define GtC_Y(GRID)				(GRID) * GUI_GRID_H + GUI_GRID_Y
+#define GtC_W(GRID)				(GRID) * GUI_GRID_W
+#define GtC_H(GRID)				(GRID) * GUI_GRID_H
+#define GtC_H_FIX(GRID)			GRID * GUI_GRID_H_FIX
 
 #define DYNAMIC_GUI_IDD			133798
 #define DYNAMIC_TITLE_IDC		1000

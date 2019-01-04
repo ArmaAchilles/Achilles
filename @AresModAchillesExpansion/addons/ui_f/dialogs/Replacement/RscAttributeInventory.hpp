@@ -2,7 +2,7 @@
 class RscAttributeInventory: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,""RscAttributeInventory"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
-	h = 29 * BIGUI_GRID_H_DYN;
+	h = "29 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	class controls 
 	{
 		class ArrowLeft: RscButtonMenu 
@@ -25,65 +25,65 @@ class RscAttributeInventory: RscControlsGroupNoScrollbars
 			};
 			idc = 24468;
 			text = "-";
-			size = 2* BIGUI_GRID_H_FIX;
-			sizeEx = 2 * BIGUI_GRID_H_FIX;
-			sizeExSecondary = 2 * BIGUI_GRID_H_FIX;
-			x = 0 * BIGUI_GRID_W_FIX;
-			y = -1 * BIGUI_GRID_H_FIX;
-			w = 1 * BIGUI_GRID_W_FIX;
-			h = 1 * BIGUI_GRID_H_FIX;
+			size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 2)";
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 2)";
+			sizeExSecondary = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 2)";
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "-1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "1 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
-		class WeaponSpecificLabel: RscText
+		class WeaponSpecificLable: RscText
 		{
 			idc = 24081;
 			colorSelectBackground[] = {1, 1, 1, 0.250000};
 			shadow = 0;
 			text = "";
-			x = 0 * BIGUI_GRID_W_FIX;
-			y = 2 * BIGUI_GRID_H_FIX;
-			w = 26 * BIGUI_GRID_W_FIX;
-			h = 1 * BIGUI_GRID_H_FIX;
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "2 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
 		class ButtonVA: ArrowLeft
 		{
 			idc = 24470;
 			text = "Virtual Arsenal";
-			size = 1 * BIGUI_GRID_H_FIX;
-			sizeEx = 1 * BIGUI_GRID_H_FIX;
-			sizeExSecondary = 1 * BIGUI_GRID_H_FIX;
-			x = 20 * BIGUI_GRID_W_FIX;
-			y = 2 * BIGUI_GRID_H_FIX;
-			w = 6 * BIGUI_GRID_W_FIX;
-			h = 1 * BIGUI_GRID_H_FIX;			
+			size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+			sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+			sizeExSecondary = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+			x = "20 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "2 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "6 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "1 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";			
 		};
 
 		class List: RscListNBox 
 		{
 			columns[] = {0.070000, 0.230000, 0.760000, 0.830000};
 			drawSideArrows = 1;
-			rowHeight = 2 * BIGUI_GRID_H_FIX;
+			rowHeight = "2 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			idcLeft = 24468;
 			idcRight = 24469;
 			colorSelect2[] = {0.950000, 0.950000, 0.950000, 1};
 			colorSelectBackground[] = {1, 1, 1, 0.250000};
 			colorSelectBackground2[] = {1, 1, 1, 0.250000};
 			idc = 24368;
-			x = 0 * BIGUI_GRID_W_FIX;
-			y = 3 * BIGUI_GRID_H_FIX;
-			w = 26 * BIGUI_GRID_W_FIX;
-			h = 29 * BIGUI_GRID_H_DYN - 4.5 * BIGUI_GRID_H_FIX;
+			x = "0 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			y = "3 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			w = "26 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+			h = "24.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
 		class ListBackground : RscText
 		{
-			h = 29 * BIGUI_GRID_H_DYN - 3.5 * BIGUI_GRID_H_FIX;
+			h = "25.5 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 		
 		class Load : RscProgress
 		{
-			y = 29 * BIGUI_GRID_H_DYN - 1 * BIGUI_GRID_H_FIX;
+			y = "28 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 		};
 	};
 };

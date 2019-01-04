@@ -1,5 +1,5 @@
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 createDialog "RscDisplayAttributesModuleSetDate";
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

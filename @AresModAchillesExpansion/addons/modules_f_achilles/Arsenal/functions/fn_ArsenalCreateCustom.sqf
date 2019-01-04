@@ -12,7 +12,7 @@
         Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 #include "\achilles\data_f_achilles\Arsenal\arsenalItems.sqf"
 
@@ -94,9 +94,9 @@ _automatedWeapons = _automatedWeapons == 0;
 _tents = _tents == 0;
 _uavs = _uavs == 0;
 
-// Data array consiting of [<items>, <weapons>, <magazines>, <backpacks>]. All virtual.
+// Data array consiting of [<weapons>, <magazines>, <items>, <backpacks>]. All virtual.
 private _data = [[], [], [], []];
-_data params ["_dataItems", "_dataWeapons", "_dataMagazines", "_dataBackpacks"];
+_data params ["_dataWeapons", "_dataMagazines", "_dataItems", "_dataBackpacks"];
 
 if (_sideEquipment == 0) then
 {
@@ -127,7 +127,7 @@ if (_sideEquipment == 0) then
                 // This should always be unique, but just in case.
                 _selectedData pushBackUnique _x;
             } forEach _x; // every single weapon or magazine, or item or backpack.
-        } forEach [_arsenalItems, _arsenalWeapons, _arsenalMagazines, _arsenalBackpacks];
+        } forEach [_arsenalWeapons, _arsenalMagazines, _arsenalItems, _arsenalBackpacks];
 
         // Add the specific items if selected so.
         if (_gps) then {_dataItems pushBackUnique GPS};
@@ -164,7 +164,7 @@ else
         {
             _selectedData pushBackUnique _x;
         } forEach _x;
-    } forEach [_arsenalItems, _arsenalWeapons, _arsenalMagazines, _arsenalBackpacks];
+    } forEach [_arsenalWeapons, _arsenalMagazines, _arsenalItems, _arsenalBackpacks];
 
     // Add the specific items if selected so.
     if (_gps) then {_dataItems pushBackUnique GPS};
@@ -186,4 +186,4 @@ clearbackpackcargoglobal _object;
 
 [localize "STR_AMAE_ARSENAL_ADDED"] call Ares_fnc_ShowZeusMessage;
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 //Broadcast animation function
 if (isNil "Achilles_var_animation_init_done") then
@@ -20,4 +20,4 @@ private _units = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 [[_units]] call Achilles_fnc_Animation;
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

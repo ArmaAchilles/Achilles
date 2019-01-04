@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -43,4 +43,4 @@ else
 	[_object, _dialogResult select 0, _dialogResult select 1] remoteExecCall ["BIS_fnc_setPitchBank", _object];
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

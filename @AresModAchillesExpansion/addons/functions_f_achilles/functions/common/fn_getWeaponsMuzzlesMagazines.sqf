@@ -35,33 +35,22 @@ if (_unit isKindOf "Man") then
 			{
 				// get the available magazines
 				private _magazines = [];
-				private _compatibleMagazines = [];
 				if (_muzzle == "this") then
 				{
-					_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
+					_magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") arrayIntersect _availableMagazines;
 				}
 				else
 				{
-					_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines");
+					_magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines") arrayIntersect _availableMagazines;
 				};
-				
-				private _magazines = [];
-				{
-					private _availableMagazine = _x;
-					// filter smoke shells and incompatible magazines
-					if (((toLower getText (configFile >> "CfgMagazines" >> _x >> "displayName") find "smoke") isEqualTo -1) && (_compatibleMagazines findIf {_availableMagazine == _x} >= 0)) then
-					{
-						_magazines pushBackUnique _availableMagazine;
-					};
-				} forEach _availableMagazines;
-				
+				// filter smoke shells
+				_magazines = _magazines select {(toLower getText (configFile >> "CfgMagazines" >> _x >> "displayName") find "smoke") isEqualTo -1};
 				if !(_magazines isEqualTo []) then
 				{
 					_muzzleArray pushBack [_muzzle, _magazines];
 				};
 			};
 		} forEach getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-		
 		if !(_muzzleArray isEqualTo []) then
 		{
 			_weaponsToFire pushBack [_weapon, _muzzleArray];
@@ -90,32 +79,20 @@ else
 					{
 						// get the available magazines
 						private _muzzle = _x;
-						private _compatibleMagazines = [];
+						private _magazines = [];
 						if (_muzzle == "this") then
 						{
-							_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
+							_magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") arrayIntersect _availableMagazines;
 						}
 						else
 						{
-							_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines");
+							_magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines") arrayIntersect _availableMagazines;
 						};
-						
-						private _magazines = [];
-						{
-							private _availableMagazine = _x;
-							// filter incompatible magazines
-							if ((_compatibleMagazines findIf {_availableMagazine == _x}) >= 0) then
-							{
-								_magazines pushBackUnique _availableMagazine;
-							};
-						} forEach _availableMagazines;
-						
 						if !(_magazines isEqualTo []) then
 						{
 							_muzzleArray pushBack [_muzzle, _magazines];
 						};
 					} forEach getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-					
 					if !(_muzzleArray isEqualTo []) then
 					{
 						_weaponsToFire pushBack [[_weapon, _turretPath], _muzzleArray];

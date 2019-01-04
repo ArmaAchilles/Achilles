@@ -16,12 +16,10 @@
 //	[_vehicle] call Achilles_fnc_LaunchCM;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define ALL_SL_WEAP_CLASSES ["SmokeLauncher", "rhs_weap_smokegen", "rhs_weap_902a","rhs_weap_902b", "rhsusf_weap_M259"]
-#define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher", "rhsusf_weap_CMFlareLauncher", "rhsusf_weap_LWIRCM", "rhsusf_weap_ANAAQ24", "rhsusf_weap_ANALQ144", "rhsusf_weap_ANALQ157", "rhsusf_weap_ANALQ212"]
+#define ALL_SL_WEAP_CLASSES ["SmokeLauncher","rhs_weap_smokegen","rhs_weap_902a","rhs_weap_902b","rhsusf_weap_M259"]
+#define ALL_CM_WEAP_CLASSES ["CMFlareLauncher", "CMFlareLauncher_Singles", "CMFlareLauncher_Triples", "rhs_weap_CMFlareLauncher","rhsusf_weap_CMFlareLauncher"]
 
 params[["_vehicle", objNull, [objNull]], ["_flareParams", [6, 0.1], [[]], 2]];
-
-if !(_vehicle isKindOf "AllVehicles" || _vehicle isKindOf "Man") exitWith {};
 
 private _isVehicleAir = _vehicle isKindOf "Air";
 private _smokeType = ["smokeshell", "magazine"] select _isVehicleAir;
@@ -43,7 +41,7 @@ if (_vehicle isKindOf "Man") then
 	] call BIS_fnc_sortBy;
 
 	// Display different messages if the unit doesn't have any smokes
-	if (_allSmokeMagazines isEqualTo []) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo []) exitWith {[format ["Smoke grenades unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	// Make the unit throw the smoke grenade
 	private _smokeMuzzle = (_allSmokeMagazines select 0) select 4;
@@ -61,13 +59,12 @@ else
 		{((getText (configfile >> "CfgMagazines" >> (_x select 0) >> "nameSound")) == _smokeType) && ((_x select 2) > 0)}
 	] call BIS_fnc_sortBy;
 
-	if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
-	if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[localize "STR_AMAE_HAS_NO_CM_ERROR"] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && !_isVehicleAir) exitWith {[format ["Smoke dispensers unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
+	if (_allSmokeMagazines isEqualTo [] && _isVehicleAir) exitWith {[format ["Countermeasures unavailable for %1!", name _vehicle]] call Achilles_fnc_showZeusErrorMessage};
 
 	private _turretPath = (_allSmokeMagazines select 0) select 1;
 	private _weapons = _vehicle weaponsTurret _turretPath;
 	private _CMWeapons = _weapons arrayIntersect _weaponClasses;
-	if (_CMWeapons isEqualTo []) exitWith {[localize "STR_AMAE_HAS_NO_SMOKES_ERROR"] call Achilles_fnc_showZeusErrorMessage};
 	private _CMWeapon = _CMWeapons select 0;
 
 	// If the vehicle is any kind of land vehicle (cars, tanks, trucks etc.)

@@ -8,7 +8,7 @@ class Achilles_Equipment_Module_Base : Achilles_Module_Base
 
 class Achilles_Module_Equipment_Attach_Dettach_Effect : Achilles_Equipment_Module_Base
 {
-	scopeCurator = 1;
+	scopeCurator = 2;
 	displayName = "$STR_AMAE_ATTACH_DETACH_EFFECT";
 	function = "Achilles_fnc_attachDetachEffect";
 };

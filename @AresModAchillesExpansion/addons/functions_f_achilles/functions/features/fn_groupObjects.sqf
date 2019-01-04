@@ -42,7 +42,7 @@ private _group_attributes = [];
 	private _vector_center_object = _object_pos vectorDiff _center_pos;
 	private _attributes = [_vector_center_object, vectorDir _object, vectorUp _object] apply
 	{
-		private _return = [_standard_to_internal, _x] call CBA_fnc_vectMap3D;
+		private _return = [_standard_to_internal, _x] call Achilles_fnc_vectorMap;
 		_return;
 	};
 	_group_attributes pushBack ([_object] + _attributes);

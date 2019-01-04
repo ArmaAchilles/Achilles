@@ -23,7 +23,7 @@ class ModuleLightSource_F : Module_F
 	function = "Achilles_fnc_ModuleLightSource";	// Name of function triggered once conditions are met
 	functionPriority = 1;		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 	is3DEN = 1;					// 1 to run init function in Eden Editor as well
-	isGlobal = 1;				// 0 for server only execution, 1 for global execution, 2 for persistent global execution
+	isGlobal = 2;				// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 	isTriggerActivated = 0;		// 1 for module waiting until all synced triggers are activated
 	
 	class Arguments 

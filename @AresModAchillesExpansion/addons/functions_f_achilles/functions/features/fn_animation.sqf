@@ -34,7 +34,7 @@ private _dialogResult =
 				"listen briefing",
 				"briefing",
 				"briefing (interactive)",
-				"listening (civilian)",
+				"listing (civilian)",
 				"talking (civilian)",
 				"listen to radio",
 				"shield from sun",

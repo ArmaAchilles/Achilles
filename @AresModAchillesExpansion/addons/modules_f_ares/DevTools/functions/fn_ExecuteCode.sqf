@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 disableSerialization;
 
@@ -44,4 +44,4 @@ if (_dialogResult == 1) then
 	};
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

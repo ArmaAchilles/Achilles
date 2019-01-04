@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _dialogResult =
 [
@@ -33,4 +33,4 @@ switch (_hintType) do
 	};
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

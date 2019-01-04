@@ -1,31 +1,17 @@
-/*
-	Function:
-		Achilles_fnc_switchUnit_exit
-	
-	Authors:
-		Kex
-	
-	Description:
-		terminates "Achilles_fnc_switchUnit_start"
-	
-	Parameters:
-		_unitDies	- <BOOLEAN> [false] True if the unit dies after the exit.
-	
-	Returns:
-		nothing
-	
-	Exampes:
-		(begin example)
-		[] call Achilles_fnc_switchUnit_exit;
-		(end)
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// AUTHOR: 			Kex
+// DATE: 			6/6/17
+// VERSION: 		AMAE001
+// DESCRIPTION:		terminates "Achilles_fnc_switchUnit_start".
+//
+// ARGUMENTS:		nothing
+//
+// RETURNS:			nothing
+//
+// Example:			[] call Achilles_fnc_switchUnit_exit;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
-
-params
-[
-	["_unitDies", false, [false]]
-];
 
 private _unit = bis_fnc_moduleRemoteControl_unit;
 if (isNull _unit) exitWith {bis_fnc_moduleRemoteControl_unit = nil};
@@ -66,4 +52,3 @@ ctrlMapAnimCommit _curatorMapCtrl;
 _unit addGoggles _goggles;
 _unit setVariable ["Achilles_var_switchUnit_data", nil, true];
 bis_fnc_moduleRemoteControl_unit = nil;
-if (_unitDies) then {_unit setDamage 1};

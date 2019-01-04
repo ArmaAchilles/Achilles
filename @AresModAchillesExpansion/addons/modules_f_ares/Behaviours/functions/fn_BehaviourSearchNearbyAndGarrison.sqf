@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _groupUnderCursor = [_logic] call Ares_fnc_GetGroupUnderCursor;
 
@@ -22,4 +22,4 @@ else
     [_groupUnderCursor, 50, "NEAREST", getPos _logic, true, true, true, false] remoteExec ["Ares_fnc_SearchBuilding", leader _groupUnderCursor];
 };
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

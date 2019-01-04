@@ -1,5 +1,5 @@
 
 class RscAttributeCAS : RscControlsGroupNoScrollbars
 {
-	onSetFocus = "[_this,'RscAttributeCAS','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
+	onSetFocus = "[_this,""RscAttributeCAS"",'AresDisplays'] call (uinamespace getvariable ""Achilles_fnc_initCuratorAttribute"")";
 };

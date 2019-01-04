@@ -2,7 +2,7 @@
 //	AUTHOR: Kex
 //	DATE: 6/11/17
 //	VERSION: 3.0
-//  DESCRIPTION: Define position for object in advance. If suspension is allowed, this script will wait till completion
+//  DESCRIPTION: Define position for object in advance; MUST BE EXECUTED IN UNSCHEDULED ENVIRONMENT!
 //
 //	ARGUMENTS:
 //	_this select 0:		OBJECT / GROUP	- Object or group to be placed
@@ -26,7 +26,7 @@ if (count (missionNamespace getVariable ["Achilles_var_preplaceModeObjects",[]])
 _objects_list = [[_entity], units _entity] select (_entity isEqualType grpNull);
 missionNamespace setVariable ["Achilles_var_preplaceModeObjects", _objects_list];
 
-private _scriptHandle = [_objects_list] spawn
+[_objects_list] spawn
 {
 	params ["_objects_list"];
 	{
@@ -101,10 +101,4 @@ private _scriptHandle = [_objects_list] spawn
 		_x enableSimulation true;
 	} forEach _objects_list;
 	missionNamespace setVariable ["Achilles_var_preplaceModeObjects", []];
-};
-
-// if we can suspend wait till completion
-if (canSuspend) then
-{
-	waitUntil {sleep 0.1; scriptDone _scriptHandle};
 };

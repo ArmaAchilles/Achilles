@@ -14,7 +14,7 @@
 #define LASER_TARGETS	["LaserTargetE", "LaserTargetW"]
 #define SIDE_NAMES	[localize "STR_AMAE_OPFOR", localize "STR_AMAE_BLUFOR", localize "STR_AMAE_INDEPENDENT"]
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 if (isNil "Achilles_TargetCount") then { Achilles_TargetCount = 0 };
 
@@ -58,4 +58,4 @@ publicVariable "Achilles_TargetCount";
 
 _deleteModuleOnExit = false;
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

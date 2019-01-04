@@ -4,8 +4,8 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 {
 	scriptName = "RscDisplayAttributesVehicle";
 	scriptPath = "AresDisplays";
-	onLoad = "['onLoad',_this,'RscDisplayAttributesVehicle','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
-	onUnload = "['onUnload',_this,'RscDisplayAttributesVehicle','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesVehicle"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesVehicle"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 
 	class Controls : Controls 
 	{
@@ -35,7 +35,7 @@ class RscDisplayAttributesVehicle : RscDisplayAttributes
 		{
 			text = "$STR_AMAE_GARAGE";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
-								 ['Open', [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
+								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
@@ -76,8 +76,8 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 {
 	scriptName = "RscDisplayAttributesVehicle";
 	scriptPath = "AresDisplays";
-	onLoad = "['onLoad',_this,'RscDisplayAttributesVehicle','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
-	onUnload = "['onUnload',_this,'RscDisplayAttributesVehicle','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onLoad = "[""onLoad"",_this,""RscDisplayAttributesVehicle"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
+	onUnload = "[""onUnload"",_this,""RscDisplayAttributesVehicle"",'AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 
 	class Controls : Controls 
 	{
@@ -104,13 +104,13 @@ class RscDisplayAttributesVehicleEmpty : RscDisplayAttributes
 		{
 			text = "$STR_AMAE_GARAGE";
 			onMouseButtonClick = "(findDisplay -1) closeDisplay 1; \
-								 ['Open', [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
+								 [""Open"", [false, BIS_fnc_initCuratorAttributes_target]] call BIS_fnc_garage";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
 		class ButtonCargo : ButtonCustomLeft
 		{
 			text = "$STR_AMAE_CARGO";
-			onMouseButtonClick = "createDialog 'RscDisplayAttributesInventory'";
+			onMouseButtonClick = "createDialog ""RscDisplayAttributesInventory""";
 			colorBackground[] = {0.518,0.016,0,0.8};			
 		};
 		class ButtonAmmo : ButtonCustomLeftBelow

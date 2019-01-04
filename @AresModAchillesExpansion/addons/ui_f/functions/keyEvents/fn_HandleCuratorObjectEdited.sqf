@@ -47,17 +47,17 @@ switch (true) do
 
 		// define transformation matrix
 		private _standard_to_internal = [_vector_dir, _vector_up, _vector_perpendicular];
-		private _internal_to_standard = [_standard_to_internal] call CBA_fnc_matrixTranspose;
+		private _internal_to_standard = [_standard_to_internal] call Achilles_fnc_matrixTranspose;
 
 		{
 			_x params ["_object"];
 
 			// reposition
-			private _vector_center_object = [_internal_to_standard, _x select 1] call CBA_fnc_vectMap3D;
+			private _vector_center_object = [_internal_to_standard, _x select 1] call Achilles_fnc_vectorMap;
 			_object setPosWorld (_vector_center_object vectorAdd _center_pos);
 
 			// reorientation
-			private _vectors_dir_up = (_x select [2,2]) apply {	[_internal_to_standard, _x] call CBA_fnc_vectMap3D; };
+			private _vectors_dir_up = (_x select [2,2]) apply {	[_internal_to_standard, _x] call Achilles_fnc_vectorMap; };
 
 			[_object ,_vectors_dir_up] remoteExec ["setVectorDirAndUp",0,_object];
 

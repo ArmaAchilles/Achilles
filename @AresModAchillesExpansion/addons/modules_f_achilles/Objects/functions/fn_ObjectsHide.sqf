@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _objects = [[_logic, false] call Ares_fnc_GetUnitUnderCursor];
 
@@ -34,4 +34,4 @@ if (_objects isEqualTo []) exitWith {[localize "STR_AMAE_NO_OBJECT_SELECTED"] ca
 	[_x, _isHidden] remoteExecCall ["hideObjectGlobal", 2];
 } forEach _objects;
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

@@ -109,9 +109,6 @@ def check_sqf_syntax(filepath):
                                 print("ERROR: Possible missing curly brace '}}' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                 bad_count_file += 1
                             brackets_list.append('}')
-                        elif (c== '\t'):
-                            print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
-                            bad_count_file += 1
 
                         if (checkForSemiColumn):
                             if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
@@ -139,13 +136,6 @@ def check_sqf_syntax(filepath):
         if brackets_list.count('{') != brackets_list.count('}'):
             print("ERROR: A possible missing curly brace {{ or }} in file {0} {{ = {1} }} = {2}".format(filepath,brackets_list.count('{'),brackets_list.count('}')))
             bad_count_file += 1
-        pattern = re.compile('\s*(/\*[\s\S]+?\*/)\s*#include')
-        if pattern.match(content):
-            print("ERROR: A found #include after block comment in file {0}".format(filepath))
-            bad_count_file += 1
-
-
-
     return bad_count_file
 
 def main():
@@ -160,9 +150,9 @@ def main():
     args = parser.parse_args()
 
     # Allow running from root directory as well as from inside the tools directory
-    rootDir = "../addons"
-    if (os.path.exists("addons")):
-        rootDir = "addons"
+    rootDir = "../@AresModAchillesExpansion/addons"
+    if (os.path.exists("@AresModAchillesExpansion")):
+        rootDir = "@AresModAchillesExpansion"
 
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
       for filename in fnmatch.filter(filenames, '*.sqf'):

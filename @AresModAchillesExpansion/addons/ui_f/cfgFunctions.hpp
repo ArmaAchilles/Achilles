@@ -69,7 +69,7 @@ class CfgFunctions
 			file = "\achilles\ui_f\functions\replacement";
 			
 			class initCuratorAttribute;
-		};
+		}
 	};
 	
 	class Ares
@@ -79,6 +79,6 @@ class CfgFunctions
 			file = "\achilles\ui_f\functions\dynamic";
 
 			class ShowChooseDialog;			
-		};
-	};
+		}
+	}
 };

@@ -99,7 +99,7 @@
 		if (_this select 0 == findDisplay IDD_RSCDISPLAYCURATOR) exitWith
 		{
 			private _vehicles = curatorSelected select 0;
-			if (isNil "_vehicles" || missionNamespace getVariable ['RscDisplayCurator_search', false]) exitWith {};
+			if (isNil "_vehicles") exitWith {};
 			{
 				[vehicle _x] call Achilles_fnc_LaunchCM;
 			} forEach _vehicles;
@@ -141,35 +141,4 @@
 	}, 
 	"", 
 	[DIK_PGDN, [false, false, true]]
-] call CBA_fnc_addKeybind;
-
-[
-	localize "STR_AMAE_ACHILLES",
-	"Achilles_id_toggleIncludeCrew",
-	localize "STR_AMAE_KEY_TOGGLEINCLUDECREW",
-	{
-		if (isNil "Achilles_var_toggleCrewOnSpawn") then
-		{
-			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
-			((findDisplay 312) displayCtrl 2801) cbSetChecked false;
-		}
-		else
-		{
-			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
-			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
-		};
-	},
-	{
-		if (isNil "Achilles_var_toggleCrewOnSpawn") then
-		{
-			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", true];
-			((findDisplay 312) displayCtrl 2801) cbSetChecked false;
-		}
-		else
-		{
-			missionNamespace setVariable ["Achilles_var_toggleCrewOnSpawn", nil];
-			((findDisplay 312) displayCtrl 2801) cbSetChecked true;
-		};
-	},
-	[0x0, [false, false, false]]
 ] call CBA_fnc_addKeybind;

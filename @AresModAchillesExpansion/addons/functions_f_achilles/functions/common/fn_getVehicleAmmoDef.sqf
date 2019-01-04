@@ -53,7 +53,7 @@ private _AllTurretAmmoPercentages = [];
 
 	if (!(_TurretAmmoPercentages isEqualTo [])) then
 	{
-		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call BIS_fnc_arithmeticMean);
+		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call Achilles_fnc_arrayMean);
 	};
 
 } forEach _turretsCfg;
@@ -76,13 +76,13 @@ if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "Tra
 			};
 		};
 	} forEach (getPylonMagazines _vehicle);
-	_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call BIS_fnc_arithmeticMean);
+	_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call Achilles_fnc_arrayMean);
 };
 
 
 // return the overall mean of all percentages
 if (!(_AllTurretAmmoPercentages isEqualTo [])) exitWith
 {
-	_AllTurretAmmoPercentages call BIS_fnc_arithmeticMean
+	_AllTurretAmmoPercentages call Achilles_fnc_arrayMean
 };
 0

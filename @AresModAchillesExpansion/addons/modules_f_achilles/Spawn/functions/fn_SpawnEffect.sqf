@@ -1,4 +1,4 @@
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 #define EFFECT_MODULES 		["ModuleFlare_F","ModuleSmoke_F","ModuleIRGrenade_F","ModuleChemlight_F","ModuleLightSource_F","ModulePersistentSmokePillar_F", "ModuleTracers_F"]
 #define NO_CHOICE_MODULES	["ModuleIRGrenade_F","ModuleTracers_F"]
@@ -35,10 +35,9 @@ private _module_type = if (_module_category in NO_CHOICE_MODULES) then
 
 private _group = group _logic;
 private _effect_logic = _group createUnit [_module_type, _spawnPos, [], 0, "NONE"];
-_effect_logic setVariable ["BIS_fnc_initModules_activate", true, true];
 _effect_logic setPos _spawnPos;
 [[_effect_logic]] call Ares_fnc_AddUnitsToCurator;
 
 _logic setVariable ["effect_class",_module_type];
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

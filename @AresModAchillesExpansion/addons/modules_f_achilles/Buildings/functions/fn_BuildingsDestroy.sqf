@@ -6,7 +6,7 @@
 //  DESCRIPTION: Function for destroing buildings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _center_pos = position _logic;
 
@@ -43,4 +43,4 @@ private _distribution_type = _dialogResult select 2;
 
 [_buildings,_mean_damage_type,_distribution_type] call Achilles_fnc_damageBuildings;
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

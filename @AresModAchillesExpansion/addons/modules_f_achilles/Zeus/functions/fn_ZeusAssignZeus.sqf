@@ -11,7 +11,7 @@
     Nothing
 */
 
-#include "\achilles\modules_f_ares\module_header.inc.sqf"
+#include "\achilles\modules_f_ares\module_header.hpp"
 
 private _player = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
@@ -30,8 +30,6 @@ if (!isNull getAssignedCuratorLogic _player) exitWith {[localize "STR_AMAE_UNIT_
   params ["_player", "_playerPos"];
 
   private _moderatorModule = (createGroup sideLogic) createUnit ["ModuleCurator_F", _playerPos, [], 0, ""];
-  sleep 0.001;
-  [] remoteExecCall ["Achilles_fnc_onModuleTreeLoad"];
   _player assignCurator _moderatorModule;
   _player setVariable ["Achilles_var_promoZeusModule", _moderatorModule, true];
 }, 2] call Achilles_fnc_spawn;
@@ -50,4 +48,4 @@ private _eh_id = _player addEventHandler ["killed",
 }];
 _player setVariable ["Achilles_var_promoZeusModuleEHID", _eh_id];
 
-#include "\achilles\modules_f_ares\module_footer.inc.sqf"
+#include "\achilles\modules_f_ares\module_footer.hpp"

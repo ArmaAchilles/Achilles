@@ -61,6 +61,6 @@ private _percentages = [];
 // return the mean of all percentages
 if (!(_percentages isEqualTo [])) exitWith
 {
-    _percentages call BIS_fnc_arithmeticMean
+    _percentages call Achilles_fnc_arrayMean
 };
 0

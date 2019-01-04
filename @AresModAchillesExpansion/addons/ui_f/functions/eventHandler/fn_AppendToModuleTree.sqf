@@ -19,24 +19,12 @@
 //	_this				ARRAY	- updated list of all category display names
 //
 //	Example:
-//	_categoryList = [_ctrl,_categoryList,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon,_addonIcon] call Achilles_fnc_AppendToModuleTree;
+//	_category_list = [_ctrl,_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_forEachIndex,_moduleIcon,_addonIcon] call Achilles_fnc_AppendToModuleTree;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define CATEGORY_ICON	"\achilles\data_f_achilles\icons\icon_achilles_small.paa"
+params ["_ctrl", "_category_list", "_categoryName", "_moduleDisplayName", "_moduleClassName", ["_value", 0, [0]], ["_moduleIcon", "\achilles\data_f_ares\icons\icon_default.paa", [""]], ["_addonIcon", "\achilles\data_f_achilles\icons\icon_achilles_small.paa", [""]]];
 
-params
-[
-	"_ctrl",
-	"_categoryList",
-	"_categoryName",
-	"_moduleDisplayName",
-	"_moduleClassName",
-	["_value", 0, [0]],
-	["_moduleIcon", "\achilles\data_f_ares\icons\icon_default.paa", [""]],
-	["_addonIcon", "\achilles\data_f_achilles\icons\icon_achilles_small.paa", [""]]
-];
-
-private _categoryIndex = _categoryList find _categoryName;
+private _categoryIndex = _category_list find _categoryName;
 
 if (_categoryIndex == -1) then
 {
@@ -47,10 +35,10 @@ if (_categoryIndex == -1) then
 	_ctrl tvSetData [[_tvBranch], _tvData];
 	if (Achilles_var_moduleTreeHelmet) then
 	{
-		_ctrl tvSetPicture [[_tvBranch], CATEGORY_ICON];
+		_ctrl tvSetPicture [[_tvBranch], _addonIcon];
 	};
-	_categoryIndex = count _categoryList;
-	_categoryList pushBack _categoryName;
+	_categoryIndex = count _category_list;
+	_category_list pushBack _categoryName;
 };
 
 private _moduleIndex = _ctrl tvAdd [[_categoryIndex], _moduleDisplayName];
@@ -64,4 +52,4 @@ if (Achilles_var_moduleTreeDLC) then
     _ctrl tvSetPictureRight [_newPath, _addonIcon];
 };
 
-_categoryList
+_category_list

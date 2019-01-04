@@ -52,14 +52,13 @@ if (!_replacedExistingEntry) then
 
 	// Add module to module tree
 	private _ctrl = _display displayCtrl IDC_RSCDISPLAYCURATOR_CREATE_MODULES;
-	private _categoryList = missionNamespace getVariable ["Ares_category_list", []];
-	_categoryList = [_ctrl, _categoryList, _categoryName, _moduleDisplayName, _moduleClassName] call Achilles_fnc_appendToModuleTree;
+	private _category_list = [_ctrl,Ares_category_list,_categoryName,_moduleDisplayName,_moduleClassName,_index] call Achilles_fnc_AppendToModuleTree;
 
 	//Sort category and module list
 	_ctrl tvSort [[], false];
 	for "_i" from 0 to ((_ctrl tvCount []) - 1) do {_ctrl tvSort [[_i], false];};
 
 	//get module list
-	_categoryList sort true;
-	Ares_category_list = _categoryList;
+	_category_list sort true;
+	Ares_category_list = _category_list;
 };

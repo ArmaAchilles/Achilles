@@ -5,7 +5,6 @@ class Achilles_Spawn_Function_Base
 	class SpawnEffect;
     class SpawnAdvancedCompositions;
 	class SpawnCarrier;
-	class SpawnDestroyer;
 	class SpawnExplosives;
 	class SpawnEmptyObject;
 };
