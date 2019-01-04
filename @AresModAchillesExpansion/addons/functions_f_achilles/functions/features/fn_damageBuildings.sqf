@@ -1,41 +1,52 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex
-//	DATE: 1/12/17
-//	VERSION: 2.0
-//  DESCRIPTION: remote function for "damage building" module
-//
-//	ARGUMENTS:
-//	_this select 0		ARRAY  - Array of buildings to damage
-//  _this select 1		SCALAR - mean damage type: 0 => none; 1 => slight; 2 => severe; 3 => full
-//	_this select 2		SCALAR - type of distribution: 0 => delta; 1 => uniform; 2 => normal
-//
-//	RETURNS:
-//	nothing (procedure)
-//
-//	Example:
-//	[_buildings,2,2] call Achilles_fnc_damageBuildings;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+	Function:
+		Achilles_fnc_damageBuildings
+	
+	Authors:
+		Kex
+	
+	Description:
+		Damages/Reinstates buildings
+	
+	Parameters:
+		_buildings		- <ARRAY> of <OBJECT> List of buildings to be processed
+		_meanMode		- <SCALAR> Mean damage type: 0 => none; 1 => slight; 2 => severe; 3 => full
+		_distMode		- <SCALAR> Type of distribution: 0 => delta; 1 => uniform; 2 => normal
+		_doSimulate		- <BOOL> If false, then destruction transition effects are disabled
+	
+	Returns:
+		None
+	
+	Examples:
+		(begin example)
+		[_buildings, 2, 2] call Achilles_fnc_damageBuildings;
+		(end)
+*/
+params
+[
+	["_buildings", [], [[]]],
+	["_meanMode", 0, [0]],
+	["_distMode", 0, [0]],
+	["_doSimulate", true, [true]]
+];
 
-// get params
-params [["_buildings", [], [[]]], ["_mean_damage_type", 0, [0]], ["_distribution_type", 0, [0]]];
-
-private _fnc_getDamageType = switch (_distribution_type) do
+private _fnc_getDamageType = switch (_distMode) do
 {
-	case 0: {compile (str _mean_damage_type)};
+	case 0: {compile (str _meanMode)};
 	case 1: {{round (random 3)}};
-	case 2: {compile ("round (random [0," + (str _mean_damage_type) + ",3])")};
+	case 2: {compile ("round (random [0," + (str _meanMode) + ",3])")};
 };
 
 {
 	private _building = _x;
-	private _damage_type = [] call _fnc_getDamageType;
-	switch (_damage_type) do
+	private _damageType = [] call _fnc_getDamageType;
+	switch (_damageType) do
 	{
-		case 0: {_building setDamage 0};
-		case 1: {_building setDamage 0.8};
+		case 0: {_building setDamage [0, _doSimulate]};
+		case 1: {_building setDamage [0.8, _doSimulate]};
 		case 2:
 		{
-			_building setDamage 0.5;
+			_building setDamage [0.5, _doSimulate];
 			private _allHitPoints = getAllHitPointsDamage _building;
 			if (count _allHitPoints > 0) then
 			{
@@ -49,22 +60,22 @@ private _fnc_getDamageType = switch (_distribution_type) do
 				if (count _other > 0) then
 				{
 					{
-						[_building, [_x,1]] remoteExecCall ["setHitIndex", 0];
+						[_building, [_x,1,_doSimulate]] remoteExecCall ["setHitIndex", 0];
 					} forEach _other;
 				};
 				private _counter = count _hitzones;
 				if (_counter > 0) then
 				{
-					private _extend_count = ceil ((random 1) * _counter);
-					for "_i" from 1 to _extend_count do
+					private _extendCount = ceil ((random 1) * _counter);
+					for "_i" from 1 to _extendCount do
 					{
 						private _hitzone = selectRandom _hitzones;
-						[_building,  [_hitzone,1]] remoteExecCall ["setHitIndex", 0];
+						[_building,  [_hitzone,1,_doSimulate]] remoteExecCall ["setHitIndex", 0];
 						_hitzones = _hitzones - [_hitzone];
 					};
 				};
 			};
 		};
-		case 3: {_building setDamage 1};
+		case 3: {_building setDamage [1, _doSimulate]};
 	};
 } forEach (_buildings select {!isNull _x});
