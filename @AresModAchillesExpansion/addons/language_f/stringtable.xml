@@ -5870,11 +5870,11 @@
         </Container>
         <Container name="cfg Waypoints">
             <Key ID="STR_AMAE_DELAY_AT_WP">
-                <Original>Delay at waypoint</Original>
-                <English>Delay at waypoint</English>
-                <French>Retardement au point de cheminement</French>
-                <Russian>Задержка в точке маршрута</Russian>
-                <German>Verzögerung beim Wegpunkt</German>
+                <Original>Delay at waypoint [s]</Original>
+                <English>Delay at waypoint [s]</English>
+                <French>Retardement au point de cheminement [s]</French>
+                <Russian>Задержка в точке маршрута [сек]</Russian>
+                <German>Verzögerung beim Wegpunkt [s]</German>
                 <Japanese>経由地点での遅延</Japanese>
                 <Chinesesimp>于路径点暂停</Chinesesimp>
                 <Chinese>於路徑點暫停</Chinese>
@@ -6475,9 +6475,10 @@
                 <Chinesesimp>阿基里斯 - 除错</Chinesesimp>
                 <Chinese>阿基裡斯 - 除錯</Chinese>
             </Key>
-            <Key ID="STR_AMAE_ACHILLES_DEFAULTS">
-                <Original>Achilles - Defaults</Original>
-                <English>Achilles - Defaults</English>
+            <Key ID="STR_AMAE_ACHILLES_MODULE_DEFAULTS">
+                <Original>Achilles - Module Defaults</Original>
+                <English>Achilles - Module Defaults</English>
+				<German>Achilles - Standardeinstellungen von Modulen</German>
                 <Russian>Achilles - Значения по умолчанию</Russian>
                 <Japanese>アキレス - 標準</Japanese>
                 <Chinesesimp>阿基里斯 - 默认</Chinesesimp>
@@ -6512,11 +6513,34 @@
                 <Chinese>默認摺疊模塊層級</Chinese>
             </Key>
             <Key ID="STR_AMAE_ENABLE_DZN_SEARCH_PATCH">
-                <Original>Enable search on enter patch</Original>
-                <English>Enable search on enter patch</English>
-                <Russian>Включить Поиск только по Enter</Russian>
-                <French>Activer le patch des recherches via la touche entrée</French>
-                <German>Aktiviere Suche mit Enter Patch</German>
+                <Original>Enable triggering on pressing enter key only</Original>
+                <English>Enable triggering on pressing enter key only</English>
+                <French>Activer l'exécution seulement via la touche entrée</French>
+                <German>Aktiviere Ausführung nur wenn Enter ist gedrückt</German>
+            </Key>
+            <Key ID="STR_AMAE_USER_INTERFACE">
+                <Original>User Interface</Original>
+                <English>User Interface</English>
+                <French>Interface Utilisateur</French>
+                <German>Benutzeroberfläche</German>
+            </Key>
+            <Key ID="STR_AMAE_CREATION_PANEL">
+                <Original>Creation Panel</Original>
+                <English>Creation Panel</English>
+                <French>Le Cadre de Création</French>
+                <German>Erstellungsfeld</German>
+            </Key>
+            <Key ID="STR_AMAE_WHEN_INTERFACE_IS_HIDDEN">
+                <Original>When the Interface is Hidden</Original>
+                <English>When the Interface is Hidden</English>
+                <French>Quand l'Interface Utilisateur est cachée</French>
+                <German>Wenn die Benutzeroberfläche verborgen ist</German>
+            </Key>
+            <Key ID="STR_AMAE_SEARCH_BOX">
+                <Original>Search Box</Original>
+                <English>Search Box</English>
+                <French>Le Champ de Recherche</French>
+                <German>Suchfeld</German>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES">
                 <Original>Achilles - Curator Vision Modes</Original>
