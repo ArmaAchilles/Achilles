@@ -164,12 +164,8 @@ def main():
     if (os.path.exists("addons")):
         rootDir = "addons"
 
-    print("rootDir: {0}".format(rootDir))
-
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
-        files = fnmatch.filter(filenames, '*.sqf')
-        print("files: {0}".format(files))
-        for filename in files:
+        for filename in fnmatch.filter(filenames, '*.sqf'):
             sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:
