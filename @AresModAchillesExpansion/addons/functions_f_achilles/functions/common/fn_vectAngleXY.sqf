@@ -8,7 +8,7 @@
 	Description:
 		Calculates the signed angle from the first to the second vector in xy-plane
 		Positive sign means counterclockwise
-		Returns an angle from -180 to 180
+		Returns an angle from (-180,180]
 
 	Parameters:
 		_vecA	- <ARRAY> First 3D vector
@@ -33,7 +33,7 @@ _vecA set [2, 0];
 _vecB set [2, 0];
 private _angle = acos (_vecA vectorCos _vecB);
 // The sign of det(_vecA_XY _vecB_XY) tells us the orientation of the basis
-private _determinat = (_vecA#0) * (_vecB#1) - (_vecB#0) * (_vecA#1);
+private _determinat = (_vecA select 0) * (_vecB select 1) - (_vecB select 0) * (_vecA select 1);
 if (_determinat < 0) then
 {
 	_angle = -_angle;
