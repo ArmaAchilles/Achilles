@@ -168,7 +168,7 @@ def main():
     args = parser.parse_args()
 
     # Allow running from root directory as well as from inside the tools directory
-    rootDir = "../@AresModAchillesExpansion/addons"
+    rootDir = "@AresModAchillesExpansion/addons"
     if (os.path.exists("addons")):
         rootDir = "addons"
 
