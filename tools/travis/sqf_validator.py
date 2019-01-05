@@ -50,6 +50,7 @@ def check_sqf_syntax(filepath):
 
         lastIsCurlyBrace = False
         checkForSemiColon = False
+        onlyWhitespace = True
 
         # Extra information so we know what line we find errors at
         lineNumber = 1
@@ -116,7 +117,7 @@ def check_sqf_syntax(filepath):
                         # elif (c== '\t'):
                             # print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
                             # bad_count_file += 1
-                        
+
                         if (c not in [' ', '\t', '\n']):
                             onlyWhitespace = False
 
