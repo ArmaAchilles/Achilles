@@ -49,7 +49,7 @@ def check_sqf_syntax(filepath):
         inStringType = '';
 
         lastIsCurlyBrace = False
-        checkForSemiColumn = False
+        checkForSemiColon = False
 
         # Extra information so we know what line we find errors at
         lineNumber = 1
@@ -59,9 +59,10 @@ def check_sqf_syntax(filepath):
         for c in content:
             if (lastIsCurlyBrace):
                 lastIsCurlyBrace = False
-                checkForSemiColumn = True
+                checkForSemiColon = True
 
             if c == '\n': # Keeping track of our line numbers
+                onlyWhitespace = True
                 lineNumber += 1 # so we can print accurate line number information when we detect a possible error
             if (isInString): # while we are in a string, we can ignore everything else, except the end of the string
                 if (c == inStringType):
@@ -86,7 +87,8 @@ def check_sqf_syntax(filepath):
                             isInString = True
                             inStringType = c
                         elif (c == '#'):
-                            ignoreTillEndOfLine = True
+                            if (onlyWhitespace):
+                                ignoreTillEndOfLine = True
                         elif (c == '/'):
                             checkIfInComment = True
                         elif (c == '('):
@@ -114,12 +116,15 @@ def check_sqf_syntax(filepath):
                         # elif (c== '\t'):
                             # print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
                             # bad_count_file += 1
+                        
+                        if (c not in [' ', '\t', '\n']):
+                            onlyWhitespace = False
 
-                        if (checkForSemiColumn):
+                        if (checkForSemiColon):
                             if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
-                                checkForSemiColumn = False
+                                checkForSemiColon = False
                                 if (c not in [']', ')', '}', ';', ',', '&', '!', '|', '='] and not validKeyWordAfterCode(content, indexOfCharacter)): # , 'f', 'd', 'c', 'e', 'a', 'n', 'i']):
-                                    print("ERROR: Possible missing semi-column ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                    print("ERROR: Possible missing semicolon ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                     bad_count_file += 1
 
             else: # Look for the end of our comment block
