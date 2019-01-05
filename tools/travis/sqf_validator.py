@@ -7,6 +7,8 @@ import ntpath
 import sys
 import argparse
 
+excluded_files = ['@AresModAchillesExpansion/addons/modules_f_ares/module_header.inc.sqf', '@AresModAchillesExpansion/addons/modules_f_ares/module_footer.inc.sqf']
+
 def validKeyWordAfterCode(content, index):
     keyWords = ["for", "do", "count", "each", "forEach", "else", "and", "not", "isEqualTo", "in", "call", "spawn", "execVM", "catch", "param", "select", "apply"];
     for word in keyWords:
@@ -169,7 +171,8 @@ def main():
             sqf_list.append(os.path.join(root, filename))
 
     for filename in sqf_list:
-        bad_count = bad_count + check_sqf_syntax(filename)
+        if (filename not in excluded_files):
+            bad_count = bad_count + check_sqf_syntax(filename)
 
 
     print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))
