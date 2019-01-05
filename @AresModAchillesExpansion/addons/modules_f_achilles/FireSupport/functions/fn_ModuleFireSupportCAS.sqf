@@ -16,7 +16,7 @@ if !(_aircraft isKindOf "Air") exitWith
 	[localize "STR_AMAE_NOT_AN_ARCRAFT_ERROR"] call Achilles_fnc_showZeusErrorMessage;
 };
 private _vectDir = vectorDir _aircraft;
-if ((_vectDir#0 toFixed 1) in ["0.0","-0.0"] and ((_vectDir#1 toFixed 1) in ["0.0","-0.0"])) exitWith 
+if ((_vectDir#0 toFixed 1) in ["0.0","-0.0"] and ((_vectDir#1 toFixed 1) in ["0.0","-0.0"])) exitWith
 {
 	[localize "STR_AMAE_GIMBAL_LOCK_ERROR"] call Achilles_fnc_showZeusErrorMessage;
 };
@@ -42,7 +42,7 @@ private _availableMagazines = [];
 		_availableMagazines pushBackUnique (_x#0);
 	};
 } forEach (magazinesAllTurrets _aircraft);
-if (_availableMagazines isEqualTo []) exitWith 
+if (_availableMagazines isEqualTo []) exitWith
 {
 	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage;
 	_aircraft setVariable ["Achilles_var_performsAdvancedCAS", nil, true];
@@ -53,7 +53,7 @@ private _weaponMuzzleMagazineIdxList = [];
 	private _weapIdx = _forEachIndex;
 	_x params [["_weaponAndTurret","",["",[]]], ["_muzzlesAndMagazines",[""],[[]]]];
 	_weaponAndTurret params [["_weapon","",[""]]];
-	if (ALL_CM_WEAP_CLASSES findIf {_weapon == _x} < 0 && ALL_LD_WEAP_CLASSES findIf {_weapon == _x} < 0) then
+	if ((ALL_CM_WEAP_CLASSES findIf {_weapon == _x}) < 0 && (ALL_LD_WEAP_CLASSES findIf {_weapon == _x}) < 0) then
 	{
 		private _weaponName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
 		{
@@ -80,7 +80,7 @@ private _weaponMuzzleMagazineIdxList = [];
 	};
 } forEach ([_aircraft] call Achilles_fnc_getWeaponsMuzzlesMagazines);
 
-if (_weaponsToFire isEqualTo []) exitWith 
+if (_weaponsToFire isEqualTo []) exitWith
 {
 	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage;
 	_aircraft setVariable ["Achilles_var_performsAdvancedCAS", nil, true];

@@ -64,7 +64,8 @@ class CfgPatches
 			"Achilles_Module_Arsenal_Paste",
 			"Achilles_Module_Arsenal_CreateCustom",
             "Achilles_Create_Universal_Target_Module",
-            "Achilles_Nuke_Module"
+            "Achilles_Nuke_Module",
+			"Achilles_Patrol_Module"
 		};
 
 		requiredAddons[] =
