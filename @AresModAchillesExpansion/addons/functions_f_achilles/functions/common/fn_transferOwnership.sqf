@@ -1,24 +1,24 @@
 /*
 	Function:
 		Achilles_fnc_transferOwnership
-	
+
 	Authors:
 		Kex
-	
+
 	Description:
 		Changest the ownership of the past objects and groups
 		Provides a workaround for the loss of loadout bug after the transfer
 		This function has to be executed in scheduled environment and is completed as soon as it can confirm that the transfer was completed.
-	
+
 	Parameters:
 		_object_list	- <ARRAY> of <OBJECT> Objects to transfer
 		_group_list		- <ARRAY> of <GROUP> Groups to transfer
 		_ownerID		- <INTEGER> [clientOwner] The owner ID of the machine the objects and groups should be transfered to
 							By default they are transfered to this machine
-	
+
 	Returns:
 		nothing
-	
+
 	Exampes:
 		(begin example)
 		(end)
@@ -26,7 +26,7 @@
 params ["_object_list", "_group_list", ["_ownerID", clientOwner, [0]]];
 
 // filter groups with players
-_group_list = _group_list select {(units _x) findIf {isPlayer _x} < 0};
+_group_list = _group_list select {((units _x) findIf {isPlayer _x}) < 0};
 
 if (_ownerID > 0 && (_ownerID != clientOwner)) then
 {
