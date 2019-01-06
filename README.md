@@ -22,8 +22,8 @@
     <a href="https://discord.gg/kN7Jnhr">
         <img src="https://img.shields.io/discord/364823341506363392.svg?label=Discord&style=flat-square&colorB=7683D5" alt="AMAE Discord">
     </a>
-    <a href="https://www.travis-ci.org/ArmaAchilles/Achilles">
-        <img src="https://img.shields.io/travis/ArmaAchilles/Achilles.svg?style=flat-square&label=Build" alt="AMAE Builds">
+    <a href="https://dev.azure.com/ArmaAchilles/Achilles/_build?definitionId=1">
+        <img src="https://img.shields.io/azure-devops/build/ArmaAchilles/7d6bce6e-5f76-4479-ac2f-548b367f7f56/1.svg?style=flat-square" alt="AMAE Builds">
     </a>
 </p>
 
