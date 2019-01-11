@@ -123,11 +123,11 @@ class CfgPatches
 			"A3_Functions_F_Curator",
 			"A3_Modules_F",
 			"A3_Modules_F_Curator",
-			"achilles_Language_F",
-			"achilles_Functions_F_Ares",
-			"achilles_Functions_F_Achilles",
-			"achilles_Data_F_Achilles",
-			"achilles_Data_F_Ares"
+			"Achilles_Language_F",
+			"Achilles_Functions_F_Ares",
+			"Achilles_Functions_F_Achilles",
+			"Achilles_Data_F_Achilles",
+			"Achilles_Data_F_Ares"
 		};
 	};
 };

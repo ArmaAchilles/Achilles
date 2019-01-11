@@ -28,7 +28,7 @@ class CfgPatches
 			"Achilles_Functions_F_Achilles",
 			"Achilles_Data_F_Achilles",
 			"Achilles_Data_F_Ares",
-            "Achilles_Settings_F"
+			"Achilles_Settings_F"
 		};
 	};
 };
