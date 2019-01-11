@@ -145,7 +145,7 @@ else
 	else
 	{
 		private _units = units _entity;
-		if (_units findIf {isPlayer _x} >= 0) exitWith
+		if ((_units findIf {isPlayer _x}) >= 0) exitWith
 		{
 			// Error: Player in group, but not expected
 			_nextMode = _onFailed;
