@@ -7,6 +7,8 @@ import ntpath
 import sys
 import argparse
 
+excluded_files = ['@AresModAchillesExpansion/addons/modules_f_ares/module_header.inc.sqf', '@AresModAchillesExpansion/addons/modules_f_ares/module_footer.inc.sqf']
+
 def validKeyWordAfterCode(content, index):
     keyWords = ["for", "do", "count", "each", "forEach", "else", "and", "not", "isEqualTo", "in", "call", "spawn", "execVM", "catch", "param", "select", "apply"];
     for word in keyWords:
@@ -47,7 +49,8 @@ def check_sqf_syntax(filepath):
         inStringType = '';
 
         lastIsCurlyBrace = False
-        checkForSemiColumn = False
+        checkForSemiColon = False
+        onlyWhitespace = True
 
         # Extra information so we know what line we find errors at
         lineNumber = 1
@@ -57,9 +60,10 @@ def check_sqf_syntax(filepath):
         for c in content:
             if (lastIsCurlyBrace):
                 lastIsCurlyBrace = False
-                checkForSemiColumn = True
+                checkForSemiColon = True
 
             if c == '\n': # Keeping track of our line numbers
+                onlyWhitespace = True
                 lineNumber += 1 # so we can print accurate line number information when we detect a possible error
             if (isInString): # while we are in a string, we can ignore everything else, except the end of the string
                 if (c == inStringType):
@@ -83,7 +87,7 @@ def check_sqf_syntax(filepath):
                         if (c == '"' or c == "'"):
                             isInString = True
                             inStringType = c
-                        elif (c == '#'):
+                        elif (c == '#' and onlyWhitespace):
                             ignoreTillEndOfLine = True
                         elif (c == '/'):
                             checkIfInComment = True
@@ -109,15 +113,18 @@ def check_sqf_syntax(filepath):
                                 print("ERROR: Possible missing curly brace '}}' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                 bad_count_file += 1
                             brackets_list.append('}')
-                        elif (c== '\t'):
-                            print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
-                            bad_count_file += 1
+                        # elif (c== '\t'):
+                            # print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
+                            # bad_count_file += 1
 
-                        if (checkForSemiColumn):
+                        if (c not in [' ', '\t', '\n']):
+                            onlyWhitespace = False
+
+                        if (checkForSemiColon):
                             if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
-                                checkForSemiColumn = False
+                                checkForSemiColon = False
                                 if (c not in [']', ')', '}', ';', ',', '&', '!', '|', '='] and not validKeyWordAfterCode(content, indexOfCharacter)): # , 'f', 'd', 'c', 'e', 'a', 'n', 'i']):
-                                    print("ERROR: Possible missing semi-column ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
+                                    print("ERROR: Possible missing semicolon ';' detected at {0} Line number: {1}".format(filepath,lineNumber))
                                     bad_count_file += 1
 
             else: # Look for the end of our comment block
@@ -139,10 +146,11 @@ def check_sqf_syntax(filepath):
         if brackets_list.count('{') != brackets_list.count('}'):
             print("ERROR: A possible missing curly brace {{ or }} in file {0} {{ = {1} }} = {2}".format(filepath,brackets_list.count('{'),brackets_list.count('}')))
             bad_count_file += 1
-        pattern = re.compile('\s*(/\*[\s\S]+?\*/)\s*#include')
-        if pattern.match(content):
-            print("ERROR: A found #include after block comment in file {0}".format(filepath))
-            bad_count_file += 1
+        # RE-ENABLE WHEN USING THE NEW MODULE STRUCTURE
+        # pattern = re.compile('\s*(/\*[\s\S]+?\*/)\s*#include')
+        # if pattern.match(content):
+        #     print("ERROR: A found #include after block comment in file {0}".format(filepath))
+        #     bad_count_file += 1
 
 
 
@@ -160,16 +168,21 @@ def main():
     args = parser.parse_args()
 
     # Allow running from root directory as well as from inside the tools directory
-    rootDir = "../addons"
+    rootDir = "@AresModAchillesExpansion/addons"
     if (os.path.exists("addons")):
         rootDir = "addons"
 
     for root, dirnames, filenames in os.walk(rootDir + '/' + args.module):
-      for filename in fnmatch.filter(filenames, '*.sqf'):
-        sqf_list.append(os.path.join(root, filename))
+        for filename in fnmatch.filter(filenames, '*.sqf'):
+            sqf_list.append(os.path.join(root, filename))
+
+    if (len(sqf_list) < 1):
+        print("ERROR No files found")
+        return 1
 
     for filename in sqf_list:
-        bad_count = bad_count + check_sqf_syntax(filename)
+        if (filename not in excluded_files):
+            bad_count = bad_count + check_sqf_syntax(filename)
 
 
     print("------\nChecked {0} files\nErrors detected: {1}".format(len(sqf_list), bad_count))

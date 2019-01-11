@@ -2,7 +2,7 @@ class ACE_ZeusActions
 {
 	class ZeusUnits
 	{
-		class switchUnit
+		class Achilles_SwitchUnit
 		{
 			displayName = "$STR_AMAE_SWITCH_UNIT";
 			icon = "\achilles\data_f_achilles\icons\icon_unit.paa";

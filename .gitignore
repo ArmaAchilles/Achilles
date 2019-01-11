@@ -12,3 +12,4 @@ tools/*.yaml
 .idea
 *.ini
 *.log
+.hephaestus.json
