@@ -146,12 +146,12 @@ def check_sqf_syntax(filepath):
         if brackets_list.count('{') != brackets_list.count('}'):
             print("ERROR: A possible missing curly brace {{ or }} in file {0} {{ = {1} }} = {2}".format(filepath,brackets_list.count('{'),brackets_list.count('}')))
             bad_count_file += 1
-		'''
+        '''
         pattern = re.compile('^((\/\*[\s\S]*?\*\/))')
         if pattern.match(content):
             print("ERROR: Block comment missing or not at the beginning of file {0}".format(filepath))
             bad_count_file += 1
-		'''
+        '''
 
     return bad_count_file
 
