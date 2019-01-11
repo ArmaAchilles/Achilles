@@ -13,7 +13,7 @@ private _dialogResults =
 	[
 		[[localize "STR_AMAE_RADIUS", localize "STR_AMAE_METER"] joinString "", "", "300"],
 		[localize "STR_AMAE_DESTROYED_OBJECTS_PER_SECOND", "", "200"],
-		[localize "STR_AMAE_COLOUR_CORRECTION", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
+		[localize "STR_AMAE_COLOR_CORRECTION", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]]
 	]
 ] call Ares_fnc_showChooseDialog;
 
