@@ -2836,11 +2836,11 @@
                 <Chinesesimp>扩展</Chinesesimp>
                 <Chinese>擴展</Chinese>
             </Key>
-            <Key ID="STR_AMAE_DISABLE_TRANSITION_EFFECT">
-                <Original>Disable transition effect</Original>
-                <English>Disable transition effect</English>
-                <French>Désactiver l'effet de transition</French>
-                <German>Übergangseffekt unterdrücken</German>
+            <Key ID="STR_AMAE_DISABLE_DESTRUCTION_EFFECT">
+                <Original>Disable destruction effect</Original>
+                <English>Disable destruction effect</English>
+                <French>Désactiver l'effet de destruction</French>
+                <German>Zerstörungseffekt unterdrücken</German>
             </Key>
             <Key ID="STR_AMAE_MEAN_DAMAGE">
                 <Original>Mean damage</Original>
