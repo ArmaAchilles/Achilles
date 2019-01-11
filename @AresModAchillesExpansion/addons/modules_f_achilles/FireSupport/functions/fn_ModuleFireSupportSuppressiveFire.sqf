@@ -41,7 +41,7 @@ private _targetChoices = [localize "STR_AMAE_RANDOM", localize "STR_AMAE_NEAREST
 _targetChoices append _allTargetNames;
 
 private _group = group _unit;
-if ((units _group) findIf {isPlayer _x} >= 0) exitWith
+if (((units _group) findIf {isPlayer _x}) >= 0) exitWith
 {
 	[localize "STR_AMAE_CANNOT_BE_APPLIED_ON_GROUPS_WITH_PLAYERS"] call Achilles_fnc_ShowZeusErrorMessage;
 };
@@ -62,7 +62,7 @@ else
 
 // get available weapons, muzzles, magazines
 private _weaponsAndMuzzlesAndMagazines = [_unit] call Achilles_fnc_getWeaponsMuzzlesMagazines;
-if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith 
+if (_weaponsAndMuzzlesAndMagazines isEqualTo []) exitWith
 {
 	[localize "STR_AMAE_NO_VALID_WEAPON_AVAILABLE"] call Achilles_fnc_ShowZeusErrorMessage;
 };
