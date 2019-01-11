@@ -16,7 +16,7 @@ private _dialogResult =
 		[localize "STR_AMAE_MEAN_DAMAGE",[localize "STR_AMAE_NO_DAMAGE",localize "STR_AMAE_LIGHT_DAMAGE",localize "STR_AMAE_SEVERE_DAMAGE",localize "STR_AMAE_FULL_DAMAGE"],2],
 		[localize "STR_AMAE_DISTRIBUTION",[localize "STR_AMAE_DELTA_DISTRIBUTION",localize "STR_AMAE_UNIFORM", localize "STR_AMAE_NORMAL_DISTRIBUTION"]],
 		[localize "STR_AMAE_RANGE","","100"],
-		[localize "STR_AMAE_DISABLE_TRANSITION_EFFECT",[localize "STR_AMAE_NO", localize "STR_AMAE_YES"]]
+		[localize "STR_AMAE_DISABLE_DESTRUCTION_EFFECT",[localize "STR_AMAE_NO", localize "STR_AMAE_YES"]]
 	],
 	"Achilles_fnc_RscDisplayAttributes_BuildingsDestroy"
 ] call Ares_fnc_ShowChooseDialog;
@@ -48,11 +48,6 @@ switch (_selectionMode) do
 		_buildings = nearestObjects [_centerPos, ["Building"], _selectionRange, true];
 	};
 };
-
-params
-[
-];
-
 
 [_buildings, _meanMode, _distMode, _doSimulate] call Achilles_fnc_damageBuildings;
 
