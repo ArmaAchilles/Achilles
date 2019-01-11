@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="Ares">
     <Package name="General">
         <Container name="Project Titles">
@@ -827,6 +827,7 @@
                 <Chinese>進階提示</Chinese>
                 <Chinesesimp>进阶提示</Chinesesimp>
                 <Japanese>アドバンスド ヒント</Japanese>
+                <Russian>Совет (расш.)</Russian>
             </Key>
             <Key ID="STR_AMAE_SWITCH_SIDE_CHANNEL_OF_ZEUS">
                 <Original>Switch side channel of Zeus</Original>
@@ -1175,6 +1176,7 @@
                 <Chinese>掛載/卸載特效</Chinese>
                 <Chinesesimp>挂载/卸载特效</Chinesesimp>
                 <Japanese>エフェクトの取り外し</Japanese>
+                <Russian>Приклеить/отклеить эффект</Russian>
             </Key>
             <Key ID="STR_AMAE_TOGGLE_TACLIGHT_IR">
                 <Original>Toggle Tactical Light/IR Laser</Original>
@@ -1588,6 +1590,7 @@
                 <Japanese>輸送隊は LZ に出発。分隊は RP へ向かいます。</Japanese>
                 <Chinesesimp>运输队以派往着陆区。班组将会前往集结点。</Chinesesimp>
                 <Chinese>運輸隊已派往著陸區。班組將會前往集結點。</Chinese>
+                <Russian>Траспорт направлен в зону посадки. Отряд отправится в точку сбора.</Russian>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_ADD_TENTS">
                 <English>Add Tents</English>
@@ -1628,6 +1631,7 @@
                 <Chinese>潛水艇</Chinese>
                 <Chinesesimp>潜水艇</Chinesesimp>
                 <Japanese>潜水艦</Japanese>
+                <Russian>Подлодка</Russian>
             </Key>
             <Key ID="STR_AMAE_TRAWLER">
                 <English>Trawler</English>
@@ -1637,12 +1641,14 @@
                 <Chinese>拖網漁船</Chinese>
                 <Chinesesimp>拖网渔船</Chinesesimp>
                 <Japanese>トロール船</Japanese>
+                <Russian>Траулер</Russian>
             </Key>
             <Key ID="STR_AMAE_ATOMIC_BOMB">
                 <Original>Atomic Bomb</Original>
                 <English>Atomic Bomb</English>
                 <French>Bombe Atomique</French>
                 <German>Atombombe</German>
+                <Russian>Атомная бомба</Russian>
             </Key>
         </Container>
     </Package>
@@ -1755,6 +1761,7 @@
                 <Japanese>プレイヤーが存在するグループに適応できません!</Japanese>
                 <Chinesesimp>无法在有玩家的班组中生效！</Chinesesimp>
                 <Chinese>無法在有玩家的班組中生效！</Chinese>
+                <Russian>На может быть применено к группам с игроками!</Russian>
             </Key>
             <Key ID="STR_AMAE_DID_NOT_FIND_SUFFICIENT_FREE_POSITIONS">
                 <Original>Did not find sufficient free positions!</Original>
@@ -1764,6 +1771,7 @@
                 <Japanese>十分な空き空間が見つけられませんでした!</Japanese>
                 <Chinesesimp>未能找到足够的空间！</Chinesesimp>
                 <Chinese>未能找到足夠的空間！</Chinese>
+                <Russian>Недостаточно свободных позиций!</Russian>
             </Key>
             <Key ID="STR_AMAE_NO_VALID_WEAPON_AVAILABLE">
                 <Original>No valid weapon available!</Original>
@@ -1773,6 +1781,7 @@
                 <Japanese>利用可能な武器はありません!</Japanese>
                 <Chinesesimp>无可用武器！</Chinesesimp>
                 <Chinese>無可用武器！</Chinese>
+                <Russian>Нет доступного оружия!</Russian>
             </Key>
             <Key ID="STR_AMAE_NO_VEHICLES_AVAILABLE__CHECK_FACTION_FILTER">
                 <Original>No vehicles available! Check your faction filter settings!</Original>
@@ -1780,18 +1789,21 @@
                 <French>Il n'y a aucun véhicule! Verifier votre configuration des filtres des camps!</French>
                 <German>Kein Fahrzeug verfügbar! Überprüfe deine Fraktionsfilter Einstellungen!</German>
                 <Japanese>利用可能車両はありません! 陣営フィルタ設定を確認して下さい!</Japanese>
+                <Russian>Нет доступных транспортных средств! Проверьте настройки фильтра для вашей фракции!</Russian>
             </Key>
             <Key ID="STR_AMAE_HAS_NO_SMOKES_ERROR">
                 <Original>Error: Unit has no smokes</Original>
                 <English>Error: Unit has no smokes</English>
                 <French>Erreur: L'unité n'as pas de fumigène</French>
                 <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+                <Russian>Ошибка: у боевой единицы нет дымовых гранат</Russian>
             </Key>
             <Key ID="STR_AMAE_HAS_NO_CM_ERROR">
                 <Original>Error: Unit has no countermeasures</Original>
                 <English>Error: Unit has no countermeasures</English>
                 <French>Erreur: L'unité n'as pas de fumigène</French>
                 <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
+                <Russian>Ошибка: у боевой единицы нет дипольных/тепловых ловушек </Russian>
             </Key>
             <Key ID="STR_AMAE_GIMBAL_LOCK_ERROR">
                 <Original>Error: Gimbal Lock</Original>
@@ -1804,18 +1816,21 @@
                 <English>Error: Aircraft is touching ground</English>
                 <French>Erreur: L'aéronef est en contact avec le sol</French>
                 <German>Fehler: Das Luftfahrzeug ist am Boden</German>
+                <Russian>Ошибка: Самолёт/вертолёт находится на земле</Russian>
             </Key>
             <Key ID="STR_AMAE_NOT_AN_ARCRAFT_ERROR">
                 <Original>Error: Object is not an aircraft</Original>
                 <English>Error: Object is not an aircraft</English>
                 <French>Erreur: L'objet n'est pas un aéronef</French>
                 <German>Fehler: Das Objekt is kein Luftfahrzeug</German>
+                <Russian>Ошибка: объект не является самолётом/вертолётом</Russian>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_CURRENTLY_BUSY_ERROR">
                 <Original>Error: Unit is currently busy</Original>
                 <English>Error: Unit is currently busy</English>
                 <French>Erreur: L'unité est déjà utilisée</French>
                 <German>Fehler: Die Einheit ist bereits im Einsatz</German>
+                <Russian>Ошибка: Боевая единица в данный момент занята</Russian>
             </Key>
         </Container>
     </Package>
@@ -1928,6 +1943,7 @@
                 <Japanese>非プレイヤーのみ選択してください!</Japanese>
                 <Chinesesimp>仅能选择非玩家单位！</Chinesesimp>
                 <Chinese>僅能選擇非玩家單位！</Chinese>
+                <Russian>Выберите только боевые единицы без игроков!</Russian>
             </Key>
             <Key ID="STR_AMAE_NOT_IMPLEMENTED_AT_THE_MOMENT">
                 <Original>Not implemented at the moment!</Original>
@@ -2293,6 +2309,7 @@
             <Key ID="STR_AMAE_OFFSET">
                 <Original>Offset</Original>
                 <English>Offset</English>
+                <Russian>Смещение</Russian>
             </Key>
             <Key ID="STR_AMAE_METERS">
                 <Original>[m]</Original>
@@ -2365,6 +2382,7 @@
                 <Japanese>ピッチ軸</Japanese>
                 <Chinesesimp>俯仰轴</Chinesesimp>
                 <Chinese>俯仰軸</Chinese>
+                <Russian>Ось тангажа</Russian>
             </Key>
             <Key ID="STR_AMAE_ROLL_ANGLE">
                 <Original>Roll Angle</Original>
@@ -2374,6 +2392,7 @@
                 <Japanese>ロール角</Japanese>
                 <Chinesesimp>滚转角</Chinesesimp>
                 <Chinese>滾轉角</Chinese>
+                <Russian>Ось крена</Russian>
             </Key>
             <Key ID="STR_AMAE_YAW_ANGLE">
                 <Original>Yaw Angle</Original>
@@ -2383,6 +2402,7 @@
                 <Japanese>ヨー角</Japanese>
                 <Chinesesimp>偏航角</Chinesesimp>
                 <Chinese>偏航角</Chinese>
+                <Russian>Ось рыскания</Russian>
             </Key>
             <Key ID="STR_AMAE_RANDOM">
                 <Original>Random</Original>
@@ -2632,6 +2652,7 @@
                 <Chinese>額外選項</Chinese>
                 <Chinesesimp>额外选项</Chinesesimp>
                 <Japanese>追加オプション</Japanese>
+                <Russian>Дополнительные параметры</Russian>
             </Key>
             <Key ID="STR_AMAE_ALL_OBJECTS_IN_MISSION">
                 <Original>All objects in mission</Original>
@@ -2671,6 +2692,7 @@
                 <Chinese>精度[公尺]</Chinese>
                 <Chinesesimp>精度[米]</Chinesesimp>
                 <Japanese>精度 [m]</Japanese>
+                <Russian>Точность (м)</Russian>
             </Key>
             <Key ID="STR_AMAE_RANGE">
                 <Original>Range [m]</Original>
@@ -2739,6 +2761,7 @@
                 <Japanese>ヒント種類</Japanese>
                 <Chinesesimp>提示类型</Chinesesimp>
                 <Chinese>提示類型</Chinese>
+                <Russian>Вид совета</Russian>
             </Key>
             <Key ID="STR_AMAE_HINT_SILENT">
                 <Original>Hint Silent</Original>
@@ -2747,6 +2770,7 @@
                 <Japanese>ヒント無音</Japanese>
                 <Chinesesimp>静默提示</Chinesesimp>
                 <Chinese>靜默提示</Chinese>
+                <Russian>Совет (без звука уведомления)</Russian>
             </Key>
             <Key ID="STR_AMAE_HINT_CADET">
                 <Original>Hint Cadet</Original>
@@ -2755,6 +2779,7 @@
                 <Japanese>ヒント候補</Japanese>
                 <Chinesesimp>候补提示</Chinesesimp>
                 <Chinese>候補提示</Chinese>
+                <Russian>Совет (для сложности "новобранец")</Russian>
             </Key>
             <Key ID="STR_AMAE_AI">
                 <Original>AI</Original>
@@ -3232,6 +3257,7 @@
                 <Japanese>交互持続射撃</Japanese>
                 <Chinesesimp>交替持续射击</Chinesesimp>
                 <Chinese>交替持續射擊</Chinese>
+                <Russian>По очереди</Russian>
             </Key>
             <Key ID="STR_AMAE_AUTOMATIC">
                 <Original>automatic</Original>
@@ -3729,6 +3755,7 @@
                 <Chinese>附件</Chinese>
                 <Chinesesimp>附件</Chinesesimp>
                 <Japanese>アクセサリー</Japanese>
+                <Russian>АКСЕССУАРЫ</Russian>
             </Key>
             <Key ID="STR_AMAE_NUMBER_PLATE">
                 <Original>Number plate</Original>
@@ -3738,6 +3765,7 @@
                 <Chinese>車牌號碼</Chinese>
                 <Chinesesimp>车牌号码</Chinesesimp>
                 <Japanese>ナンバー プレート</Japanese>
+                <Russian>Номерной знак</Russian>
             </Key>
             <Key ID="STR_AMAE_ATTACH_LASER_TARGET_FOR">
                 <Original>Attach laser target for</Original>
@@ -3747,6 +3775,7 @@
                 <Chinese>掛載雷射目標至</Chinese>
                 <Chinesesimp>挂载激光目标至</Chinesesimp>
                 <Japanese>次の目標にレーザー目標を取り付け</Japanese>
+                <Russian>Лазерное целеуказание для </Russian>
             </Key>
             <Key ID="STR_AMAE_FLAG_SC">
                 <Original>Flag</Original>
@@ -3756,6 +3785,7 @@
                 <Chinese>旗幟</Chinese>
                 <Chinesesimp>旗帜</Chinesesimp>
                 <Japanese>旗</Japanese>
+                <Russian>Флаг</Russian>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ACCESSORIES_FOR_X">
                 <Original>Change Accessories for %1</Original>
@@ -3765,6 +3795,7 @@
                 <Chinese>改變%1的附件</Chinese>
                 <Chinesesimp>改变%1的附件</Chinesesimp>
                 <Japanese>%1 のアクセサリーを変更</Japanese>
+                <Russian>Изменить аксессуар на %1</Russian>
             </Key>
             <Key ID="STR_AMAE_NO_FLAG">
                 <Original>No Flag</Original>
@@ -3774,6 +3805,7 @@
                 <Chinese>無旗幟</Chinese>
                 <Chinesesimp>无旗帜</Chinesesimp>
                 <Japanese>旗なし</Japanese>
+                <Russian>Без флага</Russian>
             </Key>
             <Key ID="STR_AMAE_LOADOUT">
                 <Original>LOADOUT</Original>
@@ -3920,6 +3952,7 @@
                 <Japanese>内側のみ</Japanese>
                 <Chinesesimp>仅内部</Chinesesimp>
                 <Chinese>僅內部</Chinese>
+                <Russian>Только внутри</Russian>
             </Key>
             <Key ID="STR_AMAE_FILL_EVENLY">
                 <Original>Fill evenly</Original>
@@ -3929,6 +3962,7 @@
                 <Japanese>全て埋める</Japanese>
                 <Chinesesimp>均匀分配</Chinesesimp>
                 <Chinese>均勻分配</Chinese>
+                <Russian>Заполнить равномерно</Russian>
             </Key>
             <Key ID="STR_AMAE_SET_A_BREACHING_CHARGE">
                 <Original>Set a breaching charge</Original>
@@ -3938,6 +3972,7 @@
                 <Chinese>設置突破炸藥</Chinese>
                 <Chinesesimp>设置突破炸药</Chinesesimp>
                 <Japanese>ブリーチング チャージを設置</Japanese>
+                <Russian>Установить подрывной заряд </Russian>
             </Key>
             <Key ID="STR_AMAE_TOUCH_OFF_BREACH">
                 <Original>Touch off (breach)</Original>
@@ -3947,6 +3982,7 @@
                 <Chinese>引爆(突破)</Chinese>
                 <Chinesesimp>引爆(突破)</Chinesesimp>
                 <Japanese>発破 (ブリーチング)</Japanese>
+                <Russian>Взорвать (проломить)</Russian>
             </Key>
         </Container>
         <Container name="TFAR integration dialog">
@@ -4282,15 +4318,6 @@
                 <Chinesesimp>单位环形巡逻路线已配置完成。</Chinesesimp>
                 <Chinese>單位環形巡邏路線已配置完成。</Chinese>
             </Key>
-            <Key ID="STR_AMAE_GARRISONED_NEAREST_BUILDINGS">
-                <Original>Garrisoned units in the nearest buildings!</Original>
-                <English>Garrisoned units in the nearest buildings!</English>
-                <French>Unités mis en garnison dans les batîments proche!</French>
-                <German>Die Gebäude in der Nähe wurde besetzt!</German>
-                <Japanese>直近の建物は既に占拠されています!</Japanese>
-                <Chinesesimp>单位已到最近的建筑中驻防！</Chinesesimp>
-                <Chinese>單位已到最近的建築中駐防！</Chinese>
-            </Key>
             <Key ID="STR_AMAE_SEARCH_GARRISONED_NEAREST_BUILDING">
                 <Original>Units will search and then garrison the nearest building!</Original>
                 <English>Units will search and then garrison the nearest building!</English>
@@ -4299,6 +4326,7 @@
                 <Japanese>ユニットは直近の建物を捜索し占拠します!</Japanese>
                 <Chinesesimp>单位将会搜索最近的建筑并在其中驻防！</Chinesesimp>
                 <Chinese>單位將會搜索最近的建築並在其中駐防！</Chinese>
+                <Russian>Солдаты обыщут ближайшее здание и займут его!</Russian>
             </Key>
             <Key ID="STR_AMAE_SEARCH_NEAREST_BUILDING">
                 <Original>Units will search the nearest building!</Original>
@@ -4308,6 +4336,7 @@
                 <Japanese>ユニットは直近の建物を捜索します!</Japanese>
                 <Chinesesimp>单位将会搜索最近的建筑！</Chinesesimp>
                 <Chinese>單位將會搜索最近的建築！</Chinese>
+                <Russian>Солдаты обыщут ближайшее здание!</Russian>
             </Key>
             <Key ID="STR_AMAE_RELEASE_GARRISON_UNITS">
                 <Original>Units released from garrison!</Original>
@@ -4317,6 +4346,7 @@
                 <Japanese>ユニットは直近の建物から離れました!</Japanese>
                 <Chinesesimp>单位已停止驻防！</Chinesesimp>
                 <Chinese>單位已停止駐防！</Chinese>
+                <Russian>Солдаты больше не заняты!</Russian>
             </Key>
         </Container>
         <Container name="Create Effect dialog strings">
@@ -4509,6 +4539,7 @@
                 <Chinesesimp>创建目标</Chinesesimp>
                 <Chinese>創建目標</Chinese>
                 <Japanese>目標を作成</Japanese>
+                <Russian>Создать цель</Russian>
             </Key>
             <Key ID="STR_AMAE_CREATED_TARGET">
                 <Original>Created Target '%1'</Original>
@@ -4644,18 +4675,21 @@
                 <English>Number of strikes</English>
                 <French>Nombre de raid</French>
                 <German>Anzahl Angriffe</German>
+                <Russian>Количество атак</Russian>
             </Key>
             <Key ID="STR_AMAE_COLOR_CORRECTION">
                 <Original>Color correction</Original>
                 <English>Color correction</English>
                 <French>Correction des couleurs</French>
                 <German>Farbkorrektur</German>
+                <Russian>Цветокоррекция</Russian>
             </Key>
             <Key ID="STR_AMAE_DESTROYED_OBJECTS_PER_SECOND">
                 <Original>Destroyed objects per second</Original>
                 <English>Destroyed objects per second</English>
                 <French>Des Objets detruit par seconde</French>
                 <German>Zerstörte Objekte pro Sekunde</German>
+                <Russian>Разрушенных объектов в секунду</Russian>
             </Key>
         </Container>
         <Container name="Intel creation dialog and messages strings">
@@ -4919,6 +4953,7 @@
                 <Japanese>高</Japanese>
                 <Chinesesimp>高</Chinesesimp>
                 <Chinese>高</Chinese>
+                <Russian>высокий(ое)</Russian>
             </Key>
             <Key ID="STR_AMAE_NORMAL">
                 <Original>normal</Original>
@@ -5966,6 +6001,7 @@
                 <Japanese>修理</Japanese>
                 <Chinesesimp>维修</Chinesesimp>
                 <Chinese>維修</Chinese>
+                <Russian>РЕМОНТ</Russian>
             </Key>
         </Container>
         <Container name="cfg Hints">
@@ -6389,6 +6425,7 @@
                 <English>Achilles - Available Modules</English>
                 <French>Achilles - Modules disponibles</French>
                 <German>Achilles - Verfügbare Module</German>
+                <Russian>Achilles - Доступные модули</Russian>
             </Key>
             <Key ID="STR_AMAE_AVAILABLE_FACTIONS">
                 <Original>Achilles - Available Factions</Original>
@@ -6478,7 +6515,7 @@
             <Key ID="STR_AMAE_ACHILLES_MODULE_DEFAULTS">
                 <Original>Achilles - Module Defaults</Original>
                 <English>Achilles - Module Defaults</English>
-				<German>Achilles - Standardeinstellungen von Modulen</German>
+                <German>Achilles - Standardeinstellungen von Modulen</German>
                 <Russian>Achilles - Значения по умолчанию</Russian>
                 <Japanese>アキレス - 標準</Japanese>
                 <Chinesesimp>阿基里斯 - 默认</Chinesesimp>
@@ -6517,30 +6554,35 @@
                 <English>Enable triggering on pressing enter key only</English>
                 <French>Activer l'exécution seulement via la touche entrée</French>
                 <German>Aktiviere Ausführung nur wenn Enter ist gedrückt</German>
+                <Russian>Включение только после нажатия клавиши "Ввод"</Russian>
             </Key>
             <Key ID="STR_AMAE_USER_INTERFACE">
                 <Original>User Interface</Original>
                 <English>User Interface</English>
                 <French>Interface Utilisateur</French>
                 <German>Benutzeroberfläche</German>
+                <Russian>Интерфейс пользователя</Russian>
             </Key>
             <Key ID="STR_AMAE_CREATION_PANEL">
                 <Original>Creation Panel</Original>
                 <English>Creation Panel</English>
                 <French>Le Cadre de Création</French>
                 <German>Erstellungsfeld</German>
+                <Russian>Панель создания</Russian>
             </Key>
             <Key ID="STR_AMAE_WHEN_INTERFACE_IS_HIDDEN">
                 <Original>When the Interface is Hidden</Original>
                 <English>When the Interface is Hidden</English>
                 <French>Quand l'Interface Utilisateur est cachée</French>
                 <German>Wenn die Benutzeroberfläche verborgen ist</German>
+                <Russian>Когда интерфейс спрятан</Russian>
             </Key>
             <Key ID="STR_AMAE_SEARCH_BOX">
                 <Original>Search Box</Original>
                 <English>Search Box</English>
                 <French>Le Champ de Recherche</French>
                 <German>Suchfeld</German>
+                <Russian>Строка поиска</Russian>
             </Key>
             <Key ID="STR_AMAE_VISION_MODES">
                 <Original>Achilles - Curator Vision Modes</Original>
@@ -6722,12 +6764,13 @@
                 <Chinesesimp>降低夜视仪亮度</Chinesesimp>
                 <Chinese>降低夜視鏡亮度</Chinese>
             </Key>
-			<Key ID="STR_AMAE_KEY_TOGGLEINCLUDECREW">
-				<Original>Toggle spawn vehicles with and without crew</Original>
-				<German>Wechseln zwischen Fahrzeuge mit und ohne Besatzung spawnen</German>
-				<English>Toggle spawn vehicles with and without crew</English>
-				<French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
-			</Key>
+            <Key ID="STR_AMAE_KEY_TOGGLEINCLUDECREW">
+                <Original>Toggle spawn vehicles with and without crew</Original>
+                <German>Wechseln zwischen Fahrzeuge mit und ohne Besatzung spawnen</German>
+                <English>Toggle spawn vehicles with and without crew</English>
+                <French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
+                <Russian>Спавн техники с экипажем/без экипажа</Russian>
+            </Key>
         </Container>
     </Package>
 </Project>
