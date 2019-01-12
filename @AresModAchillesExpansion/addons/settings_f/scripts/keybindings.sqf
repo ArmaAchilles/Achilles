@@ -173,3 +173,21 @@
 	},
 	[0x0, [false, false, false]]
 ] call CBA_fnc_addKeybind;
+
+[
+	localize "STR_AMAE_ACHILLES",
+	"Achilles_id_chatter",
+	localize "STR_AMAE_KEY_CHATTER",
+	{
+		private _units = ["man"] call Achilles_fnc_getCuratorSelected;
+
+		_units params
+		[
+			["_unit", objNull, [objNull]]
+		];
+
+		[_unit] spawn Achilles_fnc_chatter;
+	},
+	"",
+	[0x0, [false, false, false]]
+] call CBA_fnc_addKeybind;

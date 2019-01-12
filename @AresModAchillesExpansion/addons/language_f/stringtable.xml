@@ -6771,6 +6771,10 @@
                 <French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
                 <Russian>Спавн техники с экипажем/без экипажа</Russian>
             </Key>
+			<Key ID="STR_AMAE_KEY_CHATTER">
+                <Original>Show Chatter module</Original>
+                <English>Show Chatter module</English>
+            </Key>
         </Container>
     </Package>
 </Project>
