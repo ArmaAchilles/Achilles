@@ -44,24 +44,24 @@ if (_unit isKindOf "Man") then
 				{
 					_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines");
 				};
-				
+
 				private _magazines = [];
 				{
 					private _availableMagazine = _x;
 					// filter smoke shells and incompatible magazines
-					if (((toLower getText (configFile >> "CfgMagazines" >> _x >> "displayName") find "smoke") isEqualTo -1) && (_compatibleMagazines findIf {_availableMagazine == _x} >= 0)) then
+					if (((toLower getText (configFile >> "CfgMagazines" >> _x >> "displayName") find "smoke") isEqualTo -1) && ((_compatibleMagazines findIf {_availableMagazine == _x}) >= 0)) then
 					{
 						_magazines pushBackUnique _availableMagazine;
 					};
 				} forEach _availableMagazines;
-				
+
 				if !(_magazines isEqualTo []) then
 				{
 					_muzzleArray pushBack [_muzzle, _magazines];
 				};
 			};
 		} forEach getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-		
+
 		if !(_muzzleArray isEqualTo []) then
 		{
 			_weaponsToFire pushBack [_weapon, _muzzleArray];
@@ -79,7 +79,6 @@ else
 		if (not isNull (_unit turretUnit _turretPath)) then
 		{
 			// for available weapons
-			private _weaponArray = [];
 			{
 				private _weapon = _x;
 				// don't consider blacklisted weapons
@@ -99,7 +98,7 @@ else
 						{
 							_compatibleMagazines = getArray (configFile >> "CfgWeapons" >> _weapon >> _muzzle >> "magazines");
 						};
-						
+
 						private _magazines = [];
 						{
 							private _availableMagazine = _x;
@@ -109,13 +108,13 @@ else
 								_magazines pushBackUnique _availableMagazine;
 							};
 						} forEach _availableMagazines;
-						
+
 						if !(_magazines isEqualTo []) then
 						{
 							_muzzleArray pushBack [_muzzle, _magazines];
 						};
 					} forEach getArray (configFile >> "CfgWeapons" >> _weapon >> "muzzles");
-					
+
 					if !(_muzzleArray isEqualTo []) then
 					{
 						_weaponsToFire pushBack [[_weapon, _turretPath], _muzzleArray];
