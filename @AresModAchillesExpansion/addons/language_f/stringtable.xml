@@ -7415,6 +7415,10 @@
                 <Spanish>Intercambia entre generar vehículos con y sin tripulación</Spanish>
                 <Russian>Спавн техники с экипажем/без экипажа</Russian>
             </Key>
+			<Key ID="STR_AMAE_KEY_CHATTER">
+                <Original>Show Chatter module</Original>
+                <English>Show Chatter module</English>
+            </Key>
         </Container>
     </Package>
 </Project>
