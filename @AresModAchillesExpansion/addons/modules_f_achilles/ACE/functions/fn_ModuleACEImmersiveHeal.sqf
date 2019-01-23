@@ -17,11 +17,11 @@ private _revive = {
 
 	private _vehicle = vehicle _ai;
 
-	if (_vehicle isEqualTo _ai) then {
+	if (_vehicle isEqualTo _ai) then
+	{
 		// move unit to perform the revive
 		_ai doMove (getPos _player);
-	}
-	else
+	} else
 	{
 		// make vehicle drive to the player
 		driver _vehicle doMove (getPos _player);
@@ -52,7 +52,8 @@ private _revive = {
 	_ai playMove "AmovPknlMstpSnonWnonDnon_AmovPercMstpSnonWnonDnon";
 
 	// do the actual revive
-	if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then {
+	if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
+	{
 		if (local _player) then
 		{
 			[_player, _player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
@@ -63,15 +64,16 @@ private _revive = {
 		};
 	};
 
-	if (!isNil "FAR_ReviveMode") then {
+	if (!isNil "FAR_ReviveMode") then
+	{
 		_player setVariable ["FAR_isUnconscious", 0, true];
 		_player setVariable ["FAR_isDragged", 0, true];
 	};
 
-	if (REVIVE_ENABLED(_player) && lifeState _player == "INCAPACITATED" && IS_DISABLED(_player)) then {
+	if (REVIVE_ENABLED(_player) && lifeState _player == "INCAPACITATED" && IS_DISABLED(_player)) then
+	{
 		SET_STATE(_player, STATE_REVIVED);
-	}
-	else
+	} else
 	{
 		_player setDamage 0;
 	};
@@ -84,16 +86,21 @@ private _revive = {
 private _object = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
 // Displays error message if no object or unit has been selected.
-if (isNull _object) exitWith { [localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage };
+if (isNull _object) exitWith
+{
+	[localize "STR_AMAE_NO_UNIT_SELECTED"] call Achilles_fnc_ShowZeusErrorMessage;
+};
 
-if (isPlayer _object || isPlayer driver _object) exitWith {
+if (isPlayer _object || isPlayer driver _object) exitWith
+{
 	// find nearest units
 	private _nearestUnits = nearestObjects [_object, ["man", "landvehicle"], 500];
 
 	// find closest AI unit of same side
 	private _sameSideUnitIndex = _nearestUnits findIf { side group _object isEqualTo side driver _x && !isPlayer driver _x };
 
-	if (_sameSideUnitIndex == -1) exitWith {
+	if (_sameSideUnitIndex == -1) exitWith
+	{
 		["no near units"] call Achilles_fnc_ShowZeusErrorMessage;
 	};
 
@@ -104,7 +111,8 @@ if (isPlayer _object || isPlayer driver _object) exitWith {
 // Make sure we use a unit. Vehicles support kicks in later.
 _object = driver _object;
 
-if (!isNull _object) exitWith {
+if (!isNull _object) exitWith
+{
 	// find all unconsious players
 	private _unconsiousPlayers	= allPlayers select { _x getVariable ["FAR_isUnconscious", 0] == 1 };
 

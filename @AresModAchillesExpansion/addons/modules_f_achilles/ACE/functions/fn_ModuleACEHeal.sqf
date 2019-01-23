@@ -61,7 +61,8 @@ if (!isNil "FAR_ReviveMode") exitWith
 	if (_selected_units isEqualTo []) exitWith {};
 
 	// check if any unit is unconscious
-	if ({  _x getVariable ["FAR_isUnconscious", 0] == 1 } count _selected_units > 0) then {
+	if ({  _x getVariable ["FAR_isUnconscious", 0] == 1 } count _selected_units > 0) then
+	{
 		[localize "STR_AMAE_REVIVE_FEW_SECONDS"] call Ares_fnc_ShowZeusMessage;
 	} else
 	{
@@ -69,7 +70,8 @@ if (!isNil "FAR_ReviveMode") exitWith
 	};
 
 	{
-		if (_x getVariable ["FAR_isUnconscious", 0] == 1) then {
+		if (_x getVariable ["FAR_isUnconscious", 0] == 1) then
+		{
 			_x setVariable ["FAR_isUnconscious", 0, true];
 			_x setVariable ["FAR_isDragged", 0, true];
 		} else
@@ -95,7 +97,8 @@ if (isNil "_selected_units") exitWith {};
 if (_selected_units isEqualTo []) exitWith {};
 
 {
-	if (REVIVE_ENABLED(_x) && lifeState _unit == "INCAPACITATED" && IS_DISABLED(_unit)) then {
+	if (REVIVE_ENABLED(_x) && lifeState _unit == "INCAPACITATED" && IS_DISABLED(_unit)) then
+	{
 		SET_STATE(_x, STATE_REVIVED);
 	} else
 	{
