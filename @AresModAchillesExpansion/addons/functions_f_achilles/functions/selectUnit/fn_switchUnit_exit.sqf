@@ -14,7 +14,7 @@
 	Returns:
 		nothing
 	
-	Exampes:
+	Examples:
 		(begin example)
 		[] call Achilles_fnc_switchUnit_exit;
 		(end)

@@ -16,8 +16,8 @@
 
 	Returns:
 		_angle	- <SCALAR> The measured angle
-
-	Exampes:
+	
+	Examples:
 		(begin example)
 		// returns 90
 		[[1,0,0],[0,1,0]] call Achilles_fnc_vectAngleXY;

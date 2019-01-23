@@ -19,7 +19,7 @@
 	Returns:
 		nothing
 
-	Exampes:
+	Examples:
 		(begin example)
 		(end)
 */

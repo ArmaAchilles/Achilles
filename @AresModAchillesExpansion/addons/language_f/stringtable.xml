@@ -1816,8 +1816,8 @@
                 <Chinese>未能找到建築!</Chinese>
             </Key>
             <Key ID="STR_AMAE_LOCKS_ALLOCATION_ERROR">
-                <Original>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</Original>
-                <English>Allocation error: Could not create a door lock logic! (occured in %1/%2 cases)</English>
+                <Original>Allocation error: Could not create a door lock logic! (occurred in %1/%2 cases)</Original>
+                <English>Allocation error: Could not create a door lock logic! (occurred in %1/%2 cases)</English>
                 <Russian>Ошибка выделения памяти: Не могу создать модуль логики закрытия дверей! (для %1/%2 случаев)</Russian>
                 <French>Erreur d'allocation: Échec de la creation d'une logique de verrouillage de porte! (S'est produit dans %1/%2 des cas)</French>
                 <Spanish>Error de asignación: No se puedo crear lógica de cerradura de puerta (Ocurrió en %1%2 casos)</Spanish>
@@ -4498,8 +4498,8 @@
                 <Chinese>選擇已提交！</Chinese>
             </Key>
             <Key ID="STR_AMAE_SELECTION_CANCLED">
-                <Original>Selection cancled!</Original>
-                <English>Selection cancled!</English>
+                <Original>Selection cancelled!</Original>
+                <English>Selection cancelled!</English>
                 <French>Vous avez abandonné votre sélection!</French>
                 <Spanish>¡Selección cancelada!</Spanish>
                 <Russian>Выбор отменен!</Russian>
@@ -5107,8 +5107,8 @@
                 <Russian>Количество атак</Russian>
             </Key>
             <Key ID="STR_AMAE_COLOR_CORRECTION">
-                <Original>Color correction</Original>
-                <English>Color correction</English>
+                <Original>Colour correction</Original>
+                <English>Colour correction</English>
                 <French>Correction des couleurs</French>
                 <Spanish>Corrección de color</Spanish>
                 <German>Farbkorrektur</German>
@@ -7420,6 +7420,10 @@
                 <French>Basculer entre l'apparition des vehicules avec et sans l'équipage</French>
                 <Spanish>Intercambia entre generar vehículos con y sin tripulación</Spanish>
                 <Russian>Спавн техники с экипажем/без экипажа</Russian>
+            </Key>
+			<Key ID="STR_AMAE_KEY_CHATTER">
+                <Original>Show Chatter module</Original>
+                <English>Show Chatter module</English>
             </Key>
         </Container>
     </Package>
