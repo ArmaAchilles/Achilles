@@ -16,7 +16,7 @@
 	Returns:
 		nothing
 	
-	Exampes:
+	Examples:
 		(begin example)
 		[_unit] call Achilles_fnc_switchUnit_start;
 		(end)

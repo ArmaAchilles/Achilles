@@ -53,7 +53,7 @@ _ctrlMessage ctrlsetfade 1;
 _ctrlMessage ctrlcommit 0.5;
 
 // if escape was pressed
-if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_AMAE_SELECTION_CANCLED"] call Achilles_fnc_ShowZeusErrorMessage; nil};
+if (!isNil "Achilles_var_submit_selection" && {!Achilles_var_submit_selection}) exitWith {[localize "STR_AMAE_SELECTION_CANCLLED"] call Achilles_fnc_ShowZeusErrorMessage; nil};
 
 // if enter was pressed
 [localize "STR_AMAE_SELECTION_SUBMITTED"] call Ares_fnc_ShowZeusMessage;
