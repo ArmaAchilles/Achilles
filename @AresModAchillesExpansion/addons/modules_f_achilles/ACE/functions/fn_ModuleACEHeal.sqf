@@ -97,7 +97,7 @@ if (isNil "_selected_units") exitWith {};
 if (_selected_units isEqualTo []) exitWith {};
 
 {
-	if (REVIVE_ENABLED(_x) && lifeState _unit == "INCAPACITATED" && IS_DISABLED(_unit)) then
+	if (REVIVE_ENABLED(_x) && lifeState _x == "INCAPACITATED" && IS_DISABLED(_x)) then
 	{
 		SET_STATE(_x, STATE_REVIVED);
 	} else
