@@ -57,8 +57,7 @@ private _revive = {
 		if (local _player) then
 		{
 			[_player, _player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
-		}
-		else
+		} else
 		{
 			[_player, _player] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _player]
 		};
