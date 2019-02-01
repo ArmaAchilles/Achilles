@@ -113,7 +113,7 @@ _object = driver _object;
 if (!isNull _object) exitWith
 {
 	// find all unconsious players
-	private _unconsiousPlayers	= allPlayers select { _x getVariable ["FAR_isUnconscious", 0] == 1 };
+	private _unconsiousPlayers = allPlayers select { _x getVariable ["FAR_isUnconscious", 0] == 1 };
 
 	// find nearest player to revive
 	private _sortedPlayers = [_unconsiousPlayers, [], {_x distance _object}, "ASCEND"] call BIS_fnc_sortBy;
