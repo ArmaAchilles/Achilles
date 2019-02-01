@@ -100,7 +100,7 @@ if (isPlayer _object || isPlayer driver _object) exitWith
 
 	if (_sameSideUnitIndex == -1) exitWith
 	{
-		["no near units"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_REVIE_NO_NEAR_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;
 	};
 
 	// spawn off movement and revive action

@@ -26,7 +26,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 		_selected_units = [_unit];
 	} else
 	{
-		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
+		_selected_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 	};
 
 	// handle the case the selection was cancled
@@ -53,7 +53,7 @@ if (!isNil "FAR_ReviveMode") exitWith
 		_selected_units = [_unit];
 	} else
 	{
-		_selected_units = ["units"] call Achilles_fnc_SelectUnits;
+		_selected_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 	};
 
 	// handle the case the selection was cancled
@@ -89,7 +89,7 @@ if (_isSingleSelection) then
 	_selected_units = [_unit];
 } else
 {
-	_selected_units = ["units"] call Achilles_fnc_SelectUnits;
+	_selected_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
 };
 
 // handle the case the selection was cancled

@@ -5100,6 +5100,11 @@
                 <English>Neither an unconscious player nor an AI was selected.</English>
                 <German>Weder ein Spieler noch eine AI wurde ausgewählt!</German>
             </Key>
+            <Key ID="STR_AMAE_REVIE_NO_NEAR_UNITS">
+                <Original>No units to perform revive nearby.</Original>
+                <English>No units to perform revive nearby.</English>
+                <German>In der Nähe befinden sich keine Einheiten, die wiederbeleben könnten.</German>
+            </Key>
         </Container>
         <Container name="Building damage dialog strings">
             <Key ID="STR_AMAE_LIGHT_DAMAGE">
