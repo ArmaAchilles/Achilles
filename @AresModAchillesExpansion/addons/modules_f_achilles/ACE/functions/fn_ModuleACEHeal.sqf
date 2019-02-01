@@ -15,12 +15,12 @@ private ["_injury","_selected_units"];
 
 private _unit = [_logic, false] call Ares_fnc_GetUnitUnderCursor;
 
-private _is_single_selection = !isNull _unit;
+private _isSingleSelection = !isNull _unit;
 
 // ACE Medical System
 if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 {
-	if (_is_single_selection) then
+	if (_isSingleSelection) then
 	{
 		["Healed"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
@@ -48,7 +48,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 // Farooq's Revive System
 if (!isNil "FAR_ReviveMode") exitWith
 {
-	if (_is_single_selection) then
+	if (_isSingleSelection) then
 	{
 		_selected_units = [_unit];
 	} else
@@ -83,7 +83,7 @@ if (!isNil "FAR_ReviveMode") exitWith
 
 // Vanilla Injury System
 
-if (_is_single_selection) then
+if (_isSingleSelection) then
 {
 	["Healed"] call Ares_fnc_ShowZeusMessage;
 	_selected_units = [_unit];
