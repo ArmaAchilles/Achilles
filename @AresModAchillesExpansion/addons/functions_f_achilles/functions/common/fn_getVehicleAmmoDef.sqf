@@ -14,75 +14,24 @@
 //	_vehicle call Achilles_fnc_getVehicleAmmoDef;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 private _vehicle = _this;
-private _vehicleType = typeOf _vehicle;
 
-// get current state of all turret magazines
-private _AllTurretCurrentMagazinesClassName = (magazinesAllTurrets _vehicle) apply {_x select 0};
-private _AllTurretCurrentMagazinesAmmoCount = (magazinesAllTurrets _vehicle) apply {_x select 2};
+// get current state of all magazines
+private _currentMagazines = magazinesAllTurrets _vehicle;
 
-private _turretsCfg = [_vehicleType] call Achilles_fnc_getAllTurretConfig;
+private _allAmmoPercentages = [];
+private _magazineConfig = configFile >> "CfgMagazines";
 
-// append config path for driver magazines
-_turretsCfg pushBack (configFile >> "CfgVehicles" >> _vehicleType);
-
-private _AllTurretAmmoPercentages = [];
-
-// get ammo percentages for all turrets
+// Calculate the remaining ammo percentage for each magazine.
 {
-	private _TurretAmmoPercentages = [];
-	private _cfgTurret = _x;
-	private _MagazinesClassName = getArray (_cfgTurret >> "magazines");
-	{
-		// compare magazine count from config with current count
-		private _CfgAmmoCount = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
-		private _index = _AllTurretCurrentMagazinesClassName find _x;
-		if (_index != -1) then
-		{
-			_TurretAmmoPercentages pushBack ((_AllTurretCurrentMagazinesAmmoCount select _index) / _CfgAmmoCount);
-
-			// remove the counted magazine from the list
-			_AllTurretCurrentMagazinesClassName deleteAt _index;
-			_AllTurretCurrentMagazinesAmmoCount deleteAt _index;
-		} else
-		{
-			_TurretAmmoPercentages pushBack 0;
-		};
-	} forEach _MagazinesClassName;
-
-	if (!(_TurretAmmoPercentages isEqualTo [])) then
-	{
-		_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call BIS_fnc_arithmeticMean);
-	};
-
-} forEach _turretsCfg;
-
-// handle dynamic loadout
-if (isClass (configFile >> "cfgVehicles" >> _vehicleType >> "Components" >> "TransportPylonsComponent")) then
-{
-	private _TurretAmmoPercentages = [];
-	{
-		if (_x != "") then
-		{
-			private _current_ammoCount = _vehicle ammoOnPylon (_forEachIndex + 1);
-			if (typeName _current_ammoCount == "BOOL") then
-			{
-				if (_current_ammoCount) then {_TurretAmmoPercentages pushBack 1} else {_TurretAmmoPercentages pushBack 0};
-			} else
-			{
-				private _cfg_ammoCount = getNumber (configfile >> "CfgMagazines" >> _x >> "count");
-				if (_cfg_ammoCount == 0) then {_TurretAmmoPercentages pushBack 1} else {_TurretAmmoPercentages pushBack (_current_ammoCount / _cfg_ammoCount)};
-			};
-		};
-	} forEach (getPylonMagazines _vehicle);
-	_AllTurretAmmoPercentages pushBack (_TurretAmmoPercentages call BIS_fnc_arithmeticMean);
-};
-
+    _x params ["_name", "", "_ammo"];
+    private _magMaxAmmo = getNumber (_magazineConfig >> _name >> "count");
+    _allAmmoPercentages pushBack (_ammo / _magMaxAmmo);
+} forEach _currentMagazines;
 
 // return the overall mean of all percentages
-if (!(_AllTurretAmmoPercentages isEqualTo [])) exitWith
+if (!(_allAmmoPercentages isEqualTo [])) exitWith
 {
-	_AllTurretAmmoPercentages call BIS_fnc_arithmeticMean
+	_allAmmoPercentages call BIS_fnc_arithmeticMean
 };
 0

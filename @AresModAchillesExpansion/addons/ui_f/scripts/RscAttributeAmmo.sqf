@@ -18,7 +18,7 @@ switch _mode do {
 		_ctrlSlider sliderSetSpeed [0.1, 0.3];
 		_ctrlSlider slidersetposition _ammo;
 		_ctrlSlider ctrlSetTooltip str _ammo;
-		_ctrlSlider ctrlSetEventHandler["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
+		_ctrlSlider ctrlSetEventHandler ["SliderPosChanged", "params [""_ctrl"", ""_value""]; _ctrl ctrlSetTooltip str _value;"];
 		_ctrlSlider ctrlEnable alive _unit;
 	};
 	case "confirmed": {
