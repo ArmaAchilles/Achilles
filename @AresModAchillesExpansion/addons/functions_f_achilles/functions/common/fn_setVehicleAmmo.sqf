@@ -6,11 +6,11 @@
 		Set vehicle's magazine count based on given percentage
 
 	Parameters:
-		_this:	OBJECT - Vehicle for which the ammo is counted
-
-	Returns:
 		_this select 0:	OBJECT - vehicle for which the ammo is changed
 		_this select 1:	SCALAR - ammo value in range [0,1]
+
+	Returns:
+		none
 
 	Examples:
 		(begin example)
