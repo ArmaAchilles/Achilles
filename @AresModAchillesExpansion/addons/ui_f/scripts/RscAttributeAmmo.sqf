@@ -4,7 +4,7 @@
 if (isNil "Achilles_var_setammo_init_done") then {
 	publicVariable "Achilles_fnc_setUnitAmmoDef";
 	publicVariable "Achilles_fnc_setVehicleAmmo";
-    publicVariable "Achilles_fnc_setVehicleMags";
+	publicVariable "Achilles_fnc_setVehicleMags";
 	Achilles_var_setammo_init_done = true;
 };
 
