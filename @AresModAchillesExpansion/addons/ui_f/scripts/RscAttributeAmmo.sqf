@@ -2,9 +2,9 @@
 
 //Broadcast set ammo function
 if (isNil "Achilles_var_setammo_init_done") then {
-	publicVariableServer "Achilles_fnc_setUnitAmmoDef";
-	publicVariableServer "Achilles_fnc_setVehicleAmmo";
-    publicVariableServer "Achilles_fnc_setVehicleMags";
+	publicVariable "Achilles_fnc_setUnitAmmoDef";
+	publicVariable "Achilles_fnc_setVehicleAmmo";
+    publicVariable "Achilles_fnc_setVehicleMags";
 	Achilles_var_setammo_init_done = true;
 };
 
