@@ -27,7 +27,7 @@ class CfgFunctions
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
 			class setVehicleAmmo;
-            class setVehicleMags;
+			class setVehicleMags;
 			class checkLineOfFire2D;
 			class dikToLetter;
 			class getCuratorSelected;

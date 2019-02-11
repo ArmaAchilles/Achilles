@@ -19,7 +19,7 @@
 params ["_vehicle", "_magazine", "_totalAmmo"];
 _magazine params ["_name", "_turret", "_magMaxAmmo", "_magCount"];
 
-_vehicle removeMagazines _name;
+_vehicle removeMagazinesTurret [_name, _turret];
 for "_i" from 1 to _magCount do {
     private _magAmmo = _magMaxAmmo min _totalAmmo;
     _vehicle addMagazineTurret [_name, _turret, _magAmmo];

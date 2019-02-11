@@ -38,7 +38,7 @@ private _turretMagCount = (_turretMags apply {[_x select 0, _x select 1]}) call 
 _turretMagCount = _turretMagCount select {_x isEqualType []};
 
 {
-    _x params ["", "_turret", "_magMaxAmmo", "_magCount"];
+    _x params ["_name", "_turret", "_magMaxAmmo", "_magCount"];
     private _turretMag = round (_magMaxAmmo * _magCount * _percentage);
     if (!(_vehicle turretLocal _turret)) then
     {
@@ -47,4 +47,4 @@ _turretMagCount = _turretMagCount select {_x isEqualType []};
     {
         [_vehicle, _x, _turretMag] call Achilles_fnc_setVehicleMags;
     };
-} forEach _turretMags;
+} forEach _turretMagCount;
