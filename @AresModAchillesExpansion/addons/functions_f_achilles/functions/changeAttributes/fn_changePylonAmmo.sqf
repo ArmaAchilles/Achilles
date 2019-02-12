@@ -1,18 +1,21 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	AUTHOR: Kex, CoxLedere, CreepPork_LV
-//	DATE: 07/10/2017 (DD/MM/YYYY)
-//	VERSION: 3.0
-//  DESCRIPTION: opens the "ammo" dialog for vehicles.
-//
-//	ARGUMENTS:
-//	_this select 0		_vehicle (optional)
-//
-//	RETURNS:
-//	nothing (procedure)
-//
-//	Example:
-//	[_vehicle] call Achilles_fnc_changePylonAmmo;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+	Authors:
+		Kex, CoxLedere, CreepPork_LV, NeilZar
+
+	DESCRIPTION:
+		Opens the "ammo" dialog for vehicles.
+
+	Parameters:
+	   _this:  OBJECT - Vehicle to edit
+
+	Returns:
+	   none
+
+	Examples:
+		(begin example)
+			[_vehicle] call Achilles_fnc_changePylonAmmo;
+		(end)
+*/
 
 params ["_plane"];
 private _planeType = typeOf _plane;
@@ -53,7 +56,7 @@ if (_hasGunner) then
 {
 	_addWeaponsTo = [[], [0]] select (_dialogResult select 0 == 1);
 	_plane setVariable ["Achilles_var_changePylonAmmo_Assigned", _addWeaponsTo, true];
-    _dialogResult deleteAt 0
+	_dialogResult deleteAt 0
 };
 
 {
