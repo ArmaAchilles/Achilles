@@ -56,7 +56,7 @@ if (_hasGunner) then
 {
 	_addWeaponsTo = [[], [0]] select (_dialogResult select 0 == 1);
 	_plane setVariable ["Achilles_var_changePylonAmmo_Assigned", _addWeaponsTo, true];
-	_dialogResult deleteAt 0
+	_dialogResult deleteAt 0;
 };
 
 {
