@@ -53,21 +53,20 @@ switch _mode do {
 				private _addonList = [[], [], [], [], [], [], [], [], [], [], [], []];
 				private _addonID = _weaponAddons find _addon;
 				if (_addonID < 0) then
-                {
+				{
 					{
 						private _weapon = tolower _x;
 						private _weaponType = _weapon call bis_fnc_itemType;
-                        _weaponType params ["_weaponTypeCategory", "_weaponTypeSpecific"];
+						_weaponType params ["_weaponTypeCategory", "_weaponTypeSpecific"];
 						private _weaponTypeID = _types findIf { _weaponTypeSpecific in _x };
 
-						//_weaponTypeID = _types find (_weaponType select 0);
-						if (_weaponTypeCategory != "VehicleWeapon" && _weaponTypeID >= 0 && (_weapon == [_weapon] call bis_fnc_baseWeapon)) then
-                        {
+						if (_weaponTypeCategory != "VehicleWeapon" && {_weaponTypeID >= 0 && (_weapon == [_weapon] call bis_fnc_baseWeapon)}) then
+						{
 							private _weaponCfg = configfile >> "cfgweapons" >> _weapon;
 							private _weaponPublic = getnumber (_weaponCfg >> "scope") == 2;
 							private _addonListType = _addonList select _weaponTypeID;
 							if (_weaponPublic) then
-                            {
+							{
 								private _displayName = gettext (_weaponCfg >> "displayName");
 								private _picture = gettext (_weaponCfg >> "picture");
 								{
@@ -77,27 +76,27 @@ switch _mode do {
 								} foreach configProperties [_weaponCfg >> "linkeditems", "isClass _x"];
 								private _displayNameShort = _displayName;
 								if (count _displayNameShort > 41) then
-                                { // Cut when the name is too long (41 chars is approximate)
+								{ // Cut when the name is too long (41 chars is approximate)
 									_displayNameShort = (_displayNameShort select [0, 41])  + "...";
 								};
 								private _type = [0, 1] select (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096, 131072]);
 								_addonListType pushback [_weapon, _displayName, _displayNameShort, _picture, _type, false];
 							};
 							// Add magazines compatible with the weapon
-							if (_weaponPublic || _weapon in ["throw", "put"]) then
-                            {
+							if (_weaponPublic || {_weapon in ["throw", "put"]}) then
+							{
 								{
 									private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
 									{
 										private _mag = tolower _x;
 										if (_addonListType findIf {(_x select 0) isEqualTo _mag} == -1) then
-                                        {
+										{
 											private _magCfg = configfile >> "cfgmagazines" >> _mag;
-											if (getnumber (_magCfg >> "scope") == 2) then
-                                            {
+											if (getNumber (_magCfg >> "scope") == 2) then
+											{
 												private _displayName = gettext (_magCfg >> "displayName");
 												if (count _displayName > 41) then
-                                                { //--- Cut when the name is too long (41 chars is approximate)
+												{ //--- Cut when the name is too long (41 chars is approximate)
 													_displayName = (_displayName select [0, 41])  + "...";
 												};
 												private _picture = gettext (_magCfg >> "picture");
@@ -116,10 +115,10 @@ switch _mode do {
 						_weaponType params ["", "_weaponTypeSpecific"];
 						private _weaponTypeID = _types findIf { _weaponTypeSpecific in _x };
 						if (_weaponTypeID >= 0) then
-                        {
+						{
 							private _weaponCfg = configfile >> "cfgvehicles" >> _weapon;
 							if (getnumber (_weaponCfg >> "scope") == 2) then
-                            {
+							{
 								private _displayName = gettext (_weaponCfg >> "displayName");
 								private _picture = gettext (_weaponCfg >> "picture");
 								private _addonListType = _addonList select _weaponTypeID;
@@ -139,8 +138,8 @@ switch _mode do {
 					_weaponAddons pushBack _addon;
 					_weaponAddons pushBack _addonList;
 				}
-                else
-                {
+				else
+				{
 					_addonList = _weaponAddons select (_addonID + 1);
 				};
 				{
@@ -168,7 +167,7 @@ switch _mode do {
 			{
 				private _index = (_xCargo select 0) find _x;
 				if (_index < 0) then
-                {
+				{
 					(_xCargo select 0) pushBack (tolower _x);
 					(_xCargo select 1) pushBack 0;
 				};
@@ -183,12 +182,12 @@ switch _mode do {
 		} foreach _cargo;
 
 		private _classes = RscAttributeInventory_cargo select 0;
-        _classes = _classes apply {toLower _x};
+		_classes = _classes apply {toLower _x};
 
 		//--- Get limits
 		private _cfgEntity = configfile >> "cfgvehicles" >> typeof _entity >> "maximumLoad";
-        private _maxLoad = 1e10;
-        if (isNumber _cfgEntity) then { _maxLoad = getNumber _cfgEntity };
+		private _maxLoad = 1e10;
+		if (isNumber _cfgEntity) then { _maxLoad = getNumber _cfgEntity };
 		RscAttributeInventory_Capacity = _maxLoad;
 
 		//--- Init UI
@@ -257,25 +256,25 @@ switch _mode do {
 					private _values = RscAttributeInventory_cargo select 1;
 					private _index = _classes find _classLowered;
 					private _value = if (_index < 0) then
-                    {
+					{
 						_index = count _classes;
 						_classes set [_index, _classLowered];
 						_values set [_index, 0];
 						0
 					}
-                    else
-                    {
+					else
+					{
 						_values select _index
 					};
 					private _arsenal = _class in RscAttributeInventory_cargoVirtual;
 
-					if ((_cursel == 0 and (_value != 0 or _arsenal)) or (_cursel > 0)) then {
+					if ((_cursel == 0 && {_value != 0 || _arsenal}) || (_cursel > 0)) then {
 						private _lnbAdd = _ctrlList lnbaddrow ["", _displayNameShort, str _value, ""];
 						_ctrlList lnbsetdata [[_lnbAdd, 0], _class];
 						_ctrlList lnbsetvalue [[_lnbAdd, 0], _value];
 						_ctrlList lnbsetvalue [[_lnbAdd, 1], _type];
 						_ctrlList lnbsetpicture [[_lnbAdd, 0], _picture];
-						private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
+						private _alpha = [0.5, 1] select (_value != 0 || _arsenal);
 						_ctrlList lnbsetcolor [[_lnbAdd, 1], [1, 1, 1, _alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd, 2], [1, 1, 1, _alpha]];
 						_ctrlList lnbsetcolor [[_lnbAdd, 3], [1, 1, 1, _alpha]];
@@ -286,12 +285,14 @@ switch _mode do {
 						};
 						_ctrlList lbsettooltip [_lnbAdd, _displayName];
 
-						if (_cursel == 0 && _value != 0) then {
-							private _coef = switch _type do {
-								case 0: {[configfile >> "cfgweapons" >> _class >> "WeaponSlotsInfo", "mass", 0] call BIS_fnc_returnConfigEntry};
-								case 1: {[configfile >> "cfgweapons" >> _class >> "ItemInfo", "mass", 0] call BIS_fnc_returnConfigEntry};
-								case 2: {[configfile >> "cfgmagazines" >> _class, "mass", 0] call BIS_fnc_returnConfigEntry};
-								case 3: {[configfile >> "cfgvehicles" >> _class, "mass", 0] call BIS_fnc_returnConfigEntry};
+						if (_cursel == 0 && _value != 0) then
+						{
+							private _coef = switch _type do
+							{
+								case 0: {getNumber (configfile >> "cfgweapons" >> _class >> "WeaponSlotsInfo" >> "mass")};
+								case 1: {getNumber (configfile >> "cfgweapons" >> _class >> "ItemInfo" >> "mass")};
+								case 2: {getNumber (configfile >> "cfgmagazines" >> _class >> "mass")};
+								case 3: {getNumber (configfile >> "cfgvehicles" >> _class >> "mass")};
 								default {0};
 							};
 							_ctrlLoad progresssetposition (progressposition _ctrlLoad + (_value max 0) * _coef / RscAttributeInventory_Capacity);
@@ -310,14 +311,16 @@ switch _mode do {
 			private _ctrl = _display displayctrl _x;
 			private _color = [1, 1, 1, 0.5];
 			private _scale = 0.75;
-			if (_foreachindex == _cursel) then {
+			if (_foreachindex == _cursel) then
+			{
 				_color = [1, 1, 1, 1];
 				_scale = 1;
 			};
 			_ctrl ctrlsettextcolor _color;
 			private _pos = [_ctrl, _scale, _delay] call bis_fnc_ctrlsetscale;
 
-			if (_foreachindex == _cursel) then {
+			if (_foreachindex == _cursel) then
+			{
 				_ctrlFilterBackground ctrlsetposition _pos;
 				_ctrlFilterBackground ctrlcommit 0;
 			};
@@ -336,25 +339,27 @@ switch _mode do {
 		private _classes = RscAttributeInventory_cargo select 0;
 		private _values = RscAttributeInventory_cargo select 1;
 		private _index = _classes find _classLowered;
-		if (_index >= 0) then {
-			private _coef = switch _type do {
-				case 0: {[configfile >> "cfgweapons" >> _class >> "WeaponSlotsInfo", "mass", 0] call BIS_fnc_returnConfigEntry};
-				case 1: {[configfile >> "cfgweapons" >> _class >> "ItemInfo", "mass", 0] call BIS_fnc_returnConfigEntry};
-				case 2: {[configfile >> "cfgmagazines" >> _class, "mass", 0] call BIS_fnc_returnConfigEntry};
-				case 3: {[configfile >> "cfgvehicles" >> _class, "mass", 0] call BIS_fnc_returnConfigEntry};
+		if (_index >= 0) then
+		{
+			private _coef = switch _type do
+			{
+				case 0: {getNumber (configfile >> "cfgweapons" >> _class >> "WeaponSlotsInfo" >> "mass")};
+				case 1: {getNumber (configfile >> "cfgweapons" >> _class >> "ItemInfo" >> "mass")};
+				case 2: {getNumber (configfile >> "cfgmagazines" >> _class >> "mass")};
+				case 3: {getNumber (configfile >> "cfgvehicles" >> _class >> "mass")};
 				default {0};
 			};
 
 			_value = _value + _add;
-			//if (_value < 0 || (_value == 0 && _add > 0)) then {_add = -_add;};
 			private _load = progressposition _ctrlLoad + _add * _coef / RscAttributeInventory_Capacity;
-			if ((_load <= 1 and _value > 0) || _value == 0) then {
-				if (_value > 0 || (_value == 0 && _add < 0)) then {_ctrlLoad progresssetposition _load};
+			if (_value == 0 || {_load <= 1 && _value > 0}) then
+			{
+				if (_value > 0 || {_value == 0 && _add < 0}) then {_ctrlLoad progresssetposition _load};
 				_values set [_index, _value];
 				_ctrlList lnbsetvalue [[_cursel, 0], _value];
 				_ctrlList lnbsettext [[_cursel, 2], [str _value, ""] select (_value < 0)];
 				private _arsenal = _class in RscAttributeInventory_cargoVirtual;
-				private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
+				private _alpha = [0.5, 1] select (_value != 0 || _arsenal);
 				_ctrlList lnbsetcolor [[_cursel, 1], [1, 1, 1, _alpha]];
 				_ctrlList lnbsetcolor [[_cursel, 2], [1, 1, 1, _alpha]];
 				_ctrlList lnbsetcolor [[_cursel, 3], [1, 1, 1, _alpha]];
@@ -363,13 +368,12 @@ switch _mode do {
 		};
 	};
 	case "listSelect": {
-		private ["_display", "_ctrlList", "_cursel", "_value", "_ctrlArrowLeft"];
-		_display = _params select 0;
-		_ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
-		_cursel = lnbcurselrow _ctrlList;
-		_value = _ctrlList lnbvalue [_cursel, 0];
+		private _display = _params select 0;
+		private _ctrlList = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_LIST;
+		private _cursel = lnbcurselrow _ctrlList;
+		private _value = _ctrlList lnbvalue [_cursel, 0];
 
-		_ctrlArrowLeft = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_ARROWLEFT;
+		private _ctrlArrowLeft = _display displayctrl IDC_RSCATTRIBUTEINVENTORY_ARROWLEFT;
 		_ctrlArrowLeft ctrlenable (_value > 0);
 	};
 
@@ -382,7 +386,7 @@ switch _mode do {
 		private _value = _ctrlList lnbvalue [_cursel, 0];
 		_arsenal = 1 - _arsenal;
 		_ctrlList lnbsetvalue [[_cursel, 3], _arsenal];
-		private _alpha = [0.5, 1] select (_arsenal == 1 or _value > 0);
+		private _alpha = [0.5, 1] select (_arsenal == 1 || _value > 0);
 		_ctrlList lnbsetcolor [[_cursel, 1], [1, 1, 1, _alpha]];
 		_ctrlList lnbsetcolor [[_cursel, 2], [1, 1, 1, _alpha]];
 		_ctrlList lnbsetcolor [[_cursel, 3], [1, 1, 1, _alpha]];
@@ -462,7 +466,6 @@ switch _mode do {
 		private _index = _classes find _weapon;
 		private _reducedValues = [_values select _index];
 		private _weaponCfg = configfile >> "cfgweapons" >> _weapon;
-		private _magazines = [];
 
 		{
 			private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};;
@@ -489,7 +492,7 @@ switch _mode do {
 			{
 				_x params ["_class", "_displayName", "_displayNameShort", "_picture", "_type", "_isDuplicate"];
 
-				if (_type in _types && (!_isDuplicate or (RscAttributeInventory_selected > 0))) then {
+				if ((!_isDuplicate || RscAttributeInventory_selected > 0) && {_type in _types}) then {
 
 					_index = _reducedClasses find _class;
 					if (_index == -1) exitWith {};
@@ -502,7 +505,7 @@ switch _mode do {
 					_ctrlList lnbsetvalue [[_lnbAdd, 0], _value];
 					_ctrlList lnbsetvalue [[_lnbAdd, 1], _type];
 					_ctrlList lnbsetpicture [[_lnbAdd, 0], _picture];
-					private _alpha = [0.5, 1] select (_value != 0 or _arsenal);
+					private _alpha = [0.5, 1] select (_value != 0 || _arsenal);
 					_ctrlList lnbsetcolor [[_lnbAdd, 1], [1, 1, 1, _alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd, 2], [1, 1, 1, _alpha]];
 					_ctrlList lnbsetcolor [[_lnbAdd, 3], [1, 1, 1, _alpha]];
@@ -548,7 +551,7 @@ switch _mode do {
 			if (_x != 0) then {
 				private _class = _classes select _foreachindex;
 				switch true do {
-					case (getnumber (configfile >> "cfgweapons" >> _class >> "type") in [4096, 131072] or isClass (configfile >> "CfgGlasses" >> _class)): {
+					case (getnumber (configfile >> "cfgweapons" >> _class >> "type") in [4096, 131072] || {isClass (configfile >> "CfgGlasses" >> _class)}): {
 						_items pushBack [_class, abs _x];
 					};
 					case (isclass (configfile >> "cfgweapons" >> _class)): {
