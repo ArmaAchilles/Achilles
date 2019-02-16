@@ -58,6 +58,7 @@ private _newPath = [_categoryIndex, _moduleIndex];
 _ctrl tvSetData [_newPath, _moduleClassName];
 _ctrl tvSetPicture [_newPath, _moduleIcon];
 _ctrl tvSetValue [_newPath, _value];
+_ctrl tvSetTooltip [_newPath, _moduleDisplayName];
 
 if (Achilles_var_moduleTreeDLC) then
 {
