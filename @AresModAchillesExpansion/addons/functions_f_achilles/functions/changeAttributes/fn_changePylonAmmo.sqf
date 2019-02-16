@@ -9,7 +9,7 @@
 	   _this:  OBJECT - Vehicle to edit
 
 	Returns:
-	   none
+	   Nothing
 
 	Examples:
 		(begin example)
