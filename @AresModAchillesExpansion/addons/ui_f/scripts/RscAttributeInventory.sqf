@@ -76,7 +76,8 @@ switch _mode do {
 								} foreach configProperties [_weaponCfg >> "linkeditems", "isClass _x"];
 								private _displayNameShort = _displayName;
 								if (count _displayNameShort > 41) then
-								{ // Cut when the name is too long (41 chars is approximate)
+								{ 
+									// Cut when the name is too long (41 chars is approximate)
 									_displayNameShort = (_displayNameShort select [0, 41])  + "...";
 								};
 								private _type = [0, 1] select (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096, 131072]);
