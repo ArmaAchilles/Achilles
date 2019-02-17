@@ -5549,9 +5549,9 @@
                 <German>Der Spieler wird in einigen Sekunden wiederbelebt</German>
             </Key>
             <Key ID="STR_AMAE_REVIVE_PLAYER">
-                <Original>Player '%1' will be revived.</Original>
-                <English>Player '%1' will be revived.</English>
-                <German>Der Spieler '%1' wird wiederbelebt.</German>
+                <Original>Player '%1' will be revived</Original>
+                <English>Player '%1' will be revived</English>
+                <German>Der Spieler '%1' wird wiederbelebt</German>
             </Key>
             <Key ID="STR_AMAE_NO_PLAYER_UNCONSCIOUS">
                 <Original>No player is unconscious</Original>
@@ -5559,14 +5559,14 @@
                 <German>Kein Spieler ist bewusstlos</German>
             </Key>
             <Key ID="STR_AMAE_REVIVE_INVALID_SELECTION">
-                <Original>Neither an unconscious player nor an AI was selected.</Original>
-                <English>Neither an unconscious player nor an AI was selected.</English>
-                <German>Weder ein Spieler noch eine AI wurde ausgewählt!</German>
+                <Original>Neither an unconscious player nor an AI was selected</Original>
+                <English>Neither an unconscious player nor an AI was selected</English>
+                <German>Weder ein Spieler noch eine AI wurde ausgewählt</German>
             </Key>
             <Key ID="STR_AMAE_REVIVE_NO_NEAR_UNITS">
-                <Original>No units to perform revive nearby.</Original>
-                <English>No units to perform revive nearby.</English>
-                <German>In der Nähe befinden sich keine Einheiten, die wiederbeleben könnten.</German>
+                <Original>No units to perform revive nearby</Original>
+                <English>No units to perform revive nearby</English>
+                <German>In der Nähe befinden sich keine Einheiten, die wiederbeleben könnten</German>
             </Key>
         </Container>
         <Container name="Building damage dialog strings">
