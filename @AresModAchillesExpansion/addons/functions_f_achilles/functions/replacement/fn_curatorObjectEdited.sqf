@@ -74,7 +74,7 @@ switch _objectCategory do {
 		switch _objectType do {
 			case "AmmoBox": {
 				//--- Create parachute for vehicles in the air
-				if ((position _object select 2) > 20 && alive _object) then {
+				if ((position _object select 2) > 20 && alive _object && simulationEnabled _object) then {
 					_para = createvehicle ["B_Parachute_02_F",_objectPos,[],0,"none"];
 					_object attachto [_para,[0,0,1]];
 				};
@@ -92,7 +92,7 @@ switch _objectCategory do {
 			case "Tank";
 			case "WheeledAPC": {
 				//--- Create parachute for vehicles in the air
-				if ((position _object select 2) > 20 && alive _object) then {
+				if ((position _object select 2) > 20 && alive _object && simulationEnabled _object) then {
 					_para = createvehicle ["B_Parachute_02_F",_objectPos,[],0,"none"];
 					_object attachto [_para,[0,0,(abs ((boundingbox _object select 0) select 2))]];
 				};
@@ -101,7 +101,7 @@ switch _objectCategory do {
 	};
 	case "Soldier": {
 		//--- Create parachute for soldiers in the air
-		if ((position _object select 2) > 20 && alive _object) then {
+		if ((position _object select 2) > 20 && alive _object && simulationEnabled _object) then {
 			_para = createvehicle ["Steerable_Parachute_F",_objectPos,[],0,"none"];
 			_object moveindriver _para;
 

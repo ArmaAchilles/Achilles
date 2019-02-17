@@ -20,7 +20,7 @@
 	Returns:
 		_y				- <SCALAR> The function value for the given _x.
 	
-	Exampes:
+	Examples:
 		(begin example)
 		(end)
 */

@@ -24,7 +24,7 @@
 	Returns:
 		_success							- <BOOLEAN> True if the CAS run was completed without occurring exception
 	
-	Exampes:
+	Examples:
 		(begin example)
 		// Perform CAS with _heli on _target with the first weapon returned by Achilles_fnc_getWeaponsMuzzlesMagazines.
 		[_heli, _target, [0,0,0]] call Achilles_fnc_advancedBlackfishCAS;

@@ -97,10 +97,10 @@ If your language is not on the list, the English localization will be used. We w
 ## Getting Started
 Below is what you need to know to get Achilles up and running:
 - [Installing](#installing)
-- [Required Addons](#required-addons)
-- [Incompatible Addons](#incompatible-addons)
-- [Optional Addons](#optional-addons)
-- [Other Zeus Addons](#other-zeus-addons)
+- [Required Add-ons](#required-addons)
+- [Incompatible Add-ons](#incompatible-addons)
+- [Optional Add-ons](#optional-addons)
+- [Other Zeus Add-ons](#other-zeus-addons)
 
 ### Installing
 You can download Achilles from:
@@ -108,24 +108,24 @@ You can download Achilles from:
 - [Steam Workshop](http://steamcommunity.com/sharedfiles/filedetails/?id=723217262)
 - [Armaholic](http://www.armaholic.com/page.php?id=31235)
 
-If you are not familiar with installing ArmA 3 addons, check out the [Armaholic installation guide](http://www.armaholic.com/page.php?id=29755).
+If you are not familiar with installing ArmA 3 add-ons, check out the [Armaholic installation guide](http://www.armaholic.com/page.php?id=29755).
 
-### Required Addons
+### Required Add-ons
 Achilles requires:
 - [Arma 3](http://arma3.com/)
-- [Community Based Addons A3 (CBA_A3)](https://github.com/CBATeam/CBA_A3/releases)
+- [Community Based Add-ons A3 (CBA_A3)](https://github.com/CBATeam/CBA_A3/releases)
 
-### Incompatible Addons
+### Incompatible Add-ons
 Addons that you should **not** run when you use Achilles:
 - [Ares](https://github.com/astruyk/Ares)
 
-### Optional Addons
+### Optional Add-ons
 These mods below are required for certain features (_e.g._ fast-roping):
 - [Advanced Combat Environment 3 (ACE3)](https://github.com/acemod/ACE3/)
-- [Advanced Rappeling (AR)](https://github.com/sethduda/AdvancedRappelling)
+- [Advanced Rappelling (AR)](https://github.com/sethduda/AdvancedRappelling)
 - [Task Force Arrowhead Radio (TFAR)](https://github.com/michail-nikolaev/task-force-arma-3-radio)
 
-### Other Zeus Addons
+### Other Zeus Add-ons
 A list of other Zeus mods that are not required, but nice additions:
 - [Zeus/Eden Compositions (ZEC)](https://github.com/LISTINGS09/ZEC)
 - [Zeus/Eden Compositions for CUP (ZECCUP)](https://github.com/LISTINGS09/ZECCUP)
@@ -157,7 +157,7 @@ And then we will have a look at your work!
 
 ### Setting up Your Local Development Environment
 1. [Clone your forked repository](https://help.github.com/articles/cloning-a-repository/)
-2. Set up your addon builder (either get [Hephaestus](https://github.com/ArmaAchilles/Hephaestus) or use the [AchillesAddonBuilder.bat](https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ) in the repository)
+2. Set up your add-on builder (either get [Hephaestus](https://github.com/ArmaAchilles/Hephaestus) or use the [AchillesAddonBuilder.bat](https://github.com/ArmaAchilles/Achilles/blob/master/tools/AchillesAddonBuilder.bat.example ) in the repository)
 
 ### Add a New Module
 A good starting point for your new module is the [custom module framework](https://github.com/ArmaAchilles/Achilles/wiki/Custom-Modules).
