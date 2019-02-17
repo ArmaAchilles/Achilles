@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include "\achilles\modules_f_ares\module_header.h"
+#include "\achilles\modules_f_ares\module_header.inc.sqf"
 
 #include "\a3\functions_f_mp_mark\revive\defines.inc"
 
@@ -127,4 +127,4 @@ if (!isNull _object) exitWith
 
 [localize "STR_AMAE_REVIVE_INVALID_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage;
 
-#include "\achilles\modules_f_ares\module_footer.h"
+#include "\achilles\modules_f_ares\module_footer.inc.sqf"
