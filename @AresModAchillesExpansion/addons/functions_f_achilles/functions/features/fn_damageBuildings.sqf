@@ -30,17 +30,16 @@ params
 	["_doSimulate", true, [true]]
 ];
 
-private _fnc_getDamageType = switch (_distMode) do
-{
-	case 0: {compile (str _meanMode)};
-	case 1: {round (random 3)};
-	// Normally distributes mean damage for buildings
-	case 2: {compile ("round (random [0," + (str _meanMode) + ",3])")};
-};
-
 {
 	private _building = _x;
-	private _damageType = [] call _fnc_getDamageType;
+
+	private _damageType = switch (_distMode) do
+	{
+		case 0: {_meanMode};
+		case 1: {round (random 3)};
+		case 2: {round (random [0, _meanMode, 3])};
+	};
+
 	switch (_damageType) do
 	{
 		case 0: {_building setDamage [0, _doSimulate]};
