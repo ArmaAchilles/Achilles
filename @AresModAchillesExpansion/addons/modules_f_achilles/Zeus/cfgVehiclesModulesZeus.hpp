@@ -20,7 +20,7 @@ class Achilles_Module_Zeus_AssignZeus : Achilles_Zeus_Module_Base
 	icon = "\achilles\data_f_achilles\icons\icon_unit.paa";
 	portrait = "\achilles\data_f_achilles\icons\icon_unit.paa";
 };
-class ModuleHint_F : ModuleBootcampStage_F
+class ModuleHint_F : Module_F
 {
 	scopeCurator = 1;
 	Category = "Curator";
