@@ -33,7 +33,7 @@ _dialogResult params
 ];
 
 _selectionRange = parseNumber _selectionRange;
-_doSimulate = (_doSimulate isEqualTo 0);
+_doSimulate = _doSimulate isEqualTo 1;
 
 private _buildings = [];
 switch (_selectionMode) do
