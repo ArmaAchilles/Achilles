@@ -100,7 +100,7 @@ if (isPlayer _object || isPlayer driver _object) exitWith
 
 	if (_sameSideUnitIndex == -1) exitWith
 	{
-		[localize "STR_AMAE_REVIE_NO_NEAR_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;
+		[localize "STR_AMAE_REVIVE_NO_NEAR_UNITS"] call Achilles_fnc_ShowZeusErrorMessage;
 	};
 
 	// spawn off movement and revive action
@@ -119,12 +119,12 @@ if (!isNull _object) exitWith
 	private _sortedPlayers = [_unconsiousPlayers, [], {_x distance _object}, "ASCEND"] call BIS_fnc_sortBy;
 	private _nearestPlayer = _sortedPlayers select 0;
 
-	if (isNil "_nearestPlayer") exitWith { [localize "STR_AMAE_NO_PLAYER_UNCONSIOUS"] call Achilles_fnc_ShowZeusErrorMessage; };
+	if (isNil "_nearestPlayer") exitWith { [localize "STR_AMAE_NO_PLAYER_UNCONSCIOUS"] call Achilles_fnc_ShowZeusErrorMessage; };
 
 	// spawn off movement and revive action
 	[_nearestPlayer, _object] spawn _revive;
 };
 
-[localize "STR_AMAE_REVIE_INVALID_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage;
+[localize "STR_AMAE_REVIVE_INVALID_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage;
 
 #include "\achilles\modules_f_ares\module_footer.h"

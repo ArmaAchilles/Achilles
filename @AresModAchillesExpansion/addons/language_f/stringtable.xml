@@ -5081,26 +5081,26 @@
                 <Chinese>碾傷</Chinese>
             </Key>
             <Key ID="STR_AMAE_REVIVE_FEW_SECONDS">
-                <Original>Player will be revived in a few seconds.</Original>
-                <English>Player will be revived in a few seconds.</English>
-                <German>Der Spieler wird in einigen Sekunden wiederbelebt.</German>
+                <Original>Player will be revived in a few seconds</Original>
+                <English>Player will be revived in a few seconds</English>
+                <German>Der Spieler wird in einigen Sekunden wiederbelebt</German>
             </Key>
             <Key ID="STR_AMAE_REVIVE_PLAYER">
                 <Original>Player '%1' will be revived.</Original>
                 <English>Player '%1' will be revived.</English>
                 <German>Der Spieler '%1' wird wiederbelebt.</German>
             </Key>
-            <Key ID="STR_AMAE_NO_PLAYER_UNCONSIOUS">
-                <Original>No player is unconsious.</Original>
-                <English>No player is unconsious.</English>
-                <German>Kein Spieler ist bewusstlos.</German>
+            <Key ID="STR_AMAE_NO_PLAYER_UNCONSCIOUS">
+                <Original>No player is unconscious</Original>
+                <English>No player is unconscious</English>
+                <German>Kein Spieler ist bewusstlos</German>
             </Key>
-            <Key ID="STR_AMAE_REVIE_INVALID_SELECTION">
+            <Key ID="STR_AMAE_REVIVE_INVALID_SELECTION">
                 <Original>Neither an unconscious player nor an AI was selected.</Original>
                 <English>Neither an unconscious player nor an AI was selected.</English>
                 <German>Weder ein Spieler noch eine AI wurde ausgewählt!</German>
             </Key>
-            <Key ID="STR_AMAE_REVIE_NO_NEAR_UNITS">
+            <Key ID="STR_AMAE_REVIVE_NO_NEAR_UNITS">
                 <Original>No units to perform revive nearby.</Original>
                 <English>No units to perform revive nearby.</English>
                 <German>In der Nähe befinden sich keine Einheiten, die wiederbeleben könnten.</German>
