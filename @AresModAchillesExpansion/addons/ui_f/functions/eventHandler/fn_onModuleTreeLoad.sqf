@@ -98,7 +98,8 @@ if (count Achilles_var_excludedFactions > 0 or Achilles_var_moduleTreeCollapse) 
 			if (format ["%1%2", _factionName, _forEachIndex] in Achilles_var_excludedFactions) then
 			{
 				_treeCtrl tvDelete _path;
-			} else
+			}
+			else
 			{
 				if (Achilles_var_moduleTreeCollapse) then
 				{
@@ -140,7 +141,8 @@ if (Achilles_var_moduleTreeCollapse) then
 		if (format ["%1%2", _factionName, _forEachIndex] in Achilles_var_excludedFactions) then
 		{
 			_treeCtrl tvDelete _path;
-		} else
+		}
+		else
 		{
 			_treeCtrl tvCollapse _path;
 		};
@@ -187,3 +189,67 @@ if (Achilles_var_moduleTreeDLC) then
 		};
 	};
 };
+
+// Asset previews for objects
+[_display] spawn
+{
+	params ["_display"];
+	{
+		private _treeCtrl = _display displayCtrl _x;
+
+		// Loop through tree levels - e.g. NATO
+		for "_i" from 0 to ((_treeCtrl tvCount [0]) - 1) do
+		{
+			// e.g. Men
+			for "_j" from 0 to ((_treeCtrl tvCount [_i]) - 1) do
+			{
+				// e.g. Rifleman
+				for "_k" from 0 to ((_treeCtrl tvCount [_i, _j]) - 1) do
+				{
+					private _path = [_i, _j, _k];
+
+					private _objectClassName = _treeCtrl tvData _path;
+					private _editorPreviewPath = [(configFile >> "CfgVehicles" >> _objectClassName), "editorPreview", ""] call BIS_fnc_returnConfigEntry;
+
+					if (_editorPreviewPath != "") then
+					{
+						_treeCtrl tvSetPictureRight [_path, _editorPreviewPath];
+					};
+				};
+			};
+		};
+	} forEach [
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV,
+		IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY
+	];
+};
+
+/*private _editorPreviewCtrl = _display ctrlCreate ["RscPictureKeepAspect", -1];
+
+{
+	private _treeCtrl = _display displayCtrl _x;
+
+	// TODO: Event handler always fails to attach
+	private _someNumber = _treeCtrl ctrlAddEventHandler ["onTreeMouseHold", {
+		params ["_ctrl"];
+
+		private _objectClassName = _ctrl tvData [0,0,0];
+		private _editorPreviewPath = [(configFile >> "CfgVehicles" >> _objectClassName), "editorPreview", ""] call BIS_fnc_returnConfigEntry;
+
+		if (_editorPreviewPath != "") then
+		{
+			_editorPreviewCtrl ctrlSetText _editorPreviewPath;
+		};
+	}];
+
+	diag_log _someNumber;
+} forEach [
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_WEST,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EAST,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_GUER,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_CIV,
+	IDC_RSCDISPLAYCURATOR_CREATE_UNITS_EMPTY
+];*/
