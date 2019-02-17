@@ -61,7 +61,7 @@ private _fnc_getDamageType = switch (_distMode) do
 				if (count _other > 0) then
 				{
 					{
-						[_building, [_x,1,_doSimulate]] remoteExecCall ["setHitIndex", 0];
+						[_building, [_x, 1, _doSimulate]] remoteExecCall ["setHitIndex", 0];
 					} forEach _other;
 				};
 				private _counter = count _hitzones;
@@ -71,7 +71,7 @@ private _fnc_getDamageType = switch (_distMode) do
 					for "_i" from 1 to _extendCount do
 					{
 						private _hitzone = selectRandom _hitzones;
-						[_building,  [_hitzone,1,_doSimulate]] remoteExecCall ["setHitIndex", 0];
+						[_building,  [_hitzone, 1, _doSimulate]] remoteExecCall ["setHitIndex", 0];
 						_hitzones = _hitzones - [_hitzone];
 					};
 				};
