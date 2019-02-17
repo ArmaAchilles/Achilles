@@ -15,11 +15,11 @@
 		_doSimulate		- <BOOL> If false, then destruction transition effects are disabled
 	
 	Returns:
-		None
+		Nothing
 	
 	Examples:
 		(begin example)
-		[_buildings, 2, 2] call Achilles_fnc_damageBuildings;
+			[_buildings, 2, 2] call Achilles_fnc_damageBuildings;
 		(end)
 */
 params
@@ -33,7 +33,8 @@ params
 private _fnc_getDamageType = switch (_distMode) do
 {
 	case 0: {compile (str _meanMode)};
-	case 1: {{round (random 3)}};
+	case 1: {round (random 3)};
+	// Normally distributes mean damage for buildings
 	case 2: {compile ("round (random [0," + (str _meanMode) + ",3])")};
 };
 
