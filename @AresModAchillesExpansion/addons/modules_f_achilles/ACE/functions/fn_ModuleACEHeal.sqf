@@ -66,7 +66,7 @@ if (!isNil "FAR_ReviveMode") exitWith
 		[localize "STR_AMAE_REVIVE_FEW_SECONDS"] call Ares_fnc_ShowZeusMessage;
 	} else
 	{
-		["Healed"] call Ares_fnc_ShowZeusMessage;
+		[localize "STR_AMAE_HEALED"] call Ares_fnc_ShowZeusMessage;
 	};
 
 	{
