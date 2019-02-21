@@ -9,7 +9,7 @@
 #include "\a3\functions_f_mp_mark\revive\defines.inc"
 
 // Command an AI (second parameter) to revive a player (first parameter).
-private _revive = {
+private _fnc_reviveUnit = {
 	params ["_player", "_ai"];
 
 	// Let Zeus know what will happen
@@ -104,7 +104,7 @@ if (isPlayer _object || isPlayer driver _object) exitWith
 	};
 
 	// spawn off movement and revive action
-	[driver _object, driver (_nearestUnits select _sameSideUnitIndex)] spawn _revive;
+	[driver _object, driver (_nearestUnits select _sameSideUnitIndex)] spawn _fnc_reviveUnit;
 };
 
 // Make sure we use a unit. Vehicles support kicks in later.
@@ -122,7 +122,7 @@ if (!isNull _object) exitWith
 	if (isNil "_nearestPlayer") exitWith { [localize "STR_AMAE_NO_PLAYER_UNCONSCIOUS"] call Achilles_fnc_ShowZeusErrorMessage; };
 
 	// spawn off movement and revive action
-	[_nearestPlayer, _object] spawn _revive;
+	[_nearestPlayer, _object] spawn _fnc_reviveUnit;
 };
 
 [localize "STR_AMAE_REVIVE_INVALID_SELECTION"] call Achilles_fnc_ShowZeusErrorMessage;
