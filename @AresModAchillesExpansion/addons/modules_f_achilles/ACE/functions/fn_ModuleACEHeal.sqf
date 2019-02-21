@@ -39,7 +39,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
 		} else
 		{
-			[_x, _x] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]
+			[_x, _x] remoteExecCall ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]
 		};
 	} forEach _selected_units;
 };

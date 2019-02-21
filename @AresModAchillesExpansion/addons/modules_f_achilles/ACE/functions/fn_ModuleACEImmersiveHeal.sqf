@@ -59,7 +59,7 @@ private _revive = {
 			[_player, _player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
 		} else
 		{
-			[_player, _player] remoteExec ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _player]
+			[_player, _player] remoteExecCall ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _player]
 		};
 	};
 
