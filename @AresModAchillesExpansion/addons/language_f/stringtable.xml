@@ -627,6 +627,11 @@
                 <Chinesesimp>治疗</Chinesesimp>
                 <Chinese>治療</Chinese>
             </Key>
+            <Key ID="STR_AMAE_HEALED">
+                <Original>Healed</Original>
+                <English>Healed</English>
+                <German>Geheilt</German>
+            </Key>
             <Key ID="STR_AMAE_IMMERSIVE_HEAL">
                 <Original>Immersive Heal</Original>
                 <English>Immersive Heal</English>

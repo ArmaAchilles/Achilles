@@ -22,7 +22,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 {
 	if (_isSingleSelection) then
 	{
-		["Healed"] call Ares_fnc_ShowZeusMessage;
+		[localize "STR_AMAE_HEALED"] call Ares_fnc_ShowZeusMessage;
 		_selected_units = [_unit];
 	} else
 	{
@@ -85,7 +85,7 @@ if (!isNil "FAR_ReviveMode") exitWith
 
 if (_isSingleSelection) then
 {
-	["Healed"] call Ares_fnc_ShowZeusMessage;
+	[localize "STR_AMAE_HEALED"] call Ares_fnc_ShowZeusMessage;
 	_selected_units = [_unit];
 } else
 {
