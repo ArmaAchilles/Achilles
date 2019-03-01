@@ -78,8 +78,8 @@ if (isNil "Achilles_var_surrender_units_init_done") then
 			[
 				[localize "STR_AMAE_AMBIENT_ANIMATION", [localize "STR_AMAE_SURRENDER_UNIT", localize "STR_AMAE_TIE_UNIT"]],
 				[localize "STR_AMAE_INTERACTION", [localize "STR_AMAE_RELEASE_N_LEAD_UNIT", localize "STR_AMAE_RELEASE_UNIT", localize "STR_AMAE_TIE_UNIT"]],
-				["Disarm Unit", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"], 1],
-				["Release Side", "SIDE", ([side _unit] call BIS_fnc_sideID) + 1]
+				[localize "STR_AMAE_DISARM_UNIT", [localize "STR_AMAE_YES", localize "STR_AMAE_NO"]],
+				[localize "STR_AMAE_RELEASE_SIDE", "SIDE", ([side _unit] call BIS_fnc_sideID) + 1]
 			]
 		] call Ares_fnc_ShowChooseDialog;
 
