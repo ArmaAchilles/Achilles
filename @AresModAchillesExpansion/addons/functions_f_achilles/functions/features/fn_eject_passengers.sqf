@@ -27,11 +27,13 @@ params ["_vehicles"];
 			if (local _unit) then
 			{
 				[_unit, _forEachIndex] spawn Achilles_fnc_chute;
-			} else
+			}
+			else
 			{
 				[_unit, _forEachIndex] remoteExec ["Achilles_fnc_chute", _unit];
 			};
-		} else
+		}
+		else
 		{
 			if (isPlayer _unit) then
 			{
@@ -39,18 +41,21 @@ params ["_vehicles"];
 				{
 					unassignVehicle _unit;
 					_unit action ["Eject", vehicle _unit];
-				} else
+				}
+				else
 				{
 					_unit remoteExecCall ["unassignVehicle", _unit];
 					[_unit, ["Eject", vehicle _unit]] remoteExecCall ["action", _unit];
 				};
-			} else
+			}
+			else
 			{
 				if (local _unit) then
 				{
 					unassignVehicle _unit;
 					_unit action ["Eject", vehicle _unit];
-				} else
+				}
+				else
 				{
 					_unit remoteExecCall ["unassignVehicle", _unit];
 					[[_unit], false] remoteExecCall ["orderGetIn", _unit];
@@ -58,9 +63,14 @@ params ["_vehicles"];
 			};
 		};
 	} forEach _passenger;
-	if ((getPos _vehicle select 2) > 40) then {[_vehicle] remoteExec ["rhs_fnc_vehPara",_vehicle]};
-	if (not (getVehicleCargo _vehicle isEqualTo [])) then
+
+	if ((getPos _vehicle select 2) > 40) then
+	{
+		[_vehicle] remoteExec ["rhs_fnc_vehPara",_vehicle];
+	};
+
+	if (! (getVehicleCargo _vehicle isEqualTo [])) then
 	{
 		_vehicle setVehicleCargo objNull;
 	};
-} forEach (_vehicles select {_x isKindOf "LandVehicle" or _x isKindOf "Air"});
+} forEach (_vehicles select {_x isKindOf "LandVehicle" || _x isKindOf "Air"});
