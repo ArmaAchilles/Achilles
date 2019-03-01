@@ -122,6 +122,7 @@ class CfgFunctions
 			class advancedPlaneCAS;
 			class advancedHeliCAS;
 			class advancedBlackfishCAS;
+			class surrenderUnit;
 		};
 	};
 
