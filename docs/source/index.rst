@@ -43,6 +43,42 @@ Are you looking to create a new world of experiences for your multiplayer missio
    :maxdepth: 2
    :caption: User Documentation
 
-   features
-   support
-   faq
+   user/features
+   user/support
+   user/faq
+
+.. _feature-docs:
+
+.. toctree::
+    :maxdepth: 2
+    :glob:
+    :caption: Feature Documentation
+
+    features/modules
+    features/attribute-windows
+    features/waypoints
+    features/hotkeys
+    features/customizations
+    features/ui-changes
+
+.. _dev-docs:
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Developer Documentation
+
+    development/changelog
+    development/install
+    development/architecture
+    development/docs
+    development/code-guidelines
+
+.. _about-docs:
+
+.. toctree::
+    :maxdepth: 1
+    :caption: About Achilles
+
+    about/contribute
+    about/roadmap
+    about/team
