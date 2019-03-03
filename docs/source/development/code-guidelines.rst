@@ -20,12 +20,12 @@ Global variables may not contain the :code:`fnc_` prefix if the value is not cal
 
 Example: :code:`achilles_component_myVariableName`
 
-*For Achilles this is done automatically through the usage of the* :code:`GVAR` *macro family.*
+*For Achilles, this is done automatically through the usage of the* :code:`GVAR` *macro family.*
 
 1.1.2. Private variable naming
 """"""""""""""""""""""""""""""
 
-To make code as readable as possible, try to use self-explanatory variable names and avoid using single character variable names.
+To make the code as readable as possible, try to use self-explanatory variable names and avoid using single character variable names.
 
 Example: :code:`_velocity` instead of :code:`_v`
 
@@ -36,7 +36,7 @@ All functions shall use Achilles and the component name as a prefix, as well as 
 
 Example: :code:`PREFIX_COMPONENT_fnc_functionName`
 
-*For Achilles this is done automatically through the usage of the* :code:`PREP` *macro.*
+*For Achilles, this is done automatically through the usage of the* :code:`PREP` *macro.*
 
 1.1.4. Name case
 """""""""""""""""""""""""
@@ -89,13 +89,13 @@ Add in :code:`Achilles_Settings.hpp`:
         // Content
     };
 
-1.3. Stringtable
+1.3. String table
 ^^^^^^^^^^^^^^^^
 
 All text that shall be displayed to a user shall be defined in a :code:`stringtable.xml` file for multi-language support.
 
-- There shall be no empty stringtable language values.
-- All stringtables shall follow the format as a specified by `Tabler <https://github.com/bux/tabler>`_ and the `translation guidelines <localization.html>`_ form.
+- There shall be no empty string table language values.
+- All string tables shall follow the format as specified by `Tabler <https://github.com/bux/tabler>`_ and the `translation guidelines <localization.html>`_ form.
 
 2. Macro usage
 --------------
@@ -261,7 +261,7 @@ They shall then be indexed via the :code:`PREP(functionName)` macro in the :code
 The :code:`PREP` macro allows for CBA function caching, which drastically speeds up load times.
 
 .. note::
-    Beware through that function caching is enabled by default and as such to disable it you need to :code:`#define DISABLE_COMPILE_CACHE` above your :code:`#include "script_components.hpp"` include.
+    Beware though that function caching is enabled by default and as such to disable it you need to :code:`#define DISABLE_COMPILE_CACHE` above your :code:`#include "script_components.hpp"` include.
 
 3.1. Headers
 ^^^^^^^^^^^^
@@ -304,7 +304,7 @@ All scripts written must be below this include and any potential additional incl
 3.2.1. Reasoning
 """"""""""""""""
 
-This ensures every function starts of in an unfirom way and enforces function documentation.
+This ensures every function starts off in a uniform way and enforces function documentation.
 
 4. Global variables
 -------------------
@@ -314,7 +314,7 @@ All global variables are defined in the :code:`XEH_preInit.sqf` file of the comp
 .. note::
     Exceptions:
         - Dynamically generated global variables.
-        - Variables that do not origin from Achilles, such as BI global variables or third party such as CBA.
+        - Variables that do not origin from Achilles, such as BI global variables or a third party such as CBA.
 
 5. Code style
 -------------
@@ -331,8 +331,8 @@ It will help with correct indentations and deleting trailing spaces.
 Curly brackets (:code:`{ }`) which enclose a code block will have the first bracket placed a line below the statement in case of :code:`if`, :code:`switch` statements or :code:`while`, :code:`waitUntil` and :code:`for` loops.
 The second brace will be placed on the same column as the statement and on a separate line.
 
-- **Opening brace in own line**, same level of identation as keyword.
-- Closing brace in own line, same level of identation as keyword.
+- **Opening brace in own line**, the same level of indentation as the keyword.
+- Closing brace in own line, the same level of indentation as the keyword.
 
 **Correct:**
 ::
@@ -380,7 +380,7 @@ When using :code:`if`/:code:`else`, it is recommended to put :code:`else` on a n
 5.1.2. Reasoning
 """"""""""""""""
 
-Putting the opening brace on a new line improves readability, even more if it's nested in various levels.
+Putting the opening brace on a new line improves readability, even more, if it's nested in various levels.
 However, it trades code space for better readability which we consider to be a better trade-off.
 
 5.2. Indents
@@ -391,7 +391,7 @@ However, it trades code space for better readability which we consider to be a b
 
 Every new scope should be on a new indent.
 This will make the code easier to understand and read.
-Spaces are not allowed to trial on a line, last character needs to be non-blank.
+Spaces are not allowed to trail on a line, the last character needs to be non-blank.
 
 **Correct:**
 ::
@@ -436,7 +436,7 @@ Example:
 .. note::
     All code shall be documented by comments that describe what is being done.
 
-This can be doone through the function header and/or inline comments.
+This can be done through the function header and/or inline comments.
 
 Comments within the code shall be used when they are describing a complex and critical section of code or if the subject code does something a certain way because of a specific reason.
 Unnecessary comments in the code are not allowed.
@@ -510,7 +510,7 @@ Example:
 
     if (! _myVariable) then { };
 
-This does not affect the comparision operator:
+This does not affect the comparison operator:
 ::
     
     if (_myVariable != _myOtherVariable) then { };
@@ -542,7 +542,7 @@ There shall be no unreachable code.
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Parameters of functions must be retrieved through the user of :code:`param` or :code:`params` commands.
-If the function is part of the public API, parameters must be checked on allowed data types and values through the usage of above mentioned commands.
+If the function is part of the public API, parameters must be checked on allowed data types and values through the usage of above-mentioned commands.
 
 Usage of the CBA macro :code:`PARAM_x` or :code:`BIS_fnc_param` is deprecated and not allowed within Achilles.
 
@@ -555,8 +555,8 @@ If it has no meaningful return value, then the function should return :code:`nil
 6.5. Private variables
 ^^^^^^^^^^^^^^^^^^^^^^
 
-All private variables shall make use of the :code:`private` keyword on initalization.
-When declaring a private variable before initalization, usage of the :code:`private ARRAY` syntax is allowed.
+All private variables shall make use of the :code:`private` keyword on initialization.
+When declaring a private variable before initialization, usage of the :code:`private ARRAY` syntax is allowed.
 
 Exceptions to this rule are variables obtained from an array, which shall be done with the usage of the :code:`params` command family, which ensures the variable is declared as private.
 
@@ -625,10 +625,10 @@ Declarations should be at the smallest feasible scope.
         };
     };
 
-6.8. Variable initalization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6.8. Variable initialization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Private variables will not be introduced until they can be initalized with meaningful values.
+Private variables will not be introduced until they can be initialized with meaningful values.
 
 **Correct:**
 ::
@@ -663,7 +663,7 @@ Private variables will not be introduced until they can be initalized with meani
 6.9. Initialization expression in :code:`for` loops
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The initialization expression in a :code:`for` loop shall perform no actions other than to initalize the value of a single :code:`for` loop parameter.
+The initialize expression in a :code:`for` loop shall perform no actions other than to initalize the value of a single :code:`for` loop parameter.
 
 6.10. Increment expression in :code:`for` loops
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -749,7 +749,7 @@ Constant private variables that are used more than once shall be put in a :code:
 6.18. Code used more than once
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Any piece of code that could/is used more than once, shall be put in a function and it's separate :code:`.sqf` file, unless this code is less as 5 lines and used only in a `per-frame handler <waitUntil_>`_.
+Any piece of code that could/is used more than once, shall be put in a function and it's separate :code:`.sqf` file unless this code is less as 5 lines and used only in a `per-frame handler <waitUntil_>`_.
 
 7. Design considerations
 ------------------------
@@ -757,12 +757,12 @@ Any piece of code that could/is used more than once, shall be put in a function 
 7.1. Readability vs performance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a open source project that will have different maintainers over its lifespan.
+This is an open source project that will have different maintainers over its lifespan.
 When writing code, keep in mind that other developers will also need to understand your code.
 Balancing readability and performance is a non-black and white subject.
 
 The rule of thumb is:
-    - When improving performance of code that sacrifices readability (or vice-versa), first see if the design of the implementation is done in the best way possible.
+    - When improving the performance of code that sacrifices readability (or vice-versa), first see if the design of the implementation is done in the best way possible.
     - Document that change with the reasoning in the code.
 
 7.2. Scheduled vs unscheduled
@@ -773,14 +773,14 @@ The rule of thumb is:
 
 
 This is to provide a smooth experience to the user by guaranteeing code to run when we want it.
-See `Performance condsiderations, spawn and execVM <avoid-spawn-exec_>`_ for more information.
+See `Performance considerations, spawn and execVM <avoid-spawn-exec_>`_ for more information.
 
 This also helps avoid various bugs as a result of unguaranteed execution sequences when running multiple scripts.
 
-7.3. Event driven
+7.3. Event-driven
 ^^^^^^^^^^^^^^^^^
 
-All Achilles components shall be implemented in a event driven fashion.
+All Achilles components shall be implemented in an event-driven fashion.
 This is done to ensure code only runs when it is required and allows for modularity through low coupling components.
 
 Event handlers in Achilles are implemented through the CBA event system.
@@ -799,7 +799,7 @@ More information on the `CBA events system <https://github.com/CBATeam/CBA_A3/wi
 7.4. Hashes
 ^^^^^^^^^^^
 
-When a key value pair is required, make use of the hash implementation from Achilles.
+When a key-value pair is required, make use of the hash implementation from Achilles.
 
 Hashes are a variable type that store key value pairs.
 They are not implemented natively in SQF, so there are a number of macros and functions for their usage in Achilles.
@@ -820,7 +820,7 @@ The following example is a simple usage using our macros which will be explained
 
     if (HASH_HASKEY(_hash,"key")) then
     {
-        // this will never execute because we removed the hash key/val pair "key"
+        // this will never execute because we removed the hash key/value pair "key"
     };
 
 A description of the above macros is below.
@@ -839,14 +839,14 @@ A description of the above macros is below.
 | :code:`HASH_REM(hash,key)`     | Will remove that hash key.                                                |
 +--------------------------------+---------------------------------------------------------------------------+
 
-7.4.1. Hashlists
-""""""""""""""""
+7.4.1. Hash lists
+"""""""""""""""""
 
-A hashlist is an extension of a hash.
+A hash list is an extension of a hash.
 It is a list of hashes!
 
-The reason for having this special type of storage container rather than using a normal array is that an array of normal hashes that are similar, will duplicate a large amount of data in their storage of keys.
-A hashlist on the other hand, uses a common list of keys and an array of unique value containers.
+The reason for having this special type of storage container rather than using a normal array is that an array of normal hashes that are similar will duplicate a large amount of data in their storage of keys.
+A hash list, on the other hand, uses a common list of keys and an array of unique value containers.
 
 The following will demonstrate their usage.
 ::
@@ -876,25 +876,25 @@ The following will demonstrate their usage.
     //set a new key using the standard HASH_SET macro
     HASH_SET(_anotherHash,"anotherKey","another value");
 
-As you can see above, working with hashlists is fairly simple, a more in depth explanation of the macros is below.
+As you can see above, working with hash lists is fairly simple, a more in-depth explanation of the macros is below.
 
-+-------------------------------------------+-----------------------------------------------------------------------------------+
-| Macros                                    | Usage                                                                             |
-+===========================================+===================================================================================+
-| :code:`HASHLIST_CREATELIST(keys)`         | Creats a new hashlist with the default keys, pass :code:`[]` for no default keys. |
-+-------------------------------------------+-----------------------------------------------------------------------------------+
-| :code:`HASHLIST_CREATEHASH(hashlist)`     | Returns a blank hash template from a hashlist.                                    |
-+-------------------------------------------+-----------------------------------------------------------------------------------+
-| :code:`HASHLIST_PUSH(hashlist,hash)`      | Pushes a new hash into the end of the list.                                       |
-+-------------------------------------------+-----------------------------------------------------------------------------------+
-| :code:`HASHLIST_SELECT(hashlist,index)`   | Returns the hash at that index in the list.                                       |
-+-------------------------------------------+-----------------------------------------------------------------------------------+
-| :code:`HASHLIST_SET(hashlist,index,hash)` | Sets a specific index to that hash.                                               |
-+-------------------------------------------+-----------------------------------------------------------------------------------+
++-------------------------------------------+-------------------------------------------------------------------------------------+
+| Macros                                    | Usage                                                                               |
++===========================================+=====================================================================================+
+| :code:`HASHLIST_CREATELIST(keys)`         | Creates a new hash list with the default keys, pass :code:`[]` for no default keys. |
++-------------------------------------------+-------------------------------------------------------------------------------------+
+| :code:`HASHLIST_CREATEHASH(hashlist)`     | Returns a blank hash template from a hash list.                                     |
++-------------------------------------------+-------------------------------------------------------------------------------------+
+| :code:`HASHLIST_PUSH(hashlist,hash)`      | Pushes a new hash into the end of the list.                                         |
++-------------------------------------------+-------------------------------------------------------------------------------------+
+| :code:`HASHLIST_SELECT(hashlist,index)`   | Returns the hash at that index in the list.                                         |
++-------------------------------------------+-------------------------------------------------------------------------------------+
+| :code:`HASHLIST_SET(hashlist,index,hash)` | Sets a specific index to that hash.                                                 |
++-------------------------------------------+-------------------------------------------------------------------------------------+
 
 .. note::
-    Hashes and hashlists are implemented with SQF arrays, and as such, they are passed by reference to other functions.
-    Remember to make copies (using the :code:`+` operator) if you intend for the hash or hashlist to be modified with out the need for changing the original value.
+    Hashes and hash lists are implemented with SQF arrays, and as such, they are passed by reference to other functions.
+    Remember to make copies (using the :code:`+` operator) if you intend for the hash or hash list to be modified without the need for changing the original value.
 
 8. Performance considerations
 -----------------------------
@@ -935,7 +935,7 @@ When adding multiple elements to an array, the binary addition may be used for t
 
 :code:`createVehicle(local)` used with a non-:code:`[0, 0, 0]` position shall be used, except on :code:`#` objects (e.g. :code:`#lightsource`, :code:`#soundsource`) where empty position search is not performed.
 
-This code requires :math:`\approx 1.00` ms and will be higher with more objects near wanted position:
+This code requires :math:`\approx 1.00` ms and will be higher with more objects near the wanted position:
 ::
 
     _vehicle = _type createVehicleLocal _posATL;
@@ -982,7 +982,7 @@ whenever possible.
 8.8. :code:`while` loops
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-While is only allowed when used to preform a unknown finite amount of steps with unknown or variable increments.
+While is only allowed when used to perform an unknown finite amount of steps with unknown or variable increments.
 Infinite :code:`while` loops are not allowed.
 
 **Correct:**

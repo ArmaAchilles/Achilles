@@ -20,7 +20,7 @@ Lots of customizability
     Using the powerful CBA settings framework, we provide stunning amounts of customizability for the Zeus interface to tailor it to just you.
 
 Tried and tested
-    As Achilles grew from Ares in 2016, it has accumulated over 250 000 unique downloads and come to a more and more polished product that has recieved many transformations over the years to make it even more splendid.
+    As Achilles grew from Ares in 2016, it has accumulated over 250 000 unique downloads and come to a more and more polished product that has received many transformations over the years to make it even more splendid.
 
 Open source
     Achilles is open source and has been so from the earliest of days. We are actively supporting the introduction of new contributions.
