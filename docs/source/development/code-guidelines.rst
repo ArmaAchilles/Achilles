@@ -319,7 +319,7 @@ All global variables are defined in the :code:`XEH_preInit.sqf` file of the comp
 5. Code style
 -------------
 
-To help with some parts of the coding style we commend you get the plugin `EditorConfig <https://editorconfig.org/#download>`_ for your editor.
+To help with some parts of the coding style we recommend you get the plugin `EditorConfig <https://editorconfig.org/#download>`_ for your editor.
 It will help with correct indentations and deleting trailing spaces.
 
 5.1. Curly bracket placement
