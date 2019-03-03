@@ -161,7 +161,7 @@ To do this the :code:`FUNC` macros in debug mode will expand out to include meta
 This functionality is automatic with the use of calls via :code:`FUNC` and :code:`EFUNC`, but any calls to other functions need to use the following macros.
 
 +------------------------------------------------+------------------------------------------------------------------------------+
-| Macros                                         | Expands to                                                                   |
+| Macros                                         | Example                                                                      |
 +================================================+==============================================================================+
 | :code:`CALLSTACK(functionName)`                | :code:`[] call CALLSTACK(cba_fnc_someFunction)`                              |
 +------------------------------------------------+------------------------------------------------------------------------------+
