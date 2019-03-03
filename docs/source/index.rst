@@ -4,6 +4,11 @@ Achilles: Zeus on Steroids
 .. warning::
     The current documentation is still a work-in-progress and does not reflect the current release version of Achilles.
 
+.. image:: logo.png
+    :width: 140px
+    :align: center
+    :alt: Achilles Logo
+
 `Achilles <https://github.com/ArmaAchilles/Achilles>`_ is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
 
 Achilles started as an expansion to `Ares <https://github.com/astruyk/Ares>`_ mod, which was created by `Anton Struyk <https://github.com/astruyk>`_. Achilles became the *de facto* successor to Ares at the point the latter was no longer updated. Achilles has already grown into a *splendid* project, but new additions are still to come!
@@ -72,6 +77,7 @@ Are you looking to create a new world of experiences for your multiplayer missio
     development/architecture
     development/docs
     development/code-guidelines
+    development/localization
 
 .. _about-docs:
 
