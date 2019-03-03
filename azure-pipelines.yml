@@ -1,0 +1,19 @@
+jobs:
+- job: 'Test'
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+      architecture: 'x64'
+
+  - script: python -m pip install --upgrade pip setuptools wheel
+    displayName: 'Install pip'
+
+  - script: pip install sphinx
+    displayName: 'Install Sphinx'
+
+  - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
+    displayName: 'Build documentation'
