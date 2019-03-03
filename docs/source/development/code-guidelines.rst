@@ -90,7 +90,7 @@ Add in :code:`Achilles_Settings.hpp`:
     };
 
 1.3. String table
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 All text that shall be displayed to a user shall be defined in a :code:`stringtable.xml` file for multi-language support.
 
