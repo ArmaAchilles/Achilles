@@ -3,7 +3,7 @@ Creating documentation
 
 .. contents::
 
-To get started with contributing to the Achilles Lexicon, we have to do some first steps in case you don't have the tools.
+To get started with contributing to the Achilles Lexicon, we have to do some first steps in case you don't have the tools or if you do, then you can jump right in, but before so, get acquainted with the guidelines we follow.
 
 1. Installation
 ---------------
@@ -43,6 +43,9 @@ To install Sphinx open Git Bash and run the following command:
 ::
 
     pip install sphinx
+
+.. tip::
+    If running the above command, you experience and error: try running Git Bash as administrator.
 
 1.4. Make
 ^^^^^^^^^
@@ -136,8 +139,88 @@ If documentation was built without warnings and errors, then you can create a co
 
 Afterwards, go into GitHub and create a `pull request <https://help.github.com/en/articles/creating-a-pull-request-from-a-fork>`_.
 
-5. Restructured Text cheat sheet
---------------------------------
+5. Documentation guidelines
+---------------------------
+
+5.1. Table of contents
+^^^^^^^^^^^^^^^^^^^^^^
+
+Each page should have a table of contents, which is a restructured text directive called :code:`.. contents::`.
+
+5.2. Numbering system
+^^^^^^^^^^^^^^^^^^^^^
+
+All pages must contain numbered headings with the format: :code:`x.x.x.`.
 
 .. note::
-    Fill out this sub-section with rst examples and doc usage.
+    Note the last dot after all the numbers.
+
+The deepest level you can go into is 3 levels deep (:code:`x.x.x.`).
+
+.. highlight:: rst
+
+5.3. Headings
+^^^^^^^^^^^^^
+
+Headings are formatted as follows:
+::
+
+    Page title (section) (will be displayed in the left sidebar)
+    ============================================================
+
+    Typically, here you would insert the table of contents.
+
+    1. Subsection
+    -------------
+
+    This is a subsection.
+
+    1.1. Subsubsection
+    ^^^^^^^^^^^^^^^^^^
+
+    This is a subsubsection.
+
+    1.1.1. Paragraph
+    """"""""""""""""
+
+    This is a paragraph.
+
+    1.1.2. Another paragraph
+    """"""""""""""""""""""""
+
+    This is another paragraph.
+
+    2. Different subsection
+    -----------------------
+
+    This is a completely different subsection.
+
+
+.. warning::
+    Notation under headings are to be the exact length as the title, otherwise it is considered a error.
+
+5.5. Naming
+^^^^^^^^^^^
+
+All pages, sections, subsections, etc. are to have a meaningful name and should closely represent the actual content under the heading.
+
+Page titles should not start with numbers unless absolutely necessary.
+
+Headings should avoid using complicated names that would be difficult to understand by inexperienced users.
+
+Headings are to be short and concise without being overly long to prevent issues on mobile devices.
+
+Headings are to start with a capital letter but then follow **lowercase**.
+
+.. note::
+    In case there is an acronym (should be avoided), a name or anything else that should start with a capital letter, then it is to be considered an exception to the naming rule above. 
+
+5.5. Images
+^^^^^^^^^^^
+
+To declutter the directory structure, images should be in separate directories, where only images are stored for only one page.
+
+6. Restructured text cheat sheet
+--------------------------------
+
+A useful and more comprehensive cheat sheet for restructured text can be found on `Thomas Cokelaer's <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.htm>`_ website.
