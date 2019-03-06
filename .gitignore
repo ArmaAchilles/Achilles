@@ -8,4 +8,3 @@ tools/*.yml
 *.bisign
 *.pbo
 *.log
-.hephaestus.json
