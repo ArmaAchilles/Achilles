@@ -1,17 +1,20 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// AUTHOR:			Kex, CreepPork_LV
-// DATE:			01/03/2019
-// VERSION:			1.3.0
-// DESCRIPTION:		changes side of group or unit locally
-//
-// ARGUMENTS:		0: GROUP|OBJECT - the group or unit that the side should be changed
-//					1: SIDE - the new side
-//
-// RETURNS:			nothing
-//
-// EXAMPLE:			[group player, west] call Achilles_fnc_changeSide_local;
-// EXAMPLE:			[player, west] call Achilles_fnc_changeSide_local;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+* Author: CreepPork_LV
+* Changes the side of a unit or a group to the specified side.
+*
+* Arguments:
+* 0: Object for which to change the side <OBJECT|GROUP>
+* 1: The side to change the object to <SIDE> (default: east)
+*
+* Return Value:
+* Nothing
+*
+* Example:
+* [group player, west] call Achilles_fnc_changeSide_local
+* [player, west] call Achilles_fnc_changeSide_local
+*
+* Public: Yes
+*/
 
 params
 [
@@ -22,10 +25,8 @@ params
 // Handle groups
 if (_objectToChangeSide isEqualType grpNull) then
 {
-	private _groupLeader = leader _objectToChangeSide;
-
 	// Exit if the requested side is equal
-	if (side _groupLeader == _newSide) exitWith {};
+	if (side _objectToChangeSide == _newSide) exitWith {};
 
 	private _newGroup = createGroup _newSide;
 	(units _objectToChangeSide) joinSilent _newGroup;
