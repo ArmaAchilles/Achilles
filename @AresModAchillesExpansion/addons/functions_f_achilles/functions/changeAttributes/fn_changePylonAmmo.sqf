@@ -23,7 +23,7 @@ if (!isClass (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "Tran
 
 private _hasGunner = !(fullCrew [_plane, "gunner", true] isEqualTo []);
 private _allCurrentPylonMagazines = getPylonMagazines _plane;
-private _pylonCfgs = configProperties [configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent" >> "pylons", "isClass _x"];
+private _pylonCfgs = (configFile >> "cfgVehicles" >> _planeType >> "Components" >> "TransportPylonsComponent" >> "pylons") call Achilles_fnc_returnChildren;
 private _entries = [];
 private _addWeaponsTo = [];
 if (_hasGunner) then
