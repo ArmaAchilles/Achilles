@@ -15,8 +15,10 @@ params ["_vehicle"];
 
 private _flags = [[], []]; // [["Flag Display Name"], ["Flag File Path"]]
 
-(_flags select 0) pushBack (localize "STR_AMAE_NO_FLAG");
-(_flags select 1) pushBack "";
+_flags params ["_flagDisplayNames", "_flagFilePaths"];
+
+_flagDisplayNames pushBack (localize "STR_AMAE_NO_FLAG");
+_flagFilePaths pushBack "";
 
 {
 	private _displayName = getText (_x >> "displayName");
@@ -25,14 +27,37 @@ private _flags = [[], []]; // [["Flag Display Name"], ["Flag File Path"]]
 		private _eventHandlerInit = getText (_x >> "EventHandlers" >> "init");
 		if (_eventHandlerInit != "") then
 		{
-			(_flags select 0) pushBack _displayName; // Display Name
+			private _splitedString = _eventHandlerInit splitString "'''";
 
-			(_flags select 1) pushBack toLower ((_eventHandlerInit splitString "'''") select 1); // File path
+			// In case the config entry uses different escaping quotes (uses single quotes)
+			if (count _splitedString == 2) then
+			{
+				private _filePath = _splitedString select 1;
+
+				_flagDisplayNames pushBack _displayName;
+
+				_flagFilePaths pushBack (toLower _filePath);
+			};
+			
+			// In case uses dobule quotes not single
+			if (count _splitedString == 1) then
+			{
+				_splitedString = _eventHandlerInit splitString """";
+
+				if (count _splitedString == 2) then
+				{
+					private _filePath = _splitedString select 1;
+
+					_flagDisplayNames pushBack _displayName;
+					
+					_flagFilePaths pushBack (toLower _filePath);
+				};
+			};
 		};
 	};
 } forEach ("(str _x find 'Flag') >= 0" configClasses (configFile >> "CfgVehicles"));
 
-private _defaultIdx = (_flags select 1) find (["\", getForcedFlagTexture _vehicle] joinString "");
+private _defaultIdx = _flagFilePaths find (["\", getForcedFlagTexture _vehicle] joinString "");
 if (_defaultIdx isEqualTo -1) then {_defaultIdx = 0};
 
 private _controls = [];
@@ -50,10 +75,10 @@ private _dialogResult =
 if (_dialogResult isEqualTo []) exitWith {};
 
 _dialogResult params ["_flag", ["_plateText", -1, ["",0]]];
-_flag = (_flags select 1) select _flag;
+_flag = _flagFilePaths select _flag;
 
 // get all selected units of the same kind
-private _mode = if (_vehicle isKindOf "Man") then {"man"} else {"vehicle"};
+private _mode = ["vehicle", "man"] select (_vehicle isKindOf "Man");
 private _curatorSelected = [_mode] call Achilles_fnc_getCuratorSelected;
 {
 	_x forceFlagTexture "";
