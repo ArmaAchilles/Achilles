@@ -93,7 +93,7 @@ if (isNull _object) exitWith
 if (isPlayer _object || isPlayer driver _object) exitWith
 {
 	// find nearest units
-	private _nearestUnits = nearestObjects [_object, ["man", "landvehicle"], 500];
+	private _nearestUnits = nearestObjects [_object, ["man", "landvehicle"], 300];
 
 	// find closest AI unit of same side
 	private _sameSideUnitIndex = _nearestUnits findIf { side group _object isEqualTo side driver _x && !isPlayer driver _x };
