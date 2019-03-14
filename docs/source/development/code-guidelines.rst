@@ -2,7 +2,7 @@ Coding Guidelines
 =================
 
 .. note::
-    The coding guidelines are adopted from `ACE3 <https://ace3mod.com/wiki/development/coding-guidelines.html>`_ but are not completely equal. Warning messages indicate which portions have been changed to fit Achilles.
+    The coding guidelines are adopted from `ACE3 <https://ace3mod.com/wiki/development/coding-guidelines.html>`_ and Achilles follows ACE3 standards. However, this page should be used for actual code guidelines not ACE3.
 
 .. contents::
 
@@ -84,8 +84,7 @@ Example:
 Add in :code:`Achilles_Settings.hpp`:
 ::
 
-    class Achilles_Settings
-    {
+    class Achilles_Settings {
         // Content
     };
 
@@ -325,16 +324,23 @@ It will help with correct indentations and deleting trailing spaces.
 5.1. Curly bracket placement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. warning::
-    Brace placement is different from the ACE3 standard.
-
-Curly brackets (:code:`{ }`) which enclose a code block will have the first bracket placed a line below the statement in case of :code:`if`, :code:`switch` statements or :code:`while`, :code:`waitUntil` and :code:`for` loops.
+Curly brackets (:code:`{ }`) which enclose a code block will be the first bracket placed on the line behind the statement in case of :code:`if`, :code:`switch` statements or :code:`while`, :code:`waitUntil` and :code:`for` loops.
 The second brace will be placed on the same column as the statement and on a separate line.
 
-- **Opening brace in own line**, the same level of indentation as the keyword.
+- Opening brace on the same line.
 - Closing brace in own line, the same level of indentation as the keyword.
 
 **Correct:**
+::
+
+    class Something: Or {
+        class Other {
+            foo = "bar";
+        };
+    };
+    };
+
+**Incorrect:**
 ::
 
     class Something : Or
@@ -343,45 +349,29 @@ The second brace will be placed on the same column as the statement and on a sep
         {
             foo = "bar";
         };
-    };
 
 **Incorrect:**
 ::
 
-    class Something: Or {
+    class Something : Or {
         class Other {
-            foo = "bar";
-        };
-    };
-
-**Incorrect:**
-::
-
-    class Something : Or 
-    {
-        class Other 
-        {
             foo = "bar";
             };
         };
 
-When using :code:`if`/:code:`else`, it is recommended to put :code:`else` on a new line without any brackets:
+When using :code:`if`/:code:`else`, it is recommended to put :code:`else` on the same line as the closing brace to save space:
 ::
 
-    if (alive player) then
-    {
+    if (alive player) then {
         player setDamage 1;
-    }
-    else
-    {
+    } else {
         hint ":(";
     };
 
 5.1.2. Reasoning
 """"""""""""""""
 
-Putting the opening brace on a new line improves readability, even more, if it's nested in various levels.
-However, it trades code space for better readability which we consider to be a better trade-off.
+Putting the opening brace in its own line wastes a lot of space, and keeping the closing brace on the same level as the keyword makes it easier to recognize what exactly the brace closes.
 
 5.2. Indents
 ^^^^^^^^^^^^
@@ -398,8 +388,7 @@ Spaces are not allowed to trail on a line, the last character needs to be non-bl
 
     call {
         call {
-            if (/* condition */) then
-            {
+            if (/* condition */) then {
                 /* code */
             };
         };
@@ -589,19 +578,16 @@ Declarations should be at the smallest feasible scope.
 **Correct:**
 ::
 
-    if (call FUNC(myCondition)) then
-    {
+    if (call FUNC(myCondition)) then {
         private _areAllAboveTen = true; // <- smallest feasable scope
 
         {
-            if (_x >= 10) then
-            {
+            if (_x >= 10) then {
                 _areAllAboveTen = false;
             };
         } forEach _anArray;
 
-        if (_areAllAboveTen) then
-        {
+        if (_areAllAboveTen) then {
             hint "all values are above ten!";
         };
     };
@@ -610,17 +596,14 @@ Declarations should be at the smallest feasible scope.
 ::
 
     private _areAllAboveTen = true; // <- this is bad, because it can be initialized in the if statement
-    if (call FUNC(myCondition)) then
-    {
+    if (call FUNC(myCondition)) then {
         {
-            if (_x >= 10) then
-            {
+            if (_x >= 10) then {
                 _areAllAboveTen = false;
             };
         } forEach _anArray;
 
-        if (_areAllAboveTen) then
-        {
+        if (_areAllAboveTen) then {
             hint "all values are above ten!";
         };
     };
@@ -641,8 +624,7 @@ Private variables will not be introduced until they can be initialized with mean
     private _myVariable = 0; // good because the value will be used
     {
         _x params ["_value", "_amount"];
-        if (_value > 0) then
-        {
+        if (_value > 0) then {
             _myVariable = _myVariable + _amount;
         };
     } forEach _array;
@@ -651,12 +633,9 @@ Private variables will not be introduced until they can be initialized with mean
 ::
 
     private _myvariable = 0; // Bad because it is initialized with a zero, but this value does not mean anything
-    if (_condition) then
-    {
+    if (_condition) then {
         _myVariable = 1;
-    }
-    else
-    {
+    } else {
         _myvariable = 2;
     };
 
@@ -702,8 +681,7 @@ Use arguments instead.
 **Correct:**
 ::
 
-    fnc_example =
-    {
+    fnc_example = {
         params ["_content"];
         hint _content;
     };
@@ -713,8 +691,7 @@ Use arguments instead.
 **Incorrect:**
 ::
 
-    fnc_example =
-    {
+    fnc_example = {
         hint GVAR(myVariable);
     };
 
@@ -811,15 +788,13 @@ The following example is a simple usage using our macros which will be explained
     _hash = HASHCREATE;
     HASH_SET(_hash,"key","value");
 
-    if (HASH_HASKEY(_hash,"key")) then
-    {
+    if (HASH_HASKEY(_hash,"key")) then {
         player sideChat format ["val: %1", HASH_GET(_hash,"key"); // will print out "val: value"
     };
 
     HASH_REM(_hash,"key");
 
-    if (HASH_HASKEY(_hash,"key")) then
-    {
+    if (HASH_HASKEY(_hash,"key")) then {
         // this will never execute because we removed the hash key/value pair "key"
     };
 
@@ -935,13 +910,13 @@ When adding multiple elements to an array, the binary addition may be used for t
 
 :code:`createVehicle(local)` used with a non-:code:`[0, 0, 0]` position shall be used, except on :code:`#` objects (e.g. :code:`#lightsource`, :code:`#soundsource`) where empty position search is not performed.
 
-This code requires :math:`\approx 1.00` ms and will be higher with more objects near the wanted position:
+This code requires ~1.00 ms and will be higher with more objects near the wanted position:
 ::
 
     _vehicle = _type createVehicleLocal _posATL;
     _vehicle setPosATL _posATL;
 
-While this one requires :math:`\approx 0.04` ms:
+While this one requires ~0.04 ms:
 ::
 
     _vehicle = _type createVehicleLocal [0, 0, 0];
@@ -990,16 +965,14 @@ Infinite :code:`while` loops are not allowed.
 
     _original = _object getvariable [QGVAR(value), 0];
 
-    while {_original < _weaponThreshold} do
-    {
+    while {_original < _weaponThreshold} do {
         _original = [_original, _weaponClass] call FUNC(getNewValue);
     }
 
 **Incorrect:**
 ::
 
-    while {true} do
-    {
+    while {true} do {
         // anything
     };
 
