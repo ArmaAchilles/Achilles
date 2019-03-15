@@ -70,12 +70,12 @@ version:
 
 commit:
 	@echo "  GIT  commit release preparation"
-	#@git add -A
-	#@git diff-index --quiet HEAD || git commit -am "Prepare release $(VERSION_S)" -q
+	@git add -A
+	@git diff-index --quiet HEAD || git commit -am "Prepare release $(VERSION_S)" -q
 
 push: commit
 	@echo "  GIT  push release preparation"
-	#@git push -q
+	@git push -q
 
 release: clean version commit
 	@"$(MAKE)" $(MAKEFLAGS) signatures
