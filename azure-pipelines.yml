@@ -17,7 +17,7 @@ jobs:
 
   - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
     displayName: 'Build documentation'
-  
+
 - job: Build
   steps:
   - script: |
@@ -37,22 +37,22 @@ jobs:
       mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
     displayName: 'Build with armake'
 
-  - task: PublishBuildArtifacts@1
+  - task: PublishBuildArtifacts@0
     inputs:
-      artifactName: 'releaseZip'
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: releaseZip
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
 
 - job: Release
   dependsOn:
     - Test
     - Build
   steps:
-    - task: DownloadBuildArtifacts@1
+    - task: DownloadBuildArtifacts@0
       inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'releaseZip'
-        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        buildType: current
+        downloadType: single
+        artifactName: releaseZip
+        pathtoPublish: $(Build.ArtifactStagingDirectory)
 
     - script: |
         cd $(Build.ArtifactStagingDirectory)/releaseZip
