@@ -27,9 +27,23 @@ jobs:
     displayName: 'Install armake'
 
   - script: |
+      sed --version
       armake -v
+      zip -v
+    displayName: 'Dependency versions'
+
+  - script: |
+      cat addons/main/script_version.hpp
+    displayName: 'Debug 1'
+
+  - script: |
       make releaseCI
     displayName: 'Build with armake'
+
+  - script: |
+      cat addons/main/script_version.hpp
+    displayName: 'Debug 2'
+    condition: always()
 
   - task: PublishPipelineArtifact@0
     inputs:
