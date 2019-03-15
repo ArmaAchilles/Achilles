@@ -18,7 +18,7 @@ jobs:
   - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
     displayName: 'Build documentation'
   
-- job: Package
+- job: Build
   steps:
   - script: |
       sudo add-apt-repository ppa:koffeinflummi/armake
@@ -33,16 +33,17 @@ jobs:
 
   - task: PublishPipelineArtifact@0
     inputs:
-      targetPath: release/
+      artifactName: 'releaseZip'
+      targetPath: $(System.DefaultWorkingDirectory)/release
 
-- job: Deploy
+- job: Release
   dependsOn:
     - Test
-    - Package
+    - Build
   steps:
     - task: DownloadPipelineArtifact@0
       inputs:
-        targetPath: $(System.DefaultWorkingDirectory)
+        targetPath: $(System.DefaultWorkingDirectory)/release
 
     - script: "cd release && curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
       displayName: 'Upload files'
