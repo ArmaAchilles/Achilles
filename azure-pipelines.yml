@@ -31,10 +31,18 @@ jobs:
       make -j 4
     displayName: 'Build with armake'
 
+  - task: PublishPipelineArtifact@0
+    inputs:
+      targetPath: release/
+
 - job: Deploy
   dependsOn:
     - Test
     - Package
   steps:
-    - script: "curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
+    - task: DownloadPipelineArtifact@0
+      inputs:
+        targetPath: $(System.DefaultWorkingDirectory)
+
+    - script: "cd release && curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
       displayName: 'Upload files'
