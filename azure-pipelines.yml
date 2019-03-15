@@ -22,14 +22,14 @@ jobs:
   dependsOn: test
   steps:
   - script: |
-    sudo add-apt-repository ppa:koffeinflummi/armake
-    sudo apt-get update
-    sudo apt-get install armake
+      sudo add-apt-repository ppa:koffeinflummi/armake
+      sudo apt-get update
+      sudo apt-get install armake
     displayName: 'Install armake'
 
   - script: |
-    armake -v
-    make -j 4
+      armake -v
+      make -j 4
     displayName: 'Build with armake'
 
 - job: package
