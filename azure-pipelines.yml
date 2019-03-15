@@ -28,7 +28,7 @@ jobs:
 
   - script: |
       armake -v
-      make -j 4
+      make release
     displayName: 'Build with armake'
 
   - task: PublishPipelineArtifact@0
