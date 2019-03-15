@@ -40,7 +40,7 @@ jobs:
   - task: PublishBuildArtifacts@1
     inputs:
       artifactName: 'releaseZip'
-      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
 
 - job: Release
   dependsOn:
@@ -52,9 +52,9 @@ jobs:
         buildType: 'current'
         downloadType: 'single'
         artifactName: 'releaseZip'
-        pathtoPublish: $(Build.ArtifactStagingDirectory)
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
 
     - script: |
         cd $(Build.ArtifactStagingDirectory)/releaseZip
-        "curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
+        curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)
       displayName: 'Upload files'
