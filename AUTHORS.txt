@@ -1,0 +1,8 @@
+﻿# CONTRIBUTOR LIST
+
+# CORE TEAM
+- CreepPork https://github.com/CreepPork
+- oOKexOo https://github.com/oOKexOo
+- NeilZar https://github.com/NeilZar
+
+# CONTRIBUTORS

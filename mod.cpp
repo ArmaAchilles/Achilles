@@ -1,0 +1,12 @@
+name = "Achilles";
+picture = "logo_achilles_ca.paa";
+actionName = "GitHub";
+action = "https://github.com/ArmaAchilles/Achilles";
+description = "Achilles";
+logo = "logo_achilles_ca.paa";
+logoOver = "logo_achilles_ca.paa";
+tooltip = "Achilles";
+tooltipOwned = "Achilles Owned";
+overview = "Achilles";
+author = "The Achilles Dev Team";
+overviewPicture = "logo_achilles_ca.paa";
