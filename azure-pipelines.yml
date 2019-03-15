@@ -37,6 +37,11 @@ jobs:
           mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
         displayName: 'Build with armake'
 
+      - task: PublishBuildArtifacts@0
+        inputs:
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+          artifactName: releaseZip
+
   - job: Release
 
     dependsOn:
