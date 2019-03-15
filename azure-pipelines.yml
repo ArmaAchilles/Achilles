@@ -34,9 +34,7 @@ jobs:
 
       - script: |
           make releaseCI
-          >
-            mv $(ls *.zip | head -n1)
-             $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
+          mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
         displayName: 'Build with armake'
 
       - task: PublishBuildArtifacts@0
@@ -51,16 +49,7 @@ jobs:
       - Build
 
     steps:
-      - task: DownloadBuildArtifacts@0
-        inputs:
-          buildType: current
-          downloadType: single
-          artifactName: releaseZip
-          pathtoPublish: $(Build.ArtifactStagingDirectory)
-
       - script: |
           cd $(Build.ArtifactStagingDirectory)/releaseZip
-          >
-            curl -F 'zip=@$(ls *.zip | head -n1)'
-             -F 'accessToken=$(access.token)' $(access.url)
+          curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
