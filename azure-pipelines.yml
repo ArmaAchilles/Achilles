@@ -1,5 +1,5 @@
 jobs:
-- job: test
+- job: Test
   pool:
     vmImage: 'ubuntu-16.04'
 
@@ -17,9 +17,8 @@ jobs:
 
   - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
     displayName: 'Build documentation'
-
-- job: build
-  dependsOn: test
+  
+- job: Package
   steps:
   - script: |
       sudo add-apt-repository ppa:koffeinflummi/armake
@@ -32,14 +31,10 @@ jobs:
       make -j 4
     displayName: 'Build with armake'
 
-- job: package
-  dependsOn: build
+- job: Deploy
+  dependsOn:
+    - Test
+    - Package
   steps:
-    - script: make release
-      displayName: 'Package Achilles'
-
-- job: deploy
-  dependsOn: package
-  steps:
-    - script: "curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' https://artifacts.garkaklis.com/api/upload"
+    - script: "curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
       displayName: 'Upload files'
