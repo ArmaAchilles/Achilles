@@ -1,60 +1,66 @@
 jobs:
-- job: Test
-  pool:
-    vmImage: 'ubuntu-16.04'
+  - job: Test
+    pool:
+      vmImage: 'ubuntu-16.04'
 
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.7'
-      architecture: 'x64'
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
 
-  - script: python -m pip install --upgrade pip setuptools wheel
-    displayName: 'Install pip'
+      - script: python -m pip install --upgrade pip setuptools wheel
+        displayName: 'Install pip'
 
-  - script: pip install sphinx
-    displayName: 'Install Sphinx'
+      - script: pip install sphinx
+        displayName: 'Install Sphinx'
 
-  - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
-    displayName: 'Build documentation'
+      - script: sphinx-build -nWT -b dummy docs/source/ docs/build/html
+        displayName: 'Build documentation'
 
-- job: Build
-  steps:
-  - script: |
-      sudo add-apt-repository ppa:koffeinflummi/armake
-      sudo apt-get update
-      sudo apt-get install armake
-    displayName: 'Install armake'
+  - job: Build
+    steps:
+      - script: |
+          sudo add-apt-repository ppa:koffeinflummi/armake
+          sudo apt-get update
+          sudo apt-get install armake
+        displayName: 'Install armake'
 
-  - script: |
-      sed --version
-      armake -v
-      zip -v
-    displayName: 'Dependency versions'
+      - script: |
+          sed --version
+          armake -v
+          zip -v
+        displayName: 'Dependency versions'
 
-  - script: |
-      make releaseCI
-      mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
-    displayName: 'Build with armake'
+      - script: |
+          make releaseCI
+          >
+            mv $(ls *.zip | head -n1)
+             $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
+        displayName: 'Build with armake'
 
-  - task: PublishBuildArtifacts@0
-    inputs:
-      artifactName: releaseZip
-      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      - task: PublishBuildArtifacts@0
+        inputs:
+          artifactName: releaseZip
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
 
-- job: Release
-  dependsOn:
-    - Test
-    - Build
-  steps:
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: current
-        downloadType: single
-        artifactName: releaseZip
-        pathtoPublish: $(Build.ArtifactStagingDirectory)
+  - job: Release
 
-    - script: |
-        cd $(Build.ArtifactStagingDirectory)/releaseZip
-        curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)
-      displayName: 'Upload files'
+    dependsOn:
+      - Test
+      - Build
+
+    steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          buildType: current
+          downloadType: single
+          artifactName: releaseZip
+          pathtoPublish: $(Build.ArtifactStagingDirectory)
+
+      - script: |
+          cd $(Build.ArtifactStagingDirectory)/releaseZip
+          >
+            curl -F 'zip=@$(ls *.zip | head -n1)'
+             -F 'accessToken=$(access.token)' $(access.url)
+        displayName: 'Upload files'
