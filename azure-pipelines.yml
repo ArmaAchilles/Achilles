@@ -34,24 +34,27 @@ jobs:
 
   - script: |
       make releaseCI
+      mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
     displayName: 'Build with armake'
 
-  - task: PublishPipelineArtifact@0
+  - task: PublishBuildArtifacts@0
     inputs:
       artifactName: 'releaseZip'
-      targetPath: $(System.DefaultWorkingDirectory)/release
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
 
 - job: Release
   dependsOn:
     - Test
     - Build
   steps:
-    - task: DownloadPipelineArtifact@0
+    - task: DownloadBuildArtifacts@0
       inputs:
+        buildType: 'current'
+        downloadType: 'single'
         artifactName: 'releaseZip'
-        targetPath: $(System.DefaultWorkingDirectory)/release
+        pathtoPublish: $(Build.ArtifactStagingDirectory)
 
     - script: |
-        cd releases/
+        cd $(Build.ArtifactStagingDirectory)/releaseZip
         "curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)"
       displayName: 'Upload files'

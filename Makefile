@@ -85,12 +85,11 @@ release: clean version commit
 
 releaseCI: clean version
 	@"$(MAKE)" $(MAKEFLAGS) signatures
-	@echo "  ZIP  release/$(ZIP)_$(VERSION_F).zip"
+	@echo "  ZIP  $(ZIP)_$(VERSION_F).zip"
 	@cp mod.cpp README.md AUTHORS.txt LICENSE logo_achilles_ca.paa $(BIN)
-	@mkdir release -p
-	@zip -qr release/$(ZIP)_$(VERSION_F)-$(GIT_HASH).zip $(BIN)
+	@zip -qr $(ZIP)_$(VERSION_F)-$(GIT_HASH).zip $(BIN)
 
 clean:
-	rm -rf $(BIN) release/$(ZIP)_*.zip $(ZIP)_*.zip
+	rm -rf $(BIN) $(ZIP)_*.zip
 
 .PHONY: all filepatching signatures extensions extensions-win64 version commit push release releaseCI clean
