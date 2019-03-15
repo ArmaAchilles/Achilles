@@ -81,7 +81,7 @@ release: clean version commit
 	@"$(MAKE)" $(MAKEFLAGS) signatures
 	@echo "  ZIP  $(ZIP)_$(VERSION_F).zip"
 	@cp mod.cpp README.md AUTHORS.txt LICENSE logo_achilles_ca.paa $(BIN)
-	@zip -qr $(ZIP)_$(VERSION_F).zip $(BIN)
+	@zip -qr $(ZIP)_$(VERSION_F)-$(GIT_HASH).zip $(BIN)
 
 clean:
 	rm -rf $(BIN) $(ZIP)_*.zip
