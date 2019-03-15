@@ -57,6 +57,8 @@ jobs:
           pathtoPublish: $(Build.ArtifactStagingDirectory)
 
       - script: |
+          ls
           cd $(Build.ArtifactStagingDirectory)/releaseZip
+          ls
           curl -F 'zip=@$(ls *.zip | head -n1)' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
