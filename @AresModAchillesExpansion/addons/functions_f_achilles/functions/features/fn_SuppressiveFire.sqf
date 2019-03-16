@@ -230,7 +230,8 @@ if (_fireModeIndex == 3) then
 		_gunner setUnitPos (["DOWN","MIDDLE","UP"] select _stanceIndex);
 		// select muzzle and the corresponding turret
 		// get fire mode parameters
-		private _params = [[10,0],[3,0.7],[1,0.9],[10,0]] select _fireModeIndex;
+        // todo: make this configurable from the gui
+		private _params = [[10,0],[3,3],[1,3],[10,0]] select _fireModeIndex;
 		_params params ["_repeatFireCount", "_ceaseFireTime"];
 		// move gunner to a new group
 		private _new_group = createGroup (side _gunner);
