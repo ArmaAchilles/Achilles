@@ -299,7 +299,7 @@ if (_fireModeIndex == 3) then
 			// cease the fire (for semi-auto and burst)
 			if (_ceaseFireTime > 0) then
 			{
-				sleep random [_ceaseFireTime-0.3,_ceaseFireTime,_ceaseFireTime+0.3];
+				sleep random [_ceaseFireTime-1,_ceaseFireTime,_ceaseFireTime+1];
 			};
 			if (not isNull _vehicle) then
 			{
