@@ -240,7 +240,7 @@ switch (_groupBehaviour) do
 
 private _rpLogic = [_lzPos, _allRpLogics, _rpAlgorithm] call Achilles_fnc_logicSelector;
 private _rpPos = position _rpLogic;
-_infantryGroup addWaypoint [_rpPos, _rpSize];
+private _infantryRallyWp = _infantryGroup addWaypoint [_rpPos, _rpSize];
 
 // Load the units into the vehicle.
 {
@@ -299,6 +299,19 @@ if (_vehicleBehaviour == 0) then
 	private _vehicleReturnWp = _vehicleGroup addWaypoint [_spawnPosition, 0];
 	_vehicleReturnWp setWaypointTimeout [2,2,2]; // Let the unit stop before being despawned.
 	_vehicleReturnWp setWaypointStatements ["true", "deleteVehicle (vehicle this); {deleteVehicle _x} foreach thisList;"];
+};
+
+//Check ACEX Headless Client
+if (acex_headless_enabled && {isClass(configFile >> "CfgPatches" >> "acex_headless")}) then
+{
+    //to ensure unload, blacklist
+    _vehicleGroup setVariable ["acex_headless_blacklist", false, true];
+    _infantryGroup setVariable ["acex_headless_blacklist", false, true];
+    
+    //after unload, unblacklist _vehicleGroup
+    _vehicleUnloadWp setWaypointStatements ["true", "(group this) setVariable ["acex_headless_blacklist", false, true];"];
+    //after rally, unblacklist _infantryGroup
+    _infantryRallyWp setWaypointStatements ["true", "(group this) setVariable ["acex_headless_blacklist", false, true];"];
 };
 
 // print a confirmation
