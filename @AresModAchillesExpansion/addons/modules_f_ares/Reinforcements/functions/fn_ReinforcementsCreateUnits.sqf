@@ -309,9 +309,9 @@ if (acex_headless_enabled && {isClass(configFile >> "CfgPatches" >> "acex_headle
     _infantryGroup setVariable ["acex_headless_blacklist", false, true];
     
     //after unload, unblacklist _vehicleGroup
-    _vehicleUnloadWp setWaypointStatements ["true", "(group this) setVariable ["acex_headless_blacklist", false, true];"];
+    _vehicleUnloadWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
     //after rally, unblacklist _infantryGroup
-    _infantryRallyWp setWaypointStatements ["true", "(group this) setVariable ["acex_headless_blacklist", false, true];"];
+    _infantryRallyWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
 };
 
 // print a confirmation
