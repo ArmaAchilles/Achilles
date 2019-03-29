@@ -305,8 +305,8 @@ if (_vehicleBehaviour == 0) then
 if (acex_headless_enabled && {isClass(configFile >> "CfgPatches" >> "acex_headless")}) then
 {
     //to ensure unload, blacklist
-    _vehicleGroup setVariable ["acex_headless_blacklist", false, true];
-    _infantryGroup setVariable ["acex_headless_blacklist", false, true];
+    _vehicleGroup setVariable ["acex_headless_blacklist", true, true];
+    _infantryGroup setVariable ["acex_headless_blacklist", true, true];
     
     //after unload, unblacklist _vehicleGroup
     _vehicleUnloadWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
