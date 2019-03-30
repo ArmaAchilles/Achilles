@@ -302,7 +302,7 @@ if (_vehicleBehaviour == 0) then
 };
 
 //Check ACEX Headless Client
-if (acex_headless_enabled && {isClass(configFile >> "CfgPatches" >> "acex_headless")}) then
+if (isClass (configFile >> "CfgPatches" >> "acex_headless") && {acex_headless_enabled}) then
 {
     //to ensure unload, blacklist
     _vehicleGroup setVariable ["acex_headless_blacklist", true, true];
