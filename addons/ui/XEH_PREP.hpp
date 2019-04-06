@@ -1,1 +1,3 @@
-// FUNCTION PREPS
+PREP(defineDialogControl)
+PREP(initializeDialogControl)
+PREP(openDialog)
