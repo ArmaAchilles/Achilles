@@ -2,6 +2,10 @@
 
 #define MAINPREFIX z
 #define PREFIX achilles
+#define PROJECT_NAME "Achilles"
+#define PROJECT_DIR @achilles
+#define AUTHOR_NAME "The Achilles Dev Team"
+#define AUTHOR_URL "https://github.com/ArmaAchilles/Achilles"
 
 #include "script_version.hpp"
 
