@@ -7,9 +7,9 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"achilles_common"};
-        author = "";
-        authors[] = {"The Achilles Dev Team"};
-        authorUrl = "https://github.com/ArmaAchilles/Achilles";
+        author = AUTHOR_NAME;
+        authors[] = {AUTHOR_NAME};
+        authorUrl = AUTHOR_URL;
         VERSION_CONFIG;
     };
 };
