@@ -22,7 +22,7 @@ class CfgMods {
     class PREFIX {
         dir = PROJECT_DIR;
         name = PROJECT_NAME;
-        author = AUTHOR_NAME
+        author = AUTHOR_NAME;
         picture = "\z\achilles\main\data\icon_achilles.paa";
         logo = "\z\achilles\main\data\icon_achilles.paa";
         logoOver = "\z\achilles\main\data\icon_achilles.paa";
