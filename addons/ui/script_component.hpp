@@ -18,7 +18,7 @@
 
 // BI GUI includes
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
-#include "\A3\ui_f_curator\ui\defineResinclDesign.inc"
+#include "\a3\ui_f_curator\ui\defineResinclDesign.inc"
 
 // Achilles GUI grids
 #define GUI_GRID_X          (0.294 * safeZoneW + safeZoneX)
