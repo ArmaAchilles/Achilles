@@ -22,12 +22,12 @@ params
 	["_newSide", east, [sideUnknown]]
 ];
 
-// Handle groups
-if (_objectToChangeSide isEqualType grpNull) then
-{
-	// Exit if the requested side is equal
-	if (side _objectToChangeSide == _newSide) exitWith {};
+// Exit if the requested side is equal
+if (side _objectToChangeSide isEqualTo _newSide) exitWith {};
 
+// Handle groups
+if (_objectToChangeSide isEqualType grpNull) exitWith
+{
 	private _newGroup = createGroup _newSide;
 	(units _objectToChangeSide) joinSilent _newGroup;
 
@@ -37,9 +37,6 @@ if (_objectToChangeSide isEqualType grpNull) then
 // Handle a single unit
 if (_objectToChangeSide isEqualType objNull) then
 {
-	// Exit if the requested side is the same as the current one
-	if (side _objectToChangeSide == _newSide) exitWith {};
-
 	private _oldGroup = group _objectToChangeSide;
 	private _oldGroupUnitCount = count (units _oldGroup);
 
@@ -47,7 +44,7 @@ if (_objectToChangeSide isEqualType objNull) then
 	[_objectToChangeSide] joinSilent _newGroup;
 
 	// If there are no units remaining in the old group then delete the old group.
-	if ((_oldGroupUnitCount - 1) == 0) then
+	if ((_oldGroupUnitCount - 1) isEqualTo 0) then
 	{
 		deleteGroup _oldGroup;
 	}
