@@ -43,10 +43,29 @@ switch _mode do {
 		private _music = _ctrlValue tvdata tvcursel _ctrlValue;
 
 		_unit setvariable ["RscAttributeMusic",_music,true];
+		uiNamespace setVariable ["RscAttributeMusic_playing", [_music, diag_tickTime]];
 	};
 	case "onUnload": {
-		if (isnil {_unit getvariable "RscAttributeMusic"}) then {
-			playmusic "";
+		// If music is already playing and no new music was selected
+		if (! isNil {uiNamespace getVariable "RscAttributeMusic_playing"} && isNil {_unit getVariable "RscAttributeMusic"}) exitWith {
+			private _musicArray = uiNamespace getVariable "RscAttributeMusic_playing";
+			_musicArray params ["_classname", "_startTime"];
+			
+			private _playTime = diag_tickTime - _startTime;
+			private _duration = [_classname, "duration"] call CBA_fnc_getMusicData;
+
+			// If is still in the track's sound boundaries
+			if (_duration > _playTime) exitWith {
+				[_classname, _playTime, true] call CBA_fnc_playMusic;
+			};
+
+			uiNamespace setVariable ["RscAttributeMusic_playing", nil];
+			playMusic "";
+		};
+
+		if (isnil {_unit getvariable "RscAttributeMusic"}) exitWith {
+			playMusic "";
+			_unit setVariable ["RscAttributeMusic_playing", nil];
 		};
 	};
 	case "treeSelChanged": {
