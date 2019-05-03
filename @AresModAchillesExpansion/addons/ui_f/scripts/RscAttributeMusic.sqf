@@ -22,16 +22,16 @@ switch _mode do {
 			private _name = gettext (_x >> "name");
 			private _tvClass = _musicClasses find (tolower gettext (_x >> "musicClass"));
 			if (_name != "" && _tvClass >= 0) then {
-				private _duration = getnumber (_x >> "duration");
-				private _durationText = [_duration / 60,"HH:MM"] call bis_fnc_timetostring;
-				private _tvMusic = _ctrlValue tvadd [[_tvClass],format ["(%2) %1",_name,_durationText]];
-				_ctrlValue tvsetdata [[_tvClass,_tvMusic],configname _x];
-				_ctrlValue tvsetvalue [[_tvClass,_tvMusic],_duration];
+				private _duration = getNumber (_x >> "duration");
+				private _durationText = [_duration / 60, "HH:MM"] call BIS_fnc_timeToString;
+
+				private _tvMusic = _ctrlValue tvAdd [[_tvClass], format ["%1 (%2)", _name, _durationText]];
+				_ctrlValue tvSetData [[_tvClass, _tvMusic], configName _x];
 			};
-		} foreach (((configfile >> "cfgMusic") call bis_fnc_returnchildren) +  ((missionConfigFile >> "cfgMusic") call bis_fnc_returnchildren));
+		} foreach (((configfile >> "cfgMusic") call bis_fnc_returnchildren) + ((missionConfigFile >> "cfgMusic") call bis_fnc_returnchildren));
 
 		for "_i" from 0 to (count _musicClasses - 1) do {
-			_ctrlValue tvsortbyvalue [[_i],true];
+			_ctrlValue tvSort [[_i], false];
 		};
 
 		_ctrlValue tvsetcursel (uinamespace getvariable ["RscAttributeMusic_selected",[]]);
@@ -41,7 +41,7 @@ switch _mode do {
 		private _display = _params select 0;
 		private _ctrlValue = _display displayctrl IDC_RSCATTRIBUTEMUSIC_VALUE;
 		private _music = _ctrlValue tvdata tvcursel _ctrlValue;
-		//playmusic _music;
+
 		_unit setvariable ["RscAttributeMusic",_music,true];
 	};
 	case "onUnload": {
