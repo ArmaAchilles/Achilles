@@ -52,7 +52,15 @@ private _dialogResult =
 				"sit captured",
 				"repair vehicle prone",
 				"repair vehicle kneel",
-				"repair vehicle stand"
+				"repair vehicle stand",
+				"sit on ground",
+				"sit on chair",
+				"sit high",
+				"dead sitting leaned",
+				"dead sitting erect",
+				"kneel weapon ready",
+				"prone weapon ready"
+				
 			]
 		],
 		["Combat Ready", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
@@ -111,6 +119,14 @@ _anim = switch (_dialogResult select 0) do
 	case 26: {"REPAIR_VEH_PRONE"};
 	case 27: {"REPAIR_VEH_KNEEL"};
 	case 28: {"REPAIR_VEH_STAND"};
+	case 29: {"SIT_ON_FLOOR"};
+	case 30: {"SIT_ON_CHAIR"};
+	case 31: {"SIT_HIGH"};
+	case 32: {"DEAD_LEAN"};
+    case 33: {"DEAD_SIT"};
+	case 34: {"KNEEL_WEAPON_UP"};
+	case 35: {"PRONE_WEAPON_UP"};
+	
 };
 
 if (isNull (_units select 0)) then
