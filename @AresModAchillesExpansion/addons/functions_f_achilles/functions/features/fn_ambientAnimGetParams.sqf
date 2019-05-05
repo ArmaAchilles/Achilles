@@ -57,6 +57,13 @@ private _return = switch (_anim_set) do
 	case "LISTEN_CIV": { [["Acts_CivilListening_1","Acts_CivilListening_2"], true] };
 	case "SHIELD_FROM_SUN": { [["Acts_ShieldFromSun_Loop"], false] };
 	case "SHOWING_THE_WAY": { [["Acts_ShowingTheRightWay_loop"], false] };
+	case "SIT_ON_FLOOR": { [["commander_sdv", "passenger_flatground_crosslegs", "Acts_passenger_flatground_leanright"], false] };
+	case "SIT_ON_CHAIR": { [["passenger_apc_generic03", "passenger_generic01_foldhands", "ChopperLight_CB_idle1stable_H"], true] };
+	case "DEAD_LEAN": { [["KIA_Commander_MBT_04", "KIA_commander_sdv", "KIA_driver_MBT_04", "KIA_driver_ugv_01"], true] };
+	case "DEAD_SIT": { [["KIA_passenger_flatground", "KIA_passenger_sdv"], true] };
+    case "KNEEL_WEAPON_UP": { [["HubShootingRangeKneel_move1", "HubShootingRangeKneel_move2", "HubShootingRangeKneel_move3"], true] };
+	case "PRONE_WEAPON_UP": { [["HubShootingRangeProne_move1", "HubShootingRangeProne_move2", "HubShootingRangeProne_move3"], true] };
+    case "SIT_HIGH": { [["HubSittingHighA_idle1", "HubSittingHighA_idle2", "HubSittingHigB_idle1", "HubSittingHighB_idle2"], true] };
 };
 
 _return;
