@@ -21,12 +21,12 @@ private _anim_set = _this;
 private _return = switch (_anim_set) do
 {   // [anims, noWeapon]
 	case "STAND_1":	{ [["HubStanding_idle1","HubStanding_idle2","HubStanding_idle3"], false] };
-	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05","Acts_AidlPercMstpSloWWrflDnon_warmup_3_loop","Acts_AidlPercMstpSloWWpstDnon_warmup_4_loop"], false] };		
+	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05","Acts_AidlPercMstpSloWWrflDnon_warmup_3_loop"], false] };		
 	case "STAND_NO_WEAP_1": { [["HubStandingUA_idle1","HubStandingUA_idle2","HubStandingUA_idle3","HubStandingUA_move1","HubStandingUA_move2"], true] };
 	case "STAND_NO_WEAP_2": { [["HubStandingUB_idle1","HubStandingUB_idle2","HubStandingUB_idle3","HubStandingUB_move1"], true]; };
 	case "STAND_NO_WEAP_3": { [["HubStandingUC_idle1","HubStandingUC_idle2","HubStandingUC_idle3","HubStandingUC_move1","HubStandingUC_move2"], true] };
 	case "STAND_NO_WEAP_4": { [["HubBriefing_think"], true]};
-	case "STAND_NO_WEAP_5": { [["Acts_AidlPercMstpSnonWnonDnon_warmup_1_loop","Acts_AidlPercMstpSnonWnonDnon_warmup_2_loop"], false] };
+	case "STAND_NO_WEAP_5": { [["Acts_AidlPercMstpSnonWnonDnon_warmup_1_loop","Acts_AidlPercMstpSnonWnonDnon_warmup_2_loop", "Acts_AidlPercMstpSnonWnonDnon_warmup_8_loop"], false] };
 	case "WATCH_1": { [["inbasemoves_patrolling1"], false] };
 	case "WATCH_2": { [["inbasemoves_patrolling2"], false] };
 	case "GUARD": { [["inbasemoves_handsbehindback1","inbasemoves_handsbehindback2"], true] };
@@ -37,7 +37,7 @@ private _return = switch (_anim_set) do
 	case "LISTEN_TO_RADIO": { [["Acts_listeningToRadio_Loop"], false] };
 	case "NAVIGATE": { [["Acts_NavigatingChopper_Loop"], false] };
 	case "LEAN":{ [["inbasemoves_lean1"], false] };
-	case "KNEEL": { [["amovpknlmstpslowwrfldnon","aidlpknlmstpslowwrfldnon_ai","aidlpknlmstpslowwrfldnon_g01","aidlpknlmstpslowwrfldnon_g02","aidlpknlmstpslowwrfldnon_g03","aidlpknlmstpslowwrfldnon_g0s","Acts_AidlPercMstpSnonWnonDnon_warmup_6_loop"], false] };
+	//case "KNEEL": { [["amovpknlmstpslowwrfldnon","aidlpknlmstpslowwrfldnon_ai","aidlpknlmstpslowwrfldnon_g01","aidlpknlmstpslowwrfldnon_g02","aidlpknlmstpslowwrfldnon_g03","aidlpknlmstpslowwrfldnon_g0s","Acts_AidlPercMstpSnonWnonDnon_warmup_6_loop"], false] };
 	case "REPAIR_VEH_PRONE": { [["hubfixingvehicleprone_idle1"], true] };
 	case "REPAIR_VEH_KNEEL": { [["inbasemoves_repairvehicleknl"], true] };
 	case "REPAIR_VEH_STAND": { [["inbasemoves_assemblingvehicleerc"], true] };
