@@ -63,7 +63,6 @@ private _dialogResult =
 				"Squat (Weapon)",
 				"Squat",
 				"Guard (Pistol)"
-				
 				]
 		],
 		["Combat Ready", [localize "STR_AMAE_TRUE",localize "STR_AMAE_FALSE"]]
@@ -79,7 +78,6 @@ _anim = switch (_dialogResult select 0) do
 	case 1: 
 	{
 		selectRandom ["SIT_LOW_1", "SIT_LOW_2", "SIT_LOW_3", "SIT_LOW_4", "SIT_LOW_5", "SIT_LOW_6"]; 
-		
 	};
 	case 2: {"LEAN"};
 	case 3:
@@ -148,10 +146,7 @@ _anim = switch (_dialogResult select 0) do
 	{
 		selectRandom ["STAND_GUARD_P1", "STAND_GUARD_P2", "STAND_GUARD_P3", "STAND_GUARD_P4"];
 	};
-
-	
 };
-
 if (isNull (_units select 0)) then
 {
 	_units = [localize "STR_AMAE_UNITS"] call Achilles_fnc_SelectUnits;
