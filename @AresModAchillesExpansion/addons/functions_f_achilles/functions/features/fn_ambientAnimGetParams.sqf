@@ -21,7 +21,7 @@ private _anim_set = _this;
 private _return = switch (_anim_set) do
 {   // [anims, noWeapon]
 	case "STAND_1":	{ [["HubStanding_idle1","HubStanding_idle2","HubStanding_idle3"], false] };
-	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05","Acts_AidlPercMstpSloWWrflDnon_warmup_3_loop"], false] };		
+	case "STAND_2": { [["amovpercmstpslowwrfldnon","amovpercmstpslowwrfldnon","aidlpercmstpslowwrfldnon_g01","aidlpercmstpslowwrfldnon_g02","aidlpercmstpslowwrfldnon_g03","aidlpercmstpslowwrfldnon_g05","Acts_AidlPercMstpSloWWrflDnon_warmup_3_loop"], false] };
 	case "STAND_NO_WEAP_1": { [["HubStandingUA_idle1","HubStandingUA_idle2","HubStandingUA_idle3","HubStandingUA_move1","HubStandingUA_move2"], true] };
 	case "STAND_NO_WEAP_2": { [["HubStandingUB_idle1","HubStandingUB_idle2","HubStandingUB_idle3","HubStandingUB_move1"], true]; };
 	case "STAND_NO_WEAP_3": { [["HubStandingUC_idle1","HubStandingUC_idle2","HubStandingUC_idle3","HubStandingUC_move1","HubStandingUC_move2"], true] };
