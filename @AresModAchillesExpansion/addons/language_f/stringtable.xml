@@ -3109,6 +3109,12 @@
                 <Chinesesimp>扩展</Chinesesimp>
                 <Chinese>擴展</Chinese>
             </Key>
+            <Key ID="STR_AMAE_DISABLE_DESTRUCTION_EFFECT">
+                <Original>Disable destruction effect</Original>
+                <English>Disable destruction effect</English>
+                <French>Désactiver l'effet de destruction</French>
+                <German>Zerstörungseffekt unterdrücken</German>
+            </Key>
             <Key ID="STR_AMAE_MEAN_DAMAGE">
                 <Original>Mean damage</Original>
                 <English>Mean damage</English>
@@ -3142,12 +3148,12 @@
                 <Chinese>Delta</Chinese>
             </Key>
             <Key ID="STR_AMAE_UNIFORM">
-                <Original>uniform</Original>
-                <English>uniform</English>
-                <French>uniforme</French>
-                <Spanish>uniforme</Spanish>
+                <Original>Uniform</Original>
+                <English>Uniform</English>
+                <French>Uniforme</French>
+                <Spanish>Uniforme</Spanish>
                 <Russian>Равномерное</Russian>
-                <German>gleichmässig</German>
+                <German>Gleichmässig</German>
                 <Japanese>ユニフォーム</Japanese>
                 <Chinesesimp>制服</Chinesesimp>
                 <Chinese>制服</Chinese>
