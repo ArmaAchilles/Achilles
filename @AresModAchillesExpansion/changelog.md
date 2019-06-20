@@ -10,6 +10,12 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/). 
 
 ## Change log
+### v1.2.2
+#### Attribute windows
+##### Revised
+* Fixed inventory attribute after latest Arma update #488
+
+## Change log
 ### v1.2.1
 #### Modules
 ##### Revised
