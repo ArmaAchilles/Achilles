@@ -1,16 +1,16 @@
 
-class RscDisplayAttributesGroup: RscDisplayAttributes 
+class RscDisplayAttributesGroup: RscDisplayAttributes
 {
 	scriptName = "RscDisplayAttributesGroup";
 	scriptPath = "AresDisplays";
 	onLoad = "['onLoad',_this,'RscDisplayAttributesGroup','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 	onUnload = "['onUnload',_this,'RscDisplayAttributesGroup','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
-	
-	class Controls : Controls 
+
+	class Controls : Controls
 	{
-		class Content: Content 
+		class Content: Content
 		{
-			class Controls: controls 
+			class Controls: controls
 			{
 				delete GroupID;
 				delete Skill;
@@ -19,7 +19,7 @@ class RscDisplayAttributesGroup: RscDisplayAttributes
 				delete SpeedMode;
 				delete UnitPos;
 				delete RespawnPosition;
-				
+
 				class GroupID2: RscAttributeGroupID2 {};
 				class Skill2: RscAttributeSkill {};
 				class Formation2: RscAttributeFormation {};
@@ -27,11 +27,11 @@ class RscDisplayAttributesGroup: RscDisplayAttributes
 				class CombatMode2: RscAttributeCombatMode {};
 				class SpeedMode2: RscAttributeSpeedMode {};
 				class UnitPos2: RscAttributeUnitPos {};
-				class RespawnPosition2: RscAttributeRespawnPosition 
+				class RespawnPosition2: RscAttributeRespawnPosition
 				{
-					class Controls: controls 
+					class Controls: controls
 					{
-						class Title: Title 
+						class Title: Title
 						{
 							text = "$STR_A3_RscAttributeRespawnPosition_TitleGroup";
 						};
@@ -46,15 +46,15 @@ class RscDisplayAttributesGroup: RscDisplayAttributes
 				};
 			};
 		};
-		
-		class ButtonBehaviour : ButtonCustom 
+
+		class ButtonBehaviour : ButtonCustom
 		{
 			text = "$STR_AMAE_SKILL";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeSkills";
 			colorBackground[] = {0.518,0.016,0,0.8};
 		};
-		
-		class ButtonSide : ButtonCustomLeft 
+
+		class ButtonSide : ButtonCustomLeft
 		{
 			text = "$STR_AMAE_SIDE";
 			onMouseButtonClick = "[BIS_fnc_initCuratorAttributes_target] spawn Achilles_fnc_changeSideAttribute";

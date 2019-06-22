@@ -17,7 +17,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			h = 1 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {0, 0, 0, 0.5};
 		};
-		
+
 		class Background1 : RscText {
 			idc = 121140;
 			tooltip = $STR_3DEN_Environment_Attribute_Date_tooltip;
@@ -26,7 +26,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			w = 26 * BIGUI_GRID_W_FIX;
 			h = 4.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {1, 1, 1, 0.1};
-		};	
+		};
 
 		class ValueYear: ctrlCombo
 		{
@@ -111,7 +111,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			idc = 103;
 			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
 		};
-		
+
 		class Title2 : RscText {
 			idc = 121139;
 			text = "$STR_3DEN_Environment_Attribute_Daytime_displayName";
@@ -130,7 +130,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			h = 4.5 * BIGUI_GRID_H_FIX;
 			colorBackground[] = {1, 1, 1, 0.1};
 		};
-		
+
 		class Preview: ctrlControlsGroupNoScrollbars
 		{
 			idc = 110;
@@ -180,8 +180,8 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 				};
 			};
 		};
-		
-		
+
+
 		class Value: ctrlXSliderH
 		{
 			idc = 104;
@@ -200,7 +200,7 @@ class RscAttributeDate: RscControlsGroupNoScrollbars
 			color[] = {1,1,1,0.6};
 			colorActive[] = {1,1,1,1};
 		};
-		
+
 		class Frame: ctrlStaticFrame
 		{
 			x = (0.5 + 25 * 2/3) * BIGUI_GRID_W_FIX;
@@ -259,23 +259,23 @@ class RscDisplayAttributesModuleSetDate: RscDisplayAttributes
 	scriptPath = "AresDisplays";
 	onLoad = "['onLoad',_this,'RscDisplayAttributesModuleSetDate','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
 	onUnload = "['onUnload',_this,'RscDisplayAttributesModuleSetDate','AresDisplays'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay')";
-	
+
 	class Controls : Controls {
 		class Background : Background {};
-		
+
 		class Title : Title {};
-		
+
 		class Content : Content {
 			class Controls : controls {
 				class Date : RscAttributeDate {};
 			};
 		};
-		
+
 		class ButtonOK : ButtonOK {};
-		
+
 		class ButtonCancel : ButtonCancel {};
-		
-		class ButtonBehaviour : ButtonCustom 
+
+		class ButtonBehaviour : ButtonCustom
 		{
 			text = "$STR_AMAE_PREVIEW";
 			onMouseButtonClick = "with uiNamespace do {['preview',[ctrlParent (_this select 0)],objnull] call RscAttributeDate};";
