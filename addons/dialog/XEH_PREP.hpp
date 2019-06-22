@@ -1,1 +1,11 @@
 PREP(create);
+PREP(dynamic_block);
+PREP(dynamic_cancel);
+PREP(dynamic_checkbox);
+PREP(dynamic_color);
+PREP(dynamic_confirm);
+PREP(dynamic_select);
+PREP(dynamic_sides);
+PREP(dynamic_slider);
+PREP(dynamic_text);
+PREP(dynamic_vector);

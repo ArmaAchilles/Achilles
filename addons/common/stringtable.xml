@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="ZEN">
+    <Package name="Common">
+        <Key ID="STR_Achilles_Common_Enabled">
+            <English>Enabled</English>
+            <Chinese>啟用</Chinese>
+            <Chinesesimp>启用</Chinesesimp>
+            <Czech>Povoleno</Czech>
+            <French>Activer</French>
+            <German>Aktiviert</German>
+            <Hungarian>Engedélyezve</Hungarian>
+            <Italian>Attivato</Italian>
+            <Japanese>有効化</Japanese>
+            <Korean>활성화</Korean>
+            <Polish>Włączone</Polish>
+            <Portuguese>Ativado</Portuguese>
+            <Russian>Вкл.</Russian>
+            <Spanish>Activado</Spanish>
+        </Key>
+        <Key ID="STR_Achilles_Common_Disabled">
+            <English>Disabled</English>
+            <Chinese>停用</Chinese>
+            <Chinesesimp>停用</Chinesesimp>
+            <Czech>Zakázáno</Czech>
+            <French>Désactiver</French>
+            <German>Deaktiviert</German>
+            <Hungarian>Tiltva</Hungarian>
+            <Italian>Disattivato</Italian>
+            <Japanese>無効化</Japanese>
+            <Korean>비활성화</Korean>
+            <Polish>Wyłączone</Polish>
+            <Portuguese>Desativado</Portuguese>
+            <Russian>Откл.</Russian>
+            <Spanish>Desactivado</Spanish>
+        </Key>
+        <Key ID="STR_Achilles_Common_Yes">
+            <English>Yes</English>
+            <Chinese>是</Chinese>
+            <Chinesesimp>是</Chinesesimp>
+            <Czech>Ano</Czech>
+            <French>Oui</French>
+            <German>Ja</German>
+            <Hungarian>Igen</Hungarian>
+            <Italian>Si</Italian>
+            <Japanese>はい</Japanese>
+            <Korean>예</Korean>
+            <Polish>Tak</Polish>
+            <Portuguese>Sim</Portuguese>
+            <Russian>Да</Russian>
+            <Spanish>Si</Spanish>
+        </Key>
+        <Key ID="STR_Achilles_Common_No">
+            <English>No</English>
+            <Chinese>否</Chinese>
+            <Chinesesimp>否</Chinesesimp>
+            <Czech>Ne</Czech>
+            <French>Non</French>
+            <German>Nein</German>
+            <Hungarian>Nem</Hungarian>
+            <Italian>No</Italian>
+            <Japanese>いいえ</Japanese>
+            <Korean>아니오</Korean>
+            <Polish>Nie</Polish>
+            <Portuguese>Não</Portuguese>
+            <Russian>Нет</Russian>
+            <Spanish>No</Spanish>
+        </Key>
+    </Package>
+</Project>

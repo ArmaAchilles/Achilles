@@ -6,8 +6,8 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {};
-        author = "";
+        requiredAddons[] = {"cba_main"};
+        author = "The Achilles Dev Team";
         authors[] = {"The Achilles Dev Team"};
         authorUrl = "https://github.com/ArmaAchilles/Achilles";
         VERSION_CONFIG;
@@ -16,3 +16,4 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgModuleCategories.hpp"
+#include "CfgSettings.hpp"
