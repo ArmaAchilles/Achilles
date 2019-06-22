@@ -63,6 +63,7 @@ jobs:
           echo $ZIP_NAME
           ls
           tar xzf $ZIP
+          rm -f $ZIP
           ls
           zip -qr $ZIP_NAME.zip \@achilles
           ls
