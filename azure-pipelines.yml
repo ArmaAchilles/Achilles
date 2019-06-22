@@ -58,7 +58,9 @@ jobs:
       - script: |
           cd $(Build.ArtifactStagingDirectory)/releaseZip
           export ZIP=$(ls *.tar.gz | head -n1)
-          export ZIP_NAME=$(echo $ZIP | sed 's/....$//')
-          tar xzf $ZIP && zip $ZIP_NAME.zip $(tar tf $ZIP)
+          export ZIP_NAME=$(echo $ZIP | sed 's/.......$//')
+          echo $ZIP
+          echo $ZIP_NAME
+          tar xzf $ZIP && zip $ZIP_NAME.zip @achilles
           curl -F 'zip=@'"$ZIP"'' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
