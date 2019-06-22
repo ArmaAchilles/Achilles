@@ -19,7 +19,8 @@ jobs:
         displayName: 'Build documentation'
 
   - job: Build
-    pool: 'vs2017-win2016'
+    pool:
+      vmImage: 'vs2017-win2016'
     steps:
       - powershell: |
           ./tools/make.ps1
