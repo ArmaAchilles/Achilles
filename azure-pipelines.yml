@@ -61,6 +61,10 @@ jobs:
           export ZIP_NAME=$(echo $ZIP | sed 's/.......$//')
           echo $ZIP
           echo $ZIP_NAME
-          tar xzf $ZIP && zip $ZIP_NAME.zip @achilles
+          ls
+          tar xzf $ZIP
+          ls
+          zip $ZIP_NAME.zip @achilles
+          ls
           curl -F 'zip=@'"$ZIP"'' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
