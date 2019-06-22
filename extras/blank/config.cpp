@@ -7,8 +7,8 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"achilles_main"};
-        author = "";
-        authors[] = {""};
+        author = "The Achilles Dev Team";
+        authors[] = {"The Achilles Dev Team"};
         VERSION_CONFIG;
     };
 };
