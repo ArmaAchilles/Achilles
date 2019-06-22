@@ -28,7 +28,7 @@ jobs:
 
       - bash: |
           make releaseCI
-          mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
+          mv $(ls *.tar.gz | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.tar.gz | head -n1)
         displayName: 'Build with armake'
 
       - task: PublishBuildArtifacts@1
@@ -52,6 +52,8 @@ jobs:
 
       - script: |
           cd $(Build.ArtifactStagingDirectory)/releaseZip
-          export ZIP=$(ls *.zip | head -n1)
+          export ZIP=$(ls *.tar.gz | head -n1)
+          export ZIP_NAME=$(echo $ZIP | sed 's/....$//')
+          tar xzf $ZIP && zip $ZIP_NAME.zip $(tar tf $ZIP)
           curl -F 'zip=@'"$ZIP"'' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
