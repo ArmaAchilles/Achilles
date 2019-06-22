@@ -46,6 +46,10 @@ switch _mode do
 		//--- Initialize attributes
 		private _posY = _ctrlContentOffsetY;
 		private _contentControls = _displayConfig >> "Controls" >> "Content" >> "Controls";
+
+		// TODO: ...
+		private _attributeButtons = ([_displayConfig >> "Controls", 0] call BIS_fnc_returnChildren) select { "ButtonCustom" isEqualTo _x };
+
 		private _curatorUID = getPlayerUID player;
 		private _enableDebugConsole = getMissionConfigValue ["enableDebugConsole", "DebugConsole" call BIS_fnc_getParamValue];
 		private _enableAdmin = false;
@@ -53,7 +57,7 @@ switch _mode do
 		{
 			_enableAdmin = ((_enableDebugConsole find _curatorUID) != -1) || isServer || !isMultiplayer || (call BIS_fnc_admin) > 0;
 		};
-		
+
 		if (_enableDebugConsole isEqualType 0) then
 		{
 			_enableAdmin = (_enableDebugConsole == 1 && (call BIS_fnc_admin > 0 || isServer)) || !isMultiplayer || _enableDebugConsole == 2;
@@ -61,7 +65,7 @@ switch _mode do
 
 		// mission designer can disallow usage of code execution, but it will still be available for logged-in admins
 		private _enableCodeExecution = ((missionNamespace getVariable ['Ares_Allow_Zeus_To_Execute_Code', true]) or ((call BIS_fnc_admin) > 0));
-		
+
 		for "_i" from 0 to (count _contentControls - 1) do {
 			private _cfgControl = _contentControls select _i;
 			if (isclass _cfgControl) then {

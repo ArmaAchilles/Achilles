@@ -62,8 +62,8 @@ _curatorMapCtrl ctrlMapAnimAdd [0, 0.1, _camPos];
 ctrlMapAnimCommit _curatorMapCtrl;
 
 // Unlock all available attributes
-_curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];
-_curatorModule setVariable ["BIS_fnc_curatorAttributesobject",["%ALL"]];
-_curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
-_curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
-_curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];
+// _curatorModule setVariable ["BIS_fnc_curatorAttributesplayer",["%ALL"]];
+// _curatorModule setVariable ["BIS_fnc_curatorAttributesobject",["%ALL"]];
+// _curatorModule setVariable ["BIS_fnc_curatorAttributesgroup",["%ALL"]];
+// _curatorModule setVariable ["BIS_fnc_curatorAttributeswaypoint",["%ALL"]];
+// _curatorModule setVariable ["BIS_fnc_curatorAttributesmarker",["%ALL"]];

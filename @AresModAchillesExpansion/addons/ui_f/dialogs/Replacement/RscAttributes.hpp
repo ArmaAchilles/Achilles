@@ -1,6 +1,5 @@
-
 // add 3 additional custom buttons to standard curator dialog
-class RscDisplayAttributes 
+class RscDisplayAttributes
 {
 	movingEnable = true;
 	class Controls
@@ -10,10 +9,17 @@ class RscDisplayAttributes
 			moving = 1;
 		};
 		class Background : RscText {};
+
 		class ButtonOK : RscButtonMenuOK {};
 		class ButtonCancel : RscButtonMenuCancel {};
+
+		class Content: RscControlsGroup
+		{
+			class controls {};
+		};
+
 		class ButtonCustom : RscButtonMenu {};
-		class ButtonCustomLeft : RscButtonMenu 
+		class ButtonCustomLeft : ButtonCustom
 		{
 			idc = 30005;
 			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
@@ -21,7 +27,7 @@ class RscDisplayAttributes
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
-		class ButtonCustomLeftBelow : RscButtonMenu 
+		class ButtonCustomLeftBelow : ButtonCustom
 		{
 			idc = 30006;
 			x = 18.3 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
@@ -29,7 +35,7 @@ class RscDisplayAttributes
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
-		class ButtonCustomBelow : RscButtonMenu 
+		class ButtonCustomBelow : ButtonCustom
 		{
 			idc = 30007;
 			x = 23.4 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
@@ -37,7 +43,7 @@ class RscDisplayAttributes
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
-		class ButtonCustomLeft2 : RscButtonMenu 
+		class ButtonCustomLeft2 : ButtonCustom
 		{
 			idc = 30008;
 			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
@@ -45,7 +51,7 @@ class RscDisplayAttributes
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
-		class ButtonCustomLeftBelow2 : RscButtonMenu 
+		class ButtonCustomLeftBelow2 : ButtonCustom
 		{
 			idc = 30009;
 			x = 13.2 * BIGUI_GRID_W_FIX + safezoneX + (safezoneW - 40 * BIGUI_GRID_W_FIX) / 2;
@@ -53,16 +59,11 @@ class RscDisplayAttributes
 			w = 5 * BIGUI_GRID_W_FIX;
 			h = 1 * BIGUI_GRID_H_FIX;
 		};
-		class Content: RscControlsGroup 
-		{
-			class controls {};
-		};
-		
 	};
 };
 
 // define class ammo for vehicles and units
-class RscAttributeAmmo: RscControlsGroupNoScrollbars 
+class RscAttributeAmmo: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeAmmo','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 	idc = 14775;
@@ -71,10 +72,10 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 1 * BIGUI_GRID_H_FIX;
 
-	class controls 
+	class controls
 	{
 
-		class Title: RscText 
+		class Title: RscText
 		{
 			idc = 13475;
 			text = "$STR_AMAE_AMMO";
@@ -85,7 +86,7 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
-		class Value: RscXSliderH 
+		class Value: RscXSliderH
 		{
 			idc = 14375;
 			x = 10.1 * BIGUI_GRID_W_FIX;
@@ -98,42 +99,42 @@ class RscAttributeAmmo: RscControlsGroupNoScrollbars
 
 // modify script
 
-class RscAttributeRank: RscControlsGroupNoScrollbars 
+class RscAttributeRank: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeRank','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeSkill: RscControlsGroupNoScrollbars 
+class RscAttributeSkill: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeSkill','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeFuel: RscControlsGroupNoScrollbars 
+class RscAttributeFuel: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeFuel','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeDamage: RscControlsGroupNoScrollbars 
+class RscAttributeDamage: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeDamage','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeLock: RscControlsGroupNoScrollbars 
+class RscAttributeLock: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeLock','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeUnitPos: RscControlsGroupNoScrollbars 
+class RscAttributeUnitPos: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeUnitPos','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeFormation: RscControlsGroupNoScrollbars 
+class RscAttributeFormation: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeFormation','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeSpeedMode: RscControlsGroupNoScrollbars 
+class RscAttributeSpeedMode: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeSpeedMode','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
@@ -148,11 +149,11 @@ class RscAttributeGroupID2 : RscAttributeGroupID
 	onSetFocus = "[_this,'RscAttributeGroupID2','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 };
 
-class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars 
+class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeRespawnPosition','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 
-	class controls 
+	class controls
 	{
 		class Title: RscText {};
 		class Background: RscText {};
@@ -166,7 +167,7 @@ class RscAttributeRespawnPosition: RscControlsGroupNoScrollbars
 
 // define class name
 
-class RscAttributeName: RscControlsGroupNoScrollbars 
+class RscAttributeName: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeName','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 	idc = 119279;
@@ -175,10 +176,10 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 1 * BIGUI_GRID_H_FIX;
 
-	class controls 
+	class controls
 	{
 
-		class Title: RscText 
+		class Title: RscText
 		{
 			idc = 117979;
 			text = "$STR_AMAE_NAME";
@@ -189,7 +190,7 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
-		class Value: RscEdit 
+		class Value: RscEdit
 		{
 			idc = 118379;
 			x = 10.1 * BIGUI_GRID_W_FIX;
@@ -203,7 +204,7 @@ class RscAttributeName: RscControlsGroupNoScrollbars
 
 // define class head lights
 
-class RscAttributeHeadlight: RscControlsGroupNoScrollbars 
+class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeHeadlight','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 	idc = 114725;
@@ -212,10 +213,10 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 2.5 * BIGUI_GRID_H_FIX;
 
-	class controls 
+	class controls
 	{
 
-		class Title: RscText 
+		class Title: RscText
 		{
 			idc = 113427;
 			text = "$STR_AMAE_HEADLIGHT_SEARCHLIGHT";
@@ -226,7 +227,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
-		class Background: RscText 
+		class Background: RscText
 		{
 			style = 2;
 			idc = 113425;
@@ -238,7 +239,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
 
-		class HeadlightOn: RscActivePicture 
+		class HeadlightOn: RscActivePicture
 		{
 			idc = 113627;
 			text = "achilles\data_f_achilles\icons\icon_headlightOn.paa";
@@ -259,7 +260,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
-		
+
 		class Default: HeadlightOn
 		{
 			idc = 123470;
@@ -273,7 +274,7 @@ class RscAttributeHeadlight: RscControlsGroupNoScrollbars
 	};
 };
 
-class RscAttributeEngine: RscControlsGroupNoScrollbars 
+class RscAttributeEngine: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeEngine','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 	idc = 114726;
@@ -282,10 +283,10 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 	w = 26 * BIGUI_GRID_W_FIX;
 	h = 2.5 * BIGUI_GRID_H_FIX;
 
-	class controls 
+	class controls
 	{
 
-		class Title: RscText 
+		class Title: RscText
 		{
 			idc = 113427;
 			text = "$STR_AMAE_ENGINE";
@@ -296,7 +297,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
-		class Background: RscText 
+		class Background: RscText
 		{
 			style = 2;
 			idc = 113426;
@@ -308,7 +309,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
 
-		class EngineOn: RscActivePicture 
+		class EngineOn: RscActivePicture
 		{
 			idc = 113628;
 			text = "achilles\data_f_achilles\icons\icon_engineOn.paa";
@@ -329,7 +330,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 			h = 1.5 * BIGUI_GRID_H_FIX;
 			tooltip = "$STR_AMAE_SWITCH_OFF";
 		};
-		
+
 		class Default: EngineOn
 		{
 			idc = 123471;
@@ -344,7 +345,7 @@ class RscAttributeEngine: RscControlsGroupNoScrollbars
 };
 
 // define combat modes for groups and waypoints
-class RscAttributeCombatMode : RscControlsGroupNoScrollbars 
+class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeCombatMode','AresDisplays'] call (uinamespace getvariable 'Achilles_fnc_initCuratorAttribute')";
 	idc = 124569;
@@ -355,7 +356,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 
 	class controls {
 
-		class Title: RscText 
+		class Title: RscText
 		{
 			idc = 123271;
 			text = "$STR_disp_arcwp_semaphore";
@@ -366,7 +367,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			colorBackground[] = {0, 0, 0, 0.500000};
 		};
 
-		class Background: RscText 
+		class Background: RscText
 		{
 			idc = 123269;
 			x = 10 * BIGUI_GRID_W_FIX;
@@ -376,7 +377,7 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 			colorBackground[] = {1, 1, 1, 0.100000};
 		};
 
-		class HoldFire: RscActivePicture 
+		class HoldFire: RscActivePicture
 		{
 			idc = 123472;
 			text = "achilles\data_f_achilles\icons\icon_hold_fire.paa";
@@ -444,17 +445,17 @@ class RscAttributeCombatMode : RscControlsGroupNoScrollbars
 };
 
 // implement careless option for groups and waypoints
-class RscAttributeBehaviour: RscControlsGroupNoScrollbars 
+class RscAttributeBehaviour: RscControlsGroupNoScrollbars
 {
 	onSetFocus = "[_this,'RscAttributeBehaviour','AresDisplays'] call (uiNamespace getVariable 'Achilles_fnc_initCuratorAttribute')";
-	class controls 
+	class controls
 	{
-		class Title: RscText 
+		class Title: RscText
 		{
 			// correction: behaviour was named combat mode in vanilla
 			text = "$STR_AMAE_GROUP_BEHAVIOUR";
 		};
-		class Careless: RscActivePicture 
+		class Careless: RscActivePicture
 		{
 			idc = 23472;
 			text = "achilles\data_f_achilles\icons\icon_careless.paa";
@@ -489,4 +490,4 @@ class RscAttributeExec : RscControlsGroupNoScrollbars
 			text = "$STR_3DEN_Object_AttributeCategory_Init";
 		};
 	};
-};	
+};
