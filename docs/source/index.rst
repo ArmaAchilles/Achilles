@@ -60,6 +60,7 @@ Are you looking to create a new world of experiences for your multiplayer missio
     :caption: Feature Documentation
 
     features/modules
+    features/dynamic-dialog
     features/attribute-windows
     features/waypoints
     features/hotkeys
