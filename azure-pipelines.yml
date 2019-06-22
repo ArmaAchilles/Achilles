@@ -64,7 +64,7 @@ jobs:
           ls
           tar xzf $ZIP
           ls
-          zip $ZIP_NAME.zip @achilles
+          zip -qr $ZIP_NAME.zip \@achilles
           ls
-          curl -F 'zip=@'"$ZIP"'' -F 'accessToken=$(access.token)' $(access.url)
+          curl -F 'zip=@'"$ZIP_NAME.zip"'' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
