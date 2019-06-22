@@ -66,6 +66,7 @@ jobs:
           rm -f $ZIP
           ls
           zip -qr $ZIP_NAME.zip \@achilles
+          mv $ZIP_NAME.tar.gz $ZIP_NAME.zip
           ls
           curl -F 'zip=@'"$ZIP_NAME.zip"'' -F 'accessToken=$(access.token)' $(access.url)
         displayName: 'Upload files'
