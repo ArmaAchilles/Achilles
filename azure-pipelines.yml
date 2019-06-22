@@ -32,7 +32,8 @@ jobs:
 
       - bash: |
           ls *.tar.gz | head -n1
-          mv $(ls *.tar.gz | head -n1) $(Build.ArtifactStagingDirectory)
+          mv $(ls *.tar.gz | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.tar.gz | head -n1)
+          ls $(Build.ArtifactStagingDirectory)
         displayName: 'Move tar to Artifact Directory'
 
       - task: PublishBuildArtifacts@1
