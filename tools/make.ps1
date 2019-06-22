@@ -118,7 +118,7 @@ function Main {
 
     $orgLocation = Get-Location
     Set-Location -Path $projectRoot
-    foreach ($folder in "addons", "optionals") {
+    foreach ($folder in "addons") {
         New-Item "$projectRoot\@achilles\$folder" -ItemType "directory" -Force | Out-Null
         foreach ($component in Get-ChildItem -Directory "$PSScriptRoot\..\$folder") {
             Build-Directory $component

@@ -19,20 +19,13 @@ jobs:
         displayName: 'Build documentation'
 
   - job: Build
+    pool: 'vs2017-win2016'
     steps:
-      - script: |
-          sudo add-apt-repository ppa:koffeinflummi/armake
-          sudo apt-get update
-          sudo apt-get install armake
+      - powershell: |
+          ./tools/make.ps1
         displayName: 'Install armake'
 
-      - script: |
-          sed --version
-          armake -v
-          zip -v
-        displayName: 'Dependency versions'
-
-      - script: |
+      - bash: |
           make releaseCI
           mv $(ls *.zip | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.zip | head -n1)
         displayName: 'Build with armake'
