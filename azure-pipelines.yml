@@ -31,6 +31,7 @@ jobs:
         displayName: 'Build with armake'
 
       - bash: |
+          ls *.tar.gz | head -n1
           mv $(ls *.tar.gz | head -n1) $(Build.ArtifactStagingDirectory)
         displayName: 'Move tar to Artifact Directory'
 
