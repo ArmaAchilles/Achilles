@@ -30,9 +30,9 @@ jobs:
           make releaseCI
         displayName: 'Build with armake'
 
-      - bash: |
-          ls *.tar.gz | head -n1
-          mv $(ls *.tar.gz | head -n1) $(Build.ArtifactStagingDirectory)/$(ls *.tar.gz | head -n1)
+      - powershell: |
+          ls *.tar.gz
+          mv (ls *.tar.gz).Name $(Build.ArtifactStagingDirectory)
           ls $(Build.ArtifactStagingDirectory)
         displayName: 'Move tar to Artifact Directory'
 
