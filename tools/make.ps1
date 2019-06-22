@@ -85,27 +85,6 @@ function Update-Armake {
     Remove-Item "$PSScriptRoot\temp" -Recurse -Force
 }
 
-
-function Build-Directory {
-    param(
-        [Parameter(Mandatory=$True)]
-        $directory
-    )
-
-    $component = $directory.Name
-    $fullPath  = $directory.FullName
-    $parent    = $directory.Parent
-    $binPath   = "$projectRoot\@achilles\$parent\achilles_$component.pbo"
-
-    Write-Output "  PBO  $component"
-    & $armake build -i "$projectRoot\include" -w unquoted-string -w redefinition-wo-undef -f $fullPath $binPath
-
-    if ($LastExitCode -ne 0) {
-        Write-Error "Failed to build $component."
-    }
-}
-
-
 function Main {
     $installed = Get-InstalledArmakeVersion
     $latest    = Get-LatestArmakeVersion
@@ -115,16 +94,6 @@ function Main {
         Update-Armake ($downloadPage -f $latest)
         Write-Output "Update complete, armake up-to-date."
     }
-
-    $orgLocation = Get-Location
-    Set-Location -Path $projectRoot
-    foreach ($folder in "addons") {
-        New-Item "$projectRoot\@achilles\$folder" -ItemType "directory" -Force | Out-Null
-        foreach ($component in Get-ChildItem -Directory "$PSScriptRoot\..\$folder") {
-            Build-Directory $component
-        }
-    }
-    Set-Location $orgLocation
 }
 
 Main
