@@ -95,7 +95,7 @@ Once installed, you should add the Make directory path to the :code:`PATH` syste
         make
         bash: make: command not found
 
-    Restart all open Git Bash'es to refresh the loaded :code:`PATH` variable. 
+    Restart all open Git Bash'es to refresh the loaded :code:`PATH` variable.
 
 2. Editor set up
 ----------------
@@ -213,7 +213,7 @@ Headings are to be short and concise without being overly long to prevent issues
 Headings are to start with a capital letter but then follow **lowercase**.
 
 .. note::
-    In case there is an acronym (should be avoided), a name or anything else that should start with a capital letter, then it is to be considered an exception to the naming rule above. 
+    In case there is an acronym (should be avoided), a name or anything else that should start with a capital letter, then it is to be considered an exception to the naming rule above.
 
 5.5. Images
 ^^^^^^^^^^^
@@ -223,4 +223,4 @@ To declutter the directory structure, images should be in separate directories, 
 6. Restructured text cheat sheet
 --------------------------------
 
-A useful and more comprehensive cheat sheet for restructured text can be found on `Thomas Cokelaer's <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.htm>`_ website.
+A useful and more comprehensive cheat sheet for restructured text can be found on `Thomas Cokelaer's <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`_ website.
