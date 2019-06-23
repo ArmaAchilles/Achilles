@@ -47,6 +47,9 @@ jobs:
       - Test
       - Build
 
+    # Run release if not a pull request job
+    condition: ne(variables['Build.Reason'], 'PullRequest')
+
     steps:
       - task: DownloadBuildArtifacts@0
         inputs:
