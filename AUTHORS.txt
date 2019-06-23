@@ -6,3 +6,4 @@
 - NeilZar https://github.com/NeilZar
 
 # CONTRIBUTORS
+- Radium https://github.com/TheRadiumDude
