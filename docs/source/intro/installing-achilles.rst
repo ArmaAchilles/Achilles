@@ -1,7 +1,7 @@
 Installing Achilles
 ===================
-.. contents::
 
+.. contents::
 
 1. Installing from Steam Workshop
 ---------------------------------
