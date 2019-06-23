@@ -1,4 +1,4 @@
-Creating documentation
+Creating Documentation
 ======================
 
 .. contents::
