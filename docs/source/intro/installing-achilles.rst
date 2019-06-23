@@ -48,7 +48,7 @@ Installing `Achilles <https://github.com/ArmaAchilles/Achilles>`_ from GitHub is
 2.1. Open the Achilles Releases on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can find all current and old releases of Achilles `here <https://github.com/ArmaAchilles/Achilles/releases>`_.
+You can find all current and old releases of `Achilles <https://github.com/ArmaAchilles/Achilles/releases>`_.
 
 .. image:: installing-achilles-images/4.png
     :alt: Download the latest GitHub release
@@ -56,7 +56,7 @@ You can find all current and old releases of Achilles `here <https://github.com/
 *Go ahead and download the latest release. If, for some reason, you want an older version, you can do that too, just download the zip.*
 
 2.2. Extract the mod .zip
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: installing-achilles-images/5.png
     :alt: Extract the zip
