@@ -6,7 +6,7 @@ Installing Achilles
 1. Installing from Steam Workshop
 ---------------------------------
 
-Installing `Achilles <https://github.com/ArmaAchilles/Achilles>`_ from its `Steam Workshop <https://steamcommunity.com/sharedfiles/filedetails/?id=723217262>`_ page is a fairly easy task. You will need to install two mods, Achilles itself, and its dependency, CBA_A3.
+Installing `the Achilles mod <https://github.com/ArmaAchilles/Achilles>`_ from its `Steam Workshop <https://steamcommunity.com/sharedfiles/filedetails/?id=723217262>`_ page is a fairly easy task. You will need to install two mods, Achilles itself, and its dependency, CBA_A3.
 
 1.1. Subscribe to Achilles on Steam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
