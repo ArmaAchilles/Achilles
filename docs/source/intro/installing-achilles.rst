@@ -38,7 +38,7 @@ Since Steam handled the installation automatically, you should now be able to se
 *You can now play the game and enjoy your new Zeus experience.*
 Struggling to figure out how to get in and really experience Zeus? See our mission setup guide.
 
-:doc:`Preparing a mission with Achilles <intro/mission-setup>`
+:doc:`Preparing a mission with Achilles <mission-setup>`_
 
 2. Installing from GitHub
 -------------------------
