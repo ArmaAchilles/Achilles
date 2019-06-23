@@ -6,7 +6,7 @@ Installing Achilles
 1. Installing from Steam Workshop
 ---------------------------------
 
-Installing `Achilles <https://github.com/ArmaAchilles/Achilles>`_ from its `Steam Workshop <https://steamcommunity.com/sharedfiles/filedetails/?id=723217262>`_ page is a fairly easy task. You will need to install two mods, Achilles itself, and its dependency, `CBA_A3 <https://steamcommunity.com/workshop/filedetails/?id=450814997>`_.
+Installing `Achilles <https://github.com/ArmaAchilles/Achilles>`_ from its `Steam Workshop <https://steamcommunity.com/sharedfiles/filedetails/?id=723217262>`_ page is a fairly easy task. You will need to install two mods, Achilles itself, and its dependency, CBA_A3.
 
 1.1. Subscribe to Achilles on Steam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -43,7 +43,7 @@ Struggling to figure out how to get in and really experience Zeus? See our missi
 2. Installing from GitHub
 -------------------------
 
-Installing `Achilles <https://github.com/ArmaAchilles/Achilles>`_ from GitHub is a slightly more complicated process. If you are not used to GitHub, or prefer an easier installation, we recommend you use the Steam installation guide. If you would rather download the mod from GitHub from whatever reason however, please read on.
+Installing Achilles from GitHub is a slightly more complicated process. If you are not used to GitHub, or prefer an easier installation, we recommend you use the Steam installation guide. If you would rather download the mod from GitHub from whatever reason however, please read on.
 
 2.1. Open the Achilles Releases on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
