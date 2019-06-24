@@ -37,20 +37,19 @@ Are you looking to create a new world of experiences for your multiplayer missio
 .. toctree::
     :maxdepth: 1
     :hidden:
+    :glob:
     :caption: First Steps
 
-    intro/installing-achilles
-    intro/mission-setup
+    intro/*
 
 .. _user-docs:
 
 .. toctree::
    :maxdepth: 1
+   :glob:
    :caption: User Documentation
 
-   user/features
-   user/support
-   user/faq
+   user/*
 
 .. _feature-docs:
 
@@ -59,33 +58,22 @@ Are you looking to create a new world of experiences for your multiplayer missio
     :glob:
     :caption: Feature Documentation
 
-    features/modules
-    features/dynamic-dialog
-    features/attribute-windows
-    features/waypoints
-    features/hotkeys
-    features/customizations
-    features/ui-changes
+    features/*
 
 .. _dev-docs:
 
 .. toctree::
     :maxdepth: 1
+    :glob:
     :caption: Developer Documentation
 
-    development/changelog
-    development/install
-    development/architecture
-    development/docs
-    development/code-guidelines
-    development/localization
+    development/*
 
 .. _about-docs:
 
 .. toctree::
     :maxdepth: 1
+    :glob:
     :caption: About Achilles
 
-    about/contribute
-    about/roadmap
-    about/team
+    about/*
