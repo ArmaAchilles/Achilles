@@ -276,10 +276,20 @@ Below is a table with arguments for the display content of one element.
 | 3     | Text Color   | :code:`ARRAY`  | :code:`[1, 1, 1, 1]` | The text color for that one dropdown item. **Requires color RGBA**.      |
 +-------+--------------+----------------+----------------------+--------------------------------------------------------------------------+
 
-4. On Confirm
--------------
+4. On Confirm and On Cancel
+---------------------------
 
-ToDo: Arguments passed to the script onConfirm
+On confirm and on cancel are two different scripts that will be executed depending on the following conditions:
 
-5. On Cancel
-------------
+- If the user presses the OK or Cancel buttons.
+- If the user presses the Escape key.
+
+When these scripts are called, data is passed in the :code:`_this` variable.
+
++-------+---------------------------------------------------------+---------------+------------+
+| Index | Name                                                    | Type          | Default    |
++=======+=========================================================+===============+============+
+| 0     | Array of selected values                                | :code:`ARRAY` | N/A        |
++-------+---------------------------------------------------------+---------------+------------+
+| 1     | Array of arguments (provided when calling the function) | :code:`ARRAY` | :code:`[]` |
++-------+---------------------------------------------------------+---------------+------------+
