@@ -276,6 +276,21 @@ Below is a table with arguments for the display content of one element.
 | 3     | Text Color   | :code:`ARRAY`  | :code:`[1, 1, 1, 1]` | The text color for that one dropdown item. **Requires color RGBA**.      |
 +-------+--------------+----------------+----------------------+--------------------------------------------------------------------------+
 
+3.4. Text control
+^^^^^^^^^^^^^^^^^
+
+3.5. Side select control
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+3.6. Slider control
+^^^^^^^^^^^^^^^^^^^
+
+3.7. Block selection control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+3.8. Vector control
+^^^^^^^^^^^^^^^^^^^
+
 4. On Confirm and On Cancel
 ---------------------------
 
