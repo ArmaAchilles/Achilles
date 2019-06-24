@@ -111,7 +111,7 @@ The checkbox control is simple to use and doesn't have a lot of options.
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Name                 | Type                            | Allowed Values                                        | Description                                                                      | Default       |
 +======================+=================================+=======================================================+==================================================================================+===============+
-| Control              | :code:`STRING`                  | :code:`CHECKBOX`                                      | Display a checkbox type control.                                                 | Required      |
+| Control              | :code:`STRING`                  | :code:`"CHECKBOX"`                                    | Display a checkbox type control.                                                 | Required      |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Display Name         | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
@@ -152,7 +152,7 @@ The dynamic dialog system will automatically set the type depending on the value
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 | Name                 | Type                            | Allowed Values                                        | Description                                                                                                    | Default           |
 +======================+=================================+=======================================================+================================================================================================================+===================+
-| Control              | :code:`STRING`                  | :code:`COLOR`                                         | Display a color type control.                                                                                  | Required          |
+| Control              | :code:`STRING`                  | :code:`"COLOR"`                                       | Display a color type control.                                                                                  | Required          |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 | Display Name         | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                                               | Required          |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
@@ -214,7 +214,7 @@ It allows for you to set tooltips, images, text colors, etc.
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Name                      | Type                            | Allowed Values                                        | Description                                                                      | Default       |
 +===========================+=================================+=======================================================+==================================================================================+===============+
-| Control                   | :code:`STRING`                  | :code:`SELECT`                                        | Display a select type control.                                                   | Required      |
+| Control                   | :code:`STRING`                  | :code:`"SELECT"`                                      | Display a select type control.                                                   | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Display Name              | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
@@ -295,7 +295,7 @@ The text control is a simple text box that allows users to input data into the b
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Name                      | Type                            | Allowed Values                                        | Description                                                                      | Default       |
 +===========================+=================================+=======================================================+==================================================================================+===============+
-| Control                   | :code:`STRING`                  | :code:`TEXT`                                          | Display a select type control.                                                   | Required      |
+| Control                   | :code:`STRING`                  | :code:`"TEXT"`                                        | Display a text type control.                                                     | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Display Name              | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
@@ -336,11 +336,159 @@ This function is called on each key press in the unscheduled enviornment.
 3.5. Side select control
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+A simple side selector control which allows the user to select between the 4 main sides.
+
+- BLUFOR
+- OPFOR
+- Independent
+- Civilian
+
+**Arguments:**
+
++-------+----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Index | Name                             | Type                            | Allowed Values                                        | Description                                                                      | Default       |
++=======+==================================+=================================+=======================================================+==================================================================================+===============+
+| 0     | Control                          | :code:`STRING`                  | :code:`"SIDES"`                                       | Display a side type control.                                                     | Required      |
++-------+----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| 1     | Display Name                     | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
++-------+----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| 2     | Default side to show as selected | :code:`SIDE`                    | :code:`SIDE`                                          | The default side that should be selected.                                        | :code:`nil`   |
++-------+----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| 3     | Force default value?             | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
++-------+----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+
+**Example:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "SIDES",
+            "You like the",
+            west
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Result:**
+
+.. image:: dynamic-dialog-images/7.png
+    :alt: Side control dialog
+
 3.6. Slider control
 ^^^^^^^^^^^^^^^^^^^
 
+The slider control is a simple slider that allows you to select a value in the defined range.
+
+**Arguments:**
+
++-------+--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Index | Name                     | Type                            | Allowed Values                                        | Description                                                                                                                  | Default              |
++=======+==========================+=================================+=======================================================+==============================================================================================================================+======================+
+| 0     | Control                  | :code:`STRING`                  | :code:`"SLIDER"`                                      | Display a slider type control.                                                                                               | Required             |
++-------+--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 1     | Display Name             | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                                                             | Required             |
++-------+--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 2     | Array of slider settings | :code:`ARRAY`                   | :code:`[min, max, default, decimals]`                 | Array of the minimum and maximum allowed values of the slider, the default value to set the slider at and the decimal point. | :code:`[0, 1, 0, 2]` |
++-------+--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 3     | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value?                                             | :code:`false`        |
++-------+--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+
+**Example:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "SLIDER",
+            "Distance to Altis",
+            [
+                0,
+                100,
+                25,
+                1
+            ]
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Result:**
+
+.. image:: dynamic-dialog-images/8.png
+    :alt: Slider control dialog
+
 3.7. Block selection control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The block selection is a way to select something without having to go into a select dropdown or something that the simple checkbox can't handle.
+
+**Arguments:**
+
++-------+--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Index | Name                     | Type                            | Allowed Values                                              | Description                                                                                                                      | Default              |
++=======+==========================+=================================+=============================================================+==================================================================================================================================+======================+
+| 0     | Control                  | :code:`STRING`                  | :code:`"BLOCK"`, :code:`BLOCK:YESNO`, :code:`BLOCK:ENABLED` | Display a block select type control. Allows to quickly use Yes/No or Enabled/Disabled type questions.                            | Required             |
++-------+--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 1     | Display Name             | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]`       | What does the control represent?                                                                                                 | Required             |
++-------+--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 2     | Array of block questions | :code:`ARRAY`                   | See "`3.7.1. Allowed values`_"                              | An array of data to be displayed to the user (**not required if using the :code:`:YESNO` or :code:`:ENABLED` secondary controls. | :code:`[0, 1, 0, 2]` |
++-------+--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| 3     | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                                | Should the given default value be forced? Should we ignore the last saved value?                                                 | :code:`false`        |
++-------+--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+
+3.7.1. Allowed values
+"""""""""""""""""""""
+
+.. note:: If using any of the secondary control types, then you do not have to add the questions.
+
+.. note:: The maximum amount of items to select in the block control that can be added is 5.
+
+To select the default value you can use the indexes of the question (0, 1, etc.) but if you only have 2 questions, then you can use a boolean.
+
+If you are using the secondary control then you can also specify which control should be the default selected one.
+You can use a boolean to select the default question.
+:code:`false` would be on the left and :code:`true` would be on the right.
+
+**Examples:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "BLOCK:YESNO",
+            "Taras Kul",
+            [true]
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "BLOCK",
+            "She's",
+            [
+                2,
+                [
+                    "Old",
+                    "Cool",
+                    "On Fire",
+                    "Boring",
+                    "Other"
+                ]
+            ]
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Results:**
+
+.. image:: dynamic-dialog-images/9.png
+    :alt: Block select control with YESNO dialog
+
+.. image:: dynamic-dialog-images/10.png
+    :alt: Block select with multiple choices control dialog
 
 3.8. Vector control
 ^^^^^^^^^^^^^^^^^^^
