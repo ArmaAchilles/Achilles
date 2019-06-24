@@ -35,7 +35,7 @@ Are you looking to create a new world of experiences for your multiplayer missio
   :doc:`Preparing a mission with Achilles <intro/mission-setup>`
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :hidden:
     :caption: First Steps
 
@@ -45,7 +45,7 @@ Are you looking to create a new world of experiences for your multiplayer missio
 .. _user-docs:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: User Documentation
 
    user/features
@@ -55,7 +55,7 @@ Are you looking to create a new world of experiences for your multiplayer missio
 .. _feature-docs:
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :glob:
     :caption: Feature Documentation
 
