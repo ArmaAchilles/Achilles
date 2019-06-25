@@ -18,8 +18,6 @@
 
 #include "script_component.hpp"
 
-#define SIDE_LOGIC_ID 7
-
 params [
     ["_ctrlGroup", controlNull, [controlNull]],
     ["_rowIndex", 0, [0]],
