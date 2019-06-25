@@ -251,6 +251,55 @@ class GVAR(row_sides): GVAR(row_base) {
     };
 };
 
+class GVAR(row_sides_all): GVAR(row_sides) {
+    class controls: controls {
+        class Name: Name {
+            h = POS_H(2.5);
+        };
+        class Background: RscText {
+            idc = -1;
+            x = POS_W(10);
+            y = 0;
+            w = POS_W(16);
+            h = POS_H(2.5);
+            colorBackground[] = {1, 1, 1, 0.1};
+        };
+        class BLUFOR: RscActivePicture {
+            idc = IDC_ACHILLES_ROW_SIDES_BLUFOR;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_west_ca.paa";
+            tooltip = "$STR_WEST";
+            x = POS_W(11);
+            y = POS_H(0.25);
+            w = POS_W(2);
+            h = POS_H(2);
+        };
+        class OPFOR: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_OPFOR;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_east_ca.paa";
+            tooltip = "$STR_EAST";
+            x = POS_W(14);
+        };
+        class Independent: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_INDEPENDENT;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_guer_ca.paa";
+            tooltip = "$STR_guerrila";
+            x = POS_W(17);
+        };
+        class Civilian: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_CIVILIAN;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_civ_ca.paa";
+            tooltip = "$STR_civilian";
+            x = POS_W(20);
+        };
+        class SideLogic: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_SIDELOGIC;
+            text = "\a3\Ui_F_Curator\Data\Logos\arma3_curator_eye_128_ca.paa";
+            tooltip = "$STR_a3_cfgfactionclasses_curator";
+            x = POS_W(23);
+        };
+    };
+};
+
 class GVAR(row_colorRGB): GVAR(row_base) {
     GVAR(script) = QFUNC(dynamic_color);
     h = POS_H(3);

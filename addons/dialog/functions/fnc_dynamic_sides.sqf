@@ -18,21 +18,39 @@
 
 #include "script_component.hpp"
 
+#define SIDE_LOGIC_ID 7
+
 params [
     ["_ctrlGroup", controlNull, [controlNull]],
     ["_rowIndex", 0, [0]],
-    ["_currentValue", nil, [west]]
+    ["_currentValue", nil, [west]],
+    ["_rowSettings", [], [[]]]
 ];
+
+_rowSettings params [["_displayAllSides", false, [false]]];
+
+// Remove SideLogic side if _displayAllSides is false
+_allSides = IDCS_ACHILLES_ROW_SIDES;
+if (! _displayAllSides) then {_allSides deleteAt 4};
 
 {
     private _ctrlSide = _ctrlGroup controlsGroupCtrl _x;
-    private _color = [_forEachIndex] call BIS_fnc_sideColor;
-    private _side  = [_forEachIndex] call BIS_fnc_sideType;
+    private _color = [];
+    private _side = west;
 
-    _ctrlSide setVariable [QGVAR(params), [_rowIndex, _side, _color]];
+    // If currently selected side is SideLogic then we set the correct values
+    if (_displayAllSides && {_forEachIndex == 4}) then {
+        _color = [1, 1, 1, 1];
+        _side = sideLogic;
+    } else {
+        _color = [_forEachIndex] call BIS_fnc_sideColor;
+        _side = [_forEachIndex] call BIS_fnc_sideType;
+    };
+
+    _ctrlSide setVariable [QGVAR(params), [_rowIndex, _side, _color, _allSides]];
     _ctrlSide ctrlAddEventHandler ["ButtonClick", {
         params ["_ctrlSide"];
-        (_ctrlSide getVariable QGVAR(params)) params ["_rowIndex", "_selectedSide"];
+        (_ctrlSide getVariable QGVAR(params)) params ["_rowIndex", "_selectedSide", "", "_allSides"];
 
         private _controlsGroup = ctrlParentControlsGroup _ctrlSide;
 
@@ -51,7 +69,7 @@ params [
 
             _ctrlSide ctrlSetTextColor _color;
             [_ctrlSide, _scale, 0.1] call BIS_fnc_ctrlSetScale;
-        } forEach IDCS_ACHILLES_ROW_SIDES;
+        } forEach _allSides;
 
         private _display = ctrlParent _ctrlSide;
         private _values = _display getVariable QGVAR(values);
@@ -67,4 +85,4 @@ params [
     };
 
     _ctrlSide ctrlSetTextColor _color;
-} forEach IDCS_ACHILLES_ROW_SIDES;
+} forEach _allSides;
