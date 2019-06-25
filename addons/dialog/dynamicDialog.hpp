@@ -253,42 +253,18 @@ class GVAR(row_sides): GVAR(row_base) {
 
 class GVAR(row_sides_all): GVAR(row_sides) {
     class controls: controls {
-        class Name: Name {
-            h = POS_H(2.5);
-        };
-        class Background: RscText {
-            idc = -1;
-            x = POS_W(10);
-            y = 0;
-            w = POS_W(16);
-            h = POS_H(2.5);
-            colorBackground[] = {1, 1, 1, 0.1};
-        };
-        class BLUFOR: RscActivePicture {
-            idc = IDC_ACHILLES_ROW_SIDES_BLUFOR;
-            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_west_ca.paa";
-            tooltip = "$STR_WEST";
+        class Name: Name {};
+        class Background: Background {};
+        class BLUFOR: BLUFOR {
             x = POS_W(11);
-            y = POS_H(0.25);
-            w = POS_W(2);
-            h = POS_H(2);
         };
-        class OPFOR: BLUFOR {
-            idc = IDC_ACHILLES_ROW_SIDES_OPFOR;
-            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_east_ca.paa";
-            tooltip = "$STR_EAST";
+        class OPFOR: OPFOR {
             x = POS_W(14);
         };
-        class Independent: BLUFOR {
-            idc = IDC_ACHILLES_ROW_SIDES_INDEPENDENT;
-            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_guer_ca.paa";
-            tooltip = "$STR_guerrila";
+        class Independent: Independent {
             x = POS_W(17);
         };
-        class Civilian: BLUFOR {
-            idc = IDC_ACHILLES_ROW_SIDES_CIVILIAN;
-            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_civ_ca.paa";
-            tooltip = "$STR_civilian";
+        class Civilian: Civilian {
             x = POS_W(20);
         };
         class SideLogic: BLUFOR {
