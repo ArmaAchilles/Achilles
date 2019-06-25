@@ -60,7 +60,7 @@ params [
 
     _ctrlSide ctrlSetActiveColor _color;
 
-    if (_side isEqualTo _currentValue) then {
+    if (! isNil "_currentValue" && {_side isEqualTo _currentValue}) then {
         [_ctrlSide, 1.2, 0] call BIS_fnc_ctrlSetScale;
     } else {
         _color set [3, 0.5];
