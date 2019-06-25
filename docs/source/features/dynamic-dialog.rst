@@ -346,6 +346,10 @@ A simple side selector control which allows the user to select between the 4 mai
 An optional 5th side can be added: Logic side (:code:`sideLogic`).
 This is achieved using the secondary control :code:`SIDES:ALL`.
 
+.. warning::
+    It's highly recommended to provide a default value for the side.
+    If not done so, then if the user doesn't select anything when prompted to, will result in a :code:`nil` value in the dialog result.
+
 **Arguments:**
 
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
