@@ -191,6 +191,9 @@ scopeName "Main";
             _defaultValue = [_valueData] param [0, [0, 0], [], [2, 3]];
             _dialogControl = [QGVAR(row_vectorXY), QGVAR(row_vectorXYZ)] select (count _defaultValue > 2);
         };
+        case "OWNERS": {
+            _dialogControl = QGVAR(row_owners);
+        };
         default {
             WARNING_1("%1 is not a valid control type",_primaryControl);
             false breakOut "Main";

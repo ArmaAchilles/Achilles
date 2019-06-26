@@ -6,6 +6,7 @@ class ctrlXSliderH;
 class RscActivePicture;
 class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
+class RscButton;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscCombo {
@@ -206,7 +207,7 @@ class GVAR(row_slider): GVAR(row_base) {
     };
 };
 
-class GVAR(row_sides): GVAR(row_base) {
+class GVAR(row_sides): GVAR(row_base_sides) {
     GVAR(script) = QFUNC(dynamic_sides);
     h = POS_H(2.5);
     class controls: controls {
@@ -390,6 +391,97 @@ class GVAR(row_vectorXYZ): GVAR(row_vectorXY) {
             idc = IDC_ACHILLES_ROW_VECTOR_Z;
             x = POS_W(13.6 + 2 * 12.4/3);
             w = POS_W(12.4/3);
+        };
+    };
+};
+
+class GVAR(row_owners): GVAR(row_base) {
+    GVAR(script) = QFUNC(dynamic_owners);
+    w = POS_W(26);
+    h = POS_H(5);
+    class controls: controls {
+        class Name: Name {
+            y = pixelH;
+            w = POS_W(26);
+            h = POS_H(1) - pixelH;
+        };
+        class Background: RscText {
+            idc = -1;
+            x = 0;
+            y = POS_Y(2);
+            w = POS_W(26);
+            h = POS_H(3);
+            colorBackground[] = {1, 1, 1, 0.1};
+        };
+        class TabSide: RscButton {
+            idc = IDC_ACHILLES_ROW_TAB_SIDE;
+            colorDisabled[] = {1, 1, 1, 1};
+            colorFocused[] = {1, 1, 1, 0.1};
+            colorBackground[] = {1, 1, 1, 0};
+            colorBackgroundActive[] = {1, 1, 1, 0.3};
+            colorBackgroundDisabled[] = {1, 1, 1, 0.1};
+            shadow = 0;
+            period = 0;
+            periodFocus = 0;
+            periodOver = 0;
+            text = "SIDES"; // ToDo: Localize
+            x = 0;
+            y = POS_Y(1);
+            w = POS_W(8.5);
+            h = POS_H(1);
+        };
+        class TabGroup: TabSide {
+            idc = IDC_ACHILLES_ROW_TAB_GROUP;
+            text = "$STR_a3_rscdisplaycurator_modegroups_tooltip";
+            x = POS_W(8.5);
+            y = POS_Y(1);
+            w = POS_W(9);
+            h = POS_H(1);
+        };
+        class TabPlayer: TabSide {
+            idc = IDC_ACHILLES_ROW_TAB_PLAYER;
+            text = "$STR_Player";
+            x = POS_W(17.47);
+            y = POS_Y(1);
+            w = POS_W(8.52);
+            h = POS_H(1);
+        };
+        class BLUFOR: RscActivePicture {
+            idc = IDC_ACHILLES_ROW_SIDES_BLUFOR;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_west_ca.paa";
+            tooltip = "$STR_WEST";
+            x = POS_W(8.2);
+            y = POS_H(2.5);
+            w = POS_W(2);
+            h = POS_H(2);
+        };
+        class OPFOR: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_OPFOR;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_east_ca.paa";
+            tooltip = "$STR_EAST";
+            x = POS_W(11.2);
+        };
+        class Independent: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_INDEPENDENT;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_guer_ca.paa";
+            tooltip = "$STR_guerrila";
+            x = POS_W(14.2);
+        };
+        class Civilian: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_CIVILIAN;
+            text = "\a3\Ui_F_Curator\Data\Displays\RscDisplayCurator\side_civ_ca.paa";
+            tooltip = "$STR_civilian";
+            x = POS_W(17.2);
+        };
+        class GroupList: GVAR(rscCombo) {
+            idc = IDC_ACHILLES_ROW_TAB_GROUP_SELECT;
+            x = POS_W(2.1);
+            y = POS_Y(3);
+            w = POS_W(22);
+            h = POS_H(1);
+        };
+        class UnitList: GroupList {
+            idc = IDC_ACHILLES_ROW_TAB_PLAYER_SELECT;
         };
     };
 };

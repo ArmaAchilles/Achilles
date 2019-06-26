@@ -45,4 +45,7 @@
 #define THEME_COLOR_ALPHA "(profileNamespace getVariable ['GUI_BCG_RGB_A',0.8])"
 #define THEME_COLORS {THEME_COLOR_RGB_R,THEME_COLOR_RGB_G,THEME_COLOR_RGB_B,THEME_COLOR_ALPHA}
 
+#define SIDE_ICONS ["A3\ui_f\data\map\diary\icons\playerEast_ca.paa","A3\ui_f\data\map\diary\icons\playerWest_ca.paa","A3\ui_f\data\map\diary\icons\playerGuer_ca.paa","A3\ui_f\data\map\diary\icons\playerCiv_ca.paa"]
+#define SIDE_ICON_COUNT 4 // Non-zero
+
 #include "script_idc.hpp"
