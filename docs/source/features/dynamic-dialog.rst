@@ -530,6 +530,44 @@ If you provide 2 elements then you will only see the option to enter the `X` and
 .. image:: dynamic-dialog-images/11.png
     :alt: Vector control dialog
 
+3.9. Owner control
+^^^^^^^^^^^^^^^^^^
+
+The owner control (based on the same one from vanilla Arma 3) is a tab based selection which allows you to select playable entities.
+It provides 3 master tabs, side - group - player.
+
+**Arguments:**
+
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Name                 | Type                                            | Allowed Values                                        | Description                                                                      | Default        |
++======================+=================================================+=======================================================+==================================================================================+================+
+| Control              | :code:`STRING`                                  | :code:`"OWNERS"`                                      | Display the owners type control.                                                 | Required       |
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Display Name         | :code:`STRING` or :code:`ARRAY`                 | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required       |
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Default value        | :code:`SIDE` or :code:`GROUP` or :code:`OBJECT` | :code:`SIDE` or :code:`GROUP` or :code:`OBJECT`       | Playable unit side, group or the unit itself to select as default.               | :code:`west`   |
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Force default value? | :code:`BOOL`                                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false`  |
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+
+**Example:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "OWNERS",
+            "Owners",
+            switchableUnits select 1
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Result:**
+
+.. image:: dynamic-dialog-images/12.png
+    :alt: Owners control dialog
+
 4. On Confirm and On Cancel
 ---------------------------
 
