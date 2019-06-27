@@ -5,7 +5,7 @@
 * Arguments:
 * 0: Control Group <CONTROL>
 * 1: Row Index <SCALAR>
-* 2: Default value <SIDE|GROUP|OBJECT>
+* 2: Default value <SIDE|GROUP|OBJECT> (default: west)
 *
 * Return Value:
 * Nothing
@@ -15,7 +15,7 @@
 *
 * Public: No
 */
-#define DEBUG_MODE_FULL
+
 #include "script_component.hpp"
 
 params [
@@ -24,12 +24,16 @@ params [
     ["_defaultValue", west, [west, grpNull, objNull]]
 ];
 
-// Init the side select control with default value if present
-if (_defaultValue isEqualType west) then {
-    [_ctrlGroup, _rowIndex, _defaultValue] call achilles_dialog_fnc_dynamic_sides;
-} else {
-    [_ctrlGroup, _rowIndex] call achilles_dialog_fnc_dynamic_sides
+private _fnc_changeControlStatus = {
+    params ["_ctrlGroup", "_allCtrls", "_show"];
+    {
+        private _ctrl = _ctrlGroup controlsGroupCtrl _x;
+        _ctrl ctrlShow _show;
+    } forEach _allCtrls;
 };
+
+private _activeCtrl = controlNull;
+private _activeCtrls = [];
 
 // Init each select to display content
 private _groupSelect = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_GROUP_SELECT;
@@ -64,27 +68,55 @@ private _players = [];
 _groupSelect lbSetCurSel 0;
 _playerSelect lbSetCurSel 0;
 
-// Select the defaults
-if (_defaultValue isEqualType grpNull) then {
-    private _groupDefault = _groups find _defaultValue;
+private _ctrlsToHide = [];
 
-    if (_groupDefault != -1) then {
-        _groupSelect lbSetCurSel _groupDefault;
-    } else {
-        _groupSelect lbSetCurSel 0;
+// Init side control and
+switch (typeName _defaultValue) do {
+    case "SIDE": {
+        [_ctrlGroup, _rowIndex, _defaultValue] call achilles_dialog_fnc_dynamic_sides;
+
+        _activeCtrl = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_SIDE;
+        _activeCtrl ctrlEnable false;
+        _activeCtrls = IDCS_ACHILLES_ROW_SIDES;
+
+        // Hide all the combo boxes as they would overlap with the side control on first load
+        _ctrlsToHide = IDCS_ACHILLES_ROW_TAB_SELECTS;
+    };
+    case "GROUP": {
+        [_ctrlGroup, _rowIndex] call achilles_dialog_fnc_dynamic_sides;
+
+        private _groupDefault = _groups find _defaultValue;
+
+        if (_groupDefault != -1) then {
+            _groupSelect lbSetCurSel _groupDefault;
+        };
+
+        _activeCtrl = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_GROUP;
+        _activeCtrl ctrlEnable false;
+        _activeCtrls = [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
+
+        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES;
+        _ctrlsToHide append [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
+    };
+    case "OBJECT": {
+        [_ctrlGroup, _rowIndex] call achilles_dialog_fnc_dynamic_sides;
+
+        private _playerDefault = _players find _defaultValue;
+
+        if (_playerDefault != -1) then {
+            _playerSelect lbSetCurSel _playerDefault;
+        };
+
+        _activeCtrl = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_PLAYER;
+        _activeCtrl ctrlEnable false;
+        _activeCtrls = [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
+
+        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES;
+        _ctrlsToHide append [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
     };
 };
 
-if (_defaultValue isEqualType objNull) then {
-    private _playerDefault = _players find _defaultValue;
-
-    if (_playerDefault != -1) then {
-        _playerSelect lbSetCurSel _playerDefault;
-    } else {
-        _playerSelect lbSetCurSel 0;
-    };
-};
-
+[_ctrlGroup, _ctrlsToHide, false] call _fnc_changeControlStatus;
 
 // Add event handlers to handle value saving on dropdown change
 {
@@ -98,7 +130,7 @@ if (_defaultValue isEqualType objNull) then {
 
         private _ctrlGroup = ctrlParentControlsGroup _ctrl;
         private _params = _ctrlGroup getVariable [QGVAR(params), []];
-        _params params ["_rowIndex", "_players", "_groups", "_disabledCtrl", "_previouslyActiveCtrls"];
+        _params params ["_rowIndex", "_players", "_groups"];
 
         if (ctrlIDC _ctrl == IDC_ACHILLES_ROW_TAB_GROUP_SELECT) then {
             _values set [_rowIndex, _groups select _index];
@@ -108,49 +140,7 @@ if (_defaultValue isEqualType objNull) then {
     }];
 } forEach IDCS_ACHILLES_ROW_TAB_SELECTS;
 
-private _activeCtrl = controlNull;
-private _activeCtrls = [];
-
-// Disable sides tab as it is selected by default
-if (_defaultValue isEqualType west) then {
-    private _sideTab = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_SIDE;
-    _sideTab ctrlEnable false;
-
-    _activeCtrl = _sideTab;
-    _activeCtrls = IDCS_ACHILLES_ROW_SIDES;
-
-    // Hide all the combo boxes as they would overlap with the side control on first load
-    {
-        private _ctrl = _ctrlGroup controlsGroupCtrl _x;
-        _ctrl ctrlShow false;
-    } forEach IDCS_ACHILLES_ROW_TAB_SELECTS;
-} else {
-    if (_defaultValue isEqualType grpNull) then {
-        private _groupTab = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_GROUP;
-        _groupTab ctrlEnable false;
-
-        _activeCtrl = _groupTab;
-        _activeCtrls = [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
-
-        {
-            private _ctrl = _ctrlGroup controlsGroupCtrl _x;
-            _ctrl ctrlShow false;
-        } forEach (IDCS_ACHILLES_ROW_SIDES + [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT]);
-    } else {
-        private _playerTab = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_PLAYER;
-        _playerTab ctrlEnable false;
-
-        _activeCtrl = _playerTab;
-        _activeCtrls = [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
-
-        {
-            private _ctrl = _ctrlGroup controlsGroupCtrl _x;
-            _ctrl ctrlShow false;
-        } forEach (IDCS_ACHILLES_ROW_SIDES + [IDC_ACHILLES_ROW_TAB_GROUP_SELECT]);
-    };
-};
-
-_ctrlGroup setVariable [QGVAR(params), [_rowIndex, _players, _groups, _activeCtrl, _activeCtrls]];
+_ctrlGroup setVariable [QGVAR(params), [_rowIndex, _players, _groups, _activeCtrl, _activeCtrls, _fnc_changeControlStatus]];
 
 {
     private _ctrl = _ctrlGroup controlsGroupCtrl _x;
@@ -160,27 +150,23 @@ _ctrlGroup setVariable [QGVAR(params), [_rowIndex, _players, _groups, _activeCtr
 
         private _ctrlGroup = ctrlParentControlsGroup _ctrl;
         private _params = _ctrlGroup getVariable [QGVAR(params), []];
-        _params params ["_rowIndex", "_players", "_groups", "_disabledCtrl", "_previouslyActiveCtrls"];
+        _params params ["_rowIndex", "_players", "_groups", "_disabledCtrl", "_previouslyActiveCtrls", "_fnc_changeControlStatus"];
 
         // Set the current "active" control to the one that just got pressed
         _disabledCtrl ctrlEnable true;
         _ctrl ctrlEnable false;
 
         // Hide previously active controls
-        {
-            private _ctrl = _ctrlGroup controlsGroupCtrl _x;
-            _ctrl ctrlShow false;
-        } forEach _previouslyActiveCtrls;
+        [_ctrlGroup, _previouslyActiveCtrls, false] call _fnc_changeControlStatus;
 
         // Show the appropriate controls for this tab
-        private _ctrlIdc = ctrlIDC _ctrl;
         private _activeCtrls = [];
 
         // Refresh the dialog row value as the user changes the tab
         private _display = ctrlParent _ctrl;
         private _values = _display getVariable QGVAR(values);
 
-        switch (_ctrlIdc) do {
+        switch (ctrlIDC _ctrl) do {
             case IDC_ACHILLES_ROW_TAB_SIDE: {
                 _activeCtrls = IDCS_ACHILLES_ROW_SIDES;
 
@@ -209,10 +195,7 @@ _ctrlGroup setVariable [QGVAR(params), [_rowIndex, _players, _groups, _activeCtr
             };
         };
 
-        {
-            private _ctrl = _ctrlGroup controlsGroupCtrl _x;
-            _ctrl ctrlShow true;
-        } forEach _activeCtrls;
+        [_ctrlGroup, _activeCtrls, true] call _fnc_changeControlStatus;
 
         _params set [3, _ctrl];
         _params set [4, _activeCtrls];
