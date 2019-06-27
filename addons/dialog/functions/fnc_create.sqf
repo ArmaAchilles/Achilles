@@ -193,6 +193,7 @@ scopeName "Main";
         };
         case "OWNERS": {
             _dialogControl = QGVAR(row_owners);
+            _defaultValue = [_valueData] param [0, west, []];
         };
         default {
             WARNING_1("%1 is not a valid control type",_primaryControl);
