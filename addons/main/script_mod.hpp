@@ -3,6 +3,8 @@
 #define MAINPREFIX z
 #define PREFIX achilles
 
+#define AUTHOR_NAME QUOTE(The Achilles Dev Team)
+
 #include "script_version.hpp"
 
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
