@@ -15,7 +15,7 @@
 *
 * Public: No
 */
-
+#define DEBUG_MODE_FULL
 #include "script_component.hpp"
 
 params [
@@ -70,7 +70,7 @@ _playerSelect lbSetCurSel 0;
 
 private _ctrlsToHide = [];
 
-// Init side control and
+// Init side control and set the active controls
 switch (typeName _defaultValue) do {
     case "SIDE": {
         [_ctrlGroup, _rowIndex, _defaultValue] call achilles_dialog_fnc_dynamic_sides;
@@ -95,8 +95,7 @@ switch (typeName _defaultValue) do {
         _activeCtrl ctrlEnable false;
         _activeCtrls = [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
 
-        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES;
-        _ctrlsToHide append [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
+        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES + [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
     };
     case "OBJECT": {
         [_ctrlGroup, _rowIndex] call achilles_dialog_fnc_dynamic_sides;
@@ -111,8 +110,7 @@ switch (typeName _defaultValue) do {
         _activeCtrl ctrlEnable false;
         _activeCtrls = [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
 
-        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES;
-        _ctrlsToHide append [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
+        _ctrlsToHide = IDCS_ACHILLES_ROW_SIDES + [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
     };
 };
 
@@ -185,13 +183,22 @@ _ctrlGroup setVariable [QGVAR(params), [_rowIndex, _players, _groups, _activeCtr
                 _activeCtrls = [IDC_ACHILLES_ROW_TAB_GROUP_SELECT];
 
                 private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_GROUP_SELECT;
-                _values set [_rowIndex, _groups select (lbCurSel _ctrl)];
+                private _index = lbCurSel _ctrl;
+
+                // If nothing is in the select then it returns -1
+                if (_index != -1) then {
+                    _values set [_rowIndex, _groups select _index];
+                };
             };
             case IDC_ACHILLES_ROW_TAB_PLAYER: {
                 _activeCtrls = [IDC_ACHILLES_ROW_TAB_PLAYER_SELECT];
 
                 private _ctrl = _ctrlGroup controlsGroupCtrl IDC_ACHILLES_ROW_TAB_PLAYER_SELECT;
-                _values set [_rowIndex, _players select (lbCurSel _ctrl)];
+                private _index = lbCurSel _ctrl;
+
+                if (_index != -1) then {
+                    _values set [_rowIndex, _players select _index];
+                };
             };
         };
 
