@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="ZEN">
+    <Package name="Dialog">
+        <Key ID="STR_Achilles_Dialog_Upper_Players">
+            <English>PLAYERS</English>
+        </Key>
+        <Key ID="STR_Achilles_Dialog_Upper_Groups">
+            <English>GROUPS</English>
+        </Key>
+        <Key ID="STR_Achilles_Dialog_Upper_Sides">
+            <English>SIDES</English>
+        </Key>
+    </Package>
+</Project>
