@@ -65,5 +65,14 @@
             <Russian>Нет</Russian>
             <Spanish>No</Spanish>
         </Key>
+        <Key ID="STR_Achilles_Common_Upper_Players">
+            <English>PLAYERS</English>
+        </Key>
+        <Key ID="STR_Achilles_Common_Upper_Groups">
+            <English>GROUPS</English>
+        </Key>
+        <Key ID="STR_Achilles_Common_Upper_Sides">
+            <English>SIDES</English>
+        </Key>
     </Package>
 </Project>

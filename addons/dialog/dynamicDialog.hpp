@@ -424,7 +424,7 @@ class GVAR(row_owners): GVAR(row_base) {
             period = 0;
             periodFocus = 0;
             periodOver = 0;
-            text = "SIDES"; // ToDo: Localize
+            text = "$STR_Achilles_Common_Upper_Sides";
             x = 0;
             y = POS_Y(1);
             w = POS_W(8.5);
@@ -432,7 +432,7 @@ class GVAR(row_owners): GVAR(row_base) {
         };
         class TabGroup: TabSide {
             idc = IDC_ACHILLES_ROW_TAB_GROUP;
-            text = "$STR_a3_rscdisplaycurator_modegroups_tooltip";
+            text = "$STR_Achilles_Common_Upper_Groups";
             x = POS_W(8.5);
             y = POS_Y(1);
             w = POS_W(9);
@@ -440,7 +440,7 @@ class GVAR(row_owners): GVAR(row_base) {
         };
         class TabPlayer: TabSide {
             idc = IDC_ACHILLES_ROW_TAB_PLAYER;
-            text = "$STR_Player";
+            text = "$STR_Achilles_Common_Upper_Players";
             x = POS_W(17.47);
             y = POS_Y(1);
             w = POS_W(8.52);
