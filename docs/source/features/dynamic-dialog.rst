@@ -119,6 +119,8 @@ The checkbox control is simple to use and doesn't have a lot of options.
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
 
@@ -159,6 +161,8 @@ The dynamic dialog system will automatically set the type depending on the value
 | Default color data   | :code:`ARRAY`                   | :code:`[1, 1, 1]` or :code:`[1, 1, 1, 1]`             | What should the default color data be? If 4 arguments provided in the array, then it displays an RGBA control. | :code:`[1, 1, 1]` |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value?                               | :code:`false`     |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                 | :code:`{}`        |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 
 3.2.1. Color RGB
@@ -221,6 +225,8 @@ It allows for you to set tooltips, images, text colors, etc.
 | Array of selectable items | :code:`ARRAY`                   | See "`3.3.1. Allowed values`_"                        | Array of selectable elements that will be displayed to the user.                 | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?      | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
++---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function         | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
@@ -303,6 +309,8 @@ The text control is a simple text box that allows users to input data into the b
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?      | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function         | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
++---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 Default text has two options:
 
@@ -356,6 +364,8 @@ A simple side selector control which allows the user to select between the 4 mai
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?             | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function                | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
++----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
 
@@ -392,6 +402,8 @@ The slider control is a simple slider that allows you to select a value in the d
 | Array of slider settings | :code:`ARRAY`                   | :code:`[min, max, default, decimals]`                 | Array of the minimum and maximum allowed values of the slider, the default value to set the slider at and the decimal point. | :code:`[0, 1, 0, 2]` |
 +--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value?                                             | :code:`false`        |
++--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Resource function        | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                               | :code:`{}`           |
 +--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 **Example:**
@@ -434,6 +446,8 @@ The block selection is a way to select something without having to go into a sel
 | Array of block questions | :code:`ARRAY`                   | See "`3.7.1. Allowed values`_"                              | An array of data to be displayed to the user (not required if using the :code:`:YESNO` or :code:`:ENABLED` secondary controls.)  | :code:`[0, 1, 0, 2]` |
 +--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                                | Should the given default value be forced? Should we ignore the last saved value?                                                 | :code:`false`        |
++--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Resource function        | :code:`CODE`                    | :code:`CODE`                                                | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                                   | :code:`{}`           |
 +--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 3.7.1. Allowed values
@@ -510,6 +524,8 @@ If you provide 2 elements then you will only see the option to enter the `X` and
 | Array of vector axes | :code:`ARRAY`                   | :code:`[0, 0]` or :code:`[0, 0, 0]`                   | The number of elements dictates if the `Z` axis should also be displayed.        | :code:`[0, 0]` |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false`  |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`     |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 
 **Example:**
