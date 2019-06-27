@@ -51,7 +51,8 @@ scopeName "Main";
         ["_controlType", "", [""]],
         ["_name", "", ["", [""]]],
         ["_valueData", []],
-        ["_forceDefault", false, [false]]
+        ["_forceDefault", false, [false]],
+        ["_fnc_resourceFunction", {}, [{}]]
     ];
 
     _name params [
@@ -203,7 +204,7 @@ scopeName "Main";
     };
 
     _values set [_forEachIndex, _defaultValue];
-    _content set [_forEachIndex, [_dialogControl, _displayName, _tooltip, _defaultValue, _rowSettings]];
+    _content set [_forEachIndex, [_dialogControl, _displayName, _tooltip, _defaultValue, _rowSettings, _fnc_resourceFunction]];
 } forEach _content;
 
 // In case the dialog didn't get created, log error
@@ -231,7 +232,7 @@ private _ctrlContent = _display displayCtrl IDC_ACHILLES_CONTENT;
 private _contentPosY = 0;
 
 {
-    _x params ["_controlType", "_displayName", "_tooltip", "_defaultValue", "_rowSettings"];
+    _x params ["_controlType", "_displayName", "_tooltip", "_defaultValue", "_rowSettings", "_fnc_resourceFunction"];
 
     private _ctrlRowGroup = _display ctrlCreate [_controlType, IDC_ACHILLES_ROW_GROUP, _ctrlContent];
 
@@ -243,6 +244,9 @@ private _contentPosY = 0;
     // Call GUI scripts for each control
     private _script = getText (configFile >> ctrlClassName _ctrlRowGroup >> QGVAR(script));
     [_ctrlRowGroup, _forEachIndex, _defaultValue, _rowSettings] call (missionNamespace getVariable _script);
+
+    // Call the resource function if provided
+    [_ctrlRowGroup, _forEachIndex, _defaultValue, _rowSettings] call _fnc_resourceFunction;
 
     // Adjust the y axis position for the row
     private _position = ctrlPosition _ctrlRowGroup;
