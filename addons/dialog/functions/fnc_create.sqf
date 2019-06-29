@@ -51,7 +51,8 @@ scopeName "Main";
         ["_controlType", "", [""]],
         ["_name", "", ["", [""]]],
         ["_valueData", []],
-        ["_forceDefault", false, [false]]
+        ["_forceDefault", false, [false]],
+        ["_fnc_resourceFunction", {}, [{}]]
     ];
 
     _name params [
@@ -77,6 +78,7 @@ scopeName "Main";
     private "_defaultValue";
     private _dialogControl = "";
     private _rowSettings = [];
+    private _setValue = true;
 
     switch (_primaryControl) do {
         case "CHECKBOX": {
@@ -142,7 +144,13 @@ scopeName "Main";
         };
         case "SIDES": {
             _defaultValue = _valueData param [0, nil, [west]];
-            _dialogControl = QGVAR(row_sides);
+
+            if (_secondaryControl == "ALL") then {
+                _dialogControl = QGVAR(row_sides_all);
+                _rowSettings append [true];
+            } else {
+                _dialogControl = QGVAR(row_sides);
+            };
         };
         case "SLIDER": {
             _valueData params [
@@ -195,6 +203,12 @@ scopeName "Main";
             _dialogControl = QGVAR(row_owners);
             _defaultValue = [_valueData] param [0, west, []];
         };
+        case "DESCRIPTION": {
+            _defaultValue = [_valueData] param [0, "", [""]];
+            _dialogControl = QGVAR(row_description);
+            _forceDefault = true;
+            _setValue = false;
+        };
         default {
             WARNING_1("%1 is not a valid control type",_primaryControl);
             false breakOut "Main";
@@ -206,8 +220,11 @@ scopeName "Main";
         _defaultValue = GVAR(saved) getVariable [_valueId, _defaultValue];
     };
 
-    _values set [_forEachIndex, _defaultValue];
-    _content set [_forEachIndex, [_dialogControl, _displayName, _tooltip, _defaultValue, _rowSettings]];
+    if (_setValue) then {
+        _values set [_forEachIndex, _defaultValue];
+    };
+
+    _content set [_forEachIndex, [_dialogControl, _displayName, _tooltip, _defaultValue, _rowSettings, _fnc_resourceFunction]];
 } forEach _content;
 
 // In case the dialog didn't get created, log error
@@ -235,7 +252,7 @@ private _ctrlContent = _display displayCtrl IDC_ACHILLES_CONTENT;
 private _contentPosY = 0;
 
 {
-    _x params ["_controlType", "_displayName", "_tooltip", "_defaultValue", "_rowSettings"];
+    _x params ["_controlType", "_displayName", "_tooltip", "_defaultValue", "_rowSettings", "_fnc_resourceFunction"];
 
     private _ctrlRowGroup = _display ctrlCreate [_controlType, IDC_ACHILLES_ROW_GROUP, _ctrlContent];
 
@@ -247,6 +264,9 @@ private _contentPosY = 0;
     // Call GUI scripts for each control
     private _script = getText (configFile >> ctrlClassName _ctrlRowGroup >> QGVAR(script));
     [_ctrlRowGroup, _forEachIndex, _defaultValue, _rowSettings] call (missionNamespace getVariable _script);
+
+    // Call the resource function if provided
+    [_ctrlRowGroup, _forEachIndex, _defaultValue, _rowSettings] call _fnc_resourceFunction;
 
     // Adjust the y axis position for the row
     private _position = ctrlPosition _ctrlRowGroup;

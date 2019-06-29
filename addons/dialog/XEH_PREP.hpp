@@ -4,6 +4,7 @@ PREP(dynamic_cancel);
 PREP(dynamic_checkbox);
 PREP(dynamic_color);
 PREP(dynamic_confirm);
+PREP(dynamic_description);
 PREP(dynamic_owners);
 PREP(dynamic_select);
 PREP(dynamic_sides);

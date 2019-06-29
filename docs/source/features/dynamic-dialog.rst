@@ -81,25 +81,27 @@ The arguments for the actual dialog function is pretty simple, however, it can s
 
 Currently, there are 8 different controls for the dynamic dialog.
 
-+----------------------+------------------+--------------------------------------------+
-| Name                 | Control Type     | Alternative Control Types                  |
-+======================+==================+============================================+
-| Checkbox             | :code:`CHECKBOX` | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Color (RGB or RGBA)  | :code:`COLOR`    | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Select dropdown      | :code:`SELECT`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Text                 | :code:`TEXT`     | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Side selection       | :code:`SIDES`    | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Slider               | :code:`SLIDER`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Block selection      | :code:`BLOCK`    | :code:`BLOCK:YESNO`, :code:`BLOCK:ENABLED` |
-+----------------------+------------------+--------------------------------------------+
-| Vector (2 or 3 axis) | :code:`VECTOR`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
++----------------------+---------------------+--------------------------------------------+
+| Name                 | Control Type        | Alternative Control Types                  |
++======================+=====================+============================================+
+| Checkbox             | :code:`CHECKBOX`    | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Color (RGB or RGBA)  | :code:`COLOR`       | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Select dropdown      | :code:`SELECT`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Text                 | :code:`TEXT`        | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Side selection       | :code:`SIDES`       | :code:`SIDES:ALL`                          |
++----------------------+---------------------+--------------------------------------------+
+| Slider               | :code:`SLIDER`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Block selection      | :code:`BLOCK`       | :code:`BLOCK:YESNO`, :code:`BLOCK:ENABLED` |
++----------------------+---------------------+--------------------------------------------+
+| Vector (2 or 3 axis) | :code:`VECTOR`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Description          | :code:`DESCRIPTION` | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
 
 3.1. Checkbox control
 ^^^^^^^^^^^^^^^^^^^^^
@@ -118,6 +120,8 @@ The checkbox control is simple to use and doesn't have a lot of options.
 | Is checked?          | :code:`BOOL`                    | :code:`BOOL`                                          | Should the checkbox be checked?                                                  | :code:`false` |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
@@ -159,6 +163,8 @@ The dynamic dialog system will automatically set the type depending on the value
 | Default color data   | :code:`ARRAY`                   | :code:`[1, 1, 1]` or :code:`[1, 1, 1, 1]`             | What should the default color data be? If 4 arguments provided in the array, then it displays an RGBA control. | :code:`[1, 1, 1]` |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value?                               | :code:`false`     |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                 | :code:`{}`        |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------------+
 
 3.2.1. Color RGB
@@ -221,6 +227,8 @@ It allows for you to set tooltips, images, text colors, etc.
 | Array of selectable items | :code:`ARRAY`                   | See "`3.3.1. Allowed values`_"                        | Array of selectable elements that will be displayed to the user.                 | Required      |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?      | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
++---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function         | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
@@ -303,6 +311,8 @@ The text control is a simple text box that allows users to input data into the b
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?      | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
 +---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function         | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
++---------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 Default text has two options:
 
@@ -343,18 +353,27 @@ A simple side selector control which allows the user to select between the 4 mai
 - Independent
 - Civilian
 
+An optional 5th side can be added: Logic side (:code:`sideLogic`).
+This is achieved using the secondary control :code:`SIDES:ALL`.
+
+.. warning::
+    It's highly recommended to provide a default value for the side.
+    If not done so, then if the user doesn't select anything when prompted to, will result in a :code:`nil` value in the dialog result.
+
 **Arguments:**
 
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Name                             | Type                            | Allowed Values                                        | Description                                                                      | Default       |
 +==================================+=================================+=======================================================+==================================================================================+===============+
-| Control                          | :code:`STRING`                  | :code:`"SIDES"`                                       | Display a side type control.                                                     | Required      |
+| Control                          | :code:`STRING`                  | :code:`"SIDES"` or :code:`"SIDES:ALL"`                | Display a side type control.                                                     | Required      |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Display Name                     | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Default side to show as selected | :code:`SIDE`                    | :code:`SIDE`                                          | The default side that should be selected.                                        | :code:`nil`   |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Force default value?             | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false` |
++----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
+| Resource function                | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`    |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 
 **Example:**
@@ -392,6 +411,8 @@ The slider control is a simple slider that allows you to select a value in the d
 | Array of slider settings | :code:`ARRAY`                   | :code:`[min, max, default, decimals]`                 | Array of the minimum and maximum allowed values of the slider, the default value to set the slider at and the decimal point. | :code:`[0, 1, 0, 2]` |
 +--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value?                                             | :code:`false`        |
++--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Resource function        | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                               | :code:`{}`           |
 +--------------------------+---------------------------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 **Example:**
@@ -434,6 +455,8 @@ The block selection is a way to select something without having to go into a sel
 | Array of block questions | :code:`ARRAY`                   | See "`3.7.1. Allowed values`_"                              | An array of data to be displayed to the user (not required if using the :code:`:YESNO` or :code:`:ENABLED` secondary controls.)  | :code:`[0, 1, 0, 2]` |
 +--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 | Force default value?     | :code:`BOOL`                    | :code:`BOOL`                                                | Should the given default value be forced? Should we ignore the last saved value?                                                 | :code:`false`        |
++--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
+| Resource function        | :code:`CODE`                    | :code:`CODE`                                                | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                                                   | :code:`{}`           |
 +--------------------------+---------------------------------+-------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------+----------------------+
 
 3.7.1. Allowed values
@@ -511,6 +534,8 @@ If you provide 2 elements then you will only see the option to enter the `X` and
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 | Force default value? | :code:`BOOL`                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false`  |
 +----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`     |
++----------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 
 **Example:**
 
@@ -529,6 +554,48 @@ If you provide 2 elements then you will only see the option to enter the `X` and
 
 .. image:: dynamic-dialog-images/11.png
     :alt: Vector control dialog
+
+3.9. Description control
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The description control is designed to display a multi-line text message to the user to describe anything you like.
+
+If you want to display a multi-line message then you have to append the new line character (:code:`\n`) to your string of text.
+
+.. note::
+    This control does **not** return it's value when cancelling or confirming the dialog.
+
+**Arguments:**
+
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Name                 | Type                            | Allowed Values                                        | Description                                                                                       | Default       |
++======================+=================================+=======================================================+===================================================================================================+===============+
+| Control              | :code:`STRING`                  | :code:`"DESCRIPTION"`                                 | Display a description type control.                                                               | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Display Name         | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                                  | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Text to display      | :code:`STRING`                  | :code:`STRING`                                        | This text will be displayed to the user. To add a new line use the :code:`\n` character.          | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Resource function    | :code:`CODE`                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.                    | :code:`{}`    |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+
+**Example:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "DESCRIPTION",
+            "Description",
+            "This is a very long description of my dialog/module.\nThis is now on a new line."
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Result:**
+
+.. image:: dynamic-dialog-images/12.png
+    :alt: Description control dialog
 
 3.9. Owner control
 ^^^^^^^^^^^^^^^^^^
