@@ -597,7 +597,7 @@ If you want to display a multi-line message then you have to append the new line
 .. image:: dynamic-dialog-images/12.png
     :alt: Description control dialog
 
-3.9. Owner control
+3.10. Owner control
 ^^^^^^^^^^^^^^^^^^
 
 The owner control (based on the same one from vanilla Arma 3) is a tab based selection which allows you to select playable entities.
@@ -616,6 +616,8 @@ It provides 3 master tabs, side - group - player.
 +----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 | Force default value? | :code:`BOOL`                                    | :code:`BOOL`                                          | Should the given default value be forced? Should we ignore the last saved value? | :code:`false`  |
 +----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
+| Resource function    | :code:`CODE`                                    | :code:`CODE`                                          | Arguments are :code:`[Control Group, Row Index, Default Value, Row Settings]`.   | :code:`{}`     |
++----------------------+-------------------------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+----------------+
 
 **Example:**
 
@@ -632,7 +634,7 @@ It provides 3 master tabs, side - group - player.
 
 **Result:**
 
-.. image:: dynamic-dialog-images/12.png
+.. image:: dynamic-dialog-images/13.png
     :alt: Owners control dialog
 
 4. On Confirm and On Cancel
