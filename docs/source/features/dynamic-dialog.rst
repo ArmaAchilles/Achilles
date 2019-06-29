@@ -598,7 +598,7 @@ If you want to display a multi-line message then you have to append the new line
     :alt: Description control dialog
 
 3.10. Owner control
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 The owner control (based on the same one from vanilla Arma 3) is a tab based selection which allows you to select playable entities.
 It provides 3 master tabs, side - group - player.
