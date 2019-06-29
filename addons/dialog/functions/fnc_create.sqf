@@ -143,7 +143,13 @@ scopeName "Main";
         };
         case "SIDES": {
             _defaultValue = _valueData param [0, nil, [west]];
-            _dialogControl = QGVAR(row_sides);
+
+            if (_secondaryControl == "ALL") then {
+                _dialogControl = QGVAR(row_sides_all);
+                _rowSettings append [true];
+            } else {
+                _dialogControl = QGVAR(row_sides);
+            };
         };
         case "SLIDER": {
             _valueData params [

@@ -252,6 +252,31 @@ class GVAR(row_sides): GVAR(row_base) {
     };
 };
 
+class GVAR(row_sides_all): GVAR(row_sides) {
+    class controls: controls {
+        class Name: Name {};
+        class Background: Background {};
+        class BLUFOR: BLUFOR {
+            x = POS_W(11);
+        };
+        class OPFOR: OPFOR {
+            x = POS_W(14);
+        };
+        class Independent: Independent {
+            x = POS_W(17);
+        };
+        class Civilian: Civilian {
+            x = POS_W(20);
+        };
+        class SideLogic: BLUFOR {
+            idc = IDC_ACHILLES_ROW_SIDES_SIDELOGIC;
+            text = "\a3\Ui_F_Curator\Data\Logos\arma3_curator_eye_128_ca.paa";
+            tooltip = "$STR_a3_cfgfactionclasses_curator";
+            x = POS_W(23);
+        };
+    };
+};
+
 class GVAR(row_colorRGB): GVAR(row_base) {
     GVAR(script) = QFUNC(dynamic_color);
     h = POS_H(3);
