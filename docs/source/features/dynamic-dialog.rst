@@ -92,7 +92,7 @@ Currently, there are 8 different controls for the dynamic dialog.
 +----------------------+------------------+--------------------------------------------+
 | Text                 | :code:`TEXT`     | N/A                                        |
 +----------------------+------------------+--------------------------------------------+
-| Side selection       | :code:`SIDES`    | N/A                                        |
+| Side selection       | :code:`SIDES`    | :code:`SIDES:ALL`                          |
 +----------------------+------------------+--------------------------------------------+
 | Slider               | :code:`SLIDER`   | N/A                                        |
 +----------------------+------------------+--------------------------------------------+
@@ -343,12 +343,19 @@ A simple side selector control which allows the user to select between the 4 mai
 - Independent
 - Civilian
 
+An optional 5th side can be added: Logic side (:code:`sideLogic`).
+This is achieved using the secondary control :code:`SIDES:ALL`.
+
+.. warning::
+    It's highly recommended to provide a default value for the side.
+    If not done so, then if the user doesn't select anything when prompted to, will result in a :code:`nil` value in the dialog result.
+
 **Arguments:**
 
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Name                             | Type                            | Allowed Values                                        | Description                                                                      | Default       |
 +==================================+=================================+=======================================================+==================================================================================+===============+
-| Control                          | :code:`STRING`                  | :code:`"SIDES"`                                       | Display a side type control.                                                     | Required      |
+| Control                          | :code:`STRING`                  | :code:`"SIDES"` or :code:`"SIDES:ALL"`                | Display a side type control.                                                     | Required      |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
 | Display Name                     | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                 | Required      |
 +----------------------------------+---------------------------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------------+
