@@ -8,6 +8,7 @@ class RscControlsGroup;
 class RscControlsGroupNoScrollbars;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
+class RscTextMulti;
 class RscCombo {
     class ComboScrollBar;
 };
@@ -415,6 +416,34 @@ class GVAR(row_vectorXYZ): GVAR(row_vectorXY) {
             idc = IDC_ACHILLES_ROW_VECTOR_Z;
             x = POS_W(13.6 + 2 * 12.4/3);
             w = POS_W(12.4/3);
+        };
+    };
+};
+
+class GVAR(row_description): GVAR(row_base) {
+    GVAR(script) = QFUNC(dynamic_description);
+    h = POS_H(4);
+    class controls: controls {
+        class Name: Name {
+            h = POS_H(4);
+            w = POS_W(4);
+        };
+        class Background: RscText {
+            idc = -1;
+            x = POS_W(4);
+            y = 0;
+            w = POS_W(22);
+            h = POS_H(4);
+            colorBackground[] = {1, 1, 1, 0.1};
+        };
+        class Text: RscTextMulti {
+            idc = IDC_ACHILLES_ROW_DESCRIPTION;
+            x = POS_W(4.1);
+            y = POS_H(0.25);
+            w = POS_W(21.9);
+            h = POS_H(3.75) - pixelH;
+            // Remove border on click
+            style = ST_MULTI + ST_NO_RECT;
         };
     };
 };

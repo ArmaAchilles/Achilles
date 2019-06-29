@@ -81,25 +81,27 @@ The arguments for the actual dialog function is pretty simple, however, it can s
 
 Currently, there are 8 different controls for the dynamic dialog.
 
-+----------------------+------------------+--------------------------------------------+
-| Name                 | Control Type     | Alternative Control Types                  |
-+======================+==================+============================================+
-| Checkbox             | :code:`CHECKBOX` | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Color (RGB or RGBA)  | :code:`COLOR`    | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Select dropdown      | :code:`SELECT`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Text                 | :code:`TEXT`     | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Side selection       | :code:`SIDES`    | :code:`SIDES:ALL`                          |
-+----------------------+------------------+--------------------------------------------+
-| Slider               | :code:`SLIDER`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
-| Block selection      | :code:`BLOCK`    | :code:`BLOCK:YESNO`, :code:`BLOCK:ENABLED` |
-+----------------------+------------------+--------------------------------------------+
-| Vector (2 or 3 axis) | :code:`VECTOR`   | N/A                                        |
-+----------------------+------------------+--------------------------------------------+
++----------------------+---------------------+--------------------------------------------+
+| Name                 | Control Type        | Alternative Control Types                  |
++======================+=====================+============================================+
+| Checkbox             | :code:`CHECKBOX`    | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Color (RGB or RGBA)  | :code:`COLOR`       | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Select dropdown      | :code:`SELECT`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Text                 | :code:`TEXT`        | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Side selection       | :code:`SIDES`       | :code:`SIDES:ALL`                          |
++----------------------+---------------------+--------------------------------------------+
+| Slider               | :code:`SLIDER`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Block selection      | :code:`BLOCK`       | :code:`BLOCK:YESNO`, :code:`BLOCK:ENABLED` |
++----------------------+---------------------+--------------------------------------------+
+| Vector (2 or 3 axis) | :code:`VECTOR`      | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
+| Description          | :code:`DESCRIPTION` | N/A                                        |
++----------------------+---------------------+--------------------------------------------+
 
 3.1. Checkbox control
 ^^^^^^^^^^^^^^^^^^^^^
@@ -536,6 +538,46 @@ If you provide 2 elements then you will only see the option to enter the `X` and
 
 .. image:: dynamic-dialog-images/11.png
     :alt: Vector control dialog
+
+3.9. Description control
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The description control is designed to display a multi-line text message to the user to describe anything you like.
+
+If you want to display a multi-line message then you have to append the new line character (:code:`\n`) to your string of text.
+
+.. note::
+    This control does **not** return it's value when cancelling or confirming the dialog.
+
+**Arguments:**
+
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Name                 | Type                            | Allowed Values                                        | Description                                                                                       | Default       |
++======================+=================================+=======================================================+===================================================================================================+===============+
+| Control              | :code:`STRING`                  | :code:`"DESCRIPTION"`                                 | Display a description type control.                                                               | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Display Name         | :code:`STRING` or :code:`ARRAY` | :code:`STRING` or :code:`["Display Name", "Tooltip"]` | What does the control represent?                                                                  | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+| Text to display      | :code:`STRING`                  | :code:`STRING`                                        | This text will be displayed to the user. To add a new line use the :code:`\n` character.          | Required      |
++----------------------+---------------------------------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------+---------------+
+
+**Example:**
+
+.. code-block:: js
+    :linenos:
+
+    ["My Dialog", [
+        [
+            "DESCRIPTION",
+            "Description",
+            "This is a very long description of my dialog/module.\nThis is now on a new line."
+        ]
+    ], {}] call achilles_dialog_fnc_create;
+
+**Result:**
+
+.. image:: dynamic-dialog-images/12.png
+    :alt: Description control dialog
 
 4. On Confirm and On Cancel
 ---------------------------

@@ -77,6 +77,7 @@ scopeName "Main";
     private "_defaultValue";
     private _dialogControl = "";
     private _rowSettings = [];
+    private _setValue = true;
 
     switch (_primaryControl) do {
         case "CHECKBOX": {
@@ -197,6 +198,12 @@ scopeName "Main";
             _defaultValue = [_valueData] param [0, [0, 0], [], [2, 3]];
             _dialogControl = [QGVAR(row_vectorXY), QGVAR(row_vectorXYZ)] select (count _defaultValue > 2);
         };
+        case "DESCRIPTION": {
+            _defaultValue = [_valueData] param [0, "", [""]];
+            _dialogControl = QGVAR(row_description);
+            _forceDefault = true;
+            _setValue = false;
+        };
         default {
             WARNING_1("%1 is not a valid control type",_primaryControl);
             false breakOut "Main";
@@ -208,7 +215,10 @@ scopeName "Main";
         _defaultValue = GVAR(saved) getVariable [_valueId, _defaultValue];
     };
 
-    _values set [_forEachIndex, _defaultValue];
+    if (_setValue) then {
+        _values set [_forEachIndex, _defaultValue];
+    };
+
     _content set [_forEachIndex, [_dialogControl, _displayName, _tooltip, _defaultValue, _rowSettings]];
 } forEach _content;
 
