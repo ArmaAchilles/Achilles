@@ -22,3 +22,11 @@ class Achilles_ACE_Heal_Module : Achilles_ACE_Module_Base
 	displayName = "$STR_AMAE_HEAL";
 	function = "Achilles_fnc_ModuleACEHeal";
 };
+
+class Achilles_ACE_ImmersiveHeal_Module : Achilles_ACE_Module_Base
+{
+	scopeCurator = 1;
+	_generalMacro = "Achilles_ACE_ImmersiveHeal_Module";
+	displayName = "$STR_AMAE_IMMERSIVE_HEAL";
+	function = "Achilles_fnc_ModuleACEImmersiveHeal";
+};
