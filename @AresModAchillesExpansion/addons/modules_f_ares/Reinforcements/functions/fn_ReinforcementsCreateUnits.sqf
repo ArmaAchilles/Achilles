@@ -241,6 +241,15 @@ switch (_groupBehaviour) do
 private _rpLogic = [_lzPos, _allRpLogics, _rpAlgorithm] call Achilles_fnc_logicSelector;
 private _rpPos = position _rpLogic;
 private _infantryRallyWp = _infantryGroup addWaypoint [_rpPos, _rpSize];
+//Check ACEX Headless Client
+if (isClass (configFile >> "CfgPatches" >> "acex_headless") && {acex_headless_enabled}) then
+{
+    //to ensure unload, blacklist
+    _infantryGroup setVariable ["acex_headless_blacklist", true, true];
+    
+    //after rally, unblacklist _infantryGroup
+    _infantryRallyWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
+};
 
 // Load the units into the vehicle.
 {
@@ -306,12 +315,9 @@ if (isClass (configFile >> "CfgPatches" >> "acex_headless") && {acex_headless_en
 {
     //to ensure unload, blacklist
     _vehicleGroup setVariable ["acex_headless_blacklist", true, true];
-    _infantryGroup setVariable ["acex_headless_blacklist", true, true];
     
     //after unload, unblacklist _vehicleGroup
     _vehicleUnloadWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
-    //after rally, unblacklist _infantryGroup
-    _infantryRallyWp setWaypointStatements ["true", "(group this) setVariable ['acex_headless_blacklist', false, true];"];
 };
 
 // print a confirmation
