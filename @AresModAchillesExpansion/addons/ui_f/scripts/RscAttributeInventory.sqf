@@ -81,16 +81,25 @@ switch _mode do {
 									_displayNameShort = (_displayNameShort select [0, 41])  + "...";
 								};
 								private _type = [0, 1] select (getnumber (configfile >> "cfgweapons" >> _weapon >> "type") in [4096, 131072]);
-								_addonListType pushback [_weapon, _displayName, _displayNameShort, _picture, _type, false];
+								_addonListType pushback [_displayName, _displayNameShort, _weapon, _picture, _type, false];
 							};
 							// Add magazines compatible with the weapon
 							if (_weaponPublic || {_weapon in ["throw", "put"]}) then
 							{
 								{
 									private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
+
+									_magazinesList = getArray (_muzzle >> "magazines");
+									// Add magazines from magazine wells
+									{
+										{
+											_magazinesList append (getArray _x);
+										} foreach  configProperties [configFile >> "CfgMagazineWells" >> _x, "isArray _x"];
+									} foreach getArray (_muzzle >> "magazineWell");
+
 									{
 										private _mag = tolower _x;
-										if (_addonListType findIf {(_x select 0) isEqualTo _mag} == -1) then
+										if (_addonListType findIf {(_x select 2) isEqualTo _mag} == -1) then
 										{
 											private _magCfg = configfile >> "cfgmagazines" >> _mag;
 											if (getNumber (_magCfg >> "scope") == 2) then
@@ -101,11 +110,11 @@ switch _mode do {
 													_displayName = (_displayName select [0, 41])  + "...";
 												};
 												private _picture = gettext (_magCfg >> "picture");
-												_addonListType pushback [_mag, _displayName, _displayName, _picture, 2, _mag in _magazines];
+												_addonListType pushback [_displayName, _displayName, _mag, _picture, 2, _mag in _magazines];
 												_magazines pushback _mag;
 											};
 										};
-									} foreach getarray (_muzzle >> "magazines");
+									} foreach _magazinesList;
 								} foreach getarray (_weaponCfg >> "muzzles");
 							};
 						};
@@ -123,7 +132,7 @@ switch _mode do {
 								private _displayName = gettext (_weaponCfg >> "displayName");
 								private _picture = gettext (_weaponCfg >> "picture");
 								private _addonListType = _addonList select _weaponTypeID;
-								_addonListType pushback [_weapon, _displayName, _displayName, _picture, 3, false];
+								_addonListType pushback [_displayName, _displayName, _weapon, _picture, 3, false];
 							};
 						};
 					} foreach getarray (configfile >> "cfgpatches" >> _x >> "units");
@@ -134,7 +143,7 @@ switch _mode do {
 						private _displayName = gettext (_x >> "displayName");
 						private _picture = gettext (_x >> "picture");
 						private _addonListType = _addonList select _weaponTypeID;
-						_addonListType pushback [_glasses, _displayName, _displayName, _picture, 1, false];
+						_addonListType pushback [_displayName, _displayName, _glasses, _picture, 1, false];
 					} forEach configProperties [configfile >> "CfgGlasses", "isClass _x"];
 					_weaponAddons pushBack _addon;
 					_weaponAddons pushBack _addonList;
@@ -149,7 +158,7 @@ switch _mode do {
 				} foreach _addonList;
 			} foreach curatoraddons _curator;
 			missionnamespace setvariable ["RscAttrbuteInventory_weaponAddons", _weaponAddons];
-			_list = _list apply {[_x, [], {_x select 1}] call BIS_fnc_sortBy};
+			_list = _list apply {[_x, [], {_x select 0}] call BIS_fnc_sortBy};
 			RscAttributeInventory_list = _list;
 		};
 
@@ -182,8 +191,7 @@ switch _mode do {
 			RscAttributeInventory_cargo set [1, (RscAttributeInventory_cargo select 1) + (_x select 1)];
 		} foreach _cargo;
 
-		private _classes = RscAttributeInventory_cargo select 0;
-		_classes = _classes apply {toLower _x};
+		RscAttributeInventory_cargo = [(RscAttributeInventory_cargo select 0) apply {toLower _x}, RscAttributeInventory_cargo select 1];
 
 		//--- Get limits
 		private _cfgEntity = configfile >> "cfgvehicles" >> typeof _entity >> "maximumLoad";
@@ -247,7 +255,7 @@ switch _mode do {
 		{
 			private _types = _x;
 			{
-				_x params ["_class", "_displayName", "_displayNameShort", "_picture", "_type", "_isDuplicate"];
+				_x params ["_displayName", "_displayNameShort", "_class", "_picture", "_type", "_isDuplicate"];
 				// all classes are already in lower case except faceware which must not be lowered for virtual arsenal
 				private _classLowered = tolower _class;
 
@@ -469,7 +477,16 @@ switch _mode do {
 		private _weaponCfg = configfile >> "cfgweapons" >> _weapon;
 
 		{
-			private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};;
+			private _muzzle = if (_x == "this") then {_weaponCfg} else {_weaponCfg >> _x};
+
+			_magazinesList = getArray (_muzzle >> "magazines");
+			// Add magazines from magazine wells
+			{
+				{
+					_magazinesList append (getArray _x);
+				} foreach  configProperties [configFile >> "CfgMagazineWells" >> _x, "isArray _x"];
+			} foreach getArray (_muzzle >> "magazineWell");
+
 			{
 				private _mag = tolower _x;
 				if (getnumber (configfile >> "cfgmagazines" >> _mag >> "scope") == 2) then {
@@ -480,7 +497,7 @@ switch _mode do {
 						_reducedValues pushBack (_values select _index);
 					};
 				};
-			} foreach getarray (_muzzle >> "magazines");
+			} foreach _magazinesList;
 		} foreach getarray (_weaponCfg >> "muzzles");
 
 		private _list = uinamespace getvariable ["RscAttributeInventory_list", [[], [], [], [], [], [], [], [], [], [], [], []]];
@@ -491,7 +508,7 @@ switch _mode do {
 		{
 			private _types = _x;
 			{
-				_x params ["_class", "_displayName", "_displayNameShort", "_picture", "_type", "_isDuplicate"];
+				_x params ["_displayName", "_displayNameShort", "_class", "_picture", "_type", "_isDuplicate"];
 
 				if ((!_isDuplicate || RscAttributeInventory_selected > 0) && {_type in _types}) then {
 

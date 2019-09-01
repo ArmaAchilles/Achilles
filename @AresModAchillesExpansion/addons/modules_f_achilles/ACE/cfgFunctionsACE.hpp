@@ -4,4 +4,5 @@ class Achilles_ACE_Function_Base
 
 	class ModuleACEInjury {};
 	class ModuleACEHeal {};
+	class ModuleACEImmersiveHeal {};
 };
