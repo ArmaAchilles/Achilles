@@ -24,10 +24,12 @@ class CfgFunctions
 			class getAllTurretConfig;
 			class weaponsAllTurrets;
 			class getVehicleAmmo;
+			class getAllTurrets;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
 			class setVehicleAmmo;
-			class setVehicleMags;
+			class setMagazineAmmo;
+			class setTurretAmmo;
 			class checkLineOfFire2D;
 			class dikToLetter;
 			class getCuratorSelected;

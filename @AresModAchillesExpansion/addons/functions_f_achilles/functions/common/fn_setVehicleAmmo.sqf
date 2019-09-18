@@ -14,38 +14,42 @@
 
 	Examples:
 		(begin example)
-			[_vehicle, 0.9] call Achilles_fnc_setVehicleAmmoDef;
+			[_vehicle, 0.9] call Achilles_fnc_setVehicleAmmo;
 		(end)
 */
 params ["_vehicle", ["_percentage", 1, [1]]];
 
-private _pylonMags = getPylonMagazines _vehicle;
-private _turretMags = magazinesAllTurrets _vehicle select {!((_x select 0) in _pylonMags)};
-private _configMags = configFile >> "CfgMagazines";
+private _pylonMagazines = getPylonMagazines _vehicle;
+private _cfgMagazines = configFile >> "CfgMagazines";
 
 {
-	private _pylonIndex = _forEachIndex + 1;
-	private _magMaxAmmo = getNumber (_configMags >> _x >> "count");
+    private _pylonMagazine = _x;
 
-	_vehicle setAmmoOnPylon [_pylonIndex, _magMaxAmmo * _percentage];
-} forEach _pylonMags;
+    if (_pylonMagazine != "") then {
+        private _magazineCount = {_x == _pylonMagazine} count _pylonMagazines;
+        private _maxRoundsPerMag = getNumber (_cfgMagazines >> _pylonMagazine >> "count");
 
-private _turretMagCount = (_turretMags apply {[_x select 0, _x select 1]}) call CBA_fnc_getArrayElements;
+        private _totalRounds = round (_magazineCount * _maxRoundsPerMag * _percentage);
+
+        {
+            if (_x == _pylonMagazine) then {
+                private _roundsOnPylon = 0 max _totalRounds min _maxRoundsPerMag;
+                _totalRounds = _totalRounds - _roundsOnPylon;
+
+                [_vehicle, [_forEachIndex + 1, _roundsOnPylon]] remoteExecCall ["setAmmoOnPylon", _vehicle];
+            };
+        } forEach _pylonMagazines;
+    };
+} forEach (_pylonMagazines arrayIntersect _pylonMagazines);
+
 {
-	_x pushBack (getNumber (_configMags >> (_x select 0) >> "count"));
-	_x pushBack (_turretMagCount select ((_forEachIndex + 1) * 2) - 1);
-} forEach (_turretMagCount select {_x isEqualType []});
-_turretMagCount = _turretMagCount select {_x isEqualType []};
-
-{
-	_x params ["_name", "_turret", "_magMaxAmmo", "_magCount"];
-	private _turretMag = round (_magMaxAmmo * _magCount * _percentage);
-	if (!(_vehicle turretLocal _turret)) then
+	private _turretUnit = _vehicle turretUnit _x;
+	if (!local _turretUnit) then
 	{
-		[_vehicle, _x, _turretMag] remoteExecCall ["Achilles_fnc_setVehicleMags", _vehicle turretUnit _turret];
+		[_vehicle, _x, _percentage] remoteExecCall ["Achilles_fnc_setTurretAmmo", _turretUnit];
 	}
 	else
 	{
-		[_vehicle, _x, _turretMag] call Achilles_fnc_setVehicleMags;
+		[_vehicle, _x, _percentage] call Achilles_fnc_setTurretAmmo;
 	};
-} forEach _turretMagCount;
+} forEach (_vehicle call Achilles_fnc_getAllTurrets);
