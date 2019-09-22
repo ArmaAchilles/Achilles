@@ -37,8 +37,12 @@ if (_surrenderUnit) then
 
 	private _actionName = switch (_actionToPreform) do
 	{
-		case "tie": {isLocalized "STR_AMAE_TIE_UNIT" ? localize "STR_AMAE_TIE_UNIT" : "Tie Unit"};
-		default {isLocalized "STR_AMAE_TIE_UNIT" ? localize "STR_AMAE_RELEASE_UNIT" : "Release Unit"};
+		case "tie": { 
+			if (isLocalized "STR_AMAE_TIE_UNIT") then { localize "STR_AMAE_TIE_UNIT" } else { "Tie Unit" }
+		};
+		default {
+			if (isLocalized "STR_AMAE_TIE_UNIT") then { localize "STR_AMAE_RELEASE_UNIT" } else { "Release Unit" }
+		};
 	};
 
 	[
