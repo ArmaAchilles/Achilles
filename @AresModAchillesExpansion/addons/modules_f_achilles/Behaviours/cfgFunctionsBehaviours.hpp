@@ -8,4 +8,5 @@ class Achilles_Behaviours_Function_Base
 	class BehaviourChangeAbility {};
 	class BehaviourAltitude {};
 	class BehaviourSuicideBomber {};
+	class BehaviourSurrenderUnits {};
 };

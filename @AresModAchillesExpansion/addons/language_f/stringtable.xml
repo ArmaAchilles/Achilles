@@ -3633,6 +3633,14 @@
                 <Chinesesimp>交互</Chinesesimp>
                 <Chinese>互動</Chinese>
             </Key>
+			<Key ID="STR_AMAE_DISARM_UNIT">
+                <Original>Disarm Unit</Original>
+                <English>Disarm Unit</English>
+            </Key>
+			<Key ID="STR_AMAE_RELEASE_SIDE">
+                <Original>Release Side</Original>
+                <English>Release Side</English>
+            </Key>
             <Key ID="STR_AMAE_HOLD_FIRE">
                 <Original>Hold fire</Original>
                 <English>Hold fire</English>
