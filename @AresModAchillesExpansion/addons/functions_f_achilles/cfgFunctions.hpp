@@ -23,10 +23,13 @@ class CfgFunctions
 			class ClassNamesWhichInheritsFromCfgClass;
 			class getAllTurretConfig;
 			class weaponsAllTurrets;
-			class getVehicleAmmoDef;
+			class getVehicleAmmo;
+			class getAllTurrets;
 			class getUnitAmmoDef;
 			class setUnitAmmoDef;
-			class setVehicleAmmoDef;
+			class setVehicleAmmo;
+			class setMagazineAmmo;
+			class setTurretAmmo;
 			class checkLineOfFire2D;
 			class dikToLetter;
 			class getCuratorSelected;
@@ -56,7 +59,7 @@ class CfgFunctions
 			class arrayStdDev;
 			class transferOwnership;
 		};
-		
+
 		class interpolation
 		{
 			file =  "\achilles\functions_f_achilles\functions\interpolation";
@@ -67,15 +70,15 @@ class CfgFunctions
 		class selectUnit
 		{
 			file = "\achilles\functions_f_achilles\functions\selectUnit";
-			
+
 			class switchUnit_start;
 			class switchUnit_exit;
 		};
-		
+
 		class changeAttributes
 		{
 			file = "\achilles\functions_f_achilles\functions\changeAttributes";
-			
+
 			class changeAbility;
 			class changePylonAmmo;
 			class changeSideAttribute;

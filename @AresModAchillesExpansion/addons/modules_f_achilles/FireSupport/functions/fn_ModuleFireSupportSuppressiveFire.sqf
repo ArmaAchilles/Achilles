@@ -25,7 +25,7 @@ if (isNil "Achilles_var_suppressiveFire_init_done") then
 //Broadcast set ammo function
 if (isNil "Achilles_var_setammo_init_done") then {
 	publicVariableServer "Achilles_fnc_setUnitAmmoDef";
-	publicVariableServer "Achilles_fnc_setVehicleAmmoDef";
+	publicVariableServer "Achilles_fnc_setVehicleAmmo";
 	Achilles_var_setammo_init_done = true;
 };
 */
