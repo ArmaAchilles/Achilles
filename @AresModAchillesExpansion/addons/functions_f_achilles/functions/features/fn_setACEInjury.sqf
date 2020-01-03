@@ -16,8 +16,6 @@
 
 params ["_unit","_injury_type","_injury_value_list","_hits"];
 
-[_unit] call ace_medical_fnc_addVitalLoop;
-
 {
 	private _value = _injury_value_list select _forEachIndex;
 
