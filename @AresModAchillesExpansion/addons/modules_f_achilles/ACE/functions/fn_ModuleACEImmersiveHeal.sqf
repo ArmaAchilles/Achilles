@@ -56,10 +56,10 @@ private _fnc_reviveUnit = {
 	{
 		if (local _player) then
 		{
-			[_player, _player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
+			[_player, _player] call ace_medical_treatment_fnc_fullHealLocal
 		} else
 		{
-			[_player, _player] remoteExecCall ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _player]
+			[_player, _player] remoteExecCall ["ace_medical_treatment_fnc_fullHealLocal", _player]
 		};
 	};
 
