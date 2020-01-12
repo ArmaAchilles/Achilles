@@ -62,7 +62,7 @@ private _fnc_reviveUnit = {
         };
 
         // Let ace handle propagating the heal (through CBA_fnc_targetEvent)
-        [player, _target] call _func;
+        [_ai, _player] call _func;
 	};
 
 	if (!isNil "FAR_ReviveMode") then
