@@ -42,7 +42,7 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 
 	{
         // Let ace handle propagating the heal (through CBA_fnc_targetEvent)
-		[player, _target] call _func;
+		[player, _x] call _func;
 	} forEach _selected_units;
 };
 
