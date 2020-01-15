@@ -33,16 +33,9 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 	if (isNil "_selected_units") exitWith {};
 	if (_selected_units isEqualTo []) exitWith {};
 
-    // Determine what function we need to call (are we ace v3.13+? (medical rewrite))
-    private _func = switch (true) do {
-        case (!isNil "ace_medical_treatment_fnc_fullHeal"): {ace_medical_treatment_fnc_fullHeal};
-        case (!isNil "ace_medical_fnc_treatmentAdvanced_fullHeal"): {ace_medical_fnc_treatmentAdvanced_fullHeal};
-        default {{}};
-    };
-
 	{
         // Let ace handle propagating the heal (through CBA_fnc_targetEvent)
-		[player, _x] call _func;
+		[player, _x] call (call Achilles_fnc_getAceMedicalFunction);
 	} forEach _selected_units;
 };
 

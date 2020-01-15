@@ -58,6 +58,7 @@ class CfgFunctions
 			class vectDirUpFromDirPitchBank;
 			class arrayStdDev;
 			class transferOwnership;
+			class getAceMedicalFunction;
 		};
 
 		class interpolation
