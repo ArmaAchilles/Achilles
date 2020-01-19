@@ -25,23 +25,30 @@ Below you can find all the authors and contributors to Ares and Achilles.
 
 ### Other Contributors:
 * 10Dozen
-	- For improving and fixing the search bar for the creation tree (dzn Zeus Search Patch).
+    - For improving and fixing the search bar for the creation tree (dzn Zeus Search Patch).
+* ampersand38
+    - For fixing a conflict between ACEX HC and the reinforcement module.
+* bovine3dom
+    - For slowing down burst and semi-auto suppressive fire rates.
 * CoxLedere
     - Available factions fix;
     - Dynamic loadout bug fix.
 * Dedmen
     - For complaining at how terribly we write code and help us out to fix it.
 * DeliciousJaffa
-	- Fixing code issues.
+    - Fixing code issues.
+    - Making medical modules compatible with the ACE 3.13.0 medical rewrite.
 * Grezvany13
     - Several contributions and support.
+* LorenLuke
+    - Limiting Blackfish's 105mm rate of fire in CAS strikes.
 * MaliceGFS
     - Change abilities fixes.
     - Code refactoring.
     - Different types of hints.
     - Spelling fixes.
 * MikeCzer
-	- Design of Achilles logo.
+    - Design of Achilles logo.
 * NeilZar
     - Code optimization, refactoring
     - General support.
@@ -52,6 +59,11 @@ Below you can find all the authors and contributors to Ares and Achilles.
     - Eden compatibility of compositions.
 * SamLex
     - Fast rope waypoint detects if Advanced Rappelling is loaded on the server.
+* SDTheCyanWyan
+    - Added more ambient animations.
+* ServiusHack
+    - Author of immersive heal module.
+    - Added support of Farooq's Revive to medical modules.
 * Shukari
     - Available factions bug fix.
 * Talya
@@ -74,7 +86,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 * Fast-roping waypoint integrates code from ACE3 (by ACE team) and Advanced Rappelling (by Duda)
 * IED and suicide bomber based on MCC (by shay_gman)
 * Nuke script ported from Arma 2 (by Moerderhoschi)
-	- http://www.armaholic.com/page.php?id=23963
+    - http://www.armaholic.com/page.php?id=23963
 * Some curator display and module functions/configs (by BIS)
 * The breach feature implementation is inspired by Sushi and Jarhead's Breach Script (although, the only directly adapted code is the breach stun function)
     - http://www.armaholic.com/page.php?id=30573 and http://www.armaholic.com/page.php?id=25202
@@ -83,7 +95,7 @@ Below you can find all the authors and contributors to Ares and Achilles.
 All of these icons are licensed under Creative Commons Attribution license.
 * Advanced CAS (by MikeCzer)
 * Atomic Bomb (by Bluetip Design)
-	- https://thenounproject.com/search/?q=nuke&i=344485
+    - https://thenounproject.com/search/?q=nuke&i=344485
 * Create IED module icon (by IYIKON)
     - https://thenounproject.com/icon/1242665/
 * Engine icon (by Alvaro Molero)
@@ -111,14 +123,14 @@ All of these icons are licensed under Creative Commons Attribution license.
 * USS Freedom module icon (by Salaidinovich)
     - https://thenounproject.com/icon/1201287/
 * USS Liberty module icon (by Robert A. Di Ieso)
-	- https://thenounproject.com/term/ship/659581
+    - https://thenounproject.com/term/ship/659581
 
 ## Translations
 * French
     - oOKexOo
     - Revo78
 * German
-	- ItsNoirLime
+    - ItsNoirLime
     - KiritoKun223
     - oOKexOo
     - shukari
@@ -129,6 +141,8 @@ All of these icons are licensed under Creative Commons Attribution license.
     - Victor9401
     - unhappytroll
 * Simplified Chinese
-	- Nercon
+    - Nercon
+* Spanish
+    - corp0
 * Traditional Chinese
-	- GodofMonkeys
+    - GodofMonkeys
