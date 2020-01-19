@@ -1,23 +1,23 @@
 /*
 	Function:
 		Achilles_fnc_vectAngleXY
-	
+
 	Authors:
 		Kex
-	
+
 	Description:
 		Calculates the signed angle from the first to the second vector in xy-plane
 		Positive sign means counterclockwise
 		Returns an angle from (-180,180]
-	
+
 	Parameters:
 		_vecA	- <ARRAY> First 3D vector
 		_vecB	- <ARRAY> Second 3D vector
-	
+
 	Returns:
 		_angle	- <SCALAR> The measured angle
 	
-	Exampes:
+	Examples:
 		(begin example)
 		// returns 90
 		[[1,0,0],[0,1,0]] call Achilles_fnc_vectAngleXY;

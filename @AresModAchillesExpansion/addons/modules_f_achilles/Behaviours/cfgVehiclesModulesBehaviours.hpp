@@ -31,6 +31,15 @@ class Achilles_Chatter_Module : Achilles_Behaviours_Module_Base
 	function = "Achilles_fnc_BehaviourChatter";
 };
 
+class Achilles_Patrol_Module : Achilles_Behaviours_Module_Base
+{
+	scopeCurator = 1;
+	curatorCanAttach = 1;
+	_generalMacro = "Achilles_Patrol_Module";
+	displayName = "$STR_AMAE_PATROL_LOITER";
+	function = "Achilles_fnc_BehaviourPatrol";
+};
+
 class Achilles_Sit_On_Chair_Module : Achilles_Behaviours_Module_Base
 {
 	scopeCurator = 1;
@@ -67,4 +76,11 @@ class Achilles_SuicideBomber_Module : Enyo_Behaviours_Module_Base
 	_generalMacro = "Enyo_SuicideBomber_Module";
 	displayName = "$STR_AMAE_ENYO_SET_SUICIDE_BOMBER";
 	function = "Achilles_fnc_BehaviourSuicideBomber";
+};
+
+class Achilles_SurrenderUnit_Module : Achilles_Behaviours_Module_Base
+{
+	scopeCurator = 1;
+	displayName = "$STR_AMAE_SURRENDER_UNIT";
+	function = "Achilles_fnc_BehaviourSurrenderUnits";
 };

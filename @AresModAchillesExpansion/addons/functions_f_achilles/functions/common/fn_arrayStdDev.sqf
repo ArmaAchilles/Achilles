@@ -16,7 +16,7 @@
 	Returns:
 		_stdDev		- <SCALAR> The standard deviation
 	
-	Exampes:
+	Examples:
 		(begin example)
 		// returns roughly 5.564...
 		[[1,4,16,4,1]] call Achilles_fnc_arrayStdDev;

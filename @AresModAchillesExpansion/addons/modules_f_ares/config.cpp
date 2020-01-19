@@ -12,10 +12,8 @@ class CfgPatches
 		
 		units[] =
 		{
-			"Ares_Module_Behaviour_Patrol",
 			"Ares_Module_Behaviour_Search_Nearby_And_Garrison",
 			"Ares_Module_Behaviour_Search_Nearby_Building",
-			"Ares_Module_Bahaviour_SurrenderUnit",
 			"Ares_Module_Bahaviour_Garrison_Nearest",
 			"Ares_Module_Bahaviour_UnGarrison",
 			"Ares_Module_Dev_Tools_Execute_Code",

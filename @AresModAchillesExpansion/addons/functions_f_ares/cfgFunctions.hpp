@@ -33,7 +33,6 @@ class CfgFunctions
 			class GenerateArsenalBlacklist;
 			class GenerateArsenalDataList;
 			class SearchBuilding;
-			class surrenderUnit;
 			class TeleportPlayers;
 			class ZenOccupyHouse;
 		};

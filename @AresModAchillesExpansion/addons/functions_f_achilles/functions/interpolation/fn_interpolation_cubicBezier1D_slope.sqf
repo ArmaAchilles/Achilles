@@ -20,7 +20,7 @@
 	Returns:
 		_y_ddx			- <SCALAR> The slope for the given _x.
 	
-	Exampes:
+	Examples:
 		(begin example)
 		(end)
 */
