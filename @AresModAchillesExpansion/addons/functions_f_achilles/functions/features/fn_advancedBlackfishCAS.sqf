@@ -104,7 +104,7 @@ else
 {
 	_reloadTime = getNumber (_muzzleCfg >> _mode >> "reloadTime");
 };
-_reloadTime = _reloadTime min 1;
+_reloadTime = _reloadTime min 4; // Stop the 105 from getting super-cheaty high rate of fire
 // Get offset
 private _offsetWeapon = switch (_muzzle) do
 {
