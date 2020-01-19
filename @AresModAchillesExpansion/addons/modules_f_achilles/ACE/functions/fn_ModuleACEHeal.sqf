@@ -34,13 +34,8 @@ if (isClass (configfile >> "CfgPatches" >> "ace_medical")) exitWith
 	if (_selected_units isEqualTo []) exitWith {};
 
 	{
-		if (local _x) then
-		{
-			[_x, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
-		} else
-		{
-			[_x, _x] remoteExecCall ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _x]
-		};
+        // Let ace handle propagating the heal (through CBA_fnc_targetEvent)
+		[player, _x] call (call Achilles_fnc_getAceMedicalFunction);
 	} forEach _selected_units;
 };
 

@@ -16,7 +16,10 @@
 
 params ["_unit","_injury_type","_injury_value_list","_hits"];
 
-[_unit] call ace_medical_fnc_addVitalLoop;
+// Add vital loop if ace medical is pre-rewrite
+if (!isNil "ace_medical_fnc_treatmentAdvanced_fullHeal") then {
+    [_unit] call ace_medical_fnc_addVitalLoop;
+};
 
 {
 	private _value = _injury_value_list select _forEachIndex;

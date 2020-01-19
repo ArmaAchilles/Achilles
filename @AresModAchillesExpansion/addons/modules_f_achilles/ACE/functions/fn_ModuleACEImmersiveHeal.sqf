@@ -54,13 +54,8 @@ private _fnc_reviveUnit = {
 	// do the actual revive
 	if (isClass (configfile >> "CfgPatches" >> "ace_medical")) then
 	{
-		if (local _player) then
-		{
-			[_player, _player] call ace_medical_fnc_treatmentAdvanced_fullHealLocal
-		} else
-		{
-			[_player, _player] remoteExecCall ["ace_medical_fnc_treatmentAdvanced_fullHealLocal", _player]
-		};
+        // Let ace handle propagating the heal (through CBA_fnc_targetEvent)
+        [_ai, _player] call (call Achilles_fnc_getAceMedicalFunction);
 	};
 
 	if (!isNil "FAR_ReviveMode") then
