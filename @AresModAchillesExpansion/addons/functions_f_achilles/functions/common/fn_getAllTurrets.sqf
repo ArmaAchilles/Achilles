@@ -1,4 +1,3 @@
-#include "script_component.hpp"
 /*
  * Author: Tuupertunut
  * Returns all turret paths for a vehicle including the driver turret.
