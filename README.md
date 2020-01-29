@@ -27,6 +27,11 @@
     </a>
 </p>
 
+## IMPORTANT ANNOUNCEMENT
+**ACHILLES IS NO LONGER UNDER ACTIVE DEVELOPMENT BY THE CORE DEV TEAM. PLEASE CHECK OUT ZEUS ENHANCED (ZEN) INSTEAD.**
+**NOTE THAT YOU CAN STILL CREATE PULL REQUESTS, WHICH WILL BE BUNDLED AND RELEASED AS UPDATES IF ACCEPTED.**
+
+## Description
 **Achilles** is a gameplay modification for Arma 3. It expands the Zeus real-time editor with many new additions as well as provides bug fixes.
 
 **Achilles** started as an expansion to [Ares](https://github.com/astruyk/Ares) mod, which was created by [Anton Struyk](https://github.com/astruyk). Achilles became the _de facto_ successor to Ares at the point the latter was no longer updated. Achilles has already grown into a _splendid_ project, but new additions are still to come! 
