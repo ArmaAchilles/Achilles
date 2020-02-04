@@ -10,6 +10,56 @@ X.X.X
 Our versioning follows the guidelines set by [Semantic Versioning 2.0](https://semver.org/). 
 
 ## Change log
+### v1.3.0
+#### Modules
+##### New
+* Immersive Heal (by @ServiusHack). #386
+##### Revised
+* Copy Mission SQF:
+    - Feature: Marker text for Copy Mission SQF Module. #436
+* Damage Buildings:
+    - Feature: Option to disable transition effects. #437
+* Patrol Module:
+    - Feature: Added select units option. #439
+    - Change: Rewritten. #439
+* Surrender:
+    - Rewritten. #466
+* Suppressive Fire:
+    - Slow down burst and semi-auto suppressive fire rates (by @bovine3dom). #476
+* Reinforcement:
+    - Fix: Conflict with ACEX HC (by @ampersand38). #479
+* Music:
+    - Feature: Alphabetic sorting for tracks. #483
+    - Feature: Added music resume if a previous track was playing. #483
+* Ambient Animation:
+    - Feature: Add more animations (by @SDTheCyanWyan). #485
+* Medical Modules:
+    - Feature: Add support for Farooq's Revive (@ServiusHack). #386
+    - Fix: Compatibility with ACE 3.13.0 medical rewrite (by @DeliciousJaffa). #517
+* Advanced CAS:
+    - Change: Limit Blackfish's 105mm rate of fire in CAS strikes (by @LorenLuke). #516
+#### Key-bindings/mouse
+##### New
+-  Added hotkey for chatter module. #447
+#### Attribute windows
+##### Revised
+* Fix: Flag accessory not working for double quotes. #467
+* Change: Rework ammo attribute. #453
+* Change: Rework pylon loadout attribute. #454
+* Change: Rework inventory attribute. #455
+#### Languages
+* Updated: Russian (by @unhappytroll). #443
+* Added: Spanish(by @corp0).  #445
+#### Other
+* Fix: Parachutes don't spawn for disabled simulation objects. #457
+
+## Change log
+### v1.2.2
+#### Attribute windows
+##### Revised
+* Fixed inventory attribute after latest Arma update. #488
+
+## Change log
 ### v1.2.1
 #### Modules
 ##### Revised
