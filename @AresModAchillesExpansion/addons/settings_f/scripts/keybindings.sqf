@@ -179,8 +179,10 @@
 	localize "STR_AMAE_KEY_CHATTER",
 	"",
 	{
-		private _units = ["man"] call Achilles_fnc_getCuratorSelected;
+		if ([player] call Ares_fnc_isZeus) then {
+			private _units = ["man"] call Achilles_fnc_getCuratorSelected;
 
-		[_units select 0] spawn Achilles_fnc_chatter;
+			[_units select 0] spawn Achilles_fnc_chatter;
+		};
 	}
 ] call CBA_fnc_addKeybind;
