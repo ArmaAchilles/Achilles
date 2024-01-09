@@ -647,7 +647,7 @@
                 <Japanese>建物捜索</Japanese>
                 <Chinesesimp>搜索建筑</Chinesesimp>
                 <Chinese>搜索建築</Chinese>
-				<Korean>Ares 모듈</Korean>
+				<Korean>건물 수색</Korean>
             </Key>
             <Key ID="STR_AMAE_INJURY">
                 <Original>Injury</Original>
@@ -1246,7 +1246,7 @@
                 <Japanese>次に取り付け</Japanese>
                 <Chinesesimp>挂载到</Chinesesimp>
                 <Chinese>掛載到</Chinese>
-				<Korean>물체 붙이기</Korean>
+				<Korean>물체 붙이기/때내기</Korean>
             </Key>
             <Key ID="STR_AMAE_CHANGE_ALTITUDE">
                 <Original>Change Altitude</Original>
@@ -1694,7 +1694,7 @@
                 <Japanese>置き換え</Japanese>
                 <Chinesesimp>替换</Chinesesimp>
                 <Chinese>替換</Chinese>
-				<Korean>재배치</Korean>
+				<Korean>초기화 후 재배치</Korean>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_COMBINE">
                 <English>Combine</English>
@@ -1706,7 +1706,7 @@
                 <Japanese>貼りつけ</Japanese>
                 <Chinesesimp>结合</Chinesesimp>
                 <Chinese>結合</Chinese>
-				<Korean>붙이기</Korean>
+				<Korean>추가하기</Korean>
             </Key>
             <Key ID="STR_AMAE_ARSENAL_FAILED_TO_PARSE">
                 <English>Failed to parse!</English>
@@ -1945,7 +1945,7 @@
                 <Japanese>エラー!カーゴ車両の作成に失敗しました!</Japanese>
                 <Chinesesimp>错误！载货载具生成失败！</Chinesesimp>
                 <Chinese>錯誤!載貨載具生成失敗!</Chinese>
-				<Korean>에러! 화물 차량 생성 실패!</Korean>
+				<Korean>오류! 화물 차량 생성 실패!</Korean>
             </Key>
             <Key ID="STR_AMAE_AIRCRAFT_SPAWN_ERROR">
                 <Original>Error! Failed to spawn aircraft!</Original>
@@ -1956,7 +1956,7 @@
                 <Japanese>エラー!航空機の作成に失敗しました!</Japanese>
                 <Chinesesimp>错误！航空器生成失败！</Chinesesimp>
                 <Chinese>錯誤!飛機生成失敗!</Chinese>
-				<Korean>에러! 항공기 생성 실패!</Korean>
+				<Korean>오류! 항공기 생성 실패!</Korean>
             </Key>
             <Key ID="STR_AMAE_CODE_EXECUTION_NOT_ALLOWED">
                 <Original>This module has been disabled by the mission creator.</Original>
@@ -2110,7 +2110,7 @@
                 <Spanish>Error: La unidad no tiene humo</Spanish>
                 <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
                 <Russian>Ошибка: у боевой единицы нет дымовых гранат</Russian>
-				<Korean>에러: 유닛이 연막을 가지고 있지 않습니다</Korean>
+				<Korean>오류: 유닛이 연막을 가지고 있지 않습니다</Korean>
             </Key>
             <Key ID="STR_AMAE_HAS_NO_CM_ERROR">
                 <Original>Error: Unit has no countermeasures</Original>
@@ -2119,7 +2119,7 @@
                 <Spanish>Error: La unidad no tiene contramedidas</Spanish>
                 <German>Fehler: Die Einheit hat keine Nebelwurfkörper</German>
                 <Russian>Ошибка: у боевой единицы нет дипольных/тепловых ловушек </Russian>
-				<Korean>에러: 유닛이 대응책을 가지고 있지 않습니다</Korean>
+				<Korean>오류: 유닛이 대응책을 가지고 있지 않습니다</Korean>
             </Key>
             <Key ID="STR_AMAE_GIMBAL_LOCK_ERROR">
                 <Original>Error: Gimbal Lock</Original>
@@ -2127,7 +2127,7 @@
                 <French>Erreur: Blocage de Cardan</French>
                 <Spanish>Error: Bloqueo de Cardán</Spanish>
                 <German>Fehler: Kardanische Blockade</German>
-				<Korean>에러: 짐벌 잠김</Korean>
+				<Korean>오류: 짐벌 잠김</Korean>
             </Key>
             <Key ID="STR_AMAE_ARCRAFT_IS_TOUCHING_GROUND_ERROR">
                 <Original>Error: Aircraft is touching ground</Original>
@@ -2136,7 +2136,7 @@
                 <Spanish>Error: El aeronave está tocando el suelo</Spanish>
                 <German>Fehler: Das Luftfahrzeug ist am Boden</German>
                 <Russian>Ошибка: Самолёт/вертолёт находится на земле</Russian>
-				<Korean>에러: 항공기가 땅에 닿아 있습니다.</Korean>
+				<Korean>오류: 항공기가 땅에 닿아 있습니다.</Korean>
             </Key>
             <Key ID="STR_AMAE_NOT_AN_ARCRAFT_ERROR">
                 <Original>Error: Object is not an aircraft</Original>
@@ -2144,7 +2144,7 @@
                 <French>Erreur: L'objet n'est pas un aéronef</French>
                 <German>Fehler: Das Objekt is kein Luftfahrzeug</German>
                 <Russian>Ошибка: объект не является самолётом/вертолётом</Russian>
-				<Korean>에러: 해당 오브젝트는 항공기가 아닙니다</Korean>
+				<Korean>오류: 해당 오브젝트는 항공기가 아닙니다</Korean>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_CURRENTLY_BUSY_ERROR">
                 <Original>Error: Unit is currently busy</Original>
@@ -2153,7 +2153,7 @@
                 <Spanish>Error: La unidad está ocupada</Spanish>
                 <German>Fehler: Die Einheit ist bereits im Einsatz</German>
                 <Russian>Ошибка: Боевая единица в данный момент занята</Russian>
-				<Korean>에러: 유닛 현재 사용중</Korean>
+				<Korean>오류: 유닛 현재 사용중</Korean>
             </Key>
         </Container>
     </Package>
@@ -2334,7 +2334,7 @@
                 <Japanese>エラー: ユニットは気絶しています!</Japanese>
                 <Chinesesimp>错误：单位已昏迷！</Chinesesimp>
                 <Chinese>錯誤：單位已昏迷！</Chinese>
-				<Korean>에러: 유닛이 의식을 잃었습니다!</Korean>
+				<Korean>오류: 유닛이 의식을 잃었습니다!</Korean>
             </Key>
             <Key ID="STR_AMAE_UNIT_IS_ALREADY_PROMOTED">
                 <Original>Player has already been promoted!</Original>
@@ -2370,7 +2370,7 @@
                 <Japanese>エラー: ユニットはドローンです!</Japanese>
                 <Chinesesimp>错误：单位是个无人机！</Chinesesimp>
                 <Chinese>錯誤：單位是個無人機！</Chinese>
-				<Korean>에러: 유닛은 드론입니다!</Korean>
+				<Korean>오류: 유닛은 드론입니다!</Korean>
             </Key>
             <Key ID="STR_AMAE_ENYO_OBJECTS_NOT_ALLOWED">
                 <Original>Objects not allowed! Use the Create IED module instead!</Original>
@@ -3522,7 +3522,7 @@
                 <Japanese>この物体を非表示に</Japanese>
                 <Chinesesimp>物体隐藏了么</Chinesesimp>
                 <Chinese>物件隱藏了麼</Chinese>
-				<Korean>오브젝트가 숨겨져 있습니까?</Korean>
+				<Korean>오브젝트를 숨기시겠습니까?</Korean>
             </Key>
             <Key ID="STR_AMAE_UNIT_RP">
                 <Original>Unit RP</Original>
@@ -3666,7 +3666,7 @@
                 <Japanese>次へ移行</Japanese>
                 <Chinesesimp>转让给</Chinesesimp>
                 <Chinese>轉讓給</Chinese>
-				<Korean>Transfer to</Korean>
+				<Korean>이전 할 대상</Korean>
             </Key>
             <Key ID="STR_AMAE_SERVER">
                 <Original>Server</Original>
@@ -3872,7 +3872,7 @@
                 <Japanese>連射</Japanese>
                 <Chinesesimp>连发</Chinesesimp>
                 <Chinese>連發</Chinese>
-				<Korean>자동</Korean>
+				<Korean>연사</Korean>
             </Key>
             <Key ID="STR_AMAE_BURST">
                 <Original>burst</Original>
@@ -4944,7 +4944,7 @@
                 <Japanese>あなたのテレポート中です・・・</Japanese>
                 <Chinesesimp>传送进行中…</Chinesesimp>
                 <Chinese>傳送進行中…</Chinese>
-				<Korean>당신은 텔레포트 중입니다...</Korean>
+				<Korean>텔레포트 중...</Korean>
             </Key>
             <Key ID="STR_AMAE_COPIED_UNITS">
                 <Original>Copied %1 units!</Original>
